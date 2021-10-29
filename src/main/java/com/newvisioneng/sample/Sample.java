@@ -7,5 +7,5 @@ import lombok.Data;
 @Component
 @Data
 public class Sample {
-	private int s;
+	private int s; 
 }
