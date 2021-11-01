@@ -17,6 +17,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="resources/img/nvicon.png">
     <!-- Place favicon.ico in the root directory -->
   
+  <!-- 반응형(모바일에서는 footer에 로고 없어지도록) -->
+  <style>
+  	@media ( max-width : 767.5px) {
+		.col-del{
+			display: none;
+		}
+	}
+  </style>
+  
 </head>
 
 <body>
@@ -24,13 +33,13 @@
     <footer class="footer-area ">
         <div class="container">
             <div class="row justify-content-between">
-            <div class="col-sm-3 col-md-4 col-xl-3">
+            <div class="col-del col-md-4 col-xl-3">
             	<div class="single-footer-widget footer_1">
                     <a href="index.html"> <img src="resources/img/nv_logo.png" alt="" 
                     style="width: 100%;height: 100%;"> </a>
             	</div>
             </div>
-                <div class="col-sm-3 col-md-5 col-xl-6">
+                <div class="col-sm-6 col-md-5 col-xl-6">
                     <div class="single-footer-widget footer_1">
                      
                      		  <ul>
