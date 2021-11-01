@@ -56,8 +56,9 @@
                      		  <ul>
 	                                <li>
 	                                	<strong>대표이사</strong> : 전대순
-			                        	<br><strong>이메일</strong> : nv3000@nate.com
-			                        	<br><strong>대표번호</strong> : 02–743–6977~8
+	                                	<br><strong>이메일</strong> : nv3000@nate.com
+	                                   	<br><strong>대표번호</strong> : 02–743–6977~8
+			                        	<br>(<strong>Fax</strong> : 02–762–2588)
 	                                </li>
 			                   </ul>
                     </div>
