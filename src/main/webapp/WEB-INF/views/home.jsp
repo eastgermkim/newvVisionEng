@@ -8,12 +8,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>DURG Indudtry Template by Colorlib</title>
+    <title>New Vision E&G</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/nvicon.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->

@@ -15,7 +15,7 @@
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="resources/img/favicon.png">
+	href="resources/img/nvicon.png">
 <!-- Place favicon.ico in the root directory -->
 
 
@@ -62,6 +62,10 @@
 							<div class="main-menu d-none d-lg-block">
 								<nav>
 									<ul id="navigation">
+									
+										<li><br>
+											
+										</li>
 									
 										<li><a href="/">NewVision E&G</a>
 											<ul class="submenu">
