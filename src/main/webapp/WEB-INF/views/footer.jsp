@@ -69,7 +69,7 @@
                 <div class="col-lg-12">
                     <div class="copyright_part_text text-center">
                         <p class="footer-text m-0">
-							Copyright &copy; New Vision Eng. All rights reserved.
+							Copyright &copy; NewVisionEng. All rights reserved.
 						</p>
                     </div>
                 </div>

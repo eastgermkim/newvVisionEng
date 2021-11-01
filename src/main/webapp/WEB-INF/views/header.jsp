@@ -25,6 +25,7 @@
 	<!-- header-start -->
 	<header>
 		<div class="header-area ">
+			
 			<div class="header-top black-bg d-none d-md-block">
 				<div class="container">
 					<div class="row">
@@ -38,9 +39,9 @@
 							<div class="header-top-menu">
 								<nav>
 									<ul>
-										<li><a href="blog.html">News & media</a></li>
-										<li><a href="review.html">Review</a></li>
-										<li><a href="faq.html">Admin</a></li>
+										<!-- <li><a href="blog.html">News & media</a></li>
+										<li><a href="review.html">Review</a></li> -->
+										<li><a href="">Admin</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -48,6 +49,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div id="sticky-header" class="main-header-area white-bg">
 				<div class="container">
 					<div class="row align-items-center">
