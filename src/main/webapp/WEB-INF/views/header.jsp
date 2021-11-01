@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>헤더헤더헤더</title>
+<title>header</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,7 +67,7 @@
 											
 										</li>
 									
-										<li><a href="/">NewVision E&G</a>
+										<li><a href="/">New Vision ENG</a>
 											<ul class="submenu">
 												<li><a href="">회사소개</a></li>
 												<li><a href="">CEO인사말</a></li>
@@ -119,10 +119,12 @@
 									<a id="search_1" href="javascript:void(0)"><i
 										class="fa fa-search"></i></a>
 								</div>
+								
 								<!-- 버튼 일단 숨김 -->
-								<!-- <div class="get-quote d-none d-lg-block">
-									<a class="boxed-btn" href="#">Get a quote</a>
-								</div> -->
+								<div class="get-quote d-none d-lg-block">
+									<a class="boxed-btn" href="#">버튼임</a>
+								</div>
+							
 							</div>
 						</div>
 						<div class="col-12">

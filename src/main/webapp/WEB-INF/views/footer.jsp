@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>푸터푸터푸터</title>
+    <title>footer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,7 +27,8 @@
             <div class="row justify-content-between">
                 <div class="col-sm-6 col-md-3 col-xl-4">
                     <div class="single-footer-widget footer_1">
-                        <a href="index.html"> <img src="resources/img/footer-logo.png" alt=""> </a>
+                        <a href="index.html"> <img src="resources/img/nv_logo.png" alt="" 
+                        style="width: 100%;height: 100%;"> </a>
                         <p>Waters make fish every without firmament saw had. Morning air subdue very one. Whales grass
                             is fish whales winged.</p>
                         <div class="social-links">
@@ -65,6 +66,10 @@
 
                     </div>
                 </div>
+                <address>
+				㈜케이티엔지니어링<span>|</span>대표이사: 박종열<span>|</span>서울특별시 광진구 천호대로 549 G타워<span>|</span>사업자등록번호: 220-81-21248<br>
+				이메일주소: ktengineering.admin@kt.com<span>|</span>대표번호 : 02-2222-9800
+			</address>
                 <div class="col-sm-6 col-md-3 col-xl-3">
                     <div class="single-footer-widget footer_icon">
                         <h4>Branch office</h4>
@@ -99,7 +104,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- footer-end -->
-    
+
   
 </body>
 </html>
