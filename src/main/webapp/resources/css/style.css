@@ -1044,12 +1044,13 @@ h3 {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	height: 70px
+	height: 70px;
+	vertical-algin:center;
 }
 
 .brand-area .brand-active .single-brand img {
 	width: auto;
-	display: inline-block
+	display: inline-block;
 }
 
 .service-area {
