@@ -436,7 +436,7 @@
     </div>
     <!-- location-area-end -->
 
-     <c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
+     <c:import url="footer.jsp" charEncoding="UTF-8"></c:import> 
 
     <!-- JS here -->
     <script src="resources/js/vendor/modernizr-3.5.0.min.js"></script>
