@@ -156,11 +156,15 @@ h3 {
 }
 
 .bg-img-1 {
-	background-image: url(../img/slider/slide_test.jpg)
+	background-image: url(../img/slider/slide_test6.jpg)
 }
 
 .bg-img-2 {
 	background-image: url(../img/slider/slide_test2.jpg)
+}
+
+.bg-img-3 {
+	background-image: url(../img/slider/slide_test5.jpg)
 }
 
 /* .bg-img-2 {

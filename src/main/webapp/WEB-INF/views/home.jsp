@@ -75,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single-slider bg-img-1">
+            <div class="single-slider bg-img-3">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-7 offset-xl-1 col-lg-7">
