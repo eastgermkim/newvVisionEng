@@ -114,7 +114,7 @@
                             <img src="resources/img/brand/cudo.png" alt=""style="width:70%; margin-top:0.5rem;">
                         </div>
                         <div class="single-brand">
-                            <img src="resources/img/brand/kica.png" alt="" style="width:130%;">
+                            <img src="resources/img/brand/kica.png" alt="" style="width:130%; margin-right">
                         </div>
                         <div class="single-brand">
                             <img src="resources/img/brand/hanwha.png" alt="" style="width:130%;">
