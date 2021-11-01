@@ -160,8 +160,12 @@ h3 {
 }
 
 .bg-img-2 {
-	background-image: url(../img/background-img/bg-img-2.jpg)
+	background-image: url(../img/slider/slide_test2.jpg)
 }
+
+/* .bg-img-2 {
+	background-image: url(../img/background-img/bg-img-2.jpg)
+} */
 
 .cta-bg-1 {
 	background-image: url(../img/background-img/bg-img-3.jpg)
