@@ -16,7 +16,6 @@
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="resources/img/nvicon.png">
     <!-- Place favicon.ico in the root directory -->
-
   
 </head>
 
@@ -25,68 +24,33 @@
     <footer class="footer-area ">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-sm-6 col-md-3 col-xl-4">
+            <div class="col-sm-3 col-md-4 col-xl-3">
+            	<div class="single-footer-widget footer_1">
+                    <a href="index.html"> <img src="resources/img/nv_logo.png" alt="" 
+                    style="width: 100%;height: 100%;"> </a>
+            	</div>
+            </div>
+                <div class="col-sm-3 col-md-5 col-xl-6">
                     <div class="single-footer-widget footer_1">
-                        <a href="index.html"> <img src="resources/img/nv_logo.png" alt="" 
-                        style="width: 100%;height: 100%;"> </a>
-                        <p>Waters make fish every without firmament saw had. Morning air subdue very one. Whales grass
-                            is fish whales winged.</p>
-                        <div class="social-links">
-                            <ul>
-                                <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-2 col-xl-2">
-                    <div class="single-footer-widget">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Media</a></li>
-                            <li><a href="#">Carrier</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Stability</a></li>
-                        </ul>
-
+                     
+                     		  <ul>
+	                                <li>
+	                                    <strong>사업자등록번호</strong> : 101-86-05239
+	                                   	<br> 서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
+	                                </li>
+			                   </ul>
+                    
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 col-xl-3">
-                    <div class="single-footer-widget">
-                        <h4>Solutions</h4>
-                        <ul>
-                            <li><a href="#">Industrial problems</a></li>
-                            <li><a href="#"> Construction solution</a></li>
-                            <li><a href="#">Car manufacturing</a></li>
-                            <li><a href="#">Mechanical problems</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-                <address>
-				㈜케이티엔지니어링<span>|</span>대표이사: 박종열<span>|</span>서울특별시 광진구 천호대로 549 G타워<span>|</span>사업자등록번호: 220-81-21248<br>
-				이메일주소: ktengineering.admin@kt.com<span>|</span>대표번호 : 02-2222-9800
-			</address>
-                <div class="col-sm-6 col-md-3 col-xl-3">
-                    <div class="single-footer-widget footer_icon">
-                        <h4>Branch office</h4>
-                        <div class="office-location">
-                            <ul>
-                                <li>
-                                    <strong>London - UK</strong>
-                                    <p>127, Manchaster city, London <br>
-                                        +008 728 362 278</p>
-                                </li>
-                                <li>
-                                    <strong>New York - USA</strong>
-                                    <p>127, Manchaster city, London <br>
-                                        +008 728 362 278</p>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="single-footer-widget footer_1">
+                     		  <ul>
+	                                <li>
+	                                	<strong>대표이사</strong> : 전대순
+			                        	<br><strong>이메일</strong> : nv3000@nate.com
+			                        	<br><strong>대표번호</strong> : 02–743–6977~8
+	                                </li>
+			                   </ul>
                     </div>
                 </div>
             </div>
@@ -95,9 +59,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="copyright_part_text text-center">
-                        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        <p class="footer-text m-0">
+							Copyright &copy; New Vision Eng. All rights reserved.
+						</p>
                     </div>
                 </div>
             </div>
