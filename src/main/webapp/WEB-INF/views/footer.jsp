@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>푸터영역</title>
+    <title>푸터푸터</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <!-- CSS here -->
+    <!-- CSS here --> 
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
     <link rel="stylesheet" href="resources/css/magnific-popup.css">
