@@ -1298,10 +1298,10 @@ h3 {
 }
 
 .ml-80 {
-	margin-left: 80px
+	margin-left: 40px
 }
 
-@media ( max-width : 767px) {
+@media (max-width : 767px) {
 	.ml-80 {
 		margin-left: 0
 	}
