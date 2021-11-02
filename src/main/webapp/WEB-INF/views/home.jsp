@@ -176,7 +176,7 @@
     <!-- service-area-end -->
 
     <!-- project-area-start -->
-    <div class="project-area bg-img-2 overlay">
+    <div class="project-area bg-img-2 overlay"> 
         <div class="container-fluid p-lg-0">
             <div class="row justify-content-end no-gutters">
                 <div class="col-xl-4 col-md-6">

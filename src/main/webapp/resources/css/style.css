@@ -218,6 +218,7 @@ h3 {
 }
 
 .owl-carousel .owl-nav div {
+	
 	background: transparent;
 	height: 65px;
 	left: 0px;
@@ -238,7 +239,8 @@ h3 {
 }
 
 .owl-carousel .owl-nav {
-	position: relative
+	position: relative;
+	display:none;
 }
 
 .owl-carousel .owl-nav div.owl-next {
