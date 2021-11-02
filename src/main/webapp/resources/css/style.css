@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap')
+	;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap')
+	;
 
 .flex-center-start {
 	display: -webkit-box;
@@ -166,7 +170,6 @@ h3 {
 /* .bg-img-2 {
 	background-image: url(../img/background-img/bg-img-2.jpg)
 } */
-
 .cta-bg-1 {
 	background-image: url(../img/background-img/bg-img-3.jpg)
 }
@@ -1044,12 +1047,11 @@ h3 {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	height: 70px;
-	vertical-algin:center;
+	height: 70px
 }
 
 .brand-area .brand-active .single-brand img {
-	width: auto;
+	width: 100%;
 	display: inline-block;
 }
 

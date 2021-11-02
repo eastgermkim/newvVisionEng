@@ -102,23 +102,23 @@
                 <div class="col-xl-12">
                     <div class="brand-active owl-carousel">
                         <div class="single-brand">
-                           <img src="resources/img/brand/idis.png" alt="" style="width:100%;">
+                           <img src="resources/img/brand/idis.png" alt="" >
                         </div>
                         <div class="single-brand">
-                            <img src="resources/img/brand/commax.png" alt="" style="width:100%; margin-top:0.5rem;">
+                            <img src="resources/img/brand/commax.png" alt="" style="margin-top:0.5rem;">
                         </div>
                         <div class="single-brand">
                         	
-                            <img src="resources/img/brand/kwea.png" alt=""style="width:140%;">
-                        </div>
-                        <!-- <div class="single-brand">
-                            <img src="resources/img/brand/cudo.png" alt=""style="width:70%; margin-top:0.5rem;">
-                        </div> -->
-                        <div class="single-brand">
-                            <img src="resources/img/brand/kica.png" alt="" style="width:70%;margin-bottom:0.5rem;">
+                            <img src="resources/img/brand/kwea.png" alt="">
                         </div>
                         <div class="single-brand">
-                            <img src="resources/img/brand/hanwha.png" alt="" style="width:130%; margin-top:0.5rem;">
+                            <img src="resources/img/brand/cudo.png" alt=""style="width:auto; margin-top:0.5rem;">
+                        </div>
+                        <div class="single-brand">
+                            <img src="resources/img/brand/kica.png" alt="" style="margin-bottom:0.5rem; width:auto;">
+                        </div>
+                        <div class="single-brand">
+                            <img src="resources/img/brand/hanwha.png" alt="" style="margin-top:0.5rem;">
                         </div>
                     </div>
                 </div>
