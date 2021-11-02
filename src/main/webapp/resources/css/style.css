@@ -205,7 +205,7 @@ h3 {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	opacity: 0.5
+	opacity: 0.25
 }
 
 .section-padding {
@@ -2578,19 +2578,19 @@ h3 {
 }
 
 .ptb200 {
-	padding-top: 200px;
-	padding-bottom: 200px
+	padding-top: 60px;
+	padding-bottom: 60px
 }
 
 @media ( max-width : 767px) {
 	.ptb200 {
-		padding-top: 100px;
-		padding-bottom: 100px
+		padding-top: 60px;
+		padding-bottom: 60px
 	}
 }
 
 .banner-bg-1 {
-	background-image: url(../img/banner/banner.jpg)
+	background-image: url(../img/banner/banner_building.jpg)
 }
 
 .breadcrumb {

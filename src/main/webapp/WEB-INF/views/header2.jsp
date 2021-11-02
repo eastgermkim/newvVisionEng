@@ -76,7 +76,7 @@
 												<li><a href="">연혁</a></li>
 												<li><a href="">조직도</a></li>
 												<li><a href="">인증현황</a></li>
-												<li><a href="">오시는 길</a></li>
+												<li><a href="/company/location">오시는 길</a></li>
 											</ul>
 										</li>
 										

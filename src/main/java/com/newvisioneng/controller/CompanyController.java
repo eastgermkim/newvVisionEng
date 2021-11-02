@@ -24,4 +24,9 @@ public class CompanyController {
 	public void introduce() {
 		
 	}
+	//회사소개 페이지로 연결
+	@GetMapping("/location")
+	public void location() {
+		
+	}
 }
