@@ -15,7 +15,7 @@
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="resources/img/nvicon.png">
+	href="../resources/img/nvicon.png">
 <!-- Place favicon.ico in the root directory -->
 
 
@@ -55,7 +55,7 @@
 					<div class="row align-items-center">
 						<div class="col-xl-2 col-lg-2">
 							<div class="logo-img">
-								<a href="/"> <img src="resources/img/nv_logo.png"
+								<a href="/"> <img src="../resources/img/nv_logo.png"
 									alt="" style="width: 107%;">
 								</a>
 							</div>
