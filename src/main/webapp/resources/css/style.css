@@ -1940,7 +1940,7 @@ h3 {
 	display: block;
 	background: #f36d20;
 	position: relative;
-	padding: 68px 45px 114px 64px
+	padding: 68px 45px 114px 0px;
 }
 
 @media ( max-width : 767px) {
