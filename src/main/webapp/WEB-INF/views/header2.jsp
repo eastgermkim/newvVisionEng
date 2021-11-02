@@ -69,7 +69,7 @@
 											
 										</li>
 									
-										<li><a href="/company/introduce">New Vision ENG</a>
+										<li><a id="tab1" href="/company/introduce">New Vision ENG</a>
 											<ul class="submenu">
 												<li><a href="/company/introduce">회사소개</a></li>
 												<li><a href="">CEO인사말</a></li>
@@ -80,7 +80,7 @@
 											</ul>
 										</li>
 										
-										<li><a class="active" href="">사업분야</a>
+										<li><a id="tab2" href="">사업분야</a>
 											<ul class="submenu">
 												<li><a href="">감시기기(CCTV)</a></li>
 												<li><a href="">전자제품</a></li>
@@ -90,14 +90,14 @@
 											</ul>
 										</li>
 										
-										<li><a href="">사업실적</a>
+										<li><a id="tab3" href="">사업실적</a>
 											<ul class="submenu">
 												<li><a href="blog.html">사업현황</a></li>
 												<li><a href="blog.html">주요 취급품목</a></li>
 											</ul>
 										</li>
 										
-										<li><a href="">고객지원</a>
+										<li><a id="tab4" href="">고객지원</a>
 											<ul class="submenu">
 												<li><a href="blog.html">공지사항</a></li>
 												<li><a href="blog.html">전화 문의</a></li>
@@ -105,7 +105,7 @@
 											</ul>
 										</li>
 										
-										<li><a href="">채용정보</a>
+										<li><a id="tab5" href="">채용정보</a>
 											<ul class="submenu">
 												<li><a href="blog.html">채용안내</a></li>
 											</ul>
@@ -148,7 +148,23 @@
 		</div>
 	</header>
 	<!-- header-end -->
-
+	<script>
+   		function addClassName1() {
+   		  document.getElementById('tab1').className = 'active';
+   		}
+   		function addClassName2() {
+   		  document.getElementById('tab2').className = 'active';
+   		}
+   		function addClassName3() {
+   		  document.getElementById('tab3').className = 'active';
+   		}
+   		function addClassName4() {
+   		  document.getElementById('tab4').className = 'active';
+   		}
+   		function addClassName5() {
+   		  document.getElementById('tab5').className = 'active';
+   		}
+   	</script>
 	
 </body>
 </html>

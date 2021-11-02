@@ -13,11 +13,13 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/company/*")
+//New Vision ENG 탭 
 public class CompanyController {
 
 	@Setter(onMethod_=@Autowired)
 	private CompanyService service;
 	
+	//회사소개 페이지로 연결
 	@GetMapping("/introduce")
 	public void introduce() {
 		

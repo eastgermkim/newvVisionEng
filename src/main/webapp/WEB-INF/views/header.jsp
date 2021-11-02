@@ -80,7 +80,7 @@
 											</ul>
 										</li>
 										
-										<li><a class="active" href="">사업분야</a>
+										<li><a href="">사업분야</a>
 											<ul class="submenu">
 												<li><a href="">감시기기(CCTV)</a></li>
 												<li><a href="">전자제품</a></li>
