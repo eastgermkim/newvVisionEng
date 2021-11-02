@@ -46,8 +46,12 @@
                     <div class="row">
                         <div class="col-xl-7 offset-xl-1 col-lg-7">
                             <div class="slider-content">
-                                <p>Quality work. Trustable service. Dedicated team</p>
-                                <h3>We provide your Industrial solution</h3>
+                                <p>CCTV 카메라 영상 주변기기 및 SYSTEM 설계</p>
+                                <h3>CCD Camera, Lens Housing, Pan/Tilt (옥내용, 옥외용)Monitor
+                                	<br>화면 순자 전환기, 화면 분할기, 화상 장시간 녹화기
+                                	<br>FM Modulator & FM Demodulator 화면 분배기 외 제조
+                                	<br>Web Camera & UTP 전송 시스템
+</h3>
                                 <div class="slider-btn">
                                     <a class="boxed-btn2" href="#">Our Services <i
                                             class="Flaticon flaticon-right-arrow"></i></a>
