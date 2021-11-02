@@ -232,17 +232,19 @@
     <!-- project-area-end -->
 
     <!-- cta-area-start -->
-    <div class="cta-area cta-bg-1">
+    <div class="cta-area cta-bg-1" style="padding-bottom:120px!important;">
         <div class="container">
             <div class="col-xl-6 col-lg-7">
-                <div class="cta-content">
-                    <h3>Let’s talk about your <br>
-                        industrial problems</h3>
-                    <p>Waters make fish every without firmament saw had. <br> Morning air subdue very one. Whales grass
-                        is
-                        fish <br> whales winged.</p>
-                    <div class="cta-btn">
-                        <a class="boxed-btn2 black-bg" href="#">Discuss now <i
+                <div class="cta-content" style="background:none;">
+                    <h3>찾아오시는 길</h3>
+                    <p>서울시 금천구 가산디지털1로 88, 704-C
+                    <br>(가산동,IT프리미어타워)
+                    <br>내용을 입력해주세요.내용을 입력해주세요.
+                    <br>내용을 입력해주세요.내용을 입력해주세요.
+                    <br>내용을 입력해주세요.내용을 입력해주세요.
+                    </p>
+                    <div class="cta-btn" style="position:inherit;">
+                        <a class="boxed-btn2 black-bg" href="#" style="background:#f36d20!important;">상세보기<i
                                 class="Flaticon flaticon-right-arrow"></i></a>
                     </div>
                 </div>
