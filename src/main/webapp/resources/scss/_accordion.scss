@@ -4,7 +4,7 @@
         font-size: 24px;
         font-family: $rubik;
         font-weight: 400;
-        color: #ff5e13;
+        color: #f36d20;
         @media #{$mobile_device} {
             font-size: 14px;
         }
@@ -47,7 +47,7 @@
                 right: 0px;
                 height: auto;
                 font-family: 'themify';
-                color: #ff5e13;
+                color: #f36d20;
                 font-size: 18px;
                 -webkit-transform: translateY(-50%);
                 -ms-transform: translateY(-50%);
@@ -57,7 +57,7 @@
                 outline: none;
                 text-decoration: none;
             }
-            color: #ff5e13;
+            color: #f36d20;
             @media #{$mobile_device} {
                 padding-left: 0;
             }

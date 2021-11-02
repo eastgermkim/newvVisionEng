@@ -71,13 +71,13 @@
                     font-weight: 400;
                     font-family: $rubik;
                     &.active.show{
-                        color: #ff5e13;
+                        color: #f36d20;
                         padding-left: 27px;
                         position: relative;
                         &::before {
                             position: absolute;
                             content: "";
-                            background: #ff5e13;
+                            background: #f36d20;
                             width: 17px;
                             height: 2px;
                             top: 50%;

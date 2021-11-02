@@ -10,8 +10,8 @@
     border: 1px solid transparent;
     &:hover{
         background: transparent;
-        color: #ff5e13 !important;
-        border: 1px solid #ff5e13;
+        color: #f36d20 !important;
+        border: 1px solid #f36d20;
     }
     &:focus{
         outline: none;
@@ -36,12 +36,12 @@
 }
 
 .underline-hover {
-	color: #ff5e13;
+	color: #f36d20;
 	font-weight: 400;
     font-size: 16px;
     @include transition(.3s);
     &:hover{
         text-decoration: underline;
-        color: #ff5e13;
+        color: #f36d20;
     }
 }
