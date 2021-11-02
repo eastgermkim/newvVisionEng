@@ -179,7 +179,7 @@
     <div class="project-area bg-img-2 overlay"> 
         <div class="container-fluid p-lg-0">
             <div class="row justify-content-end no-gutters">
-                <div class="col-xl-4 col-md-6">
+                 <div class="col-xl-4 col-md-6" style="margin:auto;">
                     <div class="section-title text-white mb-65 ml-80">
                         <h3>주요 사업 실적</h3>
                         <p>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.<br>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.</p>
@@ -188,7 +188,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-md-6">
+                <div class="col-xl-6 col-md-6" style="max-width:66%;">
                     <div class="project-active owl-carousel">
                         <div class="single-project">
                             <div class="project-thumb">
