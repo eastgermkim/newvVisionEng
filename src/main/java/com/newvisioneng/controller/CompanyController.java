@@ -29,4 +29,9 @@ public class CompanyController {
 	public void location() {
 		
 	}
+	//회사연혁 페이지로 연결
+	@GetMapping("/history")
+	public void history() {
+		
+	}
 }

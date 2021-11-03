@@ -34,49 +34,8 @@
    <c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
    <script>addClassName1();</script>
    
-	<h1>여기는 회사소개 페이지 입니당</h1>
-	<br>
-	<br>
-	<br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br>
-	<br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br>
-	<br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br>
-	<br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br><br>
-	<br>
-	
+	<h1>연혁</h1>
+
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 	
 	
