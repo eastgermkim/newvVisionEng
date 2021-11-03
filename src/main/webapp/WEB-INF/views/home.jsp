@@ -56,7 +56,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-7 offset-xl-1 col-lg-7">
-							<div class="slider-content">
+							<div class="slider-content" style="opacity:0.7">
 								<p>CCTV 카메라 영상 주변기기 및 SYSTEM 설계</p>
 								<h3 style="font-size: 24px; line-height: inherit;">내용을
 									입력해주세요.</h3>
@@ -75,7 +75,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-7 offset-xl-1 col-lg-7">
-							<div class="slider-content">
+							<div class="slider-content" style="opacity:0.7">
 								<p>Quality work. Trustable service. Dedicated team</p>
 								<h3>We provide your Industrial solution</h3>
 								<div class="slider-btn">
@@ -91,7 +91,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-7 offset-xl-1 col-lg-7">
-							<div class="slider-content">
+							<div class="slider-content" style="opacity:0.7">
 								<p>Quality work. Trustable service. Dedicated team</p>
 								<h3>We provide your Industrial solution</h3>
 								<div class="slider-btn">
