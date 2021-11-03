@@ -170,8 +170,12 @@ h3 {
 /* .bg-img-2 {
 	background-image: url(../img/background-img/bg-img-2.jpg)
 } */
+
 .cta-bg-1 {
-	background-image: url(../img/background-img/test_building3.jpg)
+	background-image: url(../img/background-img/test_building3.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
 }
 
 .overlay {
@@ -1005,6 +1009,7 @@ h3 {
 	.slider-area .single-slider .slider-content .slider-btn {
 		left: 40px
 	}
+	
 }
 
 .slider-area .slider-active .owl-dots {
@@ -1050,6 +1055,13 @@ h3 {
 	-ms-flex-pack: center;
 	justify-content: center;
 	height: 70px
+}
+
+@media ( max-width : 767px) {
+	.brand-area .brand-active .single-brand img {
+	width: 35%!important;
+	display: inline-block;
+	}
 }
 
 .brand-area .brand-active .single-brand img {
