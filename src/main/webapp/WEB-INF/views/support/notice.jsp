@@ -34,7 +34,7 @@
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 	<script>
-		addClassName1();
+		addClassName4();
 	</script>
 
 	<!-- breadcrumb-start -->

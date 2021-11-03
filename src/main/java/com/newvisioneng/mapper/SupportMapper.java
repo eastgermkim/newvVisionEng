@@ -1,5 +1,5 @@
 package com.newvisioneng.mapper;
 
-public class SupportMapper {
+public interface SupportMapper {
 
 }
