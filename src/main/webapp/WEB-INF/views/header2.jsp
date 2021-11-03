@@ -97,9 +97,9 @@
 											</ul>
 										</li>
 										
-										<li><a id="tab4" href="">고객지원</a>
+										<li><a id="tab4" href="/support/notice">고객지원</a>
 											<ul class="submenu">
-												<li><a href="blog.html">공지사항</a></li>
+												<li><a href="/support/notice">공지사항</a></li>
 												<li><a href="blog.html">전화 문의</a></li>
 												<li><a href="blog.html">이메일 문의</a></li>
 											</ul>
