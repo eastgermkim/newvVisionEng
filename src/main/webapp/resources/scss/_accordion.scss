@@ -2,7 +2,7 @@
     button{
         font-size: 16px;
         font-size: 24px;
-        font-family: $rubik;
+        font-family: $Noto Sans KR;
         font-weight: 400;
         color: #f36d20;
         @media #{$mobile_device} {
@@ -26,7 +26,7 @@
             line-height: 28px;
             color: #5c5c5c;
             padding: 0px 30px 32px;
-            font-family: $rubik;
+            font-family: $Noto Sans KR;
             line-height: 28px;
         }
         .collapse {

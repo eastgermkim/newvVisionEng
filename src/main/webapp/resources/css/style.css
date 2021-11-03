@@ -19,7 +19,7 @@
 }
 
 body {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: normal;
 	font-style: normal
 }
@@ -60,7 +60,7 @@ a, button {
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	color: #020c26
 }
 
@@ -83,7 +83,7 @@ p {
 	line-height: 26px;
 	color: #5c5c5c;
 	margin-bottom: 13px;
-	font-family: 'Rubik', sans-serif
+	font-family: 'Noto Sans KR', sans-serif
 }
 
 label {
@@ -2204,7 +2204,7 @@ h3 {
 	color: #020c26;
 	text-transform: capitalize;
 	font-size: 24px;
-	font-family: 'Rubik', sans-serif
+	font-family: 'Noto Sans KR', sans-serif
 }
 
 @media ( max-width : 1024px) {
