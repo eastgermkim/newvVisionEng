@@ -110,13 +110,6 @@
 														 	image: markerImage
 														});
 			
-												/* // 인포윈도우로 장소에 대한 설명을 표시합니다
-												var infowindow = new kakao.maps.InfoWindow(
-														{
-															content : '<div style="width:150px;text-align:center;padding:6px 0;">(주)뉴비젼이엔지</div>'
-														});
-												infowindow.open(map, marker); */
-			
 												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 												map.setCenter(coords);
 											}
@@ -129,7 +122,7 @@
 							</script>
 
 			<!-- </div> -->
-
+<br><br>
 				<hr>
 
 			<div class="row">
@@ -160,7 +153,6 @@
 		</div>
 	</section>
 	<!-- ================ contact section end ================= -->
-
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
