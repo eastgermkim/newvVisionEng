@@ -16,6 +16,7 @@ local.properties
 .recommenders
 root-context.xml
 pom.properties
+.classpath
 
 # External tool builders
 .externalToolBuilders/
