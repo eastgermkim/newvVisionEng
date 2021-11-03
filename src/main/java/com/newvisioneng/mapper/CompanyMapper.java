@@ -1,5 +1,5 @@
 package com.newvisioneng.mapper;
 
-public interface CompanyMapper {
+public class CompanyMapper {
 
 }
