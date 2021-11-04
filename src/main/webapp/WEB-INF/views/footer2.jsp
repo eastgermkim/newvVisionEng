@@ -53,7 +53,7 @@
        
         <div class="container">
                 <div class="col-del2" >
-                    <div class="single-footer-widget footer_1">
+                    <div class="single-footer-widget footer_1" style="margin: auto;">
                        	<p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
                        	<span>서울시 금천구 가산디지털1로 88, 704-C<br>(가산동,IT프리미어타워)</span>
                        	<span>/ 대표자명 : 전대순</span>
