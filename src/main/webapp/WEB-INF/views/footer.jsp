@@ -37,7 +37,7 @@
 
 <body>
 	     <!-- footer-start -->
-    <footer class="footer-area" style="padding:2%;">
+    <footer class="footer-area" style="padding:3%;">
         <div class="container">
                 <div class="col-del">
                     <div class="single-footer-widget footer_1">
