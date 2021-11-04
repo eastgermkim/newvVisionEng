@@ -45,8 +45,8 @@
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>오시는 길</h2>
-							<p>
-								<a href="">New Vision ENG.</a> <span></span> 본사
+							<p style="opacity: 0.6">
+								New Vision ENG. 본사
 							</p>
 						</div>
 					</div>

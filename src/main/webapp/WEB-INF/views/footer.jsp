@@ -49,17 +49,18 @@
                 </div>
         </div>
        
-        <div class="container">
+         <div class="container">
                 <div class="col-del2" >
                     <div class="single-footer-widget footer_1"">
-                     	<adress>
-                       	<p style="margin:auto;text-align: center;font-size: 0.8em">
-                       	본사 : (08590)서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
-                       	<br>사업자등록번호 : 101-86-05239
-                     	<br>대표자명 : 전대순<br>대표전화 : 02–743–6977~8<br>Fax : 02–762–2588<br>이메일 : nv3000@nate.com
-                       	<br>COPYRIGHT &copy; 2021 NEWVISIONENG CO LTD.<br>ALL RIGHTS RESERVED.
-                        </p>
-                     	</adress>
+                       	<p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
+                       	<span>서울시 금천구 가산디지털1로 88, 704-C<br>(가산동,IT프리미어타워)</span>
+                       	<span>/ 대표자명 : 전대순</span>
+                     	<br><span>사업자등록번호 : 101-86-05239</span>
+                     	<br><span>대표전화 : 02)743–6977~8</span><span> / Fax : 02)762–2588</span>
+                     	<br><span>이메일 : nv3000@nate.com</span>
+                        <p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
+                       	COPYRIGHT &copy; 2021 NEWVISIONENG CO LTD.<br>ALL RIGHTS RESERVED.
+                       	</p>
                     </div>
                 </div>
         </div>

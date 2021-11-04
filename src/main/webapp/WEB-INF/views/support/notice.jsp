@@ -29,6 +29,50 @@
 <link rel="stylesheet" href="../resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
+<style>
+#wrap {
+	width: 77%;
+	margin: auto;
+	padding: 7% 0;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	line-height: 2em;
+}
+
+table td, th {
+	border-collapse: collapse;
+	text-align: center;
+	padding: 1em;
+	font-weight: 300;
+}
+tbody{
+	font-size: 0.95em;
+}
+th {
+	padding: 1% 1%;
+	font-weight: 400;
+	border-top: 1px solid;
+	border-bottom: 1px solid #d8d8d8;
+}
+td{
+	border-bottom: 1px solid #d8d8d8;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+.align-left{
+	text-align: left;
+}
+</style>
 </head>
 <body>
 	<!-- header.jsp import -->
@@ -45,8 +89,8 @@
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>공지사항</h2>
-							<p>
-								<a href="">New Vision ENG.</a> <span></span> notice
+							<p style="opacity: 0.6">
+								New Vision ENG. Notice
 							</p>
 						</div>
 					</div>
@@ -55,104 +99,115 @@
 		</div>
 	</section>
 	<!-- breadcrumb-end -->
+	<div class="section-top-border" id="wrap">
+		<table>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th class="align-left">제목</th>
+					<th>등록자</th>
+					<th>등록일</th>
+				</tr>
+			</thead>
+			<tbody>
 
-	<!-- ================ contact section start ================= -->
-	<section class="contact-section">
-		<div class="container">
-		
-			<!-- 카카오지도 API -->
-			<!-- <div class="d-sm-block mb-5 pb-4"> -->
-				
-				<div id="map" style="width: 100%; height: 400px;"></div>
+				<tr>
+					<td>1</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td>관리자</td>
+					<td>2021.11.04</td>
+				</tr>
 
-							<script type="text/javascript"
-								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7c0a5d7cb29de3f060bed745866cd716&libraries=services">
-							</script>
-							<script>
-								var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-								mapOption = {
-									center : new kakao.maps.LatLng(37.47393288388239, 126.88532413295984), // 지도의 중심좌표
-									level : 4
-								// 지도의 확대 레벨
-								};
-			
-								// 지도를 생성합니다    
-								var map = new kakao.maps.Map(mapContainer, mapOption);
-			
-								// 주소-좌표 변환 객체를 생성합니다
-								var geocoder = new kakao.maps.services.Geocoder();
-			
-								// 주소로 좌표를 검색합니다
-								geocoder
-								.addressSearch(
-										'서울 금천구 가산디지털1로 88 IT프리미어타워 704',
-										function(result, status) {
-			
-											// 정상적으로 검색이 완료됐으면 
-											if (status === kakao.maps.services.Status.OK) {
-			
-												var coords = new kakao.maps.LatLng(
-														result[0].y, result[0].x);
-												
-												var imageSrc = '../resources/img/nvicon_location.png', // 마커이미지의 주소입니다    
-											    imageSize = new kakao.maps.Size(55.8, 82.2), // 마커이미지의 크기입니다
-											    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-											      
-											// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-											var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+				<tr>
+					<td>2</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td>아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
 
-			
-												// 결과값으로 받은 위치를 마커로 표시합니다
-												var marker = new kakao.maps.Marker(
-														{
-															map : map,
-															position : coords,
-														 	image: markerImage
-														});
-			
-												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-												map.setCenter(coords);
-											}
-										});
-								
-								// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-								var zoomControl = new kakao.maps.ZoomControl();
-								map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-								
-							</script>
+				<tr class="">
+					<td>3</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
 
-			<!-- </div> -->
-<br><br>
-				<hr>
+				<tr class="">
+					<td>4</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
 
-			<div class="row">
-				<div class="col-lg-7">
-					<div class="media contact-info">
-						<span class="contact-info__icon"><i class="ti-home"></i></span>
-						<div class="media-body">
-							<h3>(08590) 서울시 금천구 가산디지털1로 88, 704-C (가산동, IT프리미어타워)</h3>
-							<p>704-C, 88, Gasan digital 1-ro, Geumcheon-gu, Seoul, Republic of Korea</p>
-						</div>
-					</div>
-					<div class="media contact-info">
-						<span class="contact-info__icon"><i class="ti-tablet"></i></span>
-						<div class="media-body">
-							<h3>02-743-6977~8</h3>
-							<p>Mon to Fri 9am ~ 6pm</p>
-						</div>
-					</div>
-					<div class="media contact-info">
-						<span class="contact-info__icon"><i class="ti-email"></i></span>
-						<div class="media-body">
-							<h3>nv3000@nate.com</h3>
-							<p>Send us your query</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ================ contact section end ================= -->
+				<tr class="">
+					<td>5</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td>6</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td>7</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td>8</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td>9</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td>10</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="">아주경제</td>
+					<td class="">2021.10.28</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
+			<ul class="pagination">
+				<li class="page-item"><a href="#" class="page-link"
+					aria-label="Previous"> <i class="ti-angle-left"></i>
+				</a></li>
+				<li class="page-item"><a href="#" class="page-link">1</a></li>
+				<li class="page-item active"><a href="#" class="page-link">2</a>
+				</li>
+				<li class="page-item"><a href="#" class="page-link"
+					aria-label="Next"> <i class="ti-angle-right"></i>
+				</a></li>
+			</ul>
+		</nav>
+
+	</div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
