@@ -41,7 +41,7 @@
         <div class="container">
                 <div class="col-del">
                     <div class="single-footer-widget footer_1">
-                       	<p style="margin:auto;text-align: center;font-size: 0.8em">
+                       	<p style="margin:auto;text-align: left;font-size: 0.8em">
                        	본사 : (08590)서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
                        	/ 사업자등록번호 : 101-86-05239
                      	<br>대표자명 : 전대순 / 대표전화 : 02–743–6977~8 / Fax : 02–762–2588 / 이메일 : nv3000@nate.com
