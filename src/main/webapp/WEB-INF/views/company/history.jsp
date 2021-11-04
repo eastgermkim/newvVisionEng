@@ -40,13 +40,13 @@
 .genric-btn.primary:hover {
 	border: none;
 	background : #fff;
-	color: #f36d20!important;
+	color: #020C26!important;
 }
 
 .history_container {
 	display: flex;
-	margin-bottom: 5%;
-	border-bottom: 2px solid #eee;
+	margin-bottom: 3.5%;
+	border-bottom: 1px solid #eee;
 }
 
 .history_year {
@@ -58,7 +58,7 @@
 
 .history_table {
 	width: 100%;
-	margin-bottom: 5%;
+	margin-bottom: 3.5%;
 }
 
 .history_month {
@@ -267,7 +267,7 @@
 				</div>
 			</div>
 			
-			<div class="history_container">
+			<div class="history_container"  style="border-bottom:none!important;">
 				<h3 class="history_year">2010</h3>
 				<div class="history_table">
 					<table>
@@ -493,7 +493,7 @@
 				</div>
 			</div>
 
-			<div class="history_container">
+			<div class="history_container"  style="border-bottom:none!important;">
 				<h3 class="history_year">1996</h3>
 				<div class="history_table">
 					<table>
@@ -525,18 +525,19 @@
 
 $(function(){
 	$('.history_before_2010').hide();
-	$("#after").css('color','#ED1E23');
+	$("#after").css('color','#020C26');
+	$("#before").css('color','rgba(191,191,191,0.7)');
 	
 	$("#before").click(function(){
-		$("#before").css('color','#ED1E23');
-		$("#after").css('color','#020C26');
+		$("#before").css('color','#020C26');
+		$("#after").css('color','rgba(191,191,191,0.7)');
 		$('.history_after_2010').hide();
 		$('.history_before_2010').show();
 	});
 	
 	$("#after").click(function(){
-		$("#before").css('color','#020C26');
-		$("#after").css('color','#ED1E23');
+		$("#before").css('color','rgba(191,191,191,0.7)');
+		$("#after").css('color','#020C26');
 		$('.history_after_2010').show();
 		$('.history_before_2010').hide();
 	});
