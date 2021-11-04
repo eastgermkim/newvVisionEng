@@ -30,24 +30,35 @@
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
 <style>
-.small-width{
+
+.align-left{
+	text-align: left;
+}
+
+.small-width-page{
+		display:none;
+	}
+
+.small-width-table{
 		display:none;
 	}
 
 @media(max-width : 767.5px){
-	.big-width{
+	.align-left{
+		text-align: center;
+	}
+	.big-width-page{
 		display:none;
 	}
-	.small-width{
+	.small-width-page{
 		display:flex;
 	}
-}
-
-
-#wrap {
-	width: 77%;
-	margin: auto;
-	padding: 7% 0;
+	.big-width-table{
+		display:none;
+	}
+	.small-width-table{
+		display:table;
+	}
 }
 
 table {
@@ -87,9 +98,6 @@ a:active{
 	color:blue;
 }
 
-.align-left{
-	text-align: left;
-}
 
 
 .pagination .page-item.active .page-link {
@@ -129,8 +137,106 @@ a:active{
 	
 	
 	
-	<div id="wrap">
+<div class="container" style="padding: 7% 3%;">
+		
+<!-- 임시 게시판(디자인 확인용) -->
+	<!-- 임시 데스크탑 -->
 		<table>
+			<thead>
+				<tr>
+					<th class="big-width-table">번호</th>
+					<th class="align-left">제목</th>
+					<th class="big-width-table">등록자</th>
+					<th>등록일</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td class="big-width-table">1</td>
+					<td class="align-left"><a href="#">제일 최근 공지사항 게시물이 가장 위에 오도록</a></td>
+					<td class="big-width-table">관리자</td>
+					<td>2021.11.04</td>
+				</tr>
+
+				<tr>
+					<td class="big-width-table">2</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">3</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">4</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">5</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">6</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">7</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">8</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">9</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				<tr class="">
+					<td class="big-width-table">10</td>
+					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
+							생태계 조성 앞장</a></td>
+					<td class="big-width-table">아주경제</td>
+					<td>2021.10.28</td>
+				</tr>
+
+				
+			</tbody>
+		</table>
+		
+	<!-- 임시  모바일 -->
+		<!-- <table class="small-width-table">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -222,10 +328,13 @@ a:active{
 			</tbody>
 		</table>
 
+ -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 <!-- 페이징처리 임시(디자인 확인용)-->
 		<nav class="blog-pagination justify-content-center d-flex " style="margin-top: 5%;">
 			<!-- 데스크탑  -->
-			<ul class="big-width pagination">
+			<ul class="big-width-page pagination">
 				
 				<li class="page-item">
 					<a href="" class="page-link" aria-label="Previous"> 
@@ -302,7 +411,7 @@ a:active{
 			</ul>
 		
 			<!-- 모바일  -->
-			<ul class="small-width pagination">
+			<ul class="small-width-page pagination">
 				
 				<li class="page-item">
 					<a href="" class="page-link" aria-label="Previous"> 
@@ -348,12 +457,12 @@ a:active{
 			</ul>
 		</nav>
 	
-
+<%-- 
 	
 <!-- 페이징처리 (실제 사용 예정)-->
 		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
 			<!-- 데스크탑 -->
-			<ul class="big-width pagination">
+			<ul class="big-width-page pagination">
 				
 				<!-- 이전 항목이 있을때(즉, 현재 1페이지가 아닐때) -->
 				<c:if test="${pageMaker.prev}">
@@ -410,7 +519,7 @@ a:active{
 		</form>
 		
 
-
+ --%>
  	
  	</div>
  

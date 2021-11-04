@@ -2142,7 +2142,7 @@ h3 {
 }
 
 .footer-area {
-	background-image: url(../img/background-img/footer-pattern.png);
+	background-color:#f8f8f8;
 	padding: 120px 0px 0;
 	position: relative
 }
