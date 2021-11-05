@@ -2312,8 +2312,8 @@ h3 {
 .footer-area .footer_1 p {
 	margin-bottom: 15px;
 	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 400;
-	color: #5c5c5c;
+	font-weight: 300;
+	color: #8e8e8e;
 	font-size: 16px;
 	line-height: 20px !important;
 	margin-top: 7px;
@@ -3385,7 +3385,7 @@ h1, h2, h3, h4, h5, h6 {
 .single-gallery-image {
 	margin-top: 30px;
 	background-repeat: no-repeat !important;
-	background-position: center center !important;
+	background-position: center!important;
 	background-size: cover;
 	height: 200px
 }

@@ -7,14 +7,19 @@
 <html>
 
 <style>
+
 .single-gallery-image{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
 	height:25em!important;
-	border:1px solid;
+	background-size:contain!important;
 }
+
 
 @media(max-width: 991px){
 	.single-gallery-image{
-		height:20em!important;
+		height:30em!important;
 	}
 }
 
@@ -23,8 +28,7 @@
 		content: url(../resources/img/company/organization_mobile2.png);
 	}
 	.single-gallery-image{
-		height:45em!important;
-		background-size:auto!important;
+		border:none;
 	}
 	
 }
