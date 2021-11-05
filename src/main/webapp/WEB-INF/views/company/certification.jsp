@@ -7,11 +7,30 @@
 <html>
 
 <style>
+.single-gallery-image{
+	height:25em!important;
+	border:1px solid;
+}
+
+@media(max-width: 991px){
+	.single-gallery-image{
+		height:20em!important;
+	}
+}
+
 @media ( max-width : 767px) {
 	.organization_img{
 		content: url(../resources/img/company/organization_mobile2.png);
 	}
+	.single-gallery-image{
+		height:45em!important;
+		background-size:auto!important;
+	}
+	
 }
+
+
+
 
 </style>
 
@@ -78,43 +97,68 @@
 		<div class="container" style="padding-bottom:15%;">
 			<div class="row gallery-item">
 					<div class="col-md-4">
-						<a href="../resources/img/elements/g1.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g1.jpg);"></div>
+						<a href="../resources/img/company/g1.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g1.jpg);"></div>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="../resources/img/elements/g2.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g2.jpg);"></div>
+						<a href="../resources/img/company/g2.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g2.jpg);"></div>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="../resources/img/elements/g3.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g3.jpg);"></div>
-						</a>
-					</div>
-					<div class="col-md-6">
-						<a href="../resources/img/elements/g4.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g4.jpg);"></div>
-						</a>
-					</div>
-					<div class="col-md-6">
-						<a href="../resources/img/elements/g5.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g5.jpg);"></div>
+						<a href="../resources/img/company/g3.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g3.jpg);"></div>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="../resources/img/elements/g6.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g6.jpg);"></div>
+						<a href="../resources/img/company/g4.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g4.jpg);"></div>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="../resources/img/elements/g7.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g7.jpg);"></div>
+						<a href="../resources/img/company/g5.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g5.jpg);"></div>
 						</a>
 					</div>
 					<div class="col-md-4">
-						<a href="../resources/img/elements/g8.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/elements/g8.jpg);"></div>
+						<a href="../resources/img/company/g6.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g6.jpg);"></div>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="../resources/img/company/g7.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g7.jpg);"></div>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="../resources/img/company/g8.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g8.jpg);"></div>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="../resources/img/company/g9.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g9.jpg);"></div>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="../resources/img/company/g10.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g10.jpg);"></div>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="../resources/img/company/g11.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g11.jpg);"></div>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="../resources/img/company/g12.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g12.jpg);"></div>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="../resources/img/company/g13.jpg" class="img-pop-up">
+							<div class="single-gallery-image" style="background: url(../resources/img/company/g13.jpg);"></div>
 						</a>
 					</div>
 				</div>
