@@ -2610,7 +2610,10 @@ h3 {
 
 .breadcrumb {
 	background-size: cover;
-	margin: 0 !important
+	margin: 0 !important;
+	background-repeat:no-repeat;
+	background-position-y:80%;
+	overflow:hidden;
 }
 
 .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
