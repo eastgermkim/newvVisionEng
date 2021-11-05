@@ -75,7 +75,7 @@
 												<li><a href="">CEO인사말</a></li>
 												<li><a href="/company/history">연혁</a></li>
 												<li><a href="/company/organization">조직도</a></li>
-												<li><a href="">인증현황</a></li>
+												<li><a href="/company/certification">인증현황</a></li>
 												<li><a href="/company/location">오시는 길</a></li>
 											</ul>
 										</li>

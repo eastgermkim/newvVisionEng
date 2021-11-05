@@ -39,4 +39,9 @@ public class CompanyController {
 	public void organization() {
 		
 	}
+	//인증현황 페이지로 연결
+	@GetMapping("/certification")
+	public void certification() {
+		
+	}
 }
