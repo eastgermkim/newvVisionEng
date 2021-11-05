@@ -34,4 +34,9 @@ public class CompanyController {
 	public void history() {
 		
 	}
+	//조직도 페이지로 연결
+	@GetMapping("/organization")
+	public void organization() {
+		
+	}
 }
