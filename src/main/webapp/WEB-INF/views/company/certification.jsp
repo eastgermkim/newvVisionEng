@@ -28,7 +28,6 @@
 .img-wrap{
 	display: table;
     width: 100%;
-    min-height: 280px;
 }
 
 .bg-gray{
@@ -39,7 +38,7 @@
     background-color:#f9f9f9;
 }
 
-.col-md-4{
+#only-gallery{
 	padding-bottom:50px;
 }
 
@@ -47,18 +46,12 @@
 	margin-top:0!important;
 	margin-left:auto;
 	margin-right:auto;
-	height:25em!important;
 	background-size:contain!important;
-	height:20rem!important;
 	text-align:center;
+	height:250px!important;
 }
 
 
-@media(max-width: 991px){
-	.single-gallery-image{
-		height:30em!important;
-	}
-}
 
 @media ( max-width : 767px) {
 	.organization_img{
@@ -69,9 +62,6 @@
 	}
 	
 }
-
-
-
 
 </style>
 
@@ -137,7 +127,7 @@
 	<section class="">
 		<div class="container" style="padding-bottom:15%;">
 			<div class="row gallery-item">
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g1.jpg" class="img-pop-up">
@@ -147,11 +137,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">사업자등록증</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g2.jpg" class="img-pop-up">
@@ -161,11 +151,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">공장등록증명(신청)서</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g3.jpg" class="img-pop-up">
@@ -175,11 +165,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">정보통신공사업 등록증</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g4.jpg" class="img-pop-up">
@@ -189,11 +179,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">경쟁입찰참가자격 등록증</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g5.jpg" class="img-pop-up">
@@ -203,11 +193,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">경쟁입찰참가 예시</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g6.jpg" class="img-pop-up">
@@ -217,11 +207,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">신용평가등급 확인서</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g7.jpg" class="img-pop-up">
@@ -231,11 +221,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">여성기업 확인서</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g8.jpg" class="img-pop-up">
@@ -245,11 +235,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">직접생산확인증명서</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g9.jpg" class="img-pop-up">
@@ -259,11 +249,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">소상공인 확인서</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g10.jpg" class="img-pop-up">
@@ -273,11 +263,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">감사장 - 군수참모부장</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g11.jpg" class="img-pop-up">
@@ -287,11 +277,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">표창장 - 서울지방조달청장</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g12.jpg" class="img-pop-up">
@@ -301,11 +291,11 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">표창장 - 중소기업중앙회</h3>
 							</div>
 						</div>
 					</div>
-					<div id="change_class" class="col-md-4">
+					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
 								<a href="../resources/img/company/g13.jpg" class="img-pop-up">
@@ -315,7 +305,7 @@
 								</a>
 							</div>
 							<div class="info-wrap">
-								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+								<h3 class="info-title">표창장 - 서울특별시장</h3>
 							</div>
 						</div>
 					</div>
@@ -327,7 +317,6 @@
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- JS here -->
     <script src="../resources/js/popper.min.js"></script>
     <script src="../resources/js/ajax-form.js"></script>
@@ -338,22 +327,10 @@
     <script src="../resources/js/jquery.ajaxchimp.min.js"></script>
     <script src="../resources/js/jquery.form.js"></script>
     <script src="../resources/js/jquery.validate.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
                  
-    <script src="../resources/js/main.js"></script>
-	
-	<script>
-	$(document).ready(function(){
-		   console.log('resize called');
-		   var width = $(window).width();
-		   if(width >= 768 && width <= 991){
-		       $('.col-md-4').removeClass('col-md-4').addClass('col-md-6');
-		   }
-		   else{
-		       $('.col-md-6').removeClass('col-md-6').addClass('col-md-4');
-		   }
-		})
-	
-		
+
+
 	
 	</script>
 </html>
