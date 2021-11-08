@@ -30,9 +30,13 @@
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
 <style>
+.board{
+	padding: 7% 0%;
+}
 
 .align-left{
 	text-align: left;
+	width:62%;
 }
 
 .small-width-page{
@@ -43,9 +47,14 @@
 		display:none;
 	}
 
+.small-width-title{
+	font-size: large;
+	font-weight: 500;
+}
+
 @media(max-width : 767.5px){
 	.align-left{
-		text-align: center;
+		width: 80%
 	}
 	.big-width-page{
 		display:none;
@@ -57,7 +66,10 @@
 		display:none;
 	}
 	.small-width-table{
-		display:table;
+		display:table-row;
+	}
+	.board{
+		padding: 7% 3%;
 	}
 }
 
@@ -137,198 +149,236 @@ a:active{
 	
 	
 	
-<div class="container" style="padding: 7% 3%;">
+<div class="container board">
 		
 <!-- 임시 게시판(디자인 확인용) -->
-	<!-- 임시 데스크탑 -->
+	<!-- 임시 데스크탑+모바일 -->
 		<table>
 			<thead>
-				<tr>
-					<th class="big-width-table">번호</th>
+				<!-- 데스크탑 -->
+				<tr class="big-width-table">
+					<th style="width:8%">번호</th>
 					<th class="align-left">제목</th>
-					<th class="big-width-table">등록자</th>
-					<th>등록일</th>
+					<th style="width:14%">등록자</th>
+					<th style="width:12%">등록일</th>
+				</tr>
+				<!-- 모바일 -->
+				<tr class="small-width-table">
+					<th colspan="2">공지사항</th>
 				</tr>
 			</thead>
 			<tbody>
-
-				<tr>
-					<td class="big-width-table">1</td>
-					<td class="align-left"><a href="#">제일 최근 공지사항 게시물이 가장 위에 오도록</a></td>
-					<td class="big-width-table">관리자</td>
-					<td>2021.11.04</td>
-				</tr>
-
-				<tr>
-					<td class="big-width-table">2</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">3</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">4</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">5</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">6</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">7</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">8</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">9</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td class="big-width-table">10</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="big-width-table">아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>1</td>
+						<td class="align-left"><a href="#">제일 최근 공지사항 게시물이 가장 위에 오도록</a></td>
+						<td>관리자</td>
+						<td>2021.11.04</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">제일 최근 공지사항 게시물이 가장 위에 오도록</a></div>
+							<div style="color: grey;">2021.11.04</div>
+						</td>
+					</tr>
 				
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>2</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>3</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>4</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>5</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>6</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>7</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>8</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>9</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
+
+				<!-- 데스크탑 -->
+					<tr class="big-width-table">
+						<td>10</td>
+						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td>아주경제</td>
+						<td>2021.10.28</td>
+					</tr>
+				<!-- 모바일 -->
+					<tr class="small-width-table">
+						<td class="align-left" colspan="2">
+							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div style="color: grey;">2021.10.28</div>
+						</td>
+					</tr>
 			</tbody>
 		</table>
 		
-	<!-- 임시  모바일 -->
-		<!-- <table class="small-width-table">
+<!-- 게시판(실제 사용 예정) ======================================================================================================================== -->
+	<!-- 데스크탑+모바일 -->
+	<%-- 	<table>
 			<thead>
-				<tr>
-					<th>번호</th>
+				<!-- 데스크탑 -->
+				<tr class="big-width-table">
+					<th style="width:8%">번호</th>
 					<th class="align-left">제목</th>
-					<th>등록자</th>
-					<th>등록일</th>
+					<th style="width:14%">등록자</th>
+					<th style="width:12%">등록일</th>
+				</tr>
+				<!-- 모바일 -->
+				<tr class="small-width-table">
+					<th colspan="2">공지사항</th>
 				</tr>
 			</thead>
 			<tbody>
-
-				<tr>
-					<td>1</td>
-					<td class="align-left"><a href="#">제일 최근 공지사항 게시물이 가장 위에 오도록</a></td>
-					<td>관리자</td>
-					<td>2021.11.04</td>
-				</tr>
-
-				<tr>
-					<td>2</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td>아주경제</td>
-					<td>2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>3</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>4</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>5</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>6</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>7</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>8</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>9</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
-
-				<tr class="">
-					<td>10</td>
-					<td class="align-left"><a href="" onclick="">커머스·IT에 힘쏟는 NHN, 동반성장
-							생태계 조성 앞장</a></td>
-					<td class="">아주경제</td>
-					<td class="">2021.10.28</td>
-				</tr>
+				<c:choose>
+					<c:when test="${list != null and list.size()>0}">
+						<c:forEach items="${list}" var="board">
+						<!-- 데스크탑 -->
+						<tr class="big-width-table">
+							<td>${board.boardnum}</td>
+							<td class="align-left">
+								<a class="get" href="${board.boardnum}">
+									${board.boardtitle}
+								</a>
+							</td>
+							<td>${board.boardwriter}</td>
+							<td>${board.regDate}</td>
+						</tr>
+						<!-- 모바일 -->
+						<tr class="small-width-table">
+							<td class="align-left" colspan="2">
+								<div class="small-width-title">
+									<a class="get" href="${board.boardnum}">
+										${board.boardtitle}
+									</a>
+								</div>
+								<div style="color: grey;">${board.regDate}</div>
+							</td>
+						</tr>
+														
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="4">
+								작성된 게시글이 없습니다.
+							</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>							
 			</tbody>
 		</table>
-
- -->
+	 --%>	
+	
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 <!-- 페이징처리 임시(디자인 확인용)-->
@@ -456,10 +506,11 @@ a:active{
 				</li>
 			</ul>
 		</nav>
+		
 	
 <%-- 
 	
-<!-- 페이징처리 (실제 사용 예정)-->
+<!-- 페이징처리 (실제 사용 예정)  ======================================================================================================================== -->
 		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
 			<!-- 데스크탑 -->
 			<ul class="big-width-page pagination">
