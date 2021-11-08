@@ -36,6 +36,31 @@
 		width:100%!important;
 	}
 }
+
+/* footer 관련 스타일 */
+	.mobile{
+		display: none;
+	}
+
+  	@media ( max-width : 767.5px) {
+		.desktop{
+			display: none;
+		}
+		.mobile{
+			display:block;
+		}
+	}
+  	@media ( max-width : 991.5px) {
+		.desktop-contact{
+			display: none;
+		}
+	}
+	.footer_li{
+		display: inline-block;
+  		vertical-align: middle;
+		margin-right: 20px;
+	}
+
 </style>
 
 
@@ -46,8 +71,132 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-	<!-- header.jsp import -->
-	<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
+	<!-- header-start -->
+	<header>
+		<div class="header-area ">
+			
+			<div class="header-top black-bg d-none d-md-block">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-6 col-md-6 col-lg-6">
+							<div class="header-contact">
+								<a href="#"><i class="fa fa-phone"></i> 02 – 743 – 6977~8</a> <a
+									href="#"><i class="fa fa-envelope"></i>nv3000@nate.com</a>
+							</div>
+						</div>
+						<div class="col-xl-6 col-md-6 col-lg-6">
+							<div class="header-top-menu">
+								<nav>
+									<ul>
+										<!-- <li><a href="blog.html">News & media</a></li>
+										<li><a href="review.html">Review</a></li> -->
+										<li><a href="">Admin</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="sticky-header" class="main-header-area white-bg">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-xl-2 col-lg-2">
+							<div class="logo-img">
+								<a href="/"> <img src="resources/img/nv_logo.png"
+									alt="" style="width: 107%;">
+								</a>
+							</div>
+						</div>
+						<div class="col-xl-7 col-lg-7">
+							<div class="main-menu d-none d-lg-block">
+								<nav>
+									<ul id="navigation">
+									
+										<li><br>
+											
+										</li>
+									
+										<li><a href="/company/introduce">New Vision ENG</a>
+											<ul class="submenu">
+												<li><a href="/company/introduce">회사소개</a></li>
+												<li><a href="">CEO인사말</a></li>
+												<li><a href="/company/history">연혁</a></li>
+												<li><a href="/company/organization">조직도</a></li>
+												<li><a href="/company/certification">인증현황</a></li>
+												<li><a href="/company/location">오시는 길</a></li>
+											</ul>
+										</li>
+										
+										<li><a href="">사업분야</a>
+											<ul class="submenu">
+												<li><a href="">감시기기(CCTV)</a></li>
+												<li><a href="">전자제품</a></li>
+												<li><a href="">광학기기</a></li>
+												<li><a href="">방송수신기</a></li>
+												<li><a href="">영상음향기기</a></li>
+											</ul>
+										</li>
+										
+										<li><a href="">사업실적</a>
+											<ul class="submenu">
+												<li><a href="blog.html">사업현황</a></li>
+												<li><a href="blog.html">주요 취급품목</a></li>
+											</ul>
+										</li>
+										
+										<li><a href="/support/notice">고객지원</a>
+											<ul class="submenu">
+												<li><a href="/support/notice">공지사항</a></li>
+												<li><a href="blog.html">전화 문의</a></li>
+												<li><a href="blog.html">이메일 문의</a></li>
+											</ul>
+										</li>
+										
+										<li><a href="">채용정보</a>
+											<ul class="submenu">
+												<li><a href="blog.html">채용안내</a></li>
+											</ul>
+										</li>
+										
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-3">
+							<div class="quote-area">
+								<div class="search-bar">
+									<a id="search_1" href="javascript:void(0)"><i
+										class="fa fa-search"></i></a>
+								</div>
+								
+								<!-- 버튼 일단 숨김 -->
+								<div class="get-quote d-none d-lg-block">
+									<a class="boxed-btn" href="#">버튼임</a>
+								</div>
+							
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="mobile_menu d-block d-lg-none"></div>
+						</div>
+					</div>
+					<div class="search_input" id="search_input_box">
+						<div class="container ">
+							<form class="d-flex justify-content-between search-inner">
+								<input type="text" class="form-control" id="search_input"
+									placeholder="Search Here">
+								<button type="submit" class="btn"></button>
+								<span class="fa fa-close" id="close_search" title="Close Search"></span>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header-end -->
 
 	<!-- slider-area-start -->
 	<div class="slider-area">
@@ -282,7 +431,62 @@
 
 
 
-	<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
+	<!-- footer-start -->
+    <footer class="footer-area" style="padding:3% 0 3%;height: 200px">
+        <div class="container">
+                <div class="desktop" style="float: left;">
+                	<div>
+                		<ul>
+                			<li class="footer_li"><a href="/company/introduce">New Vision ENG</a></li>
+                			<li class="footer_li"><a href="#">사업분야</a></li>
+                			<li class="footer_li"><a href="#">사업실적</a></li>
+                			<li class="footer_li"><a href="/support/notice">고객지원</a></li>
+                			<li class="footer_li"><a href="#">채용정보</a></li>
+                		</ul>
+                	</div>
+                
+                    <div class="single-footer-widget footer_1">
+                       	<p style="margin:auto;text-align: left;font-size: 0.8em; padding-top: 1em;">
+                       	본사 : (08590)서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
+                       	/ 사업자등록번호 : 101-86-05239
+                     	<br>대표자명 : 전대순 / 대표전화 : 02–743–6977~8 / Fax : 02–762–2588 / 이메일 : nv3000@nate.com
+                       	<br>COPYRIGHT &copy; 2021 NEWVISIONENG CO LTD. ALL RIGHTS RESERVED.
+                        </p>
+                    </div>
+                </div>
+                
+              <div class="desktop-contact" style="float: right;text-align: right;">
+              		<p style="font-size: 14px;font-weight: 500;line-height: 1;position: relative;margin: auto;">
+              			Contact
+              		</p>
+		            <a href="tel:02-743–6977" style="display: block;font-size: 24px;letter-spacing: 0.05em;">
+		            	02)743–6977~8
+		            </a>
+		            <ul>
+		                <li style="display: block;font-size: 14px;font-weight: 400;color: #828282;line-height: 20px;">
+		                	MON-FRI 09:00 - 18:00<br>( Lunch 12:00 - 13:00 )
+		                </li>
+		            </ul>
+		       </div>
+		       
+       
+                <div class="mobile" >
+                    <div class="single-footer-widget footer_1" style="margin: auto;">
+                       	<p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
+                       	<span>서울시 금천구 가산디지털1로 88, 704-C<br>(가산동,IT프리미어타워)</span>
+                       	<span>/ 대표자명 : 전대순</span>
+                     	<br><span>사업자등록번호 : 101-86-05239</span>
+                     	<br><span>대표전화 : 02)743–6977~8</span><span> / Fax : 02)762–2588</span>
+                     	<br><span>이메일 : nv3000@nate.com</span>
+                        <p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
+                       	COPYRIGHT &copy; 2021 NEWVISIONENG CO LTD.<br>ALL RIGHTS RESERVED.
+                       	</p>
+                    </div>
+                </div>
+        </div>
+       
+    </footer>
+    <!-- footer-end -->
 
 	<!-- JS here -->
 	<script src="resources/js/vendor/modernizr-3.5.0.min.js"></script>
