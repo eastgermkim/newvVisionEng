@@ -83,7 +83,19 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- JS here -->
+    <script src="../resources/js/popper.min.js"></script>
+    <script src="../resources/js/ajax-form.js"></script>
+    <script src="../resources/js/imagesloaded.pkgd.min.js"></script>
+    <script src="../resources/js/jquery.magnific-popup.min.js"></script>
 
+    <!--contact js-->
+    <script src="../resources/js/jquery.ajaxchimp.min.js"></script>
+    <script src="../resources/js/jquery.form.js"></script>
+    <script src="../resources/js/jquery.validate.min.js"></script>
+                 
+    <script src="../resources/js/main.js"></script>
 
 </html>
 
