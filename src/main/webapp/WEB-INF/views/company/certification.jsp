@@ -7,13 +7,50 @@
 <html>
 
 <style>
+.img-content{
+	height:100%;
+	border:1.5px solid #eee;
+}
+
+.info-title{
+    font-size:20px;
+    font-weight:normal;
+}
+
+.info-wrap{
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    margin-top:30px;
+}
+
+.img-wrap{
+	display: table;
+    width: 100%;
+    min-height: 280px;
+}
+
+.bg-gray{
+	display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px 20px 35px;
+    background-color:#f9f9f9;
+}
+
+.col-md-4{
+	padding-bottom:50px;
+}
 
 .single-gallery-image{
-	width:80%;
+	margin-top:0!important;
 	margin-left:auto;
 	margin-right:auto;
 	height:25em!important;
 	background-size:contain!important;
+	height:20rem!important;
+	text-align:center;
 }
 
 
@@ -100,71 +137,190 @@
 	<section class="">
 		<div class="container" style="padding-bottom:15%;">
 			<div class="row gallery-item">
-					<div class="col-md-4">
-						<a href="../resources/img/company/g1.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g1.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g1.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g1.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g2.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g2.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g2.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g2.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g3.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g3.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g3.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g3.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g4.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g4.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g4.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g4.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g5.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g5.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g5.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g5.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g6.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g6.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g6.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g6.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g7.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g7.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g7.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g7.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g8.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g8.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g8.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g8.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g9.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g9.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g9.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g9.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g10.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g10.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g10.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g10.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g11.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g11.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g11.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g11.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g12.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g12.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g12.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g12.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4">
-						<a href="../resources/img/company/g13.jpg" class="img-pop-up">
-							<div class="single-gallery-image" style="background: url(../resources/img/company/g13.jpg);"></div>
-						</a>
+					<div id="change_class" class="col-md-4">
+						<div class="bg-gray">
+							<div class="img-wrap">
+								<a href="../resources/img/company/g13.jpg" class="img-pop-up">
+									<div class="single-gallery-image">
+									<img class="img-content" src="../resources/img/company/g13.jpg">
+									</div>
+								</a>
+							</div>
+							<div class="info-wrap">
+								<h3 class="info-title">안녕 내가 누군지아니?</h3>
+							</div>
+						</div>
 					</div>
+
+
 				</div>
 		</div>
 	</section>
@@ -184,6 +340,21 @@
     <script src="../resources/js/jquery.validate.min.js"></script>
                  
     <script src="../resources/js/main.js"></script>
-
+	
+	<script>
+	$(document).ready(function(){
+		   console.log('resize called');
+		   var width = $(window).width();
+		   if(width >= 768 && width <= 991){
+		       $('.col-md-4').removeClass('col-md-4').addClass('col-md-6');
+		   }
+		   else{
+		       $('.col-md-6').removeClass('col-md-6').addClass('col-md-4');
+		   }
+		})
+	
+		
+	
+	</script>
 </html>
 
