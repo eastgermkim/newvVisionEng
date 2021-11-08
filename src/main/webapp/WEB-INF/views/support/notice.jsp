@@ -164,7 +164,7 @@ a:active{
 				</tr>
 				<!-- 모바일 -->
 				<tr class="small-width-table">
-					<th colspan="2">공지사항</th>
+					<th colspan="2">내용</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -333,7 +333,7 @@ a:active{
 				</tr>
 				<!-- 모바일 -->
 				<tr class="small-width-table">
-					<th colspan="2">공지사항</th>
+					<th colspan="2">내용</th>
 				</tr>
 			</thead>
 			<tbody>
