@@ -19,29 +19,51 @@
   
   <!-- 반응형  -->
 <style>
-	.col-del2{
+
+	.mobile{
 		display: none;
 	}
 
   	@media ( max-width : 767.5px) {
-		.col-del{
+		.desktop{
 			display: none;
 		}
-		.col-del2{
+		.mobile{
 			display:block;
 		}
+	}
+  	@media ( max-width : 991.5px) {
+		.desktop-contact{
+			display: none;
+		}
+	}
+	.footer_li{
+		display: inline-block;
+  		vertical-align: middle;
+		margin-right: 20px;
 	}
   </style>
   
 </head>
 
 <body>
-	     <!-- footer-start -->
-    <footer class="footer-area" style="padding:3%;">
+
+	<!-- footer-start -->
+    <footer class="footer-area" style="padding:3% 0 3%;height: 200px">
         <div class="container">
-                <div class="col-del">
+                <div class="desktop" style="float: left;">
+                	<div>
+                		<ul>
+                			<li class="footer_li"><a href="/company/introduce">New Vision ENG</a></li>
+                			<li class="footer_li"><a href="#">사업분야</a></li>
+                			<li class="footer_li"><a href="#">사업실적</a></li>
+                			<li class="footer_li"><a href="/support/notice">고객지원</a></li>
+                			<li class="footer_li"><a href="#">채용정보</a></li>
+                		</ul>
+                	</div>
+                
                     <div class="single-footer-widget footer_1">
-                       	<p style="margin:auto;text-align: left;font-size: 0.8em">
+                       	<p style="margin:auto;text-align: left;font-size: 0.8em; padding-top: 1em;">
                        	본사 : (08590)서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
                        	/ 사업자등록번호 : 101-86-05239
                      	<br>대표자명 : 전대순 / 대표전화 : 02–743–6977~8 / Fax : 02–762–2588 / 이메일 : nv3000@nate.com
@@ -49,10 +71,23 @@
                         </p>
                     </div>
                 </div>
-        </div>
+                
+              <div class="desktop-contact" style="float: right;text-align: right;">
+              		<p style="font-size: 14px;font-weight: 500;line-height: 1;position: relative;margin: auto;">
+              			Contact
+              		</p>
+		            <a href="tel:02-743–6977" style="display: block;font-size: 24px;letter-spacing: 0.05em;">
+		            	02)743–6977~8
+		            </a>
+		            <ul>
+		                <li style="display: block;font-size: 14px;font-weight: 400;color: #828282;line-height: 20px;">
+		                	MON-FRI 09:00 - 18:00<br>( Lunch 12:00 - 13:00 )
+		                </li>
+		            </ul>
+		       </div>
+		       
        
-        <div class="container">
-                <div class="col-del2" >
+                <div class="mobile" >
                     <div class="single-footer-widget footer_1" style="margin: auto;">
                        	<p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
                        	<span>서울시 금천구 가산디지털1로 88, 704-C<br>(가산동,IT프리미어타워)</span>
