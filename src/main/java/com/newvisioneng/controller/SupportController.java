@@ -24,4 +24,8 @@ public class SupportController {
 	public void notice() {
 		
 	}
+	@GetMapping("/email")
+	public void email() {
+		
+	}
 }
