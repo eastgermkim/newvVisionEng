@@ -322,7 +322,7 @@ a:active{
 		
 <!-- 게시판(실제 사용 예정) ======================================================================================================================== -->
 	<!-- 데스크탑+모바일 -->
-	<%-- 	<table>
+	 	<table>
 			<thead>
 				<!-- 데스크탑 -->
 				<tr class="big-width-table">
@@ -344,7 +344,7 @@ a:active{
 						<tr class="big-width-table">
 							<td>${board.boardnum}</td>
 							<td class="align-left">
-								<a class="get" href="${board.boardnum}">
+								<a class="noticedetail" href="${board.boardnum}">
 									${board.boardtitle}
 								</a>
 							</td>
@@ -355,7 +355,7 @@ a:active{
 						<tr class="small-width-table">
 							<td class="align-left" colspan="2">
 								<div class="small-width-title">
-									<a class="get" href="${board.boardnum}">
+									<a class="noticedetail" href="${board.boardnum}">
 										${board.boardtitle}
 									</a>
 								</div>
@@ -375,7 +375,7 @@ a:active{
 				</c:choose>							
 			</tbody>
 		</table>
-	 --%>	
+
 	
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -508,7 +508,7 @@ a:active{
 		</nav>
 		
 	
-<%-- 
+ 
 	
 <!-- 페이징처리 (실제 사용 예정)  ======================================================================================================================== -->
 		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
@@ -525,18 +525,20 @@ a:active{
 				</c:if>
 				
 				<!-- 페이지 표시 -->
+		<c:choose>
+			<c:when test="${list != null and list.size()>0}">
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="i">
 					<c:choose>
-					<!-- 현재페이지 -->
 						<c:when test="${pageMaker.cri.pageNum == i}">
+						<!-- 현재페이지 -->
 							<li class="page-item active">
 								<a class="page-link">
 									${i}	
 								</a>
 							</li>
 						</c:when>
-					<!-- 그외 페이지 -->
 						<c:otherwise>
+						<!-- 그외 페이지 -->
 							<!-- localhost:8081/support/notice?pageNum=${i}&amount=${pageMaker.cri.amount} -->
 							<li class="page-item">
 								<a class="changePage page-link" href="${i}">
@@ -546,7 +548,15 @@ a:active{
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				
+			</c:when>
+			<c:otherwise>
+				<li class="page-item active">
+					<a class="page-link">
+						1	
+					</a>
+				</li>
+			</c:otherwise>
+		</c:choose>
 				
 				<!-- 이후 항목이 있을때(즉, 현재 마지막 페이지가 아닐때) -->
 				<c:if test="${pageMaker.next }">
@@ -560,8 +570,10 @@ a:active{
 			</ul>
 				
 		</nav>
-		
-		<!-- 페이지 이동과 게시글 이동을 위한 숨겨진 form -->
+
+ <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+ 
+		<!-- 페이지 이동과 게시글 이동 등을 위한 숨겨진 form -->
 		<form id="pageForm" name="pageForm" action="/support/notice" method="get">
 			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
@@ -570,7 +582,6 @@ a:active{
 		</form>
 		
 
- --%>
  	
  	</div>
  
@@ -592,7 +603,7 @@ a:active{
 		frm.find("input[name='pageNum']").val($(this).attr("href"));
 		frm.submit();
 	})
-	$(".get").on("click",function(e){
+	$(".noticedetail").on("click",function(e){
 		e.preventDefault();
 		
 		//123번 게시글을 누른 경우
@@ -600,8 +611,8 @@ a:active{
 		
 		//frm.append("<input type='hidden' name='boardnum' value='"+$(this).attr("href")+"'>")
 		//frm.attr("action","/support/notice")
-		let boardnum = $(this).attr("href");
-		frm.attr("action","/support/notice/"+boardnum);
+		let noticeNum = $(this).attr("href");
+		frm.attr("action","/support/notice/"+noticeNum);
 		frm.submit();
 	})
 
