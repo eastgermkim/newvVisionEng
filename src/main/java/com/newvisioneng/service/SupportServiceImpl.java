@@ -38,11 +38,13 @@ public class SupportServiceImpl implements SupportService {
             // (발신자, 보내는 사람의 이메일 주소와 이름을 담음)
             // 이메일 발신자
             msg.addFrom(new InternetAddress[] { new InternetAddress(dto.getSenderMail(), dto.getSenderName()) });
+            
  
             // 이메일 제목 (인코딩을 해야 한글이 깨지지 않음)
             msg.setSubject(dto.getSubject(), "utf-8");
             // 이메일 본문 (인코딩을 해야 한글이 깨지지 않음)
-            msg.setText(dto.getMessage(), "utf-8");
+            String mail_text= dto.getSenderMail() + dto.getSenderName() + dto.getMessage();
+            msg.setText(mail_text, "utf-8");
  
 //            html로 보낼 경우            
 //            MimeMessage message = mailSender.createMimeMessage();
