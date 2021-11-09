@@ -56,42 +56,37 @@
 		</div>
 	</section>
 	<!-- breadcrumb-end -->
-
-	<h1>공지사항 게시글 내용 페이지 입니다.</h1>
-	<h2>noticeNum : ${noticeNum}</h2>
-	<div class="col-12">
-					<form method="post" action="/board/remove">
-						<div class="col-12">
-							<h4>번호</h4>
-							<input name="noticeNum" type="text" readonly>
-						</div>
-						<hr>
-						<div class="col-12">
-							<h4>등록일</h4>
-							<input name="noticeDate" type="text" readonly>
-						</div>
-						<hr>
-						<div class="col-12">
-							<h4>제목</h4>
-							<input name="noticeTitle" type="text" readonly>
-						</div>
-						<div class="col-12">
-							<h4>작성자</h4>
-							<input name="noticeWriter" type="text" readonly>
-						</div>
-						<hr>
-						<hr>
-						<div class="col-12">
-							<h4>내용</h4>
-							<textarea name="noticeContents" rows="10" style="resize:none;" readonly></textarea>
-						</div>
-						<hr>
-						<div class="col-12">
-							<input type="button" value="수정" class="primary" onclick="location.href='/board/modify${cri.getListLink()}&boardnum=${boardnum}'">
-							<input type="submit" value="삭제" class="primary">
-						</div>
-					</form>
-				</div>
+	
+	<!--================Blog Area =================-->
+   <section class="blog_area single-post-area section-padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 posts-list">
+               <div class="single-post">
+                  <!-- <div class="feature-img">
+                     <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
+                  </div> -->
+                  
+                  <div>
+                  	<a href="/support/notice" class="genric-btn default circle">목록으로 돌아가기</a>
+                  </div>
+                  
+                  <div class="blog_details">
+                     <h2 name="noticeTitle"></h2>
+                     <ul class="blog-info-link mt-3 mb-4">
+                        <li><span>noticeNum : ${noticeNum}</span></li>
+                        <li><span name="noticeWriter"></span></li>
+                        <li><span name="noticeDate"></span></li>
+                     </ul>
+                     <p class="excert" name="noticeContents">
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--================ Blog Area end =================-->
 				
 				
 				<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
@@ -99,18 +94,23 @@
 
 <script>
 // /support/notice/1
-/* $(document).ready(
+ $(document).ready(
 	function(){
 		let noticeNum = "${noticeNum}";
 		console.log("noticeNum : "+noticeNum);
 		$.get(
-			"/support/notice/"+noticeNum,
+			"/support/notice/get/"+noticeNum,
 			function(result){
 				$("input[name='noticeNum']").val(result.noticeNum);
 				$("input[name='noticeWriter']").val(result.noticeWriter);
 				$("input[name='noticeTitle']").val(result.noticeTitle);
 				$("input[name='noticeDate']").val(result.noticeDate);
 				$("textarea[name='noticeContents']").html(result.noticeContents);
+				
+				$("h2[name='noticeTitle']").html(result.noticeTitle);
+				$("span[name='noticeWriter']").html(result.noticeWriter);
+				$("span[name='noticeDate']").html(result.noticeDate);
+				$("p[name='noticeContents']").html(result.noticeContents);
 				
 				console.log("noticeWriter : "+result.noticeWriter);
 			}
@@ -119,7 +119,7 @@
 			
 		})
 	}
-); */
+);
 
 </script>
 

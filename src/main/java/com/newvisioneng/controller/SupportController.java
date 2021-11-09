@@ -37,18 +37,20 @@ public class SupportController {
 	private SupportService service;
 	
 	//공지사항 페이지로 연결
-	@GetMapping("/notice")
-	public void notice() {
-		
-	}
+		@GetMapping("/notice")
+		public void notice() {
+			
+		}
 
 	//공지사항 게시글 하나 클릭시
 	@GetMapping("/notice/{noticeNum}")
 	public String notice_detail(@PathVariable("noticeNum") Long noticeNum,Model model) {
 		model.addAttribute("noticeNum",noticeNum);
+		System.out.println("11111111111");
 		return "/support/notice_detail";
 	}
-	@GetMapping(value="/notice/{noticeNum}",produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	//공지사항 게시글 하나 클릭하면 자바스크립트로 
+	@GetMapping(value="/notice/get/{noticeNum}",produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<NoticeDTO> notice_detail(@PathVariable("noticeNum") Long noticeNum){
 
 		//임시 Test용으로 일단 DTO 수동으로 작성
@@ -59,6 +61,7 @@ public class SupportController {
 		noticeDto.setNoticeWriter("관리자");
 		noticeDto.setNoticeContents("첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 ");
 		
+		System.out.println("2222222222");
 		System.out.println(noticeDto);
 		
 		return new ResponseEntity<>(noticeDto,HttpStatus.OK);
