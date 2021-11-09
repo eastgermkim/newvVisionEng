@@ -171,14 +171,14 @@ a:active{
 				<!-- 데스크탑 -->
 					<tr class="big-width-table">
 						<td>1</td>
-						<td class="align-left"><a href="#">제일 최근 공지사항 게시물이 가장 위에 오도록</a></td>
+						<td class="align-left"><a class="noticedetail" href="1">제일 최근 공지사항 게시물이 가장 위에 오도록</a></td>
 						<td>관리자</td>
 						<td>2021.11.04</td>
 					</tr>
 				<!-- 모바일 -->
 					<tr class="small-width-table">
 						<td class="align-left" colspan="2">
-							<div class="small-width-title"><a href="#">제일 최근 공지사항 게시물이 가장 위에 오도록</a></div>
+							<div class="small-width-title"><a class="noticedetail" href="1">제일 최근 공지사항 게시물이 가장 위에 오도록</a></div>
 							<div style="color: grey;">2021.11.04</div>
 						</td>
 					</tr>
@@ -186,14 +186,14 @@ a:active{
 				<!-- 데스크탑 -->
 					<tr class="big-width-table">
 						<td>2</td>
-						<td class="align-left"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
+						<td class="align-left"><a class="noticedetail" href="2">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></td>
 						<td>아주경제</td>
 						<td>2021.10.28</td>
 					</tr>
 				<!-- 모바일 -->
 					<tr class="small-width-table">
 						<td class="align-left" colspan="2">
-							<div class="small-width-title"><a href="#">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
+							<div class="small-width-title"><a class="noticedetail" href="2">커머스·IT에 힘쏟는 NHN, 동반성장 생태계 조성 앞장</a></div>
 							<div style="color: grey;">2021.10.28</div>
 						</td>
 					</tr>
@@ -574,14 +574,15 @@ a:active{
  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
  
 		<!-- 페이지 이동과 게시글 이동 등을 위한 숨겨진 form -->
-		<form id="pageForm" name="pageForm" action="/support/notice" method="get">
+		<%-- <form id="pageForm" name="pageForm" action="/support/notice" method="get">
 			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 			<input type="hidden" name="type" value="${pageMaker.cri.type }">
 			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
-		</form>
+		</form> --%>
 		
-
+		<form id="pageForm" name="pageForm" action="/support/notice" method="get">
+		</form>
  	
  	</div>
  
@@ -603,6 +604,8 @@ a:active{
 		frm.find("input[name='pageNum']").val($(this).attr("href"));
 		frm.submit();
 	})
+	
+	
 	$(".noticedetail").on("click",function(e){
 		e.preventDefault();
 		
@@ -612,8 +615,11 @@ a:active{
 		//frm.append("<input type='hidden' name='boardnum' value='"+$(this).attr("href")+"'>")
 		//frm.attr("action","/support/notice")
 		let noticeNum = $(this).attr("href");
-		frm.attr("action","/support/notice/"+noticeNum);
-		frm.submit();
+		
+		window.location.href = "notice/"+noticeNum;;
+		
+		/* frm.attr("action","/support/notice/"+noticeNum);
+		frm.submit(); */
 	})
 
 
