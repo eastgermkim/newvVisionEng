@@ -1,5 +1,6 @@
 package com.newvisioneng.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,10 +34,10 @@ public class SupportController {
 		return "/notice_detail";
 	}
 	
-	
-	
+	//이메일 문의 페이지로 연결
 	@GetMapping("/email")
 	public void email() {
 		
 	}
+
 }
