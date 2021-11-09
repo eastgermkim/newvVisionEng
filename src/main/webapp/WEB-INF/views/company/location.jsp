@@ -14,7 +14,7 @@
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="../resources/img/nvicon.png">
+	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
@@ -27,7 +27,23 @@
 <link rel="stylesheet" href="../resources/css/animate.css">
 <link rel="stylesheet" href="../resources/css/slicknav.css">
 <link rel="stylesheet" href="../resources/css/style.css">
-<!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
+<!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
+
+<style>
+.down{
+	display: none;
+}
+
+@media(max-width : 767.5px){
+	.up{
+		display:none;
+	}
+	.down{
+		display: block;
+	}
+}
+
+</style>
 
 </head>
 <body>
@@ -94,7 +110,7 @@
 												var coords = new kakao.maps.LatLng(
 														result[0].y, result[0].x);
 												
-												var imageSrc = '../resources/img/nvicon_location.png', // 마커이미지의 주소입니다    
+												var imageSrc = '/resources/img/nvicon_location.png', // 마커이미지의 주소입니다    
 											    imageSize = new kakao.maps.Size(55.8, 82.2), // 마커이미지의 크기입니다
 											    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 											      
@@ -126,11 +142,12 @@
 				<hr>
 
 			<div class="row">
-				<div class="col-lg-7">
+				<div class="col-lg-8">
 					<div class="media contact-info">
 						<span class="contact-info__icon"><i class="ti-home"></i></span>
 						<div class="media-body">
-							<h3>(08590) 서울시 금천구 가산디지털1로 88, 704-C (가산동, IT프리미어타워)</h3>
+							<h3 class="up">(08590) 서울시 금천구 가산디지털1로 88, 704-C (가산동, IT프리미어타워)</h3>
+							<h3 class="down">(08590) 서울시 금천구 가산디지털1로 88,<br>704-C (가산동, IT프리미어타워)</h3>
 							<p>704-C, 88, Gasan digital 1-ro, Geumcheon-gu, Seoul, Republic of Korea</p>
 						</div>
 					</div>

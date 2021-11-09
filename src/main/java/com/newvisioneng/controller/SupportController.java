@@ -40,7 +40,7 @@ public class SupportController {
 	@GetMapping("/notice/{noticeNum}")
 	public String notice_detail(@PathVariable("noticeNum") Long noticeNum,Model model) {
 		model.addAttribute("noticeNum",noticeNum);
-		return "support/notice_detail";
+		return "/support/notice_detail";
 	}
 	@GetMapping(value="/notice/{noticeNum}",produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<NoticeDTO> notice_detail(@PathVariable("noticeNum") Long noticeNum){
@@ -52,6 +52,8 @@ public class SupportController {
 		noticeDto.setNoticeTitle("제일 최근 공지사항 게시물이 가장 위에 오도록");
 		noticeDto.setNoticeWriter("관리자");
 		noticeDto.setNoticeContents("첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 ");
+		
+		System.out.println(noticeDto);
 		
 		return new ResponseEntity<>(noticeDto,HttpStatus.OK);
 	}
