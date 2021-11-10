@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,14 +70,18 @@ public class SupportController {
 	 //메일 발송 메소드
 	 @RequestMapping("send.do") 
 	 public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
+		 String resultmsg = "";
 		 try {
 			 dto.setToMail("eastgerm@nate.com");;
 			 service.sendMail(dto); // dto(메일관련 정보)를 sendMail에 저장함
-			 
+			 resultmsg="<script>alert('success');</script>";
+
 			 
 		 } catch (Exception e) {
 			 e.printStackTrace();
+			 resultmsg="<script>alert('fail');</script>";
+			 
 		 }
-		 return "redirect:/support/email/"; // 실패했으므로 다시 write jsp 페이지로 이동함
+		 return "redirect:/support/email"; // 실패했으므로 다시 write jsp 페이지로 이동함
 	 }
 	}
