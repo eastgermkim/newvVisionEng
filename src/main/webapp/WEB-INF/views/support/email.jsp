@@ -98,4 +98,10 @@
 
 </body>
 
+<script> 
+	var message = '${msg}'; 
+	var returnUrl = '${url}'; 
+	alert(mag); 
+	document.location.href = url; 
+</script>
 </html>

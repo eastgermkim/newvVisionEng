@@ -1,6 +1,8 @@
 package com.newvisioneng.controller;
 
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -75,7 +77,6 @@ public class SupportController {
 			 dto.setToMail("eastgerm@nate.com");;
 			 service.sendMail(dto); // dto(메일관련 정보)를 sendMail에 저장함
 			 resultmsg="<script>alert('success');</script>";
-
 			 
 		 } catch (Exception e) {
 			 e.printStackTrace();
