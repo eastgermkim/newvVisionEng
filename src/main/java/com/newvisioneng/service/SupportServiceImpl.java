@@ -37,7 +37,11 @@ public class SupportServiceImpl implements SupportService {
         
         
         
-        mailHelper.setText(dto.getFromMail()+dto.getFromName()+dto.getContent(), true);
+        mailHelper.setText(
+        		"fromMail: "+dto.getFromMail()+"\n"
+        		+ "fromName: "+dto.getFromName()+"\n"
+        		+"Content: "+dto.getContent()+"\n"
+        		, true);
         // true는 html을 사용하겠다는 의미입니다.
         
         /*
