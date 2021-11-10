@@ -68,6 +68,11 @@ public class SupportController {
 		
 		return new ResponseEntity<>(noticeDto,HttpStatus.OK);
 	}
+	//공지사항 글 등록 페이지로 연결
+	@GetMapping("/notice_write")
+	public void notice_write() {
+		
+	}
 	
 	//이메일 문의 페이지로 연결
 	@GetMapping("/email")

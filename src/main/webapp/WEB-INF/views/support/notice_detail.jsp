@@ -71,7 +71,7 @@
 		
 			 
 			<div class="container">
-				<textarea class="editor" rows="5" name="noticeContents">히히히</textarea>
+				<textarea class="editor" rows="5" name="noticeContents" placeholder = "내용을 입력하세요"></textarea>
 			
 			
 			
@@ -90,21 +90,6 @@
 			</div>
 	
 	
-		<script>
-			ClassicEditor
-				.create( document.querySelector( '.editor' ), {
-					licenseKey: '',
-				} )
-				.then( editor => {
-					window.editor = editor;
-				} )
-				.catch( error => {
-					console.error( 'Oops, something went wrong!' );
-					console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
-					console.warn( 'Build id: u2925tptbtqp-4c24hs7u9g3g' );
-					console.error( error );
-				} );
-		</script>
 	<!--================Blog Area =================-->
    <section class="blog_area single-post-area section-padding">
       <div class="container">
@@ -141,6 +126,21 @@
 </body>
 
 <script>
+ClassicEditor
+.create( document.querySelector( '.editor' ), {
+	licenseKey: '',
+} )
+.then( editor => {
+	window.editor = editor;
+} )
+.catch( error => {
+	console.error( 'Oops, something went wrong!' );
+	console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+	console.warn( 'Build id: u2925tptbtqp-4c24hs7u9g3g' );
+	console.error( error );
+} );
+
+
 // /support/notice/1
  $(document).ready(
 	function(){
@@ -153,7 +153,13 @@
 				$("span[name='noticeWriter']").html(result.noticeWriter);
 				$("span[name='noticeDate']").html(result.noticeDate);
 				$("p[name='noticeContents']").html(result.noticeContents);
+				
+				
+				
 				$("textarea[name='noticeContents']").html(result.noticeContents);
+				
+				
+	
 				
 				var noticeContents = result.noticeContents;
 				
