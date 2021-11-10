@@ -30,10 +30,10 @@ public class SupportController {
 	private SupportService service;
 	
 	//공지사항 페이지로 연결
-		@GetMapping("/notice")
-		public void notice() {
-			
-		}
+	@GetMapping("/notice")
+	public void notice() {
+		
+	}
 
 	//공지사항 게시글 하나 클릭시
 	@GetMapping("/notice/{noticeNum}")
@@ -45,7 +45,7 @@ public class SupportController {
 	//공지사항 게시글 하나 클릭하면 자바스크립트로 
 	@GetMapping(value="/notice/get/{noticeNum}",produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<NoticeDTO> notice_detail(@PathVariable("noticeNum") Long noticeNum){
-
+	
 		//임시 Test용으로 일단 DTO 수동으로 작성
 		NoticeDTO noticeDto = new NoticeDTO();
 		noticeDto.setNoticeNum(noticeNum);

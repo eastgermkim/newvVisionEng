@@ -14,9 +14,6 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-root-context.xml
-pom.properties
-.classpath
 
 # External tool builders
 .externalToolBuilders/
@@ -123,3 +120,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
+
+/root-context.xml

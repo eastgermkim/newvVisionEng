@@ -29,9 +29,21 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
-
+	
+	<script src="/resources/js/ckeditor5-build-classic/ckeditor.js"></script>
+	<style>
+		.ck.ck-editor{
+			margin: 5% 0;
+		}
+	
+		.ck-editor__editable{
+			min-height:300px;
+		}
+	</style>
+	
+	
 </head>
-<body>
+<body  data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 	<script>
@@ -56,7 +68,43 @@
 		</div>
 	</section>
 	<!-- breadcrumb-end -->
+		
+			 
+			<div class="container">
+				<textarea class="editor" rows="5" name="noticeContents">히히히</textarea>
+			
+			
+			
+				<main>
+				<div class="centered">
+					<div class="row row-editor">
+						<div class="editor-container">
+							<div class="editor">
+								<p id="contents"></p>
+								<p>This may be the first</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</main>
+			</div>
 	
+	
+		<script>
+			ClassicEditor
+				.create( document.querySelector( '.editor' ), {
+					licenseKey: '',
+				} )
+				.then( editor => {
+					window.editor = editor;
+				} )
+				.catch( error => {
+					console.error( 'Oops, something went wrong!' );
+					console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+					console.warn( 'Build id: u2925tptbtqp-4c24hs7u9g3g' );
+					console.error( error );
+				} );
+		</script>
 	<!--================Blog Area =================-->
    <section class="blog_area single-post-area section-padding">
       <div class="container">
@@ -101,17 +149,16 @@
 		$.get(
 			"/support/notice/get/"+noticeNum,
 			function(result){
-				$("input[name='noticeNum']").val(result.noticeNum);
-				$("input[name='noticeWriter']").val(result.noticeWriter);
-				$("input[name='noticeTitle']").val(result.noticeTitle);
-				$("input[name='noticeDate']").val(result.noticeDate);
-				$("textarea[name='noticeContents']").html(result.noticeContents);
-				
 				$("h2[name='noticeTitle']").html(result.noticeTitle);
 				$("span[name='noticeWriter']").html(result.noticeWriter);
 				$("span[name='noticeDate']").html(result.noticeDate);
 				$("p[name='noticeContents']").html(result.noticeContents);
+				$("textarea[name='noticeContents']").html(result.noticeContents);
 				
+				var noticeContents = result.noticeContents;
+				
+				
+				console.log("noticeContents : "+noticeContents);
 				console.log("noticeWriter : "+result.noticeWriter);
 			}
 		).fail(function(xhr,status,e){
