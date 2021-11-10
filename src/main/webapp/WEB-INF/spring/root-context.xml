@@ -13,8 +13,8 @@
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"/> -->
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"/>
-		<property name="username" value="scott"/>
-		<property name="password" value="tiger"/>
+		<property name="username" value="web"/>
+		<property name="password" value="web"/>
 	</bean>
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig"/>
@@ -29,7 +29,7 @@
 	 <property name="host" value="smtp.gmail.com"/> <!-- 메이서버 호스트 -->
 	 <property name="port" value="587"/> <!-- 메이서버 포트번호 -->
 	 <property name="username" value="nvengsmtp@gmail.com"/> <!-- 자신의 이메일 아이디 -->
-	 <property name="password" value="nvengsmtp3000"/> <!-- 자신의 비밀번호 -->
+	 <property name="password" value=""/> <!-- 자신의 비밀번호 -->
 	   <!-- 보안연결 SSL과 관련된 설정 -->
 	 <property name="javaMailProperties">
 	  <props>

@@ -128,7 +128,7 @@
                      </ul>
                      <p class="excert" name="noticeContents">
                      </p>
-                  </div>
+                  </div> 
                </div>
             </div>
          </div>
