@@ -126,17 +126,24 @@ a:active{
 	<script src="/resources/js/ckeditor5-build-classic/ckeditor.js"></script>
 	<style>
 		.ck.ck-editor{
-			margin: 5% 0;
+			margin: 3% 0;
 		}
 	
 		.ck-editor__editable{
-			min-height:300px;
+			min-height:500px;
 		}
+	</style>
+	
+	<style>
+	.single-input {
+		border-bottom: inset;
+		background: none;
+	}
 	</style>
 	
 	
 </head>
-<body  data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
+<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 	<script>
@@ -170,56 +177,72 @@ a:active{
 					<thead>
 						<!-- 데스크탑 -->
 						<tr>
-							<th><h2>제목 : </h2></th>
-							<th><input name="noticetitle" type="text" placeholder="제목을 입력하세요"></th>
+							<th><h4 style="margin-bottom: 0;">제목</h4></th>
+							<th><input class="single-input" name="noticetitle" type="text" placeholder="제목을 입력하세요" ></th>
 						</tr>
 					</thead>
 					<tbody>
-						<!-- 데스크탑 -->
-							<tr>
-								<td>1</td>
-							</tr>
+						<tr>
+							<th><h4 style="margin-bottom: 0;">작성자</h4></th>
+							<th><input class="single-input" name="noticetitle" type="text" placeholder="작성자를 입력하세요" value="관리자" ></th>
+						</tr>
 					</tbody>
 				</table>
 				
-				
-				
-				
-				<div>
-					<h4>제목</h4>
-					<input name="noticetitle" type="text" placeholder="제목을 입력하세요">
-				</div>
+					<textarea class="editor" rows="5" name="noticeContents" placeholder = "내용을 입력하세요" style="display: none;"></textarea>
 				<hr>
-				<div>
-					<h4>작성자</h4>
-					<input name="noticewriter" type="text" placeholder="작성자를 입력하세요">
-				</div>
-				<hr>
-				<textarea class="editor" rows="5" name="noticeContents" placeholder = "내용을 입력하세요"></textarea>
-			
 				</form>
 			</div>
 	
 	
 	
 				
-			<script>
-				ClassicEditor
-				.create( document.querySelector( '.editor' ), {
-					licenseKey: '',
-				} )
-				.then( editor => {
-					window.editor = editor;
-				} )
-				.catch( error => {
-					console.error( 'Oops, something went wrong!' );
-					console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
-					console.warn( 'Build id: u2925tptbtqp-4c24hs7u9g3g' );
-					console.error( error );
-				} );
-			</script>
 				
 <c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+			<script>
+			const watchdog = new CKSource.EditorWatchdog();
+			
+			window.watchdog = watchdog;
+			
+			watchdog.setCreator( ( element, config ) => {
+				return CKSource.Editor
+					.create( element, config )
+					.then( editor => {
+						
+						
+						
+			
+						return editor;
+					} )
+			} );
+			
+			watchdog.setDestructor( editor => {
+				
+				
+			
+				return editor.destroy();
+			} );
+			
+			watchdog.on( 'error', handleError );
+			
+			watchdog
+				.create( document.querySelector( '.editor' ), {
+					
+					licenseKey: '',
+					
+					
+					
+				} )
+				.catch( handleError );
+			
+			function handleError( error ) {
+				console.error( 'Oops, something went wrong!' );
+				console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+				console.warn( 'Build id: 3d46cml66lst-vmhb2mvotfxy' );
+				console.error( error );
+			}
+			
+		</script>
 </body>
 
 
