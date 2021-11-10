@@ -5,6 +5,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,7 +32,9 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/support/*")
 //고객지원 탭 
 public class SupportController {
-
+	
+	 
+	
 	@Setter(onMethod_=@Autowired)
 	private SupportService service;
 	
@@ -74,18 +78,21 @@ public class SupportController {
 	 //메일 발송 메소드
 	 @RequestMapping("send.do") 
 	 public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
-		 String resultmsg = "";
-		 PrintWriter out =response.getWriter();
 		 try {
+			 
+			 //수신받을 이메일 지정 nv3000@nate.com으로 바뀔 예정
 			 dto.setToMail("eastgerm@nate.com");;
-			 service.sendMail(dto); // dto(메일관련 정보)를 sendMail에 저장함
-			 resultmsg="<script>alert('success');</script>";
+			 
+			// dto(메일관련 정보)를 sendMail에 저장함
+			 service.sendMail(dto); 
+			 attr.addFlashAttribute("message","이메일 전송이 성공하였습니다!");
 			 
 		 } catch (Exception e) {
 			 e.printStackTrace();
-			 resultmsg="<script>alert('fail');</script>";
-			 
+			 attr.addFlashAttribute("message","이메일 전송이 실패하였습니다! 잠시 후 다시 시도해주세요.");
 		 }
-		 return "redirect:/support/email"; // 실패했으므로 다시 write jsp 페이지로 이동함
+		 
+		// 실패했으므로 다시 write jsp 페이지로 이동함
+		 return "redirect:/support/email"; 
 	 }
 	}

@@ -97,11 +97,11 @@
 
 
 </body>
-
-<script> 
-	var message = '${msg}'; 
-	var returnUrl = '${url}'; 
-	alert(mag); 
-	document.location.href = url; 
+<script>
+	if("${message}" != ""){
+	alert("${message}");
+	}
+	console.log("제발:" + "${message}");
 </script>
+
 </html>
