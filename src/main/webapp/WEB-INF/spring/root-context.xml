@@ -29,8 +29,8 @@
 	 <property name="host" value="smtp.gmail.com"/> <!-- 메이서버 호스트 -->
 	 <property name="port" value="587"/> <!-- 메이서버 포트번호 -->
 	 <property name="username" value="nvengsmtp@gmail.com"/> <!-- 자신의 이메일 아이디 -->
-	 <property name="password" value="깃허브 비공개"/> <!-- 자신의 비밀번호 -->
-	   <!-- 보안연결 SSL과 관련된 설정 -->
+	 <property name="password" value="깃허브 비공개 입니다"/> <!-- 자신의 비밀번호 -->
+	   <!-- 보안연결 SSL과 관련된 설정 --> 
 	 <property name="javaMailProperties">
 	  <props>
 	  <prop key="mail.smtp.auth">true</prop>
