@@ -3,6 +3,8 @@ package com.newvisioneng.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
+import java.io.PrintWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -73,6 +75,7 @@ public class SupportController {
 	 @RequestMapping("send.do") 
 	 public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
 		 String resultmsg = "";
+		 PrintWriter out =response.getWriter();
 		 try {
 			 dto.setToMail("eastgerm@nate.com");;
 			 service.sendMail(dto); // dto(메일관련 정보)를 sendMail에 저장함
