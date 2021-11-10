@@ -70,7 +70,10 @@ public class SupportController {
 	 @RequestMapping("send.do") 
 	 public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
 		 try {
+			 dto.setToMail("eastgerm@nate.com");;
 			 service.sendMail(dto); // dto(메일관련 정보)를 sendMail에 저장함
+			 
+			 
 		 } catch (Exception e) {
 			 e.printStackTrace();
 		 }

@@ -26,7 +26,6 @@ public class SupportServiceImpl implements SupportService {
         MimeMessageHelper mailHelper = new MimeMessageHelper(mail,true,"UTF-8");
         // true는 멀티파트 메세지를 사용하겠다는 의미
         
-        
         mailHelper.setFrom(new InternetAddress(dto.getFromMail()));
         // 빈에 아이디 설정한 것은 단순히 smtp 인증을 받기 위해 사용 따라서 보내는이(setFrom())반드시 필요
         // 보내는이와 메일주소를 수신하는이가 볼때 모두 표기 되게 원하신다면 아래의 코드를 사용하시면 됩니다.
@@ -36,11 +35,10 @@ public class SupportServiceImpl implements SupportService {
         mailHelper.setSubject(dto.getSubject());
         
         
-        
         mailHelper.setText(
-        		"fromMail: "+dto.getFromMail()+"\n"
-        		+ "fromName: "+dto.getFromName()+"\n"
-        		+"Content: "+dto.getContent()+"\n"
+        		"fromMail: "+dto.getFromMail()+ "\r\n"
+        		+ "fromName: "+dto.getFromName()+"\r\n"
+        		+"Content: "+dto.getContent()+"\r\n"
         		, true);
         // true는 html을 사용하겠다는 의미입니다.
         

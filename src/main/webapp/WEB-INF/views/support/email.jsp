@@ -72,9 +72,6 @@
                                     <div class="form-group">
                                         <input class="form-control valid" name="fromMail" id="fromMail" type="email" placeholder="보내는(또는 회신 받으실 ) 이메일을 입력해주세요.">
                                     </div>
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="toMail" id="toMail" type="email" placeholder = "수신 이메일.">
-                                    </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
