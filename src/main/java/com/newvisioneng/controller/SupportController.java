@@ -1,17 +1,10 @@
 package com.newvisioneng.controller;
 
 
-import java.io.UnsupportedEncodingException;
-
-import javax.inject.Inject;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -72,31 +65,15 @@ public class SupportController {
 	public void email() {
 		
 	}
-	
-	// 확인 (메일발송) 버튼을 누르면 맵핑되는 메소드
+	 
+	 //메일 발송 메소드
 	 @RequestMapping("send.do") 
-	    public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
+	 public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
 		 try {
-		 service.sendMail(dto); // dto (메일관련 정보)를 sendMail에 저장함
-		 System.out.println("111111111111");
-	    
-	    } catch (Exception e) {
-	    	System.out.println("22222222"+e);
-	    }
-	 
-		 	System.out.println("33333333333");
-	        return "redirect:/support/email/"; // 실패했으므로 다시 write jsp 페이지로 이동함
-	    }
-	 
-//	 // 확인 (메일발송) 버튼을 누르면 맵핑되는 메소드
-//	 @RequestMapping("send.do") 
-//	 public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
-//		 try {
-//			 service.sendMail(dto); // dto (메일관련 정보)를 sendMail에 저장함
-//			 
-//		 } catch (Exception e) {
-//			 e.printStackTrace();
-//		 }
-//		 return "redirect:/support/email/"; // 실패했으므로 다시 write jsp 페이지로 이동함
-//	 }
+			 service.sendMail(dto); // dto(메일관련 정보)를 sendMail에 저장함
+		 } catch (Exception e) {
+			 e.printStackTrace();
+		 }
+		 return "redirect:/support/email/"; // 실패했으므로 다시 write jsp 페이지로 이동함
+	 }
 	}

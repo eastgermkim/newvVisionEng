@@ -4,15 +4,19 @@ import lombok.Data;
 
 @Data
 public class EmailDTO {
-    private String senderName;    //발신자 이름
-    private String senderMail;    //발신자 이메일 주소
-    private String receiveMail;    //수신자 이메일 주소
-    private String subject;            //제목
-    private String message;            //본문
+    private String fromName;    //발신자 이름
+    private String fromMail;    //발신자 이메일 주소
+    private String toMail;		//수신자 이메일 주소
+    private String subject;		//메일주제
+    private String content;		//메일내용
     
     @Override
     public String toString() {
-    	return "EmailDTO [senderName=" + senderName + ", senderMail=" + senderMail + ", receiveMail=" + receiveMail
-    			+ ", subject=" + subject + ", message=" + message + "]";
+    	return "EmailDTO[fromName=" + fromName
+    			+ ", fromMail" + fromMail
+    			+ ",toMail" + toMail
+    			+",subject" + subject
+    			+"content" +content + "]";
+    			
     }
 }

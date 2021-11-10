@@ -65,25 +65,25 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="senderName" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="회사명(또는 이름)을 기입해주세요.">
+                                        <input class="form-control valid" name="fromName" id="fromName" type="text" placeholder="회사명(또는 이름)을 기입해주세요.">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="senderMail" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="보내는(또는 회신 받으실 ) 이메일을 입력해주세요.">
+                                        <input class="form-control valid" name="fromMail" id="fromMail" type="email" placeholder="보내는(또는 회신 받으실 ) 이메일을 입력해주세요.">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control valid" name="receiveMail" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+                                        <input class="form-control valid" name="toMail" id="toMail" type="email" placeholder = "수신 이메일.">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                        <input class="form-control" name="subject" id="subject" type="text" placeholder="문의 주제">
                                     </div>
                                 </div>
 	                             <div class="col-12">
 	                                 <div class="form-group">
-	                                     <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="문의 내용"></textarea>
+	                                     <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9" placeholder="문의 내용"></textarea>
 	                                 </div>
 	                             </div>
                             </div>
