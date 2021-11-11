@@ -84,6 +84,7 @@
 	                                 </div>
 	                             </div>
                             </div>
+                            <input type="file" name="uploadFile" id="uploadFile">
                             <div class="form-group mt-3">
                                 <button type="submit" class="button button-contactForm boxed-btn">Send</button>
                             </div>
@@ -101,7 +102,6 @@
 	if("${message}" != ""){
 	alert("${message}");
 	}
-	console.log("제발:" + "${message}");
 </script>
 
 </html>

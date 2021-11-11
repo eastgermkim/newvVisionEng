@@ -1,9 +1,12 @@
 package com.newvisioneng.service;
 
+import java.io.File;
+
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -45,6 +48,8 @@ public class SupportServiceImpl implements SupportService {
         /*
          * 단순한 텍스트만 사용하신다면 다음의 코드를 사용하셔도 됩니다. mailHelper.setText(content);
          */
+        FileSystemResource file = new FileSystemResource(new File(dto.getUploadFile())); 
+        mailHelper.addAttachment(dto.getUploadFile(), file);
         
         mailSender.send(mail);
         

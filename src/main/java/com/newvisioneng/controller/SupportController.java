@@ -90,6 +90,7 @@ public class SupportController {
 			 
 			// dto(메일관련 정보)를 sendMail에 저장함
 			 service.sendMail(dto); 
+			 System.out.println("uploadfile:" + dto.getUploadFile());
 			 attr.addFlashAttribute("message","이메일 전송이 성공하였습니다!");
 			 
 		 } catch (Exception e) {
