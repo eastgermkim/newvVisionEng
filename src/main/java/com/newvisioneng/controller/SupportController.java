@@ -3,10 +3,14 @@ package com.newvisioneng.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 import javax.mail.BodyPart;
 import javax.mail.internet.MimeBodyPart;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +23,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.EmailDTO;
@@ -84,27 +92,13 @@ public class SupportController {
 	// 파일을 업로드 후에는
 	//	{url:'업로드된 파일 주소'}
 	//	형태의 데이터를 반환해 주시면 될 것 같습니다.
+	@RequestMapping(value = "/notice/fileupload", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	@ResponseBody
-	@PostMapping(value = "/notice/fileupload", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public String uploadFormPost(MultipartFile[] uploadFile, Model model) {
+	public String fileUpload() {
 		
-        //저장 경로명
-		final String uploadFolder = "/resources/temp_img";
 		
-		for(MultipartFile multipartFile : uploadFile) {
-			System.out.println(multipartFile.getOriginalFilename());
-			System.out.println(multipartFile.getSize());
-			
-			File saveFile = new File(uploadFolder, multipartFile.getOriginalFilename());
-			
-			try {
-				multipartFile.transferTo(saveFile);
-			
-			}catch (Exception e) {
-				e.getMessage();
-			}
-		}
-		return "{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/댕댕이.jpg\"}";
+	        return "{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/댕댕이.jpg\"}";
+	 
 	}
 	    	
 	

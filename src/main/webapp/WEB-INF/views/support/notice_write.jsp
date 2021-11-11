@@ -296,7 +296,7 @@ a:active {
 	        // the CSRF token generated earlier by your application.
 
 	        // Send the request.
-	        this.xhr.send( data );
+	     	this.xhr.send( data );
 	    }
 	}
 
