@@ -46,9 +46,7 @@
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>이메일 문의</h2>
-							<p style="opacity: 0.6">
-								New Vision ENG. E-Mail Service
-							</p>
+							<p style="opacity: 0.6">New Vision ENG. E-Mail Service</p>
 						</div>
 					</div>
 				</div>
@@ -58,50 +56,114 @@
 	<!-- breadcrumb-end -->
 	<section>
 		<div class="container">
-					<br><br><br><br><br>
-                    <div class="col-lg-12 col-xl-12">
-<!--                         <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate"> -->
-                        <form class="form-contact contact_form" action="send.do" method="post" id="contactForm" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="fromName" id="fromName" type="text" placeholder="회사명(또는 이름)을 기입해주세요.">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="fromMail" id="fromMail" type="email" placeholder="보내는(또는 회신 받으실 ) 이메일을 입력해주세요.">
-                                    </div>
-                                </div>
-                                <div class="col-12">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="col-lg-12 col-xl-12">
+				<!-- <form class="form-contact contact_form" action="send.do" method="post" id="contactForm" novalidate="novalidate"> -->
+				<form class="form-contact contact_form" action="send.do" method="post" id="contactForm" novalidate="novalidate">
+					<div class="single-element-widget mt-30">
+						<h3 class="mb-30">문의 종류</h3>
+						<div class="default-select" id="default-select">
+							<select id="subject" name="subject">
+								<option value="견적문의">견적문의</option>
+								<option value="제품문의">제품문의</option>
+								<option value="기술문의">기술문의</option>
+								<option value="유지보수">유지보수</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input class="form-control valid" name="fromName" id="fromName"
+									type="text" placeholder="회사명(또는 이름)을 기입해주세요.">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input class="form-control valid" name="fromMail" id="fromMail"
+									type="email" placeholder="보내는(또는 회신 받으실 ) 이메일을 입력해주세요.">
+							</div>
+						</div>
+						<!--                                 <div class="col-12">
                                     <div class="form-group">
                                         <input class="form-control" name="subject" id="subject" type="text" placeholder="문의 주제">
                                     </div>
-                                </div>
-	                             <div class="col-12">
-	                                 <div class="form-group">
-	                                     <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9" placeholder="문의 내용"></textarea>
-	                                 </div>
-	                             </div>
-                            </div>
-                            <input type="file" name="uploadFile" id="uploadFile">
-                            <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                            </div>
-                        </form>
-                    </div>
-            </div>
-        </section>
-	
- 
+                                </div> -->
+						<div class="col-12">
+							<div class="form-group">
+								<textarea class="form-control w-100" name="content" id="content"
+									cols="30" rows="9" placeholder="문의 내용"></textarea>
+							</div>
+						</div>
+					</div>
+					<input type="file" name="uploadFile" id="uploadFile" onchange="javascript:getRealPath(this);"/>
+					<input type="text" id="real_path" name="real_path" value="" />
+					<input type="text" id="uploadFile" name="upload">
+					<div class="form-group mt-3">
+						<button type="submit" class="button button-contactForm boxed-btn">Send</button>
+					</div>
+				</form>
+				<input type="button" id="test">
+			</div>
+		</div>
+	</section>
+
+
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
 
 </body>
+
+
+
 <script>
-	if("${message}" != ""){
-	alert("${message}");
+	//메일 보내고 alert 띄워주는 script
+	if ("${message}" != "") {
+		alert("${message}");
 	}
 </script>
+
+<script>
+	//문의 종류 option 값  script
+	$(function() {
+		$("#subject option:selected").val();
+	});
+</script>
+
+
+<script>
+	$('#upload').on('change', function() {
+    	$("#upload").text($(this)[0].files[0].name);
+	});
+</script>
+
+
+<script>
+	$(function() {
+		
+		$("#test").click(function() {
+				$('#upload').on('change', function() {
+			    	$("#upload").text($(this)[0].files[0].name);
+			    	console.log($("#upload").text($(this)[0].files[0].name));
+				});
+			
+			/* $("#uploadFile").val($("#upload").val().replace('', '')); */
+			$("#uploadFile").val($("#upload").val());
+			console.log($("#uploadFile").val());
+		});
+	});
+	
+	
+
+</script>
+
+
+
+
+
 
 </html>

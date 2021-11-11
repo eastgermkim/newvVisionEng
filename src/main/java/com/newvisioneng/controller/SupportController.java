@@ -5,6 +5,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.PrintWriter;
 
+import javax.mail.BodyPart;
+import javax.mail.internet.MimeBodyPart;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.EmailDTO;
@@ -87,10 +90,11 @@ public class SupportController {
 			 
 			 //수신받을 이메일 지정 nv3000@nate.com으로 바뀔 예정
 			 dto.setToMail("eastgerm@nate.com");;
+	
 			 
 			// dto(메일관련 정보)를 sendMail에 저장함
 			 service.sendMail(dto); 
-			 System.out.println("uploadfile:" + dto.getUploadFile());
+			 System.out.println("uploadfile.............." + dto.getUploadFile());
 			 attr.addFlashAttribute("message","이메일 전송이 성공하였습니다!");
 			 
 		 } catch (Exception e) {

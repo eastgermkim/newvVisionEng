@@ -232,8 +232,8 @@ dots:false,
 });
 
 if (document.getElementById('default-select')) {
-  $('select').niceSelect();
-}
+	  $('select').niceSelect();
+	}
 
 
 //------- Mailchimp js --------//  

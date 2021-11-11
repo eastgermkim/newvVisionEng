@@ -17,7 +17,7 @@ public class EmailDTO {
     			+ ", fromMail" + fromMail
     			+ ",toMail" + toMail
     			+",subject" + subject
-    			+"content" +content 
+    			+",content" +content 
     			+"uploadFile" + uploadFile
     			+ "]";
     			
