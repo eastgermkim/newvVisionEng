@@ -169,7 +169,7 @@ a:active {
 
 
 	<div class="container board">
-		<form method="post" action="/support/notice_write">
+		<form method="post" action="/support/notice_write" enctype="multipart/form-data">
 
 			<table>
 				<thead>
@@ -236,7 +236,7 @@ a:active {
 	        // integration to choose the right communication channel. This example uses
 	        // a POST request with JSON as a data structure but your configuration
 	        // could be different.
-	        xhr.open( 'POST', '/support/notice/fileupload', true );
+	        xhr.open( 'POST', '/file/noticeImg', true );
 	        xhr.responseType = 'json';
 	    }
 
@@ -266,7 +266,7 @@ a:active {
 	            // This URL will be used to display the image in the content. Learn more in the
 	            // UploadAdapter#upload documentation.
 	            resolve( {
-	            default : response.url
+	           default : response.url
 	            } );
 	        } );
 
@@ -296,7 +296,7 @@ a:active {
 	        // the CSRF token generated earlier by your application.
 
 	        // Send the request.
-	     	this.xhr.send( data );
+	     this.xhr.send( data );
 	    }
 	}
 

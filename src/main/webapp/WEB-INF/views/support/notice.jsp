@@ -153,6 +153,7 @@ a:active{
 		
 		<div>
         	<a href="/support/notice_write" class="genric-btn default circle">글 작성하기</a>
+        	<a href="/support/notice_write2" class="genric-btn default circle">파일첨부연습</a>
         </div>
 		
 <!-- 임시 게시판(디자인 확인용) -->
