@@ -40,6 +40,7 @@ public class SupportServiceImpl implements SupportService {
         
         mailHelper.setText(
         		"fromMail: "+dto.getFromMail()+ "<br>"
+        		+"subject: " +dto.getSubject()+ "<br>"
         		+ "fromName: "+dto.getFromName()+"<br>"
         		+"Content: "+dto.getContent()+"<br>"
         		, true);
@@ -48,9 +49,6 @@ public class SupportServiceImpl implements SupportService {
         /*
          * 단순한 텍스트만 사용하신다면 다음의 코드를 사용하셔도 됩니다. mailHelper.setText(content);
          */
-        FileSystemResource file = new FileSystemResource(new File(dto.getUploadFile())); 
-        mailHelper.addAttachment(dto.getUploadFile(), file);
-        
         mailSender.send(mail);
         
 	    } catch(Exception e) {

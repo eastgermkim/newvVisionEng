@@ -9,7 +9,6 @@ public class EmailDTO {
     private String toMail;		//수신자 이메일 주소
     private String subject;		//메일주제
     private String content;		//메일내용
-    private String uploadFile;
     
     @Override
     public String toString() {
@@ -18,7 +17,6 @@ public class EmailDTO {
     			+ ",toMail" + toMail
     			+",subject" + subject
     			+",content" +content 
-    			+"uploadFile" + uploadFile
     			+ "]";
     			
     }
