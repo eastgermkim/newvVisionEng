@@ -43,7 +43,7 @@ public class SupportServiceImpl implements SupportService {
         mailHelper.setTo(dto.getToMail());
         mailHelper.setSubject(dto.getSubject());
         System.out.println("test1................."+dto.getContent());
-        dto.getContent().replaceAll("(\\r\\n|\\r|\\n|\\n\\r)", "<br>");
+        dto.getContent().replace("/(\n|\", "<br>");
         System.out.println("test2................."+dto.getContent());
         /*
          * 여기까지 계속 줄바꿈 된 상태로 들어옴.
