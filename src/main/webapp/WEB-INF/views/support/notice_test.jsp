@@ -177,14 +177,14 @@ a:active {
 					<tr>
 						<th><h4 style="margin-bottom: 0;">제목</h4></th>
 						<th><input class="single-input" name="noticeTitle"
-							type="text" placeholder="제목을 입력하세요"></th>
+							type="text" value="${notice.noticeTitle}" readonly></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<th><h4 style="margin-bottom: 0;">작성자</h4></th>
 						<th><input class="single-input" name="noticeWriter"
-							type="text" placeholder="작성자를 입력하세요" value="관리자"></th>
+							type="text" value="${notice.noticeWriter}" readonly></th>
 					</tr>
 					<!-- <tr>
 						<th><h4 style="margin-bottom: 0;">파일첨부</h4></th>
@@ -192,13 +192,14 @@ a:active {
 					</tr> -->
 				</tbody>
 			</table>
-			<textarea id="editor" rows="5" name="noticeContents"
-				placeholder="내용을 입력하세요" style="display: none;"></textarea>
+			<textarea id="editor" rows="5" name="noticeContents"-
+				style="display: none;" readonly>${notice.noticeContents}</textarea>
 			<hr>
-			<div class="col-12">
-				<input type="submit" value="등록" class="primary">
-			</div>
 		</form>
+		 <tr>
+        <td>${notice.noticeContents}</td>    <!-- 글의내용 -->
+    
+    	</tr>
  </div>
 
 

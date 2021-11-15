@@ -56,7 +56,12 @@ public class UploadController {
 		return savedName;
 		
 	}
-	
+	//서버 API 는 Spring 를 기반으로 업로드된 이미지에 대한 정보를 JSON 형태로 응답하게 작성하면 된다. 
+		//파일 업로드를 서버측에 구축을 해 주어야 한다.
+		//함수를 통해 파일이 업로드가 되고, 해당 리턴값을 json으로 리턴하면 xhr 에서 json으로 받는 형태
+		// 파일을 업로드 후에는
+		//	{url:'업로드된 파일 주소'}
+		//	형태의 데이터를 반환해 주시면 될 것 같습니다.
 	/**ck에디터 파일업로드 이벤트 발생 시 처리
 	 * @param model
 	 * @param fileload

@@ -79,27 +79,40 @@ public class SupportController {
 		
 		return new ResponseEntity<>(noticeDto,HttpStatus.OK);
 	}
-	//공지사항 글 등록 페이지로 연결
+	//공지사항 글 등록 view단으로 이동하는 요청
 	@GetMapping("/notice_write")
 	public void notice_write() {
 		
 	}
-	
-	//서버 API 는 Spring 를 기반으로 업로드된 이미지에 대한 정보를 JSON 형태로 응답하게 작성하면 된다. 
-
-	//파일 업로드를 서버측에 구축을 해 주어야 한다.
-	//함수를 통해 파일이 업로드가 되고, 해당 리턴값을 json으로 리턴하면 xhr 에서 json으로 받는 형태
-	// 파일을 업로드 후에는
-	//	{url:'업로드된 파일 주소'}
-	//	형태의 데이터를 반환해 주시면 될 것 같습니다.
-	@RequestMapping(value = "/notice/fileupload", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	@ResponseBody
-	public String fileUpload() {
+	//공지사항 글 등록 메소드
+	@PostMapping("/notice_write")
+	public String notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra) {
+		/*service.noticeRegist(noticedto);
 		
+		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
+		//Model 대신 RedirectAttributes를 사용한다.
+		ra.addFlashAttribute("result", noticedto.getNoticeNum());
 		
-	        return "{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/댕댕이.jpg\"}";
-	 
+		//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
+		return "redirect:/support/notice";*/
+		
+		System.out.println("넘버 : "+noticedto.getNoticeNum());
+		System.out.println("날짜 : "+noticedto.getNoticeDate());
+		System.out.println("제목 : "+noticedto.getNoticeTitle());
+		System.out.println("작성자 : "+noticedto.getNoticeWriter());
+		System.out.println("내용 : "+noticedto.getNoticeContents());
+		
+		ra.addFlashAttribute("notice",noticedto);
+		
+		return "redirect:/support/notice_test";
 	}
+	
+	@GetMapping("/notice_test")
+	public void notice_test() {
+		
+	}
+	
+	
 	    	
 	
 	//이메일 문의 페이지로 연결

@@ -13,12 +13,19 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.newvisioneng.domain.EmailDTO;
+import com.newvisioneng.domain.NoticeDTO;
+import com.newvisioneng.mapper.SupportMapper;
 
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Service
 public class SupportServiceImpl implements SupportService {
+	
+	@Setter(onMethod_ = @Autowired)
+	private SupportMapper mapper;
+	
 	@Autowired
 	private JavaMailSender mailSender;
 
@@ -54,6 +61,14 @@ public class SupportServiceImpl implements SupportService {
 	    } catch(Exception e) {
 	        e.printStackTrace();
 	    }
+	}
+
+	@Override
+	public void noticeRegist(NoticeDTO noticedto) {
+		/*log.info("------regist------");
+		mapper.insertNotice(noticedto);*/
+		
+		
 	}
 }
 //	@Override
