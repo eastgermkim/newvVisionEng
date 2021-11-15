@@ -60,7 +60,7 @@ public class SupportServiceImpl implements SupportService {
         		+ "담당자: "+dto.getFromName()+"<br>"
         		+ "핸드폰 번호: "+dto.getPhone()+"<br>"
         		+"이메일: "+dto.getFromMail()+ "<br>"
-        		+"내용"+"<br>"
+        		+"내용"+"<br>"+"<hr>"
         		+dto.getContent(),true);
        
         
