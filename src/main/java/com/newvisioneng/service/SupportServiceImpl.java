@@ -42,8 +42,13 @@ public class SupportServiceImpl implements SupportService {
         
         mailHelper.setTo(dto.getToMail());
         mailHelper.setSubject(dto.getSubject());
-        System.out.println("test1................."+dto.getContent());
-        System.out.println("test2................."+dto.getContent());
+        
+        String content = org.springframework.web.util.HtmlUtils.htmlEscape(dto.getContent());
+        System.out.println("test1................."+content);
+        content = content.replaceAll("\n", "<br/>");
+        System.out.println("test2................."+content);
+        dto.setContent(content);
+
         /*
          * 여기까지 계속 줄바꿈 된 상태로 들어옴.
          * System.out.println("content.........."+dto.getContent());*/
