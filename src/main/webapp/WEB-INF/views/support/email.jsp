@@ -6,6 +6,13 @@
 <!DOCTYPE html>
 <html>
 <style>
+@media ( max-width : 493px) {
+	#recaptchaSubmit{
+		display:inline-block!important;
+		width:100%;
+	}
+}
+
 .default-select .nice-select{
 	border:1px solid #e5e6e9!important;
 	background:transparent!important;
@@ -67,10 +74,11 @@ input[type="checkbox"] {
 <link rel="stylesheet" href="/resources/css/animate.css">
 <link rel="stylesheet" href="/resources/css/slicknav.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+</head>
+
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
 
-</head>
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
@@ -138,11 +146,6 @@ input[type="checkbox"] {
 									<input class="form-control valid" name="fromMail" id="fromMail" type="email" placeholder="이메일을 입력해 주세요.">
 								</div>
 						</div>
-						<!--<div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" placeholder="문의 주제">
-                                    </div>
-                                </div> -->
 						<div class="col-12">
 							<div class="form-group">
 								<textarea class="form-control w-100" name="content" id="content"
@@ -152,12 +155,12 @@ input[type="checkbox"] {
 					</div>
 						<hr>
 					<div>
-						<a id="showInfo" style="cursor:pointer;">개인정보 처리방침 열기</a>
+<!-- 						<p><a id="showInfo" style="cursor:pointer;">개인정보 취급방침</a>을  읽었으며, 이에 동의합니다.</p> -->
 						<div style="float:right;">
 							<input type="checkbox" id="myCheck" name="myCheck" class="primary-checkbox" style="vertical-align:middle">
 							<label for="myCheck"></label>
 							<div style="display:inline-flex;">
-							<p>개인정보 처리방침에 동의합니다.</p>
+							<p><a id="showInfo" style="cursor:pointer; color:#f36d20;">개인정보 취급방침 (보기)</a>을 읽었으며, 이에 동의합니다.</p>
 							</div>
 						</div>
 						<br><br><br><br>
@@ -189,117 +192,33 @@ input[type="checkbox"] {
 									</blockquote>
 								</div>
 							</div>
-						<div class="g-recaptcha" data-sitekey="6LfZbSwdAAAAAPj1rwsr0nKbAtFBOqgzPA0skGI_"></div>
 					</div>
-					<div class="form-group mt-3" style="text-align:right;">
+					<div class="form-group mt-3" id="recaptchaSubmit" style="text-align:right; display:flex; justify-content:space-between">
+						<div class="g-recaptcha" data-sitekey="6LfZbSwdAAAAAPj1rwsr0nKbAtFBOqgzPA0skGI_" ></div>
 						<button id="sendSubmit" type="submit" class="button button-contactForm boxed-btn">작성 완료</button>
 					</div>
 				</form>
+				<input type=button id="test">
 			</div>
 		</div>
 	</section>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
-
-
+	<%@ include file = "emailJS.jsp" %>
 </body>
 
-<script src="https://www.google.com/recaptcha/api.js" async defer>
-
-
-<script>
-	//메일 보내고 alert 띄워주는 script
-	if ("${message}" != "") {
-		alert("${message}");
-	}
-</script>
+    <script src="/resources/js/vendor/jquery-1.12.4.min.js"></script>
 
 <script>
-	$(function() {
-		//문의 종류 option 값  script
-		$("#subject option:selected").val();
+$(document).ready(function(){
+
+		var content = $("#content").val();
 		
-		//개인정보 처리방침 열기 닫기, 밑에 텍스트 보이기 안보이기
-		$("#showInfo").on('click', function() {
-			if($("#infoCheck").css('display') == 'none'){
-				$("#infoCheck").css('display','block');
-				$(this).text('개인정보 처리방침 닫기');
-			}else{
-				$(this).text('개인정보 처리방침 열기');
-				$("#infoCheck").css('display','none');
-			}
+		$('#test').click(function(){
+			console.log("들어옴");
+			console.log(content);
 		})
 	})
-	
-	
-	//유효성 검사를 위해 메일과 핸드폰 번호 변수 저장
-	var fromMail = $('#fromMail');
-	var fromPhone = $('#fromPhone');
-	// 정규식 - 이메일 유효성 검사
-	var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-	// 정규식 -전화번호 유효성 검사
-	var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{6,7})$/;
-	
-	
-	//문의 넣기 막아주기
-	$("#sendSubmit").on('click',function(){
-		//회사명은 없을 수 있는 것 같아서 막지 않음
-		
-		//문의 분류 선택 안함
-		if($("#subject").val() == null){
-			alert("문의 분류를 선택해 주세요.");
-			$("subject").focus();
-			return false;
-		}
-		
-		//담당자 이름 막아주기
-		if($("#fromName").val() ==""){
-			alert("담당자분의 성함을 입력해 주세요.");
-			$("fromName").focus();
-			return false;
-		}
-		//핸드폰 번호 막아주기
-		if($("#fromPhone").val() ==""){
-			alert("핸드폰 번호를 입력해 주세요.");
-			$("fromPhone").focus();
-			return false;
-		}
-		if(!regPhone.test(fromPhone.val())) {
-			alert('번호가 유효하지 않습니다');
-			$("fromPhone").focus();
-			return false;
-		}
-		
-		//이메일 막아주기
-		if($("#fromMail").val() ==""){
-			alert("담당자분의 이메일을 입력해 주세요.");
-			$("fromMail").focus();
-			return false;
-		}
-		
-		if(!regEmail.test(fromMail.val())) {
-			alert('이메일 주소가 유효하지 않습니다');
-			$("fromMail").focus();
-			return false;
-		}
-		
-		//문의 내용 없으면 막아주기
-		if($("#content").val() ==""){
-			alert("문의내용이 없습니다.");
-			$("content").focus();
-			return false;
-		}
-		//개인정보 처리방침 미체크 막아주기
-		if($("#myCheck").is(":checked") == false){
-			alert("개인정보 처리방침을 동의해 주세요.");
-			$("fromMail").focus();
-			return false;
-		}
-	})
-		
-	$("#fortest").click(function(){
-		console.log($("#subject").val());
-	})
-	</script>
+</script>
 	
 </html>
