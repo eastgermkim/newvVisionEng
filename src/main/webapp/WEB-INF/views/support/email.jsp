@@ -84,6 +84,9 @@ input[type="checkbox"] {
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 	<script>
 		addClassName4();
+		document.cookie = "safeCookie1=foo; SameSite=Lax"; 
+		document.cookie = "safeCookie2=foo"; 
+		document.cookie = "crossCookie=bar; SameSite=None; Secure";
 	</script>
 
 	<!-- breadcrumb-start -->
@@ -148,7 +151,7 @@ input[type="checkbox"] {
 						</div>
 						<div class="col-12">
 							<div class="form-group">
-								<textarea class="form-control w-100" name="content" id="content"
+								<textarea class="form-control w-100" name="content" id="content" style="font-size:18px;"
 									cols="30" rows="9" placeholder="문의 내용"></textarea>
 							</div>
 						</div>
@@ -198,7 +201,6 @@ input[type="checkbox"] {
 						<button id="sendSubmit" type="submit" class="button button-contactForm boxed-btn">작성 완료</button>
 					</div>
 				</form>
-				<input type=button id="test">
 			</div>
 		</div>
 	</section>
@@ -209,16 +211,4 @@ input[type="checkbox"] {
 
     <script src="/resources/js/vendor/jquery-1.12.4.min.js"></script>
 
-<script>
-$(document).ready(function(){
-
-		var content = $("#content").val();
-		
-		$('#test').click(function(){
-			console.log("들어옴");
-			console.log(content);
-		})
-	})
-</script>
-	
 </html>

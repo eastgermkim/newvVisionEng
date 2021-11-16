@@ -40,27 +40,52 @@ public class SupportServiceImpl implements SupportService {
         // 보내는이와 메일주소를 수신하는이가 볼때 모두 표기 되게 원하신다면 아래의 코드를 사용하시면 됩니다.
         //mailHelper.setFrom("보내는이 이름 <보내는이 아이디@도메인주소>");
         
+        //제목에 들어갈 substring 수 구하기
+        int sub_n = 20;
+        if(dto.getContent().length() < 20) {
+        	sub_n = dto.getContent().length();
+        }
+        
+        
         mailHelper.setTo(dto.getToMail());
-        mailHelper.setSubject(dto.getSubject());
+        mailHelper.setSubject(dto.getSubject()+" - "+dto.getFromCompany()+" / "+dto.getContent().substring(0, sub_n)+"...");
         
         String content = org.springframework.web.util.HtmlUtils.htmlEscape(dto.getContent());
         System.out.println("test1................."+content);
         content = content.replaceAll("\n", "<br/>");
         System.out.println("test2................."+content);
         dto.setContent(content);
-
+        
         /*
          * 여기까지 계속 줄바꿈 된 상태로 들어옴.
          * System.out.println("content.........."+dto.getContent());*/
-        
+       
         
        mailHelper.setText(
-        		"문의종류: " +dto.getSubject()+ "<br>"
-        		+"회사명: "+dto.getCompany()+ "<br>"
-        		+ "담당자: "+dto.getFromName()+"<br>"
-        		+ "핸드폰 번호: "+dto.getPhone()+"<br>"
-        		+"이메일: "+dto.getFromMail()+ "<br>"
-        		+"내용"+"<br>"+"<hr>"
+    		   "<table>"
+    		   		+"<tr>"
+    				   +"<td>"+"<strong>문의종류</strong>"+"</td>"
+    				   +" "+dto.getSubject()
+    				+"</tr>"
+    				+"<tr>"
+	    				+"<td>"+"<strong>회사명</strong>"+"</td>"
+	    				+" "+dto.getFromCompany()
+    				+"</tr>"
+	    				+"<td>"+"<strong>담당자</strong>"+"</td>"
+	    				+" "+dto.getFromName()
+    				+"</tr>"
+    				+"<tr>"
+	    				+"<td>"+"<strong>핸드폰 번호</strong>"+"</td>"
+	    				+" "+dto.getFromPhone()
+    				+"</tr>"
+    				+"<tr>"
+	    				+"<td>"+"<strong>이메일</strong>"+"</td>"
+	    				+" "+dto.getFromMail()
+    				+"</tr>"
+    			+"</table>"
+        		+"<br>"+"<hr style=\""+"width: 50%;\""+"align=\""+"left\""+">"
+    			+"<strong> 내용</strong>"
+        		+"<br>"
         		+dto.getContent(),true);
        
         

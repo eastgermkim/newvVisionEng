@@ -85,6 +85,10 @@
 								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7c0a5d7cb29de3f060bed745866cd716&libraries=services">
 							</script>
 							<script>
+							//SameSite=None; Secure 오류 해결
+							  document.cookie="safeCookie1=foo; SameSite=Lax";
+							  document.cookie="safeCookie2=foo";
+							  document.cookie="crossCookie=bar; SameSite=None; Secure";
 								var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 								mapOption = {
 									center : new kakao.maps.LatLng(37.47393288388239, 126.88532413295984), // 지도의 중심좌표

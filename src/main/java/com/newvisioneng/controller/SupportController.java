@@ -43,7 +43,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/support/*")
 //고객지원 탭 
 public class SupportController {
-	
+
 	 
 	
 	@Setter(onMethod_=@Autowired)
@@ -118,7 +118,6 @@ public class SupportController {
 	//이메일 문의 페이지로 연결
 	@GetMapping("/email")
 	public void email() {
-		
 	}
 	 
 	 //메일 발송 메소드
