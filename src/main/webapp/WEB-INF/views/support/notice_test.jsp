@@ -142,6 +142,9 @@ a:active {
 	border-bottom: inset;
 	background: none;
 }
+u {
+	color:inherit;
+}
 </style>
 
 

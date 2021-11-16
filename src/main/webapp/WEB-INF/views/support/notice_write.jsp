@@ -138,6 +138,12 @@ a:active {
 	border-bottom: inset;
 	background: none;
 }
+u {
+	color:inherit;
+}
+.ck-splitbutton{
+	display: none;
+}
 </style>
 
 
@@ -247,7 +253,7 @@ a:active {
 	    _initListeners( resolve, reject, file ) {
 	        const xhr = this.xhr;
 	        const loader = this.loader;
-	        const genericErrorText = '파일을 업로드 할 수 없습니다. ${ file.name }';
+	        const genericErrorText = '${ savedName } 파일을 업로드 할 수 없습니다.\n(20MB 이하 이미지 파일만 첨부가능)';
 
 	        xhr.addEventListener( 'error',() => reject( genericErrorText ) );
 	        xhr.addEventListener( 'abort',() =>  reject() );
@@ -316,13 +322,20 @@ a:active {
 
 	ClassicEditor
 	    .create( document.querySelector( '#editor' ), {
+	    	
 	        extraPlugins: [ MyCustomUploadAdapterPlugin ],
 
 	        // ...
 	    } )
+	    .then( editor => {
+	    	
+	    } )
 	    .catch( error => {
 	        console.log( error );
 	    } );
+	
+	
+	
 		</script>
 </body>
 

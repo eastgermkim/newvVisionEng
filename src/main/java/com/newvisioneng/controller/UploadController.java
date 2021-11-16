@@ -56,6 +56,7 @@ public class UploadController {
 		return savedName;
 		
 	}
+	
 	//서버 API 는 Spring 를 기반으로 업로드된 이미지에 대한 정보를 JSON 형태로 응답하게 작성하면 된다. 
 		//파일 업로드를 서버측에 구축을 해 주어야 한다.
 		//함수를 통해 파일이 업로드가 되고, 해당 리턴값을 json으로 리턴하면 xhr 에서 json으로 받는 형태
@@ -77,6 +78,8 @@ public class UploadController {
 		
 		String savedName = uploadNoticeImg(fileload.getOriginalFilename(), fileload.getBytes(), req);
 		System.out.println("파일 새이름 : " +savedName);
+		
+		model.addAttribute("savedName",savedName);
 		
 		return "{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/"+ savedName + "\" }";
 		
