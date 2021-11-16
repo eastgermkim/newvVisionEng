@@ -149,8 +149,7 @@
 										<li><a href="/support/notice">고객지원</a>
 											<ul class="submenu">
 												<li><a href="/support/notice">공지사항</a></li>
-												<li><a href="blog.html">전화 문의</a></li>
-												<li><a href="/support/email">이메일 문의</a></li>
+												<li><a href="/support/customer">고객문의</a></li>
 											</ul>
 										</li>
 										

@@ -116,7 +116,7 @@ public class SupportController {
 	    	
 	
 	//이메일 문의 페이지로 연결
-	@GetMapping("/email")
+	@GetMapping("/customer")
 	public void email() {
 	}
 	 

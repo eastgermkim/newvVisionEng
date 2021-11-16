@@ -96,8 +96,8 @@ input[type="checkbox"] {
 				<div class="col-lg-7 offset-lg-1">
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
-							<h2>이메일 문의</h2>
-							<p style="opacity: 0.6">New Vision ENG. E-Mail Service</p>
+							<h2>고객 문의</h2>
+							<p style="opacity: 0.6">New Vision ENG. Customer Service</p>
 						</div>
 					</div>
 				</div>
@@ -197,7 +197,7 @@ input[type="checkbox"] {
 							</div>
 					</div>
 					<div class="form-group mt-3" id="recaptchaSubmit" style="text-align:right; display:flex; justify-content:space-between">
-						<div class="g-recaptcha" data-sitekey="6LfZbSwdAAAAAPj1rwsr0nKbAtFBOqgzPA0skGI_" ></div>
+						<div class="g-recaptcha" id="g-recaptcha" data-sitekey="6LfZbSwdAAAAAPj1rwsr0nKbAtFBOqgzPA0skGI_" ></div>
 						<button id="sendSubmit" type="submit" class="button button-contactForm boxed-btn">작성 완료</button>
 					</div>
 				</form>
@@ -206,7 +206,7 @@ input[type="checkbox"] {
 	</section>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
-	<%@ include file = "emailJS.jsp" %>
+	<%@ include file = "customerJS.jsp" %>
 </body>
 
     <script src="/resources/js/vendor/jquery-1.12.4.min.js"></script>
