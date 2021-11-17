@@ -33,7 +33,7 @@
 	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
 .board {
-	padding: 7% 0%;
+	padding: 4% 0%;
 }
 
 .align-left {

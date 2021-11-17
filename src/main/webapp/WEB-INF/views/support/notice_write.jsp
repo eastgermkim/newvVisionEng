@@ -33,7 +33,7 @@
 	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
 .board {
-	padding: 7% 0%;
+	padding: 4% 0%;
 }
 
 .align-left {
@@ -146,6 +146,25 @@ u {
 }
 </style>
 
+<style>
+.genric-btn.primary-border {
+    color: black;
+    border: 1px solid black;
+    font-size: 1em;
+    margin: 1% 0;
+}
+.genric-btn.primary-border:hover {
+	color: black;
+	background: #D8D8D8;
+}
+.genric-btn.primary {
+    font-size: 1em;
+}
+.genric-btn.primary:hover {
+    background: #ED1E23;
+    color: #fff;
+}
+</style>
 
 </head>
 <body data-editor="ClassicEditor" data-collaboration="false"
@@ -179,30 +198,30 @@ u {
 
 			<table>
 				<thead>
-					<!-- 데스크탑 -->
 					<tr>
-						<th><h4 style="margin-bottom: 0;">제목</h4></th>
+						<th class="big-width-table"><span>제목</span></th>
 						<th><input class="single-input" name="noticeTitle"
 							type="text" placeholder="제목을 입력하세요"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th><h4 style="margin-bottom: 0;">작성자</h4></th>
+						<th class="big-width-table"><span>작성자</span></th>
 						<th><input class="single-input" name="noticeWriter"
-							type="text" placeholder="작성자를 입력하세요" value="관리자"></th>
+							type="text" placeholder="작성자를 입력하세요(ex. 관리자)"></th>
 					</tr>
-					<!-- <tr>
-						<th><h4 style="margin-bottom: 0;">파일첨부</h4></th>
-						<th><input type="file"></th>
-					</tr> -->
+					<tr>
+						<th class="big-width-table"><span>파일첨부</span></th>
+						<th><input type="file" name="file" style="float: left;font-size: small;"></th>
+					</tr>
 				</tbody>
 			</table>
 			<textarea id="editor" rows="5" name="noticeContents"
 				placeholder="내용을 입력하세요" style="display: none;"></textarea>
 			<hr>
 			<div class="col-12">
-				<input type="submit" value="등록" class="primary">
+				<input type="submit" value="등록" class="genric-btn primary circle">
+				<a href="/support/notice" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
  </div>

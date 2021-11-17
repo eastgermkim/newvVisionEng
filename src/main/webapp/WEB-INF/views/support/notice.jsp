@@ -29,9 +29,10 @@
 <link rel="stylesheet" href="../resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
+<!-- 스타일 -->
 <style>
 .board{
-	padding: 7% 0%;
+	padding: 4% 0%;
 }
 
 .align-left{
@@ -120,7 +121,18 @@ a:active{
 
 
 </style>
+
+<style>
+.genric-btn.primary-border {
+    color: black;
+    border: 1px solid black;
+    font-size: 1em;
+    margin: 1% 0;
+}
+</style>
+
 </head>
+
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
@@ -152,8 +164,7 @@ a:active{
 <div class="container board">
 		
 		<div>
-        	<a href="/support/notice_write" class="genric-btn default circle">글 작성하기</a>
-        	<a href="/support/notice_write2" class="genric-btn default circle">파일첨부연습</a>
+        	<a href="/support/notice_write" class="genric-btn primary-border circle">글 작성하기</a>
         </div>
 		
 <!-- 임시 게시판(디자인 확인용) -->
@@ -325,6 +336,8 @@ a:active{
 			</tbody>
 		</table>
 		
+<%-- 
+
 <!-- 게시판(실제 사용 예정) ======================================================================================================================== -->
 	<!-- 데스크탑+모바일 -->
 	 	<table>
@@ -380,6 +393,8 @@ a:active{
 				</c:choose>							
 			</tbody>
 		</table>
+		
+ --%>
 
 	
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -514,7 +529,7 @@ a:active{
 		
 	
  
-	
+<%--	
 <!-- 페이징처리 (실제 사용 예정)  ======================================================================================================================== -->
 		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
 			<!-- 데스크탑 -->
@@ -575,6 +590,7 @@ a:active{
 			</ul>
 				
 		</nav>
+--%>
 
  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
  

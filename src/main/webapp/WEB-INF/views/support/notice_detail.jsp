@@ -29,21 +29,128 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
-	
-	<script src="/resources/js/ckeditor5-build-classic/ckeditor.js"></script>
-	<style>
-		.ck.ck-editor{
-			margin: 5% 0;
-		}
-	
-		.ck-editor__editable{
-			min-height:300px;
-		}
-	</style>
-	
-	
+<script
+	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
+<style>
+.board {
+	padding: 4% 0%;
+}
+
+.align-left {
+	text-align: left;
+	width: 62%;
+}
+
+.small-width-page {
+	display: none;
+}
+
+.small-width-table {
+	display: none;
+}
+
+.small-width-title {
+	font-size: large;
+	font-weight: 500;
+}
+
+@media ( max-width : 767.5px) {
+	.align-left {
+		width: 80%
+	}
+	.big-width-page {
+		display: none;
+	}
+	.small-width-page {
+		display: flex;
+	}
+	.big-width-table {
+		display: none;
+	}
+	.small-width-table {
+		display: table-row;
+	}
+	.board {
+		padding: 7% 3%;
+	}
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	line-height: 2em;
+}
+
+table td, th {
+	border-collapse: collapse;
+	text-align: center;
+	padding: 1em;
+	font-weight: 300;
+}
+
+tbody {
+	font-size: 0.95em;
+}
+
+th {
+	padding: 1% 1%;
+	font-weight: 400;
+	border-top: 1px solid;
+	border-bottom: 1px solid #d8d8d8;
+}
+
+td {
+	border-bottom: 1px solid #d8d8d8;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: #ED1E23;
+}
+
+a:active {
+	color: blue;
+}
+
+.pagination .page-item.active .page-link {
+	font-weight: 600;
+	color: darkblue;
+	border-color: darkblue;
+}
+</style>
+
+<style>
+.ck.ck-editor {
+	margin: 3% 0;
+}
+
+.ck-editor__editable {
+	min-height: 500px;
+}
+
+.ck.ck-editor__editable_inline {
+    border: none; 
+}
+</style>
+
+<style>
+.single-input {
+	border-bottom: inset;
+	background: none;
+}
+u {
+	color:inherit;
+}
+</style>
+
+
 </head>
-<body  data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
+<body data-editor="ClassicEditor" data-collaboration="false"
+	data-revision-history="false">
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 	<script>
@@ -58,9 +165,7 @@
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>공지사항</h2>
-							<p style="opacity: 0.6">
-								New Vision ENG. Notice
-							</p>
+							<p style="opacity: 0.6">New Vision ENG. Notice</p>
 						</div>
 					</div>
 				</div>
@@ -68,112 +173,71 @@
 		</div>
 	</section>
 	<!-- breadcrumb-end -->
-		
-			 
-			<div class="container">
-				<textarea class="editor" rows="5" name="noticeContents" placeholder = "내용을 입력하세요"></textarea>
-			
-			
-			
-				<main>
-				<div class="centered">
-					<div class="row row-editor">
-						<div class="editor-container">
-							<div class="editor">
-								<p id="contents"></p>
-								<p>This may be the first</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				</main>
-			</div>
-	
-	
-	<!--================Blog Area =================-->
-   <section class="blog_area single-post-area section-padding">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-8 posts-list">
-               <div class="single-post">
-                  <!-- <div class="feature-img">
-                     <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
-                  </div> -->
-                  
-                  <div>
-                  	<a href="/support/notice" class="genric-btn default circle">목록으로 돌아가기</a>
-                  </div>
-                  
-                  <div class="blog_details">
-                     <h2 name="noticeTitle"></h2>
-                     <ul class="blog-info-link mt-3 mb-4">
-                        <li><span>noticeNum : ${noticeNum}</span></li>
-                        <li><span name="noticeWriter"></span></li>
-                        <li><span name="noticeDate"></span></li>
-                     </ul>
-                     <p class="excert" name="noticeContents">
-                     </p>
-                  </div> 
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!--================ Blog Area end =================-->
+
+
+	<div class="container board">
+		<form method="post" action="/support/notice_write" enctype="multipart/form-data">
+			noticeNum : ${noticeNum}
+			<table>
+				<thead>
+					<!-- 데스크탑 -->
+					<tr>
+						<th><h4 style="margin-bottom: 0;">제목</h4></th>
+						<th><input class="single-input" name="noticeTitle"
+							type="text" value="${notice.noticeTitle}" readonly></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th><h4 style="margin-bottom: 0;">작성자</h4></th>
+						<th><input class="single-input" name="noticeWriter"
+							type="text" value="${notice.noticeWriter}" readonly></th>
+					</tr>
+					<!-- <tr>
+						<th><h4 style="margin-bottom: 0;">파일첨부</h4></th>
+						<th><input type="file"></th>
+					</tr> -->
+				</tbody>
+			</table>
+			<div id="editor" rows="5" name="noticeContents"-
+				style="display: none;" readonly>${notice.noticeContents}</div>
 				
 				
-				<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+				<!-- DB에서 가지고 올때 변환??? --> 
+					<!--<div id="contents"></div>
+							<script>
+								var tmpCont = "${notice.noticeContents}";
+								tmpCont = tmpCont.replaceAll("&lt;","<");
+								tmpCont = tmpCont.replaceAll("&gt;",">");
+								tmpCont = tmpCont.replaceAll("&amp;lt;","<");
+								tmpCont = tmpCont.replaceAll("&amp;gt;",">");
+								tmpCont = tmpCont.replaceAll("&amp;nbsp;"," ");
+								tmpCont = tmpCont.replaceAll("&amp;amp;","&");
+								document.getElementById('contents').innerHTML=tmpCont
+								
+							</script> -->
+		</form>
+ </div>
+
+	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+
+	<script>
+	ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        // ...
+    } )
+    .then( editor => {
+        /* 읽기모드로 바꾸기 */
+        editor.isReadOnly = true;
+
+        /* 툴바 없애기 */
+        const toolbarElement = editor.ui.view.toolbar.element;
+        toolbarElement.style.display = 'none';
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
+		</script>
 </body>
-
-<script>
-ClassicEditor
-.create( document.querySelector( '.editor' ), {
-	licenseKey: '',
-} )
-.then( editor => {
-	window.editor = editor;
-} )
-.catch( error => {
-	console.error( 'Oops, something went wrong!' );
-	console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
-	console.warn( 'Build id: u2925tptbtqp-4c24hs7u9g3g' );
-	console.error( error );
-} );
-
-
-// /support/notice/1
- $(document).ready(
-	function(){
-		let noticeNum = "${noticeNum}";
-		console.log("noticeNum : "+noticeNum);
-		$.get(
-			"/support/notice/get/"+noticeNum,
-			function(result){
-				$("h2[name='noticeTitle']").html(result.noticeTitle);
-				$("span[name='noticeWriter']").html(result.noticeWriter);
-				$("span[name='noticeDate']").html(result.noticeDate);
-				$("p[name='noticeContents']").html(result.noticeContents);
-				
-				
-				
-				$("textarea[name='noticeContents']").html(result.noticeContents);
-				
-				
-	
-				
-				var noticeContents = result.noticeContents;
-				
-				
-				console.log("noticeContents : "+noticeContents);
-				console.log("noticeWriter : "+result.noticeWriter);
-			}
-		).fail(function(xhr,status,e){
-			alert("알 수 없는 오류!")
-			
-		})
-	}
-); 
-
-</script>
 
 </html>
