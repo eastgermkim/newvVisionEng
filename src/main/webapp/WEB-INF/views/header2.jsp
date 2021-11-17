@@ -106,7 +106,7 @@
 										
 										<li><a id="tab5" href="">채용정보</a>
 											<ul class="submenu">
-												<li><a href="blog.html">채용안내</a></li>
+												<li><a href="/employ/list">채용안내</a></li>
 											</ul>
 										</li>
 										
