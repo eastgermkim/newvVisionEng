@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonObject;
 import com.newvisioneng.util.MediaUtils;
 import com.newvisioneng.util.UploadFileUtils;
 
@@ -39,7 +40,7 @@ public class UploadController {
 	
 	////////////////////////////////////////////////////////실제 사용//////////////////////////////////////
 	//공지사항 에디터에 업로드된 파일을 저장하는 함수
-	private String uploadNoticeImg(String originalName, byte[] fileDate,HttpServletRequest req) throws IOException {
+	private String[] uploadNoticeImg(String originalName, byte[] fileDate,HttpServletRequest req) throws IOException {
 		
 		UUID uid = UUID.randomUUID();
 		
@@ -53,7 +54,9 @@ public class UploadController {
 		//org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
 		FileCopyUtils.copy(fileDate, target);
 		
-		return savedName;
+		
+		String[] names = {originalName,savedName};
+		return names;
 		
 	}
 	
@@ -76,12 +79,30 @@ public class UploadController {
 		
 		logger.info("fileUpload");
 		
-		String savedName = uploadNoticeImg(fileload.getOriginalFilename(), fileload.getBytes(), req);
+		String[] names = uploadNoticeImg(fileload.getOriginalFilename(), fileload.getBytes(), req);
+		String originalName = names[0];
+		String savedName = names[1];
+		
+		System.out.println("파일 원래이름 : " +originalName);
 		System.out.println("파일 새이름 : " +savedName);
 		
+		model.addAttribute("originalName",originalName);
 		model.addAttribute("savedName",savedName);
 		
-		return "{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/"+ savedName + "\" }";
+		
+		System.out.println("{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/"+ savedName + "\"}");
+		
+		 // json 데이터로 등록
+        // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
+        // 이런 형태로 리턴이 나가야함.
+		JsonObject json = new JsonObject();
+        json.addProperty("uploaded", 1);
+        json.addProperty("alt", originalName);
+        json.addProperty("url", "/resources/temp_img/"+ savedName);
+        
+        System.out.println("json : "+json);
+        
+		return json.toString();
 		
 	}
 	
