@@ -92,7 +92,9 @@ public class UploadController {
 		
 		System.out.println("{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/"+ savedName + "\"}");
 		
-		 // json 데이터로 등록
+		
+		
+		// json 데이터로 등록
         // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
         // 이런 형태로 리턴이 나가야함.
 		JsonObject json = new JsonObject();
@@ -102,7 +104,8 @@ public class UploadController {
         
         System.out.println("json : "+json);
         
-		return json.toString();
+        //json을 리턴
+        return json.toString();
 		
 	}
 	
