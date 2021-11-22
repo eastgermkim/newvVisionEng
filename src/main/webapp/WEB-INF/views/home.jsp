@@ -122,6 +122,7 @@
 											<ul class="submenu">
 												<li><a href="/company/introduce">회사소개</a></li>
 												<li><a href="">CEO인사말</a></li>
+												<li><a href="/company/news">보도자료</a></li>
 												<li><a href="/company/history">연혁</a></li>
 												<li><a href="/company/organization">조직도</a></li>
 												<li><a href="/company/certification">인증현황</a></li>

@@ -7,42 +7,6 @@
 <!DOCTYPE html>
 <html>
 <style>
-.title {
-	font-size: 20pt;
-	height: 60px;
-	margin-bottom: 10px;
-}
-
-table tr {
-	text-align: center;
-}
-
-.big {
-	width: 80%;
-	margin: auto;
-	align: center;
-	margin-top: 20px;
-	border-radius: 15px;
-}
-
-.seongbukNews1, .seongbukNews2 {
-	width: 100%;
-}
-
-.seongbukNews1 tr, .seongbukNews2 tr {
-	height: 50px;
-}
-
-div {
-	text-align: center;
-}
-
-.seongbukNews1 tr, .seongbukNews1 td, .seongbukNews2 tr, .seongbukNews2 td
-	{
-	border-collapse: separate;
-	border-spacing: 1px;
-	border: 3px solid #ccc;
-}
 </style>
 
 <head>
@@ -94,11 +58,24 @@ div {
 			</div>
 		</div>
 	</section>
-	<section>
+		<section class="sample-text-area">
+		<div class="container box_1170" style="border-top: 2px dotted #eee;">
 			<br>
-			
-			
-<%-- 			<section class="">
+			<h3 class="text-heading">채용정보</h3>
+			<p class="smple-text">내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요. 내용을
+				입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.
+			<p>
+		</div>
+	</section>
+	
+		<br>
+	<section>
+		<div class="container">
+
+		</div>
+	</section>
+
+	<%-- 			<section class="">
 				<div class="container" style="padding-bottom: 20%;">
 					<table class=big>
 						<colgroup>
@@ -147,7 +124,6 @@ div {
 					</table>
 				</div>
 			</section> --%>
-	</section>
 
 	<section>
 		<div class="container"></div>

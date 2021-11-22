@@ -1,7 +1,15 @@
 package com.newvisioneng.controller;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,6 +32,13 @@ public class CompanyController {
 	public void introduce() {
 		
 	}
+	
+	//언론보도 페이지로 연결
+	@GetMapping("/news")
+	public void news() {
+		
+	}
+	
 	//찾아오시는길 페이지로 연결
 	@GetMapping("/location")
 	public void location() {
