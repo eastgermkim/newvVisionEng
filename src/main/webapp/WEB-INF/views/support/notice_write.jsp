@@ -138,31 +138,36 @@ a:active {
 	border-bottom: inset;
 	background: none;
 }
+
 u {
-	color:inherit;
+	color: inherit;
 }
-.ck-splitbutton{
+
+.ck-splitbutton {
 	display: none;
 }
 </style>
 
 <style>
 .genric-btn.primary-border {
-    color: black;
-    border: 1px solid black;
-    font-size: 1em;
-    margin: 1% 0;
+	color: black;
+	border: 1px solid black;
+	font-size: 1em;
+	margin: 1% 0;
 }
+
 .genric-btn.primary-border:hover {
 	color: black;
 	background: #D8D8D8;
 }
+
 .genric-btn.primary {
-    font-size: 1em;
+	font-size: 1em;
 }
+
 .genric-btn.primary:hover {
-    background: #ED1E23;
-    color: #fff;
+	background: #ED1E23;
+	color: #fff;
 }
 </style>
 
@@ -194,7 +199,8 @@ u {
 
 
 	<div class="container board">
-		<form method="post" action="/support/notice_write" enctype="multipart/form-data">
+		<form method="post" action="/support/notice_writeOK"
+			enctype="multipart/form-data">
 
 			<table>
 				<thead>
@@ -212,25 +218,60 @@ u {
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>파일첨부</span></th>
-						<th><input type="file" name="file" style="float: left;font-size: small;"></th>
+						<th>
+							<div class="form-group" id="file-list">
+								<a href="#this" onclick="addFile()">파일추가</a>
+								<div class="file-group">
+									<input type="file" name="file"><a href='#this'
+										name='file-delete'>삭제</a>
+								</div>
+							</div>
+						</th>
+						<!-- <th><input type="file" name="file" style="float: left;font-size: small;"></th> -->
 					</tr>
 				</tbody>
 			</table>
 			<textarea id="editor" rows="5" name="noticeContents"
 				placeholder="내용을 입력하세요" style="display: none;"></textarea>
 			<hr>
-			<div class="col-12" style="text-align: center;padding: 1%;">
-				<input type="submit" value="등록" class="genric-btn primary circle" style="margin-right: 1%;">
-				<a href="/support/notice" class="genric-btn primary-border circle">목록으로 돌아가기</a>
+			<div class="col-12" style="text-align: center; padding: 1%;">
+				<input type="submit" value="등록" class="genric-btn primary circle"
+					style="margin-right: 1%;"> <a href="/support/notice"
+					class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
- </div>
+	</div>
 
 
 
 
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+
+	<!-- 파일 다중 업로드 -->
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    })
+ 
+    function addFile() {
+        var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
+        $("#file-list").append(str);
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    }
+ 
+    function deleteFile(obj) {
+        obj.parent().remove();
+    }
+</script>
+
+
 
 	<script>
 	class MyUploadAdapter {
@@ -266,7 +307,7 @@ u {
 	        // could be different.
 
 	        //여기서는 POST 요청과 json으로 응답을 받지만 어떤 포맷으로 하든 너의 선택이다.
-	        xhr.open( 'POST', '/file/noticeImg', true );
+	        xhr.open( 'POST', '/file/notice_temp_img', true );
 	        xhr.responseType = 'json';
 	    }
 

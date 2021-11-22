@@ -39,12 +39,12 @@ public class UploadController {
 	
 	
 	////////////////////////////////////////////////////////실제 사용//////////////////////////////////////
-	//공지사항 에디터에 업로드된 파일을 저장하는 함수
+	//공지사항 에디터에 업로드된 이미지를 저장하는 함수
 	private String[] uploadNoticeImg(String originalName, byte[] fileDate,HttpServletRequest req) throws IOException {
 		
 		UUID uid = UUID.randomUUID();
 		
-		String path = req.getServletContext().getRealPath("/")+"resources/temp_img/";
+		String path = req.getServletContext().getRealPath("/")+"resources/files/notice_temp_img/";
 		
 		System.out.println("저장된 위치 : "+path);
 		
@@ -72,7 +72,7 @@ public class UploadController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/noticeImg", method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	@RequestMapping(value = "/notice_temp_img", method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public String fileUpload(Model model,  
 	        @RequestParam(value="upload", required = false) MultipartFile fileload,
 	        HttpServletRequest req) throws Exception  {
@@ -90,7 +90,7 @@ public class UploadController {
 		model.addAttribute("savedName",savedName);
 		
 		
-		System.out.println("{ \"uploaded\" : true, \"url\" : \"/resources/temp_img/"+ savedName + "\"}");
+		System.out.println("{ \"uploaded\" : true, \"url\" : \"/resources/files/notice_temp_img/"+ savedName + "\"}");
 		
 		
 		
@@ -100,7 +100,7 @@ public class UploadController {
 		JsonObject json = new JsonObject();
         json.addProperty("uploaded", 1);
         json.addProperty("alt", originalName);
-        json.addProperty("url", "/resources/temp_img/"+ savedName);
+        json.addProperty("url", "/resources/files/notice_temp_img/"+ savedName);
         
         System.out.println("json : "+json);
         
@@ -108,6 +108,27 @@ public class UploadController {
         return json.toString();
 		
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	//업로드된 파일을 저장하는 함수
+		private String[] uploadNoticeFile(String originalName, byte[] fileDate,HttpServletRequest req) throws IOException {
+		
+		UUID uid = UUID.randomUUID();
+		
+		String path = req.getServletContext().getRealPath("/")+"resources/files/notice_file/";
+		
+		System.out.println("저장된 위치 : "+path);
+		
+		String savedName = uid.toString() + "_" + originalName;
+		File target = new File(path, savedName);
+		
+		//org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
+		FileCopyUtils.copy(fileDate, target);
+		
+		
+		String[] names = {originalName,savedName};
+		return names;
+		
+	}
 	
 }

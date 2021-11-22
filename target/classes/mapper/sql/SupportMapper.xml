@@ -7,7 +7,7 @@
 	
 	
 	<insert id="insertNotice">
-		INSERT INTO NV_NOTICE VALUES(2,#{noticeWriter},#{noticeTitle},#{noticeContents},now(),1)
+		INSERT INTO NV_NOTICE VALUES(NULL,#{noticeWriter},#{noticeTitle},#{noticeContents},now(),1)
 	</insert>
 	
 </mapper>

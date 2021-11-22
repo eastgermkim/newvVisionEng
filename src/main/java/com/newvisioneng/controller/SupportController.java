@@ -1,23 +1,12 @@
 package com.newvisioneng.controller;
 
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-
-import javax.mail.BodyPart;
-import javax.mail.internet.MimeBodyPart;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -43,8 +30,6 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/support/*")
 //고객지원 탭 
 public class SupportController {
-
-	 
 	
 	@Setter(onMethod_=@Autowired)
 	private SupportService service;
@@ -85,15 +70,13 @@ public class SupportController {
 		
 	}
 	//공지사항 글 등록 메소드
-	@PostMapping("/notice_write")
-	public String notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra) {
-		/*service.noticeRegist(noticedto);
+	@PostMapping("/notice_writeOK")
+	public String notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra,Model model, 
+			@RequestParam(value="file", required = false) MultipartFile fileload,HttpServletRequest req) 
+					throws Exception  {
 		
-		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
-		//Model 대신 RedirectAttributes를 사용한다.
-		ra.addFlashAttribute("result", noticedto.getNoticeNum());
 		
-		//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
+		/*//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
 		return "redirect:/support/notice";*/
 		
 		System.out.println("넘버 : "+noticedto.getNoticeNum());
@@ -102,6 +85,11 @@ public class SupportController {
 		System.out.println("작성자 : "+noticedto.getNoticeWriter());
 		System.out.println("내용 : "+noticedto.getNoticeContents());
 		
+		service.noticeRegist(noticedto);
+		
+		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
+		//Model 대신 RedirectAttributes를 사용한다.
+		ra.addFlashAttribute("result", noticedto.getNoticeNum());
 		ra.addFlashAttribute("notice",noticedto);
 		
 		return "redirect:/support/notice_test";
