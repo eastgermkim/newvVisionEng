@@ -2,10 +2,47 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
+<c:set var="root" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html>
 <style>
+.title {
+	font-size: 20pt;
+	height: 60px;
+	margin-bottom: 10px;
+}
+
+table tr {
+	text-align: center;
+}
+
+.big {
+	width: 80%;
+	margin: auto;
+	align: center;
+	margin-top: 20px;
+	border-radius: 15px;
+}
+
+.seongbukNews1, .seongbukNews2 {
+	width: 100%;
+}
+
+.seongbukNews1 tr, .seongbukNews2 tr {
+	height: 50px;
+}
+
+div {
+	text-align: center;
+}
+
+.seongbukNews1 tr, .seongbukNews1 td, .seongbukNews2 tr, .seongbukNews2 td
+	{
+	border-collapse: separate;
+	border-spacing: 1px;
+	border: 3px solid #ccc;
+}
 </style>
 
 <head>
@@ -50,7 +87,6 @@
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>채용 정보</h2>
-							//채용정보
 							<p style="opacity: 0.6">New Vision ENG. Employment</p>
 						</div>
 					</div>
@@ -58,12 +94,63 @@
 			</div>
 		</div>
 	</section>
-
+	<section>
+			<br>
+			
+			
+<%-- 			<section class="">
+				<div class="container" style="padding-bottom: 20%;">
+					<table class=big>
+						<colgroup>
+							<col width="50%">
+							<col width="50%">
+						</colgroup>
+						<thead>
+						<tbody>
+							<tr>
+								<td>
+									<table class="seongbukNews1">
+										<colgroup>
+											<col width="10%">
+											<col width="90%">
+										</colgroup>
+										<c:forEach var="url" items="${urls}" varStatus="status"
+											begin="3" end="13">
+											<c:if test="${titles[status.index]!=''}">
+												<tr>
+													<td>${status.index-2}</td>
+													<td><a href="${url}">${titles[status.index]}</a></td>
+												</tr>
+											</c:if>
+										</c:forEach>
+									</table>
+								</td>
+								<td>
+									<table class="seongbukNews2">
+										<colgroup>
+											<col width="10%">
+											<col width="90%">
+										</colgroup>
+										<c:forEach var="url" items="${urls}" varStatus="status"
+											begin="14" end="${titles.size()}">
+											<c:if test="${titles[status.index]!=''}">
+												<tr>
+													<td>${status.index-2}</td>
+													<td><a href="${url}">${titles[status.index]}</a></td>
+												</tr>
+											</c:if>
+										</c:forEach>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section> --%>
+	</section>
 
 	<section>
-		<div class="container">
-		//커밋용
-		</div>
+		<div class="container"></div>
 	</section>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
