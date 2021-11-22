@@ -107,6 +107,30 @@ public class SupportController {
 		return "redirect:/support/notice_test";
 	}
 	
+	@GetMapping("/notice_write2")
+	public void notice_write2() {
+		
+	}
+	//test - 공지사항 글 등록 메소드
+	@PostMapping("/notice_write2")
+	public String notice_writeOK2(NoticeDTO noticedto,RedirectAttributes ra) {
+		service.noticeRegist(noticedto);
+		
+		System.out.println("넘버 : "+noticedto.getNoticeNum());
+		System.out.println("날짜 : "+noticedto.getNoticeDate());
+		System.out.println("제목 : "+noticedto.getNoticeTitle());
+		System.out.println("작성자 : "+noticedto.getNoticeWriter());
+		System.out.println("내용 : "+noticedto.getNoticeContents());
+		
+		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
+		//Model 대신 RedirectAttributes를 사용한다.
+		ra.addFlashAttribute("notice",noticedto);
+		
+		//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
+		return "redirect:/support/notice";
+	}
+	
+	
 	@GetMapping("/notice_test")
 	public void notice_test() {
 		

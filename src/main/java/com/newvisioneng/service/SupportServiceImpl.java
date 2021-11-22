@@ -103,10 +103,8 @@ public class SupportServiceImpl implements SupportService {
 
 	@Override
 	public void noticeRegist(NoticeDTO noticedto) {
-		/*log.info("------regist------");
-		mapper.insertNotice(noticedto);*/
-		
-		
+		log.info("------regist------");
+		mapper.insertNotice(noticedto);
 	}
 }
 

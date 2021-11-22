@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.newvisioneng.mapper.SupportMapper">
 	
+	
+	<insert id="insertNotice">
+		INSERT INTO NV_NOTICE VALUES(2,#{noticeWriter},#{noticeTitle},#{noticeContents},now(),1)
+	</insert>
+	
 </mapper>
 
 
