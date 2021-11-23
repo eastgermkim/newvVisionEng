@@ -40,11 +40,11 @@ public class UploadController {
 	
 	////////////////////////////////////////////////////////실제 사용//////////////////////////////////////
 	//공지사항 에디터에 업로드된 이미지를 저장하는 함수
-	private String[] uploadNoticeImg(String originalName, byte[] fileDate,HttpServletRequest req) throws IOException {
+	private String[] uploadNoticeImg(String originalName, byte[] fileDate,HttpServletRequest req, String tempNotice) throws IOException {
 		
 		UUID uid = UUID.randomUUID();
-		
-		String path = req.getServletContext().getRealPath("/")+"resources/files/notice_temp_img/";
+		System.out.println("tempNotice...................................."+tempNotice);
+		String path = req.getServletContext().getRealPath("/")+"resources/files/" + tempNotice;
 		
 		System.out.println("저장된 위치 : "+path);
 		
@@ -77,9 +77,12 @@ public class UploadController {
 	        @RequestParam(value="upload", required = false) MultipartFile fileload,
 	        HttpServletRequest req) throws Exception  {
 		
-		logger.info("fileUpload");
 		
-		String[] names = uploadNoticeImg(fileload.getOriginalFilename(), fileload.getBytes(), req);
+		
+		logger.info("fileUpload");
+		String tempNotice = "notice_temp_img/";
+		
+		String[] names = uploadNoticeImg(fileload.getOriginalFilename(), fileload.getBytes(), req, tempNotice);
 		String originalName = names[0];
 		String savedName = names[1];
 		

@@ -151,6 +151,6 @@ public class SupportController {
 		 }
 		 
 		// 실패했으므로 다시 write jsp 페이지로 이동함
-		 return "redirect:/support/email"; 
+		 return "redirect:/support/customer"; 
 	 }
 	}

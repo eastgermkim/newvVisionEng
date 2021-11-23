@@ -15,6 +15,30 @@
 	border-bottom:1px solid #ddd;
 }
 
+.text-wrap{
+	font-size:16px;
+}
+
+.news-title{
+	font-size:20px;
+}
+
+.news-contents{
+	height:30px;
+	line-height:1.5;
+	color:#555;
+	overflow:hidden;
+	font-size:15px;
+	font-weight:300;
+}
+
+.news-dates{
+	color:#555;
+	font-size:15px;
+	font-weight:300;
+	text-align:right;
+}
+
 </style>
 <head>
 <meta charset="utf-8">
@@ -41,13 +65,14 @@
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
 </head>
+
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 	<script>
 		addClassName1();
 	</script>
-
+	
 	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
 		<!-- breadcrumb-start -->
 		<div class="container">
@@ -74,44 +99,36 @@
 			<p>
 		</div>
 	</section>
-
-	<section>
+	
+	<!-- 본문 내용  -->
+	<section style="margin-bottom:20%;">
 		<div class="container">
-			
+			<ul class="crawling-lists">
+				<li class="crawling-list">
+					<a class="list-inner-wrap">
+						<div class="text-wrap">
+						<h3 class="news-title">단국대학교 I-다산LINC+사업단 서울여성경제인 협의체 발대식 및 포럼 개최</h3>
+						<h3 class="news-contents">4차 산업혁명시대 선도할 산학협력 발대식 열려</h3>
+						<h3 class="news-dates">2021.06.08</h3>
+						</div>
+					</a>
+				</li>
+				<li class="crawling-list">
+					<a class="list-inner-wrap">
+						<div class="text-wrap">
+						<h3 class="news-title">서울 여성경제인 18명 모범기업인상 수상</h3>
+						<h3 class="news-contents">서울지방조달청장 표창 ... 전대순 ㈜뉴비젼이엔지 대표 ...  수상</h3>
+						<h3 class="news-dates">2016.06.24</h3>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</section>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
-
 </body>
 
-<!-- JS here -->
-<script src="../resources/js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="../resources/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="../resources/js/popper.min.js"></script>
-<script src="../resources/js/bootstrap.min.js"></script>
-<script src="../resources/js/owl.carousel.min.js"></script>
-<script src="../resources/js/isotope.pkgd.min.js"></script>
-<script src="../resources/js/ajax-form.js"></script>
-<script src="../resources/js/waypoints.min.js"></script>
-<script src="../resources/js/jquery.counterup.min.js"></script>
-<script src="../resources/js/imagesloaded.pkgd.min.js"></script>
-<script src="../resources/js/scrollIt.js"></script>
-<script src="../resources/js/jquery.scrollUp.min.js"></script>
-<script src="../resources/js/wow.min.js"></script>
-<script src="../resources/js/nice-select.min.js"></script>
-<script src="../resources/js/jquery.slicknav.min.js"></script>
-<script src="../resources/js/jquery.magnific-popup.min.js"></script>
-<script src="../resources/js/plugins.js"></script>
-
-<!--contact js-->
-<script src="../resources/js/contact.js"></script>
-<script src="../resources/js/jquery.ajaxchimp.min.js"></script>
-<script src="../resources/js/jquery.form.js"></script>
-<script src="../resources/js/jquery.validate.min.js"></script>
-<script src="../resources/js/mail-script.js"></script>
-
-<script src="../resources/js/main.js"></script>
 
 </html>
