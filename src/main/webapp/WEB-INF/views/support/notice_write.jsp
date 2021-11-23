@@ -220,10 +220,11 @@ u {
 						<th class="big-width-table"><span>파일첨부</span></th>
 						<th>
 							<div class="form-group" id="file-list">
-								<a href="#this" onclick="addFile()">파일추가</a>
-								<div class="file-group">
+								<a href="#this" onclick="addFile()" style="float: left;">+ 	파일 추가</a>
+								<br>
+								<div class="file-group" style="text-align: left;">
 									<input type="file" name="file"><a href='#this'
-										name='file-delete'>삭제</a>
+										name='file-delete' style='color: red;'>삭제</a>
 								</div>
 							</div>
 						</th>
@@ -258,7 +259,8 @@ u {
     })
  
     function addFile() {
-        var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
+        var str = 
+      "<div class='file-group' style='text-align: left;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
         $("#file-list").append(str);
         $("a[name='file-delete']").on("click", function(e) {
             e.preventDefault();
