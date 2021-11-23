@@ -60,13 +60,15 @@ public class UploadController {
 	}
 	
 	//저장한 이미지를 json으로 리턴하는 함수
-	private String imgJsonReturn(String[] names) {
+	private String imgJsonReturn(String[] names,String location) {
 		
 		//원래 이미지 이름
 		String originalName = names[0];
 		//바뀐 이미지 이름
 		String savedName = names[1];
 		
+		//이미지 저장 위치
+		String path = "/resources/files/"+ location;
 		
 		// json 데이터로 등록
         // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
@@ -74,12 +76,12 @@ public class UploadController {
 		JsonObject json = new JsonObject();
         json.addProperty("uploaded", 1);
         json.addProperty("alt", originalName);
-        json.addProperty("url", "/resources/files/notice_temp_img/"+ savedName);
+        json.addProperty("url", path + savedName);
         
         System.out.println("json : "+json);
         
         //json 리턴값 미리보기
-        System.out.println("{ \"uploaded\" : true, \"url\" : \"/resources/files/notice_temp_img/"+ savedName + "\"}");
+        System.out.println("리턴값 : "+json.toString());
     
         //json 리턴
         return json.toString();
@@ -99,6 +101,7 @@ public class UploadController {
 	 */
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////
 	
 	
 	
@@ -112,11 +115,11 @@ public class UploadController {
 		String location = "notice_temp_img/";
 		
 		String[] names = uploadImg(fileload.getOriginalFilename(), fileload.getBytes(), req, location);
-		String result = imgJsonReturn(names);
+		String result = imgJsonReturn(names,location);
 		
 		return result;
 		
 	}
-	////////////////////////////////////////////////////////////////////////////////////////////////
+	
 
 }
