@@ -1,6 +1,9 @@
 package com.newvisioneng.service;
 
 
+import java.util.List;
+import java.util.Map;
+
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -9,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.newvisioneng.domain.EmailDTO;
 import com.newvisioneng.domain.NoticeDTO;
@@ -102,9 +106,20 @@ public class SupportServiceImpl implements SupportService {
 	}
 
 	@Override
-	public void noticeRegist(NoticeDTO noticedto) {
+	public void noticeRegist(NoticeDTO noticedto, MultipartFile[] files) {
 		log.info("------regist------");
 		mapper.insertNotice(noticedto);
+		
+		int noticeNum = mapper.getNoticeNum(noticedto.getNoticeWriter());
+		
+		System.out.println("공지사항 number : "+noticeNum);
+		
+		/*List<Map<String, Object>> fileList = fileUtils.parseFileInfo(commandMap.getMap(), files);
+	   
+		for(int i=0; i<fileList.size(); i++) {
+	        mapper.insertFile(fileList.get(i));
+	    }*/
+
 	}
 }
 

@@ -1,7 +1,7 @@
 package com.newvisioneng.controller;
 
 
-import javax.servlet.http.HttpServletRequest;
+import javax.activation.CommandMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.EmailDTO;
@@ -71,38 +71,48 @@ public class SupportController {
 	}
 	//공지사항 글 등록 메소드
 	@PostMapping("/notice_writeOK")
-	public String notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra,Model model, 
-			@RequestParam(value="file", required = false) MultipartFile fileload,HttpServletRequest req) 
-					throws Exception  {
+	public ModelAndView notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra, MultipartFile[] files) throws Exception {
 		
-		
-		/*//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
-		return "redirect:/support/notice";*/
-		
-		System.out.println("넘버 : "+noticedto.getNoticeNum());
+		ModelAndView mav = new ModelAndView("redirect:/support/notice");
+
+		/*System.out.println("넘버 : "+noticedto.getNoticeNum());*/
 		System.out.println("날짜 : "+noticedto.getNoticeDate());
 		System.out.println("제목 : "+noticedto.getNoticeTitle());
 		System.out.println("작성자 : "+noticedto.getNoticeWriter());
 		System.out.println("내용 : "+noticedto.getNoticeContents());
+	
 		
-		service.noticeRegist(noticedto);
+		for(int i=0; i<files.length; i++) {
+            System.out.println("================== file start ==================");
+            System.out.println("파일 이름: "+files[i].getName());
+            System.out.println("파일 실제 이름: "+files[i].getOriginalFilename());
+            System.out.println("파일 크기: "+files[i].getSize());
+            System.out.println("content type: "+files[i].getContentType());
+            System.out.println("================== file   END ==================");
+        }
+		
+		
+		
+		service.noticeRegist(noticedto,files);
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
 		//Model 대신 RedirectAttributes를 사용한다.
-		ra.addFlashAttribute("result", noticedto.getNoticeNum());
-		ra.addFlashAttribute("notice",noticedto);
+		/*ra.addFlashAttribute("result", noticedto.getNoticeNum());
+		ra.addFlashAttribute("notice",noticedto);*/
 		
-		return "redirect:/support/notice_test";
+		
+        return mav;
 	}
+	
 	
 	@GetMapping("/notice_write2")
 	public void notice_write2() {
 		
 	}
-	//test - 공지사항 글 등록 메소드
+	//test - 공지사항 글 등록 메소드 테스트
 	@PostMapping("/notice_write2")
-	public String notice_writeOK2(NoticeDTO noticedto,RedirectAttributes ra) {
-		service.noticeRegist(noticedto);
+	public String notice_writeOK2(NoticeDTO noticedto,RedirectAttributes ra,MultipartFile[] files) throws Exception {
+		service.noticeRegist(noticedto, files);
 		
 		System.out.println("넘버 : "+noticedto.getNoticeNum());
 		System.out.println("날짜 : "+noticedto.getNoticeDate());
@@ -117,6 +127,7 @@ public class SupportController {
 		//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
 		return "redirect:/support/notice";
 	}
+
 	
 	
 	@GetMapping("/notice_test")

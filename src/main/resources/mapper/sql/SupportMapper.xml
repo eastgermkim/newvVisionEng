@@ -7,8 +7,21 @@
 	
 	
 	<insert id="insertNotice">
+	<!-- NOTICENUM은 NULL로 삽입시에 자동으로 1 증가한 값으로 들어간다(auto_increment) -->
 		INSERT INTO NV_NOTICE VALUES(NULL,#{noticeWriter},#{noticeTitle},#{noticeContents},now(),1)
 	</insert>
+	
+	<!-- 파일첨부를 위해, 글을 등록하자마자 그 글의 NOTICENUM을 가져온다-->
+	<select id="getNoticeNum" resultType="_int" parameterType="string">
+		SELECT NOTICENUM FROM NV_NOTICE WHERE NOTICEWRITER=#{noticeWriter} ORDER BY NOTICENUM DESC
+	</select>
+	
+	<!-- 파일등록 -->
+	<insert id="insertFile" parameterType="hashmap">
+        INSERT INTO NV_NOTICE_FILE VALUES
+        (#{SYSTEMNAME},#{ORGNAME},#{NOTICENUM})
+</insert>
+	
 	
 </mapper>
 
