@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -105,16 +106,18 @@ public class UploadController {
 	
 	
 	
-	//공지사항 에디터 내부 이미지 삽입시 
+	//에디터 내부 이미지 삽입시(이미지 임시 저장)
 	@ResponseBody
-	@RequestMapping(value = "/notice_temp_img", method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public String fileUpload(Model model,  
+	@RequestMapping(value = "/temp/{temp_img_folder}", method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public String fileUpload(@PathVariable("temp_img_folder") String temp_img_folder,  
 	        @RequestParam(value="upload", required = false) MultipartFile fileload,
 	        HttpServletRequest req) throws Exception  {
 		
-		String location = "notice_temp_img/";
+		String location = "temp/"+temp_img_folder+"/";
 		
+		//이미지 저장
 		String[] names = uploadImg(fileload.getOriginalFilename(), fileload.getBytes(), req, location);
+		//json값으로 리턴
 		String result = imgJsonReturn(names,location);
 		
 		return result;
