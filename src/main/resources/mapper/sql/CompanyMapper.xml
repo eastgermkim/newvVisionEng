@@ -13,10 +13,26 @@
 	</select>
 	
 
-<!-- 	<insert id="news_insert">
-		INSERT INTO NV_NEWS (NEWSNUM, NEWSWRITER, NEWSTITLE, NEWSCONTENTS, NEWSDATE)
-		VALUES(NEWSNUM, #{newsWriter}, #{newsTitle}, #{newsContent}, now())
-	</insert> -->
-
-
+ 	<insert id="news_register">
+		INSERT INTO NV_NEWS (NEWSWRITER, NEWSTITLE, NEWSCONTENTS, NEWSDATE)
+		VALUES(#{newsWriter}, #{newsTitle}, #{newsContents}, now())
+	</insert>
+	
+	<select id="news_read" resultType="com.newvisioneng.domain.NewsVO">
+		<![CDATA[
+		SELECT * FROM NV_NEWS WHERE NEWSNUM = #{newsNum}
+		]]>
+	</select>
+	
+	<delete id="news_delete">
+		DELETE FROM NV_NEWS WHERE NEWSNUM = #{newsNum}
+	</delete>
+	
+	<update id="update">
+		UPDATE NV_NEWS
+		SET NEWSTITLE = #{newsTitle},
+		NEWSCONTENTS = #{newsContents},
+		NEWSWRITER = #{newsWriter}, 
+		WHERE BNO = #{bno}
+	</update>
 </mapper>

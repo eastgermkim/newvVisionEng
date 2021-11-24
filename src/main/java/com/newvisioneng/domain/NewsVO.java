@@ -1,5 +1,8 @@
 package com.newvisioneng.domain;
 
+import lombok.Data;
+
+@Data
 public class NewsVO {
 	private Long newsNum;
 	private String newsWriter;

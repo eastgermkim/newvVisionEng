@@ -15,13 +15,19 @@ import lombok.extern.log4j.Log4j;
 @Service
 public class CompanyServiceImpl implements CompanyService {
 	
-//	@Setter(onMethod_ = @Autowired)
-//	private CompanyMapper mapper;
-//	
-//	@Override
-//	public List<NewsVO> getNewsList() {
-//		log.info("getlist................" );
-//		return mapper.getNewsList();
-//	}
+	@Setter(onMethod_ = @Autowired)
+	private CompanyMapper mapper;
+	
+	@Override
+	public List<NewsVO> getNewsList() {
+		log.info("getNewsList................" );
+		return mapper.getNewsList();
+	}
+	
+	@Override
+	public void news_register(NewsVO news) {
+		log.info("news_register................" + news);
+		mapper.news_register(news);
+	}
 	
 }
