@@ -43,21 +43,31 @@ public class UploadController {
 	//에디터 안에 삽입된 이미지를 저장하는 함수
 	private String[] uploadImg(String originalName, byte[] fileDate,HttpServletRequest req, String location) throws IOException {
 		logger.info("fileUpload");
-		UUID uid = UUID.randomUUID();
-		String path = req.getServletContext().getRealPath("/")+"resources/files/" + location;
 		
+		String path = req.getServletContext().getRealPath("/")+"resources/files/" + location;
 		System.out.println("저장된 위치 : "+path);
 		
+		File target = new File(path);
+		
+		//파일을 저장할 경로가 존재하지 않으면 폴더를 생성
+		if(!target.exists()) { target.mkdirs();}
+
+		//겹쳐지지 않는 파일명을 위한 유니크한 값 생성
+		UUID uid = UUID.randomUUID();
+		//DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
 		String savedName = uid.toString() + "_" + originalName;
-		File target = new File(path, savedName);
 		
+        //uploadPath 폴더 경로의 saveFileName이라는 파일에 대한 file 객체 생성
+        //서버에 실제 파일을 저장한다. (임시디렉토리에 업로드)
+        target = new File(path, savedName);
+        
 		//org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
-		FileCopyUtils.copy(fileDate, target);
-		
+        //임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
+        FileCopyUtils.copy(fileDate, target);
 		
 		String[] names = {originalName,savedName};
-		return names;
 		
+		return names;
 	}
 	
 	//저장한 이미지를 json으로 리턴하는 함수

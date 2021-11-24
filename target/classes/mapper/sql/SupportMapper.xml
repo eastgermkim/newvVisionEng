@@ -20,7 +20,12 @@
 	<insert id="insertNoticeFile" parameterType="hashmap">
         INSERT INTO NV_NOTICE_FILE VALUES
         (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
-</insert>
+	</insert>
+	
+	<!-- 공지사항 글 조회 -->
+	<select id="read" resultType="com.newvisioneng.domain.NoticeDTO">
+		SELECT * FROM NV_NOTICE WHERE NOTICENUM=#{noticeNum}	
+	</select>
 	
 	
 </mapper>

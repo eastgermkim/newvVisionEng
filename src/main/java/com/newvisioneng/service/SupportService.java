@@ -11,5 +11,7 @@ public interface SupportService {
 
 	public void sendMail(EmailDTO dto);
 
-	public void noticeRegist(NoticeDTO noticedto,MultipartFile[] file,HttpServletRequest req) throws Exception;
+	public long noticeRegist(NoticeDTO noticedto,MultipartFile[] file,HttpServletRequest req) throws Exception;
+
+	public NoticeDTO noticeGet(Long noticeNum);
 }

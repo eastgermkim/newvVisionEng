@@ -177,7 +177,7 @@ u {
 
 	<div class="container board">
 		<form method="post" action="/support/notice_write" enctype="multipart/form-data">
-			noticeNum : ${noticeNum}
+			noticeNum : ${notice.noticeNum}
 			<table>
 				<thead>
 					<!-- 데스크탑 -->

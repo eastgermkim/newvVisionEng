@@ -166,9 +166,6 @@ a:active{
 		<div>
         	<a href="/support/notice_write" class="genric-btn primary-border circle">글 작성하기</a>
         </div>
-		<div>
-        	<a href="/support/notice_write2" class="genric-btn primary-border circle">MariaDB Test</a>
-        </div>
 		
 <!-- 임시 게시판(디자인 확인용) -->
 	<!-- 임시 데스크탑+모바일 -->

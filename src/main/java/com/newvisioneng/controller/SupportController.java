@@ -44,11 +44,11 @@ public class SupportController {
 	//공지사항 게시글 하나 클릭시
 	@GetMapping("/notice/{noticeNum}")
 	public String notice_detail(@PathVariable("noticeNum") Long noticeNum,Model model) {
-		model.addAttribute("noticeNum",noticeNum);
-		System.out.println("11111111111");
+		NoticeDTO notice = service.noticeGet(noticeNum);
+		model.addAttribute("notice",notice);
 		return "/support/notice_detail";
 	}
-	//그때 페이지 열리자마자 자바스크립트로 
+	/*//그때 페이지 열리자마자 자바스크립트로 
 	@GetMapping(value="/notice/get/{noticeNum}",produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<NoticeDTO> notice_detail(@PathVariable("noticeNum") Long noticeNum){
 	
@@ -64,7 +64,7 @@ public class SupportController {
 		System.out.println(noticeDto);
 		
 		return new ResponseEntity<>(noticeDto,HttpStatus.OK);
-	}
+	}*/
 	//공지사항 글 등록 view단으로 이동하는 요청
 	@GetMapping("/notice_write")
 	public void notice_write() {
@@ -74,21 +74,23 @@ public class SupportController {
 	@PostMapping("/notice_writeOK")
 	public ModelAndView notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
-		ModelAndView mav = new ModelAndView("redirect:/support/notice");
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("날짜 : ");
 		System.out.println("제목 : "+noticedto.getNoticeTitle());
 		System.out.println("작성자 : "+noticedto.getNoticeWriter());
 		System.out.println("내용 : "+noticedto.getNoticeContents());
 
-		service.noticeRegist(noticedto,file,req);
+		long noticenum = service.noticeRegist(noticedto,file,req);
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
 		//Model 대신 RedirectAttributes를 사용한다.
-		/*ra.addFlashAttribute("result", noticedto.getNoticeNum());
-		ra.addFlashAttribute("notice",noticedto);*/
 		
+/*		//등록한 글의 notice 들고 가자
+		ra.addFlashAttribute("notice",noticedto);
+		ra.addFlashAttribute("noticenum",noticenum);*/
 		
+		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
         return mav;
 	}
 	
