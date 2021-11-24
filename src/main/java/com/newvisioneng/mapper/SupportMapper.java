@@ -8,8 +8,8 @@ public interface SupportMapper {
 
 	void insertNotice(NoticeDTO noticedto);
 
-	int getNoticeNum(String noticeWriter);
+	long getNoticeNum(String noticeWriter);
 
-	void insertFile(Map<String, Object> map);
+	void insertNoticeFile(Map<String, Object> map);
 
 }

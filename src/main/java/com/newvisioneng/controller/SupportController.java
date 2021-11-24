@@ -2,6 +2,7 @@ package com.newvisioneng.controller;
 
 
 import javax.activation.CommandMap;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -71,29 +72,16 @@ public class SupportController {
 	}
 	//공지사항 글 등록 메소드
 	@PostMapping("/notice_writeOK")
-	public ModelAndView notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra, MultipartFile[] files) throws Exception {
+	public ModelAndView notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
 		ModelAndView mav = new ModelAndView("redirect:/support/notice");
 
-		/*System.out.println("넘버 : "+noticedto.getNoticeNum());*/
-		System.out.println("날짜 : "+noticedto.getNoticeDate());
+		System.out.println("날짜 : ");
 		System.out.println("제목 : "+noticedto.getNoticeTitle());
 		System.out.println("작성자 : "+noticedto.getNoticeWriter());
 		System.out.println("내용 : "+noticedto.getNoticeContents());
-	
-		
-		for(int i=0; i<files.length; i++) {
-            System.out.println("================== file start ==================");
-            System.out.println("파일 이름: "+files[i].getName());
-            System.out.println("파일 실제 이름: "+files[i].getOriginalFilename());
-            System.out.println("파일 크기: "+files[i].getSize());
-            System.out.println("content type: "+files[i].getContentType());
-            System.out.println("================== file   END ==================");
-        }
-		
-		
-		
-		service.noticeRegist(noticedto,files);
+
+		service.noticeRegist(noticedto,file,req);
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
 		//Model 대신 RedirectAttributes를 사용한다.
@@ -105,7 +93,7 @@ public class SupportController {
 	}
 	
 	
-	@GetMapping("/notice_write2")
+/*	@GetMapping("/notice_write2")
 	public void notice_write2() {
 		
 	}
@@ -126,7 +114,7 @@ public class SupportController {
 		
 		//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
 		return "redirect:/support/notice";
-	}
+	}*/
 
 	
 	

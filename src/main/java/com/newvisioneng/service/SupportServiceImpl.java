@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.newvisioneng.domain.EmailDTO;
 import com.newvisioneng.domain.NoticeDTO;
 import com.newvisioneng.mapper.SupportMapper;
+import com.newvisioneng.util.FileUtils;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -106,19 +108,31 @@ public class SupportServiceImpl implements SupportService {
 	}
 
 	@Override
-	public void noticeRegist(NoticeDTO noticedto, MultipartFile[] files) {
+	public void noticeRegist(NoticeDTO noticedto, MultipartFile[] file, HttpServletRequest req) throws Exception{
 		log.info("------regist------");
+		
+		//게시글 등록
 		mapper.insertNotice(noticedto);
 		
-		int noticeNum = mapper.getNoticeNum(noticedto.getNoticeWriter());
+		//등록한 게시글의 noticeNum 가져오기
+		long noticeNum = mapper.getNoticeNum(noticedto.getNoticeWriter());
+		System.out.println("noticeNum........................."+noticeNum);
+
+		//파일 업로드 path
+		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"notice_files/";
+		System.out.println("파일저장경로........................."+uploadPath);
 		
-		System.out.println("공지사항 number : "+noticeNum);
-		
-		/*List<Map<String, Object>> fileList = fileUtils.parseFileInfo(commandMap.getMap(), files);
+
+		//파일정보 담기(저장경로,파일,글번호)
+		List<Map<String, Object>> fileList = FileUtils.parseFileInfo(uploadPath,file,noticeNum);
 	   
+		
+		
+		//파일DB에 넣어주기
 		for(int i=0; i<fileList.size(); i++) {
-	        mapper.insertFile(fileList.get(i));
-	    }*/
+	        mapper.insertNoticeFile(fileList.get(i));
+	        System.out.println("저장된 파일 이름 : "+fileList.get(i).get("SYSTEMNAME"));
+	    }
 
 	}
 }

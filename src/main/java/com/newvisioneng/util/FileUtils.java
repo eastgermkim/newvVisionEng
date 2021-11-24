@@ -16,14 +16,8 @@ import lombok.extern.java.Log;
 
 @Component("fileUtils")
 public class FileUtils {
-    
-/*    @Resource(name="uploadPath")
-    String uploadPath;*/
  
-    public List<Map<String, Object>> parseFileInfo(Map<String, Object> map, MultipartFile[] file,String uploadPath ) throws Exception {
-        
-        String boardIDX = String.valueOf(map.get("idx"));
-        String creaID = (String) map.get("crea_id");
+    public static List<Map<String, Object>> parseFileInfo( String uploadPath , MultipartFile[] file , long boardnum ) throws Exception {
         
         List<Map<String, Object>> fileList = new ArrayList<Map<String, Object>>();
  
@@ -49,11 +43,10 @@ public class FileUtils {
             
             Map<String, Object> fileInfo = new HashMap<String, Object>();
  
-            fileInfo.put("BOARD_IDX", boardIDX);
-            fileInfo.put("ORG_FILE_NAME", orgFileName);
-            fileInfo.put("SAVE_FILE_NAME", saveFileName);
+            fileInfo.put("ORGNAME", orgFileName);
+            fileInfo.put("SYSTEMNAME", saveFileName);
             fileInfo.put("FILE_SIZE", saveFileSize);
-            fileInfo.put("CREA_ID", creaID);
+            fileInfo.put("BOARDNUM", boardnum);
             fileList.add(fileInfo);
             
         }

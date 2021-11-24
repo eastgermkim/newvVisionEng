@@ -12,14 +12,14 @@
 	</insert>
 	
 	<!-- 파일첨부를 위해, 글을 등록하자마자 그 글의 NOTICENUM을 가져온다-->
-	<select id="getNoticeNum" resultType="_int" parameterType="string">
+	<select id="getNoticeNum" resultType="_long" parameterType="string">
 		SELECT NOTICENUM FROM NV_NOTICE WHERE NOTICEWRITER=#{noticeWriter} ORDER BY NOTICENUM DESC
 	</select>
 	
 	<!-- 파일등록 -->
-	<insert id="insertFile" parameterType="hashmap">
+	<insert id="insertNoticeFile" parameterType="hashmap">
         INSERT INTO NV_NOTICE_FILE VALUES
-        (#{SYSTEMNAME},#{ORGNAME},#{NOTICENUM})
+        (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
 </insert>
 	
 	
