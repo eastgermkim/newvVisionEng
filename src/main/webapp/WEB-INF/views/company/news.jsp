@@ -103,6 +103,11 @@
 	<!-- 본문 내용  -->
 	<section style="margin-bottom:20%;">
 		<div class="container">
+			<div>
+	        	<a href="/company/news_write" class="genric-btn primary-border circle">글 작성하기</a>
+	        </div>
+	        <br>
+	        
 			<ul class="crawling-lists">
 				<li class="crawling-list">
 					<a class="list-inner-wrap">

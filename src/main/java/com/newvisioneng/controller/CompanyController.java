@@ -39,6 +39,12 @@ public class CompanyController {
 		
 	}
 	
+	//언론보도 페이지 글 등록 view단으로 이동하는 요청
+	@GetMapping("/news_write")
+	public void news_write() {
+		
+	}
+	
 	//찾아오시는길 페이지로 연결
 	@GetMapping("/location")
 	public void location() {
