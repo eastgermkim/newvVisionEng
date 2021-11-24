@@ -30,4 +30,21 @@ public class CompanyServiceImpl implements CompanyService {
 		mapper.news_register(news);
 	}
 	
+	@Override
+	public NewsVO news_get(Long newsNum) {
+		log.info("get..........." + newsNum);
+		return mapper.news_read(newsNum);
+	}
+	
+	@Override
+	public boolean news_modify(NewsVO news) {
+		log.info("modify..........." + news);
+		return mapper.news_update(news) == 1;
+	}
+	
+	@Override
+	public boolean news_remove(Long newsNum) {
+		log.info("remove..........." + newsNum);
+		return mapper.news_delete(newsNum) == 1;
+	}
 }

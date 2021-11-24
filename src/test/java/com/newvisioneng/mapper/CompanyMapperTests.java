@@ -55,19 +55,20 @@ public class CompanyMapperTests {
 //		}
 //	}
 	
-	@Test
-	public void testUpdate() {
-		Long bno = 1L;
-		if(mapper.news_read(bno) != null) {
-			NewsVO news = new NewsVO();
-			news.setNewsNum(3L);
-			news.setNewsTitle("수정된 제목2");
-			news.setNewsContents("수정된 내용2");
-			news.setNewsWriter("user12345");
-			
-			log.info("UPDATE COUNT:" + mapper.update(news));
-		}else {
-			log.info("게시글이 없습니다.");
-		}
-	}
+	//DB에서 특정 뉴스 수정하기
+//	@Test
+//	public void testUpdate() {
+//		Long bno = 2L;
+//		if(mapper.news_read(bno) != null) {
+//			NewsVO news = new NewsVO();
+//			news.setNewsNum(bno);
+//			news.setNewsTitle("수정된 제목2");
+//			news.setNewsContents("수정된 내용2");
+//			news.setNewsWriter("user12345");
+//			
+//			log.info("UPDATE COUNT:" + mapper.news_update(news));
+//		}else {
+//			log.info("게시글이 없습니다.");
+//		}
+//	}
 }

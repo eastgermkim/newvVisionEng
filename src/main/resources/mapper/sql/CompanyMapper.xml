@@ -28,11 +28,9 @@
 		DELETE FROM NV_NEWS WHERE NEWSNUM = #{newsNum}
 	</delete>
 	
-	<update id="update">
+	<update id="news_update">
 		UPDATE NV_NEWS
-		SET NEWSTITLE = #{newsTitle},
-		NEWSCONTENTS = #{newsContents},
-		NEWSWRITER = #{newsWriter}, 
-		WHERE BNO = #{bno}
+		SET NEWSTITLE = #{newsTitle}, NEWSCONTENTS = #{newsContents}, NEWSWRITER = #{newsWriter}
+		WHERE NEWSNUM = #{newsNum}
 	</update>
 </mapper>
