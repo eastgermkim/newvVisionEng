@@ -21,5 +21,5 @@ public interface CompanyMapper {
 	public int news_delete(Long nesNum);
 	
 	//특정 뉴스 수정
-	public int update(NewsVO news);
+	public int news_update(NewsVO news);
 }
