@@ -23,10 +23,14 @@
 	</insert>
 	
 	<!-- 공지사항 글 조회 -->
-	<select id="read" resultType="com.newvisioneng.domain.NoticeDTO">
-		SELECT * FROM NV_NOTICE WHERE NOTICENUM=#{noticeNum}	
+	<select id="readNotice" resultType="com.newvisioneng.domain.NoticeDTO">
+		SELECT * FROM NV_NOTICE WHERE NOTICENUM = #{noticeNum}	
 	</select>
 	
+	<!-- 공지사항 글 조회시 파일도 함께 -->
+	<select id="readNoticeFile" parameterType="_long" resultType="hashMap">
+        SELECT * FROM NV_NOTICE_FILE WHERE NOTICENUM = #{noticeNum}
+	</select>
 	
 </mapper>
 

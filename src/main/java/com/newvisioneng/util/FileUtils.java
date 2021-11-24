@@ -21,19 +21,24 @@ public class FileUtils {
  
 	//게시판에 파일 첨부하여 글 작성시 업로드 된 파일을 로컬 저장소에 저장후 파일 정보를 담아 리턴해주는 함수
     public static List<Map<String, Object>> parseFileInfo( String uploadPath , MultipartFile[] file , long boardnum ) throws Exception {
-    	
+    	System.out.println("1");
     	List<Map<String, Object>> fileList = new ArrayList<Map<String, Object>>();
  
+    	System.out.println("2");
         File target = new File(uploadPath);
         
+        System.out.println("3");
         //파일을 저장할 경로가 존재하지 않으면 폴더를 생성
         if(!target.exists()) { target.mkdirs();}
         
+        System.out.println("4");
         //겹쳐지지 않는 파일명을 위한 유니크한 값 생성
         UUID uid = UUID.randomUUID();
         
+        System.out.println("5");
         for(int i=0; i<file.length; i++) {
         	
+        	System.out.println("6");
         	//파일 원래 이름
             String orgFileName = file[i].getOriginalFilename();
             //DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
@@ -68,6 +73,7 @@ public class FileUtils {
             fileList.add(fileInfo);
             
         }
+        System.out.println("7");
         //파일들의 정보가 담긴 fileList를 반환한다.
         return fileList;
     }

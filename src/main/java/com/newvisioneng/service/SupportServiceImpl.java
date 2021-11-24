@@ -138,7 +138,12 @@ public class SupportServiceImpl implements SupportService {
 	@Override
 	public NoticeDTO noticeGet(Long noticeNum) {
 		log.info("------get------");
-		return mapper.read(noticeNum);
+		return mapper.readNotice(noticeNum);
+	}
+
+	@Override
+	public List<Map<String, Object>> readNoticeFile(Long noticeNum) throws Exception {
+		return mapper.readNoticeFile(noticeNum);
 	}
 }
 

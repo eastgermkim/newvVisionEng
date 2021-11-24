@@ -193,33 +193,41 @@ u {
 						<th><input class="single-input" name="noticeWriter"
 							type="text" value="${notice.noticeWriter}" readonly></th>
 					</tr>
-					<!-- <tr>
-						<th><h4 style="margin-bottom: 0;">파일첨부</h4></th>
-						<th><input type="file"></th>
-					</tr> -->
+					<tr>
+						<th><h4 style="margin-bottom: 0;">첨부 파일</h4></th>
+						<th>
+						<c:forEach var="file" items="${file}">
+							<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;">${file.ORGNAME}</a><br>
+						</c:forEach>
+						</th>
+					</tr>
+					
+					
 				</tbody>
 			</table>
 			<div id="editor" rows="5" name="noticeContents"-
 				style="display: none;" readonly>${notice.noticeContents}</div>
-				
-				
-				<!-- DB에서 가지고 올때 변환??? --> 
-					<!--<div id="contents"></div>
-							<script>
-								var tmpCont = "${notice.noticeContents}";
-								tmpCont = tmpCont.replaceAll("&lt;","<");
-								tmpCont = tmpCont.replaceAll("&gt;",">");
-								tmpCont = tmpCont.replaceAll("&amp;lt;","<");
-								tmpCont = tmpCont.replaceAll("&amp;gt;",">");
-								tmpCont = tmpCont.replaceAll("&amp;nbsp;"," ");
-								tmpCont = tmpCont.replaceAll("&amp;amp;","&");
-								document.getElementById('contents').innerHTML=tmpCont
-								
-							</script> -->
 		</form>
+		
+				<form name="readForm" role="form" method="post">
+					<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
+					<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
+				</form>
+				
  </div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+
+	<script>
+	function fn_fileDown(SYSTEMNAME,ORGNAME){
+		var formObj = $("form[name='readForm']");
+		$("#FILE_SYSTEMNAME").attr("value", SYSTEMNAME);
+		$("#FILE_ORGNAME").attr("value", ORGNAME);
+		formObj.attr("action", "/support/noticeFiledown");
+		formObj.submit();
+	}
+	
+	</script>
 
 	<script>
 	ClassicEditor
