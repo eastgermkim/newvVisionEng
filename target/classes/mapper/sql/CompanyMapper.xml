@@ -16,6 +16,9 @@
  	<insert id="news_register">
 		INSERT INTO NV_NEWS (NEWSTITLE, NEWSSUBTITLE, NEWSLINK, NEWSWRITER,  NEWSCONTENTS, NEWSDATE, NEWSWRITEDATE)
 		VALUES(#{newsTitle}, #{newsSubTitle}, #{newsLink}, #{newsWriter}, #{newsContents}, #{newsDate}, now())
+		<selectKey keyProperty="newsNum" resultType="_long">
+        SELECT LAST_INSERT_ID()
+   		</selectKey>
 	</insert>
 	
 	<select id="news_read" resultType="com.newvisioneng.domain.NewsVO">
