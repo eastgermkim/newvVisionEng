@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page session="false"%>
 
 <!DOCTYPE html>
@@ -182,29 +183,37 @@ u {
 				<thead>
 					<!-- 데스크탑 -->
 					<tr>
-						<th><h4 style="margin-bottom: 0;">제목</h4></th>
+						<th class="big-width-table"><span>제목</span></th>
 						<th><input class="single-input" name="noticeTitle"
 							type="text" value="${notice.noticeTitle}" readonly></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th><h4 style="margin-bottom: 0;">작성자</h4></th>
+						<th class="big-width-table"><span>작성자</span></th>
 						<th><input class="single-input" name="noticeWriter"
 							type="text" value="${notice.noticeWriter}" readonly></th>
 					</tr>
 					<tr>
-						<th><h4 style="margin-bottom: 0;">첨부 파일</h4></th>
-						<th>
-						<c:forEach var="file" items="${file}">
-							<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;">${file.ORGNAME}</a><br>
-						</c:forEach>
+						<th class="big-width-table"><span>첨부파일</span></th>
+						<th style="text-align:left;">
+							<div style="padding: 0 20px;">
+							<c:choose>
+								<c:when test="${file != null and fn:length(file)>0 }">
+									<c:forEach var="file" items="${file}">
+										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a><br>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
+								</c:otherwise>
+							</c:choose>
+							</div>
 						</th>
 					</tr>
-					
-					
 				</tbody>
 			</table>
+			
 			<div id="editor" rows="5" name="noticeContents"-
 				style="display: none;" readonly>${notice.noticeContents}</div>
 		</form>
