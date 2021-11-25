@@ -48,7 +48,7 @@ public class CompanyController {
 		model.addAttribute("news_list", service.getNewsList());
 	}
 	
-	//공지사항 게시글 하나 클릭시
+	//보도현황 게시글 하나 클릭시
 	@GetMapping("/news/{newsNum}")
 	public String notice_detail(@PathVariable("newsNum") Long newsNum,Model model) {
 		NewsVO news = service.news_get(newsNum);

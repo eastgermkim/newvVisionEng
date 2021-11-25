@@ -140,7 +140,7 @@
 							<a class="list-inner-wrap">
 								<div class="text-wrap">
 								<h3 class="news-title">${news.newsTitle}</h3>
-								<h3 class="news-contents">${news.newsContents}</h3>
+								<h3 class="news-contents">${news.newsSubTitle}</h3>
 								<h3 class="news-dates">${news.newsDate}</h3>
 								</div>
 							</a>

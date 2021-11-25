@@ -14,8 +14,8 @@
 	
 
  	<insert id="news_register">
-		INSERT INTO NV_NEWS (NEWSWRITER, NEWSTITLE, NEWSCONTENTS, NEWSDATE)
-		VALUES(#{newsWriter}, #{newsTitle}, #{newsContents}, now())
+		INSERT INTO NV_NEWS (NEWSTITLE, NEWSSUBTITLE, NEWSLINK, NEWSWRITER,  NEWSCONTENTS, NEWSDATE, NEWSWRITEDATE)
+		VALUES(#{newsTitle}, #{newsSubTitle}, #{newsLink}, #{newsWriter}, #{newsContents}, #{newsDate}, now())
 	</insert>
 	
 	<select id="news_read" resultType="com.newvisioneng.domain.NewsVO">

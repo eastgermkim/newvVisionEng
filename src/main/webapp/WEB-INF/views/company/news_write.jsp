@@ -198,9 +198,7 @@ u {
 
 
 	<div class="container board">
-		<form method="post" action="/company/news_writeOK"
-			enctype="multipart/form-data">
-
+		<form method="post" action="/company/news_writeOK" enctype="multipart/form-data">
 			<table>
 				<thead>
 					<tr>
@@ -215,6 +213,10 @@ u {
 						<th class="big-width-table"><span>기사 날짜</span></th>
 						<th><input class="single-input" name="newsDate" type="text" placeholder="기사 날짜 입력(ex.OOOO-OO-OO / 년-월-일)"></th>
 					</tr>
+					<tr>
+						<th class="big-width-table"><span>기사 링크</span></th>
+						<th><input class="single-input" name="newsDate" type="text" placeholder="기사 링크가 없으면 비워주세요"></th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -223,14 +225,14 @@ u {
 							type="text" placeholder="작성자를 입력하세요(ex. 관리자)"></th>
 					</tr>
 					<tr>
-						<th class="big-width-table"><span>파일첨부</span></th>
+						<th class="big-width-table"><span>파일첨부</span>
+						<br>
+							<a href="#this" onclick="addFile()" style="color:#f36d20;">+ 	파일 추가</a>
+						</th>
 						<th>
 							<div class="form-group" id="file-list">
-								<a href="#this" onclick="addFile()" style="float: left;">+ 	파일 추가</a>
-								<br>
 								<div class="file-group" style="text-align: left;">
-									<input type="file" name="file"><a href='#this'
-										name='file-delete' style='color: red;'>삭제</a>
+									<input type="file" name="file"><a href='#this' name='file-delete' style='color: red;'>삭제</a>
 								</div>
 							</div>
 						</th>
@@ -238,8 +240,7 @@ u {
 					</tr>
 				</tbody>
 			</table>
-			<textarea id="editor" rows="5" name="newsContents"
-				placeholder="내용을 입력하세요" style="display: none;"></textarea>
+			<textarea id="editor" rows="5" name="newsContents" placeholder="내용을 입력하세요" style="display: none;"></textarea>
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
 				<input type="submit" value="등록" class="genric-btn primary circle"

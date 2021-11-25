@@ -5,9 +5,11 @@ import lombok.Data;
 @Data
 public class NewsVO {
 	private Long newsNum;
-	private String newsWriter;
 	private String newsTitle;
-	private String newsDate;
+	private String newsSubTitle;
+	private String newsLink;
+	private String newsWriter;
 	private String newsContents;
-	private Long readcount;
+	private String newsDate;
+	private String newsWriteDate;
 }
