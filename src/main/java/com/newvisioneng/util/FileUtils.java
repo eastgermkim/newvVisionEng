@@ -36,6 +36,8 @@ public class FileUtils {
         UUID uid = UUID.randomUUID();
         
         System.out.println("5");
+        
+        System.out.println("file.length................."+file.length);
         for(int i=0; i<file.length; i++) {
         	
         	System.out.println("6");

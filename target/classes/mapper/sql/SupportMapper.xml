@@ -5,18 +5,20 @@
   <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
 <mapper namespace="com.newvisioneng.mapper.SupportMapper">
 	
-	
-	<insert id="insertNotice">
-	<!-- NOTICENUM은 NULL로 삽입시에 자동으로 1 증가한 값으로 들어간다(auto_increment) -->
+	<!-- 공지사항 글 등록 -->
+	<insert id="insertNotice" parameterType="com.newvisioneng.domain.NoticeDTO">
+		<!-- NOTICENUM은 NULL로 삽입시에 자동으로 1 증가한 값으로 들어간다(auto_increment) -->
+		<![CDATA[
 		INSERT INTO NV_NOTICE VALUES(NULL,#{noticeWriter},#{noticeTitle},#{noticeContents},now(),1)
+		]]>
+		
+		<!-- insert한 PK값을 바로 가져와서 null이었던 NoticeDTO의 noticeNum에 담아준다-->
+		<selectKey keyProperty="noticeNum" resultType="_long">
+        SELECT LAST_INSERT_ID()
+   		</selectKey>
 	</insert>
 	
-	<!-- 파일첨부를 위해, 글을 등록하자마자 그 글의 NOTICENUM을 가져온다-->
-	<select id="getNoticeNum" resultType="_long" parameterType="string">
-		SELECT NOTICENUM FROM NV_NOTICE WHERE NOTICEWRITER=#{noticeWriter} ORDER BY NOTICENUM DESC
-	</select>
-	
-	<!-- 파일등록 -->
+	<!-- 공지사항 파일 등록 -->
 	<insert id="insertNoticeFile" parameterType="hashmap">
         INSERT INTO NV_NOTICE_FILE VALUES
         (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})

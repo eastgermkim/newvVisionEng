@@ -7,11 +7,10 @@ import com.newvisioneng.domain.NoticeDTO;
 
 public interface SupportMapper {
 
- void insertNotice(NoticeDTO noticedto);
- long getNoticeNum(String noticeWriter);
- void insertNoticeFile(Map<String, Object> map);
+ public void insertNotice(NoticeDTO noticedto);
+ public void insertNoticeFile(Map<String, Object> map);
 
- NoticeDTO readNotice(Long noticeNum);
- List<Map<String, Object>> readNoticeFile(Long noticeNum) throws Exception;
+ public NoticeDTO readNotice(Long noticeNum);
+ public List<Map<String, Object>> readNoticeFile(Long noticeNum) throws Exception;
 	
 }

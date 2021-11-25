@@ -110,13 +110,13 @@ public class SupportServiceImpl implements SupportService {
 	@Override
 	public long noticeRegist(NoticeDTO noticedto, MultipartFile[] file, HttpServletRequest req) throws Exception{
 		log.info("------regist------");
-		
+		System.out.println("DB에 글 등록 전 noticeNum..................."+noticedto.getNoticeNum());
 		//게시글 등록
 		mapper.insertNotice(noticedto);
 		
 		//등록한 게시글의 noticeNum 가져오기
-		long noticeNum = mapper.getNoticeNum(noticedto.getNoticeWriter());
-		System.out.println("noticeNum........................."+noticeNum);
+		long noticeNum = noticedto.getNoticeNum();
+		System.out.println("DB에 글 등록 후 noticeNum..................."+noticeNum);
 
 		//파일 업로드할 저장경로
 		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"notice_files/";
@@ -126,6 +126,7 @@ public class SupportServiceImpl implements SupportService {
 		List<Map<String, Object>> fileList = FileUtils.parseFileInfo(uploadPath,file,noticeNum);
 		
 		//파일DB에 파일정보 넣어주기
+		System.out.println("첨부되는 파일 개수.................."+fileList.size());
 		for(int i=0; i<fileList.size(); i++) {
 	        mapper.insertNoticeFile(fileList.get(i));
 	        System.out.println("저장된 파일 이름 : "+fileList.get(i).get("SYSTEMNAME"));

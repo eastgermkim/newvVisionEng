@@ -61,50 +61,33 @@ public class SupportController {
 		return "/support/notice_detail";
 	}
 	//공지사항 게시글 파일 다운로드시
-/*		@PostMapping("/noticeFiledown")
-		public void download(HttpServletRequest req, HttpServletResponse response, 
-				@RequestParam(value="FILE_SYSTEMNAME") String systemName,  
-				@RequestParam(value="FILE_ORGNAME") String orgName) 
-			throws Exception {
-				System.out.println("파일 저장 시작..................");
-				System.out.println("업로드 된 이름 : "+systemName);
-				System.out.println("원래이름 : "+orgName);
-				System.out.println("==========================================");
-			
-	        	String location = "notice_files/"+systemName;
-	        	String path = req.getServletContext().getRealPath("/")+"resources/files/" + location; 
-	        	// 경로에 접근할 때 역슬래시('\') 사용
-	        	
-	        	File file = new File(path);
-	        	response.setHeader("Content-Disposition", "attachment;filename=" + orgName); // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
-	        	
-	        	FileInputStream fileInputStream = new FileInputStream(path); // 파일 읽어오기 
-	        	OutputStream out = response.getOutputStream();
-	        	
-	        	int read = 0;
-	                byte[] buffer = new byte[1024];
-	                while ((read = fileInputStream.read(buffer)) != -1) { // 1024바이트씩 계속 읽으면서 outputStream에 저장, -1이 나오면 더이상 읽을 파일이 없음
-	                    out.write(buffer, 0, read);
-	                }
-	    }*/
-	
-	/*//그때 페이지 열리자마자 자바스크립트로 
-	@GetMapping(value="/notice/get/{noticeNum}",produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<NoticeDTO> notice_detail(@PathVariable("noticeNum") Long noticeNum){
-	
-		//임시 Test용으로 일단 DTO 수동으로 작성
-		NoticeDTO noticeDto = new NoticeDTO();
-		noticeDto.setNoticeNum(noticeNum);
-		noticeDto.setNoticeDate("2021.11.04");
-		noticeDto.setNoticeTitle("제일 최근 공지사항 게시물이 가장 위에 오도록");
-		noticeDto.setNoticeWriter("관리자");
-		noticeDto.setNoticeContents("첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 첫번째 공지사항의 내용 ");
+	@PostMapping("/noticeFiledown")
+	public void download(HttpServletRequest req, HttpServletResponse response, 
+			@RequestParam(value="FILE_SYSTEMNAME") String systemName,  
+			@RequestParam(value="FILE_ORGNAME") String orgName) 
+		throws Exception {
+			System.out.println("파일 저장 시작..................");
+			System.out.println("업로드 된 이름 : "+systemName);
+			System.out.println("원래이름 : "+orgName);
+			System.out.println("==========================================");
 		
-		System.out.println("2222222222");
-		System.out.println(noticeDto);
-		
-		return new ResponseEntity<>(noticeDto,HttpStatus.OK);
-	}*/
+        	String location = "notice_files/"+systemName;
+        	String path = req.getServletContext().getRealPath("/")+"resources/files/" + location; 
+        	// 경로에 접근할 때 역슬래시('\') 사용
+        	
+        	File file = new File(path);
+        	response.setHeader("Content-Disposition", "attachment;filename=" + orgName); // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
+        	
+        	FileInputStream fileInputStream = new FileInputStream(path); // 파일 읽어오기 
+        	OutputStream out = response.getOutputStream();
+        	
+        	int read = 0;
+                byte[] buffer = new byte[1024];
+                while ((read = fileInputStream.read(buffer)) != -1) { // 1024바이트씩 계속 읽으면서 outputStream에 저장, -1이 나오면 더이상 읽을 파일이 없음
+                    out.write(buffer, 0, read);
+                }
+    }
+	
 	//공지사항 글 등록 view단으로 이동하는 요청
 	@GetMapping("/notice_write")
 	public void notice_write() {
@@ -122,48 +105,14 @@ public class SupportController {
 		System.out.println("내용 : "+noticedto.getNoticeContents());
 
 		long noticenum = service.noticeRegist(noticedto,file,req);
-		System.out.println("뭐냐고요");
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
 		//Model 대신 RedirectAttributes를 사용한다.
-		
-/*		//등록한 글의 notice 들고 가자
-		ra.addFlashAttribute("notice",noticedto);
+/*		ra.addFlashAttribute("notice",noticedto);
 		ra.addFlashAttribute("noticenum",noticenum);*/
 		
 		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
         return mav;
-	}
-	
-	
-/*	@GetMapping("/notice_write2")
-	public void notice_write2() {
-		
-	}
-	//test - 공지사항 글 등록 메소드 테스트
-	@PostMapping("/notice_write2")
-	public String notice_writeOK2(NoticeDTO noticedto,RedirectAttributes ra,MultipartFile[] files) throws Exception {
-		service.noticeRegist(noticedto, files);
-		
-		System.out.println("넘버 : "+noticedto.getNoticeNum());
-		System.out.println("날짜 : "+noticedto.getNoticeDate());
-		System.out.println("제목 : "+noticedto.getNoticeTitle());
-		System.out.println("작성자 : "+noticedto.getNoticeWriter());
-		System.out.println("내용 : "+noticedto.getNoticeContents());
-		
-		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
-		//Model 대신 RedirectAttributes를 사용한다.
-		ra.addFlashAttribute("notice",noticedto);
-		
-		//redirect: 접두어를 사용하면 스프링 MVC가 자동으로 redirect로 처리해준다.
-		return "redirect:/support/notice";
-	}*/
-
-	
-	
-	@GetMapping("/notice_test")
-	public void notice_test() {
-		
 	}
 	
 	
