@@ -3,6 +3,7 @@ package com.newvisioneng.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,25 +27,18 @@ public class FileUtils {
  
 	//게시판에 파일 첨부하여 글 작성시 업로드 된 파일을 로컬 저장소에 저장후 파일 정보를 담아 리턴해주는 함수
     public static List<Map<String, Object>> parseFileInfo( String uploadPath , MultipartFile[] file , long boardnum ) throws Exception {
-    	System.out.println("1");
+    	
     	List<Map<String, Object>> fileList = new ArrayList<Map<String, Object>>();
  
-    	System.out.println("2");
         File target = new File(uploadPath);
         
-        System.out.println("3");
         //파일을 저장할 경로가 존재하지 않으면 폴더를 생성
         if(!target.exists()) { target.mkdirs();}
         
-        System.out.println("4");
         //겹쳐지지 않는 파일명을 위한 유니크한 값 생성
         UUID uid = UUID.randomUUID();
         
-        System.out.println("5");
-        
         for(int i=0; i<file.length; i++) {
-        	System.out.println("6");
-        	
         	//파일이 비어있지 않을때 진행
         	if(!file[i].isEmpty()) {
 	        	//파일 원래 이름
@@ -81,7 +75,6 @@ public class FileUtils {
 	            fileList.add(fileInfo);
         	}
         }
-        System.out.println("7");
         //파일들의 정보가 담긴 fileList를 반환한다.
         return fileList;
     }
@@ -90,17 +83,40 @@ public class FileUtils {
     public static void fileDownload(String location, String systemName, String orgName, 
     		HttpServletRequest req, HttpServletResponse response) throws Exception {
     	
-    	System.out.println("\n=============파일 저장 시작=============");
+    	System.out.println("\n=============파일 다운로드 시작=============");
 		System.out.println("업로드 된 이름 : "+systemName);
 		System.out.println("원래이름 : "+orgName);
-		System.out.println("=============파일 저장 끝===============");
+		System.out.println("=============파일 다운로드 끝===============");
 	
     	String path = req.getServletContext().getRealPath("/")+ location + systemName; 
     	// 경로에 접근할 때 역슬래시('\') 사용
     	
     	File file = new File(path);
-    	response.setHeader("Content-Disposition", "attachment;filename=" + orgName); // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
     	
+    	// 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
+    	//response.setHeader("Content-Disposition", "attachment;filename=" + orgName); 
+    	
+    	String name = "파일이름";
+    	 
+    	// 브라우저 별 한글 인코딩
+    	String header = req.getHeader("User-Agent");
+    	if (header.contains("Edge")){
+    	    name = URLEncoder.encode(orgName, "UTF-8").replaceAll("\\+", "%20");
+    	    response.setHeader("Content-Disposition", "attachment;filename=\"" + name);
+    	} else if (header.contains("MSIE") || header.contains("Trident")) { // IE 11버전부터 Trident로 변경되었기때문에 추가해준다.
+    	    name = URLEncoder.encode(orgName, "UTF-8").replaceAll("\\+", "%20");
+    	    response.setHeader("Content-Disposition", "attachment;filename=" + name );
+    	} else if (header.contains("Chrome")) {
+    	    name = new String(orgName.getBytes("UTF-8"), "ISO-8859-1");
+    	    response.setHeader("Content-Disposition", "attachment; filename=\"" + name);
+    	} else if (header.contains("Opera")) {
+    	    name = new String(orgName.getBytes("UTF-8"), "ISO-8859-1");
+    	    response.setHeader("Content-Disposition", "attachment; filename=\"" + name);
+    	} else if (header.contains("Firefox")) {
+    	    name = new String(orgName.getBytes("UTF-8"), "ISO-8859-1");
+    	    response.setHeader("Content-Disposition", "attachment; filename=" + name);
+    	}
+        
     	FileInputStream fileInputStream = new FileInputStream(path); // 파일 읽어오기 
     	OutputStream out = response.getOutputStream();
     	

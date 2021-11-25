@@ -67,9 +67,21 @@
 </head>
 
 <body>
-	<!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+<script>
+/* Internet Explorer 접속 방지(Edge로 전환) */
+  if(navigator.userAgent.indexOf("Trident") > 0){ 
+	 	 window.location = "microsoft-edge:" + window.location.href;
+		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+	} 
+  else if(/MSIE \d |Trident.*rv:/.test(navigator.userAgent)){
+	  	window.location = "microsoft-edge:" + window.location.href;
+		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+		}
+  else if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
+		window.location = "microsoft-edge:" + window.location.href;
+		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+	}
+</script>
 
 	<!-- header-start -->
 	<header>
@@ -488,7 +500,9 @@
     </footer>
     <!-- footer-end -->
 
+
 	<!-- JS here -->
+	
 	<script src="resources/js/vendor/modernizr-3.5.0.min.js"></script>
 	<script src="resources/js/vendor/jquery-1.12.4.min.js"></script>
 	<script src="resources/js/popper.min.js"></script>

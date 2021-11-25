@@ -16,4 +16,4 @@ CREATE TABLE NV_NOTICE_FILE(
 
 
 SELECT * FROM nv_notice;
-SELECT * FROM nv_notice_file;
+SELECT * FROM nv_notice_file ORDER BY NOTICENUM DESC;

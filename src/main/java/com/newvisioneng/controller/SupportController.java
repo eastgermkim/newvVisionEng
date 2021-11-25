@@ -90,6 +90,7 @@ public class SupportController {
 		System.out.println("작성자 : "+noticedto.getNoticeWriter());
 		System.out.println("내용 : "+noticedto.getNoticeContents());
 
+		//글 등록, 등록한 글의 번호 담아주기
 		long noticenum = service.noticeRegist(noticedto,file,req);
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
