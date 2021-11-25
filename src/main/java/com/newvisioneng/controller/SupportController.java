@@ -30,6 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.newvisioneng.domain.EmailDTO;
 import com.newvisioneng.domain.NoticeDTO;
 import com.newvisioneng.service.SupportService;
+import com.newvisioneng.util.FileUtils;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -66,26 +67,12 @@ public class SupportController {
 			@RequestParam(value="FILE_SYSTEMNAME") String systemName,  
 			@RequestParam(value="FILE_ORGNAME") String orgName) 
 		throws Exception {
-			System.out.println("파일 저장 시작..................");
-			System.out.println("업로드 된 이름 : "+systemName);
-			System.out.println("원래이름 : "+orgName);
-			System.out.println("==========================================");
 		
-        	String location = "notice_files/"+systemName;
-        	String path = req.getServletContext().getRealPath("/")+"resources/files/" + location; 
-        	// 경로에 접근할 때 역슬래시('\') 사용
-        	
-        	File file = new File(path);
-        	response.setHeader("Content-Disposition", "attachment;filename=" + orgName); // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
-        	
-        	FileInputStream fileInputStream = new FileInputStream(path); // 파일 읽어오기 
-        	OutputStream out = response.getOutputStream();
-        	
-        	int read = 0;
-                byte[] buffer = new byte[1024];
-                while ((read = fileInputStream.read(buffer)) != -1) { // 1024바이트씩 계속 읽으면서 outputStream에 저장, -1이 나오면 더이상 읽을 파일이 없음
-                    out.write(buffer, 0, read);
-                }
+			//다운로드 받을 파일이 위치한곳
+			String location = "resources/files/notice_files/";
+			
+			//파일 다운로드 메소드
+			FileUtils.fileDownload(location, systemName, orgName, req, response);
     }
 	
 	//공지사항 글 등록 view단으로 이동하는 요청
@@ -99,7 +86,6 @@ public class SupportController {
 		
 		ModelAndView mav = new ModelAndView();
 
-		System.out.println("날짜 : ");
 		System.out.println("제목 : "+noticedto.getNoticeTitle());
 		System.out.println("작성자 : "+noticedto.getNoticeWriter());
 		System.out.println("내용 : "+noticedto.getNoticeContents());

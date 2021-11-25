@@ -134,7 +134,7 @@ a:active {
 
 <style>
 .single-input {
-	border-bottom: inset;
+	/* border-bottom: inset; */
 	background: none;
 }
 
@@ -216,11 +216,12 @@ u {
 							type="text" placeholder="작성자를 입력하세요(ex. 관리자)"></th>
 					</tr>
 					<tr>
-						<th class="big-width-table"><span>파일첨부</span></th>
+						<th class="big-width-table"><span>파일첨부</span>
+						<br>
+							<a href="#this" onclick="addFile()" style="color:#f36d20">+ 	파일 추가</a>
+						</th>
 						<th>
 							<div class="form-group" id="file-list">
-								<a href="#this" onclick="addFile()" style="float: left;">+ 	파일 추가</a>
-								<br>
 								<div class="file-group" style="text-align: left;">
 									<input type="file" name="file"><a href='#this'
 										name='file-delete' style='color: red;'>삭제</a>

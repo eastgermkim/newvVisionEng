@@ -139,7 +139,7 @@ a:active {
 
 <style>
 .single-input {
-	border-bottom: inset;
+	/* border-bottom: inset; */
 	background: none;
 }
 u {
