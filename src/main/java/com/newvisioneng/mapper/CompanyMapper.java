@@ -1,6 +1,7 @@
 package com.newvisioneng.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Select;
 
@@ -12,7 +13,7 @@ public interface CompanyMapper {
 	public List<NewsVO> getNewsList();
 	
 	//뉴스 추가
-	public int news_register(NewsVO news);
+	public void news_register(NewsVO news);
 	
 	//특정 뉴스 불러오기
 	public NewsVO news_read(Long newsNum);
@@ -22,4 +23,10 @@ public interface CompanyMapper {
 	
 	//특정 뉴스 수정
 	public int news_update(NewsVO news);
+	
+	//특정 뉴스 번호 가져오기
+	public long getNewsNum(String newsWriter);
+	
+	//파일 첨부, 해시
+	public void insertNewsFile(Map<String, Object> map);
 }

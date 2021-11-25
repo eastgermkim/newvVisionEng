@@ -33,4 +33,15 @@
 		SET NEWSTITLE = #{newsTitle}, NEWSCONTENTS = #{newsContents}, NEWSWRITER = #{newsWriter}
 		WHERE NEWSNUM = #{newsNum}
 	</update>
+	
+	<!-- 파일첨부를 위해, 글을 등록하자마자 그 글의 newsNum을 가져온다-->
+	<select id="getNewsNum" resultType="_long" parameterType="string">
+		SELECT NEWSNUM FROM NV_NEWS WHERE NEWSWRITER=#{newsWriter} ORDER BY NEWSNUM DESC
+	</select>
+	
+	<!-- 파일등록 -->
+	<insert id="insertNewsFile" parameterType="hashmap">
+        INSERT INTO NV_NEWS_FILE VALUES
+        (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
+	</insert>
 </mapper>

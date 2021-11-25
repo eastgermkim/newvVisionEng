@@ -130,6 +130,25 @@
 			</ul>
 		</div>
 	</section>
+	
+	<!-- 리스트 테스트  -->
+	<section style="margin-bottom:20%;">
+		<div class="container">
+				<ul class="crawling-lists">
+			   		<c:forEach var="news" items="${news_list}">
+						<li class="crawling-list">
+							<a class="list-inner-wrap">
+								<div class="text-wrap">
+								<h3 class="news-title">${news.newsTitle}</h3>
+								<h3 class="news-contents">${news.newsContents}</h3>
+								<h3 class="news-dates">${news.newsDate}</h3>
+								</div>
+							</a>
+						</li>
+			   		</c:forEach>
+				</ul>
+   		</div>
+	</section>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 

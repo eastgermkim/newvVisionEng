@@ -29,7 +29,8 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
-<script src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
 .board {
 	padding: 4% 0%;
@@ -130,45 +131,22 @@ a:active {
 .ck-editor__editable {
 	min-height: 500px;
 }
+
+.ck.ck-editor__editable_inline {
+    border: none; 
+}
 </style>
 
 <style>
 .single-input {
-	/* border-bottom: inset; */
+	border-bottom: inset;
 	background: none;
 }
-
 u {
-	color: inherit;
-}
-
-.ck-splitbutton {
-	display: none;
+	color:inherit;
 }
 </style>
 
-<style>
-.genric-btn.primary-border {
-	color: black;
-	border: 1px solid black;
-	font-size: 1em;
-	margin: 1% 0;
-}
-
-.genric-btn.primary-border:hover {
-	color: black;
-	background: #D8D8D8;
-}
-
-.genric-btn.primary {
-	font-size: 1em;
-}
-
-.genric-btn.primary:hover {
-	background: #ED1E23;
-	color: #fff;
-}
-</style>
 
 </head>
 <body data-editor="ClassicEditor" data-collaboration="false"
@@ -186,8 +164,8 @@ u {
 				<div class="col-lg-7 offset-lg-1">
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
-							<h2>보도자료 작성</h2>
-							<p style="opacity: 0.6">New Vision ENG. Notice</p>
+							<h2>보도현황</h2>
+							<p style="opacity: 0.6">New Vision ENG. News</p>
 						</div>
 					</div>
 				</div>
@@ -198,95 +176,68 @@ u {
 
 
 	<div class="container board">
-		<form method="post" action="/company/news_writeOK"
-			enctype="multipart/form-data">
-
+		<form method="post" action="/news/news_write" enctype="multipart/form-data">
+			newsNum : ${news.newsNum}
 			<table>
 				<thead>
+					<!-- 데스크탑 -->
 					<tr>
-						<th class="big-width-table"><span>기사 제목</span></th>
-						<th><input class="single-input" name="newsTitle" type="text" placeholder="기사 제목을 입력하세요"></th>
-					</tr>
-					<tr>
-						<th class="big-width-table"><span>기사 부제목</span></th>
-						<th><input class="single-input" name="newsSubTitle" type="text" placeholder="기사 부제목을 입력하세요"></th>
-					</tr>
-					<tr>
-						<th class="big-width-table"><span>기사 날짜</span></th>
-						<th><input class="single-input" name="newsDate" type="text" placeholder="기사 날짜 입력(ex.OOOO-OO-OO / 년-월-일)"></th>
+						<th><h4 style="margin-bottom: 0;">제목</h4></th>
+						<th><input class="single-input" name="newsTitle"
+							type="text" value="${news.newsTitle}" readonly></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th class="big-width-table"><span>작성자</span></th>
+						<th><h4 style="margin-bottom: 0;">작성자</h4></th>
 						<th><input class="single-input" name="newsWriter"
-							type="text" placeholder="작성자를 입력하세요(ex. 관리자)"></th>
+							type="text" value="${news.newsWriter}" readonly></th>
 					</tr>
-					<tr>
-						<th class="big-width-table"><span>파일첨부</span></th>
-						<th>
-							<div class="form-group" id="file-list">
-								<a href="#this" onclick="addFile()" style="float: left;">+ 	파일 추가</a>
-								<br>
-								<div class="file-group" style="text-align: left;">
-									<input type="file" name="file"><a href='#this'
-										name='file-delete' style='color: red;'>삭제</a>
-								</div>
-							</div>
-						</th>
-						<!-- <th><input type="file" name="file" style="float: left;font-size: small;"></th> -->
-					</tr>
+					<!-- <tr>
+						<th><h4 style="margin-bottom: 0;">파일첨부</h4></th>
+						<th><input type="file"></th>
+					</tr> -->
 				</tbody>
 			</table>
-			<textarea id="editor" rows="5" name="newsContents"
-				placeholder="내용을 입력하세요" style="display: none;"></textarea>
-			<hr>
-			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="등록" class="genric-btn primary circle"
-					style="margin-right: 1%;"> <a href="/support/notice"
-					class="genric-btn primary-border circle">목록으로 돌아가기</a>
-			</div>
+			<div id="editor" rows="5" name="newsContents"-
+				style="display: none;" readonly>${news.newsContents}</div>
+				
+				
+				<!-- DB에서 가지고 올때 변환??? --> 
+					<!--<div id="contents"></div>
+							<script>
+								var tmpCont = "${notice.noticeContents}";
+								tmpCont = tmpCont.replaceAll("&lt;","<");
+								tmpCont = tmpCont.replaceAll("&gt;",">");
+								tmpCont = tmpCont.replaceAll("&amp;lt;","<");
+								tmpCont = tmpCont.replaceAll("&amp;gt;",">");
+								tmpCont = tmpCont.replaceAll("&amp;nbsp;"," ");
+								tmpCont = tmpCont.replaceAll("&amp;amp;","&");
+								document.getElementById('contents').innerHTML=tmpCont
+								
+							</script> -->
 		</form>
-	</div>
-
-
-
-
+ </div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
-	
-	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
-	<script>
-	var your_path="news_temp_img"
-	</script>
-	
-	<!-- CK에디터 -->
-	<%@ include file = "../CKeditorJS.jsp" %>
-	
-	<!-- 파일 다중 업로드 -->
-	<script type="text/javascript">
-    $(document).ready(function() {
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
-    })
- 
-    function addFile() {
-        var str = 
-      "<div class='file-group' style='text-align: left;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
-        $("#file-list").append(str);
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
-    }
- 
-    function deleteFile(obj) {
-        obj.parent().remove();
-    }
 
-</script>
+	<script>
+	ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        // ...
+    } )
+    .then( editor => {
+        /* 읽기모드로 바꾸기 */
+        editor.isReadOnly = true;
+
+        /* 툴바 없애기 */
+        const toolbarElement = editor.ui.view.toolbar.element;
+        toolbarElement.style.display = 'none';
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
+		</script>
 </body>
 
 </html>
