@@ -63,7 +63,7 @@ public class CompanyServiceImpl implements CompanyService {
 		mapper.news_register(news);
 		
 		//등록한 게시글의 newsNum 가져오기
-		long newsNum = mapper.getNewsNum(news.getNewsWriter());
+		long newsNum = news.getNewsNum();
 		System.out.println("newsNum........................."+newsNum);
 
 		//파일 업로드할 저장경로

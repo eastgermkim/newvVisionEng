@@ -174,8 +174,8 @@ u {
 	</section>
 	<!-- breadcrumb-end -->
 
-
 	<div class="container board">
+	<a href="/company/news_modify/${news.newsNum}" class="genric-btn primary-border circle" style="float:right; margin-bottom:20px;">글 수정하기</a>
 		<form method="post" action="/news/news_write" enctype="multipart/form-data">
 			newsNum : ${news.newsNum}
 			<table>

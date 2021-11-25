@@ -186,8 +186,8 @@ u {
 				<div class="col-lg-7 offset-lg-1">
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
-							<h2>보도자료 작성</h2>
-							<p style="opacity: 0.6">New Vision ENG. Notice</p>
+							<h2>보도자료 수정</h2>
+							<p style="opacity: 0.6">New Vision ENG. News</p>
 						</div>
 					</div>
 				</div>
@@ -203,26 +203,26 @@ u {
 				<thead>
 					<tr>
 						<th class="big-width-table"><span>기사 제목</span></th>
-						<th><input class="single-input" name="newsTitle" type="text" placeholder="기사 제목을 입력하세요"></th>
+						<th><input class="single-input" name="newsTitle" type="text" placeholder="기사 제목을 입력하세요" value="${news.newsTitle}"></th>
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>기사 부제목</span></th>
-						<th><input class="single-input" name="newsSubTitle" type="text" placeholder="기사 부제목을 입력하세요"></th>
+						<th><input class="single-input" name="newsSubTitle" type="text" placeholder="기사 부제목을 입력하세요" value="${news.newsSubTitle}"></th>
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>기사 날짜</span></th>
-						<th><input class="single-input" name="newsDate" type="text" placeholder="기사 날짜 입력(ex.OOOO-OO-OO / 년-월-일)"></th>
+						<th><input class="single-input" name="newsDate" type="text" placeholder="기사 날짜 입력(ex.OOOO-OO-OO / 년-월-일)" value="${news.newsDate}"></th>
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>기사 링크</span></th>
-						<th><input class="single-input" name="newsLink" type="text" placeholder="기사 링크가 없으면 비워주세요"></th>
+						<th><input class="single-input" name="newsLink" type="text" placeholder="기사 링크가 없으면 비워주세요" value="${news.newsLink}"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<th class="big-width-table"><span>작성자</span></th>
 						<th><input class="single-input" name="newsWriter"
-							type="text" placeholder="작성자를 입력하세요(ex. 관리자)"></th>
+							type="text" placeholder="작성자를 입력하세요(ex. 관리자)" value="${news.newsWriter}"></th>
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>파일첨부</span>
@@ -240,7 +240,7 @@ u {
 					</tr>
 				</tbody>
 			</table>
-			<textarea id="editor" rows="5" name="newsContents" placeholder="내용을 입력하세요" style="display: none;"></textarea>
+			<textarea id="editor" rows="5" name="newsContents" placeholder="내용을 입력하세요" style="display: none;">${news.newsContents}</textarea>
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
 				<input type="submit" value="등록" class="genric-btn primary circle"

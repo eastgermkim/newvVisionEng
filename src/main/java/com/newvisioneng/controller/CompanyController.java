@@ -48,12 +48,18 @@ public class CompanyController {
 		model.addAttribute("news_list", service.getNewsList());
 	}
 	
-	//보도현황 게시글 하나 클릭시
+	//보도현황 게시글 하나 클릭시 상세 정보 조회
 	@GetMapping("/news/{newsNum}")
-	public String notice_detail(@PathVariable("newsNum") Long newsNum,Model model) {
+	public String news_detail(@PathVariable("newsNum") Long newsNum,Model model) {
 		NewsVO news = service.news_get(newsNum);
 		model.addAttribute("news",news);
-		return "/company/news_detail";
+		if(news.getNewsLink() == null) {
+			return "/company/news_detail";
+		}else {
+			/*return JavaScript("window.open('http://google.com')");*/
+			return "redirect:"+news.getNewsLink();
+		}
+		
 	}
 	
 	//언론보도 페이지 글 등록 view단으로 이동하는 요청
@@ -62,7 +68,7 @@ public class CompanyController {
 		
 	}
 	
-	//공지사항 글 등록 메소드
+	//글 작성 메소드
 	@PostMapping("/news_writeOK")
 	public ModelAndView notice_writeOK(NewsVO newsvo,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
@@ -84,6 +90,14 @@ public class CompanyController {
 		
 		mav = new ModelAndView("redirect:/company/news/"+newsnum);
         return mav;
+	}
+	
+	//언론보도 페이지 글 등록 view단으로 이동하는 요청
+	@GetMapping("/news_modify/{newsNum}")
+	public String news_modify(@PathVariable("newsNum") Long newsNum,Model model) {
+		NewsVO news = service.news_get(newsNum);
+		model.addAttribute("news",news);
+			return "/company/news_modify";
 	}
 	
 	//찾아오시는길 페이지로 연결

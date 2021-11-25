@@ -39,6 +39,21 @@
 	text-align:right;
 }
 
+input[type="checkbox"]+label {
+	vertical-align:-webkit-baseline-middle;
+    width: 20px;
+    height: 20px;
+    background: url('/resources/img/elements/20X20_off.png') no-repeat 0 0px / contain;
+}
+
+input[type='checkbox']:checked+label {
+    background: url('/resources/img/elements/20X20_active.png') no-repeat 0 1px / contain;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
 </style>
 <head>
 <meta charset="utf-8">
@@ -103,8 +118,15 @@
 	<!-- 본문 내용  -->
 	<section style="margin-bottom:20%;">
 		<div class="container">
-			<div>
+			<div style="display:flex; justify-content:space-between;">
 	        	<a href="/company/news_write" class="genric-btn primary-border circle">글 작성하기</a>
+	        	<div style="float:right;">
+					<input type="checkbox" id="myCheck" name="myCheck" class="primary-checkbox" style="vertical-align:middle">
+					<label for="myCheck"></label>
+					<div style="display:inline-flex;">
+					<p><a id="showInfo" style="cursor:pointer; color:#f36d20;">링크 기사 수정하기</a></p>
+					</div>
+				</div>
 	        </div>
 	        <br>
 	        
@@ -136,15 +158,32 @@
 		<div class="container">
 				<ul class="crawling-lists">
 			   		<c:forEach var="news" items="${news_list}">
-						<li class="crawling-list">
-							<a class="list-inner-wrap">
-								<div class="text-wrap">
-								<h3 class="news-title">${news.newsTitle}</h3>
-								<h3 class="news-contents">${news.newsSubTitle}</h3>
-								<h3 class="news-dates">${news.newsDate}</h3>
-								</div>
-							</a>
-						</li>
+			   			<c:choose>
+			   				<c:when test="${news.newsLink != null}">
+							<li class="crawling-list">
+								<a class="list-inner-wrap" href="${news.newsLink}" target="_blank">
+									<div class="text-wrap">
+									<div style="display:flex">
+										<h3 class="news-title">${news.newsTitle}</h3>
+										<span class="contact-info__icon">&nbsp;&nbsp;&nbsp;&nbsp;<i class="ti-layers"></i></span>
+									</div>
+										<h3 class="news-contents">${news.newsSubTitle}</h3>
+										<h3 class="news-dates">${news.newsDate}</h3>
+										<a href="#" id="modify_link_button" class="genric-btn primary modify_link_button" style="display:none;">수정하기</a>
+									</div>
+								</a>
+			   				</c:when>
+			   				<c:otherwise>
+							<li class="crawling-list">
+								<a class="list-inner-wrap" href="news/${news.newsNum}">
+									<div class="text-wrap">
+										<h3 class="news-title">${news.newsTitle}</h3>
+										<h3 class="news-contents">${news.newsSubTitle}</h3>
+										<h3 class="news-dates">${news.newsDate}</h3>
+									</div>
+								</a>
+			   				</c:otherwise>
+			   			</c:choose>
 			   		</c:forEach>
 				</ul>
    		</div>
@@ -153,6 +192,18 @@
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
 </body>
-
-
+	<script>
+	$(function(){
+		$("#myCheck").on('click', function() {
+		if($("#myCheck").is(":checked") == true){
+			console.log("체크됨")
+			$(".modify_link_button").show();
+		}else{
+			console.log("체크안됨")
+			$(".modify_link_button").hide();
+		}
+		})
+	})
+	</script>
+	
 </html>
