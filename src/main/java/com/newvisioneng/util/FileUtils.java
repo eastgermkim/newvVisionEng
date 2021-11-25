@@ -37,43 +37,44 @@ public class FileUtils {
         
         System.out.println("5");
         
-        System.out.println("file.length................."+file.length);
         for(int i=0; i<file.length; i++) {
-        	
         	System.out.println("6");
-        	//파일 원래 이름
-            String orgFileName = file[i].getOriginalFilename();
-            //DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
-            String saveFileName = uid.toString() + "_" + orgFileName;
-            //파일 크기
-            Long saveFileSize = file[i].getSize();
-            //파일 종류	
-            String orgFileExtension = orgFileName.substring(orgFileName.lastIndexOf("."));
-            
-            System.out.println("================== file start ==================");
-            System.out.println("파일 실제 이름: "+orgFileName);
-            System.out.println("파일 저장 이름: "+saveFileName);
-            System.out.println("파일 크기: "+saveFileSize+" 바이트");
-            System.out.println("파일 종류: "+orgFileExtension);
-            System.out.println("content type: "+file[i].getContentType());
-            System.out.println("================== file   END ==================");
- 
-            //uploadPath 폴더 경로의 saveFileName이라는 파일에 대한 file 객체 생성
-            //서버에 실제 파일을 저장한다. (임시디렉토리에 업로드)
-            target = new File(uploadPath, saveFileName);
-            //임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
-            file[i].transferTo(target);
-            
-            Map<String, Object> fileInfo = new HashMap<String, Object>();
-            
-            //파일의 정보를 각각의 이름으로 fileInfo에 담은 뒤, fileList에 담아준다.
-            fileInfo.put("ORGNAME", orgFileName);
-            fileInfo.put("SYSTEMNAME", saveFileName);
-            fileInfo.put("FILE_SIZE", saveFileSize);
-            fileInfo.put("BOARDNUM", boardnum);
-            fileInfo.put("orgfileextension", orgFileExtension);
-            fileList.add(fileInfo);
-            
+        	
+        	//파일이 비어있지 않을때 진행
+        	if(!file[i].isEmpty()) {
+	        	//파일 원래 이름
+	            String orgFileName = file[i].getOriginalFilename();
+	            //DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
+	            String saveFileName = uid.toString() + "_" + orgFileName;
+	            //파일 크기
+	            Long saveFileSize = file[i].getSize();
+	            //파일 종류	
+	            String orgFileExtension = orgFileName.substring(orgFileName.lastIndexOf("."));
+	            
+	            System.out.println("================== file start ==================");
+	            System.out.println("파일 실제 이름: "+orgFileName);
+	            System.out.println("파일 저장 이름: "+saveFileName);
+	            System.out.println("파일 크기: "+saveFileSize+" 바이트");
+	            System.out.println("파일 종류: "+orgFileExtension);
+	            System.out.println("content type: "+file[i].getContentType());
+	            System.out.println("================== file   END ==================");
+	 
+	            //uploadPath 폴더 경로의 saveFileName이라는 파일에 대한 file 객체 생성
+	            //서버에 실제 파일을 저장한다. (임시디렉토리에 업로드)
+	            target = new File(uploadPath, saveFileName);
+	            //임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
+	            file[i].transferTo(target);
+	            
+	            Map<String, Object> fileInfo = new HashMap<String, Object>();
+	            
+	            //파일의 정보를 각각의 이름으로 fileInfo에 담은 뒤, fileList에 담아준다.
+	            fileInfo.put("ORGNAME", orgFileName);
+	            fileInfo.put("SYSTEMNAME", saveFileName);
+	            fileInfo.put("FILE_SIZE", saveFileSize);
+	            fileInfo.put("BOARDNUM", boardnum);
+	            fileInfo.put("orgfileextension", orgFileExtension);
+	            fileList.add(fileInfo);
+        	}
         }
         System.out.println("7");
         //파일들의 정보가 담긴 fileList를 반환한다.

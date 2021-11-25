@@ -12,7 +12,9 @@
 		INSERT INTO NV_NOTICE VALUES(NULL,#{noticeWriter},#{noticeTitle},#{noticeContents},now(),1)
 		]]>
 		
-		<!-- insert한 PK값을 바로 가져와서 null이었던 NoticeDTO의 noticeNum에 담아준다-->
+		<!-- insert하면서 AUTO_INCREMENT된 noticeNum를 바로 가져와야한다.-->
+		<!-- 가장 최근에 성공적으로 수행된 INSERT 구문의 첫번째 AUTO_INCREMENT column의 값을 반환한다 -->
+		<!-- 반환된 값은 들어온 NoticeDTO의 noticeNum에 담아진다(리턴 형태가 아님) -->
 		<selectKey keyProperty="noticeNum" resultType="_long">
         SELECT LAST_INSERT_ID()
    		</selectKey>
