@@ -44,13 +44,15 @@ public class SupportController {
 	@Setter(onMethod_=@Autowired)
 	private SupportService service;
 	
+	//공지사항========================================================================================================================================================
+	
 	//공지사항 페이지로 연결
 	@GetMapping("/notice")
 	public void notice() {
-		
+		//리스트 가지고 오는거 구현필요
 	}
-
-	//공지사항 게시글 하나 클릭시
+	
+	//공지사항 게시글 하나 클릭시 or 주소창에 /support/notice/글번호 쳤을시 
 	@GetMapping("/notice/{noticeNum}")
 	public String notice_detail(@PathVariable("noticeNum") Long noticeNum,Model model) throws Exception {
 		NoticeDTO notice = service.noticeGet(noticeNum);
@@ -102,8 +104,15 @@ public class SupportController {
         return mav;
 	}
 	
+	//공지사항 글 수정 view단으로 이동(현재글 noticenum 들고)
+	@GetMapping("/notice_modify")
+	public String notice_modify() {
+		
+		
+		return "/support/notice_modify";
+	}
 	
-	    	
+	//============================================================================================================================================================
 	
 	//이메일 문의 페이지로 연결
 	@GetMapping("/customer")

@@ -132,20 +132,20 @@
 								</nav>
 							</div>
 						</div>
-						<div class="col-xl-3 col-lg-3">
+						<%-- <div class="col-xl-3 col-lg-3">
 							<div class="quote-area">
 								<div class="search-bar">
 									<a id="search_1" href="javascript:void(0)"><i
 										class="fa fa-search"></i></a>
 								</div>
 								
-								<!-- 버튼 일단 숨김 -->
+								버튼 일단 숨김 
 								<div class="get-quote d-none d-lg-block">
 									<a class="boxed-btn" href="#">버튼임</a>
 								</div>
 							
 							</div>
-						</div>
+						</div> --%>
 						<div class="col-12">
 							<div class="mobile_menu d-block d-lg-none"></div>
 						</div>
