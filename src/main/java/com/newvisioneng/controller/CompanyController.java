@@ -137,7 +137,7 @@ public class CompanyController {
 	
 	//보도자료 파일 삭제
 		@PostMapping("/news_modify_delete")
-		public void news_modify_delete(@RequestParam(value = "FILE_SYSTEMNAME", required=false) String file_systemname, HttpServletResponse response, HttpServletRequest req) throws Exception{
+		public void news_modify_delete(@RequestParam(value = "FILESYSTEMNAME", required=false) String file_systemname, HttpServletResponse response, HttpServletRequest req) throws Exception{
 			log.info("삭제된 파일 : " + file_systemname);
 			
 					File file = new File(req.getServletContext().getRealPath("/")+"resources/files/"+"news_files/" + file_systemname);

@@ -238,7 +238,10 @@ u {
 											<c:forEach var="file" items="${file}">
 												<div>
 													<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a>
-													<a href="#" name='ex-file-delete' onclick="fn_fileDelete('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: red;">삭제하기</a>
+													<%-- <a href="#" id="ex-file-delete" name='ex-file-delete' onclick="fn_fileDelete('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: red;">삭제하기</a> --%>
+													<a id="ex-file-delete" class="ex-file-delete" id="ex-file-delete" name='ex-file-delete' style="color: red; cursor:pointer">삭제하기</a>
+													<!-- <input type="button" class="ex-file-delete" id="ex-file-delete" name='ex-file-delete' style="color: red;">삭제하기</a> -->
+													<input type="hidden" class="ajaxFileName" id="ajaxFileName" value="${file.SYSTEMNAME}" >
 													<br>
 												</div>
 											</c:forEach>
@@ -318,7 +321,7 @@ u {
         });
     })
     
-   $(document).ready(function() {
+    $(document).ready(function() {
         $("a[name='ex-file-delete']").on("click", function(e) {
             e.preventDefault();
             deleteFile($(this));
@@ -352,23 +355,21 @@ u {
 	</script>
 	
 	<script>
-    
-		// 추가될 small 태그 "click"시 이벤트 위임
-		$(".uploadedList").on("click", "small", function() {
-			var that = $(this);
-			
+		$(".ex-file-delete").click(function() {
+           deleteFile($(this));
+           
 			$.ajax({
 				type:"POST",
-				url:"/deleteFile",
+				url:"/company/news_modify_delete",
 				// 해당 small의 data-src 속성의 값을 JSON 형식으로 
-				data:{fileName:that.attr("data-src")},
+				data:{
+					'FILESYSTEMNAME' : $(this).val()},
 				dataType:"text",
-				success:function(result) {
-					if (result == "deleted") {
-						alert("deleted");
-						// 화면의 파일 표시 영역 삭제
-						that.parent("div").remove();
-					}
+				success:function(res) {
+					alert(res.code);
+					},
+                	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+                    alert("통신 실패.")
 				}
 			});
 		});
