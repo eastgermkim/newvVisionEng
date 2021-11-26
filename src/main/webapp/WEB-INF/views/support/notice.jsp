@@ -115,8 +115,8 @@ a:active{
 
 .pagination .page-item.active .page-link {
 	font-weight: 600;
-	color:darkblue;
-    border-color: darkblue;
+	color:black;
+    border-color: black;
 }
 
 
@@ -221,7 +221,7 @@ a:active{
 
 	<!-- 페이징 처리 --> 
 		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
-			<ul class="pagination big-width-page">
+			<ul class="pagination">
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.prev }">
 	 				<li class="page-item">
@@ -233,9 +233,9 @@ a:active{
 	 			<!-- 페이지블럭 -->
 				<c:forEach var="idx" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
 					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
-		 			<li class="page-item" ${pageMaker.cri.page == idx? 'class=active':''}>
+		 			<li ${pageMaker.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
 		 				<a href="notice?page=${idx }" class="page-link">${idx}</a>
-		 			</li>				
+		 			</li>
 				</c:forEach>
 	 			<!-- 다음next -->
 	 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">

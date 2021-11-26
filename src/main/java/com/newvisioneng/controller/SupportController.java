@@ -56,20 +56,6 @@ public class SupportController {
 		model.addAttribute("notice_list",service.getNoticeList(cri));
 		model.addAttribute("pageMaker",new PageDTO(service.getNoticeTotal(cri), cri));
 	}
-	/*//글목록보기(PageMaker객체 사용)
-	// http://localhost:8081/support/noticePage
-	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-	public void listPageGET(Criteria cri, Model model) throws Exception{
-		l.info("C: cri는 "+cri);
-		model.addAttribute("boardList", service.listCri(cri));
-
-		PageMaker pm = new PageMaker();
-		pm.setCri(cri);
-		pm.setTotalCount(service.pageCount()); //DB의 전체ROW수 입력
-
-		// 뷰페이지로 전달 
-		model.addAttribute("pm", pm);
-	}*/
 	
 	//공지사항 게시글 하나 클릭시 or 주소창에 /support/notice/글번호 쳤을시 
 	@GetMapping("/notice/{noticeNum}")

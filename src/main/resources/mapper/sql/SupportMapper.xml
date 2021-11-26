@@ -5,25 +5,14 @@
   <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
 <mapper namespace="com.newvisioneng.mapper.SupportMapper">
 	
+	<!-- 공지사항 목록 불러오기 -->
 	<select id="getNoticeList" resultType="com.newvisioneng.domain.NoticeDTO">
 		SELECT NOTICENUM,NOTICEDATE,READCOUNT, NOTICEWRITER,NOTICETITLE,NOTICECONTENTS 
 		FROM NV_NOTICE ORDER BY NOTICENUM DESC LIMIT #{pageStart},#{pageSize}
 	</select>
-	
 	<select id="getNoticeTotal" resultType="_int">
 		SELECT COUNT(*) FROM NV_NOTICE WHERE NOTICENUM>0
 	</select>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	<!-- 공지사항 글 등록 -->
@@ -40,18 +29,17 @@
         SELECT LAST_INSERT_ID()
    		</selectKey>
 	</insert>
-	
 	<!-- 공지사항 파일 등록 -->
 	<insert id="insertNoticeFile" parameterType="hashmap">
         INSERT INTO NV_NOTICE_FILE VALUES
         (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
 	</insert>
 	
+	
 	<!-- 공지사항 글 조회 -->
 	<select id="readNotice" resultType="com.newvisioneng.domain.NoticeDTO">
 		SELECT * FROM NV_NOTICE WHERE NOTICENUM = #{noticeNum}	
 	</select>
-	
 	<!-- 공지사항 글 조회시 파일도 함께 -->
 	<select id="readNoticeFile" parameterType="_long" resultType="hashMap">
         SELECT * FROM NV_NOTICE_FILE WHERE NOTICENUM = #{noticeNum}
