@@ -271,7 +271,7 @@ u {
  
     function addFile() {
         var str = 
-      "<br><div class='file-group' style='text-align: left;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
+      "<div class='file-group' style='text-align: left;margin-top:5px;'><br><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
         $("#file-list").append(str);
         $("a[name='file-delete']").on("click", function(e) {
             e.preventDefault();

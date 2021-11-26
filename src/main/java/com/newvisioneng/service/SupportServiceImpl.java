@@ -15,6 +15,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.EmailDTO;
 import com.newvisioneng.domain.NoticeDTO;
 import com.newvisioneng.mapper.SupportMapper;
@@ -109,7 +110,7 @@ public class SupportServiceImpl implements SupportService {
 
 	@Override
 	public long noticeRegist(NoticeDTO noticedto, MultipartFile[] file, HttpServletRequest req) throws Exception{
-		log.info("------regist------");
+		log.info("\nnoticeRegist................");
 		
 		System.out.println("DB에 글 등록 전 noticeNum..................."+noticedto.getNoticeNum());
 		
@@ -137,15 +138,30 @@ public class SupportServiceImpl implements SupportService {
 		//등록한 게시글의 noticeNum 반환
 		return noticeNum;
 	}
-
+	
+	//전체 공지사항 목록 가져오기
+	@Override
+	public List<NoticeDTO> getNoticeList(Criteria cri) {
+		log.info("\ngetNoticeList...WithPaging................" );
+		return mapper.getNoticeList(cri);
+	}
+	//공지사항 총 개수
+	@Override
+	public int getNoticeTotal(Criteria cri) {
+		return mapper.getNoticeTotal(cri);
+	}
+	
+	
+	//공지사항 하나 불러오기
 	@Override
 	public NoticeDTO noticeGet(Long noticeNum) {
-		log.info("------get------");
+		log.info("\nnoticeGet--------noticeNum : "+noticeNum);
 		return mapper.readNotice(noticeNum);
 	}
-
+	//공지사항 하나 불러올때 첨부한 파일도 가져오기
 	@Override
 	public List<Map<String, Object>> readNoticeFile(Long noticeNum) throws Exception {
+		log.info("\nreadNoticeFile--------noticeNum : "+noticeNum);
 		return mapper.readNoticeFile(noticeNum);
 	}
 }

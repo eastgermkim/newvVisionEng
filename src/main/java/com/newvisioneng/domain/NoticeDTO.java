@@ -9,4 +9,5 @@ public class NoticeDTO {
 	private String noticeTitle;
 	private String noticeDate;
 	private String noticeContents;
+	private Long readCount;
 }

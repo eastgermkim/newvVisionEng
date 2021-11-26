@@ -5,6 +5,27 @@
   <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
 <mapper namespace="com.newvisioneng.mapper.SupportMapper">
 	
+	<select id="getNoticeList" resultType="com.newvisioneng.domain.NoticeDTO">
+		SELECT NOTICENUM,NOTICEDATE,READCOUNT, NOTICEWRITER,NOTICETITLE,NOTICECONTENTS 
+		FROM NV_NOTICE ORDER BY NOTICENUM DESC LIMIT #{pageStart},#{pageSize}
+	</select>
+	
+	<select id="getNoticeTotal" resultType="_int">
+		SELECT COUNT(*) FROM NV_NOTICE WHERE NOTICENUM>0
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- 공지사항 글 등록 -->
 	<insert id="insertNotice" parameterType="com.newvisioneng.domain.NoticeDTO">
 		<!-- NOTICENUM은 NULL로 삽입시에 자동으로 1 증가한 값으로 들어간다(auto_increment) -->

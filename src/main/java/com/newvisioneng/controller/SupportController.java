@@ -27,8 +27,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.EmailDTO;
 import com.newvisioneng.domain.NoticeDTO;
+import com.newvisioneng.domain.PageDTO;
 import com.newvisioneng.service.SupportService;
 import com.newvisioneng.util.FileUtils;
 
@@ -46,15 +48,32 @@ public class SupportController {
 	
 	//공지사항========================================================================================================================================================
 	
-	//공지사항 페이지로 연결
+	//공지사항 페이지로 연결(전체 목록 가져오기)
 	@GetMapping("/notice")
-	public void notice() {
-		//리스트 가지고 오는거 구현필요
+	public void notice(Model model, Criteria cri) {
+		log.info("------list-------");
+		//DB 검색
+		model.addAttribute("notice_list",service.getNoticeList(cri));
+		model.addAttribute("pageMaker",new PageDTO(service.getNoticeTotal(cri), cri));
 	}
+	/*//글목록보기(PageMaker객체 사용)
+	// http://localhost:8081/support/noticePage
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void listPageGET(Criteria cri, Model model) throws Exception{
+		l.info("C: cri는 "+cri);
+		model.addAttribute("boardList", service.listCri(cri));
+
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(service.pageCount()); //DB의 전체ROW수 입력
+
+		// 뷰페이지로 전달 
+		model.addAttribute("pm", pm);
+	}*/
 	
 	//공지사항 게시글 하나 클릭시 or 주소창에 /support/notice/글번호 쳤을시 
 	@GetMapping("/notice/{noticeNum}")
-	public String notice_detail(@PathVariable("noticeNum") Long noticeNum,Model model) throws Exception {
+	public String notice_detail(@PathVariable("noticeNum") Long noticeNum, Model model) throws Exception {
 		NoticeDTO notice = service.noticeGet(noticeNum);
 		model.addAttribute("notice",notice);
 		
