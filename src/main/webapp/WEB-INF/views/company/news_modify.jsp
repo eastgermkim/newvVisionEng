@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page session="false"%>
 
 <!DOCTYPE html>
@@ -215,7 +216,7 @@ u {
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>기사 링크</span></th>
-						<th><input class="single-input" name="newsLink" type="text" placeholder="기사 링크가 없으면 비워주세요" value="${news.newsLink}"></th>
+						<th><input class="single-input" name="newsLink" id="newsLink" type="text" placeholder="기사 링크가 없으면 비워주세요" value="${news.newsLink}"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -225,12 +226,28 @@ u {
 							type="text" placeholder="작성자를 입력하세요(ex. 관리자)" value="${news.newsWriter}"></th>
 					</tr>
 					<tr>
-						<th class="big-width-table"><span>파일첨부</span>
+						<th class="big-width-table file"><span>파일첨부</span>
 						<br>
 							<a href="#this" onclick="addFile()" style="color:#f36d20;">+ 	파일 추가</a>
 						</th>
-						<th>
+						<th class="file">
 							<div class="form-group" id="file-list">
+								<div class="file-group" style="text-align: left;">
+									<c:choose>
+										<c:when test="${file != null and fn:length(file)>0 }">
+											<c:forEach var="file" items="${file}">
+												<div>
+													<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a>
+													<a href="#" name='ex-file-delete' onclick="fn_fileDelete('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: red;">삭제하기</a>
+													<br>
+												</div>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
+										</c:otherwise>
+									</c:choose>
+								</div>
 								<div class="file-group" style="text-align: left;">
 									<input type="file" name="file"><a href='#this' name='file-delete' style='color: red;'>삭제</a>
 								</div>
@@ -243,18 +260,46 @@ u {
 			<textarea id="editor" rows="5" name="newsContents" placeholder="내용을 입력하세요" style="display: none;">${news.newsContents}</textarea>
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="등록" class="genric-btn primary circle"
-					style="margin-right: 1%;"> <a href="/support/notice"
-					class="genric-btn primary-border circle">목록으로 돌아가기</a>
+				<input type="submit" value="수정" class="genric-btn primary circle" style="margin-right: 1%;"> 
+				<a href="/company/news" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
 	</div>
-
-
+	
+<!-- 	<form name="readForm" role="form" method="post">
+		<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
+		<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
+	</form> -->
+	
 
 
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+	
+	<script>
+	$(function(){
+		if($("#newsLink").val() == null || $("#newsLink").val() == ""){
+			$(".ck-editor").show();
+			$(".file").show();
+		}else{
+			$(".ck-editor").hide();
+			$(".file").hide();
+		}
+	});
+
+	
+	$("#newsLink").change(function(){
+		console.log("change")
+		if($("#newsLink").val() == null || $("#newsLink").val() == ""){
+			$(".ck-editor").show();
+			$(".file").show();
+		}else{
+			$(".ck-editor").hide();
+			$(".file").hide();
+		}
+	});
+		
+	</script>
 	
 	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
 	<script>
@@ -272,10 +317,17 @@ u {
             deleteFile($(this));
         });
     })
+    
+   $(document).ready(function() {
+        $("a[name='ex-file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    })
  
     function addFile() {
         var str = 
-      "<div class='file-group' style='text-align: left;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
+      "<div class='file-group' style='text-align: left; margin-top:5px;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
         $("#file-list").append(str);
         $("a[name='file-delete']").on("click", function(e) {
             e.preventDefault();
@@ -288,6 +340,49 @@ u {
     }
 
 </script>
+
+	<script>
+	function fn_fileDown(SYSTEMNAME,ORGNAME){
+		var formObj = $("form[name='readForm']");
+		$("#FILE_SYSTEMNAME").attr("value", SYSTEMNAME);
+		$("#FILE_ORGNAME").attr("value", ORGNAME);
+		formObj.attr("action", "/company/newsFiledown");
+		formObj.submit();
+	}
+	</script>
+	
+	<script>
+    
+		// 추가될 small 태그 "click"시 이벤트 위임
+		$(".uploadedList").on("click", "small", function() {
+			var that = $(this);
+			
+			$.ajax({
+				type:"POST",
+				url:"/deleteFile",
+				// 해당 small의 data-src 속성의 값을 JSON 형식으로 
+				data:{fileName:that.attr("data-src")},
+				dataType:"text",
+				success:function(result) {
+					if (result == "deleted") {
+						alert("deleted");
+						// 화면의 파일 표시 영역 삭제
+						that.parent("div").remove();
+					}
+				}
+			});
+		});
+	</script>
+	
+<!-- 	<script>
+	function fn_fileDelete(SYSTEMNAME,ORGNAME){
+		var formObj = $("form[name='readForm']");
+		$("#FILE_SYSTEMNAME").attr("value", SYSTEMNAME);
+		$("#FILE_ORGNAME").attr("value", ORGNAME);
+		formObj.attr("action", "/company/news_modify_delete");
+		formObj.submit();
+	}
+	</script> -->
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page session="false"%>
 
 <!DOCTYPE html>
@@ -175,8 +176,12 @@ u {
 	<!-- breadcrumb-end -->
 
 	<div class="container board">
-	<a href="/company/news_modify/${news.newsNum}" class="genric-btn primary-border circle" style="float:right; margin-bottom:20px;">글 수정하기</a>
-		<form method="post" action="/news/news_write" enctype="multipart/form-data">
+		<form method="post" action="/company/news_delete" enctype="multipart/form-data">
+		<div style="text-align:right;">
+			<a href="/company/news_modify/${news.newsNum}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
+			<input type="submit" value="삭제" class="genric-btn primary circle" style="margin-right: 1%;">
+			<input type="hidden" name="newsNum" value="${news.newsNum}"> 
+		</div>
 			newsNum : ${news.newsNum}
 			<table>
 				<thead>
@@ -193,34 +198,46 @@ u {
 						<th><input class="single-input" name="newsWriter"
 							type="text" value="${news.newsWriter}" readonly></th>
 					</tr>
-					<!-- <tr>
-						<th><h4 style="margin-bottom: 0;">파일첨부</h4></th>
-						<th><input type="file"></th>
-					</tr> -->
+					<tr>
+						<th class="big-width-table"><span>첨부파일</span></th>
+						<th style="text-align:left;">
+							<div style="padding: 0 20px;">
+							<c:choose>
+								<c:when test="${file != null and fn:length(file)>0 }">
+									<c:forEach var="file" items="${file}">
+										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a><br>
+										<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
+								</c:otherwise>
+							</c:choose>
+							</div>
+						</th>
+					</tr>
 				</tbody>
 			</table>
 			<div id="editor" rows="5" name="newsContents"-
 				style="display: none;" readonly>${news.newsContents}</div>
-				
-				
-				<!-- DB에서 가지고 올때 변환??? --> 
-					<!--<div id="contents"></div>
-							<script>
-								var tmpCont = "${notice.noticeContents}";
-								tmpCont = tmpCont.replaceAll("&lt;","<");
-								tmpCont = tmpCont.replaceAll("&gt;",">");
-								tmpCont = tmpCont.replaceAll("&amp;lt;","<");
-								tmpCont = tmpCont.replaceAll("&amp;gt;",">");
-								tmpCont = tmpCont.replaceAll("&amp;nbsp;"," ");
-								tmpCont = tmpCont.replaceAll("&amp;amp;","&");
-								document.getElementById('contents').innerHTML=tmpCont
-								
-							</script> -->
-		</form>
+			</form>
+			<form name="readForm" role="form" method="post">
+				<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
+				<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
+			</form>
  </div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
+	<script>
+	function fn_fileDown(SYSTEMNAME,ORGNAME){
+		var formObj = $("form[name='readForm']");
+		$("#FILE_SYSTEMNAME").attr("value", SYSTEMNAME);
+		$("#FILE_ORGNAME").attr("value", ORGNAME);
+		formObj.attr("action", "/company/newsFiledown");
+		formObj.submit();
+	}
+	</script>
 	<script>
 	ClassicEditor
     .create( document.querySelector( '#editor' ), {
@@ -237,6 +254,8 @@ u {
     .catch( error => {
         console.log( error );
     } );
+	
+	
 		</script>
 </body>
 

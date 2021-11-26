@@ -47,4 +47,14 @@
         INSERT INTO NV_NEWS_FILE VALUES
         (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
 	</insert>
+	
+	<!-- 뉴스 글 조회시 파일도 함께 -->
+	<select id="readNewsFile" parameterType="_long" resultType="hashMap">
+        SELECT * FROM NV_NEWS_FILE WHERE NEWSNUM = #{newsNum}
+	</select>
+	
+	<!-- 수정할때 파일 삭제하기 -->
+	<delete id="deleteNewsFile" parameterType="_long">
+		DELETE FROM NV_NEWS_FILE WHERE NEWSNUM = #{newsNum}
+	</delete>
 </mapper>

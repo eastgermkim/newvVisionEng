@@ -198,6 +198,7 @@ u {
 
 
 	<div class="container board">
+		<h3 style="color:#f36d20; text-align:right;">기사 링크가 있다면 저작권법상 글을 인용할 수 없어 파일첨부와 글 작성칸은 사라집니다.</h3>
 		<form method="post" action="/company/news_writeOK" enctype="multipart/form-data">
 			<table>
 				<thead>
@@ -215,7 +216,7 @@ u {
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>기사 링크</span></th>
-						<th><input class="single-input" name="newsLink" type="text" placeholder="기사 링크가 없으면 비워주세요"></th>
+						<th><input class="single-input" class="newsLink" name="newsLink" id="newsLink" type="text" placeholder="기사 링크가 없으면 비워주세요"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -225,11 +226,11 @@ u {
 							type="text" placeholder="작성자를 입력하세요(ex. 관리자)"></th>
 					</tr>
 					<tr>
-						<th class="big-width-table"><span>파일첨부</span>
+						<th class="big-width-table file"><span>파일첨부</span>
 						<br>
 							<a href="#this" onclick="addFile()" style="color:#f36d20;">+ 	파일 추가</a>
 						</th>
-						<th>
+						<th class="file">
 							<div class="form-group" id="file-list">
 								<div class="file-group" style="text-align: left;">
 									<input type="file" name="file"><a href='#this' name='file-delete' style='color: red;'>삭제</a>
@@ -240,11 +241,11 @@ u {
 					</tr>
 				</tbody>
 			</table>
-			<textarea id="editor" rows="5" name="newsContents" placeholder="내용을 입력하세요" style="display: none;"></textarea>
+			<textarea id="editor" rows="5" name="newsContents" class="newsContents" placeholder="내용을 입력하세요" style="display: none;"></textarea>
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
 				<input type="submit" value="등록" class="genric-btn primary circle"
-					style="margin-right: 1%;"> <a href="/support/notice"
+					style="margin-right: 1%;"> <a href="/company/news"
 					class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
@@ -255,6 +256,20 @@ u {
 
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+	
+	<script>
+		$("#newsLink").change(function(){
+			console.log("change")
+			if($("#newsLink").val() == null || $("#newsLink").val() == ""){
+				$(".ck-editor").show();
+				$(".file").show();
+			}else{
+				$(".ck-editor").hide();
+				$(".file").hide();
+			}
+		});
+		
+	</script>
 	
 	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
 	<script>
@@ -275,7 +290,7 @@ u {
  
     function addFile() {
         var str = 
-      "<div class='file-group' style='text-align: left;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
+      "<div class='file-group' style='text-align: left; margin-top:5px;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
         $("#file-list").append(str);
         $("a[name='file-delete']").on("click", function(e) {
             e.preventDefault();

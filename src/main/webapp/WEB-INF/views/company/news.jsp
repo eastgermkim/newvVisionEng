@@ -129,33 +129,6 @@ input[type="checkbox"] {
 				</div>
 	        </div>
 	        <br>
-	        
-			<ul class="crawling-lists">
-				<li class="crawling-list">
-					<a class="list-inner-wrap">
-						<div class="text-wrap">
-						<h3 class="news-title">단국대학교 I-다산LINC+사업단 서울여성경제인 협의체 발대식 및 포럼 개최</h3>
-						<h3 class="news-contents">4차 산업혁명시대 선도할 산학협력 발대식 열려</h3>
-						<h3 class="news-dates">2021.06.08</h3>
-						</div>
-					</a>
-				</li>
-				<li class="crawling-list">
-					<a class="list-inner-wrap">
-						<div class="text-wrap">
-						<h3 class="news-title">서울 여성경제인 18명 모범기업인상 수상</h3>
-						<h3 class="news-contents">서울지방조달청장 표창 ... 전대순 ㈜뉴비젼이엔지 대표 ...  수상</h3>
-						<h3 class="news-dates">2016.06.24</h3>
-						</div>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</section>
-	
-	<!-- 리스트 테스트  -->
-	<section style="margin-bottom:20%;">
-		<div class="container">
 				<ul class="crawling-lists">
 			   		<c:forEach var="news" items="${news_list}">
 			   			<c:choose>
@@ -163,13 +136,17 @@ input[type="checkbox"] {
 							<li class="crawling-list">
 								<a class="list-inner-wrap" href="${news.newsLink}" target="_blank">
 									<div class="text-wrap">
-									<div style="display:flex">
-										<h3 class="news-title">${news.newsTitle}</h3>
-										<span class="contact-info__icon">&nbsp;&nbsp;&nbsp;&nbsp;<i class="ti-layers"></i></span>
-									</div>
+									<form method="post" action="/company/news_delete" enctype="multipart/form-data">
+										<div style="display:flex">
+											<h3 class="news-title">${news.newsTitle}</h3>
+											<span class="contact-info__icon">&nbsp;&nbsp;&nbsp;&nbsp;<i class="ti-layers"></i></span>
+										</div>
 										<h3 class="news-contents">${news.newsSubTitle}</h3>
 										<h3 class="news-dates">${news.newsDate}</h3>
-										<a href="#" id="modify_link_button" class="genric-btn primary modify_link_button" style="display:none;">수정하기</a>
+										<input type="hidden" name="newsNum" value="${news.newsNum}">
+										<a href="/company/news_modify/${news.newsNum}" i="modify_link_button" class="genric-btn primary modify_link_button" style="display:none;">수정하기</a>
+										<input type="submit" value="삭제" class="genric-btn primary circle" style="margin-right: 1%;">
+									</form>
 									</div>
 								</a>
 			   				</c:when>

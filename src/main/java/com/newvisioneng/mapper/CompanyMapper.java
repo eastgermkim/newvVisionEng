@@ -29,4 +29,10 @@ public interface CompanyMapper {
 	
 	//파일 첨부, 해시
 	public void insertNewsFile(Map<String, Object> map);
+	
+	//파일 첨부 가져오기
+	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception;
+	
+	//파일 첨부 삭제
+	public List<Map<String, Object>> deleteNewsFile(Long newsNum) throws Exception;
 }

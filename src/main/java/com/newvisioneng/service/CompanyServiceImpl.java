@@ -67,7 +67,7 @@ public class CompanyServiceImpl implements CompanyService {
 		System.out.println("newsNum........................."+newsNum);
 
 		//파일 업로드할 저장경로
-		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"notice_files/";
+		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"news_files/";
 		System.out.println("파일저장경로........................."+uploadPath);
 
 		//파일정보 담기(저장경로,파일,글번호)
@@ -82,5 +82,11 @@ public class CompanyServiceImpl implements CompanyService {
 		//등록한 게시글의 noticeNum 반환
 		return newsNum;
 	}
+	
+	@Override
+	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception {
+		return mapper.readNewsFile(newsNum);
+	}
+	
 	
 }

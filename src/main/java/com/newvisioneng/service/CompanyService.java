@@ -1,6 +1,7 @@
 package com.newvisioneng.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,7 +28,9 @@ public interface CompanyService {
 	
 	//뉴스 등록 첨부파일포함
 	public long newsRegist(NewsVO newsvo,MultipartFile[] file,HttpServletRequest req) throws Exception;
-
-
+	
+	//뉴스 파일첨부 불러오기
+	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception;
+	
 
 }
