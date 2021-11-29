@@ -112,7 +112,7 @@ a:active{
 	color:blue;
 }
 tbody tr:hover {
-	background-color:#FAFAFA;
+	background-color:#FBF8F8;
 }
 
 

@@ -124,7 +124,7 @@ a:active {
 
 <style>
 .ck.ck-editor {
-	margin: 3% 0;
+	margin: 0 0;
 }
 
 .ck-editor__editable {
@@ -218,14 +218,15 @@ u {
 					<tr>
 						<th class="big-width-table"><span>파일 첨부</span>
 						<br>
-							<a href="#this" onclick="addFile()" style="color:#f36d20">+ 	파일 추가</a>
+							<a class="addFile" onclick="addFile()" style="color:#f36d20;cursor: pointer;">+ 	파일 추가</a>
 						</th>
 						<th style="text-align: left;vertical-align: bottom;">
 							<span class=small-width-table>
-							<a href="#this" onclick="addFile()" style="color:#f36d20">+ 	파일 추가</a>
+							<a class="addFile" onclick="addFile()" style="color:#f36d20;cursor: pointer;">+ 	파일 추가</a>
 							</span>
+							파일 용량 제한 : 20MB (최대 5개, 합계 100MB까지 가능)
 							<div class="form-group" id="file-list">
-								<div class="file-group" style="text-align: left;">
+								<div class="file-group file-count" style="text-align: left;">
 									<input type="file" name="file"><a href='#this'
 										name='file-delete' style='color: red;'>삭제</a>
 								</div>
@@ -235,8 +236,19 @@ u {
 					</tr>
 				</tbody>
 			</table>
+			<div style="margin-top: 3%;">
+			 이미지 삽입시에는 아래에 있는 
+					<svg class="ck ck-icon ck-button__icon">
+						<path d="M6.91 10.54c.26-.23.64-.21.88.03l3.36 3.14 2.23-2.06a.64.64 0 0 1 .87 0l2.52 2.97V4.5H3.2v10.12l3.71-4.08zm10.27-7.51c.6 0 1.09.47 1.09 1.05v11.84c0 .59-.49 1.06-1.09 1.06H2.79c-.6 0-1.09-.47-1.09-1.06V4.08c0-.58.49-1.05 1.1-1.05h14.38zm-5.22 5.56a1.96 1.96 0 1 1 3.4-1.96 1.96 1.96 0 0 1-3.4 1.96z">
+						</path>
+					</svg>버튼을 누르시길 바랍니다.
+			</div>
+
+
+
 			<textarea id="editor" rows="5" name="noticeContents"
-				placeholder="내용을 입력하세요" style="display: none;"></textarea>
+				placeholder="내용을 입력하세요" style="display: none;">
+				</textarea>
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
 				<input type="submit" value="등록" class="genric-btn primary circle"
@@ -267,12 +279,16 @@ u {
             e.preventDefault();
             deleteFile($(this));
         });
+        
+        
     })
+    
  
     function addFile() {
         var str = 
-      "<div class='file-group' style='text-align: left;margin-top:5px;'><br><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
+      "<div class='file-group file-count' style='text-align: left;margin-top:5px;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
         $("#file-list").append(str);
+        fileCount();
         $("a[name='file-delete']").on("click", function(e) {
             e.preventDefault();
             deleteFile($(this));
@@ -281,6 +297,35 @@ u {
  
     function deleteFile(obj) {
         obj.parent().remove();
+        fileCount();
+    }
+    
+    /* 파일 용량 제한 */
+    $("input[name=file]").off().on("change", function(){
+
+    	if (this.files && this.files[0]) {
+
+    		var maxSize = 20 * 1024 * 1024;
+    		var fileSize = this.files[0].size;
+
+    		if(fileSize > maxSize){
+    			alert("첨부파일 사이즈는 20MB 이내로 등록 가능합니다.");
+    			$(this).val('');
+    			return false;
+    		}
+    	}
+    });
+    
+    /* 첨부파일 개수 최대 5개 */
+    function fileCount() {
+   		var fileCount = $('.file-count').length
+   		
+   		if(fileCount>=5){
+   			$('.addFile').css('display', 'none');
+   		}else{
+   			$('.addFile').css('display', 'block');
+   		}
+    
     }
 
 </script>

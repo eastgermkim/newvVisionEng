@@ -44,7 +44,7 @@ class MyUploadAdapter {
     _initListeners( resolve, reject, file ) {
         const xhr = this.xhr;
         const loader = this.loader;
-        const genericErrorText = '파일을 업로드 할 수 없습니다.\n(20MB 이하 이미지 파일만 첨부가능)';
+        const genericErrorText = '손상된 파일이거나 허용된 용량을 초과하였습니다.';
 
         xhr.addEventListener( 'error',() => reject( genericErrorText ) );
         xhr.addEventListener( 'abort',() =>  reject() );

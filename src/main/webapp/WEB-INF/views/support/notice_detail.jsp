@@ -210,8 +210,11 @@ u {
 					<!-- 데스크탑 -->
 					<tr>
 						<th class="big-width-table"><span>제목</span></th>
-						<th><input class="single-input" name="noticeTitle"
-							type="text"	value="${notice.noticeTitle}" readonly></th>
+						<th>
+						<span>
+							<input class="single-input" name="noticeTitle"
+								type="text"	value="${notice.noticeTitle}" readonly></th>
+						</span>
 					</tr>
 				</thead>
 				<tbody>
