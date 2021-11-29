@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
 <!DOCTYPE html>
@@ -96,7 +97,7 @@ th {
 	border-bottom: 1px solid #d8d8d8;
 }
 td{
-	border-bottom: 1px solid #d8d8d8;
+	border-bottom: 1px solid #F2F2F2;
 }
 
 a {
@@ -110,7 +111,9 @@ a:hover {
 a:active{
 	color:blue;
 }
-
+tbody tr:hover {
+	background-color:#FAFAFA;
+}
 
 
 .pagination .page-item.active .page-link {
@@ -189,17 +192,17 @@ a:active{
 					<c:when test="${notice_list != null and notice_list.size()>0}">
 						<c:forEach items="${notice_list}" var="notice">
 						<!-- 데스크탑 -->
-							<tr class="big-width-table">
+							<tr class="big-width-table" onclick="location.href='notice/${notice.noticeNum}'" style="cursor:pointer;">
 								<td>${notice.noticeNum}</td>
-								<td class="align-left"><a href="notice/${notice.noticeNum}">${notice.noticeTitle}</a></td>
+								<td class="align-left" style="font-weight: 500;">${notice.noticeTitle}</td>
 								<td>${notice.noticeWriter}</td>
-								<td>${notice.noticeDate}</td>
+								<td><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></td>
 							</tr>
 						<!-- 모바일 -->
-							<tr class="small-width-table">
+							<tr class="small-width-table" onclick="location.href='notice/${notice.noticeNum}'" style="cursor:pointer;">
 								<td class="align-left" colspan="2">
-									<div class="small-width-title"><a href="notice/${notice.noticeNum}">${notice.noticeTitle}</a></div>
-									<div style="color: grey;">${notice.noticeDate}</div>
+									<div class="small-width-title" style="font-weight: 500;">${notice.noticeTitle}</div>
+									<div style="color: grey;"><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></div>
 								</td>
 							</tr>
 						</c:forEach>
@@ -221,7 +224,7 @@ a:active{
 
 	<!-- 페이징 처리 --> 
 		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
-			<ul class="pagination">
+			<ul class="big-width-page pagination">
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.prev }">
 	 				<li class="page-item">
@@ -241,6 +244,31 @@ a:active{
 	 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 	 				<li class="page-item">
 	 					<a href="notice?page=${pageMaker.endPage+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		
+	<!-- 페이징 처리 --> 
+			<ul class="small-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker.cri.page>1}">
+	 				<li class="page-item">
+	 					<a href="notice?page=${pageMaker.cri.page-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li class="page-item active"}>
+		 				<a class="page-link">${pageMaker.cri.page}</a>
+		 			</li>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker.cri.page<pageMaker.realEnd}">
+	 				<li class="page-item">
+	 					<a href="notice?page=${pageMaker.cri.page+1}" class="page-link" aria-label="Next">
 	 						<i class="ti-angle-right"></i>
 	 					</a>
 	 				</li>

@@ -211,7 +211,7 @@ u {
 					<tr>
 						<th class="big-width-table"><span>제목</span></th>
 						<th><input class="single-input" name="noticeTitle"
-							type="text" value="${notice.noticeTitle}" readonly></th>
+							type="text"	value="${notice.noticeTitle}" readonly></th>
 					</tr>
 				</thead>
 				<tbody>
