@@ -199,7 +199,8 @@ u {
 
 
 	<div class="container board">
-		<form method="post" action="/company/news_writeOK" enctype="multipart/form-data">
+		<form method="post" action="/company/news_modifyOK" enctype="multipart/form-data">
+		<input type="hidden" name="newsNum" value="${news.newsNum}">
 			<table>
 				<thead>
 					<tr>
@@ -230,18 +231,15 @@ u {
 						<br>
 							<a href="#this" onclick="addFile()" style="color:#f36d20;">+ 	파일 추가</a>
 						</th>
-						<th class="file">
-							<div class="form-group" id="file-list">
-								<div class="file-group" style="text-align: left;">
+						<th class="file" id="file">
+							<div class="form-group" id="file-list" style="padding:0 20px;">
+								<div class="file-group" id="file-group" style="text-align: left;">
 									<c:choose>
 										<c:when test="${file != null and fn:length(file)>0 }">
 											<c:forEach var="file" items="${file}">
-												<div>
+												<div class="file-only" id="file-only">
 													<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a>
-													<%-- <a href="#" id="ex-file-delete" name='ex-file-delete' onclick="fn_fileDelete('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: red;">삭제하기</a> --%>
-													<a id="ex-file-delete" class="ex-file-delete" id="ex-file-delete" name='ex-file-delete' style="color: red; cursor:pointer">삭제하기</a>
-													<!-- <input type="button" class="ex-file-delete" id="ex-file-delete" name='ex-file-delete' style="color: red;">삭제하기</a> -->
-													<input type="hidden" class="ajaxFileName" id="ajaxFileName" value="${file.SYSTEMNAME}" >
+													<a id="ex-file-delete" class="ex-file-delete" id="ex-file-delete" name='ex-file-delete' style="color: red; cursor:pointer" data-system="${file.SYSTEMNAME}">삭제하기</a>
 													<br>
 												</div>
 											</c:forEach>
@@ -251,7 +249,7 @@ u {
 										</c:otherwise>
 									</c:choose>
 								</div>
-								<div class="file-group" style="text-align: left;">
+								<div class="file-group" id="file-group" style="text-align: left; ">
 									<input type="file" name="file"><a href='#this' name='file-delete' style='color: red;'>삭제</a>
 								</div>
 							</div>
@@ -321,12 +319,12 @@ u {
         });
     })
     
-    $(document).ready(function() {
+/*      $(document).ready(function() {
         $("a[name='ex-file-delete']").on("click", function(e) {
             e.preventDefault();
             deleteFile($(this));
         });
-    })
+    }) */
  
     function addFile() {
         var str = 
@@ -356,22 +354,29 @@ u {
 	
 	<script>
 		$(".ex-file-delete").click(function() {
-           deleteFile($(this));
-           
-			$.ajax({
-				type:"POST",
-				url:"/company/news_modify_delete",
-				// 해당 small의 data-src 속성의 값을 JSON 형식으로 
-				data:{
-					'FILESYSTEMNAME' : $(this).val()},
-				dataType:"text",
-				success:function(res) {
-					alert(res.code);
-					},
-                	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
-                    alert("통신 실패.")
-				}
-			});
+			if(!confirm("파일이 완전히 삭제됩니다.")){
+				return;
+			}else{
+	            deleteFile($(this));
+				
+				var test = $(this).data('system');
+		           
+				$.ajax({
+					type:"POST",
+					url:"/company/news_modify_delete",
+					// 해당 small의 data-src 속성의 값을 JSON 형식으로 
+					data:{
+						'FILESYSTEMNAME' : test},
+					dataType:"text",
+					cache:false,
+					success:function(res) {
+						alert("파일을 삭제했습니다.");
+						},
+	                	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+	                    alert("파일 삭제에 실패하였습니다.");
+					}
+				});
+			}
 		});
 	</script>
 	

@@ -42,10 +42,31 @@ public class CompanyServiceImpl implements CompanyService {
 		return mapper.news_read(newsNum);
 	}
 	
+	//수정
 	@Override
-	public boolean news_modify(NewsVO news) {
+	public long news_modify(NewsVO news, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		log.info("modify..........." + news);
-		return mapper.news_update(news) == 1;
+		
+		mapper.news_update(news);
+		
+		long newsNum = news.getNewsNum();
+		
+		log.info("수정 게시글 번호............" + newsNum);
+		
+		//파일 업로드할 저장경로
+		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"news_files/";
+		System.out.println("파일저장경로........................."+uploadPath);
+		
+		//파일정보 담기(저장경로,파일,글번호)
+		List<Map<String, Object>> fileList = FileUtils.parseFileInfo(uploadPath,file,newsNum);
+		
+		//파일DB에 파일정보 넣어주기
+		for(int i=0; i<fileList.size(); i++) {
+	        mapper.insertNewsFile(fileList.get(i));
+	        System.out.println("저장된 파일 이름 : "+fileList.get(i).get("SYSTEMNAME"));
+	    }
+		
+		return newsNum;
 	}
 	
 	@Override
@@ -86,6 +107,11 @@ public class CompanyServiceImpl implements CompanyService {
 	@Override
 	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception {
 		return mapper.readNewsFile(newsNum);
+	}
+	
+	@Override
+	public boolean deleteNewsFile(String fileSystemName) throws Exception {
+		return mapper.deleteNewsFile(fileSystemName);
 	}
 	
 	

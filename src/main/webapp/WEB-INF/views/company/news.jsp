@@ -130,6 +130,7 @@ input[type="checkbox"] {
 	        </div>
 	        <br>
 				<ul class="crawling-lists">
+				<h3>${fn:length(${news_list}</h3>
 			   		<c:forEach var="news" items="${news_list}">
 			   			<c:choose>
 			   				<c:when test="${news.newsLink != null}">
@@ -145,7 +146,7 @@ input[type="checkbox"] {
 										<h3 class="news-dates">${news.newsDate}</h3>
 										<input type="hidden" name="newsNum" value="${news.newsNum}">
 										<a href="/company/news_modify/${news.newsNum}" i="modify_link_button" class="genric-btn primary modify_link_button" style="display:none;">수정하기</a>
-										<input type="submit" value="삭제" class="genric-btn primary circle" style="margin-right: 1%;">
+										<input type="submit" value="삭제" class="genric-btn primary circle" style="margin-right: 1%; border-radius:0; display:none;">
 									</form>
 									</div>
 								</a>
@@ -175,9 +176,11 @@ input[type="checkbox"] {
 		if($("#myCheck").is(":checked") == true){
 			console.log("체크됨")
 			$(".modify_link_button").show();
+			$(".genric-btn primary circle").show();
 		}else{
 			console.log("체크안됨")
 			$(".modify_link_button").hide();
+			$(".genric-btn primary circle").hide();
 		}
 		})
 	})

@@ -22,7 +22,7 @@ public interface CompanyMapper {
 	public int news_delete(Long nesNum);
 	
 	//특정 뉴스 수정
-	public int news_update(NewsVO news);
+	public void news_update(NewsVO news);
 	
 	//특정 뉴스 번호 가져오기
 	public long getNewsNum(String newsWriter);
@@ -34,5 +34,5 @@ public interface CompanyMapper {
 	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception;
 	
 	//파일 첨부 삭제
-	public List<Map<String, Object>> deleteNewsFile(Long newsNum) throws Exception;
+	public boolean deleteNewsFile(String fileSystemName) throws Exception;
 }

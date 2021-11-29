@@ -21,7 +21,7 @@ public interface CompanyService {
 	public NewsVO news_get(Long newsNum);
 	
 	//뉴스 수정
-	public boolean news_modify(NewsVO news);
+	public long news_modify(NewsVO newsvo, MultipartFile[] file,HttpServletRequest req) throws Exception;
 	
 	//뉴스 삭제
 	public boolean news_remove(Long newsNum);
@@ -32,5 +32,6 @@ public interface CompanyService {
 	//뉴스 파일첨부 불러오기
 	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception;
 	
-
+	//파일 첨부 삭제
+	public boolean deleteNewsFile(String file_systemname) throws Exception;
 }

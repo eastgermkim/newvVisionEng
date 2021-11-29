@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -137,22 +139,50 @@ public class CompanyController {
 	
 	//보도자료 파일 삭제
 		@PostMapping("/news_modify_delete")
-		public void news_modify_delete(@RequestParam(value = "FILESYSTEMNAME", required=false) String file_systemname, HttpServletResponse response, HttpServletRequest req) throws Exception{
-			log.info("삭제된 파일 : " + file_systemname);
+		public void news_modify_delete(@RequestParam(value = "FILESYSTEMNAME", required=false) String fileSystemName, HttpServletResponse response, HttpServletRequest req) throws Exception{
 			
-					File file = new File(req.getServletContext().getRealPath("/")+"resources/files/"+"news_files/" + file_systemname);
-					System.out.println(file);
+					File file = new File(req.getServletContext().getRealPath("/")+"resources/files/"+"news_files/" + fileSystemName);
+					Map<String, String> map = new HashMap<String,String>();
+					
+					log.info("삭제하려는 파일................." + fileSystemName);
 					
 					if(file.exists()){ 
 						if(file.delete()){ 
-							System.out.println("파일삭제 성공"); 
+							service.deleteNewsFile(fileSystemName);
+							log.info("삭제된 파일................." + fileSystemName);
+							map.put("success","파일 삭제 성공");
 						}else{
-							System.out.println("파일삭제 실패"); 
+							log.info("삭제실패");
+							map.put("fail","파일 삭제 실패");
 						}
 					}else{ 
-						System.out.println("파일이 존재하지 않습니다."); 
+						log.info("파일이 존재하지 않습니다." + fileSystemName);
+						service.deleteNewsFile(fileSystemName);
+						map.put("not exist","존재하지 않는 파일");
 				}
 			}
+	
+		
+	//수정 완료 메소드
+		@PostMapping("/news_modifyOK")
+		public ModelAndView news_modifyOK(NewsVO newsvo, @RequestParam("newsNum") Long newsnum,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
+			if(newsvo.getNewsLink().equals("")) {
+				newsvo.setNewsLink(null);
+			}
+			
+			ModelAndView mav = new ModelAndView();
+			
+			service.news_modify(newsvo,file,req);
+			
+			if(newsvo.getNewsLink() == null) {
+				mav = new ModelAndView("redirect:/company/news/"+newsnum);
+				return mav;
+			}
+			else {
+				String url = "redirect:/company/news";
+				return new ModelAndView(url);
+			}
+		}
 	
 	
 	//언론보도 페이지 삭제하기

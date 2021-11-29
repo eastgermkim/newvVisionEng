@@ -8,7 +8,7 @@
  	<select id="getNewsList" resultType="com.newvisioneng.domain.NewsVO">
 		<!-- 마이바티스에서 >를 닫는 태그로 인식하기 때문에 CDATA를 넣어줘야함 ^^ -->
 		<![CDATA[
-		SELECT * FROM NV_NEWS WHERE NEWSNUM > 0
+		SELECT * FROM NV_NEWS WHERE NEWSNUM > 0;
 		]]>
 	</select>
 	
@@ -33,8 +33,9 @@
 	
 	<update id="news_update">
 		UPDATE NV_NEWS
-		SET NEWSTITLE = #{newsTitle}, NEWSCONTENTS = #{newsContents}, NEWSWRITER = #{newsWriter}
-		WHERE NEWSNUM = #{newsNum}
+		SET NEWSTITLE = #{newsTitle}, NEWSSUBTITLE = #{newsSubTitle}, NEWSLINK = #{newsLink},
+			NEWSWRITER = #{newsWriter}, NEWSCONTENTS = #{newsContents}, NEWSDATE = #{newsDate}
+		WHERE NEWSNUM = #{newsNum};
 	</update>
 	
 	<!-- 파일첨부를 위해, 글을 등록하자마자 그 글의 newsNum을 가져온다-->
@@ -54,7 +55,8 @@
 	</select>
 	
 	<!-- 수정할때 파일 삭제하기 -->
-	<delete id="deleteNewsFile" parameterType="_long">
-		DELETE FROM NV_NEWS_FILE WHERE NEWSNUM = #{newsNum}
+	<delete id="deleteNewsFile" parameterType="string">
+		DELETE FROM NV_NEWS_FILE WHERE SYSTEMNAME = #{fileSystemName}
 	</delete>
+	
 </mapper>

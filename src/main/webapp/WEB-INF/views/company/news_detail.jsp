@@ -182,7 +182,6 @@ u {
 			<input type="submit" value="삭제" class="genric-btn primary circle" style="margin-right: 1%;">
 			<input type="hidden" name="newsNum" value="${news.newsNum}"> 
 		</div>
-			newsNum : ${news.newsNum}
 			<table>
 				<thead>
 					<!-- 데스크탑 -->
