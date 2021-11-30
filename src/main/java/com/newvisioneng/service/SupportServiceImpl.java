@@ -199,7 +199,7 @@ public class SupportServiceImpl implements SupportService {
         	if(imgPath.contains("/resources/files/notice_img/")) {
         		System.out.println("이건 DB 업데이트 해야징!");
         		
-        		int idx = 37;
+        		int idx = 27;
         		System.out.println("인덱스값 : "+idx);
         		
                 // substring으로 뒷부분 추출

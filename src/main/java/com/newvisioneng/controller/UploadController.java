@@ -63,7 +63,7 @@ public class UploadController {
 			@RequestParam(value="upload", required = false) MultipartFile fileload,
 			HttpServletRequest req) throws Exception  {
 		
-		String location = "/"+img_folder+"/";
+		String location = img_folder+"/";
 		
 		//이미지 저장
 		String[] names = uploadImg(fileload.getOriginalFilename(), fileload.getBytes(), req, location);
