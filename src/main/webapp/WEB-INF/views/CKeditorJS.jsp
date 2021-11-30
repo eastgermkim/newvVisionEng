@@ -36,6 +36,9 @@ class MyUploadAdapter {
         //여기서는 POST 요청과 json으로 응답을 받지만 어떤 포맷으로 하든 너의 선택이다.
         xhr.open( 'POST', '/file/temp/' + your_path, true );
         xhr.responseType = 'json';
+        
+        console.log(xhr);
+        
     }
 
     // Initializes XMLHttpRequest listeners.
@@ -73,6 +76,13 @@ class MyUploadAdapter {
             resolve( {
            default : response.url
             } );
+            
+            var img = response.url;
+            console.log(img);
+            
+            var img2 ='실험용생쥐';
+            
+            $("#mytest").val(img);
         } );
 
         // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded

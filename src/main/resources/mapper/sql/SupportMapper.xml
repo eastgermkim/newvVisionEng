@@ -34,6 +34,24 @@
         INSERT INTO NV_NOTICE_FILE VALUES
         (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
 	</insert>
+	<!-- 이미지 삽입시 -->
+	<insert id="insertNoticeImg" parameterType="hashmap">
+        INSERT INTO NV_NOTICE_IMG(SYSTEMNAME,ORGNAME) VALUES
+        (#{SYSTEMNAME},#{ORGNAME})
+	</insert>
+	<!-- 이미지 삽입 확정시(글 등록) -->
+	<update id="updateNoticeImg" parameterType="hashmap">
+        UPDATE NV_NOTICE_IMG SET NOTICENUM = #{BOARDNUM} WHERE SYSTEMNAME = #{SYSTEMNAME}
+	</update>
+	
+	<!-- noticenum이 NULL인 이미지들 systemname 불러오기 -->
+	<select id="getNoticeImgsNULL" resultType="string">
+        SELECT SYSTEMNAME FROM NV_NOTICE_IMG WHERE NOTICENUM IS NULL
+	</select>
+	<!-- noticenum이 NULL인 이미지들 DB에서 전체 삭제 -->
+	<delete id="deleteNoticeImgNULL">
+		DELETE FROM NV_NOTICE_IMG WHERE NOTICENUM IS NULL
+	</delete>
 	
 	
 	<!-- 공지사항 글 조회 -->
@@ -44,6 +62,8 @@
 	<select id="readNoticeFile" parameterType="_long" resultType="hashMap">
         SELECT * FROM NV_NOTICE_FILE WHERE NOTICENUM = #{noticeNum}
 	</select>
+	
+	
 	
 </mapper>
 

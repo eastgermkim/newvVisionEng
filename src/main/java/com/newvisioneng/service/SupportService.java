@@ -25,5 +25,9 @@ public interface SupportService {
 	public List<NoticeDTO> getNoticeList(Criteria cri);
 	public int getNoticeTotal(Criteria cri);
 
+	public void insertNoticeImg(Map<String, Object> map);
+	public void updateNoticeNumToImgDB(String noticeContents,long noticenum);
+
+	public void deleteUnusedImgs(HttpServletRequest req);
 
 }

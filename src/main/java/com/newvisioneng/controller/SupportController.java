@@ -84,9 +84,12 @@ public class SupportController {
 	
 	//공지사항 글 등록 view단으로 이동하는 요청
 	@GetMapping("/notice_write")
-	public void notice_write() {
-		
+	public void notice_write(HttpServletRequest req) {
+		//찌꺼지 이미지 파일, 이미지 DB 지우기
+		service.deleteUnusedImgs(req);
 	}
+	
+	
 	//공지사항 글 등록 메소드
 	@PostMapping("/notice_writeOK")
 	public ModelAndView notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
@@ -99,6 +102,10 @@ public class SupportController {
 
 		//글 등록, 등록한 글의 번호 담아주기
 		long noticenum = service.noticeRegist(noticedto,file,req);
+		
+		//이미지 삽입시 이미지DB에 등록되었던 것 중
+		//NoticeContents에 확정적으로 들어간 DB값에 noticenum 넣어주기
+		service.updateNoticeNumToImgDB(noticedto.getNoticeContents(),noticenum);
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
 		//Model 대신 RedirectAttributes를 사용한다.

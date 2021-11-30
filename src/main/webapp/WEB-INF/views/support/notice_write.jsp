@@ -199,7 +199,7 @@ u {
 
 	<div class="container board">
 		<form method="post" action="/support/notice_writeOK"
-			enctype="multipart/form-data">
+			enctype="multipart/form-data" id="noticeForm">
 
 			<table>
 				<thead>
@@ -243,26 +243,45 @@ u {
 						</path>
 					</svg>버튼을 누르시길 바랍니다.
 			</div>
-
-
-
 			<textarea id="editor" rows="5" name="noticeContents"
 				placeholder="내용을 입력하세요" style="display: none;">
 				</textarea>
 			<hr>
+			
+						
 			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="등록" class="genric-btn primary circle"
+				<input type="submit" value="등록" id="regist" class="genric-btn primary circle"
 					style="margin-right: 1%;"> <a href="/support/notice"
 					class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
 	</div>
 
-
+	<script>
+	function reloadForImg(){  
+		$('#div의 id').load(window.location.href + '#div의 id');
+	}
+	</script>
 
 
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+	
+	<!-- 페이지 벗어날 경우 경고창 -->
+	<script>
+    var checkUnload = true;
+    $(window).on("beforeunload", function(){
+        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+        
+    });
+    
+    $("#regist").on("click", function(){
+        checkUnload = false;
+        $("#noticeForm").submit();
+    });
+	</script>
+
+	
 	
 	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
 	<script>
@@ -271,6 +290,7 @@ u {
 	
 	<!-- CK에디터 -->
 	<%@ include file = "../CKeditorJS.jsp" %>
+	
 	
 	<!-- 파일 다중 업로드 -->
 	<script type="text/javascript">
@@ -328,6 +348,11 @@ u {
     
     }
 
+</script>
+
+<script>
+var content = editor.getData();
+console.log(content);
 </script>
 </body>
 

@@ -20,5 +20,14 @@ public interface SupportMapper {
  public List<NoticeDTO> getNoticeList(Criteria cri);
  //전체개수
  public int getNoticeTotal(Criteria cri);
-	
+
+ //이미지 삽입시 DB 저장
+ public void insertNoticeImg(Map<String, Object> map);
+ //글 등록에 사용된 이미지의 DB에만 noticenum 업데이트
+ public void updateNoticeImg(Map<String, Object> map);
+ 
+ //noticenum이 NULL인 이미지들 systemname 불러오기
+ public List<String> getNoticeImgsNULL();
+ //noticenum이 NULL인 이미지들 DB에서 전체 삭제
+ public void deleteNoticeImgNULL();
 }

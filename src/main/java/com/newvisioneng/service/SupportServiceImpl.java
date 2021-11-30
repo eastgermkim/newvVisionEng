@@ -1,14 +1,21 @@
 package com.newvisioneng.service;
 
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -28,11 +35,15 @@ import lombok.extern.log4j.Log4j;
 @Service
 public class SupportServiceImpl implements SupportService {
 	
+	private static final Logger logger = LoggerFactory.getLogger(SupportServiceImpl.class);
+	
 	@Setter(onMethod_ = @Autowired)
 	private SupportMapper mapper;
 	
 	@Autowired
 	private JavaMailSender mailSender;
+	
+	
 
 //11.11 이메일 재시도
 	@Override
@@ -110,7 +121,7 @@ public class SupportServiceImpl implements SupportService {
 
 	@Override
 	public long noticeRegist(NoticeDTO noticedto, MultipartFile[] file, HttpServletRequest req) throws Exception{
-		log.info("\nnoticeRegist................");
+		logger.info("\nnoticeRegist................");
 		
 		System.out.println("DB에 글 등록 전 noticeNum..................."+noticedto.getNoticeNum());
 		
@@ -142,7 +153,7 @@ public class SupportServiceImpl implements SupportService {
 	//전체 공지사항 목록 가져오기
 	@Override
 	public List<NoticeDTO> getNoticeList(Criteria cri) {
-		log.info("\ngetNoticeList...WithPaging................" );
+		logger.info("\ngetNoticeList...WithPaging................" );
 		return mapper.getNoticeList(cri);
 	}
 	//공지사항 총 개수
@@ -155,14 +166,95 @@ public class SupportServiceImpl implements SupportService {
 	//공지사항 하나 불러오기
 	@Override
 	public NoticeDTO noticeGet(Long noticeNum) {
-		log.info("\nnoticeGet--------noticeNum : "+noticeNum);
+		logger.info("\nnoticeGet--------noticeNum : "+noticeNum);
 		return mapper.readNotice(noticeNum);
 	}
 	//공지사항 하나 불러올때 첨부한 파일도 가져오기
 	@Override
 	public List<Map<String, Object>> readNoticeFile(Long noticeNum) throws Exception {
-		log.info("\nreadNoticeFile--------noticeNum : "+noticeNum);
+		logger.info("\nreadNoticeFile--------noticeNum : "+noticeNum);
 		return mapper.readNoticeFile(noticeNum);
+	}
+
+	@Override
+	public void insertNoticeImg(Map<String, Object> map) {
+		logger.info("\ninsertNoticeImg-----------------");
+		mapper.insertNoticeImg(map);
+	}
+
+	@Override
+	public void updateNoticeNumToImgDB(String noticeContents,long noticenum) {
+		logger.info("\ninsertNoticeNumToImgDB-----------------");
+		
+		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>"); //img 태그 src 추출 정규표현식
+        Matcher matcher = pattern.matcher(noticeContents);
+         
+        ArrayList<String> imgList = new ArrayList<>();
+        
+        while(matcher.find()){
+        	System.out.println("\nimg 태그 src 추출=====================");
+        	String imgPath = matcher.group(1);
+        	System.out.println(imgPath);
+        	
+        	if(imgPath.contains("/resources/files/temp/notice_temp_img/")) {
+        		System.out.println("이건 DB 업데이트 해야징!");
+        		
+        		int idx = 37;
+        		System.out.println("인덱스값 : "+idx);
+        		
+                // substring으로 뒷부분 추출
+                String imgSystemName = imgPath.substring(idx+1);
+                System.out.println("이미지 이름 : "+imgSystemName);
+                
+                imgList.add(imgSystemName);
+
+        	}
+        	System.out.println("============================");
+        }
+        
+        System.out.println("imgList......................"+imgList);
+        
+        for (int i = 0; i < imgList.size(); i++) {
+        	System.out.println("updateNoticeImg...............noticenum : "+noticenum+"\n이미지 이름 : "+imgList.get(i));
+        	
+        	Map<String, Object> map = new HashMap<String, Object>();
+        	map.put("SYSTEMNAME", imgList.get(i));
+        	map.put("BOARDNUM", noticenum);
+        	
+			mapper.updateNoticeImg(map);
+		}
+		
+		
+        System.out.println("===========이미지DB에 NOTICENUM 업데이트 완료============\n");
+	}
+
+	@Override
+	public void deleteUnusedImgs(HttpServletRequest req) {
+		
+		//noticenum이 null인 이미지들의 systemname을 담은 List
+		List<String> noticeImgsNULL= mapper.getNoticeImgsNULL();
+		logger.info("noticeImgsNULL...................."+noticeImgsNULL);
+		
+		//이미지 실제 파일 삭제
+		File file;
+		for (int i = 0; i < noticeImgsNULL.size(); i++) {
+			file = new File(req.getServletContext().getRealPath("/")
+					+"resources/files/"+"temp/notice_temp_img/" 
+					+ noticeImgsNULL.get(i));
+			
+				if(file.exists()){ 
+					if(file.delete()){ 
+						logger.info("삭제된 파일................." + noticeImgsNULL.get(i));
+					}else{
+						logger.info("삭제실패");
+					}
+				}else{ 
+					logger.info("파일이 존재하지 않습니다." + noticeImgsNULL.get(i));
+				}
+		}
+		
+		//이미지DB 삭제(NULL인것들 전체 삭제)
+		mapper.deleteNoticeImgNULL();
 	}
 }
 

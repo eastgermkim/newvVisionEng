@@ -44,7 +44,7 @@ public class FileUtils {
 	        	//파일 원래 이름
 	            String orgFileName = file[i].getOriginalFilename();
 	            //DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
-	            String saveFileName = boardnum+"_"+uid.toString()+"_"+(i+1)+"_"+ orgFileName;
+	            String saveFileName = "Number"+boardnum+"_"+uid.toString()+"_"+(i+1)+"_"+ orgFileName;
 	            //파일 크기
 	            Long saveFileSize = file[i].getSize();
 	            //파일 종류	
