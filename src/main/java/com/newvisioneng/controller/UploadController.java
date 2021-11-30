@@ -48,7 +48,7 @@ import lombok.extern.log4j.Log4j;
 public class UploadController {
 	
 	@Setter(onMethod_=@Autowired)
-	private SupportService service;
+	private SupportService supportService;
 
 	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
 	
@@ -68,13 +68,11 @@ public class UploadController {
 		//이미지 저장
 		String[] names = uploadImg(fileload.getOriginalFilename(), fileload.getBytes(), req, location);
 		
-		
-		
 		//json값으로 리턴
 		String result = imgJsonReturn(names,location);
 		
 		//DB에 저장(BOARDNUM은 NULL로 들어감)
-		insertToImgDB(names);
+		insertToImgDB(names,img_folder);
 		
 		return result;
 		
@@ -140,7 +138,7 @@ public class UploadController {
         return json.toString();
 	}
 	
-	private void insertToImgDB(String[] names){
+	private void insertToImgDB(String[] names,String img_folder){
 		logger.info("insertToImgDB......................");
 		
 		//원래 이미지 이름
@@ -155,7 +153,13 @@ public class UploadController {
         fileInfo.put("SYSTEMNAME", savedName);
 
         //이미지를 DB에 저장
-        service.insertNoticeImg(fileInfo);
+        //공지사항 게시판일때
+        if(img_folder.equals("notice_img")) {
+        	supportService.insertNoticeImg(fileInfo);
+        //보도자료 게시판일때
+        }else if(img_folder.equals("news_img")){
+        	//이미지DB넣는 서비스 메소드 입력
+        }
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

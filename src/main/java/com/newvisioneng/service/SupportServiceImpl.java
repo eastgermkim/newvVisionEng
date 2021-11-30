@@ -228,6 +228,8 @@ public class SupportServiceImpl implements SupportService {
         System.out.println("===========이미지DB에 NOTICENUM 업데이트 완료============\n");
 	}
 
+	
+	
 	@Override
 	public void deleteUnusedImgs(HttpServletRequest req) {
 		
