@@ -344,14 +344,38 @@ u {
 </script>
 
 <script>
-    var checkUnload = true;
-    $(window).on("beforeunload", function(){
-        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+$(document).ready(function () {
+    // Warning
+    $(window).on('beforeunload', function(){
+        //do something
+        return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+        
     });
-    $("#writeSubmit").on("click", function(){
-        checkUnload = false;
-        $("#newsWriteForm").submit();
+    // Form Submit
+    $(document).on("submit", "form", function(event){
+        // disable warning
+        $(window).off('beforeunload');
     });
+    
+    $(window).on('unload', function(){
+        //do something
+			$.ajax({
+				type:"POST",
+				url:"/company/news_tempDelete",
+				// 해당 small의 data-src 속성의 값을 JSON 형식으로 
+				dataType:"text",
+				cache:false,
+				success:function(res) {
+					alert("파일을 삭제했습니다.");
+					},
+	            	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+	                alert("파일 삭제에 실패하였습니다.");
+				}
+			});
+    });
+    
+})
+
 </script>
 </body>
 

@@ -98,6 +98,13 @@ public class CompanyController {
 		service.deleteUnusedImgs(req);
 	}
 	
+	//찌꺼기 삭제 테스트하기
+	@PostMapping("/news_tempDelete")
+	public void news_tempDelete(HttpServletRequest req) {
+		//남은 임시파일 삭제
+		service.deleteUnusedImgs(req);
+	}
+	
 	//글 작성 메소드
 	@PostMapping("/news_writeOK")
 	public ModelAndView notice_writeOK(NewsVO newsvo,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
