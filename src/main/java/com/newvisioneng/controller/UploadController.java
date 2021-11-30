@@ -58,12 +58,12 @@ public class UploadController {
 		//함수를 통해 파일이 업로드가 되고, 해당 리턴값을 json으로 리턴하면 xhr 에서 json으로 받는 형태
 		//파일을 업로드 후에는 {url:'업로드된 파일 주소'} 형태의 데이터를 반환
 	@ResponseBody
-	@RequestMapping(value = "/temp/{temp_img_folder}", method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public String fileUpload(@PathVariable("temp_img_folder") String temp_img_folder,  
+	@RequestMapping(value = "/img/{img_folder}", method = {RequestMethod.POST, RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public String fileUpload(@PathVariable("img_folder") String img_folder,  
 			@RequestParam(value="upload", required = false) MultipartFile fileload,
 			HttpServletRequest req) throws Exception  {
 		
-		String location = "temp/"+temp_img_folder+"/";
+		String location = "/"+img_folder+"/";
 		
 		//이미지 저장
 		String[] names = uploadImg(fileload.getOriginalFilename(), fileload.getBytes(), req, location);

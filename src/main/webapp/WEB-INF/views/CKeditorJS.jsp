@@ -34,7 +34,7 @@ class MyUploadAdapter {
         // could be different.
 
         //여기서는 POST 요청과 json으로 응답을 받지만 어떤 포맷으로 하든 너의 선택이다.
-        xhr.open( 'POST', '/file/temp/' + your_path, true );
+        xhr.open( 'POST', '/file/img/' + your_path, true );
         xhr.responseType = 'json';
         
         console.log(xhr);

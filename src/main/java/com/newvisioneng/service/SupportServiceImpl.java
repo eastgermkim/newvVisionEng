@@ -196,7 +196,7 @@ public class SupportServiceImpl implements SupportService {
         	String imgPath = matcher.group(1);
         	System.out.println(imgPath);
         	
-        	if(imgPath.contains("/resources/files/temp/notice_temp_img/")) {
+        	if(imgPath.contains("/resources/files/notice_img/")) {
         		System.out.println("이건 DB 업데이트 해야징!");
         		
         		int idx = 37;
@@ -239,7 +239,7 @@ public class SupportServiceImpl implements SupportService {
 		File file;
 		for (int i = 0; i < noticeImgsNULL.size(); i++) {
 			file = new File(req.getServletContext().getRealPath("/")
-					+"resources/files/"+"temp/notice_temp_img/" 
+					+"resources/files/"+"notice_img/" 
 					+ noticeImgsNULL.get(i));
 			
 				if(file.exists()){ 

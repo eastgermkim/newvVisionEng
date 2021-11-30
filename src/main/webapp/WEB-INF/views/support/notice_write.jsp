@@ -285,7 +285,7 @@ u {
 	
 	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
 	<script>
-	var your_path="notice_temp_img"
+	var your_path="notice_img"
 	</script>
 	
 	<!-- CK에디터 -->
