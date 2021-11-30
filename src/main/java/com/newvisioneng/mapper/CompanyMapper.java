@@ -5,12 +5,16 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Select;
 
+import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.NewsVO;
 
 public interface CompanyMapper {
 	//뉴스 전체 목록
 //	@Select("SELECT * FROM nv_news WHERE NEWSNUM > 0")
-	public List<NewsVO> getNewsList();
+	public List<NewsVO> getNewsList(Criteria cri);
+	
+	//전체 뉴스 개수
+	public int getNewsTotal(Criteria cri);
 	
 	//뉴스 추가
 	public void news_register(NewsVO news);
@@ -33,6 +37,20 @@ public interface CompanyMapper {
 	//파일 첨부 가져오기
 	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception;
 	
+	//이미지 사입후 DB 저장
+	public void insertNewsImg(Map<String, Object> map);
+	
 	//파일 첨부 삭제
 	public boolean deleteNewsFile(String fileSystemName) throws Exception;
+	
+	//글 등록에 사용된 이미지만 업데이트
+	public void updateNewsImg(Map<String, Object> map);
+	
+	//null인 이미지 systemName으로 불러오기
+	public List<String> getNewsImgsNULL();
+	
+	//null인 이미지 삭제
+	public void deleteNewsImgNULL();
+	
+
 }

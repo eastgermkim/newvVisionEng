@@ -27,8 +27,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.NewsVO;
 import com.newvisioneng.domain.NoticeDTO;
+import com.newvisioneng.domain.PageDTO;
 import com.newvisioneng.service.CompanyService;
 import com.newvisioneng.util.FileUtils;
 
@@ -52,9 +54,10 @@ public class CompanyController {
 	
 	//언론보도 페이지로 연결
 	@GetMapping("/news")
-	public void news(Model model) {
-		log.info("list");
-		model.addAttribute("news_list", service.getNewsList());
+	public void news(Model model, Criteria cri) {
+		model.addAttribute("news_list", service.getNewsList(cri));
+		model.addAttribute("news_count", service.getNewsTotal(cri));
+		model.addAttribute("pageMaker", new PageDTO(service.getNewsTotal(cri), cri));
 	}
 	
 	//보도현황 게시글 하나 클릭시 상세 정보 조회
@@ -90,8 +93,9 @@ public class CompanyController {
 	
 	//언론보도 페이지 글 등록 view단으로 이동하는 요청
 	@GetMapping("/news_write")
-	public void news_write() {
-		
+	public void news_write(HttpServletRequest req) {
+		//남은 임시파일 삭제
+		service.deleteUnusedImgs(req);
 	}
 	
 	//글 작성 메소드
@@ -109,6 +113,10 @@ public class CompanyController {
 		System.out.println("내용 : "+newsvo.getNewsContents());
 
 		long newsnum = service.newsRegist(newsvo,file,req);
+		
+		//이미지 삽입시 이미지DB에 등록되었던 것 중
+		//NewsContents에 확정적으로 들어간 DB값에 newsNum 넣어주기
+		service.updateNewsNumToImgDB(newsvo.getNewsContents(),newsnum);
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
 		//Model 대신 RedirectAttributes를 사용한다.
@@ -145,6 +153,7 @@ public class CompanyController {
 					Map<String, String> map = new HashMap<String,String>();
 					
 					log.info("삭제하려는 파일................." + fileSystemName);
+					
 					
 					if(file.exists()){ 
 						if(file.delete()){ 

@@ -7,12 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.NewsVO;
 import com.newvisioneng.domain.NoticeDTO;
 
 public interface CompanyService {
 	//전체 뉴스 가져오기
-	public List<NewsVO> getNewsList();
+	public List<NewsVO> getNewsList(Criteria cri);
+	
+	//전체 뉴스 개수 가져오기
+	public int getNewsTotal(Criteria cri);
 	
 	//뉴스 등록
 	public void news_register(NewsVO news);
@@ -32,6 +36,16 @@ public interface CompanyService {
 	//뉴스 파일첨부 불러오기
 	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception;
 	
+	//이미지 사입후 DB 저장
+	public void insertNewsImg(Map<String, Object> map);
+	
+	//db 저장 유효검사
+	public void updateNewsNumToImgDB(String newsContents, long newsnum);
+	
 	//파일 첨부 삭제
 	public boolean deleteNewsFile(String file_systemname) throws Exception;
+	
+	//사용하지 않은 이미지 삭제
+	public void deleteUnusedImgs(HttpServletRequest req);
+	
 }

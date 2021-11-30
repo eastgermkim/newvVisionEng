@@ -76,13 +76,6 @@ class MyUploadAdapter {
             resolve( {
            default : response.url
             } );
-            
-            var img = response.url;
-            console.log(img);
-            
-            var img2 ='실험용생쥐';
-            
-            $("#mytest").val(img);
         } );
 
         // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded

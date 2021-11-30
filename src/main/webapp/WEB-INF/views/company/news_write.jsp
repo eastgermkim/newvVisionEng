@@ -198,8 +198,8 @@ u {
 
 
 	<div class="container board">
-		<h3 style="color:#f36d20; text-align:right;">기사 링크가 있다면 저작권법상 글을 인용할 수 없어 파일첨부와 글 작성칸은 사라집니다.</h3>
-		<form method="post" action="/company/news_writeOK" enctype="multipart/form-data">
+		<h3 style="color:#f36d20; text-align:right;">저작권법상 글을 인용할 수 없는 경우 기사링크 사용(파일첨부와 글 작성칸은 사라집니다.)</h3>
+		<form id="newsWriteForm" method="post" action="/company/news_writeOK" enctype="multipart/form-data">
 			<table>
 				<thead>
 					<tr>
@@ -231,9 +231,9 @@ u {
 							<a href="#this" class="addFile" onclick="addFile()" style="color:#f36d20;">+ 	파일 추가</a>
 						</th>
 						<th class="file">
-							파일 용량 제한 : 20MB (최대 5개, 합계 100MB까지 가능)
 							<div class="form-group" id="file-list">
 								<div class="file-group file-count" style="text-align: left;">
+									<span style="display:flex">파일 용량 제한 : 20MB (최대 5개, 합계 100MB까지 가능)</span>
 									<input type="file" name="file"><a href='#this' name='file-delete' style='color: red;'>삭제</a>
 								</div>
 							</div>
@@ -242,7 +242,7 @@ u {
 					</tr>
 				</tbody>
 			</table>
-			<div style="margin-top: 3%;">
+			<div style="margin-top: 3%;" id="imageText">
 			 이미지 삽입시에는 아래에 있는 
 					<svg class="ck ck-icon ck-button__icon">
 						<path d="M6.91 10.54c.26-.23.64-.21.88.03l3.36 3.14 2.23-2.06a.64.64 0 0 1 .87 0l2.52 2.97V4.5H3.2v10.12l3.71-4.08zm10.27-7.51c.6 0 1.09.47 1.09 1.05v11.84c0 .59-.49 1.06-1.09 1.06H2.79c-.6 0-1.09-.47-1.09-1.06V4.08c0-.58.49-1.05 1.1-1.05h14.38zm-5.22 5.56a1.96 1.96 0 1 1 3.4-1.96 1.96 1.96 0 0 1-3.4 1.96z">
@@ -252,9 +252,8 @@ u {
 			<textarea id="editor" rows="5" name="newsContents" class="newsContents" placeholder="내용을 입력하세요" style="display: none;"></textarea>
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="등록" class="genric-btn primary circle"
-					style="margin-right: 1%;"> <a href="/company/news"
-					class="genric-btn primary-border circle">목록으로 돌아가기</a>
+				<input type="submit" id="writeSubmit" value="등록" class="genric-btn primary circle" style="margin-right: 1%;">
+				 <a href="/company/news" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
 	</div>
@@ -271,9 +270,11 @@ u {
 			if($("#newsLink").val() == null || $("#newsLink").val() == ""){
 				$(".ck-editor").show();
 				$(".file").show();
+				$("#imageText").show();
 			}else{
 				$(".ck-editor").hide();
 				$(".file").hide();
+				$("#imageText").hide();
 			}
 		});
 		
@@ -281,7 +282,7 @@ u {
 	
 	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
 	<script>
-	var your_path="news_temp_img"
+	var your_path="news_img"
 	</script>
 	
 	<!-- CK에디터 -->
@@ -340,6 +341,17 @@ u {
     
     }
 
+</script>
+
+<script>
+    var checkUnload = true;
+    $(window).on("beforeunload", function(){
+        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+    });
+    $("#writeSubmit").on("click", function(){
+        checkUnload = false;
+        $("#newsWriteForm").submit();
+    });
 </script>
 </body>
 

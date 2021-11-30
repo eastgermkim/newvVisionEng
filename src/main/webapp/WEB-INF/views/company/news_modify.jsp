@@ -199,7 +199,7 @@ u {
 
 
 	<div class="container board">
-		<form method="post" action="/company/news_modifyOK" enctype="multipart/form-data">
+		<form id="newsModifyForm" method="post" action="/company/news_modifyOK" enctype="multipart/form-data">
 		<input type="hidden" name="newsNum" value="${news.newsNum}">
 			<table>
 				<thead>
@@ -232,9 +232,9 @@ u {
 							<a href="#this" class="addFile" onclick="addFile()" style="color:#f36d20;">+ 	파일 추가</a>
 						</th>
 						<th class="file" id="file">
-						파일 용량 제한 : 20MB (최대 5개, 합계 100MB까지 가능)
 							<div class="form-group" id="file-list" style="padding:0 20px;">
 								<div class="file-group" id="file-group" style="text-align: left;">
+									<span style="display:flex">파일 용량 제한 : 20MB (최대 5개, 합계 100MB까지 가능)</span>
 									<c:choose>
 										<c:when test="${file != null and fn:length(file)>0 }">
 											<c:forEach var="file" items="${file}">
@@ -259,7 +259,7 @@ u {
 					</tr>
 				</tbody>
 			</table>
-			<div style="margin-top: 3%;">
+			<div style="margin-top: 3%;" id="imageText">
 			 이미지 삽입시에는 아래에 있는 
 					<svg class="ck ck-icon ck-button__icon">
 						<path d="M6.91 10.54c.26-.23.64-.21.88.03l3.36 3.14 2.23-2.06a.64.64 0 0 1 .87 0l2.52 2.97V4.5H3.2v10.12l3.71-4.08zm10.27-7.51c.6 0 1.09.47 1.09 1.05v11.84c0 .59-.49 1.06-1.09 1.06H2.79c-.6 0-1.09-.47-1.09-1.06V4.08c0-.58.49-1.05 1.1-1.05h14.38zm-5.22 5.56a1.96 1.96 0 1 1 3.4-1.96 1.96 1.96 0 0 1-3.4 1.96z">
@@ -269,7 +269,7 @@ u {
 			<textarea id="editor" rows="5" name="newsContents" placeholder="내용을 입력하세요" style="display: none;">${news.newsContents}</textarea>
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="수정" class="genric-btn primary circle" style="margin-right: 1%;"> 
+				<input id="modifySubmit" type="submit" value="수정" class="genric-btn primary circle" style="margin-right: 1%;"> 
 				<a href="/company/news" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
@@ -290,9 +290,11 @@ u {
 		if($("#newsLink").val() == null || $("#newsLink").val() == ""){
 			$(".ck-editor").show();
 			$(".file").show();
+			$("#imageText").show();
 		}else{
 			$(".ck-editor").hide();
 			$(".file").hide();
+			$("#imageText").hide();
 		}
 	});
 
@@ -312,7 +314,7 @@ u {
 	
 	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
 	<script>
-	var your_path="news_temp_img"
+	var your_path="news_img"
 	</script>
 	
 	<!-- CK에디터 -->
@@ -428,6 +430,17 @@ u {
 		formObj.submit();
 	}
 	</script> -->
+	
+	<script>
+    var checkUnload = true;
+    $(window).on("beforeunload", function(){
+        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+    });
+    $("#modifySubmit").on("click", function(){
+        checkUnload = false;
+        $("#newsModifyForm").submit();
+    });
+	</script>	
 </body>
 
 </html>

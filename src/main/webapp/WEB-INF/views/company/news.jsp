@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
 <!DOCTYPE html>
 <html>
 <style>
+.small-width-page{
+		display:none!important;
+	}
+
+.small-width-table{
+		display:none;
+	}
+	
 .crawling-lists{
 	border-top:1px solid #222;
 }
+
 .crawling-list{
 	padding:25px;
 	position:realative;
@@ -39,6 +49,13 @@
 	text-align:right;
 }
 
+
+.pagination .page-item.active .page-link {
+	font-weight: 600;
+	color:black;
+    border-color: black;
+}
+
 input[type="checkbox"]+label {
 	vertical-align:-webkit-baseline-middle;
     width: 20px;
@@ -54,6 +71,28 @@ input[type="checkbox"] {
     display: none;
 }
 
+.small-width-page{
+		display:none;
+	}
+
+
+@media(max-width : 767.5px){
+	.big-width-page{
+		display:none!important;
+	}
+	.small-width-page{
+		display:flex!important;
+	}
+	.big-width-table{
+		display:none!important;
+	}
+/* 	.pagination{
+		display:none!important;
+	} */
+	.small-width-table{
+		display:table-row;
+	}
+}
 </style>
 <head>
 <meta charset="utf-8">
@@ -130,40 +169,107 @@ input[type="checkbox"] {
 	        </div>
 	        <br>
 				<ul class="crawling-lists">
-				<h3>${fn:length(${news_list}</h3>
-			   		<c:forEach var="news" items="${news_list}">
-			   			<c:choose>
-			   				<c:when test="${news.newsLink != null}">
-							<li class="crawling-list">
-								<a class="list-inner-wrap" href="${news.newsLink}" target="_blank">
-									<div class="text-wrap">
-									<form method="post" action="/company/news_delete" enctype="multipart/form-data">
-										<div style="display:flex">
-											<h3 class="news-title">${news.newsTitle}</h3>
-											<span class="contact-info__icon">&nbsp;&nbsp;&nbsp;&nbsp;<i class="ti-layers"></i></span>
-										</div>
-										<h3 class="news-contents">${news.newsSubTitle}</h3>
-										<h3 class="news-dates">${news.newsDate}</h3>
-										<input type="hidden" name="newsNum" value="${news.newsNum}">
-										<a href="/company/news_modify/${news.newsNum}" i="modify_link_button" class="genric-btn primary modify_link_button" style="display:none;">수정하기</a>
-										<input type="submit" value="삭제" class="genric-btn primary circle" style="margin-right: 1%; border-radius:0; display:none;">
-									</form>
-									</div>
-								</a>
-			   				</c:when>
-			   				<c:otherwise>
-							<li class="crawling-list">
-								<a class="list-inner-wrap" href="news/${news.newsNum}">
-									<div class="text-wrap">
-										<h3 class="news-title">${news.newsTitle}</h3>
-										<h3 class="news-contents">${news.newsSubTitle}</h3>
-										<h3 class="news-dates">${news.newsDate}</h3>
-									</div>
-								</a>
-			   				</c:otherwise>
-			   			</c:choose>
-			   		</c:forEach>
+ 				<c:choose>
+					<c:when test="${news_count == 0}">
+						<div style="border-bottom:1px solid #ddd;">
+							<h3 style="text-align:center; color:grey; margin-top:2%; margin-bottom:2%;">작성된 보도자료가 없습니다.</h3>
+						</div>
+					</c:when>
+							<c:otherwise>
+					   			<c:forEach var="news" items="${news_list}">
+						   			<c:choose>
+						   				<c:when test="${news.newsLink != null}">
+										<li class="crawling-list">
+											<a class="list-inner-wrap" href="${news.newsLink}" target="_blank">
+												<div class="text-wrap">
+												<form method="post" action="/company/news_delete" enctype="multipart/form-data">
+													<div style="display:flex">
+														<h3 class="news-title">${news.newsTitle}</h3>
+														<span class="contact-info__icon">&nbsp;&nbsp;&nbsp;&nbsp;<i class="ti-layers"></i></span>
+													</div>
+													<h3 class="news-contents">${news.newsSubTitle}</h3>
+													<h3 class="news-dates">${news.newsDate}</h3>
+													<input type="hidden" name="newsNum" value="${news.newsNum}">
+													<div class="linkHidden" style="display:none;">
+													<a href="/company/news_modify/${news.newsNum}" i="modify_link_button" class="genric-btn primary modify_link_button">수정하기</a>
+													<input type="submit" value="삭제" class="genric-btn primary circle linkNewsDelete" style="margin-right: 1%; border-radius:0;">
+													</div>
+												</form>
+												</div>
+											</a>
+						   				</c:when>
+						   				<c:otherwise>
+										<li class="crawling-list">
+											<a class="list-inner-wrap" href="news/${news.newsNum}">
+												<div class="text-wrap">
+													<h3 class="news-title">${news.newsTitle}</h3>
+													<h3 class="news-contents">${news.newsSubTitle}</h3>
+													<h3 class="news-dates">${news.newsDate}</h3>
+												</div>
+											</a>
+						   				</c:otherwise>
+						   			</c:choose>
+					   		</c:forEach>
+					</c:otherwise>
+				</c:choose>
 				</ul>
+				
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- 페이징 처리 --> 
+		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
+			<ul class="big-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker.prev}">
+	 				<li class="page-item">
+	 					<a href="news?page=${pageMaker.startPage-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+				<c:forEach var="idx" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li ${pageMaker.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
+		 				<a href="news?page=${idx }" class="page-link">${idx}</a>
+		 			</li>
+				</c:forEach>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+	 				<li class="page-item">
+	 					<a href="news?page=${pageMaker.endPage+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+	 		
+	 		<!-- 페이징 처리 --> 
+			<ul class="small-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker.cri.page>1}">
+	 				<li class="page-item">
+	 					<a href="news?page=${pageMaker.cri.page-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li class="page-item active"}>
+		 				<a class="page-link">${pageMaker.cri.page}</a>
+		 			</li>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker.cri.page<pageMaker.realEnd}">
+	 				<li class="page-item">
+	 					<a href="news?page=${pageMaker.cri.page+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		</nav>
+				
    		</div>
 	</section>
 
@@ -174,16 +280,23 @@ input[type="checkbox"] {
 	$(function(){
 		$("#myCheck").on('click', function() {
 		if($("#myCheck").is(":checked") == true){
-			console.log("체크됨")
-			$(".modify_link_button").show();
-			$(".genric-btn primary circle").show();
+			$(".linkHidden").show();
 		}else{
-			console.log("체크안됨")
-			$(".modify_link_button").hide();
-			$(".genric-btn primary circle").hide();
+			$(".linkHidden").hide();
 		}
 		})
 	})
+	</script>
+	
+	<script>
+	$(".linkNewsDelete").click(function() {
+		if(!confirm("링크기사가 삭제됩니다.")){
+			return false;
+		}else{
+			alert("해당 기사가 삭제되었습니다.")
+		}
+	})
+	
 	</script>
 	
 </html>

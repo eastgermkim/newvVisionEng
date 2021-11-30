@@ -140,7 +140,7 @@ a:active {
 
 <style>
 .single-input {
-	border-bottom: inset;
+	/* border-bottom: inset; */
 	background: none;
 }
 u {
@@ -179,7 +179,8 @@ u {
 		<form method="post" action="/company/news_delete" enctype="multipart/form-data">
 		<div style="text-align:right;">
 			<a href="/company/news_modify/${news.newsNum}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
-			<input type="submit" value="삭제" class="genric-btn primary circle" style="margin-right: 1%;">
+			<input type="submit" value="삭제" class="genric-btn primary circle newsDelete" style="margin-right: 1%;">
+			<a href="/company/news" class="genric-btn primary circle">목록으로 돌아가기</a>
 			<input type="hidden" name="newsNum" value="${news.newsNum}"> 
 		</div>
 			<table>
@@ -220,6 +221,25 @@ u {
 			<div id="editor" rows="5" name="newsContents"-
 				style="display: none;" readonly>${news.newsContents}</div>
 			</form>
+				<div class="board-view-bottom">
+					<div class="prevnext-btn-style">
+						<dl class="prev-post-link">
+							<dt class="link-title prev">
+								before
+								이전글
+							</dt>
+							<dd>
+								<a>하위</a>
+							</dd>
+						</dl>
+						<dl class="next-post-link">
+							<dt class="link-title next">
+							</dt>
+							<dd>
+							</dd>
+						</dl>
+					</div>
+				</div>
 			<form name="readForm" role="form" method="post">
 				<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
 				<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
@@ -237,6 +257,18 @@ u {
 		formObj.submit();
 	}
 	</script>
+	
+	<script>
+	$(".newsDelete").click(function() {
+		if(!confirm("링크기사가 삭제됩니다.")){
+			return false;
+		}else{
+			alert("해당 기사가 삭제되었습니다.")
+		}
+	})
+	
+	</script>
+	
 	<script>
 	ClassicEditor
     .create( document.querySelector( '#editor' ), {
@@ -253,7 +285,6 @@ u {
     .catch( error => {
         console.log( error );
     } );
-	
 	
 		</script>
 </body>

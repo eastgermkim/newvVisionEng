@@ -1,7 +1,12 @@
 package com.newvisioneng.service;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.NewsVO;
 import com.newvisioneng.domain.NoticeDTO;
 import com.newvisioneng.mapper.CompanyMapper;
@@ -24,10 +30,17 @@ public class CompanyServiceImpl implements CompanyService {
 	@Setter(onMethod_ = @Autowired)
 	private CompanyMapper mapper;
 	
+	//뉴스 목록
 	@Override
-	public List<NewsVO> getNewsList() {
+	public List<NewsVO> getNewsList(Criteria cri) {
 		log.info("getNewsList................" );
-		return mapper.getNewsList();
+		return mapper.getNewsList(cri);
+	}
+	
+	//뉴스 총 개수
+	@Override
+	public int getNewsTotal(Criteria cri) {
+		return mapper.getNewsTotal(cri);
 	}
 	
 	@Override
@@ -105,6 +118,12 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 	
 	@Override
+	public void insertNewsImg(Map<String,Object> map) {
+		log.info("insertNewsImg...............");
+		mapper.insertNewsImg(map);
+	}
+	
+	@Override
 	public List<Map<String, Object>> readNewsFile(Long newsNum) throws Exception {
 		return mapper.readNewsFile(newsNum);
 	}
@@ -114,5 +133,79 @@ public class CompanyServiceImpl implements CompanyService {
 		return mapper.deleteNewsFile(fileSystemName);
 	}
 	
+	@Override
+	public void updateNewsNumToImgDB(String newsContents,long newsNum) {
+		log.info("\ninsertNewsNumToImgDB-----------------");
+		
+		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>"); //img 태그 src 추출 정규표현식
+        Matcher matcher = pattern.matcher(newsContents);
+         
+        ArrayList<String> imgList = new ArrayList<>();
+        
+        while(matcher.find()){
+        	System.out.println("\nimg 태그 src 추출=====================");
+        	String imgPath = matcher.group(1);
+        	System.out.println(imgPath);
+        	
+        	if(imgPath.contains("/resources/files/news_img/")) {
+        		System.out.println("이건 DB 업데이트 해야징!");
+        		
+        		int idx = 25;
+        		System.out.println("인덱스값 : "+idx);
+        		
+                // substring으로 뒷부분 추출
+                String imgSystemName = imgPath.substring(idx+1);
+                System.out.println("이미지 이름 : "+imgSystemName);
+                
+                imgList.add(imgSystemName);
+
+        	}
+        	System.out.println("============================");
+        }
+        
+        System.out.println("imgList......................"+imgList);
+        
+        for (int i = 0; i < imgList.size(); i++) {
+        	System.out.println("updateNoticeImg...............noticenum : "+newsNum+"\n이미지 이름 : "+imgList.get(i));
+        	
+        	Map<String, Object> map = new HashMap<String, Object>();
+        	map.put("SYSTEMNAME", imgList.get(i));
+        	map.put("BOARDNUM", newsNum);
+        	
+			mapper.updateNewsImg(map);
+		}
+		
+		
+        System.out.println("===========이미지DB에 NOTICENUM 업데이트 완료============\n");
+	}
+
 	
+	@Override
+	public void deleteUnusedImgs(HttpServletRequest req) {
+		
+		//newsnum이 null인 이미지들의 systemname을 담은 List
+		List<String> newsImgsNULL= mapper.getNewsImgsNULL();
+		log.info("newsImgsNULL...................."+newsImgsNULL);
+		
+		//이미지 실제 파일 삭제
+		File file;
+		for (int i = 0; i < newsImgsNULL.size(); i++) {
+			file = new File(req.getServletContext().getRealPath("/")
+					+"resources/files/"+"news_img/" 
+					+ newsImgsNULL.get(i));
+			
+				if(file.exists()){ 
+					if(file.delete()){ 
+						log.info("삭제된 파일................." + newsImgsNULL.get(i));
+					}else{
+						log.info("삭제실패");
+					}
+				}else{ 
+					log.info("파일이 존재하지 않습니다." + newsImgsNULL.get(i));
+				}
+		}
+		
+		//이미지DB 삭제(NULL인것들 전체 삭제)
+		mapper.deleteNewsImgNULL();
+	}
 }

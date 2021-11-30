@@ -6,11 +6,18 @@
 
 	<!-- 스프링에서 resultType이 특정 객체일때에는 AS대신 직접 경로를 작성하는 것이 가독성이 좋다. -->
  	<select id="getNewsList" resultType="com.newvisioneng.domain.NewsVO">
+ 		SELECT NEWSNUM, NEWSTITLE, NEWSSUBTITLE, NEWSLINK, NEWSWRITER,  NEWSCONTENTS, NEWSDATE, NEWSWRITEDATE
+ 		FROM NV_NEWS ORDER BY NEWSNUM DESC LIMIT #{pageStart}, #{pageSize}
 		<!-- 마이바티스에서 >를 닫는 태그로 인식하기 때문에 CDATA를 넣어줘야함 ^^ -->
-		<![CDATA[
-		SELECT * FROM NV_NEWS WHERE NEWSNUM > 0;
-		]]>
+		<!-- <![CDATA[
+		SELECT * FROM NV_NEWS ORDER BY NEWSNUM DESC LIMIT #{pageStart}, #{pageSize};
+		]]> -->
 	</select>
+	
+	<select id="getNewsTotal" resultType="_int">
+		SELECT COUNT(*) FROM NV_NEWS WHERE NEWSNUM>0
+	</select>
+	
 	
 
  	<insert id="news_register">
@@ -48,11 +55,30 @@
         INSERT INTO NV_NEWS_FILE VALUES
         (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
 	</insert>
+	<!-- 이미지 삽입 확정시(글 등록) -->
+	<update id="updateNewsImg" parameterType="hashmap">
+        UPDATE NV_NEWS_IMG SET NEWSNUM = #{BOARDNUM} WHERE SYSTEMNAME = #{SYSTEMNAME}
+	</update>
+	
+	<!-- newsNum이 NULL인 이미지들 systemname 불러오기 -->
+	<select id="getNewsImgsNULL" resultType="string">
+        SELECT SYSTEMNAME FROM NV_NEWS_IMG WHERE NEWSNUM IS NULL
+	</select>
+	<!-- noticenum이 NULL인 이미지들 DB에서 전체 삭제 -->
+	<delete id="deleteNewsImgNULL">
+		DELETE FROM NV_NEWS_IMG WHERE NEWSNUM IS NULL
+	</delete>
 	
 	<!-- 뉴스 글 조회시 파일도 함께 -->
 	<select id="readNewsFile" parameterType="_long" resultType="hashMap">
         SELECT * FROM NV_NEWS_FILE WHERE NEWSNUM = #{newsNum}
 	</select>
+	
+	<!-- 이미지 삽입 저장 -->
+	<insert id="insertNewsImg" parameterType="hashmap">
+        INSERT INTO NV_NEWS_IMG(SYSTEMNAME,ORGNAME) VALUES
+        (#{SYSTEMNAME},#{ORGNAME})
+	</insert>
 	
 	<!-- 수정할때 파일 삭제하기 -->
 	<delete id="deleteNewsFile" parameterType="string">
