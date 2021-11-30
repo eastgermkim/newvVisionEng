@@ -94,8 +94,6 @@ public class CompanyController {
 	//언론보도 페이지 글 등록 view단으로 이동하는 요청
 	@GetMapping("/news_write")
 	public void news_write(HttpServletRequest req) {
-		//남은 임시파일 삭제
-		service.deleteUnusedImgs(req);
 	}
 	
 	//찌꺼기 삭제 테스트하기

@@ -156,13 +156,12 @@ public class UploadController {
         fileInfo.put("ORGNAME", originalName);
         fileInfo.put("SYSTEMNAME", savedName);
 
-        //이미지를 DB에 저장
+     //이미지를 DB에 저장
         //공지사항 게시판일때
         if(img_folder.equals("notice_img")) {
         	supportService.insertNoticeImg(fileInfo);
         //보도자료 게시판일때
         }else if(img_folder.equals("news_img")){
-        	//이미지DB넣는 서비스 메소드 입력
         	companyService.insertNewsImg(fileInfo);
         }
 	}

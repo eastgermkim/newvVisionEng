@@ -82,12 +82,17 @@ public class SupportController {
 			FileUtils.fileDownload(location, systemName, orgName, req, response);
     }
 	
+	//글 등록에 사용안된 이미지 삭제(파일,DB 함께)
+	@PostMapping("/deleteUnusedImgs")
+	public void deleteUnusedImgs(HttpServletRequest req) {
+		service.deleteUnusedImgs(req);
+	}
+	
 	//공지사항 글 등록 view단으로 이동하는 요청
 	@GetMapping("/notice_write")
 	public void notice_write(HttpServletRequest req) {
-		//찌꺼지 이미지 파일, 이미지 DB 지우기
-		service.deleteUnusedImgs(req);
 	}
+	
 	
 	
 	//공지사항 글 등록 메소드
@@ -113,6 +118,10 @@ public class SupportController {
 		ra.addFlashAttribute("noticenum",noticenum);*/
 		
 		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
+		
+		//사용안된 이미지 삭제(파일,DB 함께)
+		service.deleteUnusedImgs(req);
+		
         return mav;
 	}
 	

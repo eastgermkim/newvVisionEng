@@ -269,17 +269,36 @@ u {
 	
 	<!-- 페이지 벗어날 경우 경고창 -->
 	<script>
-    var checkUnload = true;
-    $(window).on("beforeunload", function(){
-        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+$(document).ready(function () {
+    // Warning
+    $(window).on('beforeunload', function(){
+        //do something
+        return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
         
     });
-    
-    $("#regist").on("click", function(){
-        checkUnload = false;
-        $("#noticeForm").submit();
+    // Form Submit
+    $(document).on("submit", "form", function(event){
+        // disable warning
+        $(window).off('beforeunload');
     });
-	</script>
+    
+    
+    $(window).on('unload', function(){
+        //do something
+			$.ajax({
+				type:"POST",
+				url:"/support/deleteUnusedImgs",
+				dataType:"text",
+				cache:false,
+				success:function(res) {
+					},
+	            	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+				}
+			});
+    });
+    
+})
+</script>
 
 	
 	
@@ -350,10 +369,6 @@ u {
 
 </script>
 
-<script>
-var content = editor.getData();
-console.log(content);
-</script>
 </body>
 
 </html>

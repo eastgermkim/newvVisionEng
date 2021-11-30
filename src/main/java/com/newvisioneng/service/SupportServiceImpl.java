@@ -192,14 +192,16 @@ public class SupportServiceImpl implements SupportService {
         ArrayList<String> imgList = new ArrayList<>();
         
         while(matcher.find()){
-        	System.out.println("\nimg 태그 src 추출=====================");
+        	System.out.println("\n=================img 태그 src 추출=====================");
         	String imgPath = matcher.group(1);
         	System.out.println(imgPath);
         	
-        	if(imgPath.contains("/resources/files/notice_img/")) {
+        	String path = "/resources/files/notice_img/";
+        	
+        	if(imgPath.contains(path)) {
         		System.out.println("이건 DB 업데이트 해야징!");
         		
-        		int idx = 27;
+        		int idx = path.length()-1;
         		System.out.println("인덱스값 : "+idx);
         		
                 // substring으로 뒷부분 추출
@@ -209,7 +211,7 @@ public class SupportServiceImpl implements SupportService {
                 imgList.add(imgSystemName);
 
         	}
-        	System.out.println("============================");
+        	System.out.println("========================================================");
         }
         
         System.out.println("imgList......................"+imgList);
