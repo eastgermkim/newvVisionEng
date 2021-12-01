@@ -69,8 +69,8 @@
 	</delete>
 	<!-- 공지사항 수정완료 -->
 	<update id="updateNotice">
-		UPDATE NV_NOTICE SET NOTICETITLE = #{noticeWriter}, 
-		NOTICEWRITER = #{noticeTitle}, NOTICECONTENTS = #{noticeContents} 
+		UPDATE NV_NOTICE SET NOTICEWRITER = #{noticeWriter}, 
+		NOTICETITLE = #{noticeTitle}, NOTICECONTENTS = #{noticeContents} 
 		WHERE NOTICENUM = #{noticeNum}
 	</update>
 	<!-- 공지사항 수정시 사용안하게 된 이미지가 있을수있으므로 일단 다 NULL로 바꿔준다. -->
