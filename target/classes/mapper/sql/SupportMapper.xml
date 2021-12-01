@@ -79,6 +79,11 @@
 		WHERE NOTICENUM = #{noticeNum}
 	</update>
 	
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice">
+		DELETE FROM NV_NOTICE WHERE NOTICENUM = #{noticenum}
+	</delete>
+	
 </mapper>
 
 

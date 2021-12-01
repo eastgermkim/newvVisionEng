@@ -206,13 +206,15 @@ u {
 
 
 	<div class="container board">
-		 <form method="post" action="/support/notice_modify"
+		 <form method="post" action="/support/notice_delete"
 			enctype="multipart/form-data">
 
 			<div style="text-align: right" class="big-width-button">
 				<a href="/support/notice_modify/${notice.noticeNum}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
-				<input type="submit" value="삭제" class="genric-btn danger-border circle" style="margin-right: 1%;font-size: 1em;">
+				<input type="submit" value="삭제" class="genric-btn danger-border circle deleteBtn" style="margin-right: 1%;font-size: 1em;">
 				<a href="/support/notice" class="genric-btn primary-border circle">목록으로 돌아가기</a>
+			
+				<input type="hidden" name="noticeNum" value="${notice.noticeNum}"> 
 			</div>
 
 
@@ -244,6 +246,7 @@ u {
 											<a href="#"
 												onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;"
 												style="color: mediumblue;">${file.ORGNAME}</a>
+											<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
 											<br>
 										</c:forEach>
 									</c:when>
@@ -283,6 +286,17 @@ u {
 		formObj.attr("action", "/support/noticeFiledown");
 		formObj.submit();
 	}
+	
+	</script>
+
+	<script>
+	$(".deleteBtn").click(function() {
+		if(!confirm("글이 삭제됩니다.")){
+			return false;
+		}else{
+			alert("글이 삭제되었습니다.")
+		}
+	})
 	
 	</script>
 

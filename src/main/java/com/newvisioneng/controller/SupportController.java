@@ -194,6 +194,37 @@ public class SupportController {
 		return mav;
 	}
 	
+	@PostMapping("/notice_delete")
+	public String notice_delete(@RequestParam("noticeNum") Long noticenum, 
+			@RequestParam(value = "file_systemname", required=false) String[] file_systemname, 
+			RedirectAttributes ra, HttpServletRequest req) {
+	
+		log.info("notice_delete : " + noticenum);
+		
+		if(file_systemname != null) {
+			for(int i = 0; i < file_systemname.length; i++) {
+				File file = new File(req.getServletContext().getRealPath("/")+"resources/files/"+"notice_files/" + file_systemname[i]);
+				System.out.println(file);
+				
+				if(file.exists()){ 
+					if(file.delete()){ 
+						System.out.println((i+1)+"번째 "+"파일삭제 성공"); 
+					}else{
+						System.out.println((i+1)+"번째 "+"파일삭제 실패"); 
+					}
+				}else{ 
+					System.out.println((i+1)+"번째  "+"파일이 존재하지 않습니다."); 
+				}
+			}
+		}
+		
+		if(service.removeNotice(noticenum)) {
+			//Session의 Flash에 담아준다.
+			ra.addFlashAttribute("result", "success");
+		}
+		
+		return"redirect:/support/notice"; 
+	}
 	//============================================================================================================================================================
 	
 	//이메일 문의 페이지로 연결

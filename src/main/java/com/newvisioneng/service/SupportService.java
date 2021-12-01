@@ -44,5 +44,8 @@ public interface SupportService {
 	//공지사항 수정완료
 	public void modifyNotice(NoticeDTO notice, MultipartFile[] file, HttpServletRequest req) throws Exception;
 
+	//공지사항 삭제
+	public boolean removeNotice(Long noticenum);
+
 
 }

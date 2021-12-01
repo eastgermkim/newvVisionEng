@@ -267,7 +267,7 @@ u {
 			
 						
 			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="수정완료" class="genric-btn primary circle"
+				<input type="submit" value="수정완료" class="genric-btn primary circle modifyBtn"
 					style="margin-right: 1%;"> <a href="/support/notice"
 					class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
@@ -312,6 +312,16 @@ u {
 			}
 			fileCount();
 		});
+	</script>
+	
+	<script>
+	$(".modifyBtn").click(function() {
+		if(!confirm("변경된 내용으로 저장 하시겠습니까?")){
+			return false;
+		}else{
+			alert("수정 완료 되었습니다.")
+		}
+	})
 	</script>
 	
 	<script>

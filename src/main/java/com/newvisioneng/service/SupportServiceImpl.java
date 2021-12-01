@@ -163,7 +163,7 @@ public class SupportServiceImpl implements SupportService {
 		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"notice_files/";
 		System.out.println("파일저장경로........................."+uploadPath);
 
-		//파일정보 담기(저장경로,파일,글번호)
+		//파일 저장 및 정보 담기(저장경로,파일,글번호)
 		List<Map<String, Object>> fileList = FileUtils.parseFileInfo(uploadPath,file,noticeNum);
 		
 		//파일DB에 파일정보 넣어주기
@@ -236,7 +236,7 @@ public class SupportServiceImpl implements SupportService {
 		return mapper.deleteNoticeFile(fileSystemName);
 	}
 	
-	//공지사항 수정 완료 메소드
+	//공지사항DB 수정, 이미지DB 수정, 파일DB 등록
 	@Override
 	public void modifyNotice(NoticeDTO notice, MultipartFile[] file, HttpServletRequest req) throws Exception{
 		log.info("modify..........." + notice);
@@ -256,7 +256,7 @@ public class SupportServiceImpl implements SupportService {
 		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"notice_files/";
 		System.out.println("파일저장경로........................."+uploadPath);
 		
-		//파일정보 담기(저장경로,파일,글번호)
+		//파일 저장 및 정보 담기(저장경로,파일,글번호)
 		List<Map<String, Object>> fileList = FileUtils.parseFileInfo(uploadPath,file,noticenum);
 		
 		//파일DB에 파일정보 넣어주기
@@ -265,9 +265,15 @@ public class SupportServiceImpl implements SupportService {
 	        mapper.insertNoticeFile(fileList.get(i));
 	        System.out.println("파일DB에 저장 : "+fileList.get(i).get("SYSTEMNAME"));
 	    }
-		
-		
 	}
+	
+	//공지사항DB 삭제
+	@Override
+	public boolean removeNotice(Long noticenum) {
+		log.info("remove..........." + noticenum);
+		return mapper.deleteNotice(noticenum) == 1;
+	}
+
 	
 	//결국 공지사항 글 작성에 사용안된 이미지들 삭제하기
 	@Override

@@ -36,6 +36,9 @@ public interface SupportMapper {
  
  //공지사항 수정
  public void updateNotice(NoticeDTO notice);
-//공지사항 수정시 기존 이미지 DB의 noticenum을 일단 NULL로 변경
+ //공지사항 수정시 기존 이미지 DB의 noticenum을 일단 NULL로 변경
  public void emptyNoticeImg(Long noticeNum);
+ 
+ //공지사항 삭제
+ public int deleteNotice(Long noticenum);
 }
