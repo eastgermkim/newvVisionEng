@@ -186,7 +186,7 @@ u {
 				<div class="col-lg-7 offset-lg-1">
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
-							<h2>공지사항</h2>
+							<h2>공지사항 작성</h2>
 							<p style="opacity: 0.6">New Vision ENG. Notice</p>
 						</div>
 					</div>
@@ -232,7 +232,6 @@ u {
 								</div>
 							</div>
 						</th>
-						<!-- <th><input type="file" name="file" style="float: left;font-size: small;"></th> -->
 					</tr>
 				</tbody>
 			</table>
@@ -257,14 +256,6 @@ u {
 		</form>
 	</div>
 
-	<script>
-	function reloadForImg(){  
-		$('#div의 id').load(window.location.href + '#div의 id');
-	}
-	</script>
-
-
-
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 	
 	<!-- 페이지 벗어날 경우 경고창 -->
@@ -282,7 +273,8 @@ $(document).ready(function () {
         $(window).off('beforeunload');
     });
     
-    
+    //페이지 벗어나면 글 등록에 사용안된 이미지 삭제
+    //(크롬에선 사용불가)
     $(window).on('unload', function(){
         //do something
 			$.ajax({
@@ -299,8 +291,6 @@ $(document).ready(function () {
     
 })
 </script>
-
-	
 	
 	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
 	<script>

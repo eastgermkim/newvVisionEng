@@ -63,7 +63,21 @@
         SELECT * FROM NV_NOTICE_FILE WHERE NOTICENUM = #{noticeNum}
 	</select>
 	
-	
+	<!-- 공지사항 수정 - 첨부 파일 삭제 -->
+	<delete id="deleteNoticeFile" parameterType="string">
+		DELETE FROM NV_NOTICE_FILE WHERE SYSTEMNAME = #{fileSystemName}
+	</delete>
+	<!-- 공지사항 수정완료 -->
+	<update id="updateNotice">
+		UPDATE NV_NOTICE SET NOTICETITLE = #{noticeWriter}, 
+		NOTICEWRITER = #{noticeTitle}, NOTICECONTENTS = #{noticeContents} 
+		WHERE NOTICENUM = #{noticeNum}
+	</update>
+	<!-- 공지사항 수정시 사용안하게 된 이미지가 있을수있으므로 일단 다 NULL로 바꿔준다. -->
+	<update id="emptyNoticeImg">
+		UPDATE NV_NOTICE_IMG SET NOTICENUM = NULL
+		WHERE NOTICENUM = #{noticeNum}
+	</update>
 	
 </mapper>
 

@@ -55,6 +55,10 @@
 	font-weight: 500;
 }
 
+.small-width-button {
+	display: none;
+}
+
 @media ( max-width : 767.5px) {
 	.align-left {
 		width: 80%
@@ -70,6 +74,12 @@
 	}
 	.small-width-table {
 		display: table-row;
+	}
+	.big-width-button {
+		display: none;
+	}
+	.small-width-button {
+		display: block;
 	}
 	.board {
 		padding: 7% 3%;
@@ -134,7 +144,7 @@ a:active {
 }
 
 .ck.ck-editor__editable_inline {
-    border: none; 
+	border: none;
 }
 </style>
 
@@ -143,9 +153,11 @@ a:active {
 	/* border-bottom: inset; */
 	background: none;
 }
+
 u {
-	color:inherit;
+	color: inherit;
 }
+
 .ck-splitbutton {
 	display: none;
 }
@@ -162,15 +174,6 @@ u {
 .genric-btn.primary-border:hover {
 	color: black;
 	background: #D8D8D8;
-}
-
-.genric-btn.primary {
-	font-size: 1em;
-}
-
-.genric-btn.primary:hover {
-	background: #ED1E23;
-	color: #fff;
 }
 </style>
 
@@ -203,18 +206,26 @@ u {
 
 
 	<div class="container board">
-		<form method="post" action="/support/notice_modify" enctype="multipart/form-data">
-			noticeNum : ${notice.noticeNum}
+		 <form method="post" action="/support/notice_modify"
+			enctype="multipart/form-data">
+
+			<div style="text-align: right" class="big-width-button">
+				<a href="/support/notice_modify/${notice.noticeNum}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
+				<input type="submit" value="삭제" class="genric-btn danger-border circle" style="margin-right: 1%;font-size: 1em;">
+				<a href="/support/notice" class="genric-btn primary-border circle">목록으로 돌아가기</a>
+			</div>
+
+
 			<table>
 				<thead>
 					<!-- 데스크탑 -->
 					<tr>
 						<th class="big-width-table"><span>제목</span></th>
-						<th>
-						<span>
-							<input class="single-input" name="noticeTitle"
-								type="text"	value="${notice.noticeTitle}" readonly></th>
+						<th><span> <input class="single-input"
+								name="noticeTitle" type="text" value="${notice.noticeTitle}"
+								readonly>
 						</span>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -225,42 +236,42 @@ u {
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>첨부파일</span></th>
-						<th style="text-align:left;">
+						<th style="text-align: left;">
 							<div style="padding: 0 20px;">
-							<c:choose>
-								<c:when test="${file != null and fn:length(file)>0 }">
-									<c:forEach var="file" items="${file}">
-										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a><br>
-									</c:forEach>
-								</c:when>
-								<c:otherwise>
-									<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
-								</c:otherwise>
-							</c:choose>
+								<c:choose>
+									<c:when test="${file != null and fn:length(file)>0 }">
+										<c:forEach var="file" items="${file}">
+											<a href="#"
+												onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;"
+												style="color: mediumblue;">${file.ORGNAME}</a>
+											<br>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</th>
 					</tr>
 				</tbody>
 			</table>
-			
-			<div id="editor" rows="5" name="noticeContents"-
+
+			<div id="editor" rows="5" name="noticeContents"
 				style="display: none;" readonly>${notice.noticeContents}</div>
-			
+
 			<hr>
-			
-			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="수정하기" class="genric-btn primary circle"
-					style="margin-right: 1%;"> <a href="/support/notice"
-					class="genric-btn primary-border circle">목록으로 돌아가기</a>
-			</div>
+
+
 		</form>
-		
-				<form name="readForm" role="form" method="post">
-					<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
-					<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
-				</form>
-				
- </div>
+
+		<form name="readForm" role="form" method="post">
+			<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME"
+				value=""> <input type="hidden" id="FILE_ORGNAME"
+				name="FILE_ORGNAME" value="">
+		</form>
+
+	</div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 

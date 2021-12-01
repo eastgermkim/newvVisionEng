@@ -119,6 +119,33 @@ public class SupportServiceImpl implements SupportService {
 	    }
 	}
 
+//====================================================================================
+	//전체 공지사항 목록 가져오기
+	@Override
+	public List<NoticeDTO> getNoticeList(Criteria cri) {
+		logger.info("\ngetNoticeList...WithPaging................" );
+		return mapper.getNoticeList(cri);
+	}
+	//공지사항 총 개수
+	@Override
+	public int getNoticeTotal(Criteria cri) {
+		return mapper.getNoticeTotal(cri);
+	}
+	
+	//공지사항 하나 불러오기
+	@Override
+	public NoticeDTO noticeGet(Long noticeNum) {
+		logger.info("\nnoticeGet--------noticeNum : "+noticeNum);
+		return mapper.readNotice(noticeNum);
+	}
+	//공지사항 하나 불러올때 첨부한 파일도 가져오기
+	@Override
+	public List<Map<String, Object>> readNoticeFile(Long noticeNum) throws Exception {
+		logger.info("\nreadNoticeFile--------noticeNum : "+noticeNum);
+		return mapper.readNoticeFile(noticeNum);
+	}
+
+	//공지사항 글 등록
 	@Override
 	public long noticeRegist(NoticeDTO noticedto, MultipartFile[] file, HttpServletRequest req) throws Exception{
 		logger.info("\nnoticeRegist................");
@@ -149,39 +176,13 @@ public class SupportServiceImpl implements SupportService {
 		//등록한 게시글의 noticeNum 반환
 		return noticeNum;
 	}
-	
-	//전체 공지사항 목록 가져오기
-	@Override
-	public List<NoticeDTO> getNoticeList(Criteria cri) {
-		logger.info("\ngetNoticeList...WithPaging................" );
-		return mapper.getNoticeList(cri);
-	}
-	//공지사항 총 개수
-	@Override
-	public int getNoticeTotal(Criteria cri) {
-		return mapper.getNoticeTotal(cri);
-	}
-	
-	
-	//공지사항 하나 불러오기
-	@Override
-	public NoticeDTO noticeGet(Long noticeNum) {
-		logger.info("\nnoticeGet--------noticeNum : "+noticeNum);
-		return mapper.readNotice(noticeNum);
-	}
-	//공지사항 하나 불러올때 첨부한 파일도 가져오기
-	@Override
-	public List<Map<String, Object>> readNoticeFile(Long noticeNum) throws Exception {
-		logger.info("\nreadNoticeFile--------noticeNum : "+noticeNum);
-		return mapper.readNoticeFile(noticeNum);
-	}
-
+	//공지사항 글 작성 중에 이미지 삽입시
 	@Override
 	public void insertNoticeImg(Map<String, Object> map) {
 		logger.info("\ninsertNoticeImg-----------------");
 		mapper.insertNoticeImg(map);
 	}
-
+	//공지사항 글 등록, 수정 시 최종적으로 삽입된 이미지들만 DB에 글번호 넣어주기
 	@Override
 	public void updateNoticeNumToImgDB(String noticeContents,long noticenum) {
 		logger.info("\ninsertNoticeNumToImgDB-----------------");
@@ -225,13 +226,50 @@ public class SupportServiceImpl implements SupportService {
         	
 			mapper.updateNoticeImg(map);
 		}
-		
-		
+        
         System.out.println("===========이미지DB에 NOTICENUM 업데이트 완료============\n");
 	}
 
+	//공지사항 첨부파일 삭제시 파일DB에서 삭제
+	@Override
+	public boolean deleteNoticeFile(String fileSystemName) throws Exception {
+		return mapper.deleteNoticeFile(fileSystemName);
+	}
 	
+	//공지사항 수정 완료 메소드
+	@Override
+	public void modifyNotice(NoticeDTO notice, MultipartFile[] file, HttpServletRequest req) throws Exception{
+		log.info("modify..........." + notice);
+		
+		//게시글 수정
+		mapper.updateNotice(notice);
+		
+		long noticenum = notice.getNoticeNum();
+		
+		log.info("수정 게시글 번호............" + noticenum);
+		
+		//수정전에 쓰이던 이미지가 삭제되었을수도 있으니 
+		//이미지DB의 noticenum을 일단 NULL로 변경
+		mapper.emptyNoticeImg(noticenum);
+		
+		//파일 업로드할 저장경로
+		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"notice_files/";
+		System.out.println("파일저장경로........................."+uploadPath);
+		
+		//파일정보 담기(저장경로,파일,글번호)
+		List<Map<String, Object>> fileList = FileUtils.parseFileInfo(uploadPath,file,noticenum);
+		
+		//파일DB에 파일정보 넣어주기
+		System.out.println("(파일DB 저장전 확인)첨부되는 파일 개수.................."+fileList.size());
+		for(int i=0; i<fileList.size(); i++) {
+	        mapper.insertNoticeFile(fileList.get(i));
+	        System.out.println("파일DB에 저장 : "+fileList.get(i).get("SYSTEMNAME"));
+	    }
+		
+		
+	}
 	
+	//결국 공지사항 글 작성에 사용안된 이미지들 삭제하기
 	@Override
 	public void deleteUnusedImgs(HttpServletRequest req) {
 		
@@ -260,6 +298,8 @@ public class SupportServiceImpl implements SupportService {
 		//이미지DB 삭제(NULL인것들 전체 삭제)
 		mapper.deleteNoticeImgNULL();
 	}
+
+	
 }
 
 

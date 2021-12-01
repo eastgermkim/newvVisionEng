@@ -30,8 +30,7 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
-<script
-	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
 .board {
 	padding: 4% 0%;
@@ -126,15 +125,11 @@ a:active {
 
 <style>
 .ck.ck-editor {
-	margin: 3% 0;
+	margin: 0 0;
 }
 
 .ck-editor__editable {
 	min-height: 500px;
-}
-
-.ck.ck-editor__editable_inline {
-    border: none; 
 }
 </style>
 
@@ -143,9 +138,11 @@ a:active {
 	/* border-bottom: inset; */
 	background: none;
 }
+
 u {
-	color:inherit;
+	color: inherit;
 }
+
 .ck-splitbutton {
 	display: none;
 }
@@ -174,7 +171,6 @@ u {
 }
 </style>
 
-
 </head>
 <body data-editor="ClassicEditor" data-collaboration="false"
 	data-revision-history="false">
@@ -191,7 +187,7 @@ u {
 				<div class="col-lg-7 offset-lg-1">
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
-							<h2>공지사항</h2>
+							<h2>공지사항 수정</h2>
 							<p style="opacity: 0.6">New Vision ENG. Notice</p>
 						</div>
 					</div>
@@ -203,64 +199,121 @@ u {
 
 
 	<div class="container board">
-		<form method="post" action="/support/notice_modify" enctype="multipart/form-data">
-			noticeNum : ${notice.noticeNum}
+		<form method="post" action="/support/notice_modifyOK" enctype="multipart/form-data" id="noticeForm">
+
+		<input type="hidden" name="noticeNum" value="${notice.noticeNum}">
+		
 			<table>
 				<thead>
-					<!-- 데스크탑 -->
 					<tr>
 						<th class="big-width-table"><span>제목</span></th>
 						<th><input class="single-input" name="noticeTitle"
-							type="text" value="${notice.noticeTitle}" readonly></th>
+							type="text" placeholder="제목을 입력하세요" value="${notice.noticeTitle}"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<th class="big-width-table"><span>작성자</span></th>
 						<th><input class="single-input" name="noticeWriter"
-							type="text" value="${notice.noticeWriter}" readonly></th>
+							type="text" placeholder="작성자를 입력하세요(ex. 관리자)" value="${notice.noticeWriter}"></th>
 					</tr>
 					<tr>
-						<th class="big-width-table"><span>첨부파일</span></th>
-						<th style="text-align:left;">
-							<div style="padding: 0 20px;">
-							<c:choose>
-								<c:when test="${file != null and fn:length(file)>0 }">
-									<c:forEach var="file" items="${file}">
-										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a><br>
-									</c:forEach>
-								</c:when>
-								<c:otherwise>
-									<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
-								</c:otherwise>
-							</c:choose>
+						<th class="big-width-table"><span>파일 첨부</span>
+						<br>
+							<a class="addFile" onclick="addFile()" style="color:#f36d20;cursor: pointer;">+ 	파일 추가</a>
+						</th>
+						<th style="text-align: left;vertical-align: bottom;">
+							<span class=small-width-table>
+							<a class="addFile" onclick="addFile()" style="color:#f36d20;cursor: pointer;">+ 	파일 추가</a>
+							</span>
+							파일 용량 제한 : 20MB (최대 5개, 합계 100MB까지 가능)
+							<div class="form-group" id="file-list">
+								<c:choose>
+									<c:when test="${file != null and fn:length(file)>0 }">
+										<c:forEach var="file" items="${file}">
+											<div class="file-only" id="file-only">
+												<a href="#" class="file-count" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a>
+												<a id="ex-file-delete" class="ex-file-delete" id="ex-file-delete" name='ex-file-delete' style="margin-left:1%;color: red; cursor:pointer" data-system="${file.SYSTEMNAME}">삭제</a>
+												<br>
+											</div>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
+									</c:otherwise>
+								</c:choose>
+							
+							
+								<div class="file-group file-count" style="text-align: left;">
+									<input type="file" name="file"><a href='#this'
+										name='file-delete' style='color: red;'>삭제</a>
+								</div>
 							</div>
 						</th>
 					</tr>
 				</tbody>
 			</table>
-			
-			<div id="editor" rows="5" name="noticeContents"-
-				style="display: none;" readonly>${notice.noticeContents}</div>
-			
+			<div style="margin-top: 3%;">
+			 이미지 삽입시에는 아래에 있는 
+					<svg class="ck ck-icon ck-button__icon">
+						<path d="M6.91 10.54c.26-.23.64-.21.88.03l3.36 3.14 2.23-2.06a.64.64 0 0 1 .87 0l2.52 2.97V4.5H3.2v10.12l3.71-4.08zm10.27-7.51c.6 0 1.09.47 1.09 1.05v11.84c0 .59-.49 1.06-1.09 1.06H2.79c-.6 0-1.09-.47-1.09-1.06V4.08c0-.58.49-1.05 1.1-1.05h14.38zm-5.22 5.56a1.96 1.96 0 1 1 3.4-1.96 1.96 1.96 0 0 1-3.4 1.96z">
+						</path>
+					</svg>버튼을 누르시길 바랍니다.
+			</div>
+			<textarea id="editor" rows="5" name="noticeContents"
+				placeholder="내용을 입력하세요" style="display: none;">
+				${notice.noticeContents}</textarea>
 			<hr>
 			
+						
 			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="수정하기" class="genric-btn primary circle"
+				<input type="submit" value="수정완료" class="genric-btn primary circle"
 					style="margin-right: 1%;"> <a href="/support/notice"
 					class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
 		
-				<form name="readForm" role="form" method="post">
-					<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
-					<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
-				</form>
-				
- </div>
+		<form name="readForm" role="form" method="post">
+			<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME"
+				value=""> <input type="hidden" id="FILE_ORGNAME"
+				name="FILE_ORGNAME" value="">
+		</form>
+		
+	</div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
-
+	
+	
+	<script>
+		$(".ex-file-delete").click(function() {
+			if(!confirm("파일이 완전히 삭제됩니다.(취소 불가)")){
+				return;
+			}else{
+	            deleteFile($(this));
+				
+	            					//data-system의 값. 즉, 파일의 SYSTEMNAME
+				var systemname = $(this).data('system');
+		           
+				$.ajax({
+					type:"POST",
+					url:"/support/notice_modify_fileDelete",
+					// 해당 small의 data-src 속성의 값을 JSON 형식으로 
+					data:{
+						'FILESYSTEMNAME' : systemname},
+					dataType:"text",
+					cache:false,
+					success:function(res) {
+						alert("파일을 삭제했습니다.");
+						},
+	                	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+	                    alert("파일 삭제에 실패하였습니다.");
+					}
+				});
+			}
+			fileCount();
+		});
+	</script>
+	
 	<script>
 	function fn_fileDown(SYSTEMNAME,ORGNAME){
 		var formObj = $("form[name='readForm']");
@@ -271,24 +324,108 @@ u {
 	}
 	
 	</script>
-
+	
+	<!-- 페이지 벗어날 경우 경고창 -->
 	<script>
-	ClassicEditor
-    .create( document.querySelector( '#editor' ), {
-        // ...
-    } )
-    .then( editor => {
-        /* 읽기모드로 바꾸기 */
-        editor.isReadOnly = true;
+$(document).ready(function () {
+    // Warning
+    $(window).on('beforeunload', function(){
+        //do something
+        return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+        
+    });
+    // Form Submit
+    $(document).on("submit", "form", function(event){
+        // disable warning
+        $(window).off('beforeunload');
+    });
+    
+    
+    $(window).on('unload', function(){
+        //do something
+			$.ajax({
+				type:"POST",
+				url:"/support/deleteUnusedImgs",
+				dataType:"text",
+				cache:false,
+				success:function(res) {
+					},
+	            	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+				}
+			});
+    });
+    
+})
+</script>
+		
+	
+	<!-- CK에디터 속 이미지 삽입시 마지막 경로 넣으세요 -->
+	<script>
+	var your_path="notice_img"
+	</script>
+	
+	<!-- CK에디터 -->
+	<%@ include file = "../CKeditorJS.jsp" %>
+	
+	
+	<!-- 파일 다중 업로드 -->
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+        
+        
+    })
+    
+ 
+    function addFile() {
+        var str = 
+      "<div class='file-group file-count' style='text-align: left;margin-top:5px;'><input type='file' name='file'><a href='#this' name='file-delete' style='color: red;'>삭제</a></div>";
+        $("#file-list").append(str);
+        fileCount();
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    }
+ 
+    function deleteFile(obj) {
+        obj.parent().remove();
+        fileCount();
+    }
+    
+    /* 파일 용량 제한 */
+    $("input[name=file]").off().on("change", function(){
 
-        /* 툴바 없애기 */
-        const toolbarElement = editor.ui.view.toolbar.element;
-        toolbarElement.style.display = 'none';
-    } )
-    .catch( error => {
-        console.log( error );
-    } );
-		</script>
+    	if (this.files && this.files[0]) {
+
+    		var maxSize = 20 * 1024 * 1024;
+    		var fileSize = this.files[0].size;
+
+    		if(fileSize > maxSize){
+    			alert("첨부파일 사이즈는 20MB 이내로 등록 가능합니다.");
+    			$(this).val('');
+    			return false;
+    		}
+    	}
+    });
+    
+    /* 첨부파일 개수 최대 5개 */
+    function fileCount() {
+   		var fileCount = $('.file-count').length
+   		
+   		if(fileCount>=5){
+   			$('.addFile').css('display', 'none');
+   		}else{
+   			$('.addFile').css('display', 'block');
+   		}
+    
+    }
+
+</script>
+
 </body>
 
 </html>

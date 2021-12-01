@@ -4,6 +4,7 @@ package com.newvisioneng.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.EmailDTO;
+import com.newvisioneng.domain.NewsVO;
 import com.newvisioneng.domain.NoticeDTO;
 import com.newvisioneng.domain.PageDTO;
 import com.newvisioneng.service.SupportService;
@@ -50,11 +52,14 @@ public class SupportController {
 	
 	//공지사항 페이지로 연결(전체 목록 가져오기)
 	@GetMapping("/notice")
-	public void notice(Model model, Criteria cri) {
+	public void notice(Model model, Criteria cri, HttpServletRequest req) {
 		log.info("------list-------");
 		//DB 검색
 		model.addAttribute("notice_list",service.getNoticeList(cri));
 		model.addAttribute("pageMaker",new PageDTO(service.getNoticeTotal(cri), cri));
+		
+		//사용안된 이미지 삭제(파일,DB 함께)
+		service.deleteUnusedImgs(req);
 	}
 	
 	//공지사항 게시글 하나 클릭시 or 주소창에 /support/notice/글번호 쳤을시 
@@ -82,6 +87,7 @@ public class SupportController {
 			FileUtils.fileDownload(location, systemName, orgName, req, response);
     }
 	
+	//페이지 벗어나면 ajax를 통해 unload로 사용 
 	//글 등록에 사용안된 이미지 삭제(파일,DB 함께)
 	@PostMapping("/deleteUnusedImgs")
 	public void deleteUnusedImgs(HttpServletRequest req) {
@@ -121,16 +127,71 @@ public class SupportController {
 		
 		//사용안된 이미지 삭제(파일,DB 함께)
 		service.deleteUnusedImgs(req);
-		
+				
         return mav;
 	}
 	
 	//공지사항 글 수정 view단으로 이동(현재글 noticenum 들고)
-	@GetMapping("/notice_modify")
-	public String notice_modify() {
+	@GetMapping("/notice_modify/{noticeNum}")
+	public String notice_modify(@PathVariable("noticeNum") long noticeNum,Model model) throws Exception{
+		NoticeDTO notice = service.noticeGet(noticeNum);
+		model.addAttribute("notice",notice);
 		
+		List<Map<String, Object>> fileList = service.readNoticeFile(noticeNum);
+		model.addAttribute("file", fileList);
+		
+		System.out.println("fileList....................."+fileList);
 		
 		return "/support/notice_modify";
+	}
+	
+	//공지사항 글 수정 중에 기존 파일 삭제시
+	@PostMapping("/notice_modify_fileDelete")
+	public void notice_modify_fileDelete(@RequestParam(value = "FILESYSTEMNAME", required=false) String fileSystemName, HttpServletResponse response, HttpServletRequest req) throws Exception{
+		
+			File file = new File(req.getServletContext().getRealPath("/")
+					+"resources/files/"+"notice_files/" + fileSystemName);
+			Map<String, String> map = new HashMap<String,String>();
+			
+			log.info("삭제하려는 파일................." + fileSystemName);
+			
+			
+			if(file.exists()){ 
+				if(file.delete()){ 
+					service.deleteNoticeFile(fileSystemName);
+					log.info("삭제된 파일................." + fileSystemName);
+					map.put("success","파일 삭제 성공");
+				}else{
+					log.info("삭제실패");
+					map.put("fail","파일 삭제 실패");
+				}
+			}else{ 
+				log.info("파일이 존재하지 않습니다." + fileSystemName);
+				service.deleteNoticeFile(fileSystemName);
+				map.put("not exist","존재하지 않는 파일");
+		}
+	}
+	
+	//공지사항 수정 완료 메소드
+	@PostMapping("/notice_modifyOK")
+	public ModelAndView notice_modifyOK(NoticeDTO notice, @RequestParam("noticeNum") Long noticenum,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		//공지사항DB,파일DB수정
+		//(+이미지DB의 noticenum 일단 다시 NULL로 변경)
+		service.modifyNotice(notice,file,req);
+		
+		//이미지 삽입시 이미지DB에 등록되었던 것 중
+		//NoticeContents에 확정적으로 들어간 DB값에 noticenum 넣어주기
+		service.updateNoticeNumToImgDB(notice.getNoticeContents(),noticenum);
+		
+		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
+		
+		//사용안된 이미지 삭제(파일,DB 함께) - DB에 글번호가 NULL인것들
+		service.deleteUnusedImgs(req);
+		
+		return mav;
 	}
 	
 	//============================================================================================================================================================
