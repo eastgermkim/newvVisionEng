@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html>
 <style>
+
+
 .small-width-page{
 		display:none!important;
 	}
@@ -29,10 +31,28 @@
 	font-size:16px;
 }
 
-.news-title{
-	font-size:20px;
+/* 링크 아이콘 추가하려면 이렇게 */
+.link-icon:after{
+	content:"\f35d";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	color:gray;
+	vertical-align:top;
+	font-size:larger;
 }
 
+/* overflow, white-space, display 참고해서 줄 정렬 */
+.news-title{
+	font-size:20px;
+	max-width:80%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	display:inline-block;
+	font-weight:400;
+}
+
+/* overflow, white-space, display 참고해서 줄 정렬 */
 .news-contents{
 	height:30px;
 	line-height:1.5;
@@ -40,6 +60,8 @@
 	overflow:hidden;
 	font-size:15px;
 	font-weight:300;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 
 .news-dates{
@@ -117,12 +139,13 @@ input[type="checkbox"] {
 <link rel="stylesheet" href="../resources/css/slicknav.css">
 <link rel="stylesheet" href="../resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
+	
 	<script>
 		addClassName1();
 	</script>
@@ -183,9 +206,8 @@ input[type="checkbox"] {
 											<a class="list-inner-wrap" href="${news.newsLink}" target="_blank">
 												<div class="text-wrap">
 												<form method="post" action="/company/news_delete" enctype="multipart/form-data">
-													<div style="display:flex">
-														<h3 class="news-title">${news.newsTitle}</h3>
-														<span class="contact-info__icon">&nbsp;&nbsp;&nbsp;&nbsp;<i class="ti-layers"></i></span>
+													<div class="link-icon">
+														<h3 class="news-title">${news.newsTitle}&nbsp;&nbsp;&nbsp;</h3>
 													</div>
 													<h3 class="news-contents">${news.newsSubTitle}</h3>
 													<h3 class="news-dates">${news.newsDate}</h3>

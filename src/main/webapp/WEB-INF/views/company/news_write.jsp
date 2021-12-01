@@ -343,6 +343,7 @@ u {
 
 </script>
 
+<!-- 크롬은 unload가 되지 않음. -->
 <script>
 $(document).ready(function () {
     // Warning

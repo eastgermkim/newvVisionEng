@@ -33,6 +33,19 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
+.prevnext-btn-style{
+	display:flex;
+	border-bottom:1px solid #ddd;
+	color:#666;
+}
+
+.link-title{
+	flex:none;
+	align-items:center;
+	justify-content:center;
+	background-color:#f8f8f8;
+}
+
 .board {
 	padding: 4% 0%;
 }
@@ -187,14 +200,17 @@ u {
 				<thead>
 					<!-- 데스크탑 -->
 					<tr>
-						<th><h4 style="margin-bottom: 0;">제목</h4></th>
-						<th><input class="single-input" name="newsTitle"
-							type="text" value="${news.newsTitle}" readonly></th>
+						<th class="big-width-table"><span>제목</span></th>
+						<th>
+						<span>
+							<input class="single-input" name="newsTitle" type="text" value="${news.newsTitle}" readonly>
+						</span>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th><h4 style="margin-bottom: 0;">작성자</h4></th>
+						<th class="big-width-table"><span>작성자</span></th>
 						<th><input class="single-input" name="newsWriter"
 							type="text" value="${news.newsWriter}" readonly></th>
 					</tr>
@@ -218,8 +234,7 @@ u {
 					</tr>
 				</tbody>
 			</table>
-			<div id="editor" rows="5" name="newsContents"-
-				style="display: none;" readonly>${news.newsContents}</div>
+			<div id="editor" rows="5" name="newsContents" style="display: none;" readonly>${news.newsContents}</div>
 			</form>
 				<div class="board-view-bottom">
 					<div class="prevnext-btn-style">
@@ -228,8 +243,10 @@ u {
 								before
 								이전글
 							</dt>
-							<dd>
-								<a>하위</a>
+							<dd class="link-body">
+								<a>
+									<span>이전글 내용</span>
+								</a>
 							</dd>
 						</dl>
 						<dl class="next-post-link">
@@ -260,7 +277,7 @@ u {
 	
 	<script>
 	$(".newsDelete").click(function() {
-		if(!confirm("링크기사가 삭제됩니다.")){
+		if(!confirm("해당 기사가 삭제됩니다.")){
 			return false;
 		}else{
 			alert("해당 기사가 삭제되었습니다.")

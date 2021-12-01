@@ -54,10 +54,12 @@ public class CompanyController {
 	
 	//언론보도 페이지로 연결
 	@GetMapping("/news")
-	public void news(Model model, Criteria cri) {
+	public void news(Model model, Criteria cri, HttpServletRequest req) {
 		model.addAttribute("news_list", service.getNewsList(cri));
 		model.addAttribute("news_count", service.getNewsTotal(cri));
 		model.addAttribute("pageMaker", new PageDTO(service.getNewsTotal(cri), cri));
+		
+		service.deleteUnusedImgs(req);
 	}
 	
 	//보도현황 게시글 하나 클릭시 상세 정보 조회
@@ -94,12 +96,12 @@ public class CompanyController {
 	//언론보도 페이지 글 등록 view단으로 이동하는 요청
 	@GetMapping("/news_write")
 	public void news_write(HttpServletRequest req) {
+		
 	}
 	
-	//찌꺼기 삭제 테스트하기
+	//남은 임시파일 삭제 , 크롬은 안됨
 	@PostMapping("/news_tempDelete")
 	public void news_tempDelete(HttpServletRequest req) {
-		//남은 임시파일 삭제
 		service.deleteUnusedImgs(req);
 	}
 	
@@ -125,6 +127,9 @@ public class CompanyController {
 		
 		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
 		//Model 대신 RedirectAttributes를 사용한다.
+		
+		//남은 임시파일 삭제
+		service.deleteUnusedImgs(req);
 		
 		if(newsvo.getNewsLink() == null) {
 			mav = new ModelAndView("redirect:/company/news/"+newsnum);
