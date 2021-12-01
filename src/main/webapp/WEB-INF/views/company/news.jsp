@@ -114,6 +114,19 @@ input[type="checkbox"] {
 	.small-width-table{
 		display:table-row;
 	}
+	
+	.news-title {
+		font-size:14px!important;
+		max-width:85%;
+	}
+	
+	.news-contents, .news-dates{
+		font-size:12px;
+	}
+	
+	.link-icon:after{
+		font-size:small;
+	}
 }
 </style>
 <head>

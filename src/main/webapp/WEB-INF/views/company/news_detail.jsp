@@ -33,17 +33,53 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
-.prevnext-btn-style{
+dd{
+	margin-bottom:0!important;
+}
+dl{
+	margin-bottom:0!important;
+}
+
+.prev-post-link{
 	display:flex;
-	border-bottom:1px solid #ddd;
+	border-style:solid;
+	border-color:#9d9d9d;
+	border-width:0.5px 0px 0.5px 0px;
+	color:#666;
+}
+
+.next-post-link{
+	display:flex;
+	border-style:solid;
+	border-color:#9d9d9d;
+	border-width:0px 0px 0.5px 0px;
 	color:#666;
 }
 
 .link-title{
-	flex:none;
-	align-items:center;
-	justify-content:center;
-	background-color:#f8f8f8;
+	width:15%!important;
+	flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    padding: 11px 0px;
+    background-color: #f8f8f8;
+    font-weight:400;
+    font-size:20px;
+}
+
+.link-body{
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 0%;
+    height: 65px;
+    padding: 20px;
+    height: 70px;
+    font-size:18px;
+    background-color:#fff;
+
 }
 
 .board {
@@ -240,8 +276,7 @@ u {
 					<div class="prevnext-btn-style">
 						<dl class="prev-post-link">
 							<dt class="link-title prev">
-								before
-								이전글
+								<i class="ti-angle-up"></i>&nbsp;&nbsp;&nbsp;이전글
 							</dt>
 							<dd class="link-body">
 								<a>
@@ -251,9 +286,16 @@ u {
 						</dl>
 						<dl class="next-post-link">
 							<dt class="link-title next">
+								<i class="ti-angle-down"></i>&nbsp;&nbsp;&nbsp;다음글
 							</dt>
-							<dd>
+							<dd class="link-body">
+								<a>
+									<span>다음글 내용</span>
+								</a>
 							</dd>
+						</dl>
+						<dl>
+						
 						</dl>
 					</div>
 				</div>
