@@ -50,6 +50,18 @@ public class SupportController {
 	
 	//공지사항========================================================================================================================================================
 	
+	//공지사항 페이지로 연결(디자인 테스트)
+	@GetMapping("/notice2")
+	public void notice2(Model model, Criteria cri, HttpServletRequest req) {
+		log.info("------list-------");
+		//DB 검색
+		model.addAttribute("notice_list",service.getNoticeList(cri));
+		model.addAttribute("pageMaker",new PageDTO(service.getNoticeTotal(cri), cri));
+		
+		//사용안된 이미지 삭제(파일,DB 함께)
+		service.deleteUnusedImgs(req);
+	}
+	
 	//공지사항 페이지로 연결(전체 목록 가져오기)
 	@GetMapping("/notice")
 	public void notice(Model model, Criteria cri, HttpServletRequest req) {
@@ -118,15 +130,18 @@ public class SupportController {
 		//NoticeContents에 확정적으로 들어간 DB값에 noticenum 넣어주기
 		service.updateNoticeNumToImgDB(noticedto.getNoticeContents(),noticenum);
 		
-		//새롭게 등록한 게시글의 번호를 같이 전달하기 위해서는
-		//Model 대신 RedirectAttributes를 사용한다.
-/*		ra.addFlashAttribute("notice",noticedto);
-		ra.addFlashAttribute("noticenum",noticenum);*/
+		try {
+			Thread.sleep(300);
+			System.out.println("0.3초후............등록안된 이미지 삭제...");
+			//사용안된 이미지 삭제(파일,DB 함께) - DB에 글번호가 NULL인것들
+			service.deleteUnusedImgs(req);
+			
+		}catch(InterruptedException e){
+			//sleep 메소드가 발생하는 InterruptedException 
+			System.out.println(e.getMessage());
+		}
 		
 		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
-		
-		//사용안된 이미지 삭제(파일,DB 함께)
-		service.deleteUnusedImgs(req);
 				
         return mav;
 	}
@@ -186,11 +201,19 @@ public class SupportController {
 		//NoticeContents에 확정적으로 들어간 DB값에 noticenum 넣어주기
 		service.updateNoticeNumToImgDB(notice.getNoticeContents(),noticenum);
 		
+		
+		try {
+			Thread.sleep(300);
+			System.out.println("0.3초후............등록안된 이미지 삭제...");
+			//사용안된 이미지 삭제(파일,DB 함께) - DB에 글번호가 NULL인것들
+			service.deleteUnusedImgs(req);
+			
+		}catch(InterruptedException e){
+			//sleep 메소드가 발생하는 InterruptedException 
+			System.out.println(e.getMessage());
+		}
+
 		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
-		
-		//사용안된 이미지 삭제(파일,DB 함께) - DB에 글번호가 NULL인것들
-		service.deleteUnusedImgs(req);
-		
 		return mav;
 	}
 	
@@ -237,7 +260,7 @@ public class SupportController {
 	 public String send(@ModelAttribute EmailDTO dto, RedirectAttributes attr) {
 		 try {
 			 
-			 //수신받을 이메일 지정 nv3000@nate.com으로 바뀔 예정
+			 //수신받을 이메일 지정 nv3000@empas.com으로 바뀔 예정
 			 dto.setToMail("eastgerm@nate.com");;
 			/* System.out.println("내용:......................"+dto.getContent());*/
 			 

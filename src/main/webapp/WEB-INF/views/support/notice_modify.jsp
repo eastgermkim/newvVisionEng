@@ -238,9 +238,6 @@ u {
 											</div>
 										</c:forEach>
 									</c:when>
-									<c:otherwise>
-										<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
-									</c:otherwise>
 								</c:choose>
 							
 							
@@ -316,10 +313,10 @@ u {
 	
 	<script>
 	$(".modifyBtn").click(function() {
-		if(!confirm("변경된 내용으로 저장 하시겠습니까?")){
+		if(!confirm("변경된 내용으로 저장하시겠습니까?")){
 			return false;
 		}else{
-			alert("수정 완료 되었습니다.")
+			alert("수정 완료")
 		}
 	})
 	</script>

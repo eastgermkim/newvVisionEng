@@ -34,97 +34,110 @@
 <style>
 .board{
 	padding: 4% 0%;
+	word-break: keep-all;
+    word-wrap: break-word;
 }
-
-.align-left{
-	text-align: left;
-	width:66%;
-}
-
 .small-width-page{
 		display:none;
 	}
+	
+@media only screen and (max-width : 991.5px) {
 
-.small-width-table{
-		display:none;
-	}
+/* Board List Style */
+	.board_list>.table .thead,
+	.board_list>.table .tr>.num{display:none !important;}
 
-.small-width-title{
-	font-size: large;
-	font-weight: 500;
+	.board_list>.table .tr{padding:15px 0; border-bottom:1px solid #d9d9d9; display:block;}
+	.board_list>.table .tr>div{padding:0; border-bottom:none; text-align: left; display:block;}
+
+	.board_list>.table .tr>.title>a{max-width:88%;}
+
+	.board_list>.table .tr>.etc{padding:15px 0 0 21px; display:inline-block;}
+	.board_list>.table .tr>.etc+.etc:before{content: ""; width:1px; height:18px; background-color: #ccc; font-size:0; line-height:0; position: absolute; left:9px; top:15px;}
+
+	.board_list>.table .tr>.stat{padding:0; position: absolute; right:20px; bottom:10px; display:inline-block;}
+	.board_list>.table .tr>.stat>.icon{width:auto; height:35px; padding:0 7px; font-size:18px; line-height:33px;}
+	.board_list>.table .tr>.stat>.icon.end{}
 }
-
-@media(max-width : 767.5px){
-	.align-left{
-		width: 80%
+@media only screen and (max-width: 767.5px)
+{
+	.small-width-page{
+		display:flex;
 	}
 	.big-width-page{
 		display:none;
 	}
-	.small-width-page{
-		display:flex;
-	}
-	.big-width-table{
-		display:none;
-	}
-	.small-width-table{
-		display:table-row;
-	}
-	.board{
-		padding: 7% 3%;
+    .board{font-size: 6px !important;}
+}
+
+@media (max-width: 575.5px){
+	.board {
+	    max-width: 95%;
 	}
 }
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	line-height: 2em;
-}
-
-table td, th {
-	border-collapse: collapse;
-	text-align: center;
-	padding: 1em;
-	font-weight: 300;
-}
-tbody{
-	font-size: 0.95em;
-}
-th {
-	padding: 1% 1%;
-	font-weight: 400;
-	border-top: 1px solid;
-	border-bottom: 1px solid #d8d8d8;
-}
-td{
-	border-bottom: 1px solid #F2F2F2;
-}
-
-a {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	color:#ED1E23;
-}
-a:active{
-	color:blue;
-}
-tbody tr:hover {
-	background-color:#FBF8F8;
-}
-
-
-.pagination .page-item.active .page-link {
-	font-weight: 600;
-	color:black;
-    border-color: black;
-}
-
 
 </style>
 
+<style>
+ 
+.board_list {
+    width: 100%;
+    border-top: 2px solid #222;
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.board_list>.table {
+    width: 100%;
+    margin-bottom: -1px;
+    border-spacing: 0;
+    display: table;
+    table-layout: fixed;
+    position: relative;
+}
+.board_list>.table .thead>div {
+    background-color: #f8f8f8;
+    font-weight: 400;
+    color: #222;
+    position: relative;
+}
+
+.board_list>.table .tr {
+    display: table-row;
+    position: relative;
+}
+.board_list>.table .tr>div {
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+    font-weight: 300;
+   /*  font-size: 1.6rem; */
+    line-height: 1.4;
+    color: #444;
+    letter-spacing: -0.025em;
+    text-align: center;
+    box-sizing: border-box;
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+}
+.board_list>.table .tr>.title {
+    padding: 0 20px;
+    text-align: left;
+}
+.board_list>.table .tr>.title>a {
+    max-width: 93%;
+    font-weight: 700;
+    /* color: #444; */
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+        text-decoration: none;
+}
+
+</style>
 <style>
 .genric-btn.primary-border {
     color: black;
@@ -132,21 +145,10 @@ tbody tr:hover {
     font-size: 1em;
     margin: 1% 0;
 }
+.select:hover{
+	background-color: #FAFAFA;
+}
 </style>
-
-<style>
-
-.notice_title{position: relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-left: 8px;}
-.notice_title:before {
-    content: '';
-    width: 3px; height: 3px;
-    border-radius: 50%;
-    background: #449ce2;
-    position: absolute; left: 0; top: 6px;
-   }
-
-</style>
-
 </head>
 
 <body>
@@ -176,62 +178,50 @@ tbody tr:hover {
 	<!-- breadcrumb-end -->
 	
 	
-	
+<section>
 <div class="container board">
-		
-		<div>
-        	<a href="/support/notice_write" class="genric-btn primary-border circle">글 작성하기</a>
-        </div>
-		
-
-<!-- 게시판(실제 사용 예정) ======================================================================================================================== -->
-	<!-- 데스크탑+모바일 -->
-	 	<table>
-			<thead>
-				<!-- 데스크탑 -->
-				<tr class="big-width-table">
-					<th style="width:8%">번호</th>
-					<th class="align-left">제목</th>
-					<th style="width:14%">등록자</th>
-					<th style="width:12%">등록일</th>
-				</tr>
-				<!-- 모바일 -->
-				<tr class="small-width-table">
-					<th colspan="2">내용</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:choose>
-					<c:when test="${notice_list != null and notice_list.size()>0}">
-						<c:forEach items="${notice_list}" var="notice">
-						<!-- 데스크탑 -->
-							<tr class="big-width-table" onclick="location.href='notice/${notice.noticeNum}'" style="cursor:pointer;">
-								<td>${notice.noticeNum}</td>
-								<td class="notice_title align-left" style="font-weight: 500;">${notice.noticeTitle}</td>
-								<td>${notice.noticeWriter}</td>
-								<td><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></td>
-							</tr>
-						<!-- 모바일 -->
-							<tr class="small-width-table" onclick="location.href='notice/${notice.noticeNum}'" style="cursor:pointer;">
-								<td class="align-left" colspan="2">
-									<div class="small-width-title" style="font-weight: 500;">${notice.noticeTitle}</div>
-									<div style="color: grey;"><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></div>
+	<div>
+       	<a href="/support/notice_write" class="genric-btn primary-border circle">글 작성하기</a>
+    </div>
+	<div class="board_list">
+				<div class="table">
+					<div class="thead tr">
+						<div class="th big-width-table" style="width:90px;">번호</div>
+						<div class="th thNum">제목</div>
+						<div class="th big-width-table" style="width:100px;">등록자</div>
+						<div class="th thNum" style="width:120px;">등록일</div>
+					</div>
+					<!-- <div class="thead tr small-width-table">
+						<div class="th">내용</div>
+					</div> -->
+					<c:choose>
+						<c:when test="${notice_list != null and notice_list.size()>0}">
+							<c:forEach items="${notice_list}" var="notice">
+							<!-- 데스크탑 -->
+								<div class="tr select" onclick="location.href='notice/${notice.noticeNum}'" style="cursor:pointer;">
+									<div class="num big-width-table">${notice.noticeNum}</div>
+									<div class="title"><a>${notice.noticeTitle}</a></div>
+									<div class="etc big-width-table">${notice.noticeWriter}</div>
+									<div class="etc"><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></div>
+								</div>
+							<!-- 모바일 -->
+								<%-- <div class="tr small-width-table" onclick="location.href='notice/${notice.noticeNum}'" >
+									<div class="title">${notice.noticeTitle}</div>
+									<div class="etc"><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></div>
+								</div> --%>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td colspan="4">
+									작성된 게시글이 없습니다.
 								</td>
 							</tr>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<tr>
-							<td colspan="4">
-								작성된 게시글이 없습니다.
-							</td>
-						</tr>
-					</c:otherwise>
-				</c:choose>							
-			</tbody>
-		</table>
-
-	
+						</c:otherwise>
+					</c:choose>	
+					
+				</div>
+			</div>
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -293,7 +283,7 @@ tbody tr:hover {
  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
  	
  	</div>
- 
+ </section>
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
 
