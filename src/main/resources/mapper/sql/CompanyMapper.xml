@@ -38,11 +38,18 @@
 		DELETE FROM NV_NEWS WHERE NEWSNUM = #{newsNum}
 	</delete>
 	
+	<!-- 뉴스 수정완료 -->
 	<update id="news_update">
 		UPDATE NV_NEWS
 		SET NEWSTITLE = #{newsTitle}, NEWSSUBTITLE = #{newsSubTitle}, NEWSLINK = #{newsLink},
 			NEWSWRITER = #{newsWriter}, NEWSCONTENTS = #{newsContents}, NEWSDATE = #{newsDate}
 		WHERE NEWSNUM = #{newsNum};
+	</update>
+	
+	<!-- 뉴스 수정시 사용안하게 된 이미지가 있을수있으므로 일단 다 NULL로 바꿔준다. -->
+	<update id="emptyNewsImg">
+		UPDATE NV_NEWS_IMG SET NEWSNUM = NULL
+		WHERE NEWSNUM = #{newsNum}
 	</update>
 	
 	<!-- 파일첨부를 위해, 글을 등록하자마자 그 글의 newsNum을 가져온다-->

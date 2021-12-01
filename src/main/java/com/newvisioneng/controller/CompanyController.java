@@ -191,7 +191,24 @@ public class CompanyController {
 			
 			ModelAndView mav = new ModelAndView();
 			
+			//수정 담김
 			service.news_modify(newsvo,file,req);
+			
+			
+			
+			//수정된거 비교해서 null img 지우기
+			service.updateNewsNumToImgDB(newsvo.getNewsContents(),newsnum);
+			
+			
+			
+	        try{
+	            Thread.sleep(1000);
+	            //사용안된 이미지 삭제
+	            service.deleteUnusedImgs(req);
+	        }
+	        catch(InterruptedException e){
+	            e.printStackTrace();
+	        }
 			
 			if(newsvo.getNewsLink() == null) {
 				mav = new ModelAndView("redirect:/company/news/"+newsnum);

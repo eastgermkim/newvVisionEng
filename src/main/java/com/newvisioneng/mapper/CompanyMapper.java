@@ -52,5 +52,8 @@ public interface CompanyMapper {
 	//null인 이미지 삭제
 	public void deleteNewsImgNULL();
 	
+	//newsNum null로 바꾸기
+	public void emptyNewsImg(long newsNum);
+	
 
 }

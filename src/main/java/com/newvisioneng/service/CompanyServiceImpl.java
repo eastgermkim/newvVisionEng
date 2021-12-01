@@ -66,6 +66,10 @@ public class CompanyServiceImpl implements CompanyService {
 		
 		log.info("수정 게시글 번호............" + newsNum);
 		
+		//수정전에 쓰이던 이미지가 삭제되었을수도 있으니 
+		//이미지DB의 noticenum을 일단 NULL로 변경
+		mapper.emptyNewsImg(newsNum);
+		
 		//파일 업로드할 저장경로
 		String uploadPath = req.getServletContext().getRealPath("/")+"resources/files/"+"news_files/";
 		System.out.println("파일저장경로........................."+uploadPath);
@@ -176,7 +180,7 @@ public class CompanyServiceImpl implements CompanyService {
 		}
 		
 		
-        System.out.println("===========이미지DB에 NOTICENUM 업데이트 완료============\n");
+        System.out.println("===========이미지DB에 NEWSNUM 업데이트 완료============\n");
 	}
 
 	
