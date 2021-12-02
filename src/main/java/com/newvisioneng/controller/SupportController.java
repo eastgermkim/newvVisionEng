@@ -49,19 +49,7 @@ public class SupportController {
 	private SupportService service;
 	
 	//공지사항========================================================================================================================================================
-	
-	//공지사항 페이지로 연결(디자인 테스트)
-	@GetMapping("/notice2")
-	public void notice2(Model model, Criteria cri, HttpServletRequest req) {
-		log.info("------list-------");
-		//DB 검색
-		model.addAttribute("notice_list",service.getNoticeList(cri));
-		model.addAttribute("pageMaker",new PageDTO(service.getNoticeTotal(cri), cri));
-		
-		//사용안된 이미지 삭제(파일,DB 함께)
-		service.deleteUnusedImgs(req);
-	}
-	
+
 	//공지사항 페이지로 연결(전체 목록 가져오기)
 	@GetMapping("/notice")
 	public void notice(Model model, Criteria cri, HttpServletRequest req) {
@@ -83,8 +71,14 @@ public class SupportController {
 		List<Map<String, Object>> fileList = service.readNoticeFile(noticeNum);
 		model.addAttribute("file", fileList);
 		
+		NoticeDTO prevNotice = service.noticeGet(notice.getPrevNoticeNum());
+		NoticeDTO nextNotice = service.noticeGet(notice.getNextNoticeNum());
+		model.addAttribute("prevNotice",prevNotice);
+		model.addAttribute("nextNotice",nextNotice);
+		
 		return "/support/notice_detail";
 	}
+	
 	//공지사항 게시글 파일 다운로드시
 	@PostMapping("/noticeFiledown")
 	public void download(HttpServletRequest req, HttpServletResponse response, 
@@ -110,7 +104,6 @@ public class SupportController {
 	@GetMapping("/notice_write")
 	public void notice_write(HttpServletRequest req) {
 	}
-	
 	
 	
 	//공지사항 글 등록 메소드

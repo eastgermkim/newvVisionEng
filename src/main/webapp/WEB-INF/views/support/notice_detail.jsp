@@ -33,58 +33,195 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
+.link{
+	display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ti-angle-up, .ti-angle-down{
+	padding-right:6px;
+}
+
+.pagination .page-item.active .page-link {
+	font-weight: 600;
+	color: darkblue;
+	border-color: darkblue;
+}
+
+.prev-post-link{
+	display:flex;
+	border-style:solid;
+	border-color:#ddd;
+	border-width:0.5px 0px 0.5px 0px;
+	color:#666;
+}
+
+.next-post-link{
+	display:flex;
+	border-style:solid;
+	border-color:#ddd;
+	border-width:0px 0px 0.5px 0px;
+	color:#666;
+}
+
+.link-title{
+	width:15%!important;
+	flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    padding: 11px 0px;
+    background-color: #f8f8f8;
+    font-weight:400;
+    font-size:15px;
+}
+
+.link-body{
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 0%;
+    height: 65px;
+    padding: 20px;
+    height: 70px;
+    background-color:#fff;
+    font-color:#ddd;
+}
+
+.link-body .link{
+	color: #666;
+}
+
 .board {
 	padding: 4% 0%;
 }
 
-.align-left {
-	text-align: left;
-	width: 62%;
+.board-view-header{
+    display: table;
+    width: 100%;
+  /*   height: 180px; */
+    padding: 25px 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
-.small-width-page {
-	display: none;
+.board-view-header .inner{
+	display: table-cell;
+    vertical-align: middle;
 }
 
-.small-width-table {
-	display: none;
+
+.board-view-header .info-wrap{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
 }
 
-.small-width-title {
-	font-size: large;
-	font-weight: 500;
+.board-view-header .info-wrap .item{
+    display: inline-block;
+    font-size: 16px;
+    color: #666;
+    font-weight:300;
 }
 
-.small-width-button {
-	display: none;
+.board-view-header .item:not(:last-child)::after{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    margin: 0 16px;
+    background-color: #ddd;
 }
 
-@media ( max-width : 767.5px) {
-	.align-left {
-		width: 80%
+.title-wrap{
+	line-height: 1.3;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
+.board-file-wrap{
+    display: flex;
+    position: relative;
+    height: 70px;
+    border-top: 1px solid #ddd;
+}
+
+.board-file-title{
+	flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    padding: 15px 0;
+    font-weight: 400;
+    color: #666;
+}
+
+.board-file-items{
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    color: #666;
+    font-weight:300;
+}
+
+.btn-list{
+	display: flex;
+    justify-content: end;
+    margin: -5px;
+    padding-top: 30px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.bottomNewsTitle{
+overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+@media(max-width:991.5px){
+	.container{
+	width:95%!important;
 	}
-	.big-width-page {
-		display: none;
-	}
-	.small-width-page {
-		display: flex;
-	}
-	.big-width-table {
-		display: none;
-	}
-	.small-width-table {
-		display: table-row;
-	}
-	.big-width-button {
-		display: none;
-	}
-	.small-width-button {
-		display: block;
-	}
-	.board {
-		padding: 7% 3%;
+	.bottomNewsDate{
+	display:none;
 	}
 }
+@media(max-width:767.5px){
+
+	.btn-list{
+	justify-content:center!important;
+	}
+	.ti-angle-up, .ti-angle-down{
+	display:none;
+	}
+	.toList{
+	width:100%!important;
+	}
+	.board-file-title{
+	font-size:70%!important;
+	}
+	.board-file-items{
+	font-size:70%!important;
+	}
+	.link-title{
+	font-size:0.7em;
+	}
+	.link-body{
+	font-size:0.7em;
+	}
+}
+
 
 table {
 	width: 100%;
@@ -127,10 +264,11 @@ a:active {
 	color: blue;
 }
 
-.pagination .page-item.active .page-link {
-	font-weight: 600;
-	color: darkblue;
-	border-color: darkblue;
+dd{
+	margin-bottom:0!important;
+}
+dl{
+	margin-bottom:0!important;
 }
 </style>
 
@@ -144,7 +282,7 @@ a:active {
 }
 
 .ck.ck-editor__editable_inline {
-	border: none;
+    border: none; 
 }
 </style>
 
@@ -153,17 +291,23 @@ a:active {
 	/* border-bottom: inset; */
 	background: none;
 }
-
 u {
-	color: inherit;
-}
-
-.ck-splitbutton {
-	display: none;
+	color:inherit;
 }
 </style>
 
 <style>
+.brHidden {
+		display: none;
+	}
+@media ( max-width : 767.5px) {
+	.big-width-button {
+		display: none;
+	}
+	.brHidden {
+		display: flex;
+	}
+}
 .genric-btn.primary-border {
 	color: black;
 	border: 1px solid black;
@@ -175,8 +319,8 @@ u {
 	color: black;
 	background: #D8D8D8;
 }
-</style>
 
+</style>
 
 </head>
 <body data-editor="ClassicEditor" data-collaboration="false"
@@ -204,11 +348,9 @@ u {
 	</section>
 	<!-- breadcrumb-end -->
 
-
 	<div class="container board">
-		 <form method="post" action="/support/notice_delete"
-			enctype="multipart/form-data">
-
+		<form method="post" action="/support/notice_delete" enctype="multipart/form-data">
+		
 			<div style="text-align: right" class="big-width-button">
 				<a href="/support/notice_modify/${notice.noticeNum}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
 				<input type="submit" value="삭제" class="genric-btn danger-border circle deleteBtn" style="margin-right: 1%;font-size: 1em;">
@@ -216,65 +358,102 @@ u {
 			
 				<input type="hidden" name="noticeNum" value="${notice.noticeNum}"> 
 			</div>
-
-
-			<table>
-				<thead>
-					<!-- 데스크탑 -->
-					<tr>
-						<th class="big-width-table"><span>제목</span></th>
-						<th><span> <input class="single-input"
-								name="noticeTitle" type="text" value="${notice.noticeTitle}"
-								readonly>
-						</span>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th class="big-width-table"><span>작성자</span></th>
-						<th><input class="single-input" name="noticeWriter"
-							type="text" value="${notice.noticeWriter}" readonly></th>
-					</tr>
-					<tr>
-						<th class="big-width-table"><span>첨부파일</span></th>
-						<th style="text-align: left;">
-							<div style="padding: 0 20px;">
-								<c:choose>
-									<c:when test="${file != null and fn:length(file)>0 }">
-										<c:forEach var="file" items="${file}">
-											<a href="#"
-												onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;"
-												style="color: mediumblue;">${file.ORGNAME}</a>
-											<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
-											<br>
-										</c:forEach>
-									</c:when>
-									<c:otherwise>
-										<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
-									</c:otherwise>
-								</c:choose>
-							</div>
-						</th>
-					</tr>
-				</tbody>
-			</table>
-
-			<div id="editor" rows="5" name="noticeContents"
-				style="display: none;" readonly>${notice.noticeContents}</div>
-
-			<hr>
-
-
-		</form>
-
-		<form name="readForm" role="form" method="post">
-			<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME"
-				value=""> <input type="hidden" id="FILE_ORGNAME"
-				name="FILE_ORGNAME" value="">
-		</form>
-
-	</div>
+		
+			<div class="board-view-header">
+				<div class="inner">
+					<ul class="info-wrap">
+						<li class="item">${notice.noticeWriter}</li>
+						<li class="item">${notice.noticeDate}</li>
+					</ul>
+					<h3 class="title-wrap">${notice.noticeTitle}</h3>
+				</div>
+			</div>
+			<div id="editor" rows="5" style="display: none;" readonly>${notice.noticeContents}</div>
+			</form>
+				<div class="board-view-bottom">
+					<div class="board-file-wrap">
+						<div class="board-file-title">첨부파일</div>
+						<div class="board-file-items">
+						<c:choose>
+								<c:when test="${file != null and fn:length(file)>0 }">
+									<c:forEach var="file" items="${file}">
+										<i class="ti-link" style="padding-left:20px;"></i>
+										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color:inherit;">${file.ORGNAME}</a><br>
+										<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
+										<span class="brHidden"><br></span>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<span style="color: lightgrey;padding-left:20px;">첨부 파일이 없습니다.</span>
+								</c:otherwise>
+							</c:choose>
+						</div>
+					</div>
+					<div class="prevnext-btn-style">
+					
+							<c:choose>
+								<c:when test="${notice.prevNoticeNum == null or notice.prevNoticeNum == 0}">
+									<dl class="prev-post-link" style="opacity:0.4;">
+										<dt class="link-title prev">
+											<i class="ti-angle-up"></i>이전 글
+										</dt>
+										<dd class="link-body">
+										<a class="link">
+											<span>이전 글이 없습니다.</span>
+										</a>
+										</dd>
+									</dl>
+								</c:when>
+								<c:otherwise>
+									<dl class="prev-post-link">
+										<dt class="link-title prev">
+											<i class="ti-angle-up"></i>이전글
+										</dt>
+										<dd class="link-body">
+										<a class="link" href="${notice.prevNoticeNum}">
+											<span class="bottomNewsTitle">${prevNotice.noticeTitle}</span>
+											<span class="bottomNewsDate" style="font-weight:200;">${prevNotice.noticeDate}</span>
+										</a>
+										</dd>
+									</dl>
+								</c:otherwise>
+							</c:choose>
+							
+							<c:choose>
+								<c:when test="${notice.nextNoticeNum == null or notice.nextNoticeNum == 0}">
+									<dl class="next-post-link" style="opacity:0.4;">
+										<dt class="link-title next">
+											<i class="ti-angle-down"></i>다음 글
+										</dt>
+										<dd class="link-body">
+											<a class="link">
+												<span>다음 글이 없습니다.</span>
+											</a>
+										</dd>
+									</dl>
+								</c:when>
+								<c:otherwise>
+									<dl class="next-post-link">
+										<dt class="link-title next">
+											<i class="ti-angle-down"></i>다음 글
+										</dt>
+										<dd class="link-body">
+											<a class="link" href="${notice.nextNoticeNum}">
+												<span class="bottomNewsTitle" style="max-width: 90%;">${nextNotice.noticeTitle}</span>
+												<span class="bottomNewsDate" style="font-weight:200;">${nextNotice.noticeDate}</span>
+											</a>
+										</dd>
+									</dl>
+								</c:otherwise>
+							</c:choose>
+							
+					</div>
+				</div>
+			<form name="readForm" role="form" method="post">
+				<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
+				<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
+			</form>
+ </div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
 
@@ -288,7 +467,7 @@ u {
 	}
 	
 	</script>
-
+	
 	<script>
 	$(".deleteBtn").click(function() {
 		if(!confirm("글이 삭제됩니다.")){
@@ -300,6 +479,7 @@ u {
 	
 	</script>
 
+	
 	<script>
 	ClassicEditor
     .create( document.querySelector( '#editor' ), {
@@ -316,6 +496,7 @@ u {
     .catch( error => {
         console.log( error );
     } );
+	
 		</script>
 </body>
 

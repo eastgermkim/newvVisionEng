@@ -12,4 +12,9 @@ public class NoticeDTO {
 	private Date noticeDate;
 	private String noticeContents;
 	private Long readCount;
+	
+	//이전글번호(더 최신글)
+	private long prevNoticeNum;
+	//다음글번호
+	private long nextNoticeNum;
 }

@@ -56,7 +56,14 @@
 	
 	<!-- 공지사항 글 조회 -->
 	<select id="readNotice" resultType="com.newvisioneng.domain.NoticeDTO">
-		SELECT * FROM NV_NOTICE WHERE NOTICENUM = #{noticeNum}	
+		<![CDATA[
+		SELECT *,
+			(SELECT NOTICENUM FROM NV_NOTICE WHERE NOTICENUM > #{noticeNum} LIMIT 1) 
+			AS PREVNOTICENUM,
+			(SELECT NOTICENUM AS NEXTNOTICENUM FROM NV_NOTICE WHERE NOTICENUM < #{noticeNum} ORDER BY NOTICENUM DESC LIMIT 1)
+			AS NEXTNOTICENUM
+		FROM NV_NOTICE WHERE NOTICENUM = #{noticeNum};
+		]]>	
 	</select>
 	<!-- 공지사항 글 조회시 파일도 함께 -->
 	<select id="readNoticeFile" parameterType="_long" resultType="hashMap">
