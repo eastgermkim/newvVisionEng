@@ -22,6 +22,12 @@ public interface CompanyMapper {
 	//특정 뉴스 불러오기
 	public NewsVO news_read(Long newsNum);
 	
+	//특정 뉴스 다음 글
+	public NewsVO news_read_prev(Long newsNum);
+	
+	//특정 뉴스 다음 글
+	public NewsVO news_read_next(Long newsNum);
+	
 	//특정 뉴스 삭제
 	public int news_delete(Long nesNum);
 	
@@ -54,6 +60,7 @@ public interface CompanyMapper {
 	
 	//newsNum null로 바꾸기
 	public void emptyNewsImg(long newsNum);
+
 	
 
 }

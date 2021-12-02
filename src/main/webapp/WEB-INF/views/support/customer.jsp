@@ -106,7 +106,7 @@ input[type="checkbox"] {
 	</section>
 
 
-	<section>
+	<section style="margin-bottom:5%;">
 		<div class="container">
 			<br> <br> <br> <br> <br>
 			<div class="col-lg-12 col-xl-12">

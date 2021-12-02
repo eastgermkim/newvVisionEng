@@ -33,17 +33,26 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
-dd{
-	margin-bottom:0!important;
+.link{
+	display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
-dl{
-	margin-bottom:0!important;
+
+.ti-angle-up, .ti-angle-down{
+	padding-right:6px;
+}
+
+.pagination .page-item.active .page-link {
+	font-weight: 600;
+	color: darkblue;
+	border-color: darkblue;
 }
 
 .prev-post-link{
 	display:flex;
 	border-style:solid;
-	border-color:#9d9d9d;
+	border-color:#ddd;
 	border-width:0.5px 0px 0.5px 0px;
 	color:#666;
 }
@@ -51,7 +60,7 @@ dl{
 .next-post-link{
 	display:flex;
 	border-style:solid;
-	border-color:#9d9d9d;
+	border-color:#ddd;
 	border-width:0px 0px 0.5px 0px;
 	color:#666;
 }
@@ -66,7 +75,7 @@ dl{
     padding: 11px 0px;
     background-color: #f8f8f8;
     font-weight:400;
-    font-size:20px;
+    font-size:15px;
 }
 
 .link-body{
@@ -77,53 +86,141 @@ dl{
     height: 65px;
     padding: 20px;
     height: 70px;
-    font-size:18px;
     background-color:#fff;
+    font-color:#ddd;
+}
 
+.link-body .link{
+	color: #666;
 }
 
 .board {
 	padding: 4% 0%;
 }
 
-.align-left {
-	text-align: left;
-	width: 62%;
+.board-view-header{
+    display: table;
+    width: 100%;
+    height: 180px;
+    padding: 25px 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
-.small-width-page {
-	display: none;
+.board-view-header .inner{
+	display: table-cell;
+    vertical-align: middle;
 }
 
-.small-width-table {
-	display: none;
+
+.board-view-header .info-wrap{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
 }
 
-.small-width-title {
-	font-size: large;
-	font-weight: 500;
+.board-view-header .info-wrap .item{
+    display: inline-block;
+    font-size: 16px;
+    color: #666;
+    font-weight:300;
 }
 
-@media ( max-width : 767.5px) {
-	.align-left {
-		width: 80%
+.board-view-header .item:not(:last-child)::after{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    margin: 0 16px;
+    background-color: #ddd;
+}
+
+.title-wrap{
+	line-height: 1.3;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
+.board-file-wrap{
+    display: flex;
+    position: relative;
+    height: 70px;
+    border-top: 1px solid #ddd;
+}
+
+.board-file-title{
+	flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    padding: 15px 0;
+    font-weight: 400;
+    color: #666;
+}
+
+.board-file-items{
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    color: #666;
+    font-weight:300;
+}
+
+.btn-list{
+	display: flex;
+    justify-content: end;
+    margin: -5px;
+    padding-top: 30px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.bottomNewsTitle{
+overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+@media(max-width:991px){
+	.container{
+	width:95%!important;
 	}
-	.big-width-page {
-		display: none;
-	}
-	.small-width-page {
-		display: flex;
-	}
-	.big-width-table {
-		display: none;
-	}
-	.small-width-table {
-		display: table-row;
-	}
-	.board {
-		padding: 7% 3%;
+	.bottomNewsDate{
+	display:none;
 	}
 }
+@media(max-width:768px){
+	.btn-list{
+	justify-content:center!important;
+	}
+	.ti-angle-up, .ti-angle-down{
+	display:none;
+	}
+	.toList{
+	width:100%!important;
+	}
+	.board-file-title{
+	font-size:70%!important;
+	}
+	.board-file-items{
+	font-size:70%!important;
+	}
+	.link-title{
+	font-size:90%;
+	}
+	.link-body{
+	font-size:90%;
+	}
+}
+
 
 table {
 	width: 100%;
@@ -166,10 +263,11 @@ a:active {
 	color: blue;
 }
 
-.pagination .page-item.active .page-link {
-	font-weight: 600;
-	color: darkblue;
-	border-color: darkblue;
+dd{
+	margin-bottom:0!important;
+}
+dl{
+	margin-bottom:0!important;
 }
 </style>
 
@@ -229,35 +327,29 @@ u {
 		<div style="text-align:right;">
 			<a href="/company/news_modify/${news.newsNum}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
 			<input type="submit" value="삭제" class="genric-btn primary circle newsDelete" style="margin-right: 1%;">
-			<a href="/company/news" class="genric-btn primary circle">목록으로 돌아가기</a>
 			<input type="hidden" name="newsNum" value="${news.newsNum}"> 
 		</div>
-			<table>
-				<thead>
-					<!-- 데스크탑 -->
-					<tr>
-						<th class="big-width-table"><span>제목</span></th>
-						<th>
-						<span>
-							<input class="single-input" name="newsTitle" type="text" value="${news.newsTitle}" readonly>
-						</span>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th class="big-width-table"><span>작성자</span></th>
-						<th><input class="single-input" name="newsWriter"
-							type="text" value="${news.newsWriter}" readonly></th>
-					</tr>
-					<tr>
-						<th class="big-width-table"><span>첨부파일</span></th>
-						<th style="text-align:left;">
-							<div style="padding: 0 20px;">
-							<c:choose>
+		
+			<div class="board-view-header">
+				<div class="inner">
+					<ul class="info-wrap">
+						<li class="item">${news.newsWriter}</li>
+						<li class="item">${news.newsDate}</li>
+					</ul>
+					<h3 class="title-wrap">${news.newsTitle}</h3>
+				</div>
+			</div>
+			<div id="editor" rows="5" name="newsContents" style="display: none;" readonly>${news.newsContents}</div>
+			</form>
+				<div class="board-view-bottom">
+					<div class="board-file-wrap">
+						<div class="board-file-title">첨부파일</div>
+						<div class="board-file-items">
+						<c:choose>
 								<c:when test="${file != null and fn:length(file)>0 }">
 									<c:forEach var="file" items="${file}">
-										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color: mediumblue;">${file.ORGNAME}</a><br>
+										<i class="ti-link" style="padding-left:20px;"></i>
+										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color:inherit;">${file.ORGNAME}</a><br>
 										<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
 									</c:forEach>
 								</c:when>
@@ -265,38 +357,66 @@ u {
 									<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
 								</c:otherwise>
 							</c:choose>
-							</div>
-						</th>
-					</tr>
-				</tbody>
-			</table>
-			<div id="editor" rows="5" name="newsContents" style="display: none;" readonly>${news.newsContents}</div>
-			</form>
-				<div class="board-view-bottom">
+						</div>
+					</div>
 					<div class="prevnext-btn-style">
-						<dl class="prev-post-link">
-							<dt class="link-title prev">
-								<i class="ti-angle-up"></i>&nbsp;&nbsp;&nbsp;이전글
-							</dt>
-							<dd class="link-body">
-								<a>
-									<span>이전글 내용</span>
-								</a>
-							</dd>
-						</dl>
-						<dl class="next-post-link">
-							<dt class="link-title next">
-								<i class="ti-angle-down"></i>&nbsp;&nbsp;&nbsp;다음글
-							</dt>
-							<dd class="link-body">
-								<a>
-									<span>다음글 내용</span>
-								</a>
-							</dd>
-						</dl>
-						<dl>
-						
-						</dl>
+							<c:choose>
+								<c:when test="${news_prev.newsNum == null}">
+									<dl class="prev-post-link" style="opacity:0.4;">
+										<dt class="link-title prev">
+											<i class="ti-angle-up"></i>이전글
+										</dt>
+										<dd class="link-body">
+										<a class="link">
+											<span>이전 기사가 없습니다.</span>
+										</a>
+										</dd>
+									</dl>
+								</c:when>
+								<c:otherwise>
+									<dl class="prev-post-link">
+										<dt class="link-title prev">
+											<i class="ti-angle-up"></i>이전글
+										</dt>
+										<dd class="link-body">
+										<a class="link" href="${news_prev.newsNum}">
+											<span class="bottomNewsTitle">${news_prev.newsTitle}</span>
+											<span class="bottomNewsDate" style="font-weight:200;">${news_prev.newsDate}</span>
+										</a>
+										</dd>
+									</dl>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${news_next.newsNum == null}">
+									<dl class="next-post-link" style="opacity:0.4;">
+										<dt class="link-title next">
+											<i class="ti-angle-down"></i>다음글
+										</dt>
+										<dd class="link-body">
+											<a class="link">
+												<span>다음 기사가 없습니다.</span>
+											</a>
+										</dd>
+									</dl>
+								</c:when>
+								<c:otherwise>
+									<dl class="next-post-link">
+										<dt class="link-title next">
+											<i class="ti-angle-down"></i>다음글
+										</dt>
+										<dd class="link-body">
+											<a class="link" href="${news_next.newsNum}">
+												<span class="bottomNewsTitle">${news_next.newsTitle}</span>
+												<span class="bottomNewsDate" style="font-weight:200;">${news_next.newsDate}</span>
+											</a>
+										</dd>
+									</dl>
+								</c:otherwise>
+							</c:choose>
+						<div class="btn-list">
+							<a href="/company/news" class="genric-btn primary-border e-large toList" style="width:200px; font-size:15px;">목록으로</a>
+						</div>
 					</div>
 				</div>
 			<form name="readForm" role="form" method="post">

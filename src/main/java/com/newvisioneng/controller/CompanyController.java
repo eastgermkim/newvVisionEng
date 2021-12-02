@@ -68,6 +68,12 @@ public class CompanyController {
 		NewsVO news = service.news_get(newsNum);
 		model.addAttribute("news",news);
 		
+		NewsVO news_prev = service.news_get_prev(newsNum);
+		model.addAttribute("news_prev",news_prev);
+		
+		NewsVO news_next = service.news_get_next(newsNum);
+		model.addAttribute("news_next",news_next);
+		
 		List<Map<String, Object>> fileList = service.readNewsFile(newsNum);
 		model.addAttribute("file", fileList);
 		

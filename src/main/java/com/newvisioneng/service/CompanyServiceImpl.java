@@ -55,6 +55,18 @@ public class CompanyServiceImpl implements CompanyService {
 		return mapper.news_read(newsNum);
 	}
 	
+	@Override
+	public NewsVO news_get_prev(Long newsNum) {
+		log.info("news_get_prev..........." + newsNum);
+		return mapper.news_read_prev(newsNum);
+	}
+	
+	@Override
+	public NewsVO news_get_next(Long newsNum) {
+		log.info("news_get_next..........." + newsNum);
+		return mapper.news_read_next(newsNum);
+	}
+	
 	//수정
 	@Override
 	public long news_modify(NewsVO news, MultipartFile[] file,HttpServletRequest req) throws Exception {

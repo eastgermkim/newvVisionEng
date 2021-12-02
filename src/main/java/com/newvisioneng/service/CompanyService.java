@@ -24,6 +24,12 @@ public interface CompanyService {
 	//뉴스 불러오기
 	public NewsVO news_get(Long newsNum);
 	
+	//뉴스 이전글
+	public NewsVO news_get_prev(Long newsNum);
+	
+	//뉴스 다음글
+	public NewsVO news_get_next(Long newsNum);
+	
 	//뉴스 수정
 	public long news_modify(NewsVO newsvo, MultipartFile[] file,HttpServletRequest req) throws Exception;
 	

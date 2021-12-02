@@ -19,7 +19,7 @@
 	</select>
 	
 	
-
+	<!-- 뉴스 등록 -->
  	<insert id="news_register">
 		INSERT INTO NV_NEWS (NEWSTITLE, NEWSSUBTITLE, NEWSLINK, NEWSWRITER,  NEWSCONTENTS, NEWSDATE, NEWSWRITEDATE)
 		VALUES(#{newsTitle}, #{newsSubTitle}, #{newsLink}, #{newsWriter}, #{newsContents}, #{newsDate}, now())
@@ -28,15 +28,32 @@
    		</selectKey>
 	</insert>
 	
+	
+	<!-- 뉴스 읽기 -->
 	<select id="news_read" resultType="com.newvisioneng.domain.NewsVO">
-		<![CDATA[
 		SELECT * FROM NV_NEWS WHERE NEWSNUM = #{newsNum}
-		]]>
 	</select>
 	
+	<!-- 뉴스 읽을때 이전글 -->
+	<select id="news_read_prev" resultType="com.newvisioneng.domain.NewsVO">
+	<![CDATA[
+	  SELECT * FROM NV_NEWS WHERE NEWSLINK IS NULL AND NEWSNUM > #{newsNum} LIMIT 1;
+	 ]]>
+	</select>
+	
+	<!-- 뉴스 읽을때 다음글 -->
+	<select id="news_read_next" resultType="com.newvisioneng.domain.NewsVO">
+	<![CDATA[
+	  SELECT * FROM NV_NEWS WHERE NEWSLINK IS NULL AND NEWSNUM < #{newsNum} ORDER BY NEWSNUM DESC LIMIT 1;
+	 ]]>
+	</select>
+	
+	<!--뉴스 삭제  -->
 	<delete id="news_delete">
 		DELETE FROM NV_NEWS WHERE NEWSNUM = #{newsNum}
 	</delete>
+	
+	
 	
 	<!-- 뉴스 수정완료 -->
 	<update id="news_update">
@@ -46,46 +63,60 @@
 		WHERE NEWSNUM = #{newsNum};
 	</update>
 	
+	
+	
 	<!-- 뉴스 수정시 사용안하게 된 이미지가 있을수있으므로 일단 다 NULL로 바꿔준다. -->
 	<update id="emptyNewsImg">
 		UPDATE NV_NEWS_IMG SET NEWSNUM = NULL
 		WHERE NEWSNUM = #{newsNum}
 	</update>
 	
+	
+	
 	<!-- 파일첨부를 위해, 글을 등록하자마자 그 글의 newsNum을 가져온다-->
 	<select id="getNewsNum" resultType="_long" parameterType="string">
 		SELECT NEWSNUM FROM NV_NEWS WHERE NEWSWRITER=#{newsWriter} ORDER BY NEWSNUM DESC
 	</select>
+	
+	
 	
 	<!-- 파일등록 -->
 	<insert id="insertNewsFile" parameterType="hashmap">
         INSERT INTO NV_NEWS_FILE VALUES
         (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
 	</insert>
+	
+	
 	<!-- 이미지 삽입 확정시(글 등록) -->
 	<update id="updateNewsImg" parameterType="hashmap">
         UPDATE NV_NEWS_IMG SET NEWSNUM = #{BOARDNUM} WHERE SYSTEMNAME = #{SYSTEMNAME}
 	</update>
 	
+	
 	<!-- newsNum이 NULL인 이미지들 systemname 불러오기 -->
 	<select id="getNewsImgsNULL" resultType="string">
         SELECT SYSTEMNAME FROM NV_NEWS_IMG WHERE NEWSNUM IS NULL
 	</select>
+	
+	
 	<!-- noticenum이 NULL인 이미지들 DB에서 전체 삭제 -->
 	<delete id="deleteNewsImgNULL">
 		DELETE FROM NV_NEWS_IMG WHERE NEWSNUM IS NULL
 	</delete>
+	
 	
 	<!-- 뉴스 글 조회시 파일도 함께 -->
 	<select id="readNewsFile" parameterType="_long" resultType="hashMap">
         SELECT * FROM NV_NEWS_FILE WHERE NEWSNUM = #{newsNum}
 	</select>
 	
+	
 	<!-- 이미지 삽입 저장 -->
 	<insert id="insertNewsImg" parameterType="hashmap">
         INSERT INTO NV_NEWS_IMG(SYSTEMNAME,ORGNAME) VALUES
         (#{SYSTEMNAME},#{ORGNAME})
 	</insert>
+	
 	
 	<!-- 수정할때 파일 삭제하기 -->
 	<delete id="deleteNewsFile" parameterType="string">
