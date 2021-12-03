@@ -58,7 +58,13 @@
 									<ul>
 										<!-- <li><a href="blog.html">News & media</a></li>
 										<li><a href="review.html">Review</a></li> -->
-										<li><a href="">Admin</a></li>
+										<li><a href="/admin/adminLogin">Admin</a></li>
+										<c:if test="${admin_ID == null}">
+												<li><a>관리자 로그인 안된 상태</a></li>
+										</c:if>
+										<c:if test="${admin_ID != null}">
+												<li><a>로그아웃</a></li>
+										</c:if>
 									</ul>
 								</nav>
 							</div>

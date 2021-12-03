@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
+<mapper namespace="com.newvisioneng.mapper.AdminMapper">
+	
+	<!-- 로그인 관련 mapper-->
+    <select id = "adminLoginCheck" parameterType= "com.newvisioneng.domain.AdminDTO" 
+    resultType="String">
+        SELECT ADMIN_ID FROM NV_ADMIN
+        WHERE ADMIN_ID=#{admin_ID} AND ADMIN_PW=#{admin_PW}
+    </select>  
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

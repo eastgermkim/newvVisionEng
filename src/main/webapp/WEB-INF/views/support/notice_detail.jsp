@@ -214,15 +214,17 @@ overflow: hidden;
 	}
 	.board-file-title{
 	font-size:70%!important;
+	font-weight: 500;
 	}
 	.board-file-items{
-	font-size:70%!important;
+	font-size:80%!important;
 	}
 	.link-title{
 	font-size:0.7em;
+	font-weight: 500;
 	}
 	.link-body{
-	font-size:0.7em;
+	font-size:0.8em;
 	}
 }
 
@@ -435,7 +437,7 @@ u {
 							<c:choose>
 								<c:when test="${notice.nextNoticeNum == null or notice.nextNoticeNum == 0}">
 									<dl class="next-post-link" style="opacity:0.4;">
-										<dt class="-title next">
+										<dt class="link-title next">
 											<i class="ti-angle-down"></i>다음 글
 										</dt>
 										<dd class="link-body">
@@ -459,9 +461,10 @@ u {
 									</dl>
 								</c:otherwise>
 							</c:choose>
-							
+						<div class="btn-list" style="padding-top: 4%;">
+							<a href="/support/notice" class="genric-btn primary-border e-large toList" style="width:200px; font-size:15px;">목록으로 돌아가기</a>
+						</div>					
 					</div>
-					<a href="/support/notice" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 				</div>
 			<form name="readForm" role="form" method="post">
 				<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 

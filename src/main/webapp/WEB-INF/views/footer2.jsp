@@ -49,7 +49,7 @@
 <body>
 
 	<!-- footer-start -->
-    <footer class="footer-area" style="padding:3% 0 3%;height: 200px">
+    <footer class="footer-area" style="padding:3% 0 3%;height: 170px">
         <div class="container">
                 <div class="desktop" style="float: left;">
                 	<div>
