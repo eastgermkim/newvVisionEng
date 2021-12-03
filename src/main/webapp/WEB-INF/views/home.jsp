@@ -41,6 +41,11 @@
 	.mobile{
 		display: none;
 	}
+	
+	.cta-area .cta-content p{
+		font-size:18x;
+		padding-top:20px;
+	}
 
   	@media ( max-width : 767.5px) {
 		.desktop{
@@ -49,16 +54,43 @@
 		.mobile{
 			display:block;
 		}
+		.cta-area .cta-content h3{
+			font-size:44px!important;
+		}
 	}
   	@media ( max-width : 991.5px) {
 		.desktop-contact{
 			display: none;
 		}
 	}
+	@media(min-width:991.5px){
+		.cta-content{
+			background: none!important;
+		}
+		.cta-content .cta-content-inner{
+			margin-left:0!important;
+			width:max-content;
+		}
+		.cta-content .cta-content-inner h3{
+			color:#fff!important;
+		}
+		.cta-content .cta-content-inner p{
+			color:#fff!important;
+		}
+		.cta-content .cta-btn{
+			position:initial!important;
+		}
+		
+	}
+	
 	.footer_li{
 		display: inline-block;
   		vertical-align: middle;
 		margin-right: 20px;
+	}
+	
+	.project-thumb{
+		max-width:fit-content;
 	}
 
 </style>
@@ -368,6 +400,11 @@
 								주세요.내용을 입력해 주세요.
 							</p>
 							<div class="more-project">
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
 								<a href="#">More Projects</a>
 							</div>
 						</div>
@@ -423,17 +460,20 @@
 		style="padding-bottom: 120px !important;">
 		<div class="container">
 			<div class="col-xl-6 col-lg-7">
-				<div class="cta-content" style="background: none;">
-					<h3>찾아오시는 길</h3>
-					<p>
-						서울시 금천구 가산디지털1로 88, 704-C <br>(가산동,IT프리미어타워) <br>내용을
-						입력해주세요.내용을 입력해주세요. <br>내용을 입력해주세요.내용을 입력해주세요. <br>내용을
-						입력해주세요.내용을 입력해주세요.
-					</p>
-					<div class="cta-btn" style="position: inherit;">
-						<a class="boxed-btn2 black-bg" href="#"
-							style="background: #f36d20 !important;">상세보기<i
-							class="Flaticon flaticon-right-arrow"></i></a>
+				<div class="cta-content" style="background: rgba(255,255,255,0.7);">
+					<div class="cta-content-inner" style="margin-left:10%; height:200px;">
+						<h3 style="color:#f36d20">찾아오시는 길</h3>
+						<p style="color:#020c26">
+							서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
+							<br><br>
+							704-C, 88, Gasan digital 1-ro, Geumcheon-gu, Seoul, Republic of Korea
+						</p>
+						<div class="cta-btn" style="position: absolute; right:50px;">
+							<a class="boxed-btn2 black-bg" href="/company/location" style="background: #f36d20 !important;">
+								상세보기
+								<i class="Flaticon flaticon-right-arrow"></i>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,7 +65,7 @@ public class CompanyController {
 	
 	//보도현황 게시글 하나 클릭시 상세 정보 조회
 	@GetMapping("/news/{newsNum}")
-	public String news_detail(@PathVariable("newsNum") Long newsNum,Model model) throws Exception {
+	public String news_detail(@PathVariable("newsNum") Long newsNum, @ModelAttribute("cri") Criteria cri,Model model) throws Exception {
 		NewsVO news = service.news_get(newsNum);
 		model.addAttribute("news",news);
 		
@@ -149,7 +150,7 @@ public class CompanyController {
 	
 	//언론보도 페이지 글 등록 view단으로 이동하는 요청
 	@GetMapping("/news_modify/{newsNum}")
-	public String news_modify(@PathVariable("newsNum") Long newsNum,Model model) throws Exception {
+	public String news_modify(@PathVariable("newsNum") Long newsNum, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		NewsVO news = service.news_get(newsNum);
 		model.addAttribute("news",news);
 		
@@ -190,7 +191,7 @@ public class CompanyController {
 		
 	//수정 완료 메소드
 		@PostMapping("/news_modifyOK")
-		public ModelAndView news_modifyOK(NewsVO newsvo, @RequestParam("newsNum") Long newsnum,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
+		public ModelAndView news_modifyOK(NewsVO newsvo, @RequestParam("newsNum") Long newsnum, Criteria cri, RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 			if(newsvo.getNewsLink().equals("")) {
 				newsvo.setNewsLink(null);
 			}
@@ -217,7 +218,7 @@ public class CompanyController {
 	        }
 			
 			if(newsvo.getNewsLink() == null) {
-				mav = new ModelAndView("redirect:/company/news/"+newsnum);
+				mav = new ModelAndView("redirect:/company/news/"+newsnum+cri.getListLink());
 				return mav;
 			}
 			else {
@@ -229,7 +230,7 @@ public class CompanyController {
 	
 	//언론보도 페이지 삭제하기
 	@PostMapping("/news_delete")
-	public String news_delete(@RequestParam("newsNum") Long newsNum, @RequestParam(value = "file_systemname", required=false) String[] file_systemname, RedirectAttributes rttr, HttpServletRequest req) {
+	public String news_delete(@RequestParam("newsNum") Long newsNum, @RequestParam(value = "file_systemname", required=false) String[] file_systemname, Criteria cri, RedirectAttributes rttr, HttpServletRequest req) {
 		log.info("news_delete : " + newsNum);
 		
 		if(file_systemname != null) {
@@ -253,7 +254,7 @@ public class CompanyController {
 				//Session의 Flash에 담아준다.
 				rttr.addFlashAttribute("result", "success");
 			}
-			return"redirect:/company/news"; 
+			return"redirect:/company/news" + cri.getListLink(); 
 	}
 	
 

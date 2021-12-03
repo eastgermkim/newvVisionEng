@@ -204,6 +204,7 @@ input[type="checkbox"] {
 				</div>
 	        </div>
 	        <br>
+	        
 				<ul class="crawling-lists">
  				<c:choose>
 					<c:when test="${news_count == 0}">
@@ -222,12 +223,16 @@ input[type="checkbox"] {
 													<div class="link-icon">
 														<h3 class="news-title">${news.newsTitle}&nbsp;&nbsp;&nbsp;</h3>
 													</div>
+													
 													<h3 class="news-contents">${news.newsSubTitle}</h3>
 													<h3 class="news-dates">${news.newsDate}</h3>
 													<input type="hidden" name="newsNum" value="${news.newsNum}">
+													
 													<div class="linkHidden" style="display:none;">
-													<a href="/company/news_modify/${news.newsNum}" i="modify_link_button" class="genric-btn primary modify_link_button">수정하기</a>
-													<input type="submit" value="삭제" class="genric-btn primary circle linkNewsDelete" style="margin-right: 1%; border-radius:0;">
+														<input type="hidden" name="page" value="${pageMaker.cri.page}">
+														<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
+														<a href="/company/news_modify/${news.newsNum}${pageMaker.cri.getListLink()}" i="modify_link_button" class="genric-btn primary modify_link_button">수정하기</a>
+														<input type="submit" value="삭제" class="genric-btn primary circle linkNewsDelete" style="margin-right: 1%; border-radius:0;">
 													</div>
 												</form>
 												</div>
@@ -235,11 +240,18 @@ input[type="checkbox"] {
 						   				</c:when>
 						   				<c:otherwise>
 										<li class="crawling-list">
-											<a class="list-inner-wrap" href="news/${news.newsNum}">
+											<a class="list-inner-wrap" href="${news.newsNum}">
 												<div class="text-wrap">
 													<h3 class="news-title">${news.newsTitle}</h3>
 													<h3 class="news-contents">${news.newsSubTitle}</h3>
 													<h3 class="news-dates">${news.newsDate}</h3>
+													
+											        <!-- criteria start -->
+											        <form id="pageForm">
+														<input type="hidden" name="page" value="${pageMaker.cri.page}">
+														<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
+											        </form>
+													<!-- criteria end -->
 												</div>
 											</a>
 						   				</c:otherwise>
@@ -334,4 +346,13 @@ input[type="checkbox"] {
 	
 	</script>
 	
+	<!-- criteria pageForm  -->
+	<script>
+	var pageForm = $("#pageForm");
+	$(".list-inner-wrap").on("click",function(e){
+		e.preventDefault();
+		pageForm.attr("action","/company/news/"+$(this).attr("href"));
+		pageForm.submit();
+	})
+	</script>
 </html>

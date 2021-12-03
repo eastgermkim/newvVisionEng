@@ -149,7 +149,7 @@
 .board-file-wrap{
     display: flex;
     position: relative;
-    height: 70px;
+    height: 100%;
     border-top: 1px solid #ddd;
 }
 
@@ -256,10 +256,34 @@ a {
 }
 
 a:hover {
-	color: #ED1E23;
+	color: #f36d20;
 }
 
 a:active {
+	color: blue;
+}
+
+.board-file-items a{
+	color: #666;
+}
+
+.board-file-items a:hover{
+	color: #f36d20;
+}
+
+.board-file-items a:active{
+	color: blue;
+}
+
+.link-body a{
+	color: #666;
+}
+
+.link-body a:hover{
+	color: #f36d20;
+}
+
+.link-body a:active{
 	color: blue;
 }
 
@@ -325,9 +349,12 @@ u {
 	<div class="container board">
 		<form method="post" action="/company/news_delete" enctype="multipart/form-data">
 		<div style="text-align:right;">
-			<a href="/company/news_modify/${news.newsNum}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
+			<a href="/company/news_modify/${news.newsNum}${cri.getListLink()}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
 			<input type="submit" value="삭제" class="genric-btn primary circle newsDelete" style="margin-right: 1%;">
-			<input type="hidden" name="newsNum" value="${news.newsNum}"> 
+			
+			<input type="hidden" name="newsNum" value="${news.newsNum}">
+			<input type="hidden" name="page" value="${cri.page}">
+			<input type="hidden" name="pageSize" value="${cri.pageSize}"> 
 		</div>
 		
 			<div class="board-view-header">
@@ -348,13 +375,15 @@ u {
 						<c:choose>
 								<c:when test="${file != null and fn:length(file)>0 }">
 									<c:forEach var="file" items="${file}">
+									<div>
 										<i class="ti-link" style="padding-left:20px;"></i>
-										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color:inherit;">${file.ORGNAME}</a><br>
+										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;">${file.ORGNAME}</a><br>
+									</div>
 										<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
-									<span style="color: lightgrey;">첨부 파일이 없습니다.</span>
+									<span style="color: lightgrey; padding-left:20px;">첨부 파일이 없습니다.</span>
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -415,7 +444,7 @@ u {
 								</c:otherwise>
 							</c:choose>
 						<div class="btn-list">
-							<a href="/company/news" class="genric-btn primary-border e-large toList" style="width:200px; font-size:15px;">목록으로</a>
+							<a href="/company/news${cri.getListLink()}" class="genric-btn primary-border e-large toList" style="width:200px; font-size:15px;">목록으로</a>
 						</div>
 					</div>
 				</div>
@@ -423,6 +452,8 @@ u {
 				<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
 				<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 
 			</form>
+			
+	        <!-- criteria start -->
  </div>
 
 	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>

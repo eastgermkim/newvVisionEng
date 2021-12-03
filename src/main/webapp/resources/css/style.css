@@ -173,7 +173,7 @@ h3 {
 } */
 
 .cta-bg-1 {
-	background-image: url(../img/background-img/test_building3.jpg);
+	background-image: url(../img/background-img/background-building1.jpg);
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position:center;
@@ -245,7 +245,7 @@ h3 {
 
 .owl-carousel .owl-nav {
 	position: relative;
-	display:none;
+	/* display:none; */
 }
 
 .owl-carousel .owl-nav div.owl-next {
@@ -1348,8 +1348,9 @@ h3 {
 
 @media ( min-width : 1200px) and (max-width: 1500px) {
 	.project-active.owl-carousel .owl-nav {
-		position: relative;
-		left: -326px
+		position: absolute;
+		top:300px;
+		left: -565px;
 	}
 }
 

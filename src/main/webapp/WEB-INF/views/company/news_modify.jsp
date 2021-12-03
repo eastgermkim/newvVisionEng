@@ -201,6 +201,9 @@ u {
 	<div class="container board">
 		<form id="newsModifyForm" method="post" action="/company/news_modifyOK" enctype="multipart/form-data">
 		<input type="hidden" name="newsNum" value="${news.newsNum}">
+		<input type="hidden" name="page" value="${cri.page}">
+		<input type="hidden" name="pageSize" value="${cri.pageSize}"> 
+		<input type="hidden" name="pageSize" value="${cri.getListLink()}"> 
 			<table>
 				<thead>
 					<tr>
@@ -251,7 +254,7 @@ u {
 									</c:choose>
 								</div>
 								<div class="file-group file-count" id="file-group" style="text-align: left; ">
-									<input type="file" name="file"><a href='#this' name='file-delete' style='color: red;'>삭제</a>
+									<input class="defaultFile" type="file" name="file"><a href='#this' name='file-delete' style='color: red;'>삭제</a>
 								</div>
 							</div>
 						</th>
@@ -270,7 +273,7 @@ u {
 			<hr>
 			<div class="col-12" style="text-align: center; padding: 1%;">
 				<input id="modifySubmit" type="submit" value="수정" class="genric-btn primary circle" style="margin-right: 1%;"> 
-				<a href="/company/news" class="genric-btn primary-border circle">목록으로 돌아가기</a>
+				<a href="/company/news${cri.getListLink()}" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
 	</div>
@@ -379,7 +382,14 @@ u {
    		}
     
     }
-
+	
+    function firstFileCount() {
+        var fileCount = $('.file-count').length
+        
+        if(fileCount>5){
+           deleteFile($('.defaultFile'));
+        }
+   }
 </script>
 
 	<script>
@@ -431,16 +441,45 @@ u {
 	}
 	</script> -->
 	
+	<!-- 크롬은 unload가 되지 않음. -->
 	<script>
-    var checkUnload = true;
-    $(window).on("beforeunload", function(){
-        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
-    });
-    $("#modifySubmit").on("click", function(){
-        checkUnload = false;
-        $("#newsModifyForm").submit();
-    });
-	</script>	
+	$(document).ready(function () {
+		fileCount();
+		firstFileCount();
+	    // Warning
+	    $(window).on('beforeunload', function(){
+	        //do something
+	        return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+	        
+	    });
+	    // Form Submit
+	    $(document).on("submit", "form", function(event){
+	        // disable warning
+	        $(window).off('beforeunload');
+	    });
+	    
+	    $(window).on('unload', function(){
+	        //do something
+				$.ajax({
+					type:"POST",
+					url:"/company/news_tempDelete",
+					// 해당 small의 data-src 속성의 값을 JSON 형식으로 
+					dataType:"text",
+					cache:false,
+					success:function(res) {
+						alert("파일을 삭제했습니다.");
+						},
+		            	error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+		                alert("파일 삭제에 실패하였습니다.");
+					}
+				});
+	    });
+	    
+	})
+	
+	</script>
+	
+	
 </body>
 
 </html>
