@@ -40,7 +40,6 @@
 .small-width-page{
 		display:none;
 	}
-	
 </style>
 
 <style>
@@ -207,11 +206,7 @@
 						<div class="th" style="width:90px;">번호</div>
 						<div class="th">제목</div>
 						<div class="th" style="width:120px;">등록일</div>
-						<!-- <div class="th" style="width:100px;">등록자</div> -->
 					</div>
-					<!-- <div class="thead tr small-width-table">
-						<div class="th">내용</div>
-					</div> -->
 					<c:choose>
 						<c:when test="${notice_list != null and notice_list.size()>0}">
 							<c:forEach items="${notice_list}" var="notice">
@@ -220,21 +215,14 @@
 									<div class="num">${notice.noticeNum}</div>
 									<div class="title"><a>${notice.noticeTitle}</a></div>
 									<div class="etc"><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></div>
-									<%-- <div class="etc">${notice.noticeWriter}</div> --%>
 								</div>
-							<!-- 모바일 -->
-								<%-- <div class="tr small-width-table" onclick="location.href='notice/${notice.noticeNum}'" >
-									<div class="title">${notice.noticeTitle}</div>
-									<div class="etc"><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></div>
-								</div> --%>
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-							<tr>
-								<td colspan="4">
-									작성된 게시글이 없습니다.
-								</td>
-							</tr>
+							<div class="tr">
+									<div class="num"></div>
+									<div class="title" style="text-align: center;">작성된 글이 없습니다.</div>
+							</div>
 						</c:otherwise>
 					</c:choose>	
 					

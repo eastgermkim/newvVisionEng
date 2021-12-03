@@ -242,7 +242,7 @@ u {
 							
 							
 								<div class="file-group file-count" style="text-align: left;">
-									<input type="file" name="file"><a href='#this'
+									<input class="defaultFile" type="file" name="file"><a href='#this'
 										name='file-delete' style='color: red;'>삭제</a>
 								</div>
 							</div>
@@ -335,6 +335,9 @@ u {
 	<!-- 페이지 벗어날 경우 경고창 -->
 	<script>
 $(document).ready(function () {
+	fileCount();
+	firstFileCount();
+	
     // Warning
     $(window).on('beforeunload', function(){
         //do something
@@ -428,7 +431,15 @@ $(document).ready(function () {
    		}else{
    			$('.addFile').css('display', 'block');
    		}
+    }
     
+    /* 첨부파일 개수 최대 5개 */
+    function firstFileCount() {
+   		var fileCount = $('.file-count').length
+   		
+   		if(fileCount>5){
+	         deleteFile($('.defaultFile'));
+   		}
     }
 
 </script>

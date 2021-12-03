@@ -92,7 +92,10 @@
 
 .link-body .link{
 	color: #666;
-}
+}	
+.link-body .link{
+	color: #666;
+}	
 
 .board {
 	padding: 4% 0%;
@@ -149,7 +152,7 @@
 .board-file-wrap{
     display: flex;
     position: relative;
-    height: 70px;
+    /* height: 70px; */
     border-top: 1px solid #ddd;
 }
 
@@ -165,7 +168,8 @@
 }
 
 .board-file-items{
-	display: flex;
+	/* display: flex; */
+	display: block;
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
@@ -257,11 +261,23 @@ a {
 }
 
 a:hover {
-	color: #ED1E23;
+	color: blue;
 }
 
 a:active {
+	color: #F36D20;
+}
+
+.board-file-items a {
+	color: #666;
+}
+
+.board-file-items a:hover {
 	color: blue;
+}
+
+.board-file-items a:active {
+	color: #F36D20;
 }
 
 dd{
@@ -297,15 +313,9 @@ u {
 </style>
 
 <style>
-.brHidden {
-		display: none;
-	}
 @media ( max-width : 767.5px) {
 	.big-width-button {
 		display: none;
-	}
-	.brHidden {
-		display: flex;
 	}
 }
 .genric-btn.primary-border {
@@ -319,7 +329,12 @@ u {
 	color: black;
 	background: #D8D8D8;
 }
-
+.link-body .link:active{
+	color: #ED1E23;
+}	
+.link-body:hover{
+	background-color: #FAFAFA;
+}	
 </style>
 
 </head>
@@ -351,10 +366,9 @@ u {
 	<div class="container board">
 		<form method="post" action="/support/notice_delete" enctype="multipart/form-data">
 		
-			<div style="text-align: right" class="big-width-button">
+			<div style="text-align: right">
 				<a href="/support/notice_modify/${notice.noticeNum}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
 				<input type="submit" value="삭제" class="genric-btn danger-border circle deleteBtn" style="margin-right: 1%;font-size: 1em;">
-				<a href="/support/notice" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			
 				<input type="hidden" name="noticeNum" value="${notice.noticeNum}"> 
 			</div>
@@ -378,9 +392,8 @@ u {
 								<c:when test="${file != null and fn:length(file)>0 }">
 									<c:forEach var="file" items="${file}">
 										<i class="ti-link" style="padding-left:20px;"></i>
-										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;" style="color:inherit;">${file.ORGNAME}</a><br>
+										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;">${file.ORGNAME}</a><br>
 										<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
-										<span class="brHidden"><br></span>
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
@@ -422,7 +435,7 @@ u {
 							<c:choose>
 								<c:when test="${notice.nextNoticeNum == null or notice.nextNoticeNum == 0}">
 									<dl class="next-post-link" style="opacity:0.4;">
-										<dt class="link-title next">
+										<dt class="-title next">
 											<i class="ti-angle-down"></i>다음 글
 										</dt>
 										<dd class="link-body">
@@ -448,6 +461,7 @@ u {
 							</c:choose>
 							
 					</div>
+					<a href="/support/notice" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 				</div>
 			<form name="readForm" role="form" method="post">
 				<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
