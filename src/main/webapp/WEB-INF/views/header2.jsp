@@ -120,7 +120,7 @@
 											</ul>
 										</li>
 										
-										<li><a href="/employ/list">채용정보</a>
+										<li><a href="/recruit/list">채용정보</a>
 											<ul class="submenu">
 											</ul>
 										</li>

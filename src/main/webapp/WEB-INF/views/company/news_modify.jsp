@@ -200,10 +200,10 @@ u {
 
 	<div class="container board">
 		<form id="newsModifyForm" method="post" action="/company/news_modifyOK" enctype="multipart/form-data">
-		<input type="hidden" name="newsNum" value="${news.newsNum}">
-		<input type="hidden" name="page" value="${cri.page}">
-		<input type="hidden" name="pageSize" value="${cri.pageSize}"> 
-		<input type="hidden" name="pageSize" value="${cri.getListLink()}"> 
+		<input type="text" name="newsNum" value="${news.newsNum}">
+		<input type="text" name="page" value="${cri.page}">
+		<input type="text" name="pageSize" value="${cri.pageSize}"> 
+		<input type="text" name="pageSize" value="${cri.getListLink()}"> 
 			<table>
 				<thead>
 					<tr>

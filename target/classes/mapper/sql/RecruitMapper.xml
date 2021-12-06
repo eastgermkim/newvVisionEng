@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
+<mapper namespace="com.newvisioneng.mapper.RecruitMapper">
+	
+	<!-- 공지사항 목록 불러오기 -->
+	<select id="getRecruitList" resultType="com.newvisioneng.domain.RecruitDTO">
+		SELECT RECRUITNUM,RECRUITDATE,READCOUNT, RECRUITWRITER,RECRUITTITLE,RECRUITCONTENTS 
+		FROM NV_RECRUIT ORDER BY RECRUITNUM DESC LIMIT #{pageStart},#{pageSize}
+	</select>
+	<select id="getRecruitTotal" resultType="_int">
+		SELECT COUNT(*) FROM NV_RECRUIT WHERE RECRUITNUM>0
+	</select>
+	
+	
+	<!-- 공지사항 글 등록 -->
+	<insert id="insertRecruit" parameterType="com.newvisioneng.domain.RecruitDTO">
+		<!-- recruitNUM은 NULL로 삽입시에 자동으로 1 증가한 값으로 들어간다(auto_increment) -->
+		<![CDATA[
+		INSERT INTO NV_RECRUIT VALUES(NULL,#{recruitWriter},#{recruitTitle},#{recruitContents},now(),1)
+		]]>
+		
+		<!-- insert하면서 AUTO_INCREMENT된 recruitNum를 바로 가져와야한다.-->
+		<!-- 가장 최근에 성공적으로 수행된 INSERT 구문의 첫번째 AUTO_INCREMENT column의 값을 반환한다 -->
+		<!-- 반환된 값은 들어온 recruitDTO의 recruitNum에 담아진다(리턴 형태가 아님) -->
+		<selectKey keyProperty="recruitNum" resultType="_long">
+        SELECT LAST_INSERT_ID()
+   		</selectKey>
+	</insert>
+	<!-- 공지사항 파일 등록 -->
+	<insert id="insertRecruitFile" parameterType="hashmap">
+        INSERT INTO NV_RECRUIT_FILE VALUES
+        (#{SYSTEMNAME},#{ORGNAME},#{BOARDNUM})
+	</insert>
+	<!-- 이미지 삽입시 -->
+	<insert id="insertRecruitImg" parameterType="hashmap">
+        INSERT INTO NV_RECRUIT_IMG(SYSTEMNAME,ORGNAME) VALUES
+        (#{SYSTEMNAME},#{ORGNAME})
+	</insert>
+	
+	<!-- 이미지 삽입 확정시(글 등록) -->
+	<update id="updateRecruitImg" parameterType="hashmap">
+        UPDATE NV_RECRUIT_IMG SET RECRUITNUM = #{BOARDNUM} WHERE SYSTEMNAME = #{SYSTEMNAME}
+	</update>
+	
+	<!-- recruitnum이 NULL인 이미지들 systemname 불러오기 -->
+	<select id="getRecruitImgsNULL" resultType="string">
+        SELECT SYSTEMNAME FROM NV_RECRUIT_IMG WHERE RECRUITNUM IS NULL
+	</select>
+	<!-- recruitnum이 NULL인 이미지들 DB에서 전체 삭제 -->
+	<delete id="deleteRecruitImgNULL">
+		DELETE FROM NV_RECRUIT_IMG WHERE RECRUITNUM IS NULL
+	</delete>
+	
+	
+	<!-- 공지사항 글 조회 -->
+	<select id="readRecruit" resultType="com.newvisioneng.domain.RecruitDTO">
+		<![CDATA[
+		SELECT *,
+			(SELECT RECRUITNUM FROM NV_RECRUIT WHERE RECRUITNUM > #{recruitNum} LIMIT 1) 
+			AS PREVRECRUITNUM,
+			(SELECT RECRUITNUM AS NEXTRECRUITNUM FROM NV_RECRUIT WHERE RECRUITNUM < #{recruitNum} ORDER BY RECRUITNUM DESC LIMIT 1)
+			AS NEXTRECRUITNUM
+		FROM NV_RECRUIT WHERE RECRUITNUM = #{recruitNum};
+		]]>	
+	</select>
+	<!-- 공지사항 글 조회시 파일도 함께 -->
+	<select id="readRecruitFile" parameterType="_long" resultType="hashMap">
+        SELECT * FROM NV_RECRUIT_FILE WHERE RECRUITNUM = #{recruitNum}
+	</select>
+	
+	<!-- 공지사항 수정 - 첨부 파일 삭제 -->
+	<delete id="deleteRecruitFile" parameterType="string">
+		DELETE FROM NV_RECRUIT_FILE WHERE SYSTEMNAME = #{fileSystemName}
+	</delete>
+	<!-- 공지사항 수정완료 -->
+	<update id="updateRecruit">
+		UPDATE NV_RECRUIT SET RECRUITWRITER = #{recruitWriter}, 
+		RECRUITTITLE = #{recruitTitle}, RECRUITCONTENTS = #{recruitContents} 
+		WHERE RECRUITNUM = #{recruitNum}
+	</update>
+	<!-- 공지사항 수정시 사용안하게 된 이미지가 있을수있으므로 일단 다 NULL로 바꿔준다. -->
+	<update id="emptyRecruitImg">
+		UPDATE NV_RECRUIT_IMG SET RECRUITNUM = NULL
+		WHERE RECRUITNUM = #{recruitNum}
+	</update>
+	
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteRecruit">
+		DELETE FROM NV_RECRUIT WHERE RECRUITNUM = #{recruitnum}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

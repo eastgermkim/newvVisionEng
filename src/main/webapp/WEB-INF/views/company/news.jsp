@@ -217,7 +217,7 @@ input[type="checkbox"] {
 						   			<c:choose>
 						   				<c:when test="${news.newsLink != null}">
 										<li class="crawling-list">
-											<a class="list-inner-wrap" href="${news.newsLink}" target="_blank">
+											<a class="list-inner-wrap-link" href="${news.newsLink}" target="_blank" rel="noopener">
 												<div class="text-wrap">
 												<form method="post" action="/company/news_delete" enctype="multipart/form-data">
 													<div class="link-icon">
@@ -231,12 +231,13 @@ input[type="checkbox"] {
 													<div class="linkHidden" style="display:none;">
 														<input type="hidden" name="page" value="${pageMaker.cri.page}">
 														<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
-														<a href="/company/news_modify/${news.newsNum}${pageMaker.cri.getListLink()}" i="modify_link_button" class="genric-btn primary modify_link_button">수정하기</a>
+														<a href="/company/news_modify/${news.newsNum}?page=${pageMaker.cri.page}&pageSize=${pageMaker.cri.pageSize}" i="modify_link_button" class="genric-btn primary modify_link_button">수정하기</a>
 														<input type="submit" value="삭제" class="genric-btn primary circle linkNewsDelete" style="margin-right: 1%; border-radius:0;">
 													</div>
 												</form>
 												</div>
 											</a>
+										</li>
 						   				</c:when>
 						   				<c:otherwise>
 										<li class="crawling-list">
@@ -254,6 +255,7 @@ input[type="checkbox"] {
 													<!-- criteria end -->
 												</div>
 											</a>
+										</li>
 						   				</c:otherwise>
 						   			</c:choose>
 					   		</c:forEach>
@@ -303,7 +305,7 @@ input[type="checkbox"] {
 	 			</c:if>
 	 			<!-- 페이지블럭 -->
 					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
-		 			<li class="page-item active"}>
+		 			<li class="page-item active">
 		 				<a class="page-link">${pageMaker.cri.page}</a>
 		 			</li>
 	 			<!-- 다음next -->

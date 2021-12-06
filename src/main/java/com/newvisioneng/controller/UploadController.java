@@ -35,6 +35,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.JsonObject;
 import com.newvisioneng.mapper.SupportMapper;
 import com.newvisioneng.service.CompanyService;
+import com.newvisioneng.service.RecruitService;
 import com.newvisioneng.service.SupportService;
 import com.newvisioneng.util.MediaUtils;
 import com.newvisioneng.util.UploadFileUtils;
@@ -53,6 +54,9 @@ public class UploadController {
 	
 	@Setter(onMethod_=@Autowired)
 	private CompanyService companyService;
+	
+	@Setter(onMethod_=@Autowired)
+	private RecruitService recruitService;
 
 	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
 	
@@ -163,7 +167,9 @@ public class UploadController {
         //보도자료 게시판일때
         }else if(img_folder.equals("news_img")){
         	companyService.insertNewsImg(fileInfo);
-        }
+        }else if(img_folder.equals("recruit_img")){
+			recruitService.insertRecruitImg(fileInfo);
+		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

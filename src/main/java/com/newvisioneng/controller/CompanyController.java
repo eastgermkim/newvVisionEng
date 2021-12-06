@@ -222,7 +222,7 @@ public class CompanyController {
 				return mav;
 			}
 			else {
-				String url = "redirect:/company/news";
+				String url = "redirect:/company/news"+cri.getListLink();
 				return new ModelAndView(url);
 			}
 		}
