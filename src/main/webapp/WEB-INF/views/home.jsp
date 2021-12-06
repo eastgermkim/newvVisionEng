@@ -95,6 +95,14 @@
 
 </style>
 
+<style>
+@media (min-width:991.5px){
+	#navigation{
+		display: flex;
+		justify-content: space-evenly;
+	}
+}
+</style>
 
 </head>
 
@@ -161,7 +169,7 @@
 						<div class="col-xl-7 col-lg-7">
 							<div class="main-menu d-none d-lg-block">
 								<nav>
-									<ul id="navigation" style="display: flex;justify-content: space-evenly;">
+									<ul id="navigation">
 									
 										<li><br>
 											
@@ -180,13 +188,9 @@
 										</li>
 										
 										<li><a id="tab2" href="#">사업소개</a>
-											<ul class="submenu">
-											</ul>
 										</li>
 										
 										<li><a id="tab3" href="#">사업실적</a>
-											<ul class="submenu">
-											</ul>
 										</li>
 										
 										<li><a id="tab4" href="/support/notice">고객지원</a>
@@ -197,8 +201,6 @@
 										</li>
 										
 										<li><a id="tab5" href="/recruit/list">채용정보</a>
-											<ul class="submenu">
-											</ul>
 										</li>
 									</ul>
 								</nav>
