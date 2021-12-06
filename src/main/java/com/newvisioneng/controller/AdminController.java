@@ -27,12 +27,13 @@ public class AdminController {
 	
 	//관리자 로그인 페이지로 이동
 	@GetMapping("/adminLogin")
-	public void login(HttpServletRequest request, HttpSession session) {
+	public String login(HttpServletRequest request, HttpSession session) {
 		if (session == null || !request.isRequestedSessionIdValid()) {
 		    System.out.println("세션이 무효화 상태입니다.");
 		}else {
 			System.out.println("세션 있습니다.");
 		}
+		return "/admin/adminLogin";
 	}
 	//로그아웃
 	@GetMapping("/sessionLogout")
@@ -40,11 +41,12 @@ public class AdminController {
 		System.out.println("sessionLogout.............");
 		System.out.println("sessionLogout페이지로 이동......");
 	}
-	//로그아웃
+	//로그인
 	@GetMapping("/sessionLogin")
-	public void Login() {
+	public String Login() {
 		System.out.println("sessionLogin.............");
 		System.out.println("sessionLogin페이지로 이동......");
+		return "/admin/sessionLogin";
 	}
 	
 	//관리자 로그인

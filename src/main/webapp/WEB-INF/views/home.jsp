@@ -167,7 +167,7 @@
 											
 										</li>
 									
-										<li><a href="/company/introduce">회사소개</a>
+										<li><a id="tab1" href="/company/introduce">회사소개</a>
 											<ul class="submenu">
 												<li><a href="/company/introduce">회사개요</a></li>
 												<li><a href="">CEO인사말</a></li>
@@ -179,28 +179,27 @@
 											</ul>
 										</li>
 										
-										<li><a href="#">사업소개</a>
+										<li><a id="tab2" href="#">사업소개</a>
 											<ul class="submenu">
 											</ul>
 										</li>
 										
-										<li><a href="#">사업실적</a>
+										<li><a id="tab3" href="#">사업실적</a>
 											<ul class="submenu">
 											</ul>
 										</li>
 										
-										<li><a href="/support/notice">고객지원</a>
+										<li><a id="tab4" href="/support/notice">고객지원</a>
 											<ul class="submenu">
 												<li><a href="/support/notice">공지사항</a></li>
 												<li><a href="/support/customer">고객문의</a></li>
 											</ul>
 										</li>
 										
-										<li><a href="/recruit/list">채용정보</a>
+										<li><a id="tab5" href="/recruit/list">채용정보</a>
 											<ul class="submenu">
 											</ul>
 										</li>
-										
 									</ul>
 								</nav>
 							</div>
