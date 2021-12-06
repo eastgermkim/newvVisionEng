@@ -86,15 +86,15 @@
 						<div class="col-xl-7 col-lg-7">
 							<div class="main-menu d-none d-lg-block">
 								<nav>
-									<ul id="navigation">
+									<ul id="navigation" style="display: flex;justify-content: space-evenly;">
 									
 										<li><br>
 											
 										</li>
 									
-										<li><a id="tab1" href="/company/introduce">New Vision ENG</a>
+										<li><a href="/company/introduce">회사소개</a>
 											<ul class="submenu">
-												<li><a href="/company/introduce">회사소개</a></li>
+												<li><a href="/company/introduce">회사개요</a></li>
 												<li><a href="">CEO인사말</a></li>
 												<li><a href="/company/news">보도자료</a></li>
 												<li><a href="/company/history">연혁</a></li>
@@ -104,33 +104,25 @@
 											</ul>
 										</li>
 										
-										<li><a id="tab2" href="">사업분야</a>
+										<li><a href="#">사업소개</a>
 											<ul class="submenu">
-												<li><a href="">감시기기(CCTV)</a></li>
-												<li><a href="">전자제품</a></li>
-												<li><a href="">광학기기</a></li>
-												<li><a href="">방송수신기</a></li>
-												<li><a href="">영상음향기기</a></li>
 											</ul>
 										</li>
 										
-										<li><a id="tab3" href="">사업실적</a>
+										<li><a href="#">사업실적</a>
 											<ul class="submenu">
-												<li><a href="blog.html">사업현황</a></li>
-												<li><a href="blog.html">주요 취급품목</a></li>
 											</ul>
 										</li>
 										
-										<li><a id="tab4" href="/support/notice">고객지원</a>
+										<li><a href="/support/notice">고객지원</a>
 											<ul class="submenu">
 												<li><a href="/support/notice">공지사항</a></li>
 												<li><a href="/support/customer">고객문의</a></li>
 											</ul>
 										</li>
 										
-										<li><a id="tab5" href="">채용정보</a>
+										<li><a href="/employ/list">채용정보</a>
 											<ul class="submenu">
-												<li><a href="/employ/list">채용안내</a></li>
 											</ul>
 										</li>
 										

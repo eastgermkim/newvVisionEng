@@ -134,7 +134,13 @@
 									<ul>
 										<!-- <li><a href="blog.html">News & media</a></li>
 										<li><a href="review.html">Review</a></li> -->
-										<li><a href="">Admin</a></li>
+										<li><a href="/admin/adminLogin">Admin</a></li>
+										<c:if test="${admin_ID == null}">
+												<li><a>관리자 로그인 안된 상태</a></li>
+										</c:if>
+										<c:if test="${admin_ID != null}">
+												<li><a>로그아웃</a></li>
+										</c:if>
 									</ul>
 								</nav>
 							</div>
@@ -156,15 +162,15 @@
 						<div class="col-xl-7 col-lg-7">
 							<div class="main-menu d-none d-lg-block">
 								<nav>
-									<ul id="navigation">
+									<ul id="navigation" style="display: flex;justify-content: space-evenly;">
 									
 										<li><br>
 											
 										</li>
 									
-										<li><a href="/company/introduce">New Vision ENG</a>
+										<li><a href="/company/introduce">회사소개</a>
 											<ul class="submenu">
-												<li><a href="/company/introduce">회사소개</a></li>
+												<li><a href="/company/introduce">회사개요</a></li>
 												<li><a href="">CEO인사말</a></li>
 												<li><a href="/company/news">보도자료</a></li>
 												<li><a href="/company/history">연혁</a></li>
@@ -174,20 +180,13 @@
 											</ul>
 										</li>
 										
-										<li><a href="">사업분야</a>
+										<li><a href="#">사업소개</a>
 											<ul class="submenu">
-												<li><a href="">감시기기(CCTV)</a></li>
-												<li><a href="">전자제품</a></li>
-												<li><a href="">광학기기</a></li>
-												<li><a href="">방송수신기</a></li>
-												<li><a href="">영상음향기기</a></li>
 											</ul>
 										</li>
 										
-										<li><a href="">사업실적</a>
+										<li><a href="#">사업실적</a>
 											<ul class="submenu">
-												<li><a href="blog.html">사업현황</a></li>
-												<li><a href="blog.html">주요 취급품목</a></li>
 											</ul>
 										</li>
 										
@@ -198,9 +197,8 @@
 											</ul>
 										</li>
 										
-										<li><a href="">채용정보</a>
+										<li><a href="/employ/list">채용정보</a>
 											<ul class="submenu">
-												<li><a href="/employ/list">채용안내</a></li>
 											</ul>
 										</li>
 										
