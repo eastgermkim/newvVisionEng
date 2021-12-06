@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 
 <!DOCTYPE html>
 <html>
@@ -191,6 +191,7 @@ iframe[name='ok_frame'] {
 				<legend>
 					<strong>관리자 로그인</strong>
 					<em>관리자모드 로그인하세요.</em>
+					<em>현재 세션 ID : ${admin_ID}</em>
 				</legend>
 				<p>
 					<label for="id">ID</label>

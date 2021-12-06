@@ -49,18 +49,15 @@ public class AdminServiceImpl implements AdminService {
 		
 		String Login_id = mapper.adminLoginCheck(admin);
 		
-		if(! (Login_id==null||Login_id.equals("")) ) {
+		if(!(Login_id==null)&&!(Login_id.equals(""))) {
+			System.out.println("로그인 SQL 성공.............");
 			result = true;
 		}
         
         if(result) {    //로그인 성공
             
+        	System.out.println("로그인 성공.............");
             session.setAttribute("admin_ID", admin.getAdmin_ID());
-            System.out.println("서비스 임플 로그인 성공 ID : "+admin.getAdmin_ID());
-            System.out.println("서비스 임플 세션 ID : "+session.getAttribute("admin_ID"));
-            session.setAttribute("admin_PW", admin.getAdmin_PW());
-            System.out.println("서비스 임플 로그인 성공 PW : "+admin.getAdmin_PW());
-            System.out.println("서비스 임플 세션 PW : "+session.getAttribute("admin_PW"));
             
         }
         

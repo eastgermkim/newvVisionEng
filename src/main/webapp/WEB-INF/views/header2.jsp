@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -58,12 +58,11 @@
 									<ul>
 										<!-- <li><a href="blog.html">News & media</a></li>
 										<li><a href="review.html">Review</a></li> -->
-										<li><a href="/admin/adminLogin">Admin</a></li>
 										<c:if test="${admin_ID == null}">
-												<li><a>관리자 로그인 안된 상태</a></li>
+											<li><a href="/admin/adminLogin">Admin</a></li>
 										</c:if>
 										<c:if test="${admin_ID != null}">
-												<li><a>로그아웃</a></li>
+												<li><a href="/admin/sessionLogout">관리자 로그아웃</a></li>
 										</c:if>
 									</ul>
 								</nav>

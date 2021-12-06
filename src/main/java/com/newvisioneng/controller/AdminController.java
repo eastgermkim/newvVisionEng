@@ -1,9 +1,11 @@
 package com.newvisioneng.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,25 +27,51 @@ public class AdminController {
 	
 	//관리자 로그인 페이지로 이동
 	@GetMapping("/adminLogin")
-	public void login() {
-		
+	public void login(HttpServletRequest request, HttpSession session) {
+		if (session == null || !request.isRequestedSessionIdValid()) {
+		    System.out.println("세션이 무효화 상태입니다.");
+		}else {
+			System.out.println("세션 있습니다.");
+		}
+	}
+	//로그아웃
+	@GetMapping("/sessionLogout")
+	public void Logout() {
+		System.out.println("sessionLogout.............");
+		System.out.println("sessionLogout페이지로 이동......");
+	}
+	//로그아웃
+	@GetMapping("/sessionLogin")
+	public void Login() {
+		System.out.println("sessionLogin.............");
+		System.out.println("sessionLogin페이지로 이동......");
 	}
 	
 	//관리자 로그인
 	@PostMapping("/login_OK")	//form의 name과 완전히 일치하면 자동으로 DTO에 담긴다
-	public String login_OK(AdminDTO admin,HttpSession session) throws Exception {
+	public ModelAndView login_OK(AdminDTO admin,HttpSession session,ModelAndView mav) throws Exception {
 		
-		System.out.println("아이디 : "+admin.getAdmin_ID());
-		System.out.println("비밀번호 : "+admin.getAdmin_PW());
+		System.out.println("입력한 아이디 : "+admin.getAdmin_ID());
 		
 	    //로그인 체크를 하기위한 메소드, 로그인 체크후 결과를 result 변수에 넣는다.
         boolean result = adminservice.loginCheck(admin, session);
-		
-        System.out.println("컨트롤러 서비스 임플 세션 ID : "+session.getAttribute("admin_ID"));
-        System.out.println("컨트롤러 서비스 임플 세션 PW : "+session.getAttribute("admin_PW"));
         
-        session.setAttribute("admin_ID", session.getAttribute("admin_ID"));
+		System.out.println("컨트롤러 서비스 임플 세션 ID : "+session.getAttribute("admin_ID"));
         
-         return "/admin/test";
+		//로그인이 성공했을시 출력되는 구문
+        if(result)    {
+            mav.setViewName("redirect:/admin/sessionLogin");    //로그인이 성공했을시 이동하게되는 뷰의 이름
+            mav.addObject("admin_ID", session.getAttribute("admin_ID"));
+            
+        //로그인 실패 했을시 출력
+        }else if(session.getAttribute("admin_ID") == null) {    
+        	
+            //로그인이 실패했을 시에 다시 관리자 로그인 페이지로 이동함
+            mav.setViewName("/admin/adminLogin");
+            //뷰에 전달할 값
+            mav.addObject("message", "관리자의 아이디 혹은 비밀번호가 일치하지 않습니다.");
         }
+            return mav;
+            
+    }
 }
