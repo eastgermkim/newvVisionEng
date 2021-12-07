@@ -170,7 +170,7 @@ iframe[name='ok_frame'] {
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 
 	<form name='login_form' method='post'
-		action="/admin/login_OK" autocomplete='on' style='margin: 0'>
+		action="/admin/login" autocomplete='on' style='margin: 0'>
 	
 			<!-- 
 			<input type='hidden' name='referer'>
@@ -208,6 +208,7 @@ iframe[name='ok_frame'] {
 					<span><input type="password" name="admin_PW" id=admin_PW
 									placeholder="비밀번호" value=""></span>
 				</p>
+				<input type = "hidden" name = "${_csrf.parameterName }" value = "${_csrf.token }"/>
 				<nav>
 					<button type="button" class="submitBtn" onclick="sendit();">로그인</button>
 				</nav>

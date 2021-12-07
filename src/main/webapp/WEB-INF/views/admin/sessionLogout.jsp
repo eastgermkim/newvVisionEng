@@ -13,7 +13,7 @@
 %>
     <script>
         alert('로그아웃 됨');
-        location.href = '/admin/adminLogin';
+        location.href = '/admin/login';
     </script>
 </body>
 </html>

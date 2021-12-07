@@ -3,11 +3,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+	
+	
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
+		<!-- security-context.xml 를 찾을 수 있도록 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-value>
+		
+		/WEB-INF/spring/root-context.xml
+
+		/WEB-INF/spring/security-context.xml
+		</param-value>
 	</context-param>
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -48,19 +56,10 @@
 		</init-param>
 	</filter>
 
-
 	<filter-mapping>
 		<filter-name>encoding</filter-name>
 		<servlet-name>appServlet</servlet-name>
 	</filter-mapping>
-	
-	
-	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
-	<!-- security-context.xml 를 찾을 수 있도록 -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml /WEB-INF/spring/security-context.xml</param-value>
-	</context-param>
 	
 	<!-- 스프링 시큐리티 -->
 	<filter>

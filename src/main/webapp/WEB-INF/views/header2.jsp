@@ -68,7 +68,7 @@
 										<!-- <li><a href="blog.html">News & media</a></li>
 										<li><a href="review.html">Review</a></li> -->
 										<c:if test="${admin_ID == null}">
-											<li><a href="/admin/adminLogin">Admin</a></li>
+											<li><a href="/security/adminLogin">Admin</a></li>
 										</c:if>
 										<c:if test="${admin_ID != null}">
 												<li><a href="/admin/sessionLogout">관리자 로그아웃</a></li>
