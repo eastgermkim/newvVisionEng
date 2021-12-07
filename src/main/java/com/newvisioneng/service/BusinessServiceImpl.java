@@ -6,6 +6,6 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Service
-public class EmployServiceImpl implements EmployService{
+public class BusinessServiceImpl implements BusinessService{
 
 }

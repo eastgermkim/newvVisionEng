@@ -1,5 +1,5 @@
 package com.newvisioneng.mapper;
 
-public interface EmployMapper {
+public interface BusinessMapper {
 
 }

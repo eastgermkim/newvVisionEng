@@ -1,5 +1,5 @@
 package com.newvisioneng.service;
 
-public interface EmployService {
+public interface BusinessService {
 
 }

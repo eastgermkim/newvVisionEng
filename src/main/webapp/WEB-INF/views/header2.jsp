@@ -112,7 +112,7 @@
 											</ul>
 										</li>
 										
-										<li><a id="tab2" href="#">사업소개</a>
+										<li><a id="tab2" href="/business/area">사업소개</a>
 										</li>
 										
 										<li><a id="tab3" href="#">사업실적</a>
