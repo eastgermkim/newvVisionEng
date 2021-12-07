@@ -195,10 +195,10 @@
 	<!-- breadcrumb-end -->
 	
 	
-<section>
+<section style="margin-bottom:50px;">
 <div class="container board">
 	<div>
-       	<a href="/recruit/recruit_write" class="genric-btn primary-border circle">글 작성하기</a>
+       	<a href="/recruit/recruit_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
     </div>
 	<div class="board_list">
 				<div class="table">
@@ -211,7 +211,7 @@
 						<c:when test="${recruit_list != null and recruit_list.size()>0}">
 							<c:forEach items="${recruit_list}" var="recruit">
 							<!-- 데스크탑 -->
-								<div class="tr select" onclick="location.href='list/${recruit.recruitNum}'" style="cursor:pointer;">
+								<div class="tr select recruit-list" id="recruit-list" style="cursor:pointer;" data-recruit="${recruit.recruitNum}">
 									<div class="num">${recruit.recruitNum}</div>
 									<div class="title"><a>${recruit.recruitTitle}</a></div>
 									<div class="etc"><fmt:formatDate value="${recruit.recruitDate}" pattern="yyyy.MM.dd"/></div>
@@ -221,24 +221,27 @@
 						<c:otherwise>
 							<div class="tr">
 									<div class="num"></div>
-									<div class="title" style="text-align: center;">작성된 글이 없습니다.</div>
+									<div class="title" style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">현재 채용공고가 없습니다.</div>
 							</div>
 						</c:otherwise>
 					</c:choose>	
 					
 				</div>
 			</div>
-<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 	<!-- 페이징 처리 --> 
+       <form id="pageForm">
+			<input type="hidden" name="page" value="${pageMaker.cri.page}">
+			<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
+       </form>
+	
 		<!-- 데스크탑(5페이지씩)  -->
 		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
 			<ul class="big-width-page pagination">
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.prev }">
 	 				<li class="page-item">
-	 					<a href="notice?page=${pageMaker.startPage-1}" class="page-link" aria-label="Previous"> 
+	 					<a href="list?page=${pageMaker.startPage-1}" class="page-link" aria-label="Previous"> 
 							<i class="ti-angle-left"></i>
 						</a>
 	 				</li>
@@ -247,13 +250,13 @@
 				<c:forEach var="idx" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
 					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 		 			<li ${pageMaker.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-		 				<a href="notice?page=${idx }" class="page-link">${idx}</a>
+		 				<a href="list?page=${idx }" class="page-link">${idx}</a>
 		 			</li>
 				</c:forEach>
 	 			<!-- 다음next -->
 	 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 	 				<li class="page-item">
-	 					<a href="notice?page=${pageMaker.endPage+1}" class="page-link" aria-label="Next">
+	 					<a href="list?page=${pageMaker.endPage+1}" class="page-link" aria-label="Next">
 	 						<i class="ti-angle-right"></i>
 	 					</a>
 	 				</li>
@@ -265,7 +268,7 @@
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.cri.page>1}">
 	 				<li class="page-item">
-	 					<a href="notice?page=${pageMaker.cri.page-1}" class="page-link" aria-label="Previous"> 
+	 					<a href="list?page=${pageMaker.cri.page-1}" class="page-link" aria-label="Previous"> 
 							<i class="ti-angle-left"></i>
 						</a>
 	 				</li>
@@ -278,7 +281,7 @@
 	 			<!-- 다음next -->
 	 			<c:if test="${pageMaker.cri.page<pageMaker.realEnd}">
 	 				<li class="page-item">
-	 					<a href="notice?page=${pageMaker.cri.page+1}" class="page-link" aria-label="Next">
+	 					<a href="list?page=${pageMaker.cri.page+1}" class="page-link" aria-label="Next">
 	 						<i class="ti-angle-right"></i>
 	 					</a>
 	 				</li>
@@ -298,4 +301,16 @@
 
 </body>
 
+
+	<script>
+	var pageForm = $("#pageForm");
+	
+	$(".recruit-list").on("click",function(e){
+		var recruit = $(this).data("recruit");
+		
+		e.preventDefault();
+		pageForm.attr("action","list/"+recruit);
+		pageForm.submit();
+	})
+	</script>
 </html>

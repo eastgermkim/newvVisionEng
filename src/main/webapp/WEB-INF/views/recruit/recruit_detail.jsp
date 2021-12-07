@@ -369,9 +369,12 @@ u {
 		<form method="post" action="/recruit/recruit_delete" enctype="multipart/form-data">
 		
 			<div style="text-align: right">
-				<a href="/recruit/recruit_modify/${recruit.recruitNum}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
+				<a href="/recruit/recruit_modify/${recruit.recruitNum}${cri.getListLink()}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
 				<input type="submit" value="삭제" class="genric-btn danger-border circle deleteBtn" style="margin-right: 1%;font-size: 1em;">
-			
+				
+				<input type="hidden" name="page" value="${cri.page}">
+				<input type="hidden" name="pageSize" value="${cri.pageSize}">
+				<input type="hidden" name="getListLink" value="${cri.getListLink()}">
 				<input type="hidden" name="recruitNum" value="${recruit.recruitNum}"> 
 			</div>
 		
@@ -425,7 +428,7 @@ u {
 											<i class="ti-angle-up"></i>이전글
 										</dt>
 										<dd class="link-body">
-										<a class="link" href="${recruit.prevRecruitNum}">
+										<a class="link" href="${recruit.prevRecruitNum}${cri.getListLink()}">
 											<span class="bottomNewsTitle">${prevRecruit.recruitTitle}</span>
 											<span class="bottomNewsDate" style="font-weight:200;">${prevRecruit.recruitDate}</span>
 										</a>
@@ -453,7 +456,7 @@ u {
 											<i class="ti-angle-down"></i>다음 글
 										</dt>
 										<dd class="link-body">
-											<a class="link" href="${recruit.nextRecruitNum}">
+											<a class="link" href="${recruit.nextRecruitNum}${cri.getListLink()}">
 												<span class="bottomNewsTitle" style="max-width: 90%;">${nextRecruit.recruitTitle}</span>
 												<span class="bottomNewsDate" style="font-weight:200;">${nextRecruit.recruitDate}</span>
 											</a>
@@ -462,7 +465,7 @@ u {
 								</c:otherwise>
 							</c:choose>
 						<div class="btn-list" style="padding-top: 4%;">
-							<a href="/recruit/list" class="genric-btn primary-border e-large toList" style="width:200px; font-size:15px;">목록으로 돌아가기</a>
+							<a href="/recruit/list${cri.getListLink()}" class="genric-btn primary-border e-large toList" style="width:200px; font-size:15px;">목록으로 돌아가기</a>
 						</div>					
 					</div>
 				</div>

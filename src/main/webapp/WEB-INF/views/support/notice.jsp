@@ -195,10 +195,10 @@
 	<!-- breadcrumb-end -->
 	
 	
-<section>
+<section style="margin-bottom:50px;">
 <div class="container board">
 	<div>
-       	<a href="/support/notice_write" class="genric-btn primary-border circle">글 작성하기</a>
+       	<a href="/support/notice_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
     </div>
 	<div class="board_list">
 				<div class="table">
@@ -211,7 +211,7 @@
 						<c:when test="${notice_list != null and notice_list.size()>0}">
 							<c:forEach items="${notice_list}" var="notice">
 							<!-- 데스크탑 -->
-								<div class="tr select" onclick="location.href='notice/${notice.noticeNum}'" style="cursor:pointer;">
+								<div class="tr select notice-list" style="cursor:pointer;"  data-notice="${notice.noticeNum}">
 									<div class="num">${notice.noticeNum}</div>
 									<div class="title"><a>${notice.noticeTitle}</a></div>
 									<div class="etc"><fmt:formatDate value="${notice.noticeDate}" pattern="yyyy.MM.dd"/></div>
@@ -221,13 +221,19 @@
 						<c:otherwise>
 							<div class="tr">
 									<div class="num"></div>
-									<div class="title" style="text-align: center;">작성된 글이 없습니다.</div>
+									<div class="title"  style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">작성된 글이 없습니다.</div>
 							</div>
 						</c:otherwise>
 					</c:choose>	
 					
 				</div>
 			</div>
+			
+			<!-- 페이징 처리 --> 
+	       <form id="pageForm">
+				<input type="hidden" name="page" value="${pageMaker.cri.page}">
+				<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
+	       </form>
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -297,5 +303,15 @@
 
 
 </body>
-
+	<script>
+	var pageForm = $("#pageForm");
+	
+	$(".notice-list").on("click",function(e){
+		var notice = $(this).data("notice");
+		
+		e.preventDefault();
+		pageForm.attr("action","notice/"+notice);
+		pageForm.submit();
+	})
+	</script>
 </html>

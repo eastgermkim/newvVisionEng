@@ -194,7 +194,7 @@ input[type="checkbox"] {
 	<section style="margin-bottom:20%;">
 		<div class="container">
 			<div style="display:flex; justify-content:space-between;">
-	        	<a href="/company/news_write" class="genric-btn primary-border circle">글 작성하기</a>
+	        	<a href="/company/news_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
 	        	<div style="float:right;">
 					<input type="checkbox" id="myCheck" name="myCheck" class="primary-checkbox" style="vertical-align:middle">
 					<label for="myCheck"></label>

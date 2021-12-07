@@ -64,7 +64,7 @@ public class SupportController {
 	
 	//공지사항 게시글 하나 클릭시 or 주소창에 /support/notice/글번호 쳤을시 
 	@GetMapping("/notice/{noticeNum}")
-	public String notice_detail(@PathVariable("noticeNum") Long noticeNum, Model model) throws Exception {
+	public String notice_detail(@PathVariable("noticeNum") Long noticeNum, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		NoticeDTO notice = service.noticeGet(noticeNum);
 		model.addAttribute("notice",notice);
 		
@@ -102,7 +102,7 @@ public class SupportController {
 	
 	//공지사항 글 등록 view단으로 이동하는 요청
 	@GetMapping("/notice_write")
-	public void notice_write(HttpServletRequest req) {
+	public void notice_write(@ModelAttribute("cri") Criteria cri, HttpServletRequest req) {
 	}
 	
 	
@@ -141,7 +141,7 @@ public class SupportController {
 	
 	//공지사항 글 수정 view단으로 이동(현재글 noticenum 들고)
 	@GetMapping("/notice_modify/{noticeNum}")
-	public String notice_modify(@PathVariable("noticeNum") long noticeNum,Model model) throws Exception{
+	public String notice_modify(@PathVariable("noticeNum") long noticeNum, @ModelAttribute("cri") Criteria cri, Model model) throws Exception{
 		NoticeDTO notice = service.noticeGet(noticeNum);
 		model.addAttribute("notice",notice);
 		
@@ -182,7 +182,7 @@ public class SupportController {
 	
 	//공지사항 수정 완료 메소드
 	@PostMapping("/notice_modifyOK")
-	public ModelAndView notice_modifyOK(NoticeDTO notice, @RequestParam("noticeNum") Long noticenum,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
+	public ModelAndView notice_modifyOK(NoticeDTO notice, @RequestParam("noticeNum") Long noticenum, Criteria cri, RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -206,13 +206,13 @@ public class SupportController {
 			System.out.println(e.getMessage());
 		}
 
-		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
+		mav = new ModelAndView("redirect:/support/notice/"+noticenum + cri.getListLink());
 		return mav;
 	}
 	
 	@PostMapping("/notice_delete")
 	public String notice_delete(@RequestParam("noticeNum") Long noticenum, 
-			@RequestParam(value = "file_systemname", required=false) String[] file_systemname, 
+			@RequestParam(value = "file_systemname", required=false) String[] file_systemname, Criteria cri,
 			RedirectAttributes ra, HttpServletRequest req) {
 	
 		log.info("notice_delete : " + noticenum);
@@ -239,7 +239,7 @@ public class SupportController {
 			ra.addFlashAttribute("result", "success");
 		}
 		
-		return"redirect:/support/notice"; 
+		return"redirect:/support/notice"+ cri.getListLink(); 
 	}
 	//============================================================================================================================================================
 	

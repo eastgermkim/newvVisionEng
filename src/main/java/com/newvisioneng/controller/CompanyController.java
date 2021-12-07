@@ -102,7 +102,7 @@ public class CompanyController {
 	
 	//언론보도 페이지 글 등록 view단으로 이동하는 요청
 	@GetMapping("/news_write")
-	public void news_write(HttpServletRequest req) {
+	public void news_write(@ModelAttribute("cri") Criteria cri,HttpServletRequest req) {
 		
 	}
 	
@@ -114,7 +114,7 @@ public class CompanyController {
 	
 	//글 작성 메소드
 	@PostMapping("/news_writeOK")
-	public ModelAndView notice_writeOK(NewsVO newsvo,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
+	public ModelAndView notice_writeOK(NewsVO newsvo, Criteria cri, RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		if(newsvo.getNewsLink().equals("")) {
 			newsvo.setNewsLink(null);
 		}
@@ -139,11 +139,11 @@ public class CompanyController {
 		service.deleteUnusedImgs(req);
 		
 		if(newsvo.getNewsLink() == null) {
-			mav = new ModelAndView("redirect:/company/news/"+newsnum);
+			mav = new ModelAndView("redirect:/company/news/"+newsnum+cri.getListLink());
 			return mav;
 		}
 		else {
-			String url = "redirect:/company/news";
+			String url = "redirect:/company/news"+cri.getListLink();
 			return new ModelAndView(url);
 		}
 	}

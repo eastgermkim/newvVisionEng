@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +58,7 @@ public class RecruitController {
 	
 	//채용공고 게시글 하나 클릭시 or 주소창에 /support/recruit/글번호 쳤을시 
 	@GetMapping("/list/{recruitNum}")
-	public String recruit_detail(@PathVariable("recruitNum") Long recruitNum, Model model) throws Exception {
+	public String recruit_detail(@PathVariable("recruitNum") Long recruitNum,@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		RecruitDTO recruit = service.recruitGet(recruitNum);
 		model.addAttribute("recruit",recruit);
 		
@@ -95,13 +96,13 @@ public class RecruitController {
 	
 	//채용공고 글 등록 view단으로 이동하는 요청
 	@GetMapping("/recruit_write")
-	public void recruit_write(HttpServletRequest req) {
+	public void recruit_write(@ModelAttribute("cri") Criteria cri, HttpServletRequest req) {
 	}
 	
 	
 	//채용공고 글 등록 메소드
 	@PostMapping("/recruit_writeOK")
-	public ModelAndView recruit_writeOK(RecruitDTO recruitDTO,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
+	public ModelAndView recruit_writeOK(RecruitDTO recruitDTO, RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
 
@@ -134,7 +135,7 @@ public class RecruitController {
 	
 	//채용공고 글 수정 view단으로 이동(현재글 recruitnum 들고)
 	@GetMapping("/recruit_modify/{recruitNum}")
-	public String recruit_modify(@PathVariable("recruitNum") long recruitNum,Model model) throws Exception{
+	public String recruit_modify(@PathVariable("recruitNum") long recruitNum, @ModelAttribute("cri") Criteria cri, Model model) throws Exception{
 		RecruitDTO recruit = service.recruitGet(recruitNum);
 		model.addAttribute("recruit",recruit);
 		
@@ -175,7 +176,7 @@ public class RecruitController {
 	
 	//채용공고 수정 완료 메소드
 	@PostMapping("/recruit_modifyOK")
-	public ModelAndView recruit_modifyOK(RecruitDTO recruit, @RequestParam("recruitNum") Long recruitnum,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
+	public ModelAndView recruit_modifyOK(RecruitDTO recruit, @RequestParam("recruitNum") Long recruitnum, Criteria cri,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -199,13 +200,13 @@ public class RecruitController {
 			System.out.println(e.getMessage());
 		}
 
-		mav = new ModelAndView("redirect:/recruit/list/"+recruitnum);
+		mav = new ModelAndView("redirect:/recruit/list/"+recruitnum + cri.getListLink());
 		return mav;
 	}
 	
 	@PostMapping("/recruit_delete")
 	public String recruit_delete(@RequestParam("recruitNum") Long recruitnum, 
-			@RequestParam(value = "file_systemname", required=false) String[] file_systemname, 
+			@RequestParam(value = "file_systemname", required=false) String[] file_systemname, Criteria cri,
 			RedirectAttributes ra, HttpServletRequest req) {
 	
 		log.info("recruit_delete : " + recruitnum);
@@ -231,7 +232,7 @@ public class RecruitController {
 			//Session의 Flash에 담아준다.
 			ra.addFlashAttribute("result", "success");
 		}
-		
-		return"redirect:/recruit/list"; 
+
+		return"redirect:/recruit/list" + cri.getListLink(); 
 	}
 }

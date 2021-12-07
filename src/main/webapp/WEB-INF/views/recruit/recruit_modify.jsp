@@ -202,7 +202,9 @@ u {
 		<form method="post" action="/recruit/recruit_modifyOK" enctype="multipart/form-data" id="recruitForm">
 
 		<input type="hidden" name="recruitNum" value="${recruit.recruitNum}">
-		
+		<input type="hidden" name="page" value="${cri.page}">
+		<input type="hidden" name="pageSize" value="${cri.pageSize}"> 
+		<input type="hidden" name="pageListLink" value="${cri.getListLink()}"> 
 			<table>
 				<thead>
 					<tr>
@@ -264,9 +266,8 @@ u {
 			
 						
 			<div class="col-12" style="text-align: center; padding: 1%;">
-				<input type="submit" value="수정완료" class="genric-btn primary circle modifyBtn"
-					style="margin-right: 1%;"> <a href="/recruit/list"
-					class="genric-btn primary-border circle">목록으로 돌아가기</a>
+				<input type="submit" value="수정완료" class="genric-btn primary circle modifyBtn" style="margin-right: 1%;"> 
+				<a href="/recruit/list${cri.getListLink()}" class="genric-btn primary-border circle">목록으로 돌아가기</a>
 			</div>
 		</form>
 		

@@ -187,7 +187,7 @@ u {
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>보도자료 작성</h2>
-							<p style="opacity: 0.6">New Vision ENG. Notice</p>
+							<p style="opacity: 0.6">New Vision ENG. News</p>
 						</div>
 					</div>
 				</div>
@@ -198,6 +198,8 @@ u {
 
 
 	<div class="container board">
+	<input type="hidden" value="${cri.page}">
+	<input type="hidden" value="${cri.pageSize}">
 		<h3 style="color:#f36d20; text-align:right;">저작권법상 글을 인용할 수 없는 경우 기사링크 사용(파일첨부와 글 작성칸은 사라집니다.)</h3>
 		<form id="newsWriteForm" method="post" action="/company/news_writeOK" enctype="multipart/form-data">
 			<table>
