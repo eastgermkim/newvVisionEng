@@ -170,10 +170,6 @@ u {
 }
 </style>
 
-<!-- csrf 토큰 --> 
-<meta id="_csrf" name="_csrf" content="${_csrf.token}" /> 
-<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}" />
-
 </head>
 <body data-editor="ClassicEditor" data-collaboration="false"
 	data-revision-history="false">
@@ -253,6 +249,9 @@ u {
 				</textarea>
 			<hr>
 			
+			<!-- csrf도 함께 -->
+			<%-- <sec:csrfInput/> --%>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						
 			<div class="col-12" style="text-align: center; padding: 1%;">
 				<input type="submit" value="등록" id="regist" class="genric-btn primary circle" style="margin-right: 1%;"> 

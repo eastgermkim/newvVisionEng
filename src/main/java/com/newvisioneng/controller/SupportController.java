@@ -101,7 +101,7 @@ public class SupportController {
 	}
 	
 	//공지사항 글 등록 view단으로 이동하는 요청
-	@GetMapping("/support/notice_write")
+	@GetMapping("/notice_write")
 	public String notice_write(@ModelAttribute("cri") Criteria cri, HttpServletRequest req) {
 		return "/support/notice_write";
 	}

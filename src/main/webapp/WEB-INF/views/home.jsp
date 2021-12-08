@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page session="true"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -125,6 +126,11 @@
 
 	<!-- header-start -->
 	<header>
+		
+	<!-- csrf 토큰 --> 
+	<meta id="_csrf" name="_csrf" content="${_csrf.token}" /> 
+	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}" />
+ 
 		<div class="header-area ">
 			
 			<div class="header-top black-bg d-none d-md-block">
@@ -140,13 +146,13 @@
 							<div class="header-top-menu">
 								<nav>
 									<ul>
-										<!-- <li><a href="blog.html">News & media</a></li>
-										<li><a href="review.html">Review</a></li> -->
-										<c:if test="${admin_ID == null}">
+										<c:if test="${login_id == null}">
 											<li><a href="/admin/login">Admin</a></li>
 										</c:if>
-										<c:if test="${admin_ID != null}">
-												<li><a href="/admin/sessionLogout">관리자 로그아웃</a></li>
+										<c:if test="${login_id != null}">
+												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->
+												<li><a href="#">${login_id}</a></li>
+												<li><a href="/logout"> 로그아웃</a></li>
 										</c:if>
 									</ul>
 								</nav>

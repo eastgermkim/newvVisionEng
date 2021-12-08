@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
 
@@ -170,7 +171,7 @@ iframe[name='ok_frame'] {
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
 
 	<form name='login_form' method='post'
-		action="/admin/login" autocomplete='on' style='margin: 0'>
+		action="/login" autocomplete='on' style='margin: 0'>
 	
 			<!-- 
 			<input type='hidden' name='referer'>
@@ -190,12 +191,13 @@ iframe[name='ok_frame'] {
 			<fieldset>
 				<legend>
 					<strong>관리자 로그인</strong>
-					<em>관리자모드 로그인하세요.</em>
-					<em>현재 세션 ID : ${admin_ID}</em>
+					<c:if test="${login_id != null and login_id != ''}">
+						<em>현재 세션 ID : ${login_id}</em>
+					</c:if>
 				</legend>
 				<p>
 					<label for="id">ID</label>
-					<span><input type="text" name="admin_ID" id="admin_ID" placeholder="아이디"
+					<span><input type="text" name="id" id="admin_ID" placeholder="아이디"
 									value=""></span>
 				</p>
 			<!-- 	<p>
@@ -205,10 +207,14 @@ iframe[name='ok_frame'] {
 				</p> -->
 				<p>
 					<label for="pwd">Password</label>
-					<span><input type="password" name="admin_PW" id=admin_PW
+					<span><input type="password" name="password" id=admin_PW
 									placeholder="비밀번호" value=""></span>
 				</p>
-				<input type = "hidden" name = "${_csrf.parameterName }" value = "${_csrf.token }"/>
+				
+				<!-- csrf도 함께 -->
+				<%-- <sec:csrfInput/> --%>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				
 				<nav>
 					<button type="button" class="submitBtn" onclick="sendit();">로그인</button>
 				</nav>
@@ -238,9 +244,17 @@ iframe[name='ok_frame'] {
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
     $(function(){
-        var responseMessage = "<c:out value="${message}" />";
+        var responseMessage = "<c:out value="${error}" />";
         if (responseMessage != ""){
             alert(responseMessage)
+        }
+        var responseMessage2 = "<c:out value="${logout}" />";
+        if (responseMessage2 != ""){
+            alert(responseMessage2)
+        }
+        var responseMessage3 = "<c:out value="${join}" />";
+        if (responseMessage3 != ""){
+            alert(responseMessage3)
         }
     })
 </script>
