@@ -143,7 +143,7 @@
 										<!-- <li><a href="blog.html">News & media</a></li>
 										<li><a href="review.html">Review</a></li> -->
 										<c:if test="${admin_ID == null}">
-											<li><a href="/security/adminLogin">Admin</a></li>
+											<li><a href="/admin/login">Admin</a></li>
 										</c:if>
 										<c:if test="${admin_ID != null}">
 												<li><a href="/admin/sessionLogout">관리자 로그아웃</a></li>
@@ -224,7 +224,7 @@
 							<div class="mobile_menu d-block d-lg-none"></div>
 						</div>
 					</div>
-					<div class="search_input" id="search_input_box">
+					<!-- <div class="search_input" id="search_input_box">
 						<div class="container ">
 							<form class="d-flex justify-content-between search-inner">
 								<input type="text" class="form-control" id="search_input"
@@ -233,7 +233,7 @@
 								<span class="fa fa-close" id="close_search" title="Close Search"></span>
 							</form>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

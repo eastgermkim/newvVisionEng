@@ -5,18 +5,6 @@
 
 	
 	
-	<!-- The definition of the Root Spring Container shared by all Servlets 
-		and Filters -->
-		<!-- security-context.xml 를 찾을 수 있도록 -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-		
-		/WEB-INF/spring/root-context.xml
-
-		/WEB-INF/spring/security-context.xml
-		</param-value>
-	</context-param>
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
@@ -29,6 +17,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>
+
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml
@@ -61,8 +50,18 @@
 		<servlet-name>appServlet</servlet-name>
 	</filter-mapping>
 	
+	<!-- The definition of the Root Spring Container shared by all Servlets 
+	and Filters -->
+	<!-- security-context.xml 를 찾을 수 있도록 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		/WEB-INF/spring/root-context.xml
+		</param-value>
+	</context-param>
+	
 	<!-- 스프링 시큐리티 -->
-	<filter>
+<!-- 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
@@ -70,5 +69,5 @@
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 </web-app>
