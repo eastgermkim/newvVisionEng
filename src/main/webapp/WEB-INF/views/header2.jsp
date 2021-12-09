@@ -27,6 +27,15 @@
 	}
 }
 
+#adminBtn{
+	display: none;
+}
+
+@media (max-width:767.5px){
+	#adminBtn{
+		display: block;
+	}
+}
 </style>
 
 </head>
@@ -71,10 +80,10 @@
 							<div class="header-top-menu">
 								<nav>
 									<ul>
-										<c:if test="${admin_Login_id == null}">
+										<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
 											<li><a href="/admin/login">Admin</a></li>
 										</c:if>
-										<c:if test="${admin_Login_id != null}">
+										<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->
 												<li><a href="#">${admin_Login_id}</a></li>
 												<li><a href="/logout"> 로그아웃</a></li>
@@ -133,6 +142,15 @@
 										
 										<li><a id="tab5" href="/recruit/list">채용정보</a>
 										</li>
+
+										<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
+											<li id="adminBtn"><a id="tab6" href="/login">관리자 로그인</a>
+											</li>
+										</c:if>
+										<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+											<li id="adminBtn"><a id="tab6" href="/logout" style="text-transform: none;">${admin_Login_id} 로그아웃</a>
+											</li>
+										</c:if>
 									</ul>
 								</nav>
 							</div>
@@ -185,6 +203,9 @@
    		}
    		function addClassName5() {
    		  document.getElementById('tab5').className = 'active';
+   		}
+   		function addClassName6() {
+   		  document.getElementById('tab6').className = 'active';
    		}
    	</script>
    	

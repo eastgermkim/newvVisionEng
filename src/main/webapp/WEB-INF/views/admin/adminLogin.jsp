@@ -125,7 +125,7 @@ form label:after {
 form span {
 	display: block;
 	border: 0;
-	margin-left: 150px
+	/* margin-left: 150px */
 }
 
 form span input {
@@ -169,6 +169,9 @@ iframe[name='ok_frame'] {
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
+	<script>
+		addClassName6();
+	</script>
 
 	<form name='login_form' method='post'
 		action="/login" autocomplete='on' style='margin: 0'>
@@ -196,7 +199,7 @@ iframe[name='ok_frame'] {
 					</c:if>
 				</legend>
 				<p>
-					<label for="id">ID</label>
+					<!-- <label for="id">ID</label> -->
 					<span><input type="text" name="id" id="admin_ID" placeholder="아이디"
 									value=""></span>
 				</p>
@@ -206,7 +209,7 @@ iframe[name='ok_frame'] {
 									placeholder="부운영자 아이디"></span>
 				</p> -->
 				<p>
-					<label for="pwd">Password</label>
+					<!-- <label for="pwd">Password</label> -->
 					<span><input type="password" name="password" id=admin_PW
 									placeholder="비밀번호" value=""></span>
 				</p>
@@ -216,7 +219,7 @@ iframe[name='ok_frame'] {
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				
 				<nav>
-					<button type="button" class="submitBtn" onclick="sendit();">로그인</button>
+					<button type="button" class="submitBtn" onclick="sendit();" style="background: #F36D20;">로그인</button>
 				</nav>
 			</fieldset>
 		</div>
