@@ -20,7 +20,7 @@
         <!-- <sec:intercept-url pattern="/**/secured/**" access="isAuthenticated()" /> 
         -->
         
-        <sec:intercept-url pattern="/join" access="isAuthenticated()" />
+        <!-- <sec:intercept-url pattern="/join" access="isAuthenticated()" /> -->
         
         <sec:intercept-url pattern="/support/notice_write/**" access="isAuthenticated()" />
         <sec:intercept-url pattern="/support/notice_writeOK/**" access="isAuthenticated()" />

@@ -84,7 +84,6 @@ public class HomeController {
 			@RequestParam(value="login", required=false) String login,
 			@RequestParam(value="logout", required=false) String logout) {
 		
-		logger.info("logout : " + logout);
 		logger.info("Welcome New Vision ENG! The client locale is {}.", locale);
 		
 		
@@ -95,6 +94,7 @@ public class HomeController {
 		}
 		
 		if(logout != null) {
+			logger.info("logout : " + logout);
 			model.addAttribute("logout", "로그아웃 완료");
 		}
 		
