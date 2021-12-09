@@ -81,7 +81,7 @@ input[type="checkbox"] {
 
 <body>
 	<!-- header.jsp import -->
-	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
 	<script>
 		addClassName4();
 		document.cookie = "safeCookie1=foo; SameSite=Lax"; 
@@ -205,7 +205,7 @@ input[type="checkbox"] {
 		</div>
 	</section>
 
-	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 	<%@ include file = "customerJS.jsp" %>
 </body>
 

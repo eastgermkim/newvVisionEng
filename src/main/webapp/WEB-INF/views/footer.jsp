@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -54,11 +54,19 @@
                 <div class="desktop" style="float: left;">
                 	<div>
                 		<ul>
-                			<li class="footer_li"><a href="/company/introduce">New Vision ENG</a></li>
-                			<li class="footer_li"><a href="#">사업분야</a></li>
+                			<li class="footer_li"><a href="/company/introduce">회사소개</a></li>
+                			<li class="footer_li"><a href="business/area">사업소개</a></li>
                 			<li class="footer_li"><a href="#">사업실적</a></li>
                 			<li class="footer_li"><a href="/support/notice">고객지원</a></li>
-                			<li class="footer_li"><a href="#">채용정보</a></li>
+                			<li class="footer_li"><a href="/recruit/list">채용정보</a></li>
+                			<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
+                				<li class="footer_li"><a href="/login" style="color: grey;">Admin</a></li>
+                			</c:if>
+                			<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+                				<li class="footer_li"><a href="/logout">
+                						<span style="color:mediumblue;">로그아웃</span>(${admin_Login_id})
+                				</a></li>
+							</c:if>                			
                 		</ul>
                 	</div>
                 

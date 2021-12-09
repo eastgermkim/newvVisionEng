@@ -168,7 +168,7 @@ iframe[name='ok_frame'] {
 
 <body>
 	<!-- header.jsp import -->
-	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
 	<script>
 		addClassName6();
 	</script>
@@ -259,7 +259,7 @@ iframe[name='ok_frame'] {
 </script>
 
 
-</body><c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+</body><c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
 
 </body>

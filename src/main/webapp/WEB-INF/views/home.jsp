@@ -96,24 +96,6 @@
 
 </style>
 
-<style>
-@media (min-width:991.5px){
-	#navigation{
-		display: flex;
-		justify-content: space-evenly;
-	}
-}
-#adminBtn{
-	display: none;
-}
-
-@media (max-width:767.5px){
-	#adminBtn{
-		display: block;
-	}
-}
-</style>
-
 </head>
 
 <body>
@@ -132,138 +114,9 @@
 		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
 	}
 </script>
-
-	<!-- header-start -->
-	<header>
-		
-	<!-- csrf 토큰 --> 
-	<meta id="_csrf" name="_csrf" content="${_csrf.token}" /> 
-	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}" />
- 
-		<div class="header-area ">
-			
-			<div class="header-top black-bg d-none d-md-block">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-6 col-md-6 col-lg-6">
-							<div class="header-contact">
-								<a href="#"><i class="fa fa-phone"></i> 02 – 743 – 6977~8</a> <a
-									href="#"><i class="fa fa-envelope"></i>nv3000@empas.com</a>
-							</div>
-						</div>
-						<div class="col-xl-6 col-md-6 col-lg-6">
-							<div class="header-top-menu">
-								<nav>
-									<ul>
-										<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
-											<li><a href="/admin/login">Admin</a></li>
-										</c:if>
-										<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
-												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->
-												<li><a href="#">${admin_Login_id}</a></li>
-												<li><a href="/logout"> 로그아웃</a></li>
-										</c:if>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div id="sticky-header" class="main-header-area white-bg">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-xl-2 col-lg-2">
-							<div class="logo-img">
-								<a href="/"> <img src="resources/img/nv_logo.png"
-									alt="" style="width: 107%;">
-								</a>
-							</div>
-						</div>
-						<div class="col-xl-7 col-lg-7">
-							<div class="main-menu d-none d-lg-block">
-								<nav>
-									<ul id="navigation">
-									
-										<li><br>
-											
-										</li>
-									
-										<li><a id="tab1" href="/company/introduce">회사소개</a>
-											<ul class="submenu">
-												<li><a href="/company/introduce">회사개요</a></li>
-												<li><a href="">CEO인사말</a></li>
-												<li><a href="/company/news">보도자료</a></li>
-												<li><a href="/company/history">연혁</a></li>
-												<li><a href="/company/organization">조직도</a></li>
-												<li><a href="/company/certification">인증현황</a></li>
-												<li><a href="/company/location">오시는 길</a></li>
-											</ul>
-										</li>
-										
-										<li><a id="tab2" href="/business/area">사업소개</a>
-										</li>
-										
-										<li><a id="tab3" href="#">사업실적</a>
-										</li>
-										
-										<li><a id="tab4" href="/support/notice">고객지원</a>
-											<ul class="submenu">
-												<li><a href="/support/notice">공지사항</a></li>
-												<li><a href="/support/customer">고객문의</a></li>
-											</ul>
-										</li>
-										
-										<li><a id="tab5" href="/recruit/list">채용정보</a>
-										</li>
-										
-										<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
-											<li id="adminBtn"><a id="tab6" href="/login">관리자 로그인</a>
-											</li>
-										</c:if>
-										<c:if test="${admin_Login_id != null}">
-											<li id="adminBtn"><a id="tab6" href="/logout" style="text-transform: none;">${admin_Login_id} 로그아웃</a>
-											</li>
-										</c:if>
-										
-									</ul>
-								</nav>
-							</div>
-						</div>
-						<%-- <div class="col-xl-3 col-lg-3">
-							<div class="quote-area">
-								<div class="search-bar">
-									<a id="search_1" href="javascript:void(0)"><i
-										class="fa fa-search"></i></a>
-								</div>
-								
-								버튼 일단 숨김 
-								<div class="get-quote d-none d-lg-block">
-									<a class="boxed-btn" href="#">버튼임</a>
-								</div>
-							
-							</div>
-						</div> --%>
-						<div class="col-12">
-							<div class="mobile_menu d-block d-lg-none"></div>
-						</div>
-					</div>
-					<!-- <div class="search_input" id="search_input_box">
-						<div class="container ">
-							<form class="d-flex justify-content-between search-inner">
-								<input type="text" class="form-control" id="search_input"
-									placeholder="Search Here">
-								<button type="submit" class="btn"></button>
-								<span class="fa fa-close" id="close_search" title="Close Search"></span>
-							</form>
-						</div>
-					</div> -->
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- header-end -->
+<!-- header.jsp import -->
+	<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
+	
 
 	<!-- slider-area-start -->
 	<div class="slider-area">
@@ -507,91 +360,9 @@
 
 
 	<!-- footer-start -->
-    <footer class="footer-area" style="padding:3% 0 3%;height: 200px">
-        <div class="container">
-                <div class="desktop" style="float: left;">
-                	<div>
-                		<ul>
-                			<li class="footer_li"><a href="/company/introduce">New Vision ENG</a></li>
-                			<li class="footer_li"><a href="#">사업분야</a></li>
-                			<li class="footer_li"><a href="#">사업실적</a></li>
-                			<li class="footer_li"><a href="/support/notice">고객지원</a></li>
-                			<li class="footer_li"><a href="#">채용정보</a></li>
-                		</ul>
-                	</div>
-                
-                    <div class="single-footer-widget footer_1">
-                       	<p style="margin:auto;text-align: left;font-size: 0.8em; padding-top: 1em;">
-                       	본사 : (08590)서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
-                       	/ 사업자등록번호 : 101-86-05239
-                     	<br>대표자명 : 전대순 / 대표전화 : 02–743–6977~8 / Fax : 02–762–2588 / 이메일 : nv3000@empas.com
-                       	<br>COPYRIGHT &copy; 2021 NEWVISIONENG CO LTD. ALL RIGHTS RESERVED.
-                        </p>
-                    </div>
-                </div>
-                
-              <div class="desktop-contact" style="float: right;text-align: right;">
-              		<p style="font-size: 14px;font-weight: 500;line-height: 1;position: relative;margin: auto;">
-              			Contact
-              		</p>
-		            <a href="tel:02-743–6977" style="display: block;font-size: 24px;letter-spacing: 0.05em;">
-		            	02)743–6977~8
-		            </a>
-		            <ul>
-		                <li style="display: block;font-size: 14px;font-weight: 400;color: #828282;line-height: 20px;">
-		                	MON-FRI 09:00 - 18:00<br>( Lunch 12:00 - 13:00 )
-		                </li>
-		            </ul>
-		       </div>
-		       
-       
-                <div class="mobile" >
-                    <div class="single-footer-widget footer_1" style="margin: auto;">
-                       	<p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
-                       	<span>서울시 금천구 가산디지털1로 88, 704-C<br>(가산동,IT프리미어타워)</span>
-                       	<span>/ 대표자명 : 전대순</span>
-                     	<br><span>사업자등록번호 : 101-86-05239</span>
-                     	<br><span>대표전화 : 02)743–6977~8</span><span> / Fax : 02)762–2588</span>
-                     	<br><span>이메일 : nv3000@empas.com</span>
-                        <p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
-                       	COPYRIGHT &copy; 2021 NEWVISIONENG CO LTD.<br>ALL RIGHTS RESERVED.
-                       	</p>
-                    </div>
-                </div>
-        </div>
-       
-    </footer>
+    <c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
     <!-- footer-end -->
 
-
-	<!-- JS here -->
-	
-	<script src="resources/js/vendor/modernizr-3.5.0.min.js"></script>
-	<script src="resources/js/vendor/jquery-1.12.4.min.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/isotope.pkgd.min.js"></script>
-	<script src="resources/js/ajax-form.js"></script>
-	<script src="resources/js/waypoints.min.js"></script>
-	<script src="resources/js/jquery.counterup.min.js"></script>
-	<script src="resources/js/imagesloaded.pkgd.min.js"></script>
-	<script src="resources/js/scrollIt.js"></script>
-	<script src="resources/js/jquery.scrollUp.min.js"></script>
-	<script src="resources/js/wow.min.js"></script>
-	<script src="resources/js/nice-select.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/jquery.magnific-popup.min.js"></script>
-	<script src="resources/js/plugins.js"></script>
-
-	<!--contact js-->
-	<script src="resources/js/contact.js"></script>
-	<script src="resources/js/jquery.ajaxchimp.min.js"></script>
-	<script src="resources/js/jquery.form.js"></script>
-	<script src="resources/js/jquery.validate.min.js"></script>
-	<script src="resources/js/mail-script.js"></script>
-
-	<script src="resources/js/main.js"></script>
 
 
 	<script>

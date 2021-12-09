@@ -343,7 +343,7 @@ u {
 <body data-editor="ClassicEditor" data-collaboration="false"
 	data-revision-history="false">
 	<!-- header.jsp import -->
-	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
 	<script>
 		addClassName5();
 	</script>
@@ -477,7 +477,7 @@ u {
 			</form>
  </div>
 
-	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
 	<script>
 	function fn_fileDown(SYSTEMNAME,ORGNAME){

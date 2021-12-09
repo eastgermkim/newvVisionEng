@@ -44,7 +44,7 @@
 </head>
 <body>
 	<!-- header.jsp import -->
-	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
 	<script>
 		addClassName1();
 	</script>
@@ -79,7 +79,7 @@
 			<img class="organization_img" src="../resources/img/company/organization2.png" style="width:100%;">
 		</div>
 	</section>
-	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

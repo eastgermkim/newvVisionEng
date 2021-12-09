@@ -170,7 +170,7 @@
 
 <body>
 	<!-- header.jsp import -->
-	<c:import url="../header2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
 	<script>
 		addClassName4();
 	</script>
@@ -301,7 +301,7 @@
  <br>
  <br>
  </section>
-	<c:import url="../footer2.jsp" charEncoding="UTF-8"></c:import>
+	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
 
 </body>
