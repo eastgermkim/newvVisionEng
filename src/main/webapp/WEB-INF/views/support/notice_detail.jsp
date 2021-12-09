@@ -367,7 +367,7 @@ u {
 
 	<div class="container board">
 		<form method="post" action="/support/notice_delete" enctype="multipart/form-data">
-		
+		<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 			<div style="text-align: right">
 				<a href="/support/notice_modify/${notice.noticeNum}${cri.getListLink()}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
 				<input type="submit" value="삭제" class="genric-btn danger-border circle deleteBtn" style="margin-right: 1%;font-size: 1em;">
@@ -377,7 +377,7 @@ u {
 				<input type="hidden" name="getListLink" value="${cri.getListLink()}">
 				<input type="hidden" name="noticeNum" value="${notice.noticeNum}"> 
 			</div>
-		
+		</c:if>
 			<div class="board-view-header">
 				<div class="inner">
 					<ul class="info-wrap">

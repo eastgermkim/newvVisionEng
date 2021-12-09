@@ -71,12 +71,12 @@
 							<div class="header-top-menu">
 								<nav>
 									<ul>
-										<c:if test="${login_id == null}">
+										<c:if test="${admin_Login_id == null}">
 											<li><a href="/admin/login">Admin</a></li>
 										</c:if>
-										<c:if test="${login_id != null}">
+										<c:if test="${admin_Login_id != null}">
 												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->
-												<li><a href="#">${login_id}</a></li>
+												<li><a href="#">${admin_Login_id}</a></li>
 												<li><a href="/logout"> 로그아웃</a></li>
 										</c:if>
 									</ul>

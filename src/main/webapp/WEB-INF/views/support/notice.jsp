@@ -197,7 +197,7 @@
 	
 <section style="margin-bottom:50px;">
 <div class="container board">
-	<c:if test="${login_id != null and login_id != ''}">
+	<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 		<div>
 	       	<a href="/support/notice_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
 	    </div>

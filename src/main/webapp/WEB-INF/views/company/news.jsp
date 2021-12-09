@@ -193,6 +193,8 @@ input[type="checkbox"] {
 	<!-- 본문 내용  -->
 	<section style="margin-bottom:20%;">
 		<div class="container">
+		
+		<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 			<div style="display:flex; justify-content:space-between;">
 	        	<a href="/company/news_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
 	        	<div style="float:right;">
@@ -204,6 +206,8 @@ input[type="checkbox"] {
 				</div>
 	        </div>
 	        <br>
+	     </c:if>
+	     
 	        
 				<ul class="crawling-lists">
  				<c:choose>
@@ -228,12 +232,14 @@ input[type="checkbox"] {
 													<h3 class="news-dates">${news.newsDate}</h3>
 													<input type="hidden" name="newsNum" value="${news.newsNum}">
 													
-													<div class="linkHidden" style="display:none;">
-														<input type="hidden" name="page" value="${pageMaker.cri.page}">
-														<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
-														<a href="/company/news_modify/${news.newsNum}?page=${pageMaker.cri.page}&pageSize=${pageMaker.cri.pageSize}" i="modify_link_button" class="genric-btn primary modify_link_button">수정하기</a>
-														<input type="submit" value="삭제" class="genric-btn primary circle linkNewsDelete" style="margin-right: 1%; border-radius:0;">
-													</div>
+													<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+														<div class="linkHidden" style="display:none;">
+															<input type="hidden" name="page" value="${pageMaker.cri.page}">
+															<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
+															<a href="/company/news_modify/${news.newsNum}?page=${pageMaker.cri.page}&pageSize=${pageMaker.cri.pageSize}" i="modify_link_button" class="genric-btn primary modify_link_button">수정하기</a>
+															<input type="submit" value="삭제" class="genric-btn primary circle linkNewsDelete" style="margin-right: 1%; border-radius:0;">
+														</div>
+													</c:if>
 												</form>
 												</div>
 											</a>

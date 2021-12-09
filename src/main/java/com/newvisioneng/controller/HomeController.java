@@ -52,20 +52,14 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String goLogin(
 			@RequestParam(value = "error", required = false) String error, 
-		    @RequestParam(value="logout", required=false) String logout, 
 		    @RequestParam(value="join", required=false) String join, 
 		    Model model) {
 		logger.info("error : " + error);
-		logger.info("logout : " + logout);
 		
 		if(error != null) {
 			model.addAttribute("error", "관리자의 아이디 혹은 비밀번호가 일치하지 않습니다.");
 		}
 		
-		if(logout != null) {
-			model.addAttribute("logout", "로그아웃 완료");
-		}
-
 		if(join != null) {
 			model.addAttribute("join", "회원가입 완료");
 		}
@@ -85,14 +79,27 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String goHome(Locale locale, Model model, Authentication authentication,HttpSession session) {
+	public String goHome(Locale locale, Model model, 
+			Authentication authentication,HttpSession session,
+			@RequestParam(value="login", required=false) String login,
+			@RequestParam(value="logout", required=false) String logout) {
+		
+		logger.info("logout : " + logout);
 		logger.info("Welcome New Vision ENG! The client locale is {}.", locale);
 		
 		
 		if(authentication != null){
 			SecurityAccount account = (SecurityAccount)authentication.getPrincipal();
-			session.setAttribute("login_id", account.getUsername());
+			session.setAttribute("admin_Login_id", account.getUsername());
 			/*model.addAttribute("username", account.getUsername());*/
+		}
+		
+		if(logout != null) {
+			model.addAttribute("logout", "로그아웃 완료");
+		}
+		
+		if(login != null) {
+			model.addAttribute("login", session.getAttribute("admin_Login_id")+"님, 안녕하세요");
 		}
 		return "home";
 	}

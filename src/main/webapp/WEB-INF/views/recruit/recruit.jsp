@@ -197,9 +197,13 @@
 	
 <section style="margin-bottom:50px;">
 <div class="container board">
+
+<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 	<div>
        	<a href="/recruit/recruit_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
     </div>
+ </c:if>
+ 
 	<div class="board_list">
 				<div class="table">
 					<div class="thead tr">

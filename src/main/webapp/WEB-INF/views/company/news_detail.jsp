@@ -348,14 +348,16 @@ u {
 
 	<div class="container board">
 		<form method="post" action="/company/news_delete" enctype="multipart/form-data">
-		<div style="text-align:right;">
-			<a href="/company/news_modify/${news.newsNum}${cri.getListLink()}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
-			<input type="submit" value="삭제" class="genric-btn primary circle newsDelete" style="margin-right: 1%;">
-			
-			<input type="hidden" name="newsNum" value="${news.newsNum}">
-			<input type="hidden" name="page" value="${cri.page}">
-			<input type="hidden" name="pageSize" value="${cri.pageSize}"> 
-		</div>
+		<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+			<div style="text-align:right;">
+				<a href="/company/news_modify/${news.newsNum}${cri.getListLink()}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
+				<input type="submit" value="삭제" class="genric-btn primary circle newsDelete" style="margin-right: 1%;">
+				
+				<input type="hidden" name="newsNum" value="${news.newsNum}">
+				<input type="hidden" name="page" value="${cri.page}">
+				<input type="hidden" name="pageSize" value="${cri.pageSize}"> 
+			</div>
+		</c:if>
 		
 			<div class="board-view-header">
 				<div class="inner">

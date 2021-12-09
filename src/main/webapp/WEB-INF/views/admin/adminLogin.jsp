@@ -248,10 +248,6 @@ iframe[name='ok_frame'] {
         if (responseMessage != ""){
             alert(responseMessage)
         }
-        var responseMessage2 = "<c:out value="${logout}" />";
-        if (responseMessage2 != ""){
-            alert(responseMessage2)
-        }
         var responseMessage3 = "<c:out value="${join}" />";
         if (responseMessage3 != ""){
             alert(responseMessage3)
