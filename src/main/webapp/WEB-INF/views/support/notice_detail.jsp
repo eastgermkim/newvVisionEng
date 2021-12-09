@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 
 <!DOCTYPE html>
 <html>
@@ -367,6 +367,7 @@ u {
 
 	<div class="container board">
 		<form method="post" action="/support/notice_delete" enctype="multipart/form-data">
+		
 		<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 			<div style="text-align: right">
 				<a href="/support/notice_modify/${notice.noticeNum}${cri.getListLink()}" class="genric-btn primary-border circle" style="margin-right: 1%;">수정</a>
