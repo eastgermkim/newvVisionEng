@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page session="true" %>
 
 <!doctype html>
@@ -49,7 +50,7 @@
 <body>
 
 	<!-- footer-start -->
-    <footer class="footer-area" style="padding:3% 0 3%;height: 170px">
+    <footer class="footer-area" style="padding:3% 0 3%;display: flex;">
         <div class="container">
                 <div class="desktop" style="float: left;">
                 	<div>
@@ -59,14 +60,15 @@
                 			<li class="footer_li"><a href="#">사업실적</a></li>
                 			<li class="footer_li"><a href="/support/notice">고객지원</a></li>
                 			<li class="footer_li"><a href="/recruit/list">채용정보</a></li>
-                			<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
+                			
+                			<sec:authorize access="isAnonymous()">
                 				<li class="footer_li"><a href="/login" style="color: grey;">Admin</a></li>
-                			</c:if>
-                			<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+							</sec:authorize>
+							<sec:authorize access="isAuthenticated()">
                 				<li class="footer_li"><a href="/logout">
                 						<span style="color:mediumblue;">로그아웃</span>(${admin_Login_id})
                 				</a></li>
-							</c:if>                			
+							</sec:authorize>
                 		</ul>
                 	</div>
                 
@@ -103,7 +105,7 @@
                      	<br><span>사업자등록번호 : 101-86-05239</span>
                      	<br><span>대표전화 : 02)743–6977~8</span><span> / Fax : 02)762–2588</span>
                      	<br><span>이메일 : nv3000@empas.com</span>
-                        <p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%">
+                        <p style="margin:auto;text-align: center;font-size: 0.8em;line-height:1.6;padding-top: 3%;padding-bottom: 3%;">
                        	COPYRIGHT &copy; 2021 NEWVISIONENG CO LTD.<br>ALL RIGHTS RESERVED.
                        	</p>
                     </div>

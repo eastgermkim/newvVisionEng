@@ -36,6 +36,9 @@
 		display: block;
 	}
 }
+.adminColor{
+	color: grey !important;
+}
 </style>
 
 </head>
@@ -80,14 +83,14 @@
 							<div class="header-top-menu">
 								<nav>
 									<ul>
-										<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
+										<sec:authorize access="isAnonymous()">
 											<li><a href="/admin/login">Admin</a></li>
-										</c:if>
-										<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+										</sec:authorize>
+										<sec:authorize access="isAuthenticated()">
 												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->
 												<li><a href="#">${admin_Login_id}님</a></li>
 												<li><a href="/logout"> 로그아웃</a></li>
-										</c:if>
+										</sec:authorize>
 									</ul>
 								</nav>
 							</div>
@@ -143,17 +146,18 @@
 										<li><a id="tab5" href="/recruit/list">채용정보</a>
 										</li>
 
-										<c:if test="${admin_Login_id == null or admin_Login_id == ''}">
-											<li id="adminBtn"><a id="tab6" href="/login" style="color: grey;"> Admin</a>
+
+										<sec:authorize access="isAnonymous()">
+											<li id="adminBtn"><a id="tab6" class="adminColor" href="/login"> Admin</a>
 											</li>
-										</c:if>
-										<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+										</sec:authorize>
+										<sec:authorize access="isAuthenticated()">
 											<li id="adminBtn">
 												<a id="tab6" href="/logout" style="text-transform: none;">
 													<span style="color:mediumblue;">로그아웃</span>(${admin_Login_id})
 												</a>
 											</li>
-										</c:if>
+										</sec:authorize>
 									</ul>
 								</nav>
 							</div>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+		<!-- 네임스페이스 : sec -->
 <beans xmlns:sec="http://www.springframework.org/schema/security"
        xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,21 +8,27 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <sec:http pattern="/resources/**" security="none" />
-    
+  
+    <!-- 시큐리티 기본 세팅 사용 -->
     <sec:http auto-config="true" use-expressions="true">
+   	    <!-- 세션 관리 -->
+	    <sec:session-management>
+	      <!-- 동일 ID의 세션 최대수가 한 개, 그 이상일 경우는 기존 세션 무효화 -->
+	      <sec:concurrency-control max-sessions="1" expired-url="/"/>
+	    </sec:session-management>
+    	
     	<!--  csrf 토큰을 사용하지 않아야 POST 요청이 된다.  -->
     	<sec:csrf disabled="true" />
     
-        <!-- <sec:intercept-url pattern="/login" access="permitAll()" />
-        <sec:intercept-url pattern="/join" access="permitAll()" />
-        <sec:intercept-url pattern="/" access="permitAll()" /> 
+        <!-- 
+	        <sec:intercept-url pattern="/login" access="permitAll()" />
+	        <sec:intercept-url pattern="/join" access="permitAll()" />
+	        <sec:intercept-url pattern="/" access="permitAll()" /> 
         -->
-        
         <!-- <sec:intercept-url pattern="/**/secured/**" access="isAuthenticated()" /> 
         -->
         
-        <!-- <sec:intercept-url pattern="/join" access="isAuthenticated()" /> -->
-        
+        <!-- 인증한 사용자(로그인)만 접근 가능한 url들 -->
         <sec:intercept-url pattern="/support/notice_write/**" access="isAuthenticated()" />
         <sec:intercept-url pattern="/support/notice_writeOK/**" access="isAuthenticated()" />
         <sec:intercept-url pattern="/support/notice_modify/**" access="isAuthenticated()" />
@@ -43,21 +50,37 @@
         <sec:intercept-url pattern="/recruit/recruit_modifyOK/**" access="isAuthenticated()" />
         <sec:intercept-url pattern="/recruit/recruit_delete/**" access="isAuthenticated()" />
         
-        <sec:form-login login-page="/login"
+        <!-- 인증한 사용자(로그인 상태)만 새로운 ID 가입 가능하도록 -->
+        <sec:intercept-url pattern="/join" access="isAuthenticated()" />
+
+		<!-- 로그인된 상태에서는 로그인 화면에 접근 못하도록 함 -->
+		<sec:intercept-url pattern="/login" access="isAnonymous()" />
+      
+      	<!-- 로그인 form 설정 -->
+      					<!-- 커스텀 로그인 페이지URL -->
+        <sec:form-login login-page="/login"							
                         login-processing-url="/login"
                         authentication-failure-url="/login?error"
                         username-parameter="id"
                         password-parameter="password"
-                        default-target-url="/?login"
+                        default-target-url="/?loginOK"
                         always-use-default-target="true"
         />
         
-        <sec:logout logout-url="/logout" logout-success-url="/?logout" invalidate-session="true"/>
+        <!-- 로그아웃 설정 -->
+    	<!-- 로그아웃 단계 1. 세션 초기화 / 2. SecurityContext초기화 / 3. url redirect -->
+        			<!-- 로그아웃을 실행할 URL -->							<!-- 로그아웃시 세션 정보 삭제  -->
+        <sec:logout logout-url="/logout" logout-success-url="/?logoutOK" invalidate-session="true"/>
     
     </sec:http>	
 
+
+
+	<!-- 비밀번호 인코더(암호화) -->
     <bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <bean id="securityAccountService" class="com.newvisioneng.security.SecurityAccountService"/>
+   
+   	<!-- 인증매니저 securityAccountService를 통해 작업 수행(상기 비밀번호 인코더 참조)-->
     <sec:authentication-manager>
         <sec:authentication-provider user-service-ref="securityAccountService">
             <sec:password-encoder ref="bCryptPasswordEncoder" />

@@ -81,8 +81,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goHome(Locale locale, Model model, 
 			Authentication authentication,HttpSession session,
-			@RequestParam(value="login", required=false) String login,
-			@RequestParam(value="logout", required=false) String logout) {
+			@RequestParam(value="loginOK", required=false) String loginOK,
+			@RequestParam(value="logoutOK", required=false) String logoutOK) {
 		
 		logger.info("Welcome New Vision ENG! The client locale is {}.", locale);
 		
@@ -93,13 +93,13 @@ public class HomeController {
 			/*model.addAttribute("username", account.getUsername());*/
 		}
 		
-		if(logout != null) {
-			logger.info("logout : " + logout);
+		if(logoutOK != null) {
+			logger.info("logout : " + logoutOK);
 			model.addAttribute("logout", "로그아웃 완료");
 		}
 		
-		if(login != null) {
-			model.addAttribute("login", session.getAttribute("admin_Login_id")+"님, 안녕하세요");
+		if(loginOK != null) {
+			model.addAttribute("login", session.getAttribute("admin_Login_id")+"님 안녕하세요");
 		}
 		return "home";
 	}
