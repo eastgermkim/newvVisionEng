@@ -23,6 +23,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.newvisioneng.domain.Account;
 import com.newvisioneng.domain.AdminDTO;
 import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.EmailDTO;
@@ -39,11 +40,19 @@ import lombok.extern.log4j.Log4j;
 public class AdminServiceImpl implements AdminService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
-	
-	@Setter(onMethod_ = @Autowired)
-	private AdminMapper mapper;
 
+	@Setter(onMethod_ = @Autowired)
+	private AdminMapper adminMapper;
+	
 	@Override
+	public void join(Account account) {
+		adminMapper.insertAccount(account);
+	}
+	
+	
+	
+	
+/*	@Override
 	public boolean loginCheck(AdminDTO admin, HttpSession session) throws Exception {
 		boolean result = false;
 		
@@ -62,7 +71,7 @@ public class AdminServiceImpl implements AdminService {
         }
         
         return result;
-	}
+	}*/
 	
 
 	

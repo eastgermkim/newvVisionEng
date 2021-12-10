@@ -84,7 +84,7 @@
 								<nav>
 									<ul>
 										<sec:authorize access="isAnonymous()">
-											<li><a href="/admin/login">Admin</a></li>
+											<li><a href="/login">Admin</a></li>
 										</sec:authorize>
 										<sec:authorize access="isAuthenticated()">
 												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->

@@ -5,15 +5,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.newvisioneng.mapper.AccountMapper;
+import com.newvisioneng.mapper.AdminMapper;
 
 public class SecurityAccountService implements UserDetailsService {
     @Autowired
-    AccountMapper accountMapper;
+    AdminMapper adminMapper;
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-    	SecurityAccount account = new SecurityAccount(accountMapper.getAccountById(id));
+    	SecurityAccount account = new SecurityAccount(adminMapper.getAccountById(id));
     	System.out.println(account);
     	return account;
     }

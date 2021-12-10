@@ -27,7 +27,7 @@ public class AdminController {
 	@Setter(onMethod_=@Autowired)
 	private AdminService adminservice;
 	
-	//관리자 로그인 페이지로 이동
+	/*//관리자 로그인 페이지로 이동
 	@GetMapping("/login")
 	public String login(HttpServletRequest request, HttpSession session) {
 		if (session == null || !request.isRequestedSessionIdValid()) {
@@ -81,5 +81,5 @@ public class AdminController {
 		System.out.println("sessionLogin페이지로 이동......");
 		return "/admin/sessionLogin";
 	}
-	
+	*/
 }

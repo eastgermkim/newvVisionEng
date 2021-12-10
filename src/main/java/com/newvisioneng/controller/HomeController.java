@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.newvisioneng.domain.Account;
 import com.newvisioneng.security.SecurityAccount;
-import com.newvisioneng.service.AccountServiceImpl;
+import com.newvisioneng.service.AdminServiceImpl;
 
 /**
  * Handles requests for the application home page.
@@ -47,8 +47,9 @@ public class HomeController {
 	}*/
 	
 	@Autowired
-	AccountServiceImpl accountService;
+	AdminServiceImpl adminService;
 
+	//관리자 로그인 페이지로 이동
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String goLogin(
 			@RequestParam(value = "error", required = false) String error, 
@@ -60,32 +61,38 @@ public class HomeController {
 			model.addAttribute("error", "관리자의 아이디 혹은 비밀번호가 일치하지 않습니다.");
 		}
 		
-		if(join != null) {
-			model.addAttribute("join", "회원가입 완료");
-		}
 		return "/admin/adminLogin";
 	}
 	
+	//회원가입(관리자) 페이지로 이동
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String goJoin() {
 		return "join";
 	}
-	
+	//회원가입 요청
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(Account account) {
 		account.setPassword(new BCryptPasswordEncoder().encode(account.getPassword()));
-		accountService.join(account);
-		return "redirect:/login?join";
+		adminService.join(account);
+		return "redirect:/?joinOK";
 	}
 
+//=============================================================================================	
+	
+	//메인페이지
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goHome(Locale locale, Model model, 
 			Authentication authentication,HttpSession session,
+			@RequestParam(value="joinOK", required=false) String joinOK,
+			@RequestParam(value="access_denied", required=false) String access_denied,
 			@RequestParam(value="loginOK", required=false) String loginOK,
 			@RequestParam(value="logoutOK", required=false) String logoutOK) {
 		
 		logger.info("Welcome New Vision ENG! The client locale is {}.", locale);
-		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("serverTime", formattedDate );
 		
 		if(authentication != null){
 			SecurityAccount account = (SecurityAccount)authentication.getPrincipal();
@@ -93,13 +100,23 @@ public class HomeController {
 			/*model.addAttribute("username", account.getUsername());*/
 		}
 		
+		if(access_denied != null) {
+			logger.info("access_denied........." + access_denied);
+			model.addAttribute("access_denied", "접근 권한이 없는 요청입니다.");
+		}
+		
 		if(logoutOK != null) {
-			logger.info("logout : " + logoutOK);
+			logger.info("logout........." + logoutOK);
 			model.addAttribute("logout", "로그아웃 완료");
 		}
 		
 		if(loginOK != null) {
+			logger.info("loginOK........." + loginOK);
 			model.addAttribute("login", session.getAttribute("admin_Login_id")+"님 안녕하세요");
+		}
+		if(joinOK != null) {
+			logger.info("joinOK........." + loginOK);
+			model.addAttribute("joinOK", "회원가입 완료");
 		}
 		return "home";
 	}

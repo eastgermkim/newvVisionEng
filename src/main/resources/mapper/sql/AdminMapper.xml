@@ -5,13 +5,40 @@
   <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
 <mapper namespace="com.newvisioneng.mapper.AdminMapper">
 	
+     <!-- 로그인 -->
+    <select id="getAccountById" parameterType="string" resultType="com.newvisioneng.domain.Account">
+    	SELECT *
+    	  FROM NV_ADMIN
+    	 WHERE ID = #{id}
+    </select>
+
+    <!-- 회원가입 -->
+    <insert id="insertAccount" parameterType="com.newvisioneng.domain.Account">
+    	INSERT INTO NV_ADMIN
+    	(
+    		ID
+    		,PASSWORD
+    		,EMAIL
+    		,PHONE
+    		,ROLE
+    	)
+    	VALUES
+    	(
+    		#{id}
+    		,#{password}
+    		,#{email}
+    		,#{phone}
+    		,'ROLE_USER'
+    	)
+    </insert>
+	
 	<!-- 로그인 관련 mapper-->
-    <select id = "adminLoginCheck" parameterType= "com.newvisioneng.domain.AdminDTO" 
+<!--     <select id = "adminLoginCheck" parameterType= "com.newvisioneng.domain.AdminDTO" 
     resultType="String">
         SELECT ADMIN_ID FROM NV_ADMIN
         WHERE ADMIN_ID=#{admin_ID} AND ADMIN_PW=#{admin_PW}
-    </select>  
-	
+    </select>   -->
+    
 </mapper>
 
 
