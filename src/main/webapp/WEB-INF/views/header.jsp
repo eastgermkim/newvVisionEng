@@ -133,7 +133,7 @@
 										<li><a id="tab2" href="/business/area">사업소개</a>
 										</li>
 										
-										<li><a id="tab3" href="#">사업실적</a>
+										<li><a id="tab3" href="/business/result">사업실적</a>
 										</li>
 										
 										<li><a id="tab4" href="/support/notice">고객지원</a>

@@ -26,4 +26,11 @@ public class BusinessController {
 		return "/business/business";
 	}
 
+	//회사소개 페이지로 연결
+	@GetMapping("/result")
+	public String result() {
+		
+		return "/business/result";
+	}
+
 }
