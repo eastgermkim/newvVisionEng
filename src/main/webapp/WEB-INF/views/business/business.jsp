@@ -85,6 +85,12 @@
 .cctv-kind{
 	margin-bottom:10%!important;
 }
+.cctv-detail1{
+	margin-bottom:10%!important;
+}
+.cctv-detail2{
+	margin-bottom:2%!important;
+}
 
 </style>
 
@@ -93,7 +99,7 @@
 	<!-- header.jsp import -->
 	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
 	<script>
-		addClassName1();
+		addClassName2();
 	</script>
 
 	<!-- breadcrumb-start -->
@@ -158,7 +164,7 @@
                                     <div class="cctv-main details-thumb">
                                         <img src="../resources/img/service/business2.png" alt="">
                                     </div>
-                                    <div class="cctv-detail details-info">
+                                    <div class="cctv-detail1 details-info">
                                         <h3 class="business-name" style="font-size:30px; font-weight:300;">CCTV 카메라 영상 주변기기 및 SYSTEM 설계</h3>
                                         <p style="padding-top:20px; font-size:25px; font-weight:100">
                                         	15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
@@ -222,11 +228,11 @@
 						                    </div>
 						                </div>
 						            </div>
-						    		<div class="cctv-detail details-info">
+						    		<div class="cctv-detail2 details-info">
                                        <h3 class="business-name" style="font-size:30px; font-weight:300;">One Total CCTV Solution</h3>
 	                                </div>
 	                                <div class="cctv-main details-thumb">
-                                       <img src="../resources/img/company/system2.png" alt="">
+                                       <img src="../resources/img/company/system.png" alt="">
                                     </div>       
                                 </div>
                             </div>
