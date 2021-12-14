@@ -30,12 +30,17 @@
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
+.service-details img{
+	opacity:0;
+}
+
 .down{
 	display: none;
 }
 
 .service-details{
 	padding-top:0;
+	padding-bottom:0;
 }
 
 @media(max-width : 767.5px){
@@ -66,6 +71,13 @@
     margin: 0 16px;
     background-color: #f36d20;
 } */
+
+.business-name{
+	margin-top:5%;
+	color:#f36d20!important;
+	font-weight:400!important;
+}
+
 .cctv-main{
 	margin-bottom:3%!important;
 }
@@ -73,8 +85,20 @@
 .cctv-detail{
 	margin-bottom:10%!important;
 }
+.service-details .single-details .details-info{
+	padding-right:0;
+}
+
 .service-details .single-details .details-info h3{
+	font-size:24px;
 	margin-bottom:0;
+}
+
+.service-details .single-details .details-info .main-title{
+	font-size:34px;
+	font-weight:500;
+	text-align:center;
+	margin-bottom:2%
 }
 
 .single-team{
@@ -86,10 +110,28 @@
 	margin-bottom:10%!important;
 }
 .cctv-detail1{
-	margin-bottom:10%!important;
+
 }
 .cctv-detail2{
 	margin-bottom:2%!important;
+}
+.about-area{
+	padding-top:0;
+}
+
+.business-ul{
+	display:flex;
+}
+
+.business-li{
+	width:50%;
+	text-align:center;
+}
+.business-li img{
+	width:100px;
+}
+.business-li hr{
+	width:80%;
 }
 
 </style>
@@ -130,19 +172,19 @@
 		                 <nav>
 		                     <ul class="nav" id="myTab" role="tablist">
 		                         <li class="nav-item">
-		                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-		                                 aria-controls="home" aria-selected="true">CCTV</a>
+		                             <a class="nav-link active show" id="tab" data-toggle="tab" href="#business1" role="tab"
+		                                 aria-controls="home" aria-selected="true">CCTV 설치</a>
 		                         </li>
 		                         <li class="nav-item">
-		                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-		                                 aria-controls="profile" aria-selected="false">디지털 화상 녹화 전송 시스템</a>
+		                             <a class="nav-link" id="tab" data-toggle="tab" href="#business2" role="tab"
+		                                 aria-controls="profile" aria-selected="false">정보통신공사</a>
 		                         </li>
 		                         <li class="nav-item">
-		                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+		                             <a class="nav-link" id="tab" data-toggle="tab" href="#business3" role="tab"
 		                                 aria-controls="contact" aria-selected="false">전자파용 특수 CCTV SYSTEM</a>
 		                         </li>
 		                         <li class="nav-item">
-		                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+		                             <a class="nav-link" id="tab" data-toggle="tab" href="#business4" role="tab"
 		                                 aria-controls="contact" aria-selected="false">광전송 SYSTEM</a>
 		                         </li>
 		                     </ul>
@@ -155,50 +197,73 @@
             <div class="row">
                     <div class="single-details">
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        	
+                        	<!-----------------------------------CCTV 설치------------------------------------>
+                            <div class="tab-pane fade show active" id="business1" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="details-wrap">
                                     <div class="details-info">
-                                        <h3 style="text-align:center; font-size:35px; font-weight:500">CCTV</h3>
-                                        </p>
-                                    </div>
-                                    <div class="cctv-main details-thumb">
-                                        <img src="../resources/img/service/business2.png" alt="">
-                                    </div>
-                                    <div class="cctv-detail1 details-info">
-                                        <h3 class="business-name" style="font-size:30px; font-weight:300;">CCTV 카메라 영상 주변기기 및 SYSTEM 설계</h3>
-                                        <p style="padding-top:20px; font-size:25px; font-weight:100">
-                                        	15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
-                                        	사용자의 환경을 고려한 동영상 자료를 남기기 위해 고화질, 적외선 감지 와 인공지능형 CCTV등 을 통하여<br>
-                                        	니즈에 맞는 제품 선택과 설치를 진행합니다.
-                                        </p>
-                                    </div>
+                                        <h3 class="main-title">CCTV 설치</h3>
+							        	<div class="cctv-detail1 details-info">
+							                <h3 class="business-name" style="font-size:24px; font-weight:300;">CCTV 카메라 영상 주변기기 및 SYSTEM 설계</h3>
+							                <p style="padding-top:20px; font-size:20px; font-weight:100">
+							                	15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
+							                	사용자의 환경을 고려한 동영상 자료를 남기기 위해 고화질, 적외선 감지 와 인공지능형 CCTV등 을 통하여<br>
+							                	니즈에 맞는 제품 선택과 설치를 진행합니다.
+							                </p>
+							            </div>
 						             <div class="cctv-kind row team-area">
+          										 <div class="about-area section-padding">
+									        <div class="container">
+									            <div class="row align-items-center" style="justify-content:space-between;">
+									                <div class="col-xl-5 col-md-12 col-lg-6" style="max-width:55%;  flex: 0 0 53%;">
+									                    <div class="section-title mb-65 p-0">
+									                        <span>부 제목</span>
+									                        <h3>3Tier 주 제목</h3>
+									                        <p class="para-text">
+									                            	내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+									                            	내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+									                            	내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+									                            	내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+									                            	내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+									                        </p>
+									                    </div>
+									                </div>
+									                <div class="col-xl-7 col-md-12 col-lg-6" style="max-width:45%;">
+									                    <div class="about-thumb">
+									                        <img src="../resources/img/business/cctv_3tier.png" alt="">
+									                    </div>
+									                </div>
+									            </div>
+									        </div>
+									    </div>
 						                <div class="col-xl-4 col-lg-4 col-md-6">
 						                    <div class="single-team">
 						                        <div class="team-thumb">
-						                            <img src="../resources/img/service/business.jpg" alt="">
+						                            <img src="../resources/img/business/business.jpg" alt="">
 						                            <div class="team-hover">
 						                                <div class="team-link">
 						                                    <ul>
-						                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+						                                        <li><a href="#"> <i class="fa fa-camera"></i> </a></li>
 						                                    </ul>
 						                                </div>
 						                            </div>
 						                        </div>
 						                        <div class="team-info text-center">
 						                            <h3>군사시설 CCTV</h3>
-						                            <p>내용내용내욘ㄴ내용</p>
+						                            <p>내용내용내용내용내용내용내용내용내용내용<br>
+						                            	내용내용내용내용내용내용내용내용내용내용<br>
+						                            </p>
 						                        </div>
 						                    </div>
 						                </div>
 						                <div class="col-xl-4 col-lg-4 col-md-6">
 						                    <div class="single-team">
 						                        <div class="team-thumb">
-						                            <img src="../resources/img/service/service1.jpg" alt="">
+						                            <img src="../resources/img/business/service1.jpg" alt="">
 						                            <div class="team-hover">
 						                                <div class="team-link">
 						                                    <ul>
-						                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+						                                        <li><a href="#"> <i class="fa fa-camera"></i> </a></li>
 						                                    </ul>
 						                                </div>
 						                            </div>
@@ -212,11 +277,11 @@
 						                <div class="col-xl-4 col-lg-4 col-md-6">
 						                    <div class="single-team">
 						                        <div class="team-thumb">
-						                            <img src="../resources/img/service/service2.jpg" alt="">
+						                            <img src="../resources/img/business/service2.jpg" alt="">
 						                            <div class="team-hover">
 						                                <div class="team-link">
 						                                    <ul>
-						                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+						                                        <li><a href="#"> <i class="fa fa-camera"></i> </a></li>
 						                                    </ul>
 						                                </div>
 						                            </div>
@@ -228,71 +293,111 @@
 						                    </div>
 						                </div>
 						            </div>
+                                    </div>
 						    		<div class="cctv-detail2 details-info">
-                                       <h3 class="business-name" style="font-size:30px; font-weight:300;">One Total CCTV Solution</h3>
+                                       <h3 class="business-name" style="font-size:24px; font-weight:300;">CCTV 설치 및 설계 예시</h3>
 	                                </div>
 	                                <div class="cctv-main details-thumb">
-                                       <img src="../resources/img/company/system.png" alt="">
-                                    </div>       
-                                </div>
-                            </div>
+                                       <img src="../resources/img/business/system.png" alt="">
+                                    </div>
+                			     </div>
+               			     </div>
+                            
+                            <!-----------------------------------정보통신공사------------------------------------>
+                            <div class="tab-pane fade" id="business2" role="tabpanel" aria-labelledby="profile-tab">
+                                 <div class="details-wrap">
+                                    <div class="details-info">
+                                        <h3 class="main-title">정보통신공사</h3>
+						        		<img style="width:100%;" src="../resources/img/business/lan_main.jpg" alt="">
+							        	<div class="cctv-detail1 details-info">
+							                <h3 class="business-name" style="font-size:24px; font-weight:300;">정보통신공사란?</h3>
+							                <p style="padding-top:20px; font-size:20px; font-weight:100">
+							                	통신회선에 문자, 영상 등 정보를 입출력 장치에 송신, 수신 처리하는 정보 통신의 설비를 설치 및 유지, 보수에 관한 공사를 뜻합니다.
+							                </p>
+							                <div class="row">
+								                <div class="col-xl-6 col-md-6">
+									                <h3 class="business-name" style="font-size:24px; margin-bottom:5%;">네트워크 구축</h3>
+									                <ul class="business-ul">
+									                	<li class="business-li">
+									                	 	<img src="../resources/img/business/lan.png" alt="">
+									                	 	<hr>
+									                	 	<p>LAN 구축공사</p>
+									                	</li>
+									                	<li class="business-li">
+									                	 	<img src="../resources/img/business/digital.png" alt="">
+									                	 	<hr>
+									                	 	<p>디지털 통신망 구축</p>
+									                	</li>
+									                </ul>
+									                <p style="padding-top:20px; font-size:20px; font-weight:100">
+									                	건물의 송수신 장비 및 통신장비를 설치하기 위한 설계, 시공, 개통에 필요한 업무를 수행 합니다.
+									                </p>
+								                </div>
+								                <div class="col-xl-6 col-md-6">
+									                <h3 class="business-name" style="font-size:24px; margin-bottom:5%;">CCTV 구축사업</h3>
+         									        <ul class="business-ul">
+									                	<li class="business-li">
+									                	 	<img src="../resources/img/business/cctv.png" alt="">
+									                	 	<hr>
+									                	 	<p>CCTV 노선설계 및 설치</p>
+									                	</li>
+									                	<li class="business-li">
+									                	 	<img src="../resources/img/business/center.png" alt="">
+									                	 	<hr>
+									                	 	<p>관제센터 설계 및 구축</p>
+									                	</li>
+									                </ul>
+									                <p style="padding-top:20px; font-size:20px; font-weight:100">
+									                	CCTV의 설계, 설비, 설치, 유지 보수까지 통합적으로 수행합니다.
+									                </p>
+								                </div>
+							                </div>
+							                <img style="width:100%;" src="../resources/img/business/lan_main.jpg" alt="">
+							                <img style="width:100%;" src="../resources/img/business/lan_main.jpg" alt="">
+							                <img style="width:100%;" src="../resources/img/business/lan_main.jpg" alt="">
+							                <img style="width:100%;" src="../resources/img/business/lan_main.jpg" alt="">
+							                <img style="width:100%;" src="../resources/img/business/lan_main.jpg" alt="">
+							            </div>
+	                			     </div>
+	               			     </div>
+               			     </div>
+               			     
+                            <!---------------------------------전자파용 특수 CCTV SYSTEM------------------------------------>
+                            <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="contact-tab">
+                                 <div class="details-wrap">
+                                    <div class="details-info">
+                                        <h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
+							        	<div class="cctv-detail1 details-info">
+							                <h3 class="business-name" style="font-size:24px; font-weight:300;">전자파용 특수 CCTV SYSTEM</h3>
+							                <p style="padding-top:20px; font-size:20px; font-weight:100">
+							                	다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의 연동 Network Lan 공사
+							                </p>
+							            </div>
+	                			     </div>
+	               			     </div>
+               			     </div>
+               			     
+                            <!---------------------------------광전송 SYSTEM------------------------------------>
+                            <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="contact-tab">
+                                 <div class="details-wrap">
+                                    <div class="details-info">
+                                        <h3 class="main-title">광전송 SYSTEM</h3>
+							        	<div class="cctv-detail1 details-info">
+							                <h3 class="business-name" style="font-size:24px; font-weight:300;">광전송 SYSTEM</h3>
+							                <p style="padding-top:20px; font-size:20px; font-weight:100">
+							                	다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의 연동 Network Lan 공사
+							                </p>
+							            </div>
+	                			     </div>
+	               			     </div>
+               			     </div>
                             
                             
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="details-wrap">
-                                    <div class="details-thumb">
-                                        <img src="../resources/img/service/service-details.jpg" alt="">
-                                    </div>
-                                    <div class="details-info">
-                                        <h3>Compatibility</h3>
-                                        <p>Two midst that won't place waters likeness. Them place good. Darkness meat
-                                            moved creeping whales firmament light so were from and given saying light
-                                            was his fruitful two. Creature saying in was heaven appear in dominion can't
-                                            sixth heaven winged lights bearing evening likeness. Above man thing. Fourth
-                                            lights. That had you're stars. You subdue form days years likeness female.
-                                        </p>
-                                    </div>
-                                    <div class="details-info">
-                                        <h3>Speciality</h3>
-                                        <p>Two midst that won't place waters likeness. Them place good. Darkness meat
-                                            moved creeping whales firmament light so were from and given saying light
-                                            was his fruitful two. Creature saying in was heaven appear in dominion can't
-                                            sixth heaven winged lights bearing evening likeness. Above man thing. Fourth
-                                            lights. That had you're stars. You subdue form days years likeness female.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                <div class="details-wrap">
-                                    <div class="details-thumb">
-                                        <img src="../resources/img/service/service-details.jpg" alt="">
-                                    </div>
-                                    <div class="details-info">
-                                        <h3>Compatibility</h3>
-                                        <p>Two midst that won't place waters likeness. Them place good. Darkness meat
-                                            moved creeping whales firmament light so were from and given saying light
-                                            was his fruitful two. Creature saying in was heaven appear in dominion can't
-                                            sixth heaven winged lights bearing evening likeness. Above man thing. Fourth
-                                            lights. That had you're stars. You subdue form days years likeness female.
-                                        </p>
-                                    </div>
-                                    <div class="details-info">
-                                        <h3>Speciality</h3>
-                                        <p>Two midst that won't place waters likeness. Them place good. Darkness meat
-                                            moved creeping whales firmament light so were from and given saying light
-                                            was his fruitful two. Creature saying in was heaven appear in dominion can't
-                                            sixth heaven winged lights bearing evening likeness. Above man thing. Fourth
-                                            lights. That had you're stars. You subdue form days years likeness female.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
+                 </div>
             </div>
         </div>
-    </div>
     <!-- service-details-end -->
 	
 
@@ -305,7 +410,28 @@
 	<!-- ================ contact section end ================= -->
 
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
-
+	
+	
+	<!--==========================스크롤 이미지 애니메이션============================-->
+	<script>
+	
+			$('.nav-link').on('click', function(){
+					console.log("들어옴")
+					$('.tab-pane img').css({"opacity":"0"});
+			})
+ 			$(window).scroll(function(){
+				$('img').each(function(i){
+					
+					var bottom_of_element = $(this).offset().top + $(this).outerHeight() / 3;
+					var bottom_of_window = $(window).scrollTop() + $(window).height();
+					
+					if(bottom_of_window > bottom_of_element){
+						console.log("너 드래그 했지?")
+						$(this).animate({'opacity':'1'},700);
+					}
+				})
+			})
+	</script>
 </body>
 
 
