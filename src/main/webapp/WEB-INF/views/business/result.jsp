@@ -263,7 +263,7 @@
 				<c:forEach var="idx" begin="${pageMaker2.startPage }" end="${pageMaker2.endPage }">
 					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 		 			<li ${pageMaker2.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-		 				<a href="result?page=${idx }" class="page-link">${idx}</a>
+		 				<a href="result?page=${idx }&tab=public-tab" class="page-link">${idx}</a>
 		 			</li>
 				</c:forEach>
 	 			<!-- 다음next -->
@@ -334,6 +334,62 @@
 										</c:choose>
 									</div>
 								</div>
+								
+																<!-- 페이징 처리 --> 
+		<!-- 데스크탑(5페이지씩)  -->
+		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
+			<ul class="big-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker3.prev }">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker3.startPage-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+				<c:forEach var="idx" begin="${pageMaker3.startPage }" end="${pageMaker3.endPage }">
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li ${pageMaker3.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
+		 				<a href="result?page=${idx }" class="page-link">${idx}</a>
+		 			</li>
+				</c:forEach>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker3.next && pageMaker3.endPage > 0}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker3.endPage+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		
+			<!-- 모바일(1페이지씩)  -->
+			<ul class="small-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker3.cri.page>1}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker3.cri.page-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li class="page-item active"}>
+		 				<a class="page-link">${pageMaker3.cri.page}</a>
+		 			</li>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker3.cri.page<pageMaker3.realEnd}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker3.cri.page+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		</nav>
+								
 							</div>
 							
 							
@@ -349,8 +405,14 @@
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
 <script>
+$(document).ready(function(){
+    $("#${tab}").click(); 
+});
+
+
+
 								/* data이름은 소문자만!!!!!! */
- $(".nav-link").click(function(){
+/*  $(".nav-link").click(function(){
 	var resultClass = $(this).data('resultclass');
 	console.log('클라스.........'+resultClass);
 	    $.ajax({
@@ -369,7 +431,7 @@
 	        }
 	    });
 });
-
+ */
 		
 
 		
