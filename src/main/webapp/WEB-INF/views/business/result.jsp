@@ -30,14 +30,50 @@
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
+.result_top{
+	text-align:center;
+	margin: 1%;
+	font-weight: 600;
+}
 .result_container {
-	display: flex;
+	/* display: flex; */
 	margin-bottom: 1%;
 	border-bottom: 1px solid #eee;
 }
 
 .resultContent {
 	padding: 10px;
+}
+.resultContentNone {
+	padding: 10px;
+	text-align: center;
+    margin-bottom: 1%;
+}
+.tabs{
+	font-size: large;
+	margin-left: 2%;"
+}
+.details-info{
+	padding-right: 0 !important;
+}
+</style>
+
+<style>
+.small-width-page{
+		display:none;
+	}
+@media only screen and (max-width: 767.5px){
+	.small-width-page{
+		display:flex;
+	}
+	.big-width-page{
+		display:none;
+	}
+}
+.pagination .page-item.active .page-link {
+	font-weight: 600;
+	color:black;
+    border-color: black;
 }
 </style>
 
@@ -70,198 +106,237 @@
 	<div class="service-details" style="padding-top: 70px;">
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-4">
+				<div class="col-xl-3">
 					<div class="details-nav" style="position: sticky;top: 10%;">
 						<nav>
 							<ul class="nav" id="myTab" role="tablist">
-								<li><div style="color: grey;font-size:large;margin: 2%;font-weight: 300;">Client</div></li>
-								<li class="nav-item"><a class="nav-link active show"
-									id="home-tab" data-toggle="tab" href="#home" role="tab"
-									aria-controls="home" aria-selected="true"
-									style="font-size: x-large;margin-left: 2%;">군사시설</a></li>
-								<li class="nav-item"><a class="nav-link" id="profile-tab"
-									data-toggle="tab" href="#profile" role="tab"
-									aria-controls="profile" aria-selected="false"
-									style="font-size: x-large;margin-left: 2%;">공공기관</a></li>
-								<li class="nav-item"><a class="nav-link" id="contact-tab"
-									data-toggle="tab" href="#contact" role="tab"
-									aria-controls="contact" aria-selected="false"
-									style="font-size: x-large;margin-left: 2%;">민간기업</a></li>
+								<li><div style="color: 	grey;margin: 2% 2% 1.3%;font-weight: 300;">Client</div></li>
+								
+								<li class="nav-item"><a class="tabs nav-link active show" id="home-tab" 			
+								data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" data-resultclass="군사시설">군사시설</a></li>
+								<li class="nav-item"><a class="tabs nav-link" id="public-tab" 
+								data-toggle="tab" href="#public" role="tab" aria-controls="public" aria-selected="false" data-resultclass="공공기관">공공기관</a></li>
+								<li class="nav-item"><a class="tabs nav-link" id="privateCorp-tab" 
+								data-toggle="tab" href="#privateCorp" role="tab" aria-controls="privateCorp" aria-selected="false" data-resultclass="민간기업">민간기업</a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
-				<div class="col-xl-8">
+				<div class="col-xl-9">
 					<div class="single-details">
 						<div class="tab-content" id="myTabContent">
+						
+						
+						
+						
 							<div class="tab-pane fade active show" id="home" role="tabpanel"
 								aria-labelledby="home-tab">
 								<div class="details-wrap">
-									<div class="details-thumb">
+									<!-- <div class="details-thumb">
                                         <img src="../resources/img/service/business.jpg" alt="">
-                                    </div>
+                                    </div> -->
 									<div class="details-info">
-										<div><h2 style="margin: 3.5% 0 0 1%;">주요 실적현황</h2><hr></div>
-										<div class="result_container">
-											<div class="resultContent">1기갑여단CCTV 설치공사, 수도방위사령부 CCTV 설치공사</div>
+										<div style="background: #FAFAFA">
+											<hr style="margin: 1% 0;">
+											<div class="result_top">주요 실적현황</div>
+											<hr style="margin: 1% 0;">
 										</div>
-										<div class="result_container">
-											<div class="resultContent">가납리 비행장 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">6군단사령부 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">공군 제15비행단 CCTV 유지보수</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">탄약고 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">양주 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">양양 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">화천 00사단 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">철원 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">육군훈련소 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">781 통신 경계용 CCT 설치납품</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">군단사령부 경계용 CCTV 설치납품</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">제5378부대 CCTV SYSTEM 유지보수.</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">서울환경전광판감시, 육군 5378부대 CCTV SYSTEM 유지보수 용역</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">진해해군관사 APT CCTV 설치공사.</div>
-										</div>
+										
+										<c:choose>
+											<c:when test="${business_list_1 != null and business_list_1.size()>0}">
+												<c:forEach items="${business_list_1}" var="business">
+													<c:if test="${business.resultClass == '군사시설'}">
+														<div class="result_container">
+															<div class="resultContent">${business.resultContnents}</div>
+														</div>
+													</c:if>
+												</c:forEach>
+											</c:when>
+											<c:otherwise>
+												<div class="result_container">
+													<div class="resultContentNone">등록된 글이 없습니다.</div>
+												</div>
+											</c:otherwise>
+										</c:choose>
 									</div>
 								</div>
+								
+		<!-- 페이징 처리 --> 
+		<!-- 데스크탑(5페이지씩)  -->
+		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
+			<ul class="big-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker1.prev }">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker1.startPage-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+				<c:forEach var="idx" begin="${pageMaker1.startPage }" end="${pageMaker1.endPage }">
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li ${pageMaker1.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
+		 				<a href="result?page=${idx }" class="page-link">${idx}</a>
+		 			</li>
+				</c:forEach>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker1.next && pageMaker1.endPage > 0}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker1.endPage+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		
+			<!-- 모바일(1페이지씩)  -->
+			<ul class="small-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker1.cri.page>1}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker1.cri.page-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li class="page-item active"}>
+		 				<a class="page-link">${pageMaker1.cri.page}</a>
+		 			</li>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker1.cri.page<pageMaker1.realEnd}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker1.cri.page+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		</nav>
+							
 							</div>
-							<div class="tab-pane fade" id="profile" role="tabpanel"
-								aria-labelledby="profile-tab">
+							
+							<div class="tab-pane fade" id="public" role="tabpanel"
+								aria-labelledby="public-tab">
 								<div class="details-wrap">
-									<div class="details-thumb">
-										<img src="../resources/img/service/service1.jpg" alt="">
-									</div>
 									<div class="details-info">
-										<div><h2 style="margin: 3.5% 0 0 1%;">주요 실적현황</h2><hr></div>
-										<div class="result_container">
-											<div class="resultContent">1기갑여단CCTV 설치공사, 수도방위사령부 CCTV 설치공사</div>
+										<div style="background: #FAFAFA">
+											<hr style="margin: 1% 0;">
+											<div class="result_top">주요 실적현황</div>
+											<hr style="margin: 1% 0;">
 										</div>
-										<div class="result_container">
-											<div class="resultContent">가납리 비행장 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">6군단사령부 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">공군 제15비행단 CCTV 유지보수</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">탄약고 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">양주 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">양양 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">화천 00사단 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">철원 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">육군훈련소 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">781 통신 경계용 CCT 설치납품</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">군단사령부 경계용 CCTV 설치납품</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">제5378부대 CCTV SYSTEM 유지보수.</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">서울환경전광판감시, 육군 5378부대 CCTV SYSTEM 유지보수 용역</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">진해해군관사 APT CCTV 설치공사.</div>
-										</div>
+										<c:choose>
+											<c:when test="${business_list_2 != null and business_list_2.size()>0}">
+												<c:forEach items="${business_list_2}" var="business">
+													<c:if test="${business.resultClass == '공공기관'}">
+														<div class="result_container">
+															<div class="resultContent">${business.resultContnents}</div>
+														</div>
+													</c:if>
+												</c:forEach>
+											</c:when>
+											<c:otherwise>
+												<div class="result_container">
+													<div class="resultContentNone">등록된 글이 없습니다.</div>
+												</div>
+											</c:otherwise>
+										</c:choose>
+										<p>${business_list}</p>
 									</div>
 								</div>
+							
+									<!-- 페이징 처리 --> 
+		<!-- 데스크탑(5페이지씩)  -->
+		<nav class="blog-pagination justify-content-center d-flex" style="margin-top: 5%;">
+			<ul class="big-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker2.prev }">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker2.startPage-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+				<c:forEach var="idx" begin="${pageMaker2.startPage }" end="${pageMaker2.endPage }">
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li ${pageMaker2.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
+		 				<a href="result?page=${idx }" class="page-link">${idx}</a>
+		 			</li>
+				</c:forEach>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker2.next && pageMaker2.endPage > 0}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker2.endPage+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		
+			<!-- 모바일(1페이지씩)  -->
+			<ul class="small-width-page pagination">
+	 			<!-- 이전prev -->
+	 			<c:if test="${pageMaker2.cri.page>1}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker2.cri.page-1}" class="page-link" aria-label="Previous"> 
+							<i class="ti-angle-left"></i>
+						</a>
+	 				</li>
+	 			</c:if>
+	 			<!-- 페이지블럭 -->
+					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
+		 			<li class="page-item active"}>
+		 				<a class="page-link">${pageMaker2.cri.page}</a>
+		 			</li>
+	 			<!-- 다음next -->
+	 			<c:if test="${pageMaker2.cri.page<pageMaker2.realEnd}">
+	 				<li class="page-item">
+	 					<a href="result?page=${pageMaker2.cri.page+1}" class="page-link" aria-label="Next">
+	 						<i class="ti-angle-right"></i>
+	 					</a>
+	 				</li>
+	 			</c:if>
+	 		</ul>
+		</nav>
+							
 							</div>
-							<div class="tab-pane fade" id="contact" role="tabpanel"
-								aria-labelledby="contact-tab">
+							
+							
+							<div class="tab-pane fade" id="privateCorp" role="tabpanel"
+								aria-labelledby="privateCorp-tab">
 								<div class="details-wrap">
-									<div class="details-thumb">
-										<img src="../resources/img/service/service2.jpg" alt="">
-									</div>
 									<div class="details-info">
-										<div><h2 style="margin: 3.5% 0 0 1%;">주요 실적현황</h2><hr></div>
-										<div class="result_container">
-											<div class="resultContent">1기갑여단CCTV 설치공사, 수도방위사령부 CCTV 설치공사</div>
+										<div style="background: #FAFAFA">
+											<hr style="margin: 1% 0;">
+											<div class="result_top">주요 실적현황</div>
+											<hr style="margin: 1% 0;">
 										</div>
-										<div class="result_container">
-											<div class="resultContent">가납리 비행장 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">6군단사령부 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">공군 제15비행단 CCTV 유지보수</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">탄약고 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">양주 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">양양 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">화천 00사단 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">철원 0000부대 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">육군훈련소 CCTV 설치공사</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">781 통신 경계용 CCT 설치납품</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">군단사령부 경계용 CCTV 설치납품</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">제5378부대 CCTV SYSTEM 유지보수.</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">서울환경전광판감시, 육군 5378부대 CCTV SYSTEM 유지보수 용역</div>
-										</div>
-										<div class="result_container">
-											<div class="resultContent">진해해군관사 APT CCTV 설치공사.</div>
-										</div>
+										<c:choose>
+										
+										<c:when test="${business_list_3 != null and business_list_3.size()>0}">
+											<c:forEach items="${business_list_3}" var="business">
+												<c:if test="${business.resultClass == '민간기업'}">
+													<div class="result_container">
+														<div class="resultContent">${business.resultContnents}</div>
+													</div>
+												</c:if>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<div class="result_container">
+												<div class="resultContentNone">등록된 글이 없습니다.</div>
+											</div>
+										</c:otherwise>
+											
+										</c:choose>
 									</div>
 								</div>
 							</div>
+							
+							
 						</div>
 					</div>
 				</div>
@@ -272,6 +347,33 @@
 
 
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
+
+<script>
+								/* data이름은 소문자만!!!!!! */
+ $(".nav-link").click(function(){
+	var resultClass = $(this).data('resultclass');
+	console.log('클라스.........'+resultClass);
+	    $.ajax({
+	        type : "POST",
+	        url : "/business/result2",
+	        data:{
+				'resultClass' : resultClass},
+			
+	        error : function() {
+	            alert('통신실패!!');
+	        },
+	        success : function(data) {
+	        	alert('통신됨!!');
+	        	alert(data.resultNum);
+	        	console.log('..........내용1 : '+data.resultContnents);
+	        }
+	    });
+});
+
+		
+
+		
+</script>
 
 </body>
 

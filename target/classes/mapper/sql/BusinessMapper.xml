@@ -4,7 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
 <mapper namespace="com.newvisioneng.mapper.BusinessMapper">
-	
+	<!-- 사업실적 목록 불러오기 -->
+	<select id="getBusinessList" resultType="com.newvisioneng.domain.BusinessDTO">
+		SELECT * FROM NV_BUSINESS_RESULT WHERE RESULTCLASS = #{resultClass} ORDER BY RESULTNUM DESC LIMIT #{pageStart},#{pageSize}
+	</select>
+	<select id="getBusinessTotal" resultType="_int">
+		SELECT COUNT(*) FROM NV_BUSINESS_RESULT WHERE RESULTCLASS = #{resultClass} and RESULTNUM>0
+	</select>
 	
 </mapper>
 
