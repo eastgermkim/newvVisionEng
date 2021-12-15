@@ -37,19 +37,11 @@ public class BusinessController {
 	
 	//사업실적 페이지로 연결(+목록 가져오기)
 	@GetMapping("/result")
-	public String result(@RequestParam(value="tab",required=false)String tab,Model model,Criteria cri, HttpServletRequest req) {
+	public String result(Model model,Criteria cri, HttpServletRequest req) {
 		log.info("------business_list-------");
 		
 		cri.setPageSize(15);
-		System.out.println("tab1 : "+tab);
-		
-		if(tab==null) {
-			tab="home-tab";
-		}
-		
-		model.addAttribute("tab",tab);
-		
-		System.out.println("tab2 : "+tab);
+		log.info("cri : "+cri);
 
 		//DB 검색
 		model.addAttribute("business_list_1",service.getBusinessList(cri,"군사시설"));
@@ -62,6 +54,34 @@ public class BusinessController {
 		model.addAttribute("pageMaker3",new PageDTO(service.getBusinessTotal("민간기업"), cri));
 		
 		return "/business/result";
+	}
+	
+	//사업실적 페이지에서 ajax로 각 리스트 페이지 이동
+	@GetMapping("/result_pageAjax")
+	public String result_pageAjax(Model model,Criteria cri, HttpServletRequest req,
+			@RequestParam(value="page",required=false)String page,
+			@RequestParam(value="tab",required=false)String tab,
+			@RequestParam(value="tabId",required=false)String tabId
+			) {
+		log.info("------------business_list_pageAjax-------------");
+		
+		log.info("넘어온 tab값.........."+tab);
+		log.info("넘어온 tabId값.........."+tabId);
+		log.info("넘어온 page값.........."+page);
+		
+		cri.setPageSize(15);
+		cri.setPage(Integer.parseInt(page));
+
+		log.info("cri : "+cri);
+		
+		//DB 검색
+		model.addAttribute("business_list",service.getBusinessList(cri,tab));
+		model.addAttribute("pageMaker",new PageDTO(service.getBusinessTotal(tab), cri));
+		
+		model.addAttribute("tab",tab);
+		model.addAttribute("tabId",tabId);
+		
+		return "/business/result_pageAjax";
 	}
 
 }
