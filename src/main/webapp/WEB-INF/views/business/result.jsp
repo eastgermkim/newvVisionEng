@@ -75,6 +75,11 @@
 	color:black;
     border-color: black;
 }
+.genric-btn.primary-border {
+    color: black;
+    border: 1px solid black;
+    margin: 1% 0;
+}
 </style>
 
 </head>
@@ -110,7 +115,7 @@
 					<div class="details-nav" style="position: sticky;top: 10%;">
 						<nav>
 							<ul class="nav" id="myTab" role="tablist">
-								<li><div style="color: 	grey;margin: 2% 2% 1.3%;font-weight: 300;">Client</div></li>
+								<li><div style="color: 	grey;margin: 2% 2% 1.3%;font-weight: 300;">Business Area</div></li>
 								
 								<li class="nav-item"><a class="tabs nav-link active show" id="home-tab" 			
 								data-toggle="tab" href="#military" role="tab" aria-controls="military" aria-selected="true">군사시설</a></li>
@@ -120,6 +125,11 @@
 								data-toggle="tab" href="#privateCorp" role="tab" aria-controls="privateCorp" aria-selected="false">민간기업</a></li>
 							</ul>
 						</nav>
+						<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+							<div style="text-align: center; padding: 5%;">
+						       	<a href="/business/result_write" class="genric-btn primary-border circle">새 사업실적 등록</a>
+						    </div>
+						</c:if>
 					</div>
 				</div>
 				<div class="col-xl-9">
