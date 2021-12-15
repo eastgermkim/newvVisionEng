@@ -12,6 +12,7 @@
 				<div class="result_top">주요 실적현황</div>
 				<hr style="margin: 1% 0;">
 			</div>
+			<div class="newDiv" style="opacity: 0;">
 				<c:choose>
 					<c:when test="${business_list != null and business_list.size()>0}">
 						<c:forEach items="${business_list}" var="business">
@@ -26,6 +27,7 @@
 						</div>
 					</c:otherwise>
 				</c:choose>
+			</div>
 		</div>
 	</div>
 

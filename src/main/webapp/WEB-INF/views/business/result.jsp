@@ -412,6 +412,7 @@ function ChangePage(page,tab,tabId){
 	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
 	    	 //id가 tabId인 요소의 내용을 변경
 	          $('#'+tabId).html(data);
+	          $('.newDiv').animate({opacity: "1"}, 200);
 	     },
 	});
 };
