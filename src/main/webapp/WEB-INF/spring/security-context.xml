@@ -49,6 +49,8 @@
         <sec:intercept-url pattern="/recruit/recruit_modify_filedelete/**" access="isAuthenticated()" />
         <sec:intercept-url pattern="/recruit/recruit_modifyOK/**" access="isAuthenticated()" />
         <sec:intercept-url pattern="/recruit/recruit_delete/**" access="isAuthenticated()" />
+
+        <sec:intercept-url pattern="/business/result_write/**" access="isAuthenticated()" />
         
         <!-- 인증한 사용자(로그인 상태)만 새로운 ID 가입 가능하도록 -->
         <sec:intercept-url pattern="/join" access="isAuthenticated()" />

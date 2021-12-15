@@ -83,5 +83,10 @@ public class BusinessController {
 		
 		return "/business/result_pageAjax";
 	}
+	//사업실적 페이지에서 ajax로 각 리스트 페이지 이동
+	@GetMapping("/result_write")
+	public void result_write() {
+		log.info("------------new_business_result-------------");
+	}
 
 }
