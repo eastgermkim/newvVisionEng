@@ -141,6 +141,10 @@
     <script src="/resources/js/mail-script.js"></script>
                  
     <script src="/resources/js/main.js"></script>
+    
+    <!-- aos --> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
 
   
 </body>

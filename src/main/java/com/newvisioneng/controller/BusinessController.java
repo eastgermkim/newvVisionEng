@@ -26,10 +26,28 @@ public class BusinessController {
 	private BusinessService service;
 	
 	//사업소개 페이지로 연결
-	@GetMapping("/area")
+	@GetMapping("/business_cctv")
+	public String cctv() {
+		
+		return "/business/business_cctv";
+	}
+	//사업소개 페이지로 연결
+	@GetMapping("/business_com")
+	public String communicate() {
+		
+		return "/business/business_com";
+	}
+	//사업소개 페이지로 연결
+	@GetMapping("/business_sp")
+	public String special() {
+		
+		return "/business/business_sp";
+	}
+	//사업소개 페이지로 연결
+	@GetMapping("/business_fo")
 	public String introduce() {
 		
-		return "/business/business";
+		return "/business/business_fo";
 	}
 
 	

@@ -130,7 +130,7 @@
 											</ul>
 										</li>
 										
-										<li><a id="tab2" href="/business/area">사업소개</a>
+										<li><a id="tab2" href="/business/business_cctv">사업소개</a>
 										</li>
 										
 										<li><a id="tab3" href="/business/result">사업실적</a>
