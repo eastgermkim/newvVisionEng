@@ -271,7 +271,7 @@ $(document).ready(function () {
         return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
         
     });
-    // Form Submit
+    // Form Submit은 경고 안뜨도록
     $(document).on("submit", "form", function(event){
         // disable warning
         $(window).off('beforeunload');

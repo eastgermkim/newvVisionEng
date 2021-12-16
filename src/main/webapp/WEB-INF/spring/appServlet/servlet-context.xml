@@ -30,21 +30,12 @@
 	<!-- 파일 업로드로 들어오는 데이터를 처리하는 객체 -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name="maxUploadSize" value="20971520" /> <!-- 20mb 제한 -->
+		<beans:property name="maxUploadSize" value="104857600" /> <!-- 100mb 제한 -->
 	</beans:bean>
-	
-	<!-- 업로드된 파일의 저장 위치 지정 -->
-	<!-- <beans:bean id="uploadPath" class="java.lang.String">
-			value="C:/Users/Yeah_gram/git/newVisionEng/src/main/webapp/resources/temp_img">
-		<beans:constructor-arg
-			value="D:/NewVisionEng_SpringProject/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/newVisionEng/resources/temp_img">
-		</beans:constructor-arg>
-	</beans:bean> -->
+
 
 	<context:component-scan
 		base-package="com.newvisioneng.controller" />
-	<context:component-scan
-		base-package="com.newvisioneng.util" />
 
 
 </beans:beans>

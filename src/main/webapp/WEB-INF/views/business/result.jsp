@@ -50,7 +50,12 @@
     margin-bottom: 1%;
 }
 .tabs{
-	font-size: large;
+	font-size: large !important;
+	margin-left: 2%;"
+}
+.tabs.active{
+	font-size: large !important;
+	font-weight:500 !important;
 	margin-left: 2%;"
 }
 .details-info{
@@ -69,6 +74,9 @@
 	.big-width-page{
 		display:none;
 	}
+	.toList{
+	width:100%!important;
+	}
 }
 .pagination .page-item.active .page-link {
 	font-weight: 600;
@@ -79,6 +87,104 @@
     color: black;
     border: 1px solid black;
     margin: 1% 0;
+}
+.genric-btn.primary:hover {
+	background: #ED1E23;
+	color: #fff;
+}
+.genric-btn.primary-border:hover{
+    color: white !important;
+}
+.genric-btn.primary-border.noColor:hover{
+    color: black !important;
+    background: #D8D8D8;
+}
+</style>
+
+<!-- 글등록 팝업창 관련 스타일 -->
+<style>
+#popup_wrap {
+	width: 560px;
+	/* height: 270px; */
+	height: 240px;
+	background: #fff;
+	border: solid 1px #666666;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* margin: -250px 0 0 -250px; */
+	z-index: 9999;
+	display: none;
+	
+	align-items: center;
+	margin-left: -280px;
+	margin-top: -200px;
+}
+
+#mask {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.7) repeat;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	display: none;
+}
+
+.popup-cont01 {
+	/* width: 478px; */
+	/* width: 570px; */
+	width: 100%;
+	/* margin: 40px auto; */
+	margin: 5%;
+	text-align: center;
+}
+
+.popup-cont01 button {
+	width: 138px;
+	height: 36px;
+	line-height: 36px;
+	background: #9f2f60;
+	color: #ffffff;
+	text-align: center;
+	border: none;
+	font-size: 16px;
+}
+@media only screen and (max-width: 767.5px){
+	#popup_wrap {
+	width: 90%;
+    margin-left: -45%;
+	}
+	.big-width-table{
+		display: none;
+	}
+}
+
+
+.single-input {
+	/* border-bottom: inset; */
+	background: none;
+	padding-left: 5%;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	line-height: 2em;
+}
+#subject{
+	width: 35%;
+    text-align: center;
+}
+</style>
+
+<style>
+#hideModify{
+	display: none;
+}
+.modifyDeleteBtn{
+	display: none;
 }
 </style>
 
@@ -98,7 +204,7 @@
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>사업실적</h2>
-							<p style="opacity: 0.6">New Vision ENG. 본사</p>
+							<p style="opacity: 0.6">New Vision ENG. Performance</p>
 						</div>
 					</div>
 				</div>
@@ -126,9 +232,15 @@
 							</ul>
 						</nav>
 						<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
-							<div style="text-align: center; padding: 5%;">
-						       	<a href="/business/result_write" class="genric-btn primary-border circle">새 사업실적 등록</a>
-						    </div>
+						    <div class="btn-list" style="padding-top: 4%;" id="popup_open">
+							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">새 사업실적 등록</a>
+							</div>
+						    <div class="btn-list" style="padding-top: 4%;" id="showModify">
+							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">수정/삭제하기</a>
+							</div>
+						    <div class="btn-list" style="padding-top: 4%;" id="hideModify">
+							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">수정/삭제완료</a>
+							</div>
 						</c:if>
 					</div>
 				</div>
@@ -323,6 +435,13 @@
 										<c:when test="${business_list_3 != null and business_list_3.size()>0}">
 											<c:forEach items="${business_list_3}" var="business">
 													<div class="result_container">
+															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+																<div style="padding-top: 1%" class="modifyDeleteBtn">
+																	<a href="#" style="color: blue;">수정 </a>
+																	<span>|</span>
+																	<a href="#" style="color: red;">삭제 </a>
+																</div>
+															</c:if>
 														<div class="resultContent">${business.resultContnents}</div>
 													</div>
 											</c:forEach>
@@ -401,9 +520,94 @@
 	</div>
 	<!-- service-details-end -->
 
-
+	<!-- 사업실적 등록 폼 레이어팝업 -->
+	<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+	<div id="popup_wrap">
+		<div class="popup-cont01">
+			<form method="post" action="/business/result_writeOK" id="resultForm">
+	
+				<table>
+					<tbody>
+						<tr>
+							<th class="big-width-table"><span>분류</span></th>
+							<th style="padding-left: 5%;text-align: left;">
+							
+								<select id="subject" name="subject">
+									<option value="" selected disabled hidden>사업 분류</option>
+									<option value="군사시설">군사시설</option>
+									<option value="공공기관">공공기관</option>
+									<option value="민간기업">민간기업</option>
+								</select>
+								
+							</th>
+						</tr>
+						<tr>
+							<th class="big-width-table"><span>내용</span></th>
+							<th><input class="single-input" id="resultTitle" name="resultTitle"
+								type="text" placeholder="내용을 입력하세요"></th>
+						</tr>
+					</tbody>
+				</table>
+				<hr>
+				
+				<!-- csrf도 함께 -->
+				<%-- <sec:csrfInput/> --%>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							
+				<div class="col-12" style="text-align: center;">
+					<input type="submit" value="등록" id="regist" class="genric-btn primary circle" style="margin-right: 1%;"> 
+					<a class="genric-btn primary-border circle noColor" id="popup_close">목록으로 돌아가기</a>
+				</div>
+			</form>
+	  </div>
+	</div>
+	<div id="mask"></div>
+</c:if>
+	
+	
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
+<script> 
+$(document).ready(function(){ 
+	$("#popup_open").click(function(){ 
+		/* $("#popup_wrap").css("display", "block");  */
+		$("#popup_wrap").css("display", "flex"); 
+		$("#mask").css("display", "block"); 
+	}); 
+	$("#popup_close").click(function(){ 
+		$("#popup_wrap").css("display", "none"); 
+		$("#mask").css("display", "none"); 
+	}); 
+}); 
+
+$("#regist").on('click',function(){
+	//사업 분류 선택 안함
+	if($("#subject").val() == null){
+		alert("사업 분류를 선택해 주세요.");
+		$("subject").focus();
+		return false;
+	}
+	//문의 내용 없으면 막아주기
+	if($("#resultTitle").val() ==""){
+		alert("내용이 없습니다.");
+		$("resultTitle").focus();
+		return false;
+	}
+})
+
+$("#showModify").on('click',function(){
+	$(".modifyDeleteBtn").css("display","block");
+	$("#showModify").css("display","none");
+	$("#hideModify").css("display","block");
+});
+
+$("#hideModify").on('click',function(){
+	$(".modifyDeleteBtn").css("display","none");
+	$("#showModify").css("display","block");
+	$("#hideModify").css("display","none");
+});
+</script>
 <script>
+
 function ChangePage(page,tab,tabId){
 	console.log("page........."+page);
 	console.log("tab........."+tab);

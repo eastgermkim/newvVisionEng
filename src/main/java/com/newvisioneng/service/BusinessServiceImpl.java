@@ -43,5 +43,14 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 		
 		return mapper.getBusinessTotal(resultClass);
 	}
+	@Override
+	public void registBusinessResult(String resultClass, String resultTitle) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("resultClass", resultClass);
+		map.put("resultTitle", resultTitle);
+		
+		mapper.insertBusinessResult(map);
+	}
 
 }

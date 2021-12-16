@@ -5,8 +5,8 @@ import com.newvisioneng.domain.AdminDTO;
 
 public interface AdminMapper {
 
-	Account getAccountById(String id);
-	void insertAccount(Account account);
+	public Account getAccountById(String id);
+	public void insertAccount(Account account);
 	
 	/*String adminLoginCheck(AdminDTO admin);*/
 }

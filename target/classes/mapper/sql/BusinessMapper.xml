@@ -11,6 +11,10 @@
 	<select id="getBusinessTotal" resultType="_int">
 		SELECT COUNT(*) FROM NV_BUSINESS_RESULT WHERE RESULTCLASS = #{resultClass} and RESULTNUM>0
 	</select>
+	<insert id="insertBusinessResult">
+		INSERT INTO NV_BUSINESS_RESULT(RESULTCLASS,RESULTCONTNENTS) 
+		VALUES (#{resultClass},#{resultTitle})
+	</insert>
 	
 </mapper>
 

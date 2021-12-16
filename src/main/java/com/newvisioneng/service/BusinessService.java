@@ -11,5 +11,7 @@ public interface BusinessService {
 	public List<BusinessDTO> getBusinessList(Criteria cri,String resultType);
 	//사업실적 총 글 개수
 	public int getBusinessTotal(String resultClass);
+	//사업실적 새 글 등록
+	public void registBusinessResult(String resultClass, String resultTitle);
 
 }

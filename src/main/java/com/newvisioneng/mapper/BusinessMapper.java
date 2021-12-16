@@ -12,5 +12,7 @@ public interface BusinessMapper {
 	public List<BusinessDTO> getBusinessList(Map<String, Object> map);
 	//사업실적 전체개수
 	public int getBusinessTotal(String resultClass);
+	//사업실적 등록
+	public void insertBusinessResult(Map<String, Object> map);
 
 }

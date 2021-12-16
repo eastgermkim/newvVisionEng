@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -101,10 +102,17 @@ public class BusinessController {
 		
 		return "/business/result_pageAjax";
 	}
-	//사업실적 페이지에서 ajax로 각 리스트 페이지 이동
-	@GetMapping("/result_write")
-	public void result_write() {
-		log.info("------------new_business_result-------------");
+	
+	//사업실적 등록
+	@PostMapping("/result_writeOK")
+	public String result_writeOK(@RequestParam("subject")String resultClass, @RequestParam("resultTitle")String resultTitle) {
+		log.info("------------new_business_resultOK-------------");
+		log.info("등록된 사업실적의 분류..........."+resultClass);
+		log.info("등록된 사업실적 내용..........."+resultTitle);
+		
+		service.registBusinessResult(resultClass,resultTitle);
+		
+		return "redirect:/business/result";
 	}
 
 }
