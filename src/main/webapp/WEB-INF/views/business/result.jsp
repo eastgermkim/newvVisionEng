@@ -179,7 +179,13 @@ table {
 }
 </style>
 
+
 <style>
+.hideModifyBtn{
+	background: #f36d20 !important;
+	color:white !important;
+	border: none !important;
+}
 #hideModify{
 	display: none;
 }
@@ -236,10 +242,10 @@ table {
 							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">새 사업실적 등록</a>
 							</div>
 						    <div class="btn-list" style="padding-top: 4%;" id="showModify">
-							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">수정/삭제하기</a>
+							<a class="genric-btn primary-border e-large toList noColor" style="width:100%; font-size:15px;">수정/삭제하기</a>
 							</div>
 						    <div class="btn-list" style="padding-top: 4%;" id="hideModify">
-							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">수정/삭제완료</a>
+							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;">수정/삭제완료</a>
 							</div>
 						</c:if>
 					</div>
@@ -268,6 +274,13 @@ table {
 											<c:when test="${business_list_1 != null and business_list_1.size()>0}">
 												<c:forEach items="${business_list_1}" var="business">
 														<div class="result_container">
+															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+																<div style="padding-top: 1%" class="modifyDeleteBtn">
+																	<a href="#" style="color: blue;">수정 </a>
+																	<span>|</span>
+																	<a href="#" style="color: red;">삭제 </a>
+																</div>
+															</c:if>
 															<div class="resultContent">${business.resultContnents}</div>
 														</div>
 												</c:forEach>
@@ -351,6 +364,13 @@ table {
 												<c:when test="${business_list_2 != null and business_list_2.size()>0}">
 													<c:forEach items="${business_list_2}" var="business">
 															<div class="result_container">
+																<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+																	<div style="padding-top: 1%" class="modifyDeleteBtn">
+																		<a href="#" style="color: blue;">수정 </a>
+																		<span>|</span>
+																		<a href="#" style="color: red;">삭제 </a>
+																	</div>
+																</c:if>
 																<div class="resultContent">${business.resultContnents}</div>
 															</div>
 													</c:forEach>

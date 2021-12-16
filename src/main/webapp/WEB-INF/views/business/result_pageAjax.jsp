@@ -17,6 +17,13 @@
 					<c:when test="${business_list != null and business_list.size()>0}">
 						<c:forEach items="${business_list}" var="business">
 								<div class="result_container">
+									<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+										<div style="padding-top: 1%" class="modifyDeleteBtn">
+											<a href="#" style="color: blue;">수정 </a>
+											<span>|</span>
+											<a href="#" style="color: red;">삭제 </a>
+										</div>
+									</c:if>
 									<div class="resultContent">${business.resultContnents}</div>
 								</div>
 						</c:forEach>
