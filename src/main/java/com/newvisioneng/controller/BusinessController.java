@@ -24,7 +24,7 @@ public class BusinessController {
 
 	@Setter(onMethod_=@Autowired)
 	private BusinessService service;
-	
+	//gd
 	//사업소개 페이지로 연결
 	@GetMapping("/business_cctv")
 	public String cctv() {
