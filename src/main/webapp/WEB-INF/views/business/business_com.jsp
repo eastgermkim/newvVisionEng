@@ -235,7 +235,7 @@
 														<p>디지털 통신망 구축</p></li>
 												</ul>
 												<p style="padding-top: 20px; font-size: 20px; font-weight: 100" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
-													건물의 송수신 장비 및 통신장비를 설치하기 위한 설계, 시공, 개통에 필요한 업무를 수행 합니다.
+													고객의 요구사항, 전산환경 및 통신환경을 분석해 <br>송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.
 												</p>
 											</div>
 											<div class="col-xl-6 col-md-6">
