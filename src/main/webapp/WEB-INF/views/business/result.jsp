@@ -276,9 +276,10 @@ table {
 														<div class="result_container">
 															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
+																	번호 : ${business.resultNum}
 																	<a href="#" style="color: blue;">수정 </a>
 																	<span>|</span>
-																	<a href="#" style="color: red;">삭제 </a>
+																	<a href="/business/result_delete/${business.resultNum}" style="color: red;">삭제 </a>
 																</div>
 															</c:if>
 															<div class="resultContent">${business.resultContnents}</div>
@@ -368,7 +369,7 @@ table {
 																	<div style="padding-top: 1%" class="modifyDeleteBtn">
 																		<a href="#" style="color: blue;">수정 </a>
 																		<span>|</span>
-																		<a href="#" style="color: red;">삭제 </a>
+																		<a href="/business/result_delete/${business.resultNum}" style="color: red;">삭제 </a>
 																	</div>
 																</c:if>
 																<div class="resultContent">${business.resultContnents}</div>
@@ -459,7 +460,7 @@ table {
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
 																	<a href="#" style="color: blue;">수정 </a>
 																	<span>|</span>
-																	<a href="#" style="color: red;">삭제 </a>
+																	<a href="/business/result_delete/${business.resultNum}" style="color: red;">삭제 </a>
 																</div>
 															</c:if>
 														<div class="resultContent">${business.resultContnents}</div>
@@ -596,7 +597,13 @@ $(document).ready(function(){
 	$("#popup_close").click(function(){ 
 		$("#popup_wrap").css("display", "none"); 
 		$("#mask").css("display", "none"); 
-	}); 
+	});
+	
+	//삭제시 알림창
+	if ("${deleteSuccess}" != "") {
+		alert("${deleteSuccess}");
+		showModify();
+	}
 }); 
 
 $("#regist").on('click',function(){
@@ -614,19 +621,24 @@ $("#regist").on('click',function(){
 	}
 })
 
-$("#showModify").on('click',function(){
+function showModify(){
 	$(".modifyDeleteBtn").css("display","block");
 	$("#showModify").css("display","none");
 	$("#hideModify").css("display","block");
-});
-
-$("#hideModify").on('click',function(){
+};
+function hideModify(){
 	$(".modifyDeleteBtn").css("display","none");
 	$("#showModify").css("display","block");
 	$("#hideModify").css("display","none");
+};
+
+$("#showModify").on('click',function(){
+	showModify();
 });
-</script>
-<script>
+
+$("#hideModify").on('click',function(){
+	hideModify();
+});
 
 function ChangePage(page,tab,tabId){
 	console.log("page........."+page);
@@ -649,8 +661,10 @@ function ChangePage(page,tab,tabId){
 	          $('.newDiv').animate({opacity: "1"}, 200);
 	     },
 	});
+	hideModify();
 };
 		
+	
 </script>
 
 </body>

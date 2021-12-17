@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.PageDTO;
@@ -111,6 +113,20 @@ public class BusinessController {
 		log.info("등록된 사업실적 내용..........."+resultTitle);
 		
 		service.registBusinessResult(resultClass,resultTitle);
+		
+		return "redirect:/business/result";
+	}
+	
+	//사업실적 삭제
+	@GetMapping("/result_delete/{resultNum}")
+	public String result_delete(@PathVariable("resultNum")Long resultNum,RedirectAttributes ra) {
+		log.info("------------business_delete-------------");
+		
+		if(service.deleteBusinessResult(resultNum)) {
+			log.info(".....................사업실적 삭제 성공");
+			ra.addFlashAttribute("deleteSuccess", "삭제 되었습니다");
+		}
+		
 		
 		return "redirect:/business/result";
 	}

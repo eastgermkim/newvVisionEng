@@ -43,6 +43,7 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 		
 		return mapper.getBusinessTotal(resultClass);
 	}
+	//사업실적 등록
 	@Override
 	public void registBusinessResult(String resultClass, String resultTitle) {
 		
@@ -51,6 +52,11 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 		map.put("resultTitle", resultTitle);
 		
 		mapper.insertBusinessResult(map);
+	}
+	//사업실적 삭제
+	@Override
+	public boolean deleteBusinessResult(Long resultNum) {
+		return mapper.deleteBusinessResult(resultNum) == 1;
 	}
 
 }

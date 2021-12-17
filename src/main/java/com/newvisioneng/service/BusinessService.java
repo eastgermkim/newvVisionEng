@@ -13,5 +13,7 @@ public interface BusinessService {
 	public int getBusinessTotal(String resultClass);
 	//사업실적 새 글 등록
 	public void registBusinessResult(String resultClass, String resultTitle);
+	//사업실적 글 삭제
+	public boolean deleteBusinessResult(Long resultNum);
 
 }

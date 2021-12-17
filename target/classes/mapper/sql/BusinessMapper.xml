@@ -15,7 +15,9 @@
 		INSERT INTO NV_BUSINESS_RESULT(RESULTCLASS,RESULTCONTNENTS) 
 		VALUES (#{resultClass},#{resultTitle})
 	</insert>
-	
+	<delete id="deleteBusinessResult">
+		DELETE FROM NV_BUSINESS_RESULT WHERE RESULTNUM = #{resultNum}
+	</delete>
 </mapper>
 
 
