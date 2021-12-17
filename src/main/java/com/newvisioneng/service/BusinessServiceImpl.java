@@ -45,13 +45,13 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 	}
 	//사업실적 등록
 	@Override
-	public void registBusinessResult(String resultClass, String resultTitle) {
+	public boolean registBusinessResult(String resultClass, String resultTitle) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("resultClass", resultClass);
 		map.put("resultTitle", resultTitle);
 		
-		mapper.insertBusinessResult(map);
+		return mapper.insertBusinessResult(map)==1;
 	}
 	//사업실적 삭제
 	@Override

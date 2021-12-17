@@ -222,7 +222,7 @@ table {
 	<!-- service-details-start -->
 	<div class="service-details" style="padding-top: 70px;">
 		<div class="container">
-			<div class="row">
+			<div class="row" id="refresh">
 				<div class="col-xl-3">
 					<div class="details-nav" style="position: sticky;top: 10%;">
 						<nav>
@@ -242,10 +242,10 @@ table {
 							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">새 사업실적 등록</a>
 							</div>
 						    <div class="btn-list" style="padding-top: 4%;" id="showModify">
-							<a class="genric-btn primary-border e-large toList noColor" style="width:100%; font-size:15px;">수정/삭제하기</a>
+							<a class="genric-btn primary-border e-large toList noColor" style="width:100%; font-size:15px;" href="javascript:showModify();">수정/삭제하기</a>
 							</div>
 						    <div class="btn-list" style="padding-top: 4%;" id="hideModify">
-							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;">수정/삭제완료</a>
+							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;" href="javascript:hideModify();">수정/삭제완료</a>
 							</div>
 						</c:if>
 					</div>
@@ -279,7 +279,9 @@ table {
 																	번호 : ${business.resultNum}
 																	<a href="#" style="color: blue;">수정 </a>
 																	<span>|</span>
-																	<a href="/business/result_delete/${business.resultNum}" style="color: red;">삭제 </a>
+																	<a href="javascript:void(0);" 
+																	onclick="remove(${business.resultNum},${pageMaker1.cri.page},'군사시설','military');" 
+																	style="color: red;">삭제 </a>
 																</div>
 															</c:if>
 															<div class="resultContent">${business.resultContnents}</div>
@@ -369,7 +371,9 @@ table {
 																	<div style="padding-top: 1%" class="modifyDeleteBtn">
 																		<a href="#" style="color: blue;">수정 </a>
 																		<span>|</span>
-																		<a href="/business/result_delete/${business.resultNum}" style="color: red;">삭제 </a>
+																		<a href="javascript:void(0);" 
+																		onclick="remove(${business.resultNum},${pageMaker2.cri.page},'공공기관','public');" 
+																		style="color: red;">삭제 </a>
 																	</div>
 																</c:if>
 																<div class="resultContent">${business.resultContnents}</div>
@@ -460,7 +464,9 @@ table {
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
 																	<a href="#" style="color: blue;">수정 </a>
 																	<span>|</span>
-																	<a href="/business/result_delete/${business.resultNum}" style="color: red;">삭제 </a>
+																	<a href="javascript:void(0);" 
+																		onclick="remove(${business.resultNum},${pageMaker3.cri.page},'민간기업','privateCorp');" 
+																		style="color: red;">삭제 </a>
 																</div>
 															</c:if>
 														<div class="resultContent">${business.resultContnents}</div>
@@ -576,7 +582,7 @@ table {
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							
 				<div class="col-12" style="text-align: center;">
-					<input type="submit" value="등록" id="regist" class="genric-btn primary circle" style="margin-right: 1%;"> 
+					<a href="javascript:void(0);" id="regist" class="genric-btn primary circle" style="margin-right: 1%;">등록</a> 
 					<a class="genric-btn primary-border circle noColor" id="popup_close">목록으로 돌아가기</a>
 				</div>
 			</form>
@@ -589,6 +595,7 @@ table {
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 <script> 
 $(document).ready(function(){ 
+	//글등록 팝업 관련 설정
 	$("#popup_open").click(function(){ 
 		/* $("#popup_wrap").css("display", "block");  */
 		$("#popup_wrap").css("display", "flex"); 
@@ -598,14 +605,9 @@ $(document).ready(function(){
 		$("#popup_wrap").css("display", "none"); 
 		$("#mask").css("display", "none"); 
 	});
-	
-	//삭제시 알림창
-	if ("${deleteSuccess}" != "") {
-		alert("${deleteSuccess}");
-		showModify();
-	}
 }); 
 
+//글 등록시
 $("#regist").on('click',function(){
 	//사업 분류 선택 안함
 	if($("#subject").val() == null){
@@ -619,7 +621,47 @@ $("#regist").on('click',function(){
 		$("resultTitle").focus();
 		return false;
 	}
-})
+	//글 등록 함수호출
+	$("#popup_wrap").css("display", "none"); 
+	$("#mask").css("display", "none"); 
+	regist();
+});
+
+//글 등록 함수(ajax)
+function regist(){
+	console.log("subject........."+$("#subject").val());
+	console.log("resultTitle......"+$("#resultTitle").val());
+	
+	var subject = $("#subject").val();
+	
+	$.ajax({
+	     type : "POST",
+	     url : "/business/result_writeOK/",
+	     data : {
+	    	 "subject" : $("#subject").val(),
+	    	 "resultTitle" : $("#resultTitle").val(),
+	     },
+	     dataType : "text",
+	     success : function(data){
+	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
+	    	 //id가 tabId인 요소의 내용을 변경
+	    	 	var tabId = '';
+		    	 if(subject == "군사시설") {
+		 			tabId = "military";
+		 		} else if(subject  == "공공기관") {
+		 			tabId = "public";
+		 		} else if(subject  ==  "민간기업") {
+		 			tabId = "privateCorp";
+		 		}
+	    	 
+	    	  $('#'+tabId).html(data);
+	          $('.newDiv').animate({opacity: "1"}, 200);
+	          if($("#showModify").css("display")=="none"){
+	        	  $(".modifyDeleteBtn").css("display","block");
+	          }
+	     },
+	});
+};
 
 function showModify(){
 	$(".modifyDeleteBtn").css("display","block");
@@ -632,14 +674,16 @@ function hideModify(){
 	$("#hideModify").css("display","none");
 };
 
+// '수정/삭제하기' 버튼 눌렀을때
 $("#showModify").on('click',function(){
 	showModify();
 });
-
+// '수정/삭제완료' 버튼 눌렀을때
 $("#hideModify").on('click',function(){
 	hideModify();
 });
 
+//페이지 이동시 ajax를 통해 부분 새로고침
 function ChangePage(page,tab,tabId){
 	console.log("page........."+page);
 	console.log("tab........."+tab);
@@ -659,9 +703,38 @@ function ChangePage(page,tab,tabId){
 	    	 //id가 tabId인 요소의 내용을 변경
 	          $('#'+tabId).html(data);
 	          $('.newDiv').animate({opacity: "1"}, 200);
+	          if($("#showModify").css("display")=="none"){
+	        	  $(".modifyDeleteBtn").css("display","block");
+	          }
 	     },
 	});
-	hideModify();
+};
+
+//삭제시 ajax를 통해 부분 새로고침
+function remove(resultNum,page,tab,tabId){
+	console.log("resultNum........."+resultNum);
+	console.log("page........."+page);
+	console.log("tab........."+tab);
+	console.log("tabId........."+tabId);
+	
+	$.ajax({
+	     type : "GET",
+	     url : "/business/result_delete/",
+	     data : {
+	    	 "resultNum" : resultNum,
+	          "page" : page, // ☜ 서버로 전송할 데이터
+	          "tab" : tab,  // ☜ 서버로 전송할 데이터
+	          "tabId" : tabId // ☜ 서버로 전송할 데이터
+	     },
+	     dataType : "text",
+	     success : function(data){
+	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
+	    	 //id가 tabId인 요소의 내용을 변경
+	          $('#'+tabId).html(data);
+	          $('.newDiv').animate({opacity: "1"}, 200);
+	          $(".modifyDeleteBtn").css("display","block");
+	     },
+	});
 };
 		
 	

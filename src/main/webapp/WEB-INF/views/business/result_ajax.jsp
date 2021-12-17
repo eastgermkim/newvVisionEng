@@ -21,7 +21,9 @@
 										<div style="padding-top: 1%" class="modifyDeleteBtn">
 											<a href="#" style="color: blue;">수정 </a>
 											<span>|</span>
-											<a href="#" style="color: red;">삭제 </a>
+											<a href="javascript:void(0);" 
+											onclick="remove(${business.resultNum},${pageMaker.cri.page},'${tab}','${tabId}');" 
+											style="color: red;">삭제 </a>
 										</div>
 									</c:if>
 									<div class="resultContent">${business.resultContnents}</div>
@@ -93,4 +95,11 @@
 	 		</ul>
 		</nav>
 </body>
+<script>
+$(document).ready(function(){ 
+if ("${msg}" != "") {
+		alert("${msg}");
+	}
+});
+</script>
 </html>

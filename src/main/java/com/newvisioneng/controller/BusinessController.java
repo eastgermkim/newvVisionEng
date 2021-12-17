@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.Criteria;
@@ -82,13 +83,16 @@ public class BusinessController {
 	public String result_pageAjax(Model model,Criteria cri, HttpServletRequest req,
 			@RequestParam(value="page",required=false)String page,
 			@RequestParam(value="tab",required=false)String tab,
-			@RequestParam(value="tabId",required=false)String tabId
+			@RequestParam(value="tabId",required=false)String tabId,
+			@RequestParam(value="msg",required=false)String msg
 			) {
+		log.info("-----------------------------------------------");
 		log.info("------------business_list_pageAjax-------------");
 		
+		log.info("넘어온 page값.........."+page);
 		log.info("넘어온 tab값.........."+tab);
 		log.info("넘어온 tabId값.........."+tabId);
-		log.info("넘어온 page값.........."+page);
+		log.info("넘어온 msg값.........."+msg);
 		
 		cri.setPageSize(15);
 		cri.setPage(Integer.parseInt(page));
@@ -102,33 +106,70 @@ public class BusinessController {
 		model.addAttribute("tab",tab);
 		model.addAttribute("tabId",tabId);
 		
-		return "/business/result_pageAjax";
+		if(msg!=null) {
+			model.addAttribute("msg",msg);
+		}
+		
+		return "/business/result_ajax";
 	}
 	
 	//사업실적 등록
 	@PostMapping("/result_writeOK")
-	public String result_writeOK(@RequestParam("subject")String resultClass, @RequestParam("resultTitle")String resultTitle) {
+	public String result_writeOK(Model model, Criteria cri, RedirectAttributes ra,
+			@RequestParam("subject")String resultClass, 
+			@RequestParam("resultTitle")String resultTitle) {
 		log.info("------------new_business_resultOK-------------");
-		log.info("등록된 사업실적의 분류..........."+resultClass);
-		log.info("등록된 사업실적 내용..........."+resultTitle);
+		log.info("새로운 사업실적의 분류..........."+resultClass);
+		log.info("새로운 사업실적 내용..........."+resultTitle);
 		
-		service.registBusinessResult(resultClass,resultTitle);
+		String tabId = "";
+		if(resultClass.equals("군사시설")) {
+			tabId = "military";
+		} else if(resultClass.equals("공공기관")) {
+			tabId = "public";
+		} else if(resultClass.equals("민간기업")) {
+			tabId = "privateCorp";
+		}
 		
-		return "redirect:/business/result";
+		if(service.registBusinessResult(resultClass,resultTitle)){
+			log.info(".....................사업실적 등록 성공");
+			ra.addAttribute("msg","등록 완료");
+			ra.addAttribute("page", 1);
+			ra.addAttribute("tab", resultClass);
+			ra.addAttribute("tabId", tabId);
+			return "redirect:/business/result_pageAjax";
+		}else {
+			return "/business/result";
+		}
 	}
 	
 	//사업실적 삭제
-	@GetMapping("/result_delete/{resultNum}")
-	public String result_delete(@PathVariable("resultNum")Long resultNum,RedirectAttributes ra) {
-		log.info("------------business_delete-------------");
+	@GetMapping("/result_delete")
+	public String result_delete(Model model,Criteria cri, RedirectAttributes ra,
+			@RequestParam(value="resultNum",required=false) long resultNum,
+			@RequestParam(value="page",required=false) String page,
+			@RequestParam(value="tab",required=false) String tab,
+			@RequestParam(value="tabId",required=false) String tabId) {
 		
+		log.info("------------business_delete-------------");
+		log.info("넘어온 resultNum값.........."+resultNum);
+		log.info("넘어온 page값.........."+page);
+		log.info("넘어온 tab값.........."+tab);
+		log.info("넘어온 tabId값.........."+tabId);
+		
+		//사업실적 삭제
 		if(service.deleteBusinessResult(resultNum)) {
 			log.info(".....................사업실적 삭제 성공");
-			ra.addFlashAttribute("deleteSuccess", "삭제 되었습니다");
+			//리다이렉트로 값 넘기는법
+			ra.addAttribute("msg","삭제 완료");
+			ra.addAttribute("page", page);
+			ra.addAttribute("tab", tab);
+			ra.addAttribute("tabId", tabId);
+			return "redirect:/business/result_pageAjax";
+		} else {
+			return "/business/result";
 		}
 		
-		
-		return "redirect:/business/result";
 	}
 
 }
