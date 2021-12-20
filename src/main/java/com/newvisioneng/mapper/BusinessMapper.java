@@ -14,6 +14,8 @@ public interface BusinessMapper {
 	public int getBusinessTotal(String resultClass);
 	//사업실적 등록
 	public int insertBusinessResult(Map<String, Object> map);
+	//사업실적 수정
+	public int updateBusinessResult(Map<String, Object> map);
 	//사업실적 삭제
 	public int deleteBusinessResult(Long resultNum);
 

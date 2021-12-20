@@ -19,7 +19,7 @@
 								<div class="result_container">
 									<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 										<div style="padding-top: 1%" class="modifyDeleteBtn">
-											<a href="#" style="color: blue;">수정 </a>
+											<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'${tabId}','${business.resultContnents}',${pageMaker.cri.page});" style="color: blue;">수정</a>
 											<span>|</span>
 											<a href="javascript:void(0);" 
 											onclick="remove(${business.resultNum},${pageMaker.cri.page},'${tabId}');" 

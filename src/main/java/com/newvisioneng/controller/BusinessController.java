@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.Criteria;
@@ -124,10 +123,10 @@ public class BusinessController {
 	@PostMapping("/result_writeOK")
 	public String result_writeOK(Model model, Criteria cri, RedirectAttributes ra,
 			@RequestParam("tabId")String tabId, 
-			@RequestParam("resultTitle")String resultTitle) {
+			@RequestParam("resultContnents")String resultContnents) {
 		log.info("------------new_business_resultOK-------------");
 		log.info("새로운 사업실적의 분류tabId..........."+tabId);
-		log.info("새로운 사업실적 내용..........."+resultTitle);
+		log.info("새로운 사업실적 내용..........."+resultContnents);
 	
 		String resultClass = "";
 		if(tabId.equals("military")) {
@@ -140,13 +139,50 @@ public class BusinessController {
 		
 		log.info("새로운 사업실적 resultClass..........."+resultClass);
 		
-		if(service.registBusinessResult(resultClass,resultTitle)){
+		if(service.registBusinessResult(resultClass,resultContnents)){
 			log.info(".....................사업실적 등록 성공");
 			ra.addAttribute("msg","등록 완료");
 			ra.addAttribute("page", 1);
 			ra.addAttribute("tabId", tabId);
 			return "redirect:/business/result_pageAjax";
 		}else {
+			log.info(".....................사업실적 등록 실패");
+			return "/business/result";
+		}
+	}
+	
+	//사업실적 수정
+	@PostMapping("/result_modifyOK")
+	public String result_modifyOK(Model model, Criteria cri, RedirectAttributes ra,
+			@RequestParam(value="resultNum",required=false)long resultNum, 
+			@RequestParam(value="tabId",required=false)String tabId, 
+			@RequestParam(value="resultContnents",required=false)String resultContnents,
+			@RequestParam(value="page",required=false)String page) {
+		log.info("------------modify_business_result-------------");
+		log.info("수정할 사업실적 번호..........."+resultNum);
+		log.info("수정후 사업실적의 분류tabId..........."+tabId);
+		log.info("수정후 사업실적 내용..........."+resultContnents);
+		log.info("수정되는 사업실적 페이지..........."+page);
+		
+		String resultClass = "";
+		if(tabId.equals("military")) {
+			resultClass = "군사시설";
+		}else if(tabId.equals("publicOrg")) {
+			resultClass = "공공기관";
+		}else if(tabId.equals("privateCorp")) {
+			resultClass = "민간기업";
+		}
+		
+		log.info("수정후 사업실적 resultClass..........."+resultClass);
+		
+		if(service.modifyBusinessResult(resultNum,resultClass,resultContnents)){
+			log.info(".....................사업실적 수정 성공");
+			ra.addAttribute("msg","수정 완료");
+			ra.addAttribute("page", page);
+			ra.addAttribute("tabId", tabId);
+			return "redirect:/business/result_pageAjax";
+		}else {
+			log.info(".....................사업실적 수정 실패");
 			return "/business/result";
 		}
 	}
@@ -172,6 +208,7 @@ public class BusinessController {
 			ra.addAttribute("tabId", tabId);
 			return "redirect:/business/result_pageAjax";
 		} else {
+			log.info(".....................사업실적 삭제 실패");
 			return "/business/result";
 		}
 		

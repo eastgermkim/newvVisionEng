@@ -132,6 +132,35 @@
 	display: none;
 }
 
+#popup_wrap2 {
+	width: 560px;
+	/* height: 270px; */
+	height: 240px;
+	background: #fff;
+	border: solid 1px #666666;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* margin: -250px 0 0 -250px; */
+	z-index: 9999;
+	display: none;
+	
+	align-items: center;
+	margin-left: -280px;
+	margin-top: -200px;
+}
+
+#mask2 {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.7) repeat;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	display: none;
+}
+
 .popup-cont01 {
 	/* width: 478px; */
 	/* width: 570px; */
@@ -238,7 +267,7 @@ table {
 							</ul>
 						</nav>
 						<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
-						    <div class="btn-list" style="padding-top: 4%;" id="popup_open">
+						    <div class="btn-list" style="padding-top: 4%;" id="regist_popup_open">
 							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">새 사업실적 등록</a>
 							</div>
 						    <div class="btn-list" style="padding-top: 4%;" id="showModify">
@@ -276,8 +305,7 @@ table {
 														<div class="result_container">
 															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
-																	번호 : ${business.resultNum}
-																	<a href="#" style="color: blue;">수정 </a>
+																	<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'military','${business.resultContnents}',${pageMaker1.cri.page});" style="color: blue;">수정</a>
 																	<span>|</span>
 																	<a href="javascript:void(0);" 
 																	onclick="remove(${business.resultNum},${pageMaker1.cri.page},'military');" 
@@ -369,7 +397,7 @@ table {
 															<div class="result_container">
 																<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																	<div style="padding-top: 1%" class="modifyDeleteBtn">
-																		<a href="#" style="color: blue;">수정 </a>
+																		<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'publicOrg','${business.resultContnents}',${pageMaker1.cri.page});" style="color: blue;">수정</a>
 																		<span>|</span>
 																		<a href="javascript:void(0);" 
 																		onclick="remove(${business.resultNum},${pageMaker2.cri.page},'publicOrg');" 
@@ -462,8 +490,8 @@ table {
 													<div class="result_container">
 															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
-																	<a href="#" style="color: blue;">수정 </a>
-																	<span>|</span>
+																	<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'privateCorp','${business.resultContnents}',${pageMaker1.cri.page});" style="color: blue;">수정</a>
+																		<span>|</span>
 																	<a href="javascript:void(0);" 
 																		onclick="remove(${business.resultNum},${pageMaker3.cri.page},'privateCorp');" 
 																		style="color: red;">삭제 </a>
@@ -570,7 +598,7 @@ table {
 						</tr>
 						<tr>
 							<th class="big-width-table"><span>내용</span></th>
-							<th><input class="single-input" id="resultTitle" name="resultTitle"
+							<th><input class="single-input" id="resultContnents" name="resultContnents"
 								type="text" placeholder="내용을 입력하세요"></th>
 						</tr>
 					</tbody>
@@ -582,7 +610,7 @@ table {
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							
 				<div class="col-12" style="text-align: center;">
-					<a href="javascript:void(0);" id="regist" class="genric-btn primary circle" style="margin-right: 1%;">등록</a> 
+					<a href="javascript:void(0);" id="goRegist" class="genric-btn primary circle" style="margin-right: 1%;">등록</a> 
 					<a class="genric-btn primary-border circle noColor" id="popup_close">목록으로 돌아가기</a>
 				</div>
 			</form>
@@ -590,13 +618,58 @@ table {
 	</div>
 	<div id="mask"></div>
 </c:if>
+
+	<!-- 사업실적 수정 폼 레이어팝업 -->
+	<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+	<div id="popup_wrap2">
+		<div class="popup-cont01">
+			<form method="post" action="/business/result_modifyOK" id="resultForm">
+				<input type="hidden" id="resultNumModified" name="resultNumModified">
+				<input type="hidden" id="pageModified" name="pageModified">
+				<table>
+					<tbody>
+						<tr>
+							<th class="big-width-table"><span>분류</span></th>
+							<th style="padding-left: 5%;text-align: left;">
+							
+								<select id="subjectModified" name="subjectModified">
+									<option value="" selected disabled hidden>사업 분류</option>
+									<option value="military">군사시설</option>
+									<option value="publicOrg">공공기관</option>
+									<option value="privateCorp">민간기업</option>
+								</select>
+								
+							</th>
+						</tr>
+						<tr>
+							<th class="big-width-table"><span>내용</span></th>
+							<th><input class="single-input" id="resultContnentsModified" name="resultContnentsModified"
+								type="text" placeholder="내용을 입력하세요"></th>
+						</tr>
+					</tbody>
+				</table>
+				<hr>
+				
+				<!-- csrf도 함께 -->
+				<%-- <sec:csrfInput/> --%>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							
+				<div class="col-12" style="text-align: center;">
+					<a href="javascript:void(0);" id="goModify" class="genric-btn primary circle" style="margin-right: 1%;">수정하기</a> 
+					<a class="genric-btn primary-border circle noColor" id="popup_close2">목록으로 돌아가기</a>
+				</div>
+			</form>
+	  </div>
+	</div>
+	<div id="mask2"></div>
+</c:if>
 	
 	
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 <script> 
 $(document).ready(function(){ 
 	//글등록 팝업 관련 설정
-	$("#popup_open").click(function(){ 
+	$("#regist_popup_open").click(function(){ 
 		/* $("#popup_wrap").css("display", "block");  */
 		$("#popup_wrap").css("display", "flex"); 
 		$("#mask").css("display", "block"); 
@@ -608,17 +681,17 @@ $(document).ready(function(){
 }); 
 
 //글 등록시
-$("#regist").on('click',function(){
+$("#goRegist").on('click',function(){
 	//사업 분류 선택 안함
 	if($("#subject").val() == null){
 		alert("사업 분류를 선택해 주세요.");
-		$("subject").focus();
+		$("#subject").focus();
 		return false;
 	}
 	//문의 내용 없으면 막아주기
-	if($("#resultTitle").val() ==""){
+	if($("#resultContnents").val() ==""){
 		alert("내용이 없습니다.");
-		$("resultTitle").focus();
+		$("#resultContnents").focus();
 		return false;
 	}
 	//글 등록 함수호출
@@ -630,7 +703,7 @@ $("#regist").on('click',function(){
 //글 등록 함수(ajax)
 function regist(){
 	console.log("subject........."+$("#subject").val());
-	console.log("resultTitle......"+$("#resultTitle").val());
+	console.log("resultContnents......"+$("#resultContnents").val());
 	
 	var tabId = $("#subject").val();
 	
@@ -639,7 +712,7 @@ function regist(){
 	     url : "/business/result_writeOK/",
 	     data : {
 	    	 "tabId" : $("#subject").val(),
-	    	 "resultTitle" : $("#resultTitle").val(),
+	    	 "resultContnents" : $("#resultContnents").val(),
 	     },
 	     dataType : "text",
 	     success : function(data){
@@ -723,8 +796,80 @@ function remove(resultNum,page,tabId){
 	     },
 	});
 };
-		
+
+//수정 클릭시 폼 띄워줌
+function showModifyForm(resultNum,subject,resultContnents,page){
+	//글수정 팝업 관련 설정
+	console.log("----showModifyForm----");
+	console.log("resultNum...."+resultNum);
+	console.log("subject...."+subject);
+	console.log("resultContnents...."+resultContnents);
+	console.log("page...."+page);
+		$("#popup_wrap2").css("display", "flex"); 
+		$("#mask2").css("display", "block"); 
+		$("#resultNumModified").val(resultNum);
+		$("#subjectModified").val(subject);
+		$("#resultContnentsModified").val(resultContnents);
+		$("#pageModified").val(page);
+
+};
+$("#popup_close2").click(function(){ 
+	$("#popup_wrap2").css("display", "none"); 
+	$("#mask2").css("display", "none"); 
+});
+
+
+
+$("#subjectModified").on('click',function(){
+	alert("사업 분류는 변경할 수 없습니다. 삭제후 재등록 하십시오.");
+	$("#resultContnentsModified").focus();
+});
+//수정 클릭시
+$("#goModify").on('click',function(){
+	//문의 내용 없으면 막아주기
+	if($("#resultContnentsModified").val() ==""){
+		alert("내용이 없습니다.");
+		$("#resultContnentsModified").focus();
+		return false;
+	}
+	//글 수정 함수호출
+	$("#popup_wrap2").css("display", "none"); 
+	$("#mask2").css("display", "none"); 
+	modify();
+});
+
+//글 수정 함수(ajax)
+function modify(){
+	console.log("resultNumModified........."+$("#resultNumModified").val());
+	console.log("subjectModified........."+$("#subjectModified").val());
+	console.log("resultContnentsModified......"+$("#resultContnentsModified").val());
 	
+	var tabId = $("#subjectModified").val();
+	
+	$.ajax({
+	     type : "POST",
+	     url : "/business/result_modifyOK/",
+	     data : {
+	    	 "resultNum" : $("#resultNumModified").val() ,
+	    	 "tabId" : $("#subjectModified").val(),
+	    	 "resultContnents" : $("#resultContnentsModified").val(),
+	    	 "page" : $("#pageModified").val(),
+	     },
+	     dataType : "text",
+	     success : function(data){
+	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
+	    	 //id가 tabId인 요소의 내용을 변경
+	    	  $('#'+tabId).html(data);
+	          $('.newDiv').animate({opacity: "1"}, 200);
+	          if($("#showModify").css("display")=="none"){
+	        	  $(".modifyDeleteBtn").css("display","block");
+	          }
+	     },
+	     error : function() {
+	 		alert("error");
+	 	}
+	});
+};
 </script>
 
 </body>

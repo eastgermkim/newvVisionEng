@@ -46,18 +46,31 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 	
 	//사업실적 등록
 	@Override
-	public boolean registBusinessResult(String resultClass, String resultTitle) {
+	public boolean registBusinessResult(String resultClass, String resultContnents) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("resultClass", resultClass);
-		map.put("resultTitle", resultTitle);
+		map.put("resultContnents", resultContnents);
 		
 		return mapper.insertBusinessResult(map)==1;
 	}
+	//사업실적 수정
+	@Override
+	public boolean modifyBusinessResult(long resultNum, String resultClass, String resultContnents) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("resultNum", resultNum);
+		map.put("resultClass", resultClass);
+		map.put("resultContnents", resultContnents);
+		
+		return mapper.updateBusinessResult(map)==1;
+	}
+	
 	//사업실적 삭제
 	@Override
-	public boolean deleteBusinessResult(Long resultNum) {
+	public boolean deleteBusinessResult(long resultNum) {
 		return mapper.deleteBusinessResult(resultNum) == 1;
 	}
+
 
 }
