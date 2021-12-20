@@ -30,19 +30,20 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 	public List<BusinessDTO> getBusinessList(Criteria cri,String resultClass) {
 		logger.info("\ngetBusinessList...WithPaging................" );
 		Map<String, Object> map = new HashMap<String, Object>();
-    	
+			
 		map.put("resultClass", resultClass);
     	map.put("pageStart", cri.getPageStart());
     	map.put("pageSize", cri.getPageSize());
     	
 		return mapper.getBusinessList(map);
 	}
+	
 	//사업실적 총 개수
 	@Override
 	public int getBusinessTotal(String resultClass) {
-		
 		return mapper.getBusinessTotal(resultClass);
 	}
+	
 	//사업실적 등록
 	@Override
 	public boolean registBusinessResult(String resultClass, String resultTitle) {

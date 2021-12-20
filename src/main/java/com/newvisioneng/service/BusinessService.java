@@ -8,7 +8,7 @@ import com.newvisioneng.domain.Criteria;
 public interface BusinessService {
 
 	//사업실적 목록 가져오기
-	public List<BusinessDTO> getBusinessList(Criteria cri,String resultType);
+	public List<BusinessDTO> getBusinessList(Criteria cri,String resultClass);
 	//사업실적 총 글 개수
 	public int getBusinessTotal(String resultClass);
 	//사업실적 새 글 등록

@@ -231,8 +231,8 @@ table {
 								
 								<li class="nav-item"><a class="tabs nav-link active show" id="home-tab" 			
 								data-toggle="tab" href="#military" role="tab" aria-controls="military" aria-selected="true">군사시설</a></li>
-								<li class="nav-item"><a class="tabs nav-link" id="public-tab" 
-								data-toggle="tab" href="#public" role="tab" aria-controls="public" aria-selected="false">공공기관</a></li>
+								<li class="nav-item"><a class="tabs nav-link" id="publicOrg-tab" 
+								data-toggle="tab" href="#publicOrg" role="tab" aria-controls="publicOrg" aria-selected="false">공공기관</a></li>
 								<li class="nav-item"><a class="tabs nav-link" id="privateCorp-tab" 
 								data-toggle="tab" href="#privateCorp" role="tab" aria-controls="privateCorp" aria-selected="false">민간기업</a></li>
 							</ul>
@@ -280,7 +280,7 @@ table {
 																	<a href="#" style="color: blue;">수정 </a>
 																	<span>|</span>
 																	<a href="javascript:void(0);" 
-																	onclick="remove(${business.resultNum},${pageMaker1.cri.page},'군사시설','military');" 
+																	onclick="remove(${business.resultNum},${pageMaker1.cri.page},'military');" 
 																	style="color: red;">삭제 </a>
 																</div>
 															</c:if>
@@ -304,7 +304,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker1.prev }">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.startPage-1},'군사시설','military');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.startPage-1},'military');" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -313,13 +313,13 @@ table {
 										<c:forEach var="idx" begin="${pageMaker1.startPage }" end="${pageMaker1.endPage }">
 											<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 								 			<li ${pageMaker1.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'군사시설','military');" class="page-link">${idx}</a>
+								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'military');" class="page-link">${idx}</a>
 								 			</li>
 										</c:forEach>
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker1.next && pageMaker1.endPage > 0}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.endPage+1},'군사시설','military');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.endPage+1},'military');" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -331,7 +331,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker1.cri.page>1}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page-1},'군사시설','military');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page-1},'military');" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -344,7 +344,7 @@ table {
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker1.cri.page<pageMaker1.realEnd}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page+1},'군사시설','military');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page+1},'military');" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -354,8 +354,8 @@ table {
 							
 							</div>
 							
-							<div class="tab-pane fade" id="public" role="tabpanel"
-								aria-labelledby="public-tab">
+							<div class="tab-pane fade" id="publicOrg" role="tabpanel"
+								aria-labelledby="publicOrg-tab">
 								<div class="details-wrap">
 									<div class="details-info">
 										<div style="background: #FAFAFA">
@@ -372,7 +372,7 @@ table {
 																		<a href="#" style="color: blue;">수정 </a>
 																		<span>|</span>
 																		<a href="javascript:void(0);" 
-																		onclick="remove(${business.resultNum},${pageMaker2.cri.page},'공공기관','public');" 
+																		onclick="remove(${business.resultNum},${pageMaker2.cri.page},'publicOrg');" 
 																		style="color: red;">삭제 </a>
 																	</div>
 																</c:if>
@@ -396,7 +396,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker2.prev }">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.startPage-1},'공공기관','public');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.startPage-1},'publicOrg');" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -405,13 +405,13 @@ table {
 										<c:forEach var="idx" begin="${pageMaker2.startPage }" end="${pageMaker2.endPage }">
 											<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 								 			<li ${pageMaker2.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'공공기관','public');" class="page-link">${idx}</a>
+								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'publicOrg');" class="page-link">${idx}</a>
 								 			</li>
 										</c:forEach>
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker2.next && pageMaker2.endPage > 0}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'공공기관','public');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'publicOrg');" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -423,7 +423,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker2.cri.page>1}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page-1},'공공기관','public');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page-1},'publicOrg');" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -436,7 +436,7 @@ table {
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker2.cri.page<pageMaker2.realEnd}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page+1},'공공기관','public');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page+1},'publicOrg');" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -465,7 +465,7 @@ table {
 																	<a href="#" style="color: blue;">수정 </a>
 																	<span>|</span>
 																	<a href="javascript:void(0);" 
-																		onclick="remove(${business.resultNum},${pageMaker3.cri.page},'민간기업','privateCorp');" 
+																		onclick="remove(${business.resultNum},${pageMaker3.cri.page},'privateCorp');" 
 																		style="color: red;">삭제 </a>
 																</div>
 															</c:if>
@@ -489,7 +489,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker3.prev }">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.startPage-1},'민간기업','privateCorp');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.startPage-1},'privateCorp');" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -498,13 +498,13 @@ table {
 										<c:forEach var="idx" begin="${pageMaker3.startPage }" end="${pageMaker3.endPage }">
 											<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 								 			<li ${pageMaker3.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'민간기업','privateCorp');" class="page-link">${idx}</a>
+								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'privateCorp');" class="page-link">${idx}</a>
 								 			</li>
 										</c:forEach>
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker3.next && pageMaker3.endPage > 0}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.endPage+1},'민간기업','privateCorp');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.endPage+1},'privateCorp');" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -516,7 +516,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker3.cri.page>1}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page-1},'민간기업','privateCorp');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page-1},'privateCorp');" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -529,7 +529,7 @@ table {
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker3.cri.page<pageMaker3.realEnd}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page+1},'민간기업','privateCorp');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page+1},'privateCorp');" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -561,9 +561,9 @@ table {
 							
 								<select id="subject" name="subject">
 									<option value="" selected disabled hidden>사업 분류</option>
-									<option value="군사시설">군사시설</option>
-									<option value="공공기관">공공기관</option>
-									<option value="민간기업">민간기업</option>
+									<option value="military">군사시설</option>
+									<option value="publicOrg">공공기관</option>
+									<option value="privateCorp">민간기업</option>
 								</select>
 								
 							</th>
@@ -632,28 +632,19 @@ function regist(){
 	console.log("subject........."+$("#subject").val());
 	console.log("resultTitle......"+$("#resultTitle").val());
 	
-	var subject = $("#subject").val();
+	var tabId = $("#subject").val();
 	
 	$.ajax({
 	     type : "POST",
 	     url : "/business/result_writeOK/",
 	     data : {
-	    	 "subject" : $("#subject").val(),
+	    	 "tabId" : $("#subject").val(),
 	    	 "resultTitle" : $("#resultTitle").val(),
 	     },
 	     dataType : "text",
 	     success : function(data){
 	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
 	    	 //id가 tabId인 요소의 내용을 변경
-	    	 	var tabId = '';
-		    	 if(subject == "군사시설") {
-		 			tabId = "military";
-		 		} else if(subject  == "공공기관") {
-		 			tabId = "public";
-		 		} else if(subject  ==  "민간기업") {
-		 			tabId = "privateCorp";
-		 		}
-	    	 
 	    	  $('#'+tabId).html(data);
 	          $('.newDiv').animate({opacity: "1"}, 200);
 	          if($("#showModify").css("display")=="none"){
@@ -684,9 +675,8 @@ $("#hideModify").on('click',function(){
 });
 
 //페이지 이동시 ajax를 통해 부분 새로고침
-function ChangePage(page,tab,tabId){
+function ChangePage(page,tabId){
 	console.log("page........."+page);
-	console.log("tab........."+tab);
 	console.log("tabId........."+tabId);
 	
 	$.ajax({
@@ -694,7 +684,6 @@ function ChangePage(page,tab,tabId){
 	     url : "/business/result_pageAjax",
 	     data : {
 	          "page" : page, // ☜ 서버로 전송할 데이터
-	          "tab" : tab,  // ☜ 서버로 전송할 데이터
 	          "tabId" : tabId // ☜ 서버로 전송할 데이터
 	     },
 	     dataType : "text",
@@ -711,10 +700,9 @@ function ChangePage(page,tab,tabId){
 };
 
 //삭제시 ajax를 통해 부분 새로고침
-function remove(resultNum,page,tab,tabId){
+function remove(resultNum,page,tabId){
 	console.log("resultNum........."+resultNum);
 	console.log("page........."+page);
-	console.log("tab........."+tab);
 	console.log("tabId........."+tabId);
 	
 	$.ajax({
@@ -723,7 +711,6 @@ function remove(resultNum,page,tab,tabId){
 	     data : {
 	    	 "resultNum" : resultNum,
 	          "page" : page, // ☜ 서버로 전송할 데이터
-	          "tab" : tab,  // ☜ 서버로 전송할 데이터
 	          "tabId" : tabId // ☜ 서버로 전송할 데이터
 	     },
 	     dataType : "text",

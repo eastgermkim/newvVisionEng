@@ -64,7 +64,7 @@ public class BusinessController {
 		
 		cri.setPageSize(15);
 		log.info("cri : "+cri);
-
+		
 		//DB 검색
 		model.addAttribute("business_list_1",service.getBusinessList(cri,"군사시설"));
 		model.addAttribute("pageMaker1",new PageDTO(service.getBusinessTotal("군사시설"), cri));
@@ -81,29 +81,36 @@ public class BusinessController {
 	//사업실적 페이지에서 ajax로 각 리스트 페이지 이동
 	@GetMapping("/result_pageAjax")
 	public String result_pageAjax(Model model,Criteria cri, HttpServletRequest req,
+			@RequestParam(value="msg",required=false)String msg,
 			@RequestParam(value="page",required=false)String page,
-			@RequestParam(value="tab",required=false)String tab,
-			@RequestParam(value="tabId",required=false)String tabId,
-			@RequestParam(value="msg",required=false)String msg
+			@RequestParam(value="tabId",required=false)String tabId
 			) {
 		log.info("-----------------------------------------------");
 		log.info("------------business_list_pageAjax-------------");
 		
-		log.info("넘어온 page값.........."+page);
-		log.info("넘어온 tab값.........."+tab);
-		log.info("넘어온 tabId값.........."+tabId);
 		log.info("넘어온 msg값.........."+msg);
+		log.info("넘어온 page값.........."+page);
+		log.info("넘어온 tabId값.........."+tabId);
 		
 		cri.setPageSize(15);
 		cri.setPage(Integer.parseInt(page));
 
 		log.info("cri : "+cri);
 		
-		//DB 검색
-		model.addAttribute("business_list",service.getBusinessList(cri,tab));
-		model.addAttribute("pageMaker",new PageDTO(service.getBusinessTotal(tab), cri));
+		String resultClass = "";
+		if(tabId.equals("military")) {
+			resultClass = "군사시설";
+		}else if(tabId.equals("publicOrg")) {
+			resultClass = "공공기관";
+		}else if(tabId.equals("privateCorp")) {
+			resultClass = "민간기업";
+		}
 		
-		model.addAttribute("tab",tab);
+		log.info("resultClass.........."+resultClass);
+		
+		//DB 검색
+		model.addAttribute("business_list",service.getBusinessList(cri,resultClass));
+		model.addAttribute("pageMaker",new PageDTO(service.getBusinessTotal(resultClass), cri));
 		model.addAttribute("tabId",tabId);
 		
 		if(msg!=null) {
@@ -116,26 +123,27 @@ public class BusinessController {
 	//사업실적 등록
 	@PostMapping("/result_writeOK")
 	public String result_writeOK(Model model, Criteria cri, RedirectAttributes ra,
-			@RequestParam("subject")String resultClass, 
+			@RequestParam("tabId")String tabId, 
 			@RequestParam("resultTitle")String resultTitle) {
 		log.info("------------new_business_resultOK-------------");
-		log.info("새로운 사업실적의 분류..........."+resultClass);
+		log.info("새로운 사업실적의 분류tabId..........."+tabId);
 		log.info("새로운 사업실적 내용..........."+resultTitle);
-		
-		String tabId = "";
-		if(resultClass.equals("군사시설")) {
-			tabId = "military";
-		} else if(resultClass.equals("공공기관")) {
-			tabId = "public";
-		} else if(resultClass.equals("민간기업")) {
-			tabId = "privateCorp";
+	
+		String resultClass = "";
+		if(tabId.equals("military")) {
+			resultClass = "군사시설";
+		}else if(tabId.equals("publicOrg")) {
+			resultClass = "공공기관";
+		}else if(tabId.equals("privateCorp")) {
+			resultClass = "민간기업";
 		}
+		
+		log.info("새로운 사업실적 resultClass..........."+resultClass);
 		
 		if(service.registBusinessResult(resultClass,resultTitle)){
 			log.info(".....................사업실적 등록 성공");
 			ra.addAttribute("msg","등록 완료");
 			ra.addAttribute("page", 1);
-			ra.addAttribute("tab", resultClass);
 			ra.addAttribute("tabId", tabId);
 			return "redirect:/business/result_pageAjax";
 		}else {
@@ -148,22 +156,19 @@ public class BusinessController {
 	public String result_delete(Model model,Criteria cri, RedirectAttributes ra,
 			@RequestParam(value="resultNum",required=false) long resultNum,
 			@RequestParam(value="page",required=false) String page,
-			@RequestParam(value="tab",required=false) String tab,
 			@RequestParam(value="tabId",required=false) String tabId) {
 		
 		log.info("------------business_delete-------------");
 		log.info("넘어온 resultNum값.........."+resultNum);
 		log.info("넘어온 page값.........."+page);
-		log.info("넘어온 tab값.........."+tab);
 		log.info("넘어온 tabId값.........."+tabId);
 		
-		//사업실적 삭제
+				//사업실적 삭제
 		if(service.deleteBusinessResult(resultNum)) {
 			log.info(".....................사업실적 삭제 성공");
 			//리다이렉트로 값 넘기는법
 			ra.addAttribute("msg","삭제 완료");
 			ra.addAttribute("page", page);
-			ra.addAttribute("tab", tab);
 			ra.addAttribute("tabId", tabId);
 			return "redirect:/business/result_pageAjax";
 		} else {

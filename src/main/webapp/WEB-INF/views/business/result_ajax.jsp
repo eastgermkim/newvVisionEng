@@ -22,7 +22,7 @@
 											<a href="#" style="color: blue;">수정 </a>
 											<span>|</span>
 											<a href="javascript:void(0);" 
-											onclick="remove(${business.resultNum},${pageMaker.cri.page},'${tab}','${tabId}');" 
+											onclick="remove(${business.resultNum},${pageMaker.cri.page},'${tabId}');" 
 											style="color: red;">삭제 </a>
 										</div>
 									</c:if>
@@ -47,7 +47,7 @@
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.prev }">
 	 				<li class="page-item">
-						<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.startPage-1},'${tab}','${tabId}' );" class="page-link" aria-label="Previous"> 
+						<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.startPage-1},'${tabId}' );" class="page-link" aria-label="Previous"> 
 							<i class="ti-angle-left"></i>
 						</a>
 	 				</li>
@@ -56,13 +56,13 @@
 				<c:forEach var="idx" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
 					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 		 			<li ${pageMaker.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-		 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'${tab}','${tabId}');" class="page-link">${idx}</a>
+		 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'${tabId}');" class="page-link">${idx}</a>
 		 			</li>
 				</c:forEach>
 	 			<!-- 다음next -->
 	 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 	 				<li class="page-item">
-	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'${tab}','${tabId}');" class="page-link" aria-label="Next">
+	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'${tabId}');" class="page-link" aria-label="Next">
 	 						<i class="ti-angle-right"></i>
 	 					</a>
 	 				</li>
@@ -74,7 +74,7 @@
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.cri.page>1}">
 	 				<li class="page-item">
-	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page-1},'${tab}','${tabId}');" class="page-link" aria-label="Previous"> 
+	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page-1},'${tabId}');" class="page-link" aria-label="Previous"> 
 							<i class="ti-angle-left"></i>
 						</a>
 	 				</li>
@@ -87,7 +87,7 @@
 	 			<!-- 다음next -->
 	 			<c:if test="${pageMaker.cri.page<pageMaker.realEnd}">
 	 				<li class="page-item">
-	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page+1},'${tab}','${tabId}');" class="page-link" aria-label="Next">
+	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page+1},'${tabId}');" class="page-link" aria-label="Next">
 	 						<i class="ti-angle-right"></i>
 	 					</a>
 	 				</li>
