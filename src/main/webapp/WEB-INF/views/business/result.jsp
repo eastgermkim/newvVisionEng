@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ page session="true"%>
 
 <!DOCTYPE html>
@@ -221,6 +222,15 @@ table {
 .modifyDeleteBtn{
 	display: none;
 }
+.genric-btn.primary.modify {
+	background: royalblue;
+	color: #fff;
+}
+.genric-btn.primary.modify:hover {
+	background: darkblue;
+	border:1px solid transparent;
+	color: #fff;
+}
 </style>
 
 </head>
@@ -267,14 +277,14 @@ table {
 							</ul>
 						</nav>
 						<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
-						    <div class="btn-list" style="padding-top: 4%;" id="regist_popup_open">
+						    <div class="btn-list" style="padding-top: 2%;" id="regist_popup_open">
 							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">새 사업실적 등록</a>
 							</div>
-						    <div class="btn-list" style="padding-top: 4%;" id="showModify">
-							<a class="genric-btn primary-border e-large toList noColor" style="width:100%; font-size:15px;" href="javascript:showModify();">수정/삭제하기</a>
+						    <div class="btn-list" style="padding-top: 2%;" id="showModify">
+							<a class="genric-btn primary-border e-large toList noColor" style="width:100%; font-size:15px;" href="javascript:showModify();">사업실적 관리</a>
 							</div>
-						    <div class="btn-list" style="padding-top: 4%;" id="hideModify">
-							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;" href="javascript:hideModify();">수정/삭제완료</a>
+						    <div class="btn-list" style="padding-top: 2%;" id="hideModify">
+							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;" href="javascript:hideModify();">사업실적 관리완료</a>
 							</div>
 						</c:if>
 					</div>
@@ -305,11 +315,17 @@ table {
 														<div class="result_container">
 															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
-																	<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'military','${business.resultContnents}',${pageMaker1.cri.page});" style="color: blue;">수정</a>
-																	<span>|</span>
+																	<a href="javascript:void(0);" 
+																	onclick="showModifyForm(${business.resultNum},'military','${business.resultContnents}',${pageMaker1.cri.page});" 
+																	style="color: blue;text-decoration: underline;">수정</a>
+																	<span>&nbsp;|&nbsp;</span>
 																	<a href="javascript:void(0);" 
 																	onclick="remove(${business.resultNum},${pageMaker1.cri.page},'military');" 
-																	style="color: red;">삭제 </a>
+																	style="color: red;text-decoration: underline;">삭제 </a>
+																	<span>&nbsp;|&nbsp;</span>
+																	<a href="javascript:void(0);" 
+																	onclick="showMain(${business.resultNum});" 
+																	style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																</div>
 															</c:if>
 															<div class="resultContent">${business.resultContnents}</div>
@@ -655,7 +671,7 @@ table {
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							
 				<div class="col-12" style="text-align: center;">
-					<a href="javascript:void(0);" id="goModify" class="genric-btn primary circle" style="margin-right: 1%;">수정하기</a> 
+					<a href="javascript:void(0);" id="goModify" class="genric-btn primary circle modify" style="margin-right: 1%;">수정하기</a> 
 					<a class="genric-btn primary-border circle noColor" id="popup_close2">목록으로 돌아가기</a>
 				</div>
 			</form>
@@ -664,215 +680,10 @@ table {
 	<div id="mask2"></div>
 </c:if>
 	
-	
-	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
-<script> 
-$(document).ready(function(){ 
-	//글등록 팝업 관련 설정
-	$("#regist_popup_open").click(function(){ 
-		/* $("#popup_wrap").css("display", "block");  */
-		$("#popup_wrap").css("display", "flex"); 
-		$("#mask").css("display", "block"); 
-	}); 
-	$("#popup_close").click(function(){ 
-		$("#popup_wrap").css("display", "none"); 
-		$("#mask").css("display", "none"); 
-	});
-}); 
-
-//글 등록시
-$("#goRegist").on('click',function(){
-	//사업 분류 선택 안함
-	if($("#subject").val() == null){
-		alert("사업 분류를 선택해 주세요.");
-		$("#subject").focus();
-		return false;
-	}
-	//문의 내용 없으면 막아주기
-	if($("#resultContnents").val() ==""){
-		alert("내용이 없습니다.");
-		$("#resultContnents").focus();
-		return false;
-	}
-	//글 등록 함수호출
-	$("#popup_wrap").css("display", "none"); 
-	$("#mask").css("display", "none"); 
-	regist();
-});
-
-//글 등록 함수(ajax)
-function regist(){
-	console.log("subject........."+$("#subject").val());
-	console.log("resultContnents......"+$("#resultContnents").val());
-	
-	var tabId = $("#subject").val();
-	
-	$.ajax({
-	     type : "POST",
-	     url : "/business/result_writeOK/",
-	     data : {
-	    	 "tabId" : $("#subject").val(),
-	    	 "resultContnents" : $("#resultContnents").val(),
-	     },
-	     dataType : "text",
-	     success : function(data){
-	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
-	    	 //id가 tabId인 요소의 내용을 변경
-	    	  $('#'+tabId).html(data);
-	          $('.newDiv').animate({opacity: "1"}, 200);
-	          if($("#showModify").css("display")=="none"){
-	        	  $(".modifyDeleteBtn").css("display","block");
-	          }
-	     },
-	});
-};
-
-function showModify(){
-	$(".modifyDeleteBtn").css("display","block");
-	$("#showModify").css("display","none");
-	$("#hideModify").css("display","block");
-};
-function hideModify(){
-	$(".modifyDeleteBtn").css("display","none");
-	$("#showModify").css("display","block");
-	$("#hideModify").css("display","none");
-};
-
-// '수정/삭제하기' 버튼 눌렀을때
-$("#showModify").on('click',function(){
-	showModify();
-});
-// '수정/삭제완료' 버튼 눌렀을때
-$("#hideModify").on('click',function(){
-	hideModify();
-});
-
-//페이지 이동시 ajax를 통해 부분 새로고침
-function ChangePage(page,tabId){
-	console.log("page........."+page);
-	console.log("tabId........."+tabId);
-	
-	$.ajax({
-	     type : "GET",
-	     url : "/business/result_pageAjax",
-	     data : {
-	          "page" : page, // ☜ 서버로 전송할 데이터
-	          "tabId" : tabId // ☜ 서버로 전송할 데이터
-	     },
-	     dataType : "text",
-	     success : function(data){
-	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
-	    	 //id가 tabId인 요소의 내용을 변경
-	          $('#'+tabId).html(data);
-	          $('.newDiv').animate({opacity: "1"}, 200);
-	          if($("#showModify").css("display")=="none"){
-	        	  $(".modifyDeleteBtn").css("display","block");
-	          }
-	     },
-	});
-};
-
-//삭제시 ajax를 통해 부분 새로고침
-function remove(resultNum,page,tabId){
-	console.log("resultNum........."+resultNum);
-	console.log("page........."+page);
-	console.log("tabId........."+tabId);
-	
-	$.ajax({
-	     type : "GET",
-	     url : "/business/result_delete/",
-	     data : {
-	    	 "resultNum" : resultNum,
-	          "page" : page, // ☜ 서버로 전송할 데이터
-	          "tabId" : tabId // ☜ 서버로 전송할 데이터
-	     },
-	     dataType : "text",
-	     success : function(data){
-	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
-	    	 //id가 tabId인 요소의 내용을 변경
-	          $('#'+tabId).html(data);
-	          $('.newDiv').animate({opacity: "1"}, 200);
-	          $(".modifyDeleteBtn").css("display","block");
-	     },
-	});
-};
-
-//수정 클릭시 폼 띄워줌
-function showModifyForm(resultNum,subject,resultContnents,page){
-	//글수정 팝업 관련 설정
-	console.log("----showModifyForm----");
-	console.log("resultNum...."+resultNum);
-	console.log("subject...."+subject);
-	console.log("resultContnents...."+resultContnents);
-	console.log("page...."+page);
-		$("#popup_wrap2").css("display", "flex"); 
-		$("#mask2").css("display", "block"); 
-		$("#resultNumModified").val(resultNum);
-		$("#subjectModified").val(subject);
-		$("#resultContnentsModified").val(resultContnents);
-		$("#pageModified").val(page);
-
-};
-$("#popup_close2").click(function(){ 
-	$("#popup_wrap2").css("display", "none"); 
-	$("#mask2").css("display", "none"); 
-});
-
-
-
-$("#subjectModified").on('click',function(){
-	alert("사업 분류는 변경할 수 없습니다. 삭제후 재등록 하십시오.");
-	$("#resultContnentsModified").focus();
-});
-//수정 클릭시
-$("#goModify").on('click',function(){
-	//문의 내용 없으면 막아주기
-	if($("#resultContnentsModified").val() ==""){
-		alert("내용이 없습니다.");
-		$("#resultContnentsModified").focus();
-		return false;
-	}
-	//글 수정 함수호출
-	$("#popup_wrap2").css("display", "none"); 
-	$("#mask2").css("display", "none"); 
-	modify();
-});
-
-//글 수정 함수(ajax)
-function modify(){
-	console.log("resultNumModified........."+$("#resultNumModified").val());
-	console.log("subjectModified........."+$("#subjectModified").val());
-	console.log("resultContnentsModified......"+$("#resultContnentsModified").val());
-	
-	var tabId = $("#subjectModified").val();
-	
-	$.ajax({
-	     type : "POST",
-	     url : "/business/result_modifyOK/",
-	     data : {
-	    	 "resultNum" : $("#resultNumModified").val() ,
-	    	 "tabId" : $("#subjectModified").val(),
-	    	 "resultContnents" : $("#resultContnentsModified").val(),
-	    	 "page" : $("#pageModified").val(),
-	     },
-	     dataType : "text",
-	     success : function(data){
-	    	 //result_pageAjax.jsp에 담긴 내용을  가져와서
-	    	 //id가 tabId인 요소의 내용을 변경
-	    	  $('#'+tabId).html(data);
-	          $('.newDiv').animate({opacity: "1"}, 200);
-	          if($("#showModify").css("display")=="none"){
-	        	  $(".modifyDeleteBtn").css("display","block");
-	          }
-	     },
-	     error : function() {
-	 		alert("error");
-	 	}
-	});
-};
-</script>
+<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
 </body>
 
-
+<!-- 자바스트립트 파일 분리 -->
+<%@ include file = "resultJS.jsp" %>
 </html>
