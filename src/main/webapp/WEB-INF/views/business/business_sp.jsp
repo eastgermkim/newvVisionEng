@@ -182,17 +182,17 @@
 					<div class="details-nav">
 						<nav>
 							<ul class="nav" id="myTab" role="tablist">
-								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_cctv">CCTV 설치</a></li>
-								
-								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_com">정보통신공사</a></li>
-								
-								<li class="nav-item">
-								<a class="nav-link active show" id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
-								
-								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_fo">광전송 SYSTEM</a></li>
+								<li class="nav-item"><a class="nav-link" id="tab"
+									href="../business/business_cctv">CCTV 설치</a></li>
+
+								<li class="nav-item"><a class="nav-link" id="tab"
+									href="../business/business_com">정보통신공사</a></li>
+
+								<li class="nav-item"><a class="nav-link active show"
+									id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
+
+								<li class="nav-item"><a class="nav-link" id="tab"
+									href="../business/business_fo">광전송 SYSTEM</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -205,8 +205,8 @@
 					<div class="tab-content" id="myTabContent">
 
 						<!---------------------------------전자파용 특수 CCTV SYSTEM------------------------------------>
-						<div class="tab-pane fade show active" id="business3" role="tabpanel"
-							aria-labelledby="contact-tab">
+						<div class="tab-pane fade show active" id="business3"
+							role="tabpanel" aria-labelledby="contact-tab">
 							<div class="details-wrap">
 								<div class="details-info">
 									<h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
@@ -214,10 +214,14 @@
 										<h3 class="business-name"
 											style="font-size: 24px; font-weight: 300;">전자파용 특수 CCTV
 											SYSTEM</h3>
-										<p
-											style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의
-											연동 Network Lan 공사</p>
+										<p style="padding-top: 20px; font-size: 20px; font-weight: 100">
+											다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의 연동 Network Lan 공사</p>
+										<div style="display:flex;">
+										<video src="../resources/video/elec_cctv.mp4" autoplay muted style="width:60%"></video>
+										<p style="width:40%">하위</p>
+										</div>
+
+										
 									</div>
 								</div>
 							</div>
@@ -243,9 +247,9 @@
 
 	<!--==========================스크롤 이미지 애니메이션============================-->
 	<script>
-	$('.nav-link').on('click', function(){
-		AOS.refresh();
-	})
+		$('.nav-link').on('click', function() {
+			AOS.refresh();
+		})
 	</script>
 </body>
 
