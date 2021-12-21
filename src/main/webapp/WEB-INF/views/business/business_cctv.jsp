@@ -320,10 +320,11 @@
 										</div>
 									</div>
 								</div>
+								
+								<!------------------------------------CCTV 설계 예시---------------------------------------------->
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
-										style="font-size: 24px; font-weight: 300;">CCTV 설치 및 설계
-										예시</h3>
+										style="font-size: 24px; font-weight: 300;">CCTV 설치 및 설계 예시</h3>
 								</div>
 								<div class="cctv-main details-thumb" data-aos="fade-up"
 									data-aos-offset="200" 

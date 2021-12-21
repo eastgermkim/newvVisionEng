@@ -139,6 +139,15 @@
     margin: 0 16px;
     background-color: #ddd;
 }
+.team-area{
+	margin-top:50px;
+}
+.team-thumb{
+	height:45%;
+}
+.team-thumb img{
+	height:100%;
+}
 </style>
 
 </head>
@@ -201,17 +210,97 @@
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
 
-						<!---------------------------------전자파용 특수 CCTV SYSTEM------------------------------------>
+						<!---------------------------------전자파용 특수 CCTV SYSTEM Ani------------------------------------>
 						<div class="tab-pane fade show active" id="business3"
 							role="tabpanel" aria-labelledby="contact-tab">
 							<div class="details-wrap">
 								<div class="details-info">
 									<h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
 									<div class="details-info">
-										<div class="sp-detail-list" style="display:flex;">
-											<video class="video" src="/resources/video/sp_ani.mp4" muted style="width:50%"></video>
+										<div class="sp-detail-list" style="text-align:center;">
+											<video class="video" src="/resources/video/sp_ani.mp4" muted style="width:70%"></video>
+										</div>
+										
+										<!---------------------------------------PTZ, 전자파용 특수 카메라, 광 방식-------------------------------------------->
+										<div class="row team-area">
+											<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000">
+												<div class="single-team">
+													<div class="team-thumb">
+														<img src="/resources/img/business/business.jpg" alt="">
+														<div class="team-hover">
+															<div class="team-link">
+																<ul>
+																	<li>
+																	<a href="#"> 
+																	<i class="fa fa-camera"></i>
+																	</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													
+													<div class="text-center">
+														<h3>PTZ CCTV</h3>
+														<p>
+															내용내용내용내용내용내용내용내용내용내용<br> 내용내용내용내용내용내용내용내용내용내용<br>
+														</p>
+													</div>
+												</div>
+											</div>
 											
-											<div style="width:50%; margin-left:10px;">
+											<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="300">
+												<div class="single-team">
+													<div class="team-thumb">
+														<img src="/resources/img/business/business.jpg" alt="">
+														<div class="team-hover">
+															<div class="team-link">
+																<ul>
+																	<li>
+																	<a href="#"> 
+																	<i class="fa fa-camera"></i>
+																	</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													
+													<div class="text-center">
+														<h3>전자파용 특수 카메라</h3>
+														<p>
+															내용내용내용내용내용내용내용내용내용내용<br> 내용내용내용내용내용내용내용내용내용내용<br>
+														</p>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="600">
+												<div class="single-team">
+													<div class="team-thumb">
+														<img src="/resources/img/business/optic-fiber.jpg" alt="">
+														<div class="team-hover">
+															<div class="team-link">
+																<ul>
+																	<li>
+																	<a href="#"> 
+																	<i class="fa fa-camera"></i>
+																	</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													
+													<div class="text-center">
+														<h3>광 방식 영상 전송</h3>
+														<p>
+															내용내용내용내용내용내용내용내용내용내용<br> 내용내용내용내용내용내용내용내용내용내용<br>
+														</p>
+													</div>
+												</div>
+											</div>
+<!-- 											<div style="width:30%; margin-left:10px;">
 											<h3 class="business-name" style="font-size: 24px; font-weight: 300;">EMC/EMI/EMS CCTV</h3>
 											
 											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
@@ -223,8 +312,7 @@
 											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
 											PTZ CCTV<br>
 											</p>
-											</div>
-										</div>
+											</div> -->
 
 									</div>
 								</div>
@@ -232,6 +320,7 @@
 						</div>
 
 
+						</div>
 					</div>
 				</div>
 			</div>
