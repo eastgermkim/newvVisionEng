@@ -55,7 +55,7 @@
 
 @media ( max-width : 767px) {
 	.organization_img{
-		content: url(../resources/img/company/organization_mobile2.png);
+		content: url(/resources/img/company/organization_mobile2.png);
 	}
 	.single-gallery-image{
 		border:none;
@@ -75,19 +75,19 @@
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="../resources/img/nvicon.png">
+	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="../resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../resources/css/magnific-popup.css">
-<link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="../resources/css/themify-icons.css">
-<link rel="stylesheet" href="../resources/css/nice-select.css">
-<link rel="stylesheet" href="../resources/css/flaticon.css">
-<link rel="stylesheet" href="../resources/css/animate.css">
-<link rel="stylesheet" href="../resources/css/slicknav.css">
-<link rel="stylesheet" href="../resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
 
@@ -130,9 +130,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g1.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g1.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g1.jpg">
+									<img class="img-content" src="/resources/img/company/g1.jpg">
 									</div>
 								</a>
 							</div>
@@ -144,9 +144,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g2.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g2.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g2.jpg">
+									<img class="img-content" src="/resources/img/company/g2.jpg">
 									</div>
 								</a>
 							</div>
@@ -158,9 +158,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g3.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g3.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g3.jpg">
+									<img class="img-content" src="/resources/img/company/g3.jpg">
 									</div>
 								</a>
 							</div>
@@ -172,9 +172,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g4.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g4.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g4.jpg">
+									<img class="img-content" src="/resources/img/company/g4.jpg">
 									</div>
 								</a>
 							</div>
@@ -186,9 +186,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g5.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g5.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g5.jpg">
+									<img class="img-content" src="/resources/img/company/g5.jpg">
 									</div>
 								</a>
 							</div>
@@ -200,9 +200,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g6.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g6.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g6.jpg">
+									<img class="img-content" src="/resources/img/company/g6.jpg">
 									</div>
 								</a>
 							</div>
@@ -214,9 +214,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g7.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g7.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g7.jpg">
+									<img class="img-content" src="/resources/img/company/g7.jpg">
 									</div>
 								</a>
 							</div>
@@ -228,9 +228,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g8.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g8.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g8.jpg">
+									<img class="img-content" src="/resources/img/company/g8.jpg">
 									</div>
 								</a>
 							</div>
@@ -242,9 +242,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g9.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g9.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g9.jpg">
+									<img class="img-content" src="/resources/img/company/g9.jpg">
 									</div>
 								</a>
 							</div>
@@ -256,9 +256,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g10.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g10.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g10.jpg">
+									<img class="img-content" src="/resources/img/company/g10.jpg">
 									</div>
 								</a>
 							</div>
@@ -270,9 +270,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g11.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g11.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g11.jpg">
+									<img class="img-content" src="/resources/img/company/g11.jpg">
 									</div>
 								</a>
 							</div>
@@ -284,9 +284,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g12.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g12.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g12.jpg">
+									<img class="img-content" src="/resources/img/company/g12.jpg">
 									</div>
 								</a>
 							</div>
@@ -298,9 +298,9 @@
 					<div id="only-gallery" class="col-lg-4 col-md-6">
 						<div class="bg-gray">
 							<div class="img-wrap">
-								<a href="../resources/img/company/g13.jpg" class="img-pop-up">
+								<a href="/resources/img/company/g13.jpg" class="img-pop-up">
 									<div class="single-gallery-image">
-									<img class="img-content" src="../resources/img/company/g13.jpg">
+									<img class="img-content" src="/resources/img/company/g13.jpg">
 									</div>
 								</a>
 							</div>
@@ -318,15 +318,15 @@
 </body>
 
     <!-- JS here -->
-    <script src="../resources/js/popper.min.js"></script>
-    <script src="../resources/js/ajax-form.js"></script>
-    <script src="../resources/js/imagesloaded.pkgd.min.js"></script>
-    <script src="../resources/js/jquery.magnific-popup.min.js"></script>
+    <script src="/resources/js/popper.min.js"></script>
+    <script src="/resources/js/ajax-form.js"></script>
+    <script src="/resources/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/resources/js/jquery.magnific-popup.min.js"></script>
 
     <!--contact js-->
-    <script src="../resources/js/jquery.ajaxchimp.min.js"></script>
-    <script src="../resources/js/jquery.form.js"></script>
-    <script src="../resources/js/jquery.validate.min.js"></script>
+    <script src="/resources/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/resources/js/jquery.form.js"></script>
+    <script src="/resources/js/jquery.validate.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
                  
 

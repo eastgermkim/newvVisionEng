@@ -17,16 +17,16 @@
 	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="../resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../resources/css/magnific-popup.css">
-<link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="../resources/css/themify-icons.css">
-<link rel="stylesheet" href="../resources/css/nice-select.css">
-<link rel="stylesheet" href="../resources/css/flaticon.css">
-<link rel="stylesheet" href="../resources/css/animate.css">
-<link rel="stylesheet" href="../resources/css/slicknav.css">
-<link rel="stylesheet" href="../resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -212,7 +212,7 @@
 									<h3 class="main-title">정보통신공사</h3>
 									<div class="cctv-detail1 details-info">
 									<div data-aos="fade-up"	data-aos-offset="200" data-aos-duration="1000">
-										<img style="width: 100%;" src="../resources/img/business/lan_main.jpg" alt="">
+										<img style="width: 100%;" src="/resources/img/business/lan_main.jpg" alt="">
 										<h3 class="business-name" style="font-size: 24px; font-weight: 300;">정보통신공사란?</h3>
 										<p style="padding-top: 20px; font-size: 20px; font-weight: 100">
 											통신회선에 문자, 영상 등 정보를 입출력 장치에 송신, 수신 처리하는 정보 통신의 설비를 설치 및 유지,
@@ -225,12 +225,12 @@
 													style="font-size: 24px; margin-bottom: 5%;">네트워크 구축</h3>
 												<ul class="business-ul" data-aos="fade-up"	data-aos-offset="100" data-aos-duration="1000">
 													<li class="business-li">
-													<img src="../resources/img/business/lan.png" alt="">
+													<img src="/resources/img/business/lan.png" alt="">
 														<hr>
 														<p>LAN 구축공사</p>
 													</li>
 													<li class="business-li"><img
-														src="../resources/img/business/digital.png" alt="">
+														src="/resources/img/business/digital.png" alt="">
 														<hr>
 														<p>디지털 통신망 구축</p></li>
 												</ul>
@@ -243,11 +243,11 @@
 													style="font-size: 24px; margin-bottom: 5%;">CCTV 구축사업</h3>
 												<ul class="business-ul" data-aos="fade-up"	data-aos-offset="100" data-aos-duration="1000">
 													<li class="business-li"><img
-														src="../resources/img/business/cctv.png" alt="">
+														src="/resources/img/business/cctv.png" alt="">
 														<hr>
 														<p>CCTV 노선설계 및 설치</p></li>
 													<li class="business-li"><img
-														src="../resources/img/business/center.png" alt="">
+														src="/resources/img/business/center.png" alt="">
 														<hr>
 														<p>관제센터 설계 및 구축</p></li>
 												</ul>

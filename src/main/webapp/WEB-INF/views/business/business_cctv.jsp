@@ -17,16 +17,16 @@
 	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="../resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../resources/css/magnific-popup.css">
-<link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="../resources/css/themify-icons.css">
-<link rel="stylesheet" href="../resources/css/nice-select.css">
-<link rel="stylesheet" href="../resources/css/flaticon.css">
-<link rel="stylesheet" href="../resources/css/animate.css">
-<link rel="stylesheet" href="../resources/css/slicknav.css">
-<link rel="stylesheet" href="../resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -242,7 +242,7 @@
 													<div class="col-xl-7 col-md-12 col-lg-6"
 														style="max-width: 45%;">
 														<div class="about-thumb">
-															<img src="../resources/img/business/cctv_3tier.png"
+															<img src="/resources/img/business/cctv_3tier.png"
 																alt="">
 														</div>
 													</div>
@@ -258,7 +258,7 @@
 											data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img src="../resources/img/business/business.jpg" alt="">
+													<img src="/resources/img/business/business.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -281,7 +281,7 @@
 											data-aos-delay="300" data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img src="../resources/img/business/service1.jpg" alt="">
+													<img src="/resources/img/business/service1.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -302,7 +302,7 @@
 											data-aos-delay="600" data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img src="../resources/img/business/service2.jpg" alt="">
+													<img src="/resources/img/business/service2.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -328,7 +328,7 @@
 								<div class="cctv-main details-thumb" data-aos="fade-up"
 									data-aos-offset="200" 
 									data-aos-duration="1000">
-									<img src="../resources/img/business/system.png" alt="">
+									<img src="/resources/img/business/system.png" alt="">
 								</div>
 							</div>
 						</div>

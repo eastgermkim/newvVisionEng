@@ -9,7 +9,7 @@
 <style>
 @media ( max-width : 767px) {
 	.organization_img{
-		content: url(../resources/img/company/organization_mobile2.png);
+		content: url(/resources/img/company/organization_mobile2.png);
 	}
 }
 
@@ -25,19 +25,19 @@
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="../resources/img/nvicon.png">
+	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="../resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../resources/css/magnific-popup.css">
-<link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="../resources/css/themify-icons.css">
-<link rel="stylesheet" href="../resources/css/nice-select.css">
-<link rel="stylesheet" href="../resources/css/flaticon.css">
-<link rel="stylesheet" href="../resources/css/animate.css">
-<link rel="stylesheet" href="../resources/css/slicknav.css">
-<link rel="stylesheet" href="../resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
 
@@ -76,7 +76,7 @@
 	<br>
 	<section class="">
 		<div class="container" style="padding-bottom:20%;">
-			<img class="organization_img" src="../resources/img/company/organization2.png" style="width:100%;">
+			<img class="organization_img" src="/resources/img/company/organization2.png" style="width:100%;">
 		</div>
 	</section>
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
@@ -85,17 +85,17 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- JS here -->
-    <script src="../resources/js/popper.min.js"></script>
-    <script src="../resources/js/ajax-form.js"></script>
-    <script src="../resources/js/imagesloaded.pkgd.min.js"></script>
-    <script src="../resources/js/jquery.magnific-popup.min.js"></script>
+    <script src="/resources/js/popper.min.js"></script>
+    <script src="/resources/js/ajax-form.js"></script>
+    <script src="/resources/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/resources/js/jquery.magnific-popup.min.js"></script>
 
     <!--contact js-->
-    <script src="../resources/js/jquery.ajaxchimp.min.js"></script>
-    <script src="../resources/js/jquery.form.js"></script>
-    <script src="../resources/js/jquery.validate.min.js"></script>
+    <script src="/resources/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/resources/js/jquery.form.js"></script>
+    <script src="/resources/js/jquery.validate.min.js"></script>
                  
-    <script src="../resources/js/main.js"></script>
+    <script src="/resources/js/main.js"></script>
 
 </html>
 

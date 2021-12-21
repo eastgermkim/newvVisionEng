@@ -300,7 +300,7 @@ table {
 								aria-labelledby="home-tab">
 								<div class="details-wrap">
 									<!-- <div class="details-thumb">
-                                        <img src="../resources/img/service/business.jpg" alt="">
+                                        <img src="/resources/img/service/business.jpg" alt="">
                                     </div> -->
 									<div class="details-info">
 										<div style="background: #FAFAFA">

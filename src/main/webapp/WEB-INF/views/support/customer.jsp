@@ -61,7 +61,7 @@ input[type="checkbox"] {
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="../resources/img/nvicon.png">
+	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">

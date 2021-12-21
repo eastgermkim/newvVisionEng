@@ -17,16 +17,16 @@
 	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="../resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../resources/css/magnific-popup.css">
-<link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="../resources/css/themify-icons.css">
-<link rel="stylesheet" href="../resources/css/nice-select.css">
-<link rel="stylesheet" href="../resources/css/flaticon.css">
-<link rel="stylesheet" href="../resources/css/animate.css">
-<link rel="stylesheet" href="../resources/css/slicknav.css">
-<link rel="stylesheet" href="../resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -209,7 +209,7 @@
 									<h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
 									<div class="details-info">
 										<div class="sp-detail-list" style="display:flex;">
-											<video class="video" src="../resources/video/sp_ani.mp4" muted style="width:50%"></video>
+											<video class="video" src="/resources/video/sp_ani.mp4" muted style="width:50%"></video>
 											
 											<div style="width:50%; margin-left:10px;">
 											<h3 class="business-name" style="font-size: 24px; font-weight: 300;">EMC/EMI/EMS CCTV</h3>
