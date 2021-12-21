@@ -18,16 +18,16 @@
 	href="/resources/img/nvicon.png">
 
 <!-- CSS here -->
-<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="../resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../resources/css/magnific-popup.css">
-<link rel="stylesheet" href="../resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="../resources/css/themify-icons.css">
-<link rel="stylesheet" href="../resources/css/nice-select.css">
-<link rel="stylesheet" href="../resources/css/flaticon.css">
-<link rel="stylesheet" href="../resources/css/animate.css">
-<link rel="stylesheet" href="../resources/css/slicknav.css">
-<link rel="stylesheet" href="../resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
@@ -324,7 +324,7 @@ table {
 																	style="color: red;text-decoration: underline;">삭제 </a>
 																	<span>&nbsp;|&nbsp;</span>
 																	<a href="javascript:void(0);" 
-																	onclick="showMain(${business.resultNum});" 
+																	onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','military');"
 																	style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																</div>
 															</c:if>
@@ -413,11 +413,17 @@ table {
 															<div class="result_container">
 																<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																	<div style="padding-top: 1%" class="modifyDeleteBtn">
-																		<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'publicOrg','${business.resultContnents}',${pageMaker1.cri.page});" style="color: blue;">수정</a>
-																		<span>|</span>
+																		<a href="javascript:void(0);" 
+																		onclick="showModifyForm(${business.resultNum},'publicOrg','${business.resultContnents}',${pageMaker2.cri.page});" 
+																		style="color: blue;text-decoration: underline;">수정</a>
+																		<span>&nbsp;|&nbsp;</span>
 																		<a href="javascript:void(0);" 
 																		onclick="remove(${business.resultNum},${pageMaker2.cri.page},'publicOrg');" 
-																		style="color: red;">삭제 </a>
+																		style="color: red;text-decoration: underline;">삭제 </a>
+																		<span>&nbsp;|&nbsp;</span>
+																		<a href="javascript:void(0);" 
+																		onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','publicOrg');"
+																		style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																	</div>
 																</c:if>
 																<div class="resultContent">${business.resultContnents}</div>
@@ -506,11 +512,17 @@ table {
 													<div class="result_container">
 															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
-																	<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'privateCorp','${business.resultContnents}',${pageMaker1.cri.page});" style="color: blue;">수정</a>
-																		<span>|</span>
 																	<a href="javascript:void(0);" 
-																		onclick="remove(${business.resultNum},${pageMaker3.cri.page},'privateCorp');" 
-																		style="color: red;">삭제 </a>
+																	onclick="showModifyForm(${business.resultNum},'privateCorp','${business.resultContnents}',${pageMaker3.cri.page});" 
+																	style="color: blue;text-decoration: underline;">수정</a>
+																	<span>&nbsp;|&nbsp;</span>
+																	<a href="javascript:void(0);" 
+																	onclick="remove(${business.resultNum},${pageMaker3.cri.page},'privateCorp');" 
+																	style="color: red;text-decoration: underline;">삭제 </a>
+																	<span>&nbsp;|&nbsp;</span>
+																	<a href="javascript:void(0);" 
+																	onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','privateCorp');"
+																	style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																</div>
 															</c:if>
 														<div class="resultContent">${business.resultContnents}</div>
@@ -678,6 +690,13 @@ table {
 	  </div>
 	</div>
 	<div id="mask2"></div>
+	
+	<form name="showMainForm" action="" method="post">
+		<input type="hidden" name="main_resultNum" id="main_resultNum">
+		<input type="hidden" name="main_resultContnents" id="main_resultContnents">
+		<input type="hidden" name="main_tabId" id="main_tabId">
+	</form>
+	
 </c:if>
 	
 <c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
@@ -686,4 +705,27 @@ table {
 
 <!-- 자바스트립트 파일 분리 -->
 <%@ include file = "resultJS.jsp" %>
+
+<script>
+function showMainSubmit(resultNum,resultContnents,tabId){
+    var gsWin = window.open('about:blank','showMainviewer','width=1000,height=880');
+    var frm =document.showMainForm;
+    frm.action = '/business/result_showMain/';
+    frm.target ="showMainviewer";
+    frm.method ="post";
+    
+    console.log("main_resultNum..........."+resultNum);
+    $("#main_resultNum").val(resultNum);
+    
+    console.log("resultContnents..........."+resultContnents);
+    $("#main_resultContnents").val(resultContnents);
+    
+    console.log("main_tabId..........."+tabId);
+    $("#main_tabId").val(tabId);
+    
+    console.log("폼 전송...........");
+    frm.submit();
+   }
+</script>
+
 </html>

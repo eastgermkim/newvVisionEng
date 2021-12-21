@@ -211,7 +211,34 @@ public class BusinessController {
 			log.info(".....................사업실적 삭제 실패");
 			return "/business/result";
 		}
+	}
+	
+	//사업실적 메인화면 등록페이지로 이동
+	@PostMapping("/result_showMain")
+	public String result_showMain(Model model,
+			@RequestParam(value="main_resultNum",required=false) long main_resultNum,
+			@RequestParam(value="main_resultContnents",required=false) String main_resultContnents,
+			@RequestParam(value="main_tabId",required=false) String main_tabId) {
 		
+			log.info("------------business_result_showMain-------------");
+			log.info("넘어온 main_resultNum값.........."+main_resultNum);
+			log.info("넘어온 main_resultContnents값.........."+main_resultContnents);
+			log.info("넘어온 main_tabId값.........."+main_tabId);
+			
+			String resultClass = "";
+			if(main_tabId.equals("military")) {
+				resultClass = "군사시설";
+			}else if(main_tabId.equals("publicOrg")) {
+				resultClass = "공공기관";
+			}else if(main_tabId.equals("privateCorp")) {
+				resultClass = "민간기업";
+			}
+		
+			model.addAttribute("main_resultNum",main_resultNum);
+			model.addAttribute("main_resultContnents",main_resultContnents);
+			model.addAttribute("resultClass",resultClass);
+		
+		return "/business/result_showMain";
 	}
 
 }

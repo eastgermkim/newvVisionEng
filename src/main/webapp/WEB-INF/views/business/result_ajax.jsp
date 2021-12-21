@@ -19,11 +19,17 @@
 								<div class="result_container">
 									<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 										<div style="padding-top: 1%" class="modifyDeleteBtn">
-											<a href="javascript:void(0);" onclick="showModifyForm(${business.resultNum},'${tabId}','${business.resultContnents}',${pageMaker.cri.page});" style="color: blue;">수정</a>
-											<span>|</span>
+											<a href="javascript:void(0);" 
+											onclick="showModifyForm(${business.resultNum},'${tabId}','${business.resultContnents}',${pageMaker.cri.page});" 
+											style="color: blue;text-decoration: underline;">수정</a>
+											<span>&nbsp;|&nbsp;</span>
 											<a href="javascript:void(0);" 
 											onclick="remove(${business.resultNum},${pageMaker.cri.page},'${tabId}');" 
-											style="color: red;">삭제 </a>
+											style="color: red;text-decoration: underline;">삭제 </a>
+											<span>&nbsp;|&nbsp;</span>
+											<a href="javascript:void(0);" 
+											onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','${tabId}');"
+											style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 										</div>
 									</c:if>
 									<div class="resultContent">${business.resultContnents}</div>
