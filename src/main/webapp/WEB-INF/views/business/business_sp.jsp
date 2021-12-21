@@ -110,18 +110,6 @@
 	height: 500px;
 }
 
-.cctv-kind {
-	margin-bottom: 10% !important;
-}
-
-.cctv-detail1 {
-	
-}
-
-.cctv-detail2 {
-	margin-bottom: 2% !important;
-}
-
 .about-area {
 	padding-top: 0;
 }
@@ -141,6 +129,15 @@
 
 .business-li hr {
 	width: 80%;
+}
+
+.sp-detail-info::before{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    margin: 0 16px;
+    background-color: #ddd;
 }
 </style>
 
@@ -210,18 +207,25 @@
 							<div class="details-wrap">
 								<div class="details-info">
 									<h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
-									<div class="cctv-detail1 details-info">
-										<h3 class="business-name"
-											style="font-size: 24px; font-weight: 300;">전자파용 특수 CCTV
-											SYSTEM</h3>
-										<p style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의 연동 Network Lan 공사</p>
-										<div style="display:flex;">
-										<video src="../resources/video/elec_cctv.mp4" autoplay muted style="width:60%"></video>
-										<p style="width:40%">하위</p>
+									<div class="details-info">
+										<div class="sp-detail-list" style="display:flex;">
+											<video class="video" src="../resources/video/sp_ani.mp4" muted style="width:50%"></video>
+											
+											<div style="width:50%; margin-left:10px;">
+											<h3 class="business-name" style="font-size: 24px; font-weight: 300;">EMC/EMI/EMS CCTV</h3>
+											
+											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
+											Shield Room<br>
+											</p>
+											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
+											Fiber Optical Video Transmission<br>
+											</p>
+											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
+											PTZ CCTV<br>
+											</p>
+											</div>
 										</div>
 
-										
 									</div>
 								</div>
 							</div>
@@ -247,10 +251,33 @@
 
 	<!--==========================스크롤 이미지 애니메이션============================-->
 	<script>
+		/* AOS 초기화 */
 		$('.nav-link').on('click', function() {
 			AOS.refresh();
 		})
+		
+		$(document).ready(function () {
+			
+	        $(window).on('scroll', function() {
+	            /* var scrollTop = window.innerHeight / 2; */
+	            /* var videoTop = $('.video')[0].getBoundingClientRect().top; */
+	            
+	            if($('.video').length != 0 ){
+		            var scrollBottom = window.innerHeight;
+		            var videoBottom = $('.video')[0].getBoundingClientRect().bottom;
+	            
+		            if(videoBottom < scrollBottom) {
+		                $(".video").get(0).play();
+		                $(".video").attr('class','video_played');
+		            }
+	            }
+	        });
+		})
+		
+
 	</script>
+	
+	
 </body>
 
 

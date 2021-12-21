@@ -31,7 +31,7 @@
 	font-size:16px;
 }
 
-/* 링크 아이콘 추가하려면 이렇게 */
+/* 링크 아이콘 */
 .link-icon:after{
 	content:"\f35d";
 	font-family: "Font Awesome 5 Free";
