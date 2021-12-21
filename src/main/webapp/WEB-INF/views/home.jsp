@@ -15,21 +15,21 @@
 
 <!-- <link rel="manifest" href="site.webmanifest"> -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="resources/img/nvicon.png">
+	href="/resources/img/nvicon.png">
 <!-- Place favicon.ico in the root directory -->
 
 <!-- CSS here -->
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="resources/css/magnific-popup.css">
-<link rel="stylesheet" href="resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="resources/css/themify-icons.css">
-<link rel="stylesheet" href="resources/css/nice-select.css">
-<link rel="stylesheet" href="resources/css/flaticon.css">
-<link rel="stylesheet" href="resources/css/animate.css">
-<link rel="stylesheet" href="resources/css/slicknav.css">
-<link rel="stylesheet" href="resources/css/style.css">
-<!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
+<!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
 @media (max-width : 991px){
@@ -183,25 +183,25 @@
 				<div class="col-xl-12">
 					<div class="brand-active owl-carousel">
 						<div class="single-brand">
-							<img src="resources/img/brand/idis.png" alt="" style="">
+							<img src="/resources/img/brand/idis.png" alt="" style="">
 						</div>
 						<div class="single-brand">
-							<img src="resources/img/brand/commax.png" alt=""
+							<img src="/resources/img/brand/commax.png" alt=""
 								style="margin-top: 0.5rem;">
 						</div>
 						<div class="single-brand">
-							<img src="resources/img/brand/kwea.png" alt="">
+							<img src="/resources/img/brand/kwea.png" alt="">
 						</div>
 						<div class="single-brand">
-							<img src="resources/img/brand/cudo.png" alt=""
+							<img src="/resources/img/brand/cudo.png" alt=""
 								style="width: auto; margin-top: 0.5rem;">
 						</div>
 						<div class="single-brand">
-							<img src="resources/img/brand/kica.png" alt=""
+							<img src="/resources/img/brand/kica.png" alt=""
 								style="margin-bottom: 0.5rem; width: auto;">
 						</div>
 						<div class="single-brand">
-							<img src="resources/img/brand/hanwha.png" alt=""
+							<img src="/resources/img/brand/hanwha.png" alt=""
 								style="margin-top: 0.5rem;">
 						</div>
 					</div>
@@ -225,7 +225,7 @@
 				<div class="col-xl-4 col-md-4">
 					<div class="single-service">
 						<div class="service-thumb">
-							<img src="resources/img/service/service1.jpg" alt="">
+							<img src="/resources/img/service/service1.jpg" alt="">
 						</div>
 						<h3>CCTV</h3>
 						<p>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해
@@ -236,7 +236,7 @@
 				<div class="col-xl-4 col-md-4">
 					<div class="single-service">
 						<div class="service-thumb">
-							<img src="resources/img/service/service2.jpg" alt="">
+							<img src="/resources/img/service/service2.jpg" alt="">
 						</div>
 						<h3>Digital Connection System</h3>
 						<p>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해
@@ -247,7 +247,7 @@
 				<div class="col-xl-4 col-md-4">
 					<div class="single-service">
 						<div class="service-thumb">
-							<img src="resources/img/service/service3.jpg" alt="">
+							<img src="/resources/img/service/service3.jpg" alt="">
 						</div>
 						<h3>광전송 SYSTEM</h3>
 						<p>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해
@@ -289,7 +289,7 @@
 						<div class="project-active owl-carousel bottom" style="width:200%;">
 							<div class="single-project">
 								<div class="project-thumb">
-									<img src="resources/img/project/1.jpg" alt="">
+									<img src="/resources/img/project/1.jpg" alt="">
 								</div>
 								<div class="project-info">
 									<span>Industrial construction</span>
@@ -298,7 +298,7 @@
 							</div>
 							<div class="single-project">
 								<div class="project-thumb">
-									<img src="resources/img/project/1.jpg" alt="">
+									<img src="/resources/img/project/1.jpg" alt="">
 								</div>
 								<div class="project-info">
 									<span>Machine engineering</span>
@@ -307,7 +307,7 @@
 							</div>
 							<div class="single-project">
 								<div class="project-thumb">
-									<img src="resources/img/project/1.jpg" alt="">
+									<img src="/resources/img/project/1.jpg" alt="">
 								</div>
 								<div class="project-info">
 									<span>Industrial construction</span>
@@ -316,7 +316,7 @@
 							</div>
 							<div class="single-project">
 								<div class="project-thumb">
-									<img src="resources/img/project/1.jpg" alt="">
+									<img src="/resources/img/project/1.jpg" alt="">
 								</div>
 								<div class="project-info">
 									<span>Machine engineering</span>
