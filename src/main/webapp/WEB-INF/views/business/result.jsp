@@ -708,7 +708,7 @@ table {
 
 <script>
 function showMainSubmit(resultNum,resultContnents,tabId){
-    var gsWin = window.open('about:blank','showMainviewer','width=1000,height=880');
+    var gsWin = window.open('about:blank','showMainviewer','width=1000,height=921');
     var frm =document.showMainForm;
     frm.action = '/business/result_showMain/';
     frm.target ="showMainviewer";
