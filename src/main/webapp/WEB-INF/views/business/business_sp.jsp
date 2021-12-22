@@ -33,26 +33,11 @@
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
-/* .service-details img{
-	opacity:0;
-} */
-.down {
-	display: none;
-}
-
 .service-details {
 	padding-top: 0;
 	padding-bottom: 0;
 }
 
-@media ( max-width : 767.5px) {
-	.up {
-		display: none;
-	}
-	.down {
-		display: block;
-	}
-}
 
 .col-xl-4 {
 	max-width: 100%;
@@ -75,19 +60,6 @@
     margin: 0 16px;
     background-color: #f36d20;
 } */
-.business-name {
-	margin-top: 5%;
-	color: #f36d20 !important;
-	font-weight: 400 !important;
-}
-
-.cctv-main {
-	margin-bottom: 3% !important;
-}
-
-.cctv-detail {
-	margin-bottom: 10% !important;
-}
 
 .service-details .single-details .details-info {
 	padding-right: 0;
@@ -105,49 +77,52 @@
 	margin-bottom: 2%
 }
 
-.single-team {
-	box-shadow: 0 1px 10px lightgrey;
-	height: 500px;
+.business-sp-outline-item-title{
+	color:#f36d20;
+	font-size:24px;
 }
 
-.about-area {
-	padding-top: 0;
+.business-sp-outline-item{
+	float:left;
+	width:50%;
 }
 
-.business-ul {
-	display: flex;
+.business-sp-outline-list-item{
+	float:left;
+	width:50%;
+	height:450px;
+	padding: 0 0 0 30px;
 }
 
-.business-li {
-	width: 50%;
-	text-align: center;
+.business-sp-item-tumb{
+	position:relative;
 }
 
-.business-li img {
-	width: 100px;
+.business-sp-item-img{
+	display:bloack;
+	width:100%;
+	height:320px;
+	top:0;
+	left:0;
 }
 
-.business-li hr {
-	width: 80%;
+.business-sp-item-num{
+	display:block;
+	padding: 12px 14px;
+	position:absolute;
+	bottom:-22px;
+	left:16px;
+	color:#fff;
+	line-height:1.2em;
+	font-size:20px;
+	font-weight:500;
+	background-color:#f36d20;
 }
 
-.sp-detail-info::before{
-    content: "";
-    display: inline-block;
-    width: 1px;
-    height: 13px;
-    margin: 0 16px;
-    background-color: #ddd;
+.business-sp-item-cont{
+	margin-top:30px;
 }
-.team-area{
-	margin-top:50px;
-}
-.team-thumb{
-	height:45%;
-}
-.team-thumb img{
-	height:100%;
-}
+
 </style>
 
 </head>
@@ -222,84 +197,106 @@
 										</div>
 										
 										<!---------------------------------------PTZ, 전자파용 특수 카메라, 광 방식-------------------------------------------->
-										<div class="row team-area">
-											<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000">
-												<div class="single-team">
-													<div class="team-thumb">
-														<img src="/resources/img/business/business.jpg" alt="">
-														<div class="team-hover">
-															<div class="team-link">
-																<ul>
-																	<li>
-																	<a href="#"> 
-																	<i class="fa fa-camera"></i>
-																	</a>
-																	</li>
-																</ul>
+										<div class="business-sp-outline">
+											<div class="business-sp-outline-item">
+												<span class="business-sp-outline-item-title">제목</span>
+												<p class="business-sp-outline-item-text">
+												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
+												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
+												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+												</p>
+											</div>
+											<div class="business-sp-outline-item">
+												<p class="business-sp-outline-item-text">
+												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
+												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+												</p>
+												<p class="business-sp-outline-item-text">
+												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
+												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+												</p>
+											</div>
+											<div class="business-sp-outline-list">
+												<ul class="business-sp-outline-list-all">
+													<li class="business-sp-outline-list-item" style="padding:0 15px 0 0;">
+														<div class="business-sp-item">
+															<div class="business-sp-item-tumb">
+																<img class="business-sp-item-img" src="../resources/img/business/shield-room.jpg">
+																<span class="business-sp-item-num">01</span>
+															</div>
+															<div class="business-sp-item-cont">
+																<h2 class="business-sp-item-title">Shiled Room 맞춤형 CCTV</h2>
+																<p class="business-sp-item-text">
+																content1content1content1content1content1content1content1content1<br>
+																content1content1content1content1content1content1content1content1
+																</p>
 															</div>
 														</div>
-													</div>
-													
-													<div class="text-center">
-														<h3>PTZ CCTV</h3>
-														<p>
-															내용내용내용내용내용내용내용내용내용내용<br> 내용내용내용내용내용내용내용내용내용내용<br>
-														</p>
-													</div>
-												</div>
+													</li>
+												</ul>
 											</div>
 											
-											<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="300">
-												<div class="single-team">
-													<div class="team-thumb">
-														<img src="/resources/img/business/business.jpg" alt="">
-														<div class="team-hover">
-															<div class="team-link">
-																<ul>
-																	<li>
-																	<a href="#"> 
-																	<i class="fa fa-camera"></i>
-																	</a>
-																	</li>
-																</ul>
+											<div class="business-sp-outline-list">
+												<ul class="business-sp-outline-list-all">
+													<li class="business-sp-outline-list-item" style="padding:30px 0 0 15px;">
+														<div class="business-sp-item">
+															<div class="business-sp-item-tumb">
+																<img class="business-sp-item-img" src="../resources/img/business/ptz.jpg">
+																<span class="business-sp-item-num">02</span>
+															</div>
+															<div class="business-sp-item-cont">
+																<h2 class="business-sp-item-title">PTZ CCTV</h2>
+																<p class="business-sp-item-text">
+																content2content2content2content2content2content2content2content2<br>
+																content2content2content2content2content2content2content2content2
+																</p>
 															</div>
 														</div>
-													</div>
-													
-													<div class="text-center">
-														<h3>전자파용 특수 카메라</h3>
-														<p>
-															내용내용내용내용내용내용내용내용내용내용<br> 내용내용내용내용내용내용내용내용내용내용<br>
-														</p>
-													</div>
-												</div>
+													</li>
+												</ul>
 											</div>
 											
-											<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000" data-aos-delay="600">
-												<div class="single-team">
-													<div class="team-thumb">
-														<img src="/resources/img/business/optic-fiber.jpg" alt="">
-														<div class="team-hover">
-															<div class="team-link">
-																<ul>
-																	<li>
-																	<a href="#"> 
-																	<i class="fa fa-camera"></i>
-																	</a>
-																	</li>
-																</ul>
+											<div class="business-sp-outline-list">
+												<ul class="business-sp-outline-list-all">
+													<li class="business-sp-outline-list-item" style="padding:0 15px 0 0;">
+														<div class="business-sp-item">
+															<div class="business-sp-item-tumb">
+																<img class="business-sp-item-img" src="../resources/img/business/proofcctv.jpg">
+																<span class="business-sp-item-num">03</span>
+															</div>
+															<div class="business-sp-item-cont">
+																<h2 class="business-sp-item-title">전자파용 특수 카메라</h2>
+																<p class="business-sp-item-text">
+																content3content3content3content3content3content3content3content3<br>
+																content3content3content3content3content3content3content3content3
+																</p>
 															</div>
 														</div>
-													</div>
-													
-													<div class="text-center">
-														<h3>광 방식 영상 전송</h3>
-														<p>
-															내용내용내용내용내용내용내용내용내용내용<br> 내용내용내용내용내용내용내용내용내용내용<br>
-														</p>
-													</div>
-												</div>
+													</li>
+												</ul>
 											</div>
+											
+											<div class="business-sp-outline-list">
+												<ul class="business-sp-outline-list-all">
+													<li class="business-sp-outline-list-item" style="padding:30px 0 0 15px;">
+														<div class="business-sp-item">
+															<div class="business-sp-item-tumb">
+																<img class="business-sp-item-img" src="../resources/img/business/opticfiber.jpg">
+																<span class="business-sp-item-num">04</span>
+															</div>
+															<div class="business-sp-item-cont">
+																<h2 class="business-sp-item-title">광 방식 영상 전송</h2>
+																<p class="business-sp-item-text">
+																content4content4content4content4content4content4content4content4<br>
+																content4content4content4content4content4content4content4content4
+																</p>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+											
+										</div>
 <!-- 											<div style="width:30%; margin-left:10px;">
 											<h3 class="business-name" style="font-size: 24px; font-weight: 300;">EMC/EMI/EMS CCTV</h3>
 											
@@ -314,7 +311,6 @@
 											</p>
 											</div> -->
 
-									</div>
 								</div>
 							</div>
 						</div>
