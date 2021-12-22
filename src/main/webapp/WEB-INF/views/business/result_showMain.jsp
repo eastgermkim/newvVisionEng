@@ -172,6 +172,166 @@
 
 				</div>
 			</c:if>
+		
+			<c:if test="${resultClass=='공공기관'}">
+				<div class="row imgs">
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/publicOrg_basic/1.jpg"
+									alt="">
+
+								<!--  <div class="team-hover">
+                                <div class="team-link">
+                                    <ul>
+                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+                                    </ul>
+                                </div>
+                            </div> -->
+							</div>
+							<!--  <div class="team-info text-center">
+                            <h3>Kamal Dowlat</h3>
+                            <p>Industrial engineer</p>
+                        </div> -->
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/publicOrg_basic/2.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/publicOrg_basic/3.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/publicOrg_basic/4.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/publicOrg_basic/5.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/publicOrg_basic/6.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</c:if>
+			
+			<c:if test="${resultClass=='민간기업'}">
+				<div class="row imgs">
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/military_basic/1.jpg"
+									alt="">
+
+								<!--  <div class="team-hover">
+                                <div class="team-link">
+                                    <ul>
+                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+                                    </ul>
+                                </div>
+                            </div> -->
+							</div>
+							<!--  <div class="team-info text-center">
+                            <h3>Kamal Dowlat</h3>
+                            <p>Industrial engineer</p>
+                        </div> -->
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/military_basic/2.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/military_basic/4.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/military_basic/3.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/military_basic/5.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img
+									src="/resources/img/business_result_Img/military_basic/7.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</c:if>
 		</div>
 	</div>
 </body>
