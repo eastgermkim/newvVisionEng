@@ -36,10 +36,6 @@
 	margin-bottom: 10%;
 }
 
-.section-title {
-	margin-bottom: 7%;
-}
-
 .section-padding {
 	padding-top: 100px;
 	padding-bottom: 100px;
@@ -54,10 +50,6 @@
 	transform: scale(1.1);
 	/* 마우스 올리면 커서모양 변경 */
 	cursor: pointer;
-}
-
-.imgs {
-	padding-top: 3%;
 }
 
 .choiceText{ 
@@ -76,6 +68,38 @@
 </style>
 
 <style>
+.genric-btn.primary-border {
+    color: black;
+    border: 1px solid black;
+    margin: 1% 0;
+}
+.genric-btn.primary:hover {
+	background: #ED1E23;
+	color: #fff;
+}
+.genric-btn.primary-border:hover{
+    color: white !important;
+}
+.genric-btn.primary-border.noColor:hover{
+    color: black !important;
+    background: #D8D8D8;
+}
+</style>
+<style>
+.hideModifyBtn{
+	background: #f36d20 !important;
+	color:white !important;
+	border: none !important;
+}
+.genric-btn.primary.modify {
+	background: royalblue;
+	color: #fff;
+}
+.genric-btn.primary.modify:hover {
+	background: darkblue;
+	border:1px solid transparent;
+	color: #fff;
+}
 </style>
 
 </head>
@@ -85,13 +109,19 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="section-title text-center">
 					<span>BUSINESS RESULTS</span>
-					<h3>사업실적 메인화면 등록</h3>
-					<div>&lt; ${resultClass} &gt;</div>
-					<div>${main_resultContnents}</div>
+					<h3 style="margin-bottom: 7%;font-weight: bold;">사업실적 메인화면 등록</h3>
 				</div>
 			</div>
+			<div style="text-align: center;margin-bottom: 5%;">
+				<div style="font-weight: bold;font-size: large;">${resultClass}</div>
+				<div style="font-size: large;margin: 0 auto;background: antiquewhite;width:fit-content;">${main_resultContnents}</div>
+			</div>
+			
 			<div class="text-center">
-				<h4>메인화면에 보여줄 이미지를 선택하세요</h4>
+				<h4>메인화면에 보여줄
+				<div style="color:red;display: inline;"> 이미지</div>를
+				<div style="color:red;display: inline;"> 선택</div>하세요</h4>
+				<hr>
 			</div>
 			<c:if test="${resultClass=='군사시설'}">
 				<div class="row imgs">
@@ -99,7 +129,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/1.jpg"
 									alt="">
 
@@ -123,7 +153,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/2.jpg"
 									alt="">
 							</div>
@@ -133,17 +163,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
-									src="/resources/img/business_result_Img/military_basic/4.jpg"
-									alt="">
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-6">
-						<div class="single-team">
-							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/3.jpg"
 									alt="">
 							</div>
@@ -153,7 +173,17 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
+									src="/resources/img/business_result_Img/military_basic/4.jpg"
+									alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class = "choiceText">✓</span>
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/5.jpg"
 									alt="">
 							</div>
@@ -163,7 +193,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/7.jpg"
 									alt="">
 							</div>
@@ -179,7 +209,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/publicOrg_basic/1.jpg"
 									alt="">
 
@@ -203,7 +233,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/publicOrg_basic/2.jpg"
 									alt="">
 							</div>
@@ -213,7 +243,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/publicOrg_basic/3.jpg"
 									alt="">
 							</div>
@@ -223,7 +253,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/publicOrg_basic/4.jpg"
 									alt="">
 							</div>
@@ -233,7 +263,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/publicOrg_basic/5.jpg"
 									alt="">
 							</div>
@@ -243,7 +273,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/publicOrg_basic/6.jpg"
 									alt="">
 							</div>
@@ -259,7 +289,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/1.jpg"
 									alt="">
 
@@ -283,7 +313,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/2.jpg"
 									alt="">
 							</div>
@@ -293,7 +323,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/4.jpg"
 									alt="">
 							</div>
@@ -303,7 +333,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/3.jpg"
 									alt="">
 							</div>
@@ -313,7 +343,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/5.jpg"
 									alt="">
 							</div>
@@ -323,7 +353,7 @@
 						<div class="single-team">
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
-								<img
+								<img class="basicimgs" 
 									src="/resources/img/business_result_Img/military_basic/7.jpg"
 									alt="">
 							</div>
@@ -332,8 +362,23 @@
 
 				</div>
 			</c:if>
+			
+			<hr>
+			<div style="display: flex;">
+				<div class="genric-btn primary-border e-large toList hideModifyBtn" style="width:50%;font-size:15px;margin-right: 1%;" onclick="showMainOK();">등록하기</div>
+																																<!--	 부모창 새로고침;  		창 닫기;		-->																							
+				<div class="genric-btn primary-border e-large toList noColor" style="width:50%; font-size:15px;" onclick="opener.parent.location.reload();window.close();">창 닫기</div>
+			</div>
 		</div>
 	</div>
+	
+	
+	<form name="showMainOKForm" action="" method="post">
+		<input type="hidden" name="resultNum" id="resultNum" value="${main_resultNum}">
+		<input type="hidden" name="imgSrc" id="imgSrc" value="">
+	
+	</form>
+	
 </body>
  <!-- JS here -->
     <script src="/resources/js/vendor/modernizr-3.5.0.min.js"></script>
@@ -382,6 +427,53 @@
 			$(this).children('.choiceText').css("opacity","1");
 		}
 	});
+	
+	//메인등록
+	function showMainOK(){
+		 if($(".ImgActive").length > 0){
+           console.log("선택한 이미지 존재");
+
+             var imgSrc = $(".ImgActive").children('img').attr("src");
+           console.log("이미지 주소......."+imgSrc);
+             
+             var frm =document.showMainOKForm;
+             frm.action = '/business/result_showMainOK/';
+             frm.method ="post";
+             
+           console.log("resultNum..........."+$("#resultNum").val());
+             
+           console.log("imgSrc..........."+imgSrc);
+             $("#imgSrc").val(imgSrc);
+             
+           console.log("사업실적 메인등록 폼 전송...........");
+             frm.submit();
+             
+             
+             
+             
+             
+             
+             
+             //부모창 해당페이지 새로고침
+             opener.parent.ChangePage(${page}, '${tabId}');
+             //창 닫기
+             //window.close();
+             
+             
+             /* opener.parent.location='/business/result'; */
+            /*  opener.parent.location.href = "javascript:ChangePage(2, 'publicOrg');"; */
+            /* $(opener.location).attr("href", "javascript:ChangePage(2, 'publicOrg');"); */
+
+            //보고있던 탭 어덯게 선택하지... 이거 안되네...
+            /* $("#publicOrg-tab", opener.parent.document).trigger("click"); */
+            
+            
+             return false;
+         } else{
+             alert("이미지를 선택해주세요.");
+			return false;
+         }
+	};
 </script>
 
 

@@ -218,11 +218,13 @@ public class BusinessController {
 	public String result_showMain(Model model,
 			@RequestParam(value="main_resultNum",required=false) long main_resultNum,
 			@RequestParam(value="main_resultContnents",required=false) String main_resultContnents,
+			@RequestParam(value="main_page",required=false) String main_page,
 			@RequestParam(value="main_tabId",required=false) String main_tabId) {
 		
 			log.info("------------business_result_showMain-------------");
 			log.info("넘어온 main_resultNum값.........."+main_resultNum);
 			log.info("넘어온 main_resultContnents값.........."+main_resultContnents);
+			log.info("넘어온 page값.........."+main_page);
 			log.info("넘어온 main_tabId값.........."+main_tabId);
 			
 			String resultClass = "";
@@ -237,8 +239,22 @@ public class BusinessController {
 			model.addAttribute("main_resultNum",main_resultNum);
 			model.addAttribute("main_resultContnents",main_resultContnents);
 			model.addAttribute("resultClass",resultClass);
+			model.addAttribute("page", main_page);
+			model.addAttribute("tabId", main_tabId);
 		
 		return "/business/result_showMain";
 	}
 
+	//사업실적 메인화면 등록페이지로 이동
+	@PostMapping("/result_showMainOK")
+	public String result_showMainOK(Model model,
+			@RequestParam(value="resultNum",required=false) long resultNum,
+			@RequestParam(value="imgSrc",required=false) String imgSrc){
+		
+			log.info("------------business_result_showMain-------------");
+			log.info("메인에 등록할 사업실적 resultNum값.........."+resultNum);
+			log.info("메인에 등록할 사업실적 imgSrc값.........."+imgSrc);
+			
+		return "null";
+	}
 }

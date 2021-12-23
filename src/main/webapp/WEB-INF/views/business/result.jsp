@@ -324,7 +324,7 @@ table {
 																	style="color: red;text-decoration: underline;">삭제 </a>
 																	<span>&nbsp;|&nbsp;</span>
 																	<a href="javascript:void(0);" 
-																	onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','military');"
+																	onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker1.cri.page},'military');"
 																	style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																</div>
 															</c:if>
@@ -422,7 +422,7 @@ table {
 																		style="color: red;text-decoration: underline;">삭제 </a>
 																		<span>&nbsp;|&nbsp;</span>
 																		<a href="javascript:void(0);" 
-																		onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','publicOrg');"
+																		onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker2.cri.page},'publicOrg');"
 																		style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																	</div>
 																</c:if>
@@ -521,7 +521,7 @@ table {
 																	style="color: red;text-decoration: underline;">삭제 </a>
 																	<span>&nbsp;|&nbsp;</span>
 																	<a href="javascript:void(0);" 
-																	onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','privateCorp');"
+																	onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker3.cri.page},'privateCorp');"
 																	style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																</div>
 															</c:if>
@@ -694,6 +694,7 @@ table {
 	<form name="showMainForm" action="" method="post">
 		<input type="hidden" name="main_resultNum" id="main_resultNum">
 		<input type="hidden" name="main_resultContnents" id="main_resultContnents">
+		<input type="hidden" name="main_page" id="main_page">
 		<input type="hidden" name="main_tabId" id="main_tabId">
 	</form>
 	
@@ -707,20 +708,25 @@ table {
 <%@ include file = "resultJS.jsp" %>
 
 <script>
-function showMainSubmit(resultNum,resultContnents,tabId){
+function showMainSubmit(resultNum,resultContnents,page,tabId){
     var gsWin = window.open('about:blank','showMainviewer','width=1000,height=921');
     var frm =document.showMainForm;
     frm.action = '/business/result_showMain/';
     frm.target ="showMainviewer";
     frm.method ="post";
     
-    console.log("main_resultNum..........."+resultNum);
+    console.log(".........폼 내용");
+    
+    console.log("resultNum..........."+resultNum);
     $("#main_resultNum").val(resultNum);
     
     console.log("resultContnents..........."+resultContnents);
     $("#main_resultContnents").val(resultContnents);
     
-    console.log("main_tabId..........."+tabId);
+    console.log("page..........."+page);
+    $("#main_page").val(page);
+    
+    console.log("tabId..........."+tabId);
     $("#main_tabId").val(tabId);
     
     console.log("폼 전송...........");

@@ -28,7 +28,7 @@
 											style="color: red;text-decoration: underline;">삭제 </a>
 											<span>&nbsp;|&nbsp;</span>
 											<a href="javascript:void(0);" 
-											onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}','${tabId}');"
+											onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker.cri.page},'${tabId}');"
 											style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 										</div>
 									</c:if>
