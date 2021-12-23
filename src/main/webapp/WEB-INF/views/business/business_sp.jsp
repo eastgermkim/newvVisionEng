@@ -129,6 +129,7 @@
 <body>
 	<script>
 		AOS.init();
+		
 	</script>
 
 	<!-- header.jsp import -->
