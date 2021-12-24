@@ -245,15 +245,24 @@ public class BusinessController {
 		return "/business/result_showMain";
 	}
 
-	//사업실적 메인화면 등록페이지로 이동
+	//사업실적 메인화면 등록(DB에 이미지 정보 등록)
 	@PostMapping("/result_showMainOK")
 	public String result_showMainOK(Model model,
 			@RequestParam(value="resultNum",required=false) long resultNum,
-			@RequestParam(value="imgSrc",required=false) String imgSrc){
+			@RequestParam(value="basicImgSrc",required=false) String basicImgSrc){
+		
 		
 			log.info("------------business_result_showMain-------------");
 			log.info("메인에 등록할 사업실적 resultNum값.........."+resultNum);
-			log.info("메인에 등록할 사업실적 imgSrc값.........."+imgSrc);
+			log.info("메인에 등록할 사업실적 BasicImgSrc값.........."+basicImgSrc);
+			
+			if(basicImgSrc != null) {
+				System.out.println("기본이미지 들어옴");
+				//기본이미지 주소 DB에 저장
+			}else {
+				
+			}
+			
 			
 		return "null";
 	}

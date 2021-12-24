@@ -375,7 +375,7 @@
 	
 	<form name="showMainOKForm" action="" method="post">
 		<input type="hidden" name="resultNum" id="resultNum" value="${main_resultNum}">
-		<input type="hidden" name="imgSrc" id="imgSrc" value="">
+		<input type="hidden" name="basicImgSrc" id="basicImgSrc" value="">
 	
 	</form>
 	
@@ -433,8 +433,8 @@
 		 if($(".ImgActive").length > 0){
            console.log("선택한 이미지 존재");
 
-             var imgSrc = $(".ImgActive").children('img').attr("src");
-           console.log("이미지 주소......."+imgSrc);
+             var basicImgSrc = $(".ImgActive").children('img').attr("src");
+           console.log("기본 이미지 주소......."+basicImgSrc);
              
              var frm =document.showMainOKForm;
              frm.action = '/business/result_showMainOK/';
@@ -442,24 +442,20 @@
              
            console.log("resultNum..........."+$("#resultNum").val());
              
-           console.log("imgSrc..........."+imgSrc);
-             $("#imgSrc").val(imgSrc);
+           console.log("basicImgSrc..........."+basicImgSrc);
+             $("#basicImgSrc").val(basicImgSrc);
              
            console.log("사업실적 메인등록 폼 전송...........");
              frm.submit();
              
-             
-             
-             
-             
-             
-             
              //부모창 해당페이지 새로고침
              opener.parent.ChangePage(${page}, '${tabId}');
-             //창 닫기
-             //window.close();
              
-             
+
+    		 //창 닫기
+             window.close();
+    		 
+    		 
              /* opener.parent.location='/business/result'; */
             /*  opener.parent.location.href = "javascript:ChangePage(2, 'publicOrg');"; */
             /* $(opener.location).attr("href", "javascript:ChangePage(2, 'publicOrg');"); */
@@ -469,10 +465,12 @@
             
             
              return false;
+            
          } else{
              alert("이미지를 선택해주세요.");
 			return false;
          }
+		 
 	};
 </script>
 
