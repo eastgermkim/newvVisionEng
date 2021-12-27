@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.Criteria;
@@ -251,41 +252,53 @@ public class BusinessController {
 
 	//사업실적 메인화면 등록(DB에 이미지 정보 등록)
 	@PostMapping("/result_showMainOK")
-	public String result_showMainOK(Model model,HttpServletRequest req,
+	public String result_showMainOK(Model model,HttpServletRequest req, MultipartFile customImg,
 			@RequestParam(value="resultNum",required=false) long resultNum,
 			@RequestParam(value="basicImgSrc",required=false) String basicImgSrc) throws IOException{
 		
 		
-			log.info("------------business_result_showMain-------------");
+			log.info("\n------------business_result_showMain-------------");
 			log.info("메인에 등록할 사업실적 resultNum값.........."+resultNum);
 			log.info("메인에 등록할 사업실적 BasicImgSrc값.........."+basicImgSrc);
 			
-			if(basicImgSrc != null) {
+			log.info("★★★★★★★★★★★★★★★★★★★★★★★★★★customImg★★★★★★★★★★★★★★★★★★★★★★★★★★");
+			if(customImg.isEmpty()) {
+				log.info("............................파일 넘어온거 없음");
+			}else {
+				log.info("............................파일 넘어온거 있음 ^^ !!!!!!!!");
+			}
+			
+			String newpath = req.getServletContext().getRealPath("/")+"resources/img/business_result/main_imgs/";
+			log.info("새로 저장되는 이미지의 위치 : "+newpath);
+			File target = new File(newpath);
+			//파일을 저장할 경로가 존재하지 않으면 폴더를 생성
+			if(!target.exists()) { target.mkdirs();}
+			
+			if(basicImgSrc != null && !basicImgSrc.equals("")) {
 				log.info(".......기본이미지 들어옴");
 				//앞에 '/'하나 없애주고
 				basicImgSrc = basicImgSrc.substring(1);
-				
 				log.info("선택한 기본 이미지 경로............"+req.getServletContext().getRealPath("/")+basicImgSrc);
-				
-				String newpath = req.getServletContext().getRealPath("/")+"resources/img/business_result/main_imgs/";
-				log.info("새로 저장되는 이미지의 위치 : "+newpath);
-				File target = new File(newpath);
-				//파일을 저장할 경로가 존재하지 않으면 폴더를 생성
-				if(!target.exists()) { target.mkdirs();}
 				
 				//기본이미지 파일 복사 저장(resultNum_번호.jpg)
 				File in = new File(req.getServletContext().getRealPath("/")+basicImgSrc);
 				File out = new File(target,"resultNum_"+resultNum+".jpg");
 				FileCopyUtils.copy(in, out);
 				
-				//사업실적 DB업데이트
-				if(service.addMainBusinessResult(resultNum)) {
-					log.info("DB업데이트 성공");
-				}else {
-					log.info("DB...업데이트...실패...");
-				}
 			}else {
+				log.info("................기본이미지 대신 외부이미지 첨부");
+				log.info("외부 이미지 파일명 : "+customImg.getOriginalFilename());
 				
+				File out = new File(target,"resultNum_"+resultNum+".jpg");
+				customImg.transferTo(out);
+			}
+			
+			
+			//사업실적 DB업데이트
+			if(service.addMainBusinessResult(resultNum)) {
+				log.info("DB업데이트 성공");
+			}else {
+				log.info("DB...업데이트...실패...");
 			}
 			
 			
