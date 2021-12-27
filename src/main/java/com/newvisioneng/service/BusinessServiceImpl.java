@@ -72,5 +72,13 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 		return mapper.deleteBusinessResult(resultNum) == 1;
 	}
 
+	
+	//사업실적 메인페이지에 등록
+	@Override
+	public boolean addMainBusinessResult(long resultNum) {
+		// TODO Auto-generated method stub
+		return mapper.updateMainBusinessResult(resultNum) == 1;
+	}
+
 
 }

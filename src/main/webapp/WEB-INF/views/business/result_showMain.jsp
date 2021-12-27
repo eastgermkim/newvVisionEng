@@ -130,7 +130,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/1.jpg"
+									src="/resources/img/business_result/basic_military/1.jpg"
 									alt="">
 
 								<!--  <div class="team-hover">
@@ -154,7 +154,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/2.jpg"
+									src="/resources/img/business_result/basic_military/2.jpg"
 									alt="">
 							</div>
 						</div>
@@ -164,7 +164,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/3.jpg"
+									src="/resources/img/business_result/basic_military/3.jpg"
 									alt="">
 							</div>
 						</div>
@@ -174,7 +174,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/4.jpg"
+									src="/resources/img/business_result/basic_military/4.jpg"
 									alt="">
 							</div>
 						</div>
@@ -184,7 +184,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/5.jpg"
+									src="/resources/img/business_result/basic_military/5.jpg"
 									alt="">
 							</div>
 						</div>
@@ -194,7 +194,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/7.jpg"
+									src="/resources/img/business_result/basic_military/7.jpg"
 									alt="">
 							</div>
 						</div>
@@ -210,7 +210,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/publicOrg_basic/1.jpg"
+									src="/resources/img/business_result/basic_publicOrg/1.jpg"
 									alt="">
 
 								<!--  <div class="team-hover">
@@ -234,7 +234,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/publicOrg_basic/2.jpg"
+									src="/resources/img/business_result/basic_publicOrg/2.jpg"
 									alt="">
 							</div>
 						</div>
@@ -244,7 +244,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/publicOrg_basic/3.jpg"
+									src="/resources/img/business_result/basic_publicOrg/3.jpg"
 									alt="">
 							</div>
 						</div>
@@ -254,7 +254,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/publicOrg_basic/4.jpg"
+									src="/resources/img/business_result/basic_publicOrg/4.jpg"
 									alt="">
 							</div>
 						</div>
@@ -264,7 +264,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/publicOrg_basic/5.jpg"
+									src="/resources/img/business_result/basic_publicOrg/5.jpg"
 									alt="">
 							</div>
 						</div>
@@ -274,7 +274,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/publicOrg_basic/6.jpg"
+									src="/resources/img/business_result/basic_publicOrg/6.jpg"
 									alt="">
 							</div>
 						</div>
@@ -290,7 +290,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/1.jpg"
+									src="/resources/img/business_result/basic_military/1.jpg"
 									alt="">
 
 								<!--  <div class="team-hover">
@@ -314,7 +314,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/2.jpg"
+									src="/resources/img/business_result/basic_military/2.jpg"
 									alt="">
 							</div>
 						</div>
@@ -324,7 +324,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/4.jpg"
+									src="/resources/img/business_result/basic_military/4.jpg"
 									alt="">
 							</div>
 						</div>
@@ -334,7 +334,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/3.jpg"
+									src="/resources/img/business_result/basic_military/3.jpg"
 									alt="">
 							</div>
 						</div>
@@ -344,7 +344,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/5.jpg"
+									src="/resources/img/business_result/basic_military/5.jpg"
 									alt="">
 							</div>
 						</div>
@@ -354,7 +354,7 @@
 							<div class="team-thumb">
 								<span class = "choiceText">✓</span>
 								<img class="basicimgs" 
-									src="/resources/img/business_result_Img/military_basic/7.jpg"
+									src="/resources/img/business_result/basic_military/7.jpg"
 									alt="">
 							</div>
 						</div>
@@ -448,12 +448,12 @@
            console.log("사업실적 메인등록 폼 전송...........");
              frm.submit();
              
-             //부모창 해당페이지 새로고침
+             //부모창 해당페이지 새로고침(ChangePage호출)
              opener.parent.ChangePage(${page}, '${tabId}');
              
 
     		 //창 닫기
-             window.close();
+             //window.close();
     		 
     		 
              /* opener.parent.location='/business/result'; */

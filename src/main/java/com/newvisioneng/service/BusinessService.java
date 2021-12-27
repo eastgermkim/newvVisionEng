@@ -17,5 +17,8 @@ public interface BusinessService {
 	public boolean modifyBusinessResult(long resultNum, String resultClass, String resultContnents);
 	//사업실적 글 삭제
 	public boolean deleteBusinessResult(long resultNum);
+	
+	//사업실적 메인페이지에 등록
+	public boolean addMainBusinessResult(long resultNum);
 
 }

@@ -18,5 +18,8 @@ public interface BusinessMapper {
 	public int updateBusinessResult(Map<String, Object> map);
 	//사업실적 삭제
 	public int deleteBusinessResult(Long resultNum);
+	
+	//사업실적 메인페이지 등록
+	public int updateMainBusinessResult(long resultNum);
 
 }

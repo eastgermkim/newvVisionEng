@@ -22,6 +22,11 @@
 	<delete id="deleteBusinessResult">
 		DELETE FROM NV_BUSINESS_RESULT WHERE RESULTNUM = #{resultNum}
 	</delete>
+	
+	<update id="updateMainBusinessResult">
+		UPDATE NV_BUSINESS_RESULT SET SHOW_MAINPAGE = 1 
+		WHERE RESULTNUM = #{resultNum}
+	</update>
 </mapper>
 
 
