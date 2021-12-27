@@ -194,7 +194,7 @@
 									<h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
 									<div class="details-info">
 										<div class="sp-detail-list" style="text-align:center;">
-											<video class="video" src="/resources/video/sp_ani.mp4" muted style="width:70%"></video>
+											<video class="video" src="/resources/video/sp_animation.mp4" muted style="width:70%"></video>
 										</div>
 										
 										<!---------------------------------------PTZ, 전자파용 특수 카메라, 광 방식-------------------------------------------->
