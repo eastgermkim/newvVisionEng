@@ -52,75 +52,88 @@
 	cursor: pointer;
 }
 
-.choiceText{ 
-    position: absolute;
-    opacity: 0;
-    color: #f36d20;
-    top: 50%;
-    left: 50%;
-    margin-left: -65px;
-    margin-top: -145px;
-    font-size: 11em;
-} 
-.ImgActive img{
+.choiceText {
+	position: absolute;
+	opacity: 0;
+	color: #f36d20;
+	top: 50%;
+	left: 50%;
+	margin-left: -65px;
+	margin-top: -145px;
+	font-size: 11em;
+}
+
+.ImgActive img {
 	opacity: 0.3;
 }
 </style>
 
 <style>
 .genric-btn.primary-border {
-    color: black;
-    border: 1px solid black;
-    margin: 1% 0;
+	color: black;
+	border: 1px solid black;
+	margin: 1% 0;
 }
+
 .genric-btn.primary:hover {
 	background: #ED1E23;
 	color: #fff;
 }
-.genric-btn.primary-border:hover{
-    color: white !important;
+
+.genric-btn.primary-border:hover {
+	color: white !important;
 }
-.genric-btn.primary-border.noColor:hover{
-    color: black !important;
-    background: #D8D8D8;
+
+.genric-btn.primary-border.noColor:hover {
+	color: black !important;
+	background: #D8D8D8;
 }
 </style>
 <style>
-.hideModifyBtn{
+.hideModifyBtn {
 	background: #f36d20 !important;
-	color:white !important;
+	color: white !important;
 	border: none !important;
 }
+
 .genric-btn.primary.modify {
 	background: royalblue;
 	color: #fff;
 }
+
 .genric-btn.primary.modify:hover {
 	background: darkblue;
-	border:1px solid transparent;
+	border: 1px solid transparent;
 	color: #fff;
 }
 </style>
 
 </head>
 <body>
+<form name="showMainOKForm" action="" method="">
+	
 	<div class="team-area section-padding gray-bg">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="section-title text-center">
 					<span>BUSINESS RESULTS</span>
-					<h3 style="margin-bottom: 7%;font-weight: bold;">사업실적 메인화면 등록</h3>
+					<h3 style="margin-bottom: 7%; font-weight: bold;">사업실적 메인화면 등록</h3>
 				</div>
 			</div>
-			<div style="text-align: center;margin-bottom: 5%;">
-				<div style="font-weight: bold;font-size: large;">${resultClass}</div>
-				<div style="font-size: large;margin: 0 auto;background: antiquewhite;width:fit-content;">${main_resultContnents}</div>
+			<div style="text-align: center; margin-bottom: 5%;">
+				<div style="font-weight: bold; font-size: large;">${resultClass}</div>
+				<div
+					style="font-size: large; margin: 0 auto; background: antiquewhite; width: fit-content;">${main_resultContnents}</div>
 			</div>
-			
+
 			<div class="text-center">
-				<h4>메인화면에 보여줄
-				<div style="color:red;display: inline;"> 이미지</div>를
-				<div style="color:red;display: inline;"> 선택</div>하세요</h4>
+				<h4>
+					메인화면에 보여줄
+					<div style="color: red; display: inline;">이미지</div>
+					를
+					<div style="color: red; display: inline;">선택</div>
+					하세요
+				</h4>
 				<hr>
 			</div>
 			<c:if test="${resultClass=='군사시설'}">
@@ -128,8 +141,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/1.jpg"
 									alt="">
 
@@ -152,8 +164,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/2.jpg"
 									alt="">
 							</div>
@@ -162,8 +173,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/3.jpg"
 									alt="">
 							</div>
@@ -172,8 +182,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/4.jpg"
 									alt="">
 							</div>
@@ -182,8 +191,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/5.jpg"
 									alt="">
 							</div>
@@ -191,25 +199,24 @@
 					</div>
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
-							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
-									src="/resources/img/business_result/basic_military/7.jpg"
-									alt="">
+															<!-- 이미지 파일만 -->
+							<input type="file" name="customImg" id="customImg" accept="image/*" 
+							onchange="setThumbnail(event);"/> 
+							<div class="team-thumb" id="image_container" style="width: 100%">
+								<span class="choiceText">✓</span> 
 							</div>
 						</div>
 					</div>
 
 				</div>
 			</c:if>
-		
+
 			<c:if test="${resultClass=='공공기관'}">
 				<div class="row imgs">
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_publicOrg/1.jpg"
 									alt="">
 
@@ -232,8 +239,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_publicOrg/2.jpg"
 									alt="">
 							</div>
@@ -242,8 +248,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_publicOrg/3.jpg"
 									alt="">
 							</div>
@@ -252,8 +257,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_publicOrg/4.jpg"
 									alt="">
 							</div>
@@ -262,8 +266,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_publicOrg/5.jpg"
 									alt="">
 							</div>
@@ -271,25 +274,24 @@
 					</div>
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
-							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
-									src="/resources/img/business_result/basic_publicOrg/6.jpg"
-									alt="">
+															<!-- 이미지 파일만 -->
+							<input type="file" name="customImg" id="customImg" accept="image/*" 
+							onchange="setThumbnail(event);"/> 
+							<div class="team-thumb" id="image_container" style="width: 100%">
+								<span class="choiceText">✓</span> 
 							</div>
 						</div>
 					</div>
 
 				</div>
 			</c:if>
-			
+
 			<c:if test="${resultClass=='민간기업'}">
 				<div class="row imgs">
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/1.jpg"
 									alt="">
 
@@ -312,8 +314,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/2.jpg"
 									alt="">
 							</div>
@@ -322,8 +323,17 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
+									src="/resources/img/business_result/basic_military/3.jpg"
+									alt="">
+							</div>
+
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-team">
+							<div class="team-thumb">
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/4.jpg"
 									alt="">
 							</div>
@@ -332,18 +342,7 @@
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
 							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
-									src="/resources/img/business_result/basic_military/3.jpg"
-									alt="">
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-6">
-						<div class="single-team">
-							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
+								<span class="choiceText">✓</span> <img class="basicimgs"
 									src="/resources/img/business_result/basic_military/5.jpg"
 									alt="">
 							</div>
@@ -351,66 +350,72 @@
 					</div>
 					<div class="col-xl-4 col-lg-4 col-md-6">
 						<div class="single-team">
-							<div class="team-thumb">
-								<span class = "choiceText">✓</span>
-								<img class="basicimgs" 
-									src="/resources/img/business_result/basic_military/7.jpg"
-									alt="">
+															<!-- 이미지 파일만 -->
+							<input type="file" name="customImg" id="customImg" accept="image/*" 
+							onchange="setThumbnail(event);"/> 
+							<div class="team-thumb" id="image_container" style="width: 100%">
+								<span class="choiceText">✓</span> 
 							</div>
 						</div>
 					</div>
 
 				</div>
 			</c:if>
-			
+
 			<hr>
 			<div style="display: flex;">
-				<div class="genric-btn primary-border e-large toList hideModifyBtn" style="width:50%;font-size:15px;margin-right: 1%;" onclick="showMainOK();">등록하기</div>
-																																<!--	 부모창 새로고침;  		창 닫기;		-->																							
-				<div class="genric-btn primary-border e-large toList noColor" style="width:50%; font-size:15px;" onclick="opener.parent.location.reload();window.close();">창 닫기</div>
+				<div class="genric-btn primary-border e-large toList hideModifyBtn"
+					style="width: 50%; font-size: 15px; margin-right: 1%;"
+					onclick="showMainOK();">등록하기</div>
+				<!--	 부모창 새로고침;  		창 닫기;		-->
+				<div class="genric-btn primary-border e-large toList noColor"
+					style="width: 50%; font-size: 15px;"
+					onclick="opener.parent.location.reload();window.close();">창
+					닫기</div>
 			</div>
 		</div>
 	</div>
-	
-	
-	<form name="showMainOKForm" action="" method="post">
-		<input type="hidden" name="resultNum" id="resultNum" value="${main_resultNum}">
-		<input type="hidden" name="basicImgSrc" id="basicImgSrc" value="">
-	
-	</form>
-	
-</body>
- <!-- JS here -->
-    <script src="/resources/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="/resources/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="/resources/js/popper.min.js"></script>
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <script src="/resources/js/owl.carousel.min.js"></script>
-    <script src="/resources/js/isotope.pkgd.min.js"></script>
-    <script src="/resources/js/ajax-form.js"></script>
-    <script src="/resources/js/waypoints.min.js"></script>
-    <script src="/resources/js/jquery.counterup.min.js"></script>
-    <script src="/resources/js/imagesloaded.pkgd.min.js"></script>
-    <script src="/resources/js/scrollIt.js"></script>
-    <script src="/resources/js/jquery.scrollUp.min.js"></script>
-    <script src="/resources/js/wow.min.js"></script>
-    <script src="/resources/js/nice-select.min.js"></script>
-    <script src="/resources/js/jquery.slicknav.min.js"></script>
-    <script src="/resources/js/jquery.magnific-popup.min.js"></script>
-    <script src="/resources/js/plugins.js"></script>
 
-    <!--contact js -->
-    <script src="/resources/js/jquery.ajaxchimp.min.js"></script>
-    <script src="/resources/js/jquery.form.js"></script>
-    <script src="/resources/js/jquery.validate.min.js"></script>
-    <script src="/resources/js/mail-script.js"></script>
-                 
-    <script src="/resources/js/main.js"></script>
-    
-    <!-- aos --> 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
-    
+
+		<input type="hidden" name="resultNum" id="resultNum"
+			value="${main_resultNum}"> 
+		<input type="hidden"
+			name="basicImgSrc" id="basicImgSrc" value="">
+
+	</form>
+
+</body>
+<!-- JS here -->
+<script src="/resources/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="/resources/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/resources/js/popper.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/owl.carousel.min.js"></script>
+<script src="/resources/js/isotope.pkgd.min.js"></script>
+<script src="/resources/js/ajax-form.js"></script>
+<script src="/resources/js/waypoints.min.js"></script>
+<script src="/resources/js/jquery.counterup.min.js"></script>
+<script src="/resources/js/imagesloaded.pkgd.min.js"></script>
+<script src="/resources/js/scrollIt.js"></script>
+<script src="/resources/js/jquery.scrollUp.min.js"></script>
+<script src="/resources/js/wow.min.js"></script>
+<script src="/resources/js/nice-select.min.js"></script>
+<script src="/resources/js/jquery.slicknav.min.js"></script>
+<script src="/resources/js/jquery.magnific-popup.min.js"></script>
+<script src="/resources/js/plugins.js"></script>
+
+<!--contact js -->
+<script src="/resources/js/jquery.ajaxchimp.min.js"></script>
+<script src="/resources/js/jquery.form.js"></script>
+<script src="/resources/js/jquery.validate.min.js"></script>
+<script src="/resources/js/mail-script.js"></script>
+
+<script src="/resources/js/main.js"></script>
+
+<!-- aos -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 <script>
 	$('.team-thumb').click(function(){
 		
@@ -439,6 +444,7 @@
              var frm =document.showMainOKForm;
              frm.action = '/business/result_showMainOK/';
              frm.method ="post";
+             frm.enctype="multipart/form-data";
              
            console.log("resultNum..........."+$("#resultNum").val());
              
@@ -474,6 +480,30 @@
 	};
 </script>
 
-
+<script> 
+/* 
+function setThumbnail(event) { 
+	for (var image of event.target.files) { 
+		var reader = new FileReader(); 
+		reader.onload = function(event) { 
+			var img = document.createElement("img"); 
+			img.setAttribute("src", event.target.result); 
+			document.querySelector("div#image_container").appendChild(img); }; 
+			console.log(image); reader.readAsDataURL(image); 
+		}
+	}  */
+	
+</script>
+<script> 
+function setThumbnail(event) { 
+	var reader = new FileReader(); 
+	reader.onload = function(event) { 
+		var img = document.createElement("img"); 
+		img.setAttribute("src", event.target.result); 
+		document.querySelector("div#image_container").appendChild(img); 
+		}; 
+	reader.readAsDataURL(event.target.files[0]); 
+	} 
+</script>
 
 </html>
