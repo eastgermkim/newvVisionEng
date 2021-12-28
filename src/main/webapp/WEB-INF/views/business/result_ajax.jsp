@@ -27,9 +27,16 @@
 											onclick="remove(${business.resultNum},${pageMaker.cri.page},'${tabId}');" 
 											style="color: red;text-decoration: underline;">삭제 </a>
 											<span>&nbsp;|&nbsp;</span>
-											<a href="javascript:void(0);" 
-											onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker.cri.page},'${tabId}');"
-											style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
+											<c:choose>
+												<c:when test="${business.show_Mainpage == 1}">
+													<span style="color: grey">메인페이지 등록완료</span>
+												</c:when>
+												<c:otherwise>
+													<a href="javascript:void(0);" 
+													onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker.cri.page},'${tabId}');"
+													style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</c:if>
 									<div class="resultContent">${business.resultContnents}</div>
