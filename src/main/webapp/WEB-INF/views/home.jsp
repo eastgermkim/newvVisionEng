@@ -287,42 +287,71 @@
 					</div>
 					<div class="col-xl-6 col-md-6">
 						<div class="project-active owl-carousel bottom" style="width:200%;">
-							<div class="single-project">
-								<div class="project-thumb">
-									<img src="/resources/img/project/1.jpg" alt="">
-								</div>
-								<div class="project-info">
-									<span>Industrial construction</span>
-									<h3>Research and development center</h3>
-								</div>
-							</div>
-							<div class="single-project">
-								<div class="project-thumb">
-									<img src="/resources/img/project/1.jpg" alt="">
-								</div>
-								<div class="project-info">
-									<span>Machine engineering</span>
-									<h3>Project of technological park</h3>
-								</div>
-							</div>
-							<div class="single-project">
-								<div class="project-thumb">
-									<img src="/resources/img/project/1.jpg" alt="">
-								</div>
-								<div class="project-info">
-									<span>Industrial construction</span>
-									<h3>Research and development center</h3>
-								</div>
-							</div>
-							<div class="single-project">
-								<div class="project-thumb">
-									<img src="/resources/img/project/1.jpg" alt="">
-								</div>
-								<div class="project-info">
-									<span>Machine engineering</span>
-									<h3>Project of technological park</h3>
-								</div>
-							</div>
+							
+							<c:choose>
+								<c:when test="${business_list != null and business_list.size()>0}">
+									<c:forEach items="${business_list}" var="business">
+											<div class="single-project">
+												<div class="project-thumb">
+													<img src="${business.imgName}" alt="">
+												</div>
+												<div class="project-info">
+													<span>${business.resultClass}</span>
+													<h3>${business.resultContnents}</h3>
+												</div>
+											</div>
+									</c:forEach>
+								</c:when>
+								
+								<c:otherwise>
+									<div class="single-project">
+										<div class="project-thumb">
+											<img src="/resources/img/business_result/basic_publicOrg/1.jpg" alt="">
+										</div>
+										<div class="project-info">
+											<span>공공기관</span>
+											<h3>사업실적 예시입니다. 예시1</h3>
+										</div>
+									</div>
+									<div class="single-project">
+										<div class="project-thumb">
+											<img src="/resources/img/business_result/basic_publicOrg/4.jpg" alt="">
+										</div>
+										<div class="project-info">
+											<span>공공기관</span>
+											<h3>사업실적 예시입니다. 예시2</h3>
+										</div>
+									</div>
+									<div class="single-project">
+										<div class="project-thumb">
+											<img src="/resources/img/business_result/basic_military/2.jpg" alt="">
+										</div>
+										<div class="project-info">
+											<span>군사시설</span>
+											<h3>사업실적 예시입니다. 예시3</h3>
+										</div>
+									</div>
+									<div class="single-project">
+										<div class="project-thumb">
+											<img src="/resources/img/business_result/basic_military/1.jpg" alt="">
+										</div>
+										<div class="project-info">
+											<span>군사시설</span>
+											<h3>사업실적 예시입니다. 예시4</h3>
+										</div>
+									</div>
+									<div class="single-project">
+										<div class="project-thumb">
+											<img src="/resources/img/business_result/main_imgs/resultNum_123_강졸2.jpeg" alt="">
+										</div>
+										<div class="project-info">
+											<span>군사시설</span>
+											<h3>사업실적 예시입니다. 예시5</h3>
+										</div>
+									</div>
+								</c:otherwise>
+							</c:choose>
+							
 						</div>
 					</div>
 				</div>
