@@ -20,6 +20,8 @@ public interface BusinessMapper {
 	public int deleteBusinessResult(Long resultNum);
 	
 	//사업실적 메인페이지 등록
-	public int updateMainBusinessResult(long resultNum);
+	public int updateMainBusinessResult(Map<String, Object> map);
+	//메인페이지에 보여주는 사업실적의 이미지 파일명
+	public String getMainImgName(long resultNum);
 
 }

@@ -19,6 +19,8 @@ public interface BusinessService {
 	public boolean deleteBusinessResult(long resultNum);
 	
 	//사업실적 메인페이지에 등록
-	public boolean addMainBusinessResult(long resultNum);
+	public boolean addMainBusinessResult(long resultNum, String fileName);
+	//메인페이지에 보여주는 사업실적의 이미지 파일명
+	public String getMainImgName(long resultNum);
 
 }

@@ -130,10 +130,8 @@
 				<div class="text-center">
 					<h4>
 						메인화면에 보여줄
-						<div style="color: red; display: inline;">이미지</div>
-						를
-						<div style="color: red; display: inline;">선택</div>
-						하세요
+						<div style="color: red; display: inline;">이미지</div>를
+						<div style="color: red; display: inline;">선택</div>하세요
 					</h4>
 					<hr>
 				</div>
@@ -200,10 +198,12 @@
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-team">
-								<!-- 이미지 파일만 -->
+								<div style="margin-bottom: 3%;">다른 이미지를 등록하시려면<br><span style="color: red">파일 첨부</span> 및 선택해주세요</div>
+								<!-- 이미지 파일만 accept="image/*" -->
 								<input type="file" name="customImg" id="customImg"
 									accept="image/*" onchange="setThumbnail(event);" />
-								<div class="team-thumb" id="image_container" style="width: 100%">
+								<div class="team-thumb customImg" id="image_container"
+									style="width: 100%">
 									<span class="choiceText">✓</span>
 								</div>
 							</div>
@@ -275,10 +275,12 @@
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-team">
-								<!-- 이미지 파일만 -->
+								<div style="margin-bottom: 3%;">다른 이미지를 등록하시려면<br><span style="color: red">파일 첨부</span> 및 선택해주세요</div>
+								<!-- 이미지 파일만 accept="image/*" -->
 								<input type="file" name="customImg" id="customImg"
 									accept="image/*" onchange="setThumbnail(event);" />
-								<div class="team-thumb" id="image_container" style="width: 100%">
+								<div class="team-thumb customImg" id="image_container"
+									style="width: 100%">
 									<span class="choiceText">✓</span>
 								</div>
 							</div>
@@ -351,7 +353,8 @@
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-team">
-								<!-- 이미지 파일만 -->
+								<div style="margin-bottom: 3%;">다른 이미지를 등록하시려면<br><span style="color: red">파일 첨부</span> 및 선택해주세요</div>
+								<!-- 이미지 파일만 accept="image/*" -->
 								<input type="file" name="customImg" id="customImg"
 									accept="image/*" onchange="setThumbnail(event);" />
 								<div class="team-thumb customImg" id="image_container"
@@ -502,6 +505,10 @@ function setThumbnail(event) {
 </script>
 <script> 
 function setThumbnail(event) { 
+	
+	//기존 img가 있다면 삭제하기
+	$(".customImg").children("img").remove();
+	
 	var reader = new FileReader(); 
 	reader.onload = function(event) { 
 		var img = document.createElement("img"); 

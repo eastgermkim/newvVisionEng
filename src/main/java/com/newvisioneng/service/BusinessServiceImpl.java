@@ -75,9 +75,19 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 	
 	//사업실적 메인페이지에 등록
 	@Override
-	public boolean addMainBusinessResult(long resultNum) {
+	public boolean addMainBusinessResult(long resultNum,String fileName) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("resultNum", resultNum);
+		map.put("fileName", fileName);
+		return mapper.updateMainBusinessResult(map) == 1;
+	}
+	
+	//메인페이지에 보여주는 사업실적의 이미지 파일명 가져오기
+	@Override
+	public String getMainImgName(long resultNum) {
 		// TODO Auto-generated method stub
-		return mapper.updateMainBusinessResult(resultNum) == 1;
+		return mapper.getMainImgName(resultNum);
 	}
 
 

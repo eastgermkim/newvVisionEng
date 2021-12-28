@@ -24,9 +24,12 @@
 	</delete>
 	
 	<update id="updateMainBusinessResult">
-		UPDATE NV_BUSINESS_RESULT SET SHOW_MAINPAGE = 1 
+		UPDATE NV_BUSINESS_RESULT SET SHOW_MAINPAGE = 1, IMGNAME= #{fileName}
 		WHERE RESULTNUM = #{resultNum}
 	</update>
+	<select id="getMainImgName" resultType="string">
+		SELECT IMGNAME FROM NV_BUSINESS_RESULT  WHERE RESULTNUM = #{resultNum}
+	</select>
 </mapper>
 
 
