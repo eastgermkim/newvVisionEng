@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -225,7 +227,8 @@ public class BusinessController {
 			@RequestParam(value = "main_resultNum", required = false) long main_resultNum,
 			@RequestParam(value = "main_resultContnents", required = false) String main_resultContnents,
 			@RequestParam(value = "main_page", required = false) String main_page,
-			@RequestParam(value = "main_tabId", required = false) String main_tabId) {
+			@RequestParam(value = "main_tabId", required = false) String main_tabId,
+			@RequestParam(value = "msg", required = false) String msg) {
 
 		log.info("------------business_result_showMain-------------");
 		log.info("넘어온 main_resultNum값.........." + main_resultNum);
@@ -247,13 +250,18 @@ public class BusinessController {
 		model.addAttribute("resultClass", resultClass);
 		model.addAttribute("page", main_page);
 		model.addAttribute("tabId", main_tabId);
-
+		
+		if (msg != null) {
+			model.addAttribute("msg", msg);
+		}
+		
 		return "/business/result_showMain";
 	}
 
 	// 사업실적 메인화면 등록(DB에 이미지 정보 등록)
-	@PostMapping("/result_showMainOK")
-	public String result_showMainOK(Model model, HttpServletRequest req, MultipartFile customImg,
+	@RequestMapping(value = "/result_showMainOK", method = RequestMethod.POST, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String result_showMainOK(Model model, HttpServletRequest req, MultipartFile customImg,RedirectAttributes ra,
 			@RequestParam(value = "resultNum", required = false) long resultNum,
 			@RequestParam(value = "basicImgSrc", required = false) String basicImgSrc) throws IOException {
 
@@ -306,25 +314,31 @@ public class BusinessController {
 			FileCopyUtils.copy(in, out);
 
 		// 다른 이미지 첨부 및 선택했을시	
-		} else if (!customImg.isEmpty()) {
-			log.info("............................파일 넘어온거 있음 ^^ !!!!!!!!");
-			log.info("................기본이미지 대신 외부이미지 첨부");
-			log.info("메인에 등록할 사업실적 customImg 기존 파일명.........." + customImg.getOriginalFilename());
-			fileName = "resultNum_" + resultNum + "_" + customImg.getOriginalFilename();
-			
-			File file = new File(target,fileName);
-			customImg.transferTo(file);
-		} else {
-			log.info("............................파일 넘어온거 없음");
-		}
+			} else if (!customImg.isEmpty()) {
+				log.info("............................파일 넘어온거 있음 ^^ !!!!!!!!");
+				log.info("................기본이미지 대신 외부이미지 첨부");
+				log.info("메인에 등록할 사업실적 customImg 기존 파일명.........." + customImg.getOriginalFilename());
+				fileName = "resultNum_" + resultNum + "_" + customImg.getOriginalFilename();
+				
+				File file = new File(target,fileName);
+				customImg.transferTo(file);
+			} else {
+				log.info("............................파일 넘어온거 없음");
+			}
 
+		
 		// 사업실적 DB업데이트
 		if (service.addMainBusinessResult(resultNum,fileName)) {
 			log.info("DB업데이트 성공");
+			log.info("resultNum : "+resultNum);
+			log.info("fileName : "+fileName);
+			ra.addAttribute("msg","사업실적 메인 등록 성공");
+			return "사업실적 메인 등록 성공";
 		} else {
 			log.info("DB...업데이트...실패...");
+			ra.addAttribute("msg","등록 실패");
+			return "등록 실패";
 		}
-
-		return "null";
 	}
+	
 }

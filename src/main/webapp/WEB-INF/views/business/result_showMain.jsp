@@ -110,7 +110,8 @@
 
 </head>
 <body>
-	<form name="showMainOKForm" action="" method="" enctype="">
+	<form name="showMainOKForm" id="showMainOKForm" action="" method=""
+		enctype="">
 
 		<div class="team-area section-padding gray-bg">
 			<div class="container">
@@ -130,8 +131,10 @@
 				<div class="text-center">
 					<h4>
 						메인화면에 보여줄
-						<div style="color: red; display: inline;">이미지</div>를
-						<div style="color: red; display: inline;">선택</div>하세요
+						<div style="color: red; display: inline;">이미지</div>
+						를
+						<div style="color: red; display: inline;">선택</div>
+						하세요
 					</h4>
 					<hr>
 				</div>
@@ -198,7 +201,10 @@
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-team">
-								<div style="margin-bottom: 3%;">다른 이미지를 등록하시려면<br><span style="color: red">파일 첨부</span> 및 선택해주세요</div>
+								<div style="margin-bottom: 3%;">
+									다른 이미지를 등록하시려면<br> <span style="color: red">파일 첨부</span> 및
+									선택해주세요
+								</div>
 								<!-- 이미지 파일만 accept="image/*" -->
 								<input type="file" name="customImg" id="customImg"
 									accept="image/*" onchange="setThumbnail(event);" />
@@ -275,7 +281,10 @@
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-team">
-								<div style="margin-bottom: 3%;">다른 이미지를 등록하시려면<br><span style="color: red">파일 첨부</span> 및 선택해주세요</div>
+								<div style="margin-bottom: 3%;">
+									다른 이미지를 등록하시려면<br> <span style="color: red">파일 첨부</span> 및
+									선택해주세요
+								</div>
 								<!-- 이미지 파일만 accept="image/*" -->
 								<input type="file" name="customImg" id="customImg"
 									accept="image/*" onchange="setThumbnail(event);" />
@@ -353,7 +362,10 @@
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-team">
-								<div style="margin-bottom: 3%;">다른 이미지를 등록하시려면<br><span style="color: red">파일 첨부</span> 및 선택해주세요</div>
+								<div style="margin-bottom: 3%;">
+									다른 이미지를 등록하시려면<br> <span style="color: red">파일 첨부</span> 및
+									선택해주세요
+								</div>
 								<!-- 이미지 파일만 accept="image/*" -->
 								<input type="file" name="customImg" id="customImg"
 									accept="image/*" onchange="setThumbnail(event);" />
@@ -387,7 +399,6 @@
 			name="basicImgSrc" id="basicImgSrc" value="">
 
 	</form>
-
 </body>
 <!-- JS here -->
 <script src="/resources/js/vendor/modernizr-3.5.0.min.js"></script>
@@ -421,89 +432,70 @@
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <script>
-	$('.team-thumb').click(function(){
-		if ($(this).hasClass("ImgActive")) {
-			// active class 제거
-			$(this).removeClass("ImgActive");
-			$(this).children('.choiceText').css("opacity","0");
-		} else {
-			//다른 active들 삭제
-			$(".ImgActive").children('.choiceText').css("opacity","0");
-			$(".ImgActive").removeClass("ImgActive");
-			// active class 추가
-			$(this).addClass("ImgActive");
-			$(this).children('.choiceText').css("opacity","1");
-		}
-	});
+$('.team-thumb').click(function(){
+	if ($(this).hasClass("ImgActive")) {
+		// active class 제거
+		$(this).removeClass("ImgActive");
+		$(this).children('.choiceText').css("opacity","0");
+	} else {
+		//다른 active들 삭제
+		$(".ImgActive").children('.choiceText').css("opacity","0");
+		$(".ImgActive").removeClass("ImgActive");
+		// active class 추가
+		$(this).addClass("ImgActive");
+		$(this).children('.choiceText').css("opacity","1");
+	}
+});
 	
-	//메인등록
-	function showMainOK(){
-		 if($(".ImgActive").length > 0){
-           console.log("선택한 이미지 존재");
-           
-             
-             var frm =document.showMainOKForm;
-             frm.action = '/business/result_showMainOK/';
-             frm.method ="post";
-             frm.enctype="multipart/form-data";
-             
-           console.log("resultNum..........."+$("#resultNum").val());
-             
-           //그게 만약 내가 첨부한 이미지가 아니라면(즉, 기본이미지 선택이라면)
-           //기본이미지 주소를 basicImgSrc에 담아 넘겨준다.
-           if($(".ImgActive").hasClass("customImg")){
-        	console.log("외부 이미지 첨부....");
-           } else{
-             var basicImgSrc = $(".ImgActive").children('img').attr("src");
-          	 console.log("기본 이미지 주소......."+basicImgSrc);
-	         console.log("basicImgSrc..........."+basicImgSrc);
-             $("#basicImgSrc").val(basicImgSrc);
-           }
-             
-           console.log("사업실적 메인등록 폼 전송...........");
-           frm.submit();
-             
-             //부모창 해당페이지 새로고침(ChangePage호출)
-             opener.parent.ChangePage(${page}, '${tabId}');
-             
+//메인등록
+function showMainOK(){
+	 if($(".ImgActive").length > 0){
+          console.log("선택한 이미지 존재");
+        
+          //그게 만약 내가 첨부한 이미지가 아니라면(즉, 기본이미지 선택이라면)
+          //기본이미지 주소를 basicImgSrc에 담아 넘겨준다.
+          if($(".ImgActive").hasClass("customImg")){
+       	console.log("외부 이미지 첨부....");
+          } else{
+            var basicImgSrc = $(".ImgActive").children('img').attr("src");
+         	 console.log("기본 이미지 주소......."+basicImgSrc);
+         console.log("basicImgSrc..........."+basicImgSrc);
+            $("#basicImgSrc").val(basicImgSrc);
+          }
+          
+          ////////////////////////////////////////////
+          var form = $('#showMainOKForm')[0]; 
+          var formData = new FormData(form);
 
-    		 //창 닫기
-             //window.close();
-    		 
-    		 
-             /* opener.parent.location='/business/result'; */
-            /*  opener.parent.location.href = "javascript:ChangePage(2, 'publicOrg');"; */
-            /* $(opener.location).attr("href", "javascript:ChangePage(2, 'publicOrg');"); */
-
-            //보고있던 탭 어덯게 선택하지... 이거 안되네...
-            /* $("#publicOrg-tab", opener.parent.document).trigger("click"); */
-            
-            
-             return false;
-            
-         } else{
-             alert("이미지를 선택해주세요.");
-			return false;
-         }
-		 
-	};
+          $.ajax({ 
+        	  url: '/business/result_showMainOK/', 
+        	  type: 'POST', 
+        	  data: formData, 
+        	  success: function (data) { 
+        		  alert(data);
+        		  //부모창 ChangePage()함수 호출하여 새로고침효과
+        		  opener.parent.ChangePage(${page}, '${tabId}');
+        		  //현재창(자식창) 닫기
+        		  self.close();
+       		}, 
+       		  error: function (data) { 
+       			  alert(data);
+       		}, 
+       		cache: false, 
+       		contentType: false, 
+       		processData: false 
+       	});
+          
+     } else{
+         alert("이미지를 선택해주세요.");
+		return false;
+     }
+	 
+};
 </script>
 
 <script> 
-/* 
-function setThumbnail(event) { 
-	for (var image of event.target.files) { 
-		var reader = new FileReader(); 
-		reader.onload = function(event) { 
-			var img = document.createElement("img"); 
-			img.setAttribute("src", event.target.result); 
-			document.querySelector("div#image_container").appendChild(img); }; 
-			console.log(image); reader.readAsDataURL(image); 
-		}
-	}  */
-	
-</script>
-<script> 
+/* 이미지 첨부시 미리보기 생성 */
 function setThumbnail(event) { 
 	
 	//기존 img가 있다면 삭제하기
