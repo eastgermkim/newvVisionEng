@@ -30,6 +30,11 @@
 	<select id="getMainImgName" resultType="string">
 		SELECT IMGNAME FROM NV_BUSINESS_RESULT  WHERE RESULTNUM = #{resultNum}
 	</select>
+	
+	<!-- 메인등록된 사업실적 목록 불러오기 -->
+	<select id="getMainBusinessList" resultType="com.newvisioneng.domain.BusinessDTO">
+		SELECT * FROM NV_BUSINESS_RESULT WHERE SHOW_MAINPAGE = 1
+	</select>
 </mapper>
 
 

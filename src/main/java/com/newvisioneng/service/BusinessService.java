@@ -22,5 +22,8 @@ public interface BusinessService {
 	public boolean addMainBusinessResult(long resultNum, String fileName);
 	//메인페이지에 보여주는 사업실적의 이미지 파일명
 	public String getMainImgName(long resultNum);
+	
+	//메인페이지 등록된 사업실적 목록 가져오기
+	public List<BusinessDTO> getMainBusinessList();
 
 }

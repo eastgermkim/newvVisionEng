@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.newvisioneng.domain.Account;
 import com.newvisioneng.security.SecurityAccount;
-import com.newvisioneng.service.AdminServiceImpl;
+import com.newvisioneng.service.AdminService;
+import com.newvisioneng.service.BusinessService;
 
 /**
  * Handles requests for the application home page.
@@ -47,7 +48,10 @@ public class HomeController {
 	}*/
 	
 	@Autowired
-	AdminServiceImpl adminService;
+	AdminService adminService;
+	
+	@Autowired
+	BusinessService businessService;
 
 	//관리자 로그인 페이지로 이동
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -118,6 +122,10 @@ public class HomeController {
 			logger.info("joinOK........." + loginOK);
 			model.addAttribute("joinOK", "회원가입 완료");
 		}
+		
+		//메인등록된 사업실적들 리스트 담기
+		model.addAttribute("business_list", businessService.getMainBusinessList());
+		
 		return "home";
 	}
 	

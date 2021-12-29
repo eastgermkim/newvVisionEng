@@ -86,9 +86,16 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 	//메인페이지에 보여주는 사업실적의 이미지 파일명 가져오기
 	@Override
 	public String getMainImgName(long resultNum) {
-		// TODO Auto-generated method stub
+		
 		return mapper.getMainImgName(resultNum);
 	}
 
+	//메인 사업실적 목록 가져오기
+	@Override
+	public List<BusinessDTO> getMainBusinessList() {
+		logger.info("\ngetMainBusinessList................" );
+		
+		return mapper.getMainBusinessList();
+	}
 
 }

@@ -293,7 +293,7 @@
 									<c:forEach items="${business_list}" var="business">
 											<div class="single-project">
 												<div class="project-thumb">
-													<img src="${business.imgName}" alt="">
+													<img src="/resources/img/business_result/main_imgs/${business.imgName}" alt="">
 												</div>
 												<div class="project-info">
 													<span>${business.resultClass}</span>
