@@ -100,8 +100,8 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 
 	//사업실적 메인페이지에서 등록 취소
 	@Override
-	public boolean removeMainBusinessResult(long resultNum) {
-		return mapper.updateNotMainBusinessResult(resultNum) == 1;
+	public boolean cancelMainBusinessResult(long resultNum) {
+		return mapper.cancelMainBusinessResult(resultNum) == 1;
 	}
 
 }

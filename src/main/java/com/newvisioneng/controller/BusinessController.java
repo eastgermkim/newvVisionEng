@@ -347,45 +347,45 @@ public class BusinessController {
 	}
 	
 	
-		//메인등록된 사업실적들 취소 관리하기
-		@GetMapping("/manageMainResults")
-		public String manageMainResults(Model model, HttpServletRequest req) {
-			log.info("-----------------------------------------------");
-			log.info("------------business_manageMainResults-------------");
-			
-			model.addAttribute("business_list", service.getMainBusinessList());
-			return "/business/result_showMainManagement";
-			}
+	//메인등록된 사업실적들 취소 관리하기
+	@GetMapping("/result_showMainCancel")
+	public String result_showMainCancel(Model model, HttpServletRequest req) {
+		log.info("-----------------------------------------------");
+		log.info("------------business_result_showMainCancel-------------");
 		
-		//메인등록된 사업실적 등록 취소
-		@GetMapping("/result_noShowMainOK")
-		@ResponseBody
-		public String result_noShowMainOK(HttpServletRequest req,
-				@RequestParam(value = "resultNum", required = false) long resultNum,
-				@RequestParam(value = "imgName", required = false) String imgName) {
-			log.info("-----------------------------------------------");
-			log.info("------------business_result_noShowMainOK-------------");
-			
-			//이미지 실제 파일 삭제
-			File file = new File(req.getServletContext().getRealPath("/") + "resources/img/business_result/main_imgs/"
-					+imgName);
-
-			if (file.exists()) {
-				if (file.delete()) {
-					log.info("삭제된 파일................." +imgName);
-				} else {
-					log.info("삭제실패");
-				}
-			} else {
-				log.info("파일이 존재하지 않습니다." +imgName);
-			}
-			
-			//DB수정
-			if(service.removeMainBusinessResult(resultNum)) {
-				log.info("........메인에 등록된 사업실적 등록 취소 성공");
-				return "success";
-			}else {
-				return "fail";
-			}
+		model.addAttribute("business_list", service.getMainBusinessList());
+		return "/business/result_showMainCancel";
 		}
+		
+	//메인등록된 사업실적 등록 취소
+	@GetMapping("/result_showMainCancelOK")
+	@ResponseBody
+	public String result_showMainCancelOK(HttpServletRequest req,
+			@RequestParam(value = "resultNum", required = false) long resultNum,
+			@RequestParam(value = "imgName", required = false) String imgName) {
+		log.info("-----------------------------------------------");
+		log.info("------------business_result_showMainCancelOK-------------");
+		
+		//이미지 실제 파일 삭제
+		File file = new File(req.getServletContext().getRealPath("/") + "resources/img/business_result/main_imgs/"
+				+imgName);
+
+		if (file.exists()) {
+			if (file.delete()) {
+				log.info("삭제된 파일................." +imgName);
+			} else {
+				log.info("삭제실패");
+			}
+		} else {
+			log.info("파일이 존재하지 않습니다." +imgName);
+		}
+		
+		//DB수정
+		if(service.cancelMainBusinessResult(resultNum)) {
+			log.info("........메인에 등록된 사업실적 등록 취소 성공");
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 }

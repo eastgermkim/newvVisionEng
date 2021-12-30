@@ -135,54 +135,55 @@
 					<div class="section-title text-center">
 						<span>BUSINESS RESULTS</span>
 						<h3 style="margin-bottom: 7%; font-weight: bold;">사업실적 메인화면
-							취소 관리</h3>
+							<span style="color: red;display: contents;font-size: inherit;font-weight: inherit;">
+							취소</span> 관리</h3>
 					</div>
-				</div>
-				<div style="text-align: center; margin-bottom: 5%;">
 				</div>
 				<div class="text-center">
 					<h4>
 						메인화면에 보여주지 않을
 						<div style="color: red; display: inline;">사업실적</div>을
 						<div style="color: red; display: inline;">선택</div>하세요
-						<br>(이미지도 함께 삭제 처리)
+						<br>(이미지도 함께 삭제 처리됩니다.)
 					</h4>
 					<hr>
 				</div>
-				<c:if
-					test="${business_list != null and business_list.size()>0}">
+				<c:choose>
+					<c:when test="${business_list != null and business_list.size()>0}">
 						<div class="row imgs">
-					<c:forEach items="${business_list}" var="business">
-							<div class="col-xl-4 col-lg-4 col-md-6">
-								<div class="single-team">
-									<div class="team-thumb">
-										<input type="hidden" class="resultNum" value="${business.resultNum}">
-										<input type="hidden" class="imgName" value="${business.imgName}">
-										<span class="choiceText">✓</span>
-										<div class="img-wrapper">
-										<img
-										src="/resources/img/business_result/main_imgs/${business.imgName}"
-										alt="">
+							<c:forEach items="${business_list}" var="business">
+								<div class="col-xl-4 col-lg-4 col-md-6">
+									<div class="single-team">
+										<div class="team-thumb">
+											<input type="hidden" class="resultNum" value="${business.resultNum}">
+											<input type="hidden" class="imgName" value="${business.imgName}">
+											<span class="choiceText">✓</span>
+											<div class="img-wrapper">
+												<img
+												src="/resources/img/business_result/main_imgs/${business.imgName}"
+												alt="">
+											</div>
 										</div>
-									</div>
-							
-									 <div class="team-info text-center">
-			                            <h3>${business.resultClass}</h3>
-			                            <p>${business.resultContnents}</p>
-			                        </div>
-			                    </div>
-							</div>
-							
-							<form></form>
-					</c:forEach>
+										<div class="team-info text-center">
+				                            <h3>${business.resultClass}</h3>
+				                            <p>${business.resultContnents}</p>
+				                        </div>
+				                    </div>
+								</div>
+							</c:forEach>
 						</div>
-				</c:if>
-
+					</c:when>
+					<c:otherwise>
+						<h4 style="text-align: center;padding: 20%;">
+						메인화면에 등록된 사업실적이 없습니다.
+						</h4>					
+					</c:otherwise>
+				</c:choose>
 				<hr>
 				<div style="display: flex;">
 					<div class="genric-btn primary-border e-large toList hideModifyBtn"
 						style="width: 50%; font-size: 15px; margin-right: 1%;"
-						onclick="noShowMainOK();">메인 등록 취소하기</div>
+						onclick="noShowMainOK();">메인 등록 취소</div>
 					<!--	 부모창 새로고침;  		창 닫기;		-->
 					<div class="genric-btn primary-border e-large toList noColor"
 						style="width: 50%; font-size: 15px;"
@@ -252,7 +253,7 @@ function noShowMainOK(){
          console.log("imgName....."+imgName);
          
          $.ajax({ 
-       	  url: '/business/result_noShowMainOK', 
+       	  url: '/business/result_showMainCancelOK', 
        	  type: 'GET', 
        	  data: {
        		  "resultNum" : resultNum,
