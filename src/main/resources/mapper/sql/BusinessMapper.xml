@@ -35,6 +35,10 @@
 	<select id="getMainBusinessList" resultType="com.newvisioneng.domain.BusinessDTO">
 		SELECT * FROM NV_BUSINESS_RESULT WHERE SHOW_MAINPAGE = 1
 	</select>
+	<update id="updateNotMainBusinessResult">
+		UPDATE NV_BUSINESS_RESULT SET SHOW_MAINPAGE = 0, IMGNAME = NULL
+		WHERE RESULTNUM = #{resultNum}
+	</update>
 </mapper>
 
 

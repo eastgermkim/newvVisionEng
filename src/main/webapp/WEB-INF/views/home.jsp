@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%@ page session="true"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -32,91 +33,117 @@
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
-@media (max-width : 991px){
+@media ( max-width : 991px) {
 	.project-active.owl-carousel.bottom {
-		width:100%!important;
+		width: 100% !important;
 	}
 }
 
 /* footer 관련 스타일 */
-	.mobile{
+.mobile {
+	display: none;
+}
+
+.cta-area .cta-content p {
+	font-size: 18x;
+	padding-top: 20px;
+}
+
+@media ( max-width : 767.5px) {
+	.desktop {
 		display: none;
 	}
-	
-	.cta-area .cta-content p{
-		font-size:18x;
-		padding-top:20px;
+	.mobile {
+		display: block;
 	}
+	.cta-area .cta-content h3 {
+		font-size: 44px !important;
+	}
+}
 
-  	@media ( max-width : 767.5px) {
-		.desktop{
-			display: none;
-		}
-		.mobile{
-			display:block;
-		}
-		.cta-area .cta-content h3{
-			font-size:44px!important;
-		}
+@media ( max-width : 991.5px) {
+	.desktop-contact {
+		display: none;
 	}
-  	@media ( max-width : 991.5px) {
-		.desktop-contact{
-			display: none;
-		}
-	}
-	@media(min-width:991.5px){
-		.cta-content{
-			background: none!important;
-		}
-		.cta-content .cta-content-inner{
-			margin-left:0!important;
-			width:max-content;
-		}
-		.cta-content .cta-content-inner h3{
-			color:#fff!important;
-		}
-		.cta-content .cta-content-inner p{
-			color:#fff!important;
-		}
-		.cta-content .cta-btn{
-			position:initial!important;
-		}
-		
-	}
-	
-	.footer_li{
-		display: inline-block;
-  		vertical-align: middle;
-		margin-right: 20px;
-	}
-	
-	.project-thumb{
-		max-width:fit-content;
-	}
+}
 
+@media ( min-width :991.5px) {
+	.cta-content {
+		background: none !important;
+	}
+	.cta-content .cta-content-inner {
+		margin-left: 0 !important;
+		width: max-content;
+	}
+	.cta-content .cta-content-inner h3 {
+		color: #fff !important;
+	}
+	.cta-content .cta-content-inner p {
+		color: #fff !important;
+	}
+	.cta-content .cta-btn {
+		position: initial !important;
+	}
+}
+
+.footer_li {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+.project-thumb {
+	max-width: fit-content;
+}
+</style>
+<style>
+.img-wrapper {
+	position: relative;
+	width: 365.5px;
+	height: 365.5px;
+}
+
+.img-wrapper img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: auto;
+}
+.project-area .owl-item{
+	margin-right: 15px !important;
+	width:600px!important;
+}
+.project-area .owl-item .project-info{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
 </style>
 
 </head>
 
 <body>
-<script>
-/* Internet Explorer 접속 방지(Edge로 전환) */
-  if(navigator.userAgent.indexOf("Trident") > 0){ 
-	 	 window.location = "microsoft-edge:" + window.location.href;
-		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-	} 
-  else if(/MSIE \d |Trident.*rv:/.test(navigator.userAgent)){
-	  	window.location = "microsoft-edge:" + window.location.href;
-		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+	<script>
+		/* Internet Explorer 접속 방지(Edge로 전환) */
+		if (navigator.userAgent.indexOf("Trident") > 0) {
+			window.location = "microsoft-edge:" + window.location.href;
+			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+		} else if (/MSIE \d |Trident.*rv:/.test(navigator.userAgent)) {
+			window.location = "microsoft-edge:" + window.location.href;
+			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+		} else if (window.navigator.userAgent
+				.match(/MSIE|Internet Explorer|Trident/i)) {
+			window.location = "microsoft-edge:" + window.location.href;
+			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
 		}
-  else if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
-		window.location = "microsoft-edge:" + window.location.href;
-		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-	}
-</script>
-<!-- header.jsp import -->
+	</script>
+	<!-- header.jsp import -->
 	<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
-	
+
 
 	<!-- slider-area-start -->
 	<div class="slider-area">
@@ -125,7 +152,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-7 offset-xl-1 col-lg-7">
-							<div class="slider-content" style="opacity:0.7">
+							<div class="slider-content" style="opacity: 0.7">
 								<p>CCTV 카메라 영상 주변기기 및 SYSTEM 설계</p>
 								<h3 style="font-size: 24px; line-height: inherit;">내용을
 									입력해주세요.</h3>
@@ -144,7 +171,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-7 offset-xl-1 col-lg-7">
-							<div class="slider-content" style="opacity:0.7">
+							<div class="slider-content" style="opacity: 0.7">
 								<p>Quality work. Trustable service. Dedicated team</p>
 								<h3>We provide your Industrial solution</h3>
 								<div class="slider-btn">
@@ -160,7 +187,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-7 offset-xl-1 col-lg-7">
-							<div class="slider-content" style="opacity:0.7">
+							<div class="slider-content" style="opacity: 0.7">
 								<p>Quality work. Trustable service. Dedicated team</p>
 								<h3>We provide your Industrial solution</h3>
 								<div class="slider-btn">
@@ -262,7 +289,7 @@
 
 	<!-- project-area-start -->
 	<div class="project-area bg-img-2 overlay"
-		style="background-repeat: no-repeat; background-size: cover; background-position: center; overflow:hidden;">
+		style="background-repeat: no-repeat; background-size: cover; background-position: center; overflow: hidden;">
 		<div class="container">
 			<div class="container-fluid p-lg-0">
 				<div class="row justify-content-end no-gutters"
@@ -276,37 +303,41 @@
 								주세요.내용을 입력해 주세요.
 							</p>
 							<div class="more-project">
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<a href="#">More Projects</a>
+								<br> <br> <br> <br> <br> <a href="#">More
+									Projects</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-xl-6 col-md-6">
-						<div class="project-active owl-carousel bottom" style="width:200%;">
-							
+						<div class="project-active owl-carousel bottom"
+							style="width: 200%;">
+
 							<c:choose>
-								<c:when test="${business_list != null and business_list.size()>0}">
+								<c:when
+									test="${business_list != null and business_list.size()>0}">
 									<c:forEach items="${business_list}" var="business">
-											<div class="single-project">
-												<div class="project-thumb">
-													<img src="/resources/img/business_result/main_imgs/${business.imgName}" alt="">
-												</div>
-												<div class="project-info">
-													<span>${business.resultClass}</span>
-													<h3>${business.resultContnents}</h3>
+										<div class="single-project">
+											<div class="project-thumb">
+												<div class="img-wrapper">
+												<img
+													src="/resources/img/business_result/main_imgs/${business.imgName}"
+													alt="">
 												</div>
 											</div>
+											<div class="project-info">
+												<span>${business.resultClass}</span>
+												<h3>${business.resultContnents}</h3>
+											</div>
+										</div>
 									</c:forEach>
 								</c:when>
-								
+
 								<c:otherwise>
 									<div class="single-project">
 										<div class="project-thumb">
-											<img src="/resources/img/business_result/basic_publicOrg/1.jpg" alt="">
+											<img
+												src="/resources/img/business_result/basic_publicOrg/1.jpg"
+												alt="">
 										</div>
 										<div class="project-info">
 											<span>공공기관</span>
@@ -315,7 +346,9 @@
 									</div>
 									<div class="single-project">
 										<div class="project-thumb">
-											<img src="/resources/img/business_result/basic_publicOrg/4.jpg" alt="">
+											<img
+												src="/resources/img/business_result/basic_publicOrg/4.jpg"
+												alt="">
 										</div>
 										<div class="project-info">
 											<span>공공기관</span>
@@ -324,7 +357,9 @@
 									</div>
 									<div class="single-project">
 										<div class="project-thumb">
-											<img src="/resources/img/business_result/basic_military/2.jpg" alt="">
+											<img
+												src="/resources/img/business_result/basic_military/2.jpg"
+												alt="">
 										</div>
 										<div class="project-info">
 											<span>군사시설</span>
@@ -333,7 +368,9 @@
 									</div>
 									<div class="single-project">
 										<div class="project-thumb">
-											<img src="/resources/img/business_result/basic_military/1.jpg" alt="">
+											<img
+												src="/resources/img/business_result/basic_military/1.jpg"
+												alt="">
 										</div>
 										<div class="project-info">
 											<span>군사시설</span>
@@ -342,7 +379,9 @@
 									</div>
 									<div class="single-project">
 										<div class="project-thumb">
-											<img src="/resources/img/business_result/main_imgs/resultNum_123_강졸2.jpeg" alt="">
+											<img
+												src="/resources/img/business_result/main_imgs/resultNum_123_강졸2.jpeg"
+												alt="">
 										</div>
 										<div class="project-info">
 											<span>군사시설</span>
@@ -351,7 +390,7 @@
 									</div>
 								</c:otherwise>
 							</c:choose>
-							
+
 						</div>
 					</div>
 				</div>
@@ -365,18 +404,20 @@
 		style="padding-bottom: 120px !important;">
 		<div class="container">
 			<div class="col-xl-6 col-lg-7">
-				<div class="cta-content" style="background: rgba(255,255,255,0.7);">
-					<div class="cta-content-inner" style="margin-left:10%; height:200px;">
-						<h3 style="color:#f36d20">찾아오시는 길</h3>
-						<p style="color:#020c26">
-							서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워)
-							<br><br>
-							704-C, 88, Gasan digital 1-ro, Geumcheon-gu, Seoul, Republic of Korea
+				<div class="cta-content"
+					style="background: rgba(255, 255, 255, 0.7);">
+					<div class="cta-content-inner"
+						style="margin-left: 10%; height: 200px;">
+						<h3 style="color: #f36d20">찾아오시는 길</h3>
+						<p style="color: #020c26">
+							서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워) <br>
+							<br> 704-C, 88, Gasan digital 1-ro, Geumcheon-gu, Seoul,
+							Republic of Korea
 						</p>
-						<div class="cta-btn" style="position: absolute; right:50px;">
-							<a class="boxed-btn2 black-bg" href="/company/location" style="background: #f36d20 !important;">
-								상세보기
-								<i class="Flaticon flaticon-right-arrow"></i>
+						<div class="cta-btn" style="position: absolute; right: 50px;">
+							<a class="boxed-btn2 black-bg" href="/company/location"
+								style="background: #f36d20 !important;"> 상세보기 <i
+								class="Flaticon flaticon-right-arrow"></i>
 							</a>
 						</div>
 					</div>
@@ -389,31 +430,31 @@
 
 
 	<!-- footer-start -->
-    <c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
-    <!-- footer-end -->
+	<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
+	<!-- footer-end -->
 
 
 
 	<script>
-    $(function(){
-        var responseMessage = "<c:out value="${login}" />";
-        if (responseMessage != ""){
-            alert(responseMessage)
-        }
-        var responseMessage2 = "<c:out value="${logout}" />";
-        if (responseMessage2 != ""){
-            alert(responseMessage2)
-        }
-        var responseMessage2 = "<c:out value="${access_denied}" />";
-        if (responseMessage2 != ""){
-            alert(responseMessage2)
-        }
-        var responseMessage2 = "<c:out value="${joinOK}" />";
-        if (responseMessage2 != ""){
-            alert(responseMessage2)
-        }
-    })
-</script>
+		$(function() {
+			var responseMessage = "<c:out value="${login}" />";
+			if (responseMessage != "") {
+				alert(responseMessage)
+			}
+			var responseMessage2 = "<c:out value="${logout}" />";
+			if (responseMessage2 != "") {
+				alert(responseMessage2)
+			}
+			var responseMessage2 = "<c:out value="${access_denied}" />";
+			if (responseMessage2 != "") {
+				alert(responseMessage2)
+			}
+			var responseMessage2 = "<c:out value="${joinOK}" />";
+			if (responseMessage2 != "") {
+				alert(responseMessage2)
+			}
+		})
+	</script>
 </body>
 
 </html>

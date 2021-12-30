@@ -33,6 +33,29 @@
 			},
 		});
 	};
+	
+	function manageMainResults(){
+		$.ajax({
+			type : "GET",
+			url : "/business/result_pageAjax_main",
+			data : {
+				
+			// ☜ 서버로 전송할 데이터
+			},
+			dataType : "text",
+			success : function(data) {
+				//result_pageAjax.jsp에 담긴 내용을  가져와서
+				//id가 tabId인 요소의 내용을 변경
+				$('#myTabContent').html(data);
+				$('.newDiv').animate({
+					opacity : "1"
+				}, 200);
+				if ($("#showModify").css("display") == "none") {
+					$(".modifyDeleteBtn").css("display", "block");
+				}
+			},
+		});
+	}
 </script>
 
 <!-- 비공개 코드 -->
@@ -102,11 +125,13 @@
 			$(".modifyDeleteBtn").css("display", "block");
 			$("#showModify").css("display", "none");
 			$("#hideModify").css("display", "block");
+			$("#manageMainResults").css("display", "block");
 		};
 		function hideModify() {
 			$(".modifyDeleteBtn").css("display", "none");
 			$("#showModify").css("display", "block");
 			$("#hideModify").css("display", "none");
+			$("#manageMainResults").css("display", "none");
 		};
 
 		// '수정/삭제하기' 버튼 눌렀을때

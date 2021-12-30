@@ -26,5 +26,7 @@ public interface BusinessMapper {
 	
 	//메인페이지 등록된 사업실적 목록 가져오기
 	public List<BusinessDTO> getMainBusinessList();
+	//사업실적 메인페이지에서 등록 취소
+	public int updateNotMainBusinessResult(long resultNum);
 
 }

@@ -157,10 +157,10 @@
                                 </div>
                             </div> -->
 								</div>
-								<!--  <div class="team-info text-center">
-                            <h3>Kamal Dowlat</h3>
-                            <p>Industrial engineer</p>
-                        </div> -->
+								 <!-- <div class="team-info text-center">
+		                            <h3>Kamal Dowlat</h3>
+		                            <p>Industrial engineer</p>
+		                        </div> -->
 							</div>
 						</div>
 						<div class="col-xl-4 col-lg-4 col-md-6">
