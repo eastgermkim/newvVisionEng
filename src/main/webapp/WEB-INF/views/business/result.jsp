@@ -293,7 +293,7 @@ table {
 							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;" href="javascript:hideModify();">사업실적 관리완료</a>
 							</div>
 						    <div class="btn-list" style="padding-top: 5%;" id="manageMainResults">
-							<a href="javascript:void(0);" onclick="manageMainResults();" style="width:100%;font-size: large;">- 메인페이지 등록 취소 관리</a>
+							<a href="javascript:void(0);" onclick="manageMainResults();" style="width:100%;font-weight: 500;">└ 메인페이지 등록 취소 관리</a>
 							</div>
 						</c:if>
 					</div>

@@ -125,6 +125,11 @@
 	object-fit: cover;
 	margin: auto;
 }
+@media only screen and (max-width: 767.5px){
+	.container{
+		width: min-content;
+	}
+}
 </style>
 
 </head>
@@ -152,7 +157,7 @@
 					<c:when test="${business_list != null and business_list.size()>0}">
 						<div class="row imgs">
 							<c:forEach items="${business_list}" var="business">
-								<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="col-xl-4 col-lg-4 col-md-6" style="width: min-content;">
 									<div class="single-team">
 										<div class="team-thumb">
 											<input type="hidden" class="resultNum" value="${business.resultNum}">
@@ -277,7 +282,7 @@ function noShowMainOK(){
       	});
          
     } else{
-        alert("이미지를 선택해주세요.");
+        alert("사업실적을 선택해주세요.");
 		return false;
     }
 	 
