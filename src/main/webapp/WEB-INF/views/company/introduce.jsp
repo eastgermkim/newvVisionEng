@@ -28,14 +28,73 @@
     <link rel="stylesheet" href="/resources/css/style.css">
     <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
     
+    
+    <style>
+    .summ-tbl{
+    margin-top: 80px;
+    border-top: 2px solid #51555e;
+    	    border-spacing: 0;
+		    border-collapse: collapse;
+		    width: 100%;
+		    table-layout: fixed;
+		    border-collapse: separate;
+    }
+    </style>
 </head>
 <body>
 		<!-- header.jsp import -->
    <c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
    <script>addClassName1();</script>
-   
-	<h1>여기는 회사소개 페이지 입니당</h1>
 
+	<!-- breadcrumb-start -->
+	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 offset-lg-1">
+					<div class="breadcrumb_iner">
+						<div class="breadcrumb_iner_item">
+							<h2>회사개요</h2>
+							<p style="opacity: 0.6">
+								New Vision ENG. Company
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- breadcrumb-end -->
+	
+
+	  <!-- about start -->
+    <div class="about-area section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-md-12 col-lg-6">
+                    <div class="about-thumb">
+                        <img src="/resources/img/company/company2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-12 col-lg-6">
+                    <div class="section-title mb-65">
+                        <span>About Company</span>
+                        <h3 style="font-weight: bold;">(주) 뉴비젼이엔지</h3>
+                        <p class="para-text" style="margin-bottom: 25px;">
+                        	    (주)뉴비젼이엔지는 1996년 신영상엔지니어링으로 설립되어, 세계 최고 수준의 영상 기술을 기반으로 CCTV영상 주변기기 및 SYSTEM 설계와 설치 사업을 중심으로 하는 기업입니다.
+                        	    또한, 정보통신공사와 전자파용 특수 CCTV SYSTEM 등 사업의 다각화를 이루고 있으며 군사시설, 공공기관, 민간기업 등 다양한 영역의 고객들에게 솔루션을 제공하고 있습니다.
+                        	    특히 군부대들과의 오랜기간 지속적인 파트너쉽을 통해 두터운 신뢰성을 기반으로 적시에 적합한 솔루션을 제공하고, 풍부한 경험과 전문성을 바탕으로 시장을 선도하고 있습니다.
+                        </p>
+                        <div class="name" >
+                        	<div style="text-align: right;margin-right: 5%;">(주)뉴비젼이엔지 대표이사 전대순</div>
+                            <!-- <img src="/resources/img/company/name.png" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about end -->
+    
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 	
 	

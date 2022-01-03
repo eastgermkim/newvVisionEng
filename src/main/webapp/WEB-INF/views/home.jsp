@@ -126,11 +126,11 @@
 } */
 </style>
 <style>
-.owl-nav.disabled{
+	.project-active .owl-nav.disabled{
 		display: block !important;
 		position: relative !important;
 	}
-	.owl-dots.disabled{
+	.project-active .owl-dots.disabled{
 		display: block !important;
 	}
 	
