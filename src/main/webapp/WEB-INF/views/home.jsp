@@ -33,12 +33,12 @@
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
-@media ( max-width : 991px) {
+/* @media ( max-width : 991px) {
 	.project-active.owl-carousel.bottom {
 		width: 100% !important;
 	}
 }
-
+ */
 /* footer 관련 스타일 */
 .mobile {
 	display: none;
@@ -97,11 +97,13 @@
 }
 </style>
 <style>
+.project-area {
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
 .img-wrapper {
 	position: relative;
-	width: 365.5px;
-	height: 365.5px;
-}
+} 
 
 .img-wrapper img {
 	position: absolute;
@@ -113,7 +115,7 @@
 	object-fit: cover;
 	margin: auto;
 }
-.project-area .owl-item{
+/* .project-area .owl-item{
 	margin-right: 15px !important;
 	width:600px!important;
 }
@@ -121,14 +123,47 @@
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
+} */
+</style>
+<style>
+@media(max-width : 767.5px){
+	.owl-nav.disabled{
+		display: block !important;
+		position: relative !important;
+		left: -330px !important;
+	}
+	.owl-dots.disabled{
+		display: block !important;
+	}
+}
+
+@media screen and (min-width : 767.5px) and (max-width:991px){
+	.owl-nav.disabled{
+		display: block !important;
+		position: relative !important;
+		left: -330px !important;
+	}
+	.owl-dots.disabled{
+		display: block !important;
+	}
+}
+
+@media screen and (min-width :991px) and (max-width:1199px){
+	.owl-nav.disabled{
+		display: block !important;
+		position: relative !important;
+		left: -470px !important;
+	}
+	.owl-dots.disabled{
+		display: block !important;
+	}
 }
 </style>
-
 </head>
 
 <body>
+	<!-- Internet Explorer접속 방지(Edge로 자동전환) -->
 	<script>
-		/* Internet Explorer 접속 방지(Edge로 전환) */
 		if (navigator.userAgent.indexOf("Trident") > 0) {
 			window.location = "microsoft-edge:" + window.location.href;
 			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
@@ -141,6 +176,7 @@
 			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
 		}
 	</script>
+	
 	<!-- header.jsp import -->
 	<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
 
@@ -299,8 +335,7 @@
 							style="margin-left: 0;">
 							<h3>주요 사업 실적</h3>
 							<p>
-								내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.<br>내용을 입력해 주세요.내용을 입력해
-								주세요.내용을 입력해 주세요.
+								<span>내용을 입력해 주세요.</span><br><span>내용을 입력해 주세요.</span>
 							</p>
 							<div class="more-project">
 								<br> <br> <br> <br> <br> <a href="#">More
@@ -309,16 +344,15 @@
 						</div>
 					</div>
 					<div class="col-xl-6 col-md-6">
-						<div class="project-active owl-carousel bottom"
-							style="width: 200%;">
+						<div class="project-active owl-carousel bottom">
 
 							<c:choose>
 								<c:when
 									test="${business_list != null and business_list.size()>0}">
 									<c:forEach items="${business_list}" var="business">
-										<div class="single-project">
-											<div class="project-thumb">
-												<div class="img-wrapper">
+										<div class="single-project" style="width: inherit;">
+											<div class="project-thumb" style="width: inherit;">
+												<div class="img-wrapper" style="width: inherit;">
 												<img
 													src="/resources/img/business_result/main_imgs/${business.imgName}"
 													alt="">
@@ -455,6 +489,47 @@
 			}
 		})
 	</script>
-</body>
+	
+<script>
+/* 사업실적의 이미지 정사각형 고정 */
+$(document).ready(function () {
+	$('.img-wrapper').each(function() {
+		$(this).height($(this).width());
+	});
+});
 
+/* 사업실적의 이미지 정사각형 고정 - 반응형*/
+/* $(window).resize(function(){
+	$('.img-wrapper').each(function() {
+		console.log("project-active의 owl-item의 width : "+$('.project-active').find('.owl-item.active').width());
+		$(this).width($('.project-active').find('.owl-item.active').width());
+		$(this).height($(this).width());
+	});
+}).resize(); */
+
+//jQuery
+var delay = 300;
+var timer = null;
+
+$(window).on('resize', function(){
+	clearTimeout(timer);
+	timer = setTimeout(function(){
+		console.log('resize event!');
+		
+		console.log("project-active의 owl-item의 width : "+$('.project-active').find('.owl-item.active').width());
+		var owl_item_width = $('.project-active').find('.owl-item.active').width();
+		
+		$('.img-wrapper').each(function() {
+			$(this).width(owl_item_width);
+			$(this).height($(this).width());
+		});
+		$('.project-info').each(function() {
+			$(this).width(owl_item_width);
+		});
+	}, delay);
+});
+
+</script>
+
+</body>
 </html>
