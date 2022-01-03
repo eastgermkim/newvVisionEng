@@ -218,7 +218,7 @@
 											다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의
 											연동 Network Lan 공사</p>
 									</div>
-									<video class="video" src="/resources/video/army_test.mp4" muted style="width:100%;" autoplay;></video>
+									<video class="video" src="/resources/video/test.mp4" muted="muted" style="width:100%"></video>
 								</div>
 							</div>
 						</div>
