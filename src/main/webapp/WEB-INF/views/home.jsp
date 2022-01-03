@@ -99,7 +99,7 @@
 <style>
 .project-area {
     padding-top: 7%;
-    padding-bottom: 7%;
+    padding-bottom: 5%;
 }
 .img-wrapper {
 	position: relative;
@@ -126,36 +126,33 @@
 } */
 </style>
 <style>
-@media(max-width : 767.5px){
-	.owl-nav.disabled{
+.owl-nav.disabled{
 		display: block !important;
 		position: relative !important;
-		left: -330px !important;
 	}
 	.owl-dots.disabled{
 		display: block !important;
 	}
+	
+@media(max-width : 767.5px){
+	.brbr{
+		display: none;
+	}
+	.owl-nav.disabled{
+		left: -330px !important;
+	}
+	
 }
 
 @media screen and (min-width : 767.5px) and (max-width:991px){
 	.owl-nav.disabled{
-		display: block !important;
-		position: relative !important;
 		left: -330px !important;
-	}
-	.owl-dots.disabled{
-		display: block !important;
 	}
 }
 
 @media screen and (min-width :991px) and (max-width:1199px){
 	.owl-nav.disabled{
-		display: block !important;
-		position: relative !important;
 		left: -470px !important;
-	}
-	.owl-dots.disabled{
-		display: block !important;
 	}
 }
 </style>
@@ -335,12 +332,8 @@
 							style="margin-left: 0;">
 							<h3>주요 사업 실적</h3>
 							<p>
-								<span>내용을 입력해 주세요.</span><br><span>내용을 입력해 주세요.</span>
+								<span>뉴비젼이엔지의 주요 사업 실적입니다.</span>
 							</p>
-							<div class="more-project">
-								<br> <br> <br> <br> <br> <a href="#">More
-									Projects</a>
-							</div>
 						</div>
 					</div>
 					<div class="col-xl-6 col-md-6">
