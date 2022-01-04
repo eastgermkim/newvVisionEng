@@ -23,8 +23,8 @@
       <!--  <property name="driverClass" value="org.mariadb.jdbc.Driver"></property> -->
       <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
       <property name="jdbcUrl" value="jdbc:log4jdbc:mariadb://localhost:3306/newVisionEng"></property>
-      <property name="username" value="깃헙 비공개"/>
-      <property name="password" value="깃헙 비공개"/>
+      <property name="username" value="root"/>
+      <property name="password" value="nveng3000"/>
    </bean>
    
    <!-- hikari data source -->
@@ -44,8 +44,8 @@
    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
     <property name="host" value="smtp.gmail.com"/> <!-- 메이서버 호스트 -->
     <property name="port" value="587"/> <!-- 메이서버 포트번호 -->
-    <property name="username" value="깃헙 비공개"/> <!-- 자신의 이메일 아이디 -->
-    <property name="password" value="깃헙 비공개"/> <!-- 자신의 비밀번호 -->
+    <property name="username" value="nvengsmtp@gmail.com"/> <!-- 자신의 이메일 아이디 -->
+    <property name="password" value="nvengsmtp3000"/> <!-- 자신의 비밀번호 -->
       <!-- 보안연결 SSL과 관련된 설정 --> 
     <property name="javaMailProperties">
      <props>
