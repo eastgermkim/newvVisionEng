@@ -53,7 +53,9 @@
         <sec:intercept-url pattern="/business/result_writeOK/**" access="isAuthenticated()" />
         
         <!-- 인증한 사용자(로그인 상태)만 새로운 ID 가입 가능하도록 -->
-        <sec:intercept-url pattern="/join" access="isAuthenticated()" />
+		<!-- 임시 해제 -->
+        <!-- <sec:intercept-url pattern="/join" access="isAuthenticated()" /> -->
+
 
 		<!-- 로그인된 상태에서는 로그인 화면에 접근 못하도록 함 -->
 		<sec:intercept-url pattern="/login" access="isAnonymous()" />
