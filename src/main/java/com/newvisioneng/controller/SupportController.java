@@ -58,6 +58,12 @@ public class SupportController {
 		model.addAttribute("notice_list",service.getNoticeList(cri));
 		model.addAttribute("pageMaker",new PageDTO(service.getNoticeTotal(cri), cri));
 		
+		System.out.println("..................."+new PageDTO(service.getNoticeTotal(cri), cri).getCri().getS_type());
+		System.out.println("..................."+new PageDTO(service.getNoticeTotal(cri), cri).getCri().getS_keyword());
+		System.out.println("..................."+cri.getS_type());
+		System.out.println("..................."+cri.getS_keyword());
+		System.out.println("..................."+service.getNoticeTotal(cri));
+		
 		//사용안된 이미지 삭제(파일,DB 함께)
 		service.deleteUnusedImgs(req);
 	}

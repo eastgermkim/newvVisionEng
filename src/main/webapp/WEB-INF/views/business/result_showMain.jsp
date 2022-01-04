@@ -485,9 +485,9 @@ function showMainOK(){
         	  data: formData, 
         	  success: function(data){ 
         		  alert(data);
-        		  //부모창 ChangePage()함수 호출하여 새로고침효과
+        		  /* 부모창 ChangePage()함수 호출하여 새로고침효과 */
         		  opener.parent.ChangePage(${page}, '${tabId}');
-        		  //현재창(자식창) 닫기
+        		  /* 현재창(자식창) 닫기 */
         		  self.close();
        		}, 
        		  error: function(data){ 

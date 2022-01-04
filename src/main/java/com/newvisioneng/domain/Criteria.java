@@ -15,6 +15,8 @@ public class Criteria {
 	private int page;
 	//한 페이지에 출력할 글 개수
 	private int pageSize;
+	private String s_type;
+	private String s_keyword;
 	
 	public Criteria() {
 		//this() : 이 클래스의 생성자
@@ -51,15 +53,6 @@ public class Criteria {
 				.queryParam("pageSize", this.pageSize);
 		return builder.toUriString();
 	}
-	
-	
-	
-	
-	/*public String[] getTypeArr() {
-		//type에 null 이 있다면 return {}
-		//type에 "TC" 가 있다면 return {"T","C"}
-		return type == null? new String[] {} : type.split("");
-	}*/
 }
 
 
