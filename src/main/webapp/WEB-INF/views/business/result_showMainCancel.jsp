@@ -125,11 +125,6 @@
 	object-fit: cover;
 	margin: auto;
 }
-@media only screen and (max-width: 767.5px){
-	.container{
-		width: min-content;
-	}
-}
 </style>
 
 </head>
@@ -155,9 +150,9 @@
 				</div>
 				<c:choose>
 					<c:when test="${business_list != null and business_list.size()>0}">
-						<div class="row imgs">
+						<div class="row imgs" style="text-align: -webkit-center;">
 							<c:forEach items="${business_list}" var="business">
-								<div class="col-xl-4 col-lg-4 col-md-6" style="width: min-content;">
+								<div class="col-xl-4 col-lg-4 col-md-6">
 									<div class="single-team">
 										<div class="team-thumb">
 											<input type="hidden" class="resultNum" value="${business.resultNum}">

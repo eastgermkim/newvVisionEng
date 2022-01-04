@@ -33,7 +33,7 @@
 <!-- 스타일 -->
 <style>
 .board{
-	padding: 4% 0%;
+	padding: 0% 0%;
 	word-break: keep-all;
     word-wrap: break-word;
 }
@@ -194,6 +194,12 @@
 	</section>
 	<!-- breadcrumb-end -->
 	
+	<section class="sample-text-area" style="padding: 5% 0 1% 0;">
+		<div class="container box_1170" style="border-top: 2px dotted #eee;">
+			<br>
+			<h3 class="text-heading">Recruit</h3>
+		</div>
+	</section>	
 	
 <section style="margin-bottom:50px;">
 <div class="container board">

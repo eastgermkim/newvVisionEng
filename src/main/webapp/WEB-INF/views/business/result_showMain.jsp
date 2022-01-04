@@ -108,6 +108,24 @@
 }
 </style>
 
+<style>
+.img-wrapper {
+	position: relative;
+	width: 290px;
+	height: 290px;
+}
+
+.img-wrapper img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: auto;
+}
+</style>
 </head>
 <body>
 	<form name="showMainOKForm" id="showMainOKForm" action="" method=""
@@ -138,228 +156,196 @@
 					</h4>
 					<hr>
 				</div>
-				<c:if test="${resultClass=='군사시설'}">
-					<div class="row imgs">
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/1.jpg"
-										alt="">
-
-									<!--  <div class="team-hover">
-                                <div class="team-link">
-                                    <ul>
-                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div> -->
-								</div>
-								 <!-- <div class="team-info text-center">
-		                            <h3>Kamal Dowlat</h3>
-		                            <p>Industrial engineer</p>
-		                        </div> -->
-							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/2.jpg"
-										alt="">
+					<div class="row imgs" style="text-align: -webkit-center;">
+						<c:if test="${resultClass=='군사시설'}">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+										<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/1.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/3.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/2.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/4.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/3.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/5.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/4.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div style="margin-bottom: 3%;">
-									다른 이미지를 등록하시려면<br> <span style="color: red">파일 첨부</span> 및
-									선택해주세요
-								</div>
-								<!-- 이미지 파일만 accept="image/*" -->
-								<input type="file" name="customImg" id="customImg"
-									accept="image/*" onchange="setThumbnail(event);" />
-								<div class="team-thumb customImg" id="image_container"
-									style="width: 100%">
-									<span class="choiceText">✓</span>
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/5.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-
-					</div>
-				</c:if>
-
-				<c:if test="${resultClass=='공공기관'}">
-					<div class="row imgs">
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_publicOrg/1.jpg"
-										alt="">
-
-									<!--  <div class="team-hover">
-                                <div class="team-link">
-                                    <ul>
-                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div> -->
-								</div>
-								<!--  <div class="team-info text-center">
-                            <h3>Kamal Dowlat</h3>
-                            <p>Industrial engineer</p>
-                        </div> -->
-							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_publicOrg/2.jpg"
-										alt="">
+						</c:if>
+						
+						<c:if test="${resultClass=='공공기관'}">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_publicOrg/1.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_publicOrg/3.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span>
+										<div class="img-wrapper">
+										<img class="basicimgs"
+											src="/resources/img/business_result/basic_publicOrg/2.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_publicOrg/4.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span>
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_publicOrg/3.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_publicOrg/5.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span>
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_publicOrg/4.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div style="margin-bottom: 3%;">
-									다른 이미지를 등록하시려면<br> <span style="color: red">파일 첨부</span> 및
-									선택해주세요
-								</div>
-								<!-- 이미지 파일만 accept="image/*" -->
-								<input type="file" name="customImg" id="customImg"
-									accept="image/*" onchange="setThumbnail(event);" />
-								<div class="team-thumb customImg" id="image_container"
-									style="width: 100%">
-									<span class="choiceText">✓</span>
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span>
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_publicOrg/5.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-
-					</div>
-				</c:if>
-
-				<c:if test="${resultClass=='민간기업'}">
-					<div class="row imgs">
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/1.jpg"
-										alt="">
-
-									<!--  <div class="team-hover">
-                                <div class="team-link">
-                                    <ul>
-                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div> -->
-								</div>
-								<!--  <div class="team-info text-center">
-                            <h3>Kamal Dowlat</h3>
-                            <p>Industrial engineer</p>
-                        </div> -->
-							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/2.jpg"
-										alt="">
+						</c:if>
+					
+						<c:if test="${resultClass=='민간기업'}">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+										<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/1.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/3.jpg"
-										alt="">
-								</div>
-
-							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/4.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/2.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="single-team">
-								<div class="team-thumb">
-									<span class="choiceText">✓</span> <img class="basicimgs"
-										src="/resources/img/business_result/basic_military/5.jpg"
-										alt="">
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/3.jpg"
+											alt="">
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/4.jpg"
+											alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-4 col-md-6">
+								<div class="single-team">
+									<div class="team-thumb">
+										<span class="choiceText">✓</span> 
+										<div class="img-wrapper">
+											<img class="basicimgs"
+											src="/resources/img/business_result/basic_military/5.jpg"
+											alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:if>
+						
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-team">
 								<div style="margin-bottom: 3%;">
@@ -369,15 +355,20 @@
 								<!-- 이미지 파일만 accept="image/*" -->
 								<input type="file" name="customImg" id="customImg"
 									accept="image/*" onchange="setThumbnail(event);" />
-								<div class="team-thumb customImg" id="image_container"
-									style="width: 100%">
+								<div class="team-thumb customImg" id="image_container">
 									<span class="choiceText">✓</span>
 								</div>
 							</div>
 						</div>
 
 					</div>
-				</c:if>
+				
+
+					
+
+				
+
+					</div>
 
 				<hr>
 				<div style="display: flex;">
@@ -431,6 +422,25 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
+
+<script> 
+/* 이미지 첨부시 미리보기 생성 */
+function setThumbnail(event) { 
+	
+	//기존 img가 있다면 삭제하기
+	$("#customImg_wrapper").children("img").remove();
+	$("#image_container").append($("<div class='img-wrapper' id='customImg_wrapper'>"));
+	
+	var reader = new FileReader(); 
+	reader.onload = function(event) { 
+		var img = document.createElement("img"); 
+		img.setAttribute("src", event.target.result); 
+		document.querySelector("div#customImg_wrapper").appendChild(img); 
+		}; 
+	reader.readAsDataURL(event.target.files[0]); 
+	} 
+</script>
+
 <script>
 $('.team-thumb').click(function(){
 	if ($(this).hasClass("ImgActive")) {
@@ -455,11 +465,13 @@ function showMainOK(){
           //그게 만약 내가 첨부한 이미지가 아니라면(즉, 기본이미지 선택이라면)
           //기본이미지 주소를 basicImgSrc에 담아 넘겨준다.
           if($(".ImgActive").hasClass("customImg")){
-       	console.log("외부 이미지 첨부....");
+       		console.log("외부 이미지 첨부....");
+       		
           } else{
-            var basicImgSrc = $(".ImgActive").children('img').attr("src");
-         	 console.log("기본 이미지 주소......."+basicImgSrc);
-         console.log("basicImgSrc..........."+basicImgSrc);
+        	console.log("기본 이미지 첨부....");
+        	
+            var basicImgSrc = $(".ImgActive").find('img').attr("src");
+         	console.log("기본 이미지 주소......."+basicImgSrc);
             $("#basicImgSrc").val(basicImgSrc);
           }
           
@@ -471,14 +483,14 @@ function showMainOK(){
         	  url: '/business/result_showMainOK/', 
         	  type: 'POST', 
         	  data: formData, 
-        	  success: function (data) { 
+        	  success: function(data){ 
         		  alert(data);
         		  //부모창 ChangePage()함수 호출하여 새로고침효과
         		  opener.parent.ChangePage(${page}, '${tabId}');
         		  //현재창(자식창) 닫기
         		  self.close();
        		}, 
-       		  error: function (data) { 
+       		  error: function(data){ 
        			  alert(data);
        		}, 
        		cache: false, 
@@ -494,21 +506,5 @@ function showMainOK(){
 };
 </script>
 
-<script> 
-/* 이미지 첨부시 미리보기 생성 */
-function setThumbnail(event) { 
-	
-	//기존 img가 있다면 삭제하기
-	$(".customImg").children("img").remove();
-	
-	var reader = new FileReader(); 
-	reader.onload = function(event) { 
-		var img = document.createElement("img"); 
-		img.setAttribute("src", event.target.result); 
-		document.querySelector("div#image_container").appendChild(img); 
-		}; 
-	reader.readAsDataURL(event.target.files[0]); 
-	} 
-</script>
 
 </html>

@@ -71,9 +71,16 @@
 		</div>
 	</section>
 	<!-- breadcrumb-end -->
+	
+	<section class="sample-text-area" style="padding: 5% 0 1% 0;">
+		<div class="container box_1170" style="border-top: 2px dotted #eee;">
+			<br>
+			<h3 class="text-heading">Location</h3>
+		</div>
+	</section>
 
 	<!-- ================ contact section start ================= -->
-	<section class="contact-section">
+	<section class="contact-section" style="padding: 0 0 100px;"> 
 		<div class="container">
 		
 			<!-- 카카오지도 API -->
