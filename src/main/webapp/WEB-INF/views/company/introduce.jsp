@@ -28,7 +28,13 @@
     <link rel="stylesheet" href="/resources/css/style.css">
     <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
     
-    
+<style>
+@media (min-width: 991px){
+	.about-area .section-title {
+	    padding-left: 56px;
+	}
+}
+</style>    
 </head>
 <body>
 		<!-- header.jsp import -->
@@ -61,15 +67,15 @@
             <div class="row align-items-center">
                 <div class="col-xl-7 col-md-12 col-lg-6">
                     <div class="about-thumb">
-                        <img src="/resources/img/company/company2.jpg" alt="">
+                        <img src="/resources/img/company/NEWVISIONENG.png" alt="">
                     </div>
                 </div>
                 <div class="col-xl-5 col-md-12 col-lg-6">
-                    <div class="section-title mb-65">
+                    <div class="section-title">
                         <span>About Company</span>
                         <h3 style="font-weight: bold;">(주) 뉴비젼이엔지</h3>
                         <p class="para-text" style="margin-bottom: 25px;">
-                        	    (주)뉴비젼이엔지는 1996년 신영상엔지니어링으로 설립되어, 세계 최고 수준의 영상 기술을 기반으로 CCTV영상 주변기기 및 SYSTEM 설계와 설치 사업을 중심으로 하는 기업입니다.
+                        	  &nbsp;(주)뉴비젼이엔지는 1996년 신영상엔지니어링으로 설립되어, 세계 최고 수준의 영상 기술을 기반으로 CCTV영상 주변기기 및 SYSTEM 설계와 설치 사업을 중심으로 하는 기업입니다.
                         	    또한, 정보통신공사와 전자파용 특수 CCTV SYSTEM 등 사업의 다각화를 이루고 있으며 군사시설, 공공기관, 민간기업 등 다양한 영역의 고객들에게 솔루션을 제공하고 있습니다.
                         	    특히 군부대들과의 오랜기간 지속적인 파트너쉽을 통해 두터운 신뢰성을 기반으로 적시에 적합한 솔루션을 제공하고, 풍부한 경험과 전문성을 바탕으로 시장을 선도하고 있습니다.
                         </p>

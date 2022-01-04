@@ -321,7 +321,7 @@
 	<!-- service-area-end -->
 
 	<!-- project-area-start -->
-	<div class="project-area bg-img-2 overlay"
+	<div class="project-area bg-img-3 overlay"
 		style="background-repeat: no-repeat; background-size: cover; background-position: center; overflow: hidden;">
 		<div class="container">
 			<div class="container-fluid p-lg-0">
@@ -330,9 +330,9 @@
 					<div class="col-xl-4 col-md-6">
 						<div class="section-title text-white mb-65 ml-80"
 							style="margin-left: 0;">
-							<h3>주요 사업 실적</h3>
+							<h3 style="font-weight: 500;">주요 사업 실적</h3>
 							<p>
-								<span>뉴비젼이엔지의 주요 사업 실적입니다.</span>
+								<span>&nbsp;Major Business Performance</span>
 							</p>
 						</div>
 					</div>
@@ -353,7 +353,7 @@
 											</div>
 											<div class="project-info">
 												<span>${business.resultClass}</span>
-												<h3>${business.resultContnents}</h3>
+												<h3 style="font-size: 17px">${business.resultContnents}</h3>
 											</div>
 										</div>
 									</c:forEach>
@@ -404,17 +404,6 @@
 											<h3>사업실적 예시입니다. 예시4</h3>
 										</div>
 									</div>
-									<div class="single-project">
-										<div class="project-thumb">
-											<img
-												src="/resources/img/business_result/main_imgs/resultNum_123_강졸2.jpeg"
-												alt="">
-										</div>
-										<div class="project-info">
-											<span>군사시설</span>
-											<h3>사업실적 예시입니다. 예시5</h3>
-										</div>
-									</div>
 								</c:otherwise>
 							</c:choose>
 
@@ -435,7 +424,7 @@
 					style="background: rgba(255, 255, 255, 0.7);">
 					<div class="cta-content-inner"
 						style="margin-left: 10%; height: 200px;">
-						<h3 style="color: #f36d20">찾아오시는 길</h3>
+						<h3 style="color: #f36d20;font-weight: 500;">찾아오시는 길</h3>
 						<p style="color: #020c26">
 							서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워) <br>
 							<br> 704-C, 88, Gasan digital 1-ro, Geumcheon-gu, Seoul,

@@ -39,6 +39,15 @@
 .adminColor{
 	color: grey !important;
 }
+
+.header-area .main-header-area .main-menu ul li a:hover {
+    font-weight: 600;
+    color: #F36D20;
+}
+.activeColor{
+    font-weight: 600 !important;
+    color: #F36D20 !important;
+}
 </style>
 
 </head>
@@ -121,7 +130,6 @@
 										<li><a id="tab1" href="/company/introduce">회사소개</a>
 											<ul class="submenu">
 												<li><a href="/company/introduce">회사개요</a></li>
-												<li><a href="">CEO인사말</a></li>
 												<li><a href="/company/news">보도자료</a></li>
 												<li><a href="/company/history">연혁</a></li>
 												<li><a href="/company/organization">조직도</a></li>
@@ -162,34 +170,10 @@
 								</nav>
 							</div>
 						</div>
-						<%-- <div class="col-xl-3 col-lg-3">
-							<div class="quote-area">
-								<div class="search-bar">
-									<a id="search_1" href="javascript:void(0)"><i
-										class="fa fa-search"></i></a>
-								</div>
-								
-								버튼 일단 숨김 
-								<div class="get-quote d-none d-lg-block">
-									<a class="boxed-btn" href="#">버튼임</a>
-								</div>
-							
-							</div>
-						</div> --%>
 						<div class="col-12">
 							<div class="mobile_menu d-block d-lg-none"></div>
 						</div>
 					</div>
-					<!-- <div class="search_input" id="search_input_box">
-						<div class="container ">
-							<form class="d-flex justify-content-between search-inner">
-								<input type="text" class="form-control" id="search_input"
-									placeholder="Search Here">
-								<button type="submit" class="btn"></button>
-								<span class="fa fa-close" id="close_search" title="Close Search"></span>
-							</form>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -197,22 +181,22 @@
 	<!-- header-end -->
 	<script>
    		function addClassName1() {
-   		  document.getElementById('tab1').className = 'active';
+   		  document.getElementById('tab1').className = 'active activeColor';
    		}
    		function addClassName2() {
-   		  document.getElementById('tab2').className = 'active';
+   		  document.getElementById('tab2').className = 'active activeColor';
    		}
    		function addClassName3() {
-   		  document.getElementById('tab3').className = 'active';
+   		  document.getElementById('tab3').className = 'active activeColor';
    		}
    		function addClassName4() {
-   		  document.getElementById('tab4').className = 'active';
+   		  document.getElementById('tab4').className = 'active activeColor';
    		}
    		function addClassName5() {
-   		  document.getElementById('tab5').className = 'active';
+   		  document.getElementById('tab5').className = 'active activeColor';
    		}
    		function addClassName6() {
-   		  document.getElementById('tab6').className = 'active';
+   		  document.getElementById('tab6').className = 'active activeColor';
    		}
    	</script>
    	

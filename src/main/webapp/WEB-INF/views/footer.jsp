@@ -56,7 +56,7 @@
                 	<div>
                 		<ul>
                 			<li class="footer_li"><a href="/company/introduce">회사소개</a></li>
-                			<li class="footer_li"><a href="/business/area">사업소개</a></li>
+                			<li class="footer_li"><a href="/business/business_cctv">사업소개</a></li>
                 			<li class="footer_li"><a href="/business/result"">사업실적</a></li>
                 			<li class="footer_li"><a href="/support/notice">고객지원</a></li>
                 			<li class="footer_li"><a href="/recruit/list">채용정보</a></li>
