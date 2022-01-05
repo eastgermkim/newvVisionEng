@@ -34,7 +34,16 @@
 	    padding-left: 56px;
 	}
 }
-</style>    
+</style> 
+
+<style>
+@media ( max-width : 767px) {
+	.organization_img{
+		content: url(/resources/img/company/organization_mobile2.png);
+	}
+}
+
+</style>   
 </head>
 <body>
 		<!-- header.jsp import -->
@@ -90,6 +99,14 @@
     </div>
     <!-- about end -->
     
+    <div class="container">
+    <hr>
+		<section style="padding: 10% 0;"	>
+			<div class="container" style="padding-bottom:20%;">
+				<img class="organization_img" src="/resources/img/company/organization2.png" style="width:100%;">
+			</div>
+		</section>
+    </div>		
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 	
 	
