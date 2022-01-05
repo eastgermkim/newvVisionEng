@@ -41,6 +41,9 @@
 	.organization_img{
 		content: url(/resources/img/company/organization_mobile2.png);
 	}
+	.text-heading{
+		display: none;
+	}
 }
 
 </style>   
@@ -69,7 +72,6 @@
 	</section>
 	<!-- breadcrumb-end -->
 	
-
 	  <!-- about start -->
     <div class="about-area section-padding">
         <div class="container">
@@ -98,10 +100,14 @@
         </div>
     </div>
     <!-- about end -->
-    
     <div class="container">
-    <hr>
-		<section style="padding: 10% 0;"	>
+		<section class="sample-text-area" style="padding: 5% 0 1% 0;">
+			<div class="container box_1170" style="border-top: 2px dotted #eee;">
+				<br>
+				<h3 class="text-heading">Organization</h3>
+			</div>
+		</section>	
+		<section style="padding: 5% 0;"	>
 			<div class="container" style="padding-bottom:20%;">
 				<img class="organization_img" src="/resources/img/company/organization2.png" style="width:100%;">
 			</div>

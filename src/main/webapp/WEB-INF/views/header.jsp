@@ -50,6 +50,13 @@
 }
 </style>
 
+<style>
+.header-area .main-header-area .main-menu ul li .submenu {
+    width: 140%;
+    transition: .3s;
+}
+</style>
+
 </head>
 
 <body>

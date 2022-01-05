@@ -263,7 +263,8 @@
 		</div>
 	</section>
 	<!-- breadcrumb-end -->
-	<section class="sample-text-area" style="padding: 5% 0 1% 0;">
+	
+	<section class="sample-text-area" style="padding: 5% 1% 1%;">
 		<div class="container box_1170" style="border-top: 2px dotted #eee;">
 			<br>
 			<h3 class="text-heading">Notice</h3>
@@ -333,8 +334,9 @@
 			
 			<!-- 페이징 처리 --> 
 	       <form id="pageForm">
+				<input type="hidden" name="s_type" value="${pageMaker.cri.s_type}">
+				<input type="hidden" name="s_keyword" value="${pageMaker.cri.s_keyword}">
 				<input type="hidden" name="page" value="${pageMaker.cri.page}">
-				<input type="hidden" name="pageSize" value="${pageMaker.cri.pageSize}">
 	       </form>
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->

@@ -49,8 +49,9 @@ public class Criteria {
 	public String getListLink() {
 		//?page=3&pageSize=10
 		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
-				.queryParam("page", this.page)
-				.queryParam("pageSize", this.pageSize);
+				.queryParam("s_type", this.s_type)
+				.queryParam("s_keyword", this.s_keyword)
+				.queryParam("page", this.page);
 		return builder.toUriString();
 	}
 }
