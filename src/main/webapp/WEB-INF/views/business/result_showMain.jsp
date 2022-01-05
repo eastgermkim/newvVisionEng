@@ -290,7 +290,7 @@
 										<span class="choiceText">✓</span> 
 										<div class="img-wrapper">
 										<img class="basicimgs"
-											src="/resources/img/business_result/basic_military/1.jpg"
+											src="/resources/img/business_result/basic_privateCorp/1.jpg"
 											alt="">
 										</div>
 									</div>
@@ -302,7 +302,7 @@
 										<span class="choiceText">✓</span> 
 										<div class="img-wrapper">
 											<img class="basicimgs"
-											src="/resources/img/business_result/basic_military/2.jpg"
+											src="/resources/img/business_result/basic_privateCorp/2.jpg"
 											alt="">
 										</div>
 									</div>
@@ -314,7 +314,7 @@
 										<span class="choiceText">✓</span> 
 										<div class="img-wrapper">
 											<img class="basicimgs"
-											src="/resources/img/business_result/basic_military/3.jpg"
+											src="/resources/img/business_result/basic_privateCorp/3.jpg"
 											alt="">
 										</div>
 									</div>
@@ -326,7 +326,7 @@
 										<span class="choiceText">✓</span> 
 										<div class="img-wrapper">
 											<img class="basicimgs"
-											src="/resources/img/business_result/basic_military/4.jpg"
+											src="/resources/img/business_result/basic_privateCorp/4.jpg"
 											alt="">
 										</div>
 									</div>
@@ -338,7 +338,7 @@
 										<span class="choiceText">✓</span> 
 										<div class="img-wrapper">
 											<img class="basicimgs"
-											src="/resources/img/business_result/basic_military/5.jpg"
+											src="/resources/img/business_result/basic_privateCorp/5.jpg"
 											alt="">
 										</div>
 									</div>
