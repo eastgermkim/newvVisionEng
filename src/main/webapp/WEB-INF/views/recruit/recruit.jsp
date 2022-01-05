@@ -166,6 +166,77 @@
     border-color: black;
 }
 </style>
+
+<style>
+.search_top {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    position: relative;
+    text-align: right;
+}
+.search_top select {
+    background: #fff url(/resources/img/elements/bg_select_arr.gif) no-repeat 92% center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.search_top select+input[type=text], .search_top input[type=text]+input[type=submit] {
+    margin-left: -1px;
+}
+.search_top input[type=text] {
+    width: 213px;
+}
+.search_top select, .search_top input[type=text], .search_top input[type=submit] {
+    height: 45px;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 43px;
+    color: #666;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.search_top input[type=submit] {
+    width: 90px;
+    border-color: #666;
+    background-color: #666;
+    color: #fff;
+    cursor: pointer;
+}
+.search_top select{
+	width: 11%;
+}
+@media only screen and (max-width: 991px){
+	.search_top select {
+    width: 15%;
+	}	
+}
+@media only screen and (max-width: 767px){
+	.search_top {
+	    margin-bottom: 20px;
+	    font-size: 0;
+	    line-height: 0;
+	    display: flex;
+	    justify-content: space-between;
+	}
+	.search_top input[type=text] {
+    width: 70%;
+    margin: 0 -1px 0 0;
+	}
+	.search_top select {
+    width: 30%;
+    background: url(/resources/img/elements/bg_select_arr.gif) no-repeat 91% center;
+	}	
+}
+
+</style>
+
 </head>
 
 <body>
@@ -205,10 +276,22 @@
 <div class="container board">
 
 <c:if test="${admin_Login_id != null and admin_Login_id != ''}">
-	<div>
+	<div style="text-align: right;">
        	<a href="/recruit/recruit_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
     </div>
  </c:if>
+ 
+ 	<form name="search_form" method="get" action="/recruit/list">
+			<div class="search_top">
+				<select name="s_type">
+					<option ${pageMaker.cri.s_type == null?"selected":""} value="title">제목</option>
+					<option ${pageMaker.cri.s_type == "content"?"selected":""} value="content">내용</option>
+					<option ${pageMaker.cri.s_type == "all"?"selected":""} value="all">제목+내용</option>
+				</select>
+				<input type="text" id="" name="s_keyword" value="${pageMaker.cri.s_keyword}" maxlength="20">
+				<input type="submit" name="" value="검색">
+			</div>
+	</form>
  
 	<div class="board_list">
 				<div class="table">
@@ -230,8 +313,19 @@
 						</c:when>
 						<c:otherwise>
 							<div class="tr">
-									<div class="num"></div>
-									<div class="title" style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">현재 채용공고가 없습니다.</div>
+								<div class="num"></div>
+								<c:choose>
+									<c:when test="${pageMaker.cri.s_keyword != null}">
+										<div class="title"  style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">
+										검색 결과가 없습니다.
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="title"  style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">
+										현재 채용공고가 없습니다.
+										</div>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</c:otherwise>
 					</c:choose>	

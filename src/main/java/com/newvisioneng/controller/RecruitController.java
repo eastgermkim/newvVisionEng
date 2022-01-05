@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.newvisioneng.domain.Criteria;
+import com.newvisioneng.domain.NoticeDTO;
 import com.newvisioneng.domain.RecruitDTO;
 import com.newvisioneng.domain.PageDTO;
 import com.newvisioneng.service.RecruitService;
@@ -45,13 +46,20 @@ public class RecruitController {
 	//채용공고 페이지로 연결(전체 목록 가져오기)
 	@GetMapping("/list")
 	public String recruit(Model model, Criteria cri, HttpServletRequest req) {
-		log.info("------list-------");
-		//DB 검색
-		model.addAttribute("recruit_list",service.getRecruitList(cri));
-		model.addAttribute("pageMaker",new PageDTO(service.getRecruitTotal(cri), cri));
+		log.info("------recruit_list-------");
 		
-		//사용안된 이미지 삭제(파일,DB 함께)
-		service.deleteUnusedImgs(req);
+		//DB 검색
+		int recruitTotal = service.getRecruitTotal(cri);
+		List<RecruitDTO> recruitList = service.getRecruitList(cri);
+		
+		//DB 검색
+		model.addAttribute("recruit_list",recruitList);
+		model.addAttribute("pageMaker",new PageDTO(recruitTotal, cri));
+		
+		if(cri.getS_keyword()!=null) {
+			log.info("검색............."+cri.getS_type()+"..."+cri.getS_keyword());
+		}
+		log.info("글 개수..................."+recruitTotal);
 		
 		return "/recruit/recruit";
 	}

@@ -311,8 +311,19 @@
 						</c:when>
 						<c:otherwise>
 							<div class="tr">
-									<div class="num"></div>
-									<div class="title"  style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">작성된 글이 없습니다.</div>
+								<div class="num"></div>
+								<c:choose>
+									<c:when test="${pageMaker.cri.s_keyword != null}">
+										<div class="title"  style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">
+										검색 결과가 없습니다.
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="title"  style="text-align: center; padding: 20px 0 20px 0; font-size:17px;">
+										작성된 글이 없습니다.
+										</div>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</c:otherwise>
 					</c:choose>	

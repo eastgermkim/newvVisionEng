@@ -53,19 +53,22 @@ public class SupportController {
 	//공지사항 페이지로 연결(전체 목록 가져오기)
 	@GetMapping("/notice")
 	public void notice(Model model, Criteria cri, HttpServletRequest req) {
-		log.info("------list-------");
+		log.info("------notice_list-------");
+		
 		//DB 검색
-		model.addAttribute("notice_list",service.getNoticeList(cri));
-		model.addAttribute("pageMaker",new PageDTO(service.getNoticeTotal(cri), cri));
+		int noticeTotal = service.getNoticeTotal(cri);
+		List<NoticeDTO> noticeList = service.getNoticeList(cri);
 		
-		System.out.println("..................."+new PageDTO(service.getNoticeTotal(cri), cri).getCri().getS_type());
-		System.out.println("..................."+new PageDTO(service.getNoticeTotal(cri), cri).getCri().getS_keyword());
-		System.out.println("..................."+cri.getS_type());
-		System.out.println("..................."+cri.getS_keyword());
-		System.out.println("..................."+service.getNoticeTotal(cri));
+		//담아서 보내주기
+		model.addAttribute("notice_list",noticeList);
+		model.addAttribute("pageMaker",new PageDTO(noticeTotal, cri));
 		
-		//사용안된 이미지 삭제(파일,DB 함께)
-		service.deleteUnusedImgs(req);
+		if(cri.getS_keyword()!=null) {
+			log.info("검색............."+cri.getS_type()+"..."+cri.getS_keyword());
+		}
+		log.info("글 개수..................."+noticeTotal);
+		
+		
 	}
 	
 	//공지사항 게시글 하나 클릭시 or 주소창에 /support/notice/글번호 쳤을시 
