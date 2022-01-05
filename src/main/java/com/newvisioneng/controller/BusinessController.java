@@ -91,7 +91,6 @@ public class BusinessController {
 	@GetMapping("/result_pageAjax")
 	public String result_pageAjax(Model model, Criteria cri, HttpServletRequest req,
 			@RequestParam(value = "msg", required = false) String msg,
-			@RequestParam(value = "page", required = false) String page,
 			@RequestParam(value = "tabId", required = false) String tabId) {
 		log.info("-----------------------------------------------");
 		log.info("------------business_list_pageAjax-------------");
@@ -102,11 +101,11 @@ public class BusinessController {
 		}
 
 		log.info("넘어온 msg값.........." + msg);
-		log.info("넘어온 page값.........." + page);
+		log.info("넘어온 page값.........." + cri.getPage());
+		log.info("넘어온 s_keyword값.........." + cri.getS_keyword());
 		log.info("넘어온 tabId값.........." + tabId);
 
 		cri.setPageSize(15);
-		cri.setPage(Integer.parseInt(page));
 
 		log.info("cri : " + cri);
 

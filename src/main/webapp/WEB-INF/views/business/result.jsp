@@ -239,6 +239,71 @@ table {
 }
 </style>
 
+<style>
+.search_top {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    position: relative;
+    text-align: right;
+}
+.search_top select {
+    background: #fff url(/resources/img/elements/bg_select_arr.gif) no-repeat 92% center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.search_top select+input[type=text], .search_top input[type=text]+input[type=button] {
+    margin-left: -1px;
+}
+.search_top input[type=text] {
+    width: 213px;
+}
+.search_top select, .search_top input[type=text], .search_top input[type=button] {
+    height: 45px;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 43px;
+    color: #666;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.search_top input[type=button] {
+    width: 90px;
+    border-color: #666;
+    background-color: #666;
+    color: #fff;
+    cursor: pointer;
+}
+.search_top select{
+	width: 11%;
+}
+@media only screen and (max-width: 991px){
+	.search_top {
+	    margin-bottom: 20px;
+	    font-size: 0;
+	    line-height: 0;
+	    display: flex;
+	    justify-content: space-between;
+	}
+	.search_top input[type=text] {
+    width: 70%;
+    margin: 0 -1px 0 0;
+	}
+	.search_top select {
+    width: 30%;
+    background: url(/resources/img/elements/bg_select_arr.gif) no-repeat 91% center;
+	}	
+}
+
+</style>
+
 </head>
 <body>
 	<!-- header.jsp import -->
@@ -302,15 +367,23 @@ table {
 					<div class="single-details">
 						<div class="tab-content" id="myTabContent">
 						
-						
+							<!-- 검색창 -->
+							<form name="search_form" method="get" action="/recruit/list">
+									<div class="search_top">
+										<select name="s_type" id="s_type">
+											<option selected value="content">내용</option>
+										</select>
+										<input type="text" id="" name="s_keyword" id="s_keyword" maxlength="20">
+										<input type="button" name="" value="검색" onclick="search();" >
+									</div>
+							</form>
 						
 						
 							<div class="tab-pane fade active show" id="military" role="tabpanel"
 								aria-labelledby="home-tab">
+								
 								<div class="details-wrap">
-									<!-- <div class="details-thumb">
-                                        <img src="/resources/img/service/business.jpg" alt="">
-                                    </div> -->
+								
 									<div class="details-info">
 										<div style="background: #FAFAFA">
 											<hr style="margin: 1% 0;">

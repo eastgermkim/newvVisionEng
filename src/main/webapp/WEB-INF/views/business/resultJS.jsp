@@ -7,7 +7,7 @@
 
 <script>
 	//페이지 이동시 ajax를 통해 부분 새로고침
-	function ChangePage(page, tabId) {
+	function ChangePage(page,tabId) {
 		console.log("page........." + page);
 		console.log("tabId........." + tabId);
 
@@ -16,7 +16,41 @@
 			url : "/business/result_pageAjax",
 			data : {
 				"page" : page, // ☜ 서버로 전송할 데이터
-				"tabId" : tabId
+				"tabId" : tabId,
+			// ☜ 서버로 전송할 데이터
+			},
+			dataType : "text",
+			success : function(data) {
+				//result_pageAjax.jsp에 담긴 내용을  가져와서
+				//id가 tabId인 요소의 내용을 변경
+				$('#' + tabId).html(data);
+				$('.newDiv').animate({
+					opacity : "1"
+				}, 200);
+				if ($("#showModify").css("display") == "none") {
+					$(".modifyDeleteBtn").css("display", "block");
+				}
+			},
+		});
+	};
+</script>
+
+<script>
+	//검색시 ajax를 통해 부분 새로고침
+	function search() {
+
+		var tabId = $(".tab-pane.active").attr("id");
+		console.log("tabId........." + tabId);
+		
+		var s_keyword = $('input[name=s_keyword]').val();
+		console.log("s_keyword........." + s_keyword);
+		
+		$.ajax({
+			type : "GET",
+			url : "/business/result_pageAjax",
+			data : {
+				"tabId" : tabId,
+				"s_keyword" : s_keyword,
 			// ☜ 서버로 전송할 데이터
 			},
 			dataType : "text",
