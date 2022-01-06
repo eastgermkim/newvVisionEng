@@ -235,7 +235,7 @@
 									<video class="video" id="video" src="/resources/video/army_ani.mp4" style="width:100%;" muted="muted"></video>
 									
 									<div class="video-caution">
-										<h3 class="video-caution-text">클릭시 재생이 정지 됩니다.</h3>
+										<h3 class="video-caution-text">클릭 시 재생을 생략합니다.</h3>
 									</div>
 								</div>
 							</div>
