@@ -191,7 +191,7 @@
 								<a class="nav-link" id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
 								
 								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_fo">광전송 SYSTEM</a></li>
+								<a class="nav-link" id="tab" href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -329,7 +329,7 @@
 								<div class="cctv-main details-thumb" data-aos="fade-up"
 									data-aos-offset="200" 
 									data-aos-duration="1000">
-									<img src="/resources/img/business/system.png" alt="">
+									<img src="/resources/img/business/system_white.png" alt="">
 								</div>
 							</div>
 						</div>

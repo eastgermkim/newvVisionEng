@@ -58,10 +58,10 @@ public class BusinessController {
 	}
 
 	// 사업소개 페이지로 연결
-	@GetMapping("/business_fo")
+	@GetMapping("/business_army")
 	public String introduce() {
 
-		return "/business/business_fo";
+		return "/business/business_army";
 	}
 
 //============================================================================

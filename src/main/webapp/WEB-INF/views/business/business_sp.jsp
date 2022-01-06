@@ -174,7 +174,7 @@
 									id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
 
 								<li class="nav-item"><a class="nav-link" id="tab"
-									href="../business/business_fo">광전송 SYSTEM</a></li>
+									href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
 							</ul>
 						</nav>
 					</div>
