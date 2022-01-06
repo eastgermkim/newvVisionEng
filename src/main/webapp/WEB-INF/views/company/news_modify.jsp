@@ -321,7 +321,8 @@ u {
 	</script>
 	
 	<!-- CK에디터 -->
-	<%@ include file = "../CKeditorJS.jsp" %>
+	<%-- <%@ include file = "../CKeditorJS.jsp" %> --%>
+	<script src="/resources/js/CKeditor.js"></script>
 	
 	<!-- 파일 다중 업로드 -->
 	<script type="text/javascript">
