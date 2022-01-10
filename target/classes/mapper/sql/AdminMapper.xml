@@ -19,6 +19,7 @@
     		ID
     		,PASSWORD
     		,EMAIL
+    		,NAME
     		,PHONE
     		,ROLE
     	)
@@ -27,6 +28,7 @@
     		#{id}
     		,#{password}
     		,#{email}
+    		,#{name}
     		,#{phone}
     		,'ROLE_USER'
     	)

@@ -55,7 +55,7 @@
 	
 	<!-- 메인등록된 사업실적 목록 불러오기 -->
 	<select id="getMainBusinessList" resultType="com.newvisioneng.domain.BusinessDTO">
-		SELECT * FROM NV_BUSINESS_RESULT WHERE SHOW_MAINPAGE = 1
+		SELECT * FROM NV_BUSINESS_RESULT WHERE SHOW_MAINPAGE = 1 ORDER BY RESULTNUM DESC 
 	</select>
 	<update id="cancelMainBusinessResult">
 		UPDATE NV_BUSINESS_RESULT SET SHOW_MAINPAGE = 0, IMGNAME = NULL

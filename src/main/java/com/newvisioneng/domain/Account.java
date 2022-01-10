@@ -11,7 +11,7 @@ public class Account {
 	private String password;
 	private String confirmPassword;
 	private String email;
+	private String name;
 	private String phone;
 	private String role;
-
 }

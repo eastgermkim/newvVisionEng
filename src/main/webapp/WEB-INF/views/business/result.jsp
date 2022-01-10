@@ -357,10 +357,11 @@ table {
 						    <div class="btn-list" style="padding-top: 2%;" id="hideModify">
 							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;" href="javascript:hideModify();">사업실적 관리완료</a>
 							</div>
-						    <div class="btn-list" style="padding: 1% 0;" id="manageMainResults">
-							<a href="javascript:void(0);" onclick="manageMainResults();" style="width:100%;font-weight: 500;">└ 메인페이지 등록 취소 관리</a>
+						    <div class="btn-list" style="padding: 1% 0;text-align: center;" id="manageMainResults">
+							<a href="javascript:void(0);" onclick="manageMainResults();" style="width:100%;font-weight: 500;">└─ 메인페이지 등록 취소 관리 ─┘</a>
 							</div>
 						</c:if>
+						
 					</div>
 				</div>
 				<div class="col-xl-9">
@@ -369,15 +370,14 @@ table {
 						
 							<!-- 검색창 -->
 							<form name="search_form" method="get" action=""  onSubmit="return false">
-									<div class="search_top">
-										<select name="s_type" id="s_type">
-											<option selected value="content">내용</option>
-										</select>
-										<input type="text" id="" name="s_keyword" id="s_keyword" maxlength="20" onKeyPress="if( event.keyCode==13 ){search();}">
-										<input type="button" name="" value="검색" onclick="search();" >
-									</div>
+								<div class="search_top">
+									<select name="s_type" id="s_type">
+										<option selected value="content">내용</option>
+									</select>
+									<input type="text" id="" name="s_keyword" id="s_keyword" maxlength="20" onKeyPress="if( event.keyCode==13 ){search();}">
+									<input type="button" name="" value="검색" onclick="search();" >
+								</div>
 							</form>
-						
 						
 							<div class="tab-pane fade active show" id="military" role="tabpanel"
 								aria-labelledby="home-tab">

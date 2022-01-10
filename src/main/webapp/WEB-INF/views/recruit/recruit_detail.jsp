@@ -355,7 +355,7 @@ u {
 				<div class="col-lg-7 offset-lg-1">
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
-							<h2>공지사항</h2>
+							<h2>채용공고</h2>
 							<p style="opacity: 0.6">New Vision ENG. Recruit</p>
 						</div>
 					</div>
