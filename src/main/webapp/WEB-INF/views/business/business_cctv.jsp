@@ -207,7 +207,6 @@
 						<div class="tab-pane fade show active" id="business1"
 							role="tabpanel" aria-labelledby="home-tab">
 							<div class="details-wrap">
-								<!-----------------------------------3Tier----------------------------------------->
 								<div class="details-info">
 									<h3 class="main-title">CCTV 설치</h3>
 									<div data-aos="fade-up" data-aos-offset="200"
@@ -223,7 +222,8 @@
 												니즈에 맞는 제품 선택과 설치를 진행합니다.
 											</p>
 										</div>
-										<div class="about-area section-padding">
+										<!-----------------------------------3Tier----------------------------------------->
+										<!-- <div class="about-area section-padding">
 											<div class="container">
 												<div class="row align-items-center"
 													style="justify-content: space-between;">
@@ -246,7 +246,7 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 
 									<!--------------------------------------CCTV 분야----------------------------------------->
@@ -320,6 +320,24 @@
 								</div>
 								
 								<!------------------------------------CCTV 설계 예시---------------------------------------------->
+								<div class="cctv-detail2 details-info">
+									<h3 class="business-name"
+										style="font-size: 24px; font-weight: 300;">Analogue(아날로그) 방식 CCTV SYSTEM 예시</h3>
+								</div>
+								<div class="cctv-main details-thumb" data-aos="fade-up"
+									data-aos-offset="200" 
+									data-aos-duration="1000">
+									<img src="/resources/img/business/cctv_test1.png" alt="">
+								</div>
+								<div class="cctv-detail2 details-info">
+									<h3 class="business-name"
+										style="font-size: 24px; font-weight: 300;">Digital(디지털) 방식 CCTV SYSTEM 예시</h3>
+								</div>
+								<div class="cctv-main details-thumb" data-aos="fade-up"
+									data-aos-offset="200" 
+									data-aos-duration="1000">
+									<img src="/resources/img/business/cctv_test2.png" alt="">
+								</div>
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
 										style="font-size: 24px; font-weight: 300;">CCTV 설치 및 설계 예시</h3>
