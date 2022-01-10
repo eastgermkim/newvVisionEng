@@ -101,9 +101,9 @@ public class BusinessController {
 		}
 
 		log.info("넘어온 msg값.........." + msg);
-		log.info("넘어온 page값.........." + cri.getPage());
 		log.info("넘어온 s_keyword값.........." + cri.getS_keyword());
 		log.info("넘어온 tabId값.........." + tabId);
+		log.info("넘어온 page값.........." + cri.getPage());
 
 		cri.setPageSize(15);
 
@@ -124,6 +124,7 @@ public class BusinessController {
 		model.addAttribute("business_list", service.getBusinessList(cri, resultClass));
 		model.addAttribute("pageMaker", new PageDTO(service.getBusinessTotal(resultClass,cri.getS_keyword()), cri));
 		model.addAttribute("tabId", tabId);
+		model.addAttribute("resultClass", resultClass);
 
 		if (msg != null) {
 			model.addAttribute("msg", msg);

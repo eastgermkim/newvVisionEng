@@ -357,7 +357,7 @@ table {
 						    <div class="btn-list" style="padding-top: 2%;" id="hideModify">
 							<a class="genric-btn primary-border e-large toList hideModifyBtn" style="width:100%; font-size:15px;" href="javascript:hideModify();">사업실적 관리완료</a>
 							</div>
-						    <div class="btn-list" style="padding-top: 5%;" id="manageMainResults">
+						    <div class="btn-list" style="padding: 1% 0;" id="manageMainResults">
 							<a href="javascript:void(0);" onclick="manageMainResults();" style="width:100%;font-weight: 500;">└ 메인페이지 등록 취소 관리</a>
 							</div>
 						</c:if>
@@ -437,7 +437,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker1.prev }">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.startPage-1},'military');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.startPage-1},'military','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -446,13 +446,13 @@ table {
 										<c:forEach var="idx" begin="${pageMaker1.startPage }" end="${pageMaker1.endPage }">
 											<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 								 			<li ${pageMaker1.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'military');" class="page-link">${idx}</a>
+								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'military','${pageMaker.cri.s_keyword}' );" class="page-link">${idx}</a>
 								 			</li>
 										</c:forEach>
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker1.next && pageMaker1.endPage > 0}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.endPage+1},'military');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.endPage+1},'military','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -464,7 +464,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker1.cri.page>1}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page-1},'military');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page-1},'military','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -477,7 +477,7 @@ table {
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker1.cri.page<pageMaker1.realEnd}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page+1},'military');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker1.cri.page+1},'military','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -542,7 +542,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker2.prev }">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.startPage-1},'publicOrg');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.startPage-1},'publicOrg','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -551,13 +551,13 @@ table {
 										<c:forEach var="idx" begin="${pageMaker2.startPage }" end="${pageMaker2.endPage }">
 											<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 								 			<li ${pageMaker2.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'publicOrg');" class="page-link">${idx}</a>
+								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'publicOrg','${pageMaker.cri.s_keyword}' );" class="page-link">${idx}</a>
 								 			</li>
 										</c:forEach>
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker2.next && pageMaker2.endPage > 0}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'publicOrg');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'publicOrg','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -569,7 +569,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker2.cri.page>1}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page-1},'publicOrg');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page-1},'publicOrg','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -582,7 +582,7 @@ table {
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker2.cri.page<pageMaker2.realEnd}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page+1},'publicOrg');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.cri.page+1},'publicOrg','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -648,7 +648,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker3.prev }">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.startPage-1},'privateCorp');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.startPage-1},'privateCorp','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -657,13 +657,13 @@ table {
 										<c:forEach var="idx" begin="${pageMaker3.startPage }" end="${pageMaker3.endPage }">
 											<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 								 			<li ${pageMaker3.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'privateCorp');" class="page-link">${idx}</a>
+								 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'privateCorp','${pageMaker.cri.s_keyword}' );" class="page-link">${idx}</a>
 								 			</li>
 										</c:forEach>
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker3.next && pageMaker3.endPage > 0}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.endPage+1},'privateCorp');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.endPage+1},'privateCorp','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>
@@ -675,7 +675,7 @@ table {
 							 			<!-- 이전prev -->
 							 			<c:if test="${pageMaker3.cri.page>1}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page-1},'privateCorp');" class="page-link" aria-label="Previous"> 
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page-1},'privateCorp','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 													<i class="ti-angle-left"></i>
 												</a>
 							 				</li>
@@ -688,7 +688,7 @@ table {
 							 			<!-- 다음next -->
 							 			<c:if test="${pageMaker3.cri.page<pageMaker3.realEnd}">
 							 				<li class="page-item">
-							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page+1},'privateCorp');" class="page-link" aria-label="Next">
+							 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker3.cri.page+1},'privateCorp','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 							 						<i class="ti-angle-right"></i>
 							 					</a>
 							 				</li>

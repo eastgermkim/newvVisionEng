@@ -7,9 +7,11 @@
 
 <script>
 	//페이지 이동시 ajax를 통해 부분 새로고침
-	function ChangePage(page,tabId) {
-		console.log("page........." + page);
+	function ChangePage(page,tabId,s_keyword) {
+		console.log(".............ChangePage()...........");
+		console.log("s_keyword........." + s_keyword);
 		console.log("tabId........." + tabId);
+		console.log("page........." + page);
 		
 		$.ajax({
 			type : "GET",
@@ -17,6 +19,7 @@
 			data : {
 				"page" : page, // ☜ 서버로 전송할 데이터
 				"tabId" : tabId,
+				"s_keyword" : s_keyword,
 			// ☜ 서버로 전송할 데이터
 			},
 			dataType : "text",
@@ -38,12 +41,13 @@
 <script>
 	//검색시 ajax를 통해 부분 새로고침
 	function search() {
-
-		var tabId = $(".tab-pane.active").attr("id");
-		console.log("tabId........." + tabId);
+		console.log(".............search()...........");
 		
 		var s_keyword = $('input[name=s_keyword]').val();
 		console.log("s_keyword........." + s_keyword);
+		
+		var tabId = $(".tab-pane.active").attr("id");
+		console.log("tabId........." + tabId);
 		
 		$.ajax({
 			type : "GET",

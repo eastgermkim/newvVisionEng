@@ -5,7 +5,22 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<c:if test="${pageMaker.cri.s_keyword != '' and pageMaker.cri.s_keyword != null}">
+<style>
+.backToAll{
+	color: #f36d20;
+}
+.backToAll:hover {
+	color: #007bff;
+}
+</style>
+<div style="text-align: right;">
+<a href="javascript:void(0);" onclick="ChangePage(1,'${tabId}', );" class="backToAll">전체목록으로 돌아가기</a>
+</div>
+<div style="text-align: right;font-size: larger;">
+${resultClass}의 '${pageMaker.cri.s_keyword}' 검색결과입니다.
+</div>
+</c:if>
 <div class="details-wrap">
 		<div class="details-info">
 			<div style="background: #FAFAFA">
@@ -61,7 +76,7 @@
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.prev }">
 	 				<li class="page-item">
-						<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.startPage-1},'${tabId}' );" class="page-link" aria-label="Previous"> 
+						<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.startPage-1},'${tabId}','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 							<i class="ti-angle-left"></i>
 						</a>
 	 				</li>
@@ -70,13 +85,13 @@
 				<c:forEach var="idx" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
 					<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
 		 			<li ${pageMaker.cri.page == idx? 'class="page-item active"':'class="page-item"'}>
-		 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'${tabId}');" class="page-link">${idx}</a>
+		 				<a href="javascript:void(0);" onclick="ChangePage(${idx},'${tabId}','${pageMaker.cri.s_keyword}' );" class="page-link">${idx}</a>
 		 			</li>
 				</c:forEach>
 	 			<!-- 다음next -->
 	 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 	 				<li class="page-item">
-	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'${tabId}');" class="page-link" aria-label="Next">
+	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker2.endPage+1},'${tabId}','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 	 						<i class="ti-angle-right"></i>
 	 					</a>
 	 				</li>
@@ -88,7 +103,7 @@
 	 			<!-- 이전prev -->
 	 			<c:if test="${pageMaker.cri.page>1}">
 	 				<li class="page-item">
-	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page-1},'${tabId}');" class="page-link" aria-label="Previous"> 
+	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page-1},'${tabId}','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Previous"> 
 							<i class="ti-angle-left"></i>
 						</a>
 	 				</li>
@@ -101,7 +116,7 @@
 	 			<!-- 다음next -->
 	 			<c:if test="${pageMaker.cri.page<pageMaker.realEnd}">
 	 				<li class="page-item">
-	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page+1},'${tabId}');" class="page-link" aria-label="Next">
+	 					<a href="javascript:void(0);" onclick="ChangePage(${pageMaker.cri.page+1},'${tabId}','${pageMaker.cri.s_keyword}' );" class="page-link" aria-label="Next">
 	 						<i class="ti-angle-right"></i>
 	 					</a>
 	 				</li>
