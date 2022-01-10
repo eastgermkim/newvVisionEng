@@ -368,12 +368,12 @@ table {
 						<div class="tab-content" id="myTabContent">
 						
 							<!-- 검색창 -->
-							<form name="search_form" method="get" action="/recruit/list">
+							<form name="search_form" method="get" action=""  onSubmit="return false">
 									<div class="search_top">
 										<select name="s_type" id="s_type">
 											<option selected value="content">내용</option>
 										</select>
-										<input type="text" id="" name="s_keyword" id="s_keyword" maxlength="20">
+										<input type="text" id="" name="s_keyword" id="s_keyword" maxlength="20" onKeyPress="if( event.keyCode==13 ){search();}">
 										<input type="button" name="" value="검색" onclick="search();" >
 									</div>
 							</form>

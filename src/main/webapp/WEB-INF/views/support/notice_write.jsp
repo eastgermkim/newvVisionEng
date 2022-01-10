@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
 
-<script src="${pageContext.request.contextPath}/resources/js/ckeditor5/ckeditor.js"></script>
+<script src="/resources/js/ckeditor5/ckeditor.js"></script>
 <style>
 .board {
 	padding: 4% 0%;

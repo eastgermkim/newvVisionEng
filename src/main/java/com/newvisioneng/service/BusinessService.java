@@ -10,7 +10,7 @@ public interface BusinessService {
 	//사업실적 목록 가져오기
 	public List<BusinessDTO> getBusinessList(Criteria cri,String resultClass);
 	//사업실적 총 글 개수
-	public int getBusinessTotal(String resultClass);
+	public int getBusinessTotal(String resultClass, String s_keyword);
 	//사업실적 새 글 등록
 	public boolean registBusinessResult(String resultClass, String resultContnents);
 	//사업실적 글 수정

@@ -34,14 +34,18 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 		map.put("resultClass", resultClass);
     	map.put("pageStart", cri.getPageStart());
     	map.put("pageSize", cri.getPageSize());
+    	map.put("s_keyword", cri.getS_keyword());
     	
 		return mapper.getBusinessList(map);
 	}
 	
 	//사업실적 총 개수
 	@Override
-	public int getBusinessTotal(String resultClass) {
-		return mapper.getBusinessTotal(resultClass);
+	public int getBusinessTotal(String resultClass, String s_keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("resultClass", resultClass);
+		map.put("s_keyword", s_keyword);
+		return mapper.getBusinessTotal(map);
 	}
 	
 	//사업실적 등록

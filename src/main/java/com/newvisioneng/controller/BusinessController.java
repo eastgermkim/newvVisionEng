@@ -76,13 +76,13 @@ public class BusinessController {
 
 		// DB 검색
 		model.addAttribute("business_list_1", service.getBusinessList(cri, "군사시설"));
-		model.addAttribute("pageMaker1", new PageDTO(service.getBusinessTotal("군사시설"), cri));
+		model.addAttribute("pageMaker1", new PageDTO(service.getBusinessTotal("군사시설",null), cri));
 
 		model.addAttribute("business_list_2", service.getBusinessList(cri, "공공기관"));
-		model.addAttribute("pageMaker2", new PageDTO(service.getBusinessTotal("공공기관"), cri));
+		model.addAttribute("pageMaker2", new PageDTO(service.getBusinessTotal("공공기관",null), cri));
 
 		model.addAttribute("business_list_3", service.getBusinessList(cri, "민간기업"));
-		model.addAttribute("pageMaker3", new PageDTO(service.getBusinessTotal("민간기업"), cri));
+		model.addAttribute("pageMaker3", new PageDTO(service.getBusinessTotal("민간기업",null), cri));
 
 		return "/business/result";
 	}
@@ -122,7 +122,7 @@ public class BusinessController {
 
 		// DB 검색
 		model.addAttribute("business_list", service.getBusinessList(cri, resultClass));
-		model.addAttribute("pageMaker", new PageDTO(service.getBusinessTotal(resultClass), cri));
+		model.addAttribute("pageMaker", new PageDTO(service.getBusinessTotal(resultClass,cri.getS_keyword()), cri));
 		model.addAttribute("tabId", tabId);
 
 		if (msg != null) {

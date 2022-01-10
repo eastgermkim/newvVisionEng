@@ -10,7 +10,7 @@
 	function ChangePage(page,tabId) {
 		console.log("page........." + page);
 		console.log("tabId........." + tabId);
-
+		
 		$.ajax({
 			type : "GET",
 			url : "/business/result_pageAjax",

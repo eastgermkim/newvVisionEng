@@ -11,7 +11,7 @@ public interface BusinessMapper {
 	//사업실적 전체 목록 불러오기
 	public List<BusinessDTO> getBusinessList(Map<String, Object> map);
 	//사업실적 전체개수
-	public int getBusinessTotal(String resultClass);
+	public int getBusinessTotal(Map<String, Object> map);
 	//사업실적 등록
 	public int insertBusinessResult(Map<String, Object> map);
 	//사업실적 수정

@@ -3,17 +3,32 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <!-- namespace는 Mapper 인터페이스와 같은 이름으로 해야 자동 병합 처리된다. -->
-<mapper namespace="com.newvisioneng.mapper.BusinessMapper">
+<mapper namespace="com.newvisioneng.mapper.BusinessMapper" >
+	
+	<sql id="criteria">
+		<if test='s_keyword != null and s_keyword != ""'>
+			<trim prefix="(" suffix=") AND">
+				RESULTCONTNENTS LIKE CONCAT('%',#{s_keyword},'%') 
+			</trim>
+		</if>
+	</sql>
+
 	<!-- 사업실적 목록 불러오기 -->
-	<select id="getBusinessList" resultType="com.newvisioneng.domain.BusinessDTO">
+	<select id="getBusinessList" resultType="com.newvisioneng.domain.BusinessDTO" parameterType="hashmap">
 		SELECT * FROM NV_BUSINESS_RESULT 
-		WHERE 
+		WHERE
+		<if test='s_keyword != null and s_keyword != ""'>
+			(RESULTCONTNENTS LIKE CONCAT('%',#{s_keyword},'%')) AND 
+		</if> 
 		RESULTCLASS = #{resultClass} 
 		ORDER BY RESULTNUM DESC LIMIT #{pageStart},#{pageSize}
 	</select>
-	<select id="getBusinessTotal" resultType="_int">
+	<select id="getBusinessTotal" resultType="_int" parameterType="hashmap">
 		SELECT COUNT(*) FROM NV_BUSINESS_RESULT 
-		WHERE 
+		WHERE
+		<if test='s_keyword != null and s_keyword != ""'>
+			(RESULTCONTNENTS LIKE CONCAT('%',#{s_keyword},'%')) AND 
+		</if>
 		RESULTCLASS = #{resultClass}
 		AND
 		RESULTNUM>0

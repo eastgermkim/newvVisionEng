@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+
 <div class="details-wrap">
 		<div class="details-info">
 			<div style="background: #FAFAFA">

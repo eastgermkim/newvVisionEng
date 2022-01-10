@@ -41,7 +41,7 @@ public class Criteria {
 	//toString()
 	@Override
 	public String toString() {
-		return "Criteria [page=" + page + ", pageSize=" + pageSize + "]";
+		return "Criteria [page=" + page + ", pageSize=" + pageSize + ", s_keyword=" + s_keyword + "]";
 	}
 	
 	
