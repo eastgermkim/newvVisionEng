@@ -1,11 +1,177 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="true"%>
+
+<!DOCTYPE html>
 <html>
 <head>
-<title>회원가입 페이지</title>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>New Vision ENG</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <link rel="manifest" href="site.webmanifest"> -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="/resources/img/nvicon.png">
+
+<!-- CSS here -->
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/themify-icons.css">
+<link rel="stylesheet" href="/resources/css/nice-select.css">
+<link rel="stylesheet" href="/resources/css/flaticon.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+<link rel="stylesheet" href="/resources/css/slicknav.css">
+<link rel="stylesheet" href="/resources/css/style.css">
+<!-- <link rel="stylesheet" href="resources/css/responsive.css"> -->
+
+<!-- 스타일 -->
+<style>
+html, body {
+	padding: 0;
+	margin: 0;
+	/* font-size: 9pt; */
+	color: #555;
+	background: #f4f5f6;
+	/* font-family: 'Malgun Gothic', 'Dotum'; */
+	height: 100%
+}
+
+legend {
+	display: block;
+	text-align: center;
+	overflow: hidden
+}
+
+legend strong {
+	display: block;
+	font-size: 33px;
+	font-weight: 800;
+	margin-bottom: 24px
+}
+
+legend em {
+	display: block;
+	font-style: normal;
+	font-size: 12pt;
+	margin-bottom: 30px
+}
+
+form {
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	z-index: 1
+}
+
+form #admin_join {
+	display: table-cell;
+	padding: 20px 10px 150px;
+	margin: 0;
+	border: 0;
+	height: 100%;
+	vertical-align: middle;
+	text-align: left
+}
+
+form #admin_join fieldset {
+	margin: 0 auto;
+	border: 0;
+	padding: 10px;
+	/* max-width: 370px */
+}
+
+form p {
+	display: block;
+	position: relative;
+	background: #fff;
+	border: 1px solid #cdcdd1;
+	border-radius: 3px;
+	overflow: hidden;
+	padding: 10px
+}
+
+form label {
+	display: block;
+	position: absolute;
+	width: 136px;
+	top: 0;
+	left: 0;
+	color: #aaa;
+	text-indent: 16px;
+	line-height: 36px
+}
+
+form label:after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 10px;
+	right: 0;
+	top: 50%;
+	margin-top: -5px;
+	background: #ececec
+}
+
+form span {
+	display: block;
+	border: 0;
+	/* margin-left: 150px */
+}
+
+form span input {
+	width: 100%;
+	border: 0
+}
+
+form .submitBtn {
+	color: #fff;
+	font-family: 'Malgun Gothic', 'Dotum';
+	display: block;
+	background: #1c68e0;
+	border-radius: 3px;
+	overflow: hidden;
+	padding: 10px 0;
+	width: 100%;
+	border: 0;
+	cursor: pointer;
+	font-size: 12pt
+}
+</style>
+
+<style>
+.joinBtn {
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	border-color: grey;
+}
+.joinTable{
+	width: 50%;
+}
+
+@media ( max-width : 799.5px) {
+	.joinBtn {
+		width: 100%;
+	}
+	.joinTable{
+		width: 100%;
+	}
+}
+</style>
+
 <script>
+	/* 휴대폰 번호 하이픈 자동 삽입 */
 	function inputPhoneNumber(obj) {
 		var number = obj.value.replace(/[^0-9]/g, "");
 		var phone = "";
@@ -31,48 +197,71 @@
 		obj.value = phone;
 	}
 </script>
-
 </head>
+
 <body>
+	<!-- header.jsp import -->
+	<c:import url="./header.jsp" charEncoding="UTF-8"></c:import>
+	<script>
+		addClassName6();
+	</script>
+
 	<form action="/join" name=form method="post"
 		onsubmit="return checkAll()">
-		<table width=750 border="1px" align=center>
-			<tr>
-				<th colspan="2" bgcolor="#E4F7BA">회원 기본 정보</th>
-			</tr>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="id"> 4~12자의 영문 대소문자와 숫자로만
-					입력</td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="password"> 4~12자의 영문
-					대소문자와 숫자로만 입력</td>
-			</tr>
-			<tr>
-				<td>비밀번호 확인</td>
-				<td><input type="password" name="confirmPassword"></td>
-			</tr>
-			<tr>
-				<td>메일주소</td>
-				<td><input type="text" name="email"> 예)id@domain.com</td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name"></td>
-			</tr>
-			<tr>
-				<td>휴대폰 번호</td>
-				<td><input type="text" name="phone" onKeyup="inputPhoneNumber(this);"
-					maxlength="13" style="text-align: center;" /></td>
-			</tr>
-		</table>
-		<p align=center>
-			<input type="submit" name="join" value="회원 가입"> <input
-				type="reset" name="reset" value="다시 입력">
-		</p>
+		<div id="admin_join">
+			<fieldset>
+				<legend>
+					<strong>관리자 회원가입</strong>
+					<c:if test="${login_id != null and login_id != ''}">
+						<em>현재 로그인된 ID : ${login_id}</em>
+					</c:if>
+				</legend>
+				<table class="joinTable" border="1px" align=center>
+					<tr>
+						<th colspan="2" bgcolor=antiquewhite>회원 기본 정보</th>
+					</tr>
+					<tr>
+						<td>아이디</td>
+						<td><input type="text" name="id">
+							<br>4~12자의 영문 대소문자와 숫자로만 입력</td>
+					</tr>
+					<tr>
+						<td>비밀번호</td>
+						<td><input type="password" name="password">
+							<br>4~12자의 영문 대소문자와 숫자로만 입력</td>
+					</tr>
+					<tr>
+						<td>비밀번호 확인</td>
+						<td><input type="password" name="confirmPassword"></td>
+					</tr>
+					<tr>
+						<td>메일주소</td>
+						<td><input type="text" name="email">
+							<br>예)abc1234@gmail.com</td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td><input type="text" name="name"></td>
+					</tr>
+					<tr>
+						<td>휴대폰 번호</td>
+						<td><input type="text" name="phone"
+							onKeyup="inputPhoneNumber(this);" maxlength="13"
+							style="text-align: center;"></td>
+					</tr>
+				</table>
+				<div>
+					<p class="joinBtn">
+						<input type="submit" name="join" value="회원 가입"> 
+						<input type="reset" name="reset" value="다시 입력">
+					</p>
+				</div>
+			</fieldset>
+		</div>
 	</form>
+
+
+	<c:import url="./footer.jsp" charEncoding="UTF-8"></c:import>
 
 	<script>
 		function checkAll() {
@@ -181,6 +370,8 @@
 			var nameRegExp = /^[가-힣]{2,4}$/;
 			if (!nameRegExp.test(name)) {
 				alert("이름이 올바르지 않습니다.");
+				form.name.value = "";
+				form.name.focus();
 				return false;
 			}
 			return true; //확인이 완료되었을 때
@@ -193,14 +384,15 @@
 			var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 			if (!regPhone.test(phone)) {
 				alert('핸드폰 번호를 확인 해주세요');
+				form.phone.value = "";
+				form.phone.focus();
 				return;
 			}
 
 			return true; //확인이 완료되었을 때
 		}
 	</script>
-
-
-
 </body>
+
+
 </html>
