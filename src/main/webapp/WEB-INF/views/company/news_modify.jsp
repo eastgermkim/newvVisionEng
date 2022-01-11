@@ -249,14 +249,14 @@ u {
 						<th><input class="single-input" name="newsWriter"
 							type="text" placeholder="작성자를 입력하세요(ex. 관리자)" value="${news.newsWriter}"></th>
 					</tr>
-					<tr>
-						<th class="big-width-table file"><span>파일첨부</span>
+					<tr class="file">
+						<th class="big-width-table"><span>파일첨부</span>
 						<br>
 							<a href="#this" class="addFile" onclick="addFile()" style="color:#f36d20;">+ 	파일 추가</a>
 						</th>
 						<th class="file" id="file">
 							<div class="form-group" id="file-list" style="padding:0 20px;">
-								<div class="file-group" id="file-group" style="text-align: left;">
+								<div class="file-group" id="file-list" style="text-align: left;">
 									<span style="display:flex">파일 용량 제한 : 20MB (최대 5개, 합계 100MB까지 가능)</span>
 									<c:choose>
 										<c:when test="${file != null and fn:length(file)>0 }">

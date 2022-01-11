@@ -142,6 +142,31 @@
 .business-li hr {
 	width: 80%;
 }
+#kind-link-icon-on{
+	width: 25%;
+	position:absolute;
+ 	top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#kind-link-icon-off{
+	width: 25%;
+	position:absolute;
+ 	top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#kind-link > #kind-link-icon-on {
+opacity: 0;
+transition: opacity 0.5s
+}
+
+#kind-link:hover > #kind-link-icon-on {
+opacity: 1;
+}
+
 </style>
 
 </head>
@@ -260,8 +285,14 @@
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
-																<li><a href="#"> <i class="fa fa-camera"></i>
-																</a></li>
+																<li>
+																<a id="kind-link" href="result" style="font-weight:500;">
+																	<img id="kind-link-icon-off" src="/resources/img/icon/military-off.png">
+																	<img id="kind-link-icon-on" src="/resources/img/icon/military-on.png">
+																<br><br>
+																군사시설 사업실적 확인하기
+																</a>
+																</li>
 															</ul>
 														</div>
 													</div>
@@ -269,7 +300,7 @@
 												<div class="team-info text-center">
 													<h3>군사시설 CCTV</h3>
 													<p>
-														내용내용내용내용내용내용내용내용내용내용<br> 내용내용내용내용내용내용내용내용내용내용<br>
+														주야간 실내/외 및 외곽 울타리 감시 경계와 보안 인증 절차를 통한 국방시설 내 출입 및 자산을 안전하게 관리합니다.또한 데이터 백업 장치와 메인 서버 이중화를 통해 시스템 안정성을 제공합니다.
 													</p>
 												</div>
 											</div>
@@ -283,8 +314,14 @@
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
-																<li><a href="#"> <i class="fa fa-camera"></i>
-																</a></li>
+																<li>
+																<a id="kind-link" href="#" style="font-weight:500;">
+																<img id="kind-link-icon-off" src="/resources/img/icon/public-off.png">
+																<img id="kind-link-icon-on" src="/resources/img/icon/public-on.png">
+																<br><br>
+																공공기관 사업실적 확인하기
+																</a>
+																</li>
 															</ul>
 														</div>
 													</div>
@@ -304,8 +341,14 @@
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
-																<li><a href="#"> <i class="fa fa-camera"></i>
-																</a></li>
+																<li>
+																<a id="kind-link" href="#" style="font-weight:500;">
+																<img id="kind-link-icon-off" src="/resources/img/icon/private-off.png">
+																<img id="kind-link-icon-on" src="/resources/img/icon/private-on.png">
+																<br><br>
+																민간시설 사업실적 확인하기
+																</a>
+																</li>
 															</ul>
 														</div>
 													</div>
@@ -327,7 +370,7 @@
 								<div class="cctv-main details-thumb" data-aos="fade-up"
 									data-aos-offset="200" 
 									data-aos-duration="1000">
-									<img src="/resources/img/business/cctv_test1.png" alt="">
+									<img src="/resources/img/business/cctv_test1-1.png" alt="">
 								</div>
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
@@ -372,6 +415,17 @@
 		$('.nav-link').on('click', function() {
 			AOS.refresh();
 		})
+		
+/*  		$('#cctv-army').hover(function(){
+			$('#cctv-army-icon').fadeIn(500);
+			$('#cctv-army-icon').attr("src","/resources/img/icon/military-off.png");
+		}); */
+		
+		 /* $('#cctv-army').hover(function(){
+			$('#cctv-army-icon').attr("src","/resources/img/icon/military-on.png");
+		},function(){
+			$('#cctv-army-icon').attr("src","/resources/img/icon/military-off.png");
+		}); */
 	</script>
 </body>
 
