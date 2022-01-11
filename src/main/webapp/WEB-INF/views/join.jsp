@@ -151,16 +151,21 @@ form .submitBtn {
 
 <style>
 .joinBtn {
-	width: 50%;
+	width: 410px;
 	text-align: center;
 	margin: 0 auto;
 	border-color: grey;
 }
 .joinTable{
-	width: 50%;
+	width: 410px;
 }
-
-@media ( max-width : 799.5px) {
+.joinName{
+	padding: 0 1%;
+}
+.joinInput{
+	width: 80%;
+}
+@media ( max-width : 450px) {
 	.joinBtn {
 		width: 100%;
 	}
@@ -212,42 +217,42 @@ form .submitBtn {
 			<fieldset>
 				<legend>
 					<strong>관리자 회원가입</strong>
-					<c:if test="${login_id != null and login_id != ''}">
-						<em>현재 로그인된 ID : ${login_id}</em>
+					<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+						<em>현재 로그인된 ID : ${admin_Login_id}</em>
 					</c:if>
 				</legend>
 				<table class="joinTable" border="1px" align=center>
 					<tr>
-						<th colspan="2" bgcolor=antiquewhite>회원 기본 정보</th>
+						<th colspan="2" bgcolor=antiquewhite class="joinName">회원 기본 정보</th>
 					</tr>
 					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="id">
-							<br>4~12자의 영문 대소문자와 숫자로만 입력</td>
+						<td class="joinName">아이디</td>
+						<td><input type="text" name="id" class="joinInput">
+							<br> 4~16자의 영문 대소문자 혹은 숫자</td>
 					</tr>
 					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" name="password">
-							<br>4~12자의 영문 대소문자와 숫자로만 입력</td>
+						<td class="joinName">비밀번호</td>
+						<td><input type="password" name="password" class="joinInput">
+							<br> 8~16자의 영문 대소문자 혹은 숫자</td>
 					</tr>
 					<tr>
-						<td>비밀번호 확인</td>
-						<td><input type="password" name="confirmPassword"></td>
+						<td class="joinName">비밀번호 확인</td>
+						<td><input type="password" name="confirmPassword" class="joinInput"></td>
 					</tr>
 					<tr>
-						<td>메일주소</td>
-						<td><input type="text" name="email">
+						<td class="joinName">메일주소</td>
+						<td><input type="text" name="email" class="joinInput">
 							<br>예)abc1234@gmail.com</td>
 					</tr>
 					<tr>
-						<td>이름</td>
-						<td><input type="text" name="name"></td>
+						<td class="joinName">이름</td>
+						<td><input type="text" name="name" class="joinInput"></td>
 					</tr>
 					<tr>
-						<td>휴대폰 번호</td>
+						<td class="joinName">휴대폰 번호</td>
 						<td><input type="text" name="phone"
 							onKeyup="inputPhoneNumber(this);" maxlength="13"
-							style="text-align: center;"></td>
+							style="text-align: center;" class="joinInput"></td>
 					</tr>
 				</table>
 				<div>
@@ -303,9 +308,9 @@ form .submitBtn {
 			if (!checkExistData(id, "아이디를"))
 				return false;
 
-			var idRegExp = /^[a-zA-z0-9]{4,12}$/; //아이디 유효성 검사
+			var idRegExp = /^[a-zA-z0-9]{4,16}$/; //아이디 유효성 검사
 			if (!idRegExp.test(id)) {
-				alert("아이디는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
+				alert("아이디는 영문 대소문자와 숫자 4~16자리로 입력해야합니다!");
 				form.id.value = "";
 				form.id.focus();
 				return false;
@@ -321,9 +326,9 @@ form .submitBtn {
 			if (!checkExistData(confirmPassword, "비밀번호 확인을"))
 				return false;
 
-			var passwordRegExp = /^[a-zA-z0-9]{4,12}$/; //비밀번호 유효성 검사
+			var passwordRegExp = /^[a-zA-z0-9]{8,16}$/; //비밀번호 유효성 검사
 			if (!passwordRegExp.test(password)) {
-				alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
+				alert("비밀번호는 영문 대소문자와 숫자 8~16자리로 입력해야합니다!");
 				form.password.value = "";
 				form.password.focus();
 				return false;

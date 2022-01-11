@@ -169,7 +169,27 @@ u {
 	color: #fff;
 }
 </style>
-
+<script>
+	/* 날짜 하이픈 자동 삽입 */
+	function inputDate(obj) {
+		var number = obj.value.replace(/[^0-9]/g, "");
+		var date = "";
+		if (number.length < 5) {
+			return number;
+		} else if (number.length < 7) {
+			date += number.substr(0, 4);
+			date += "-";
+			date += number.substr(4);
+		}  else {
+            date += number.substr(0, 4);
+            date += "-";
+            date += number.substr(4, 2);
+            date += "-";
+            date += number.substr(6);
+        }
+		obj.value = date;
+	}
+</script>
 </head>
 <body data-editor="ClassicEditor" data-collaboration="false"
 	data-revision-history="false">
@@ -201,7 +221,7 @@ u {
 	<input type="hidden" value="${cri.page}">
 	<input type="hidden" value="${cri.pageSize}">
 		<h3 style="color:#f36d20; text-align:right;">저작권법상 글을 인용할 수 없는 경우 기사링크 사용(파일첨부와 글 작성칸은 사라집니다.)</h3>
-		<form id="newsWriteForm" method="post" action="/company/news_writeOK" enctype="multipart/form-data">
+		<form id="newsWriteForm" method="post" action="/company/news_writeOK" enctype="multipart/form-data" onsubmit="return checkAll()">
 			<table>
 				<thead>
 					<tr>
@@ -214,7 +234,7 @@ u {
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>기사 날짜</span></th>
-						<th><input class="single-input" name="newsDate" type="text" placeholder="기사 날짜 입력(ex.OOOO-OO-OO / 년-월-일)"></th>
+						<th><input class="single-input" name="newsDate" type="text" placeholder="기사 날짜 입력(ex.OOOO-OO-OO / 년-월-일)" onKeyup="inputDate(this);" maxlength="10"></th>
 					</tr>
 					<tr>
 						<th class="big-width-table"><span>기사 링크</span></th>
@@ -380,6 +400,61 @@ $(document).ready(function () {
     
 })
 
+</script>
+
+<!-- 유효성검사 -->
+<script>
+		function checkAll() {
+			if (!checkNewsTitle(newsWriteForm.newsTitle.value)) {
+				newsWriteForm.newsTitle.focus();
+				return false;
+			}
+			if (!checkDate(newsWriteForm.newsDate.value)) {
+				return false;
+			}
+			if (!checkNewsWriter(newsWriteForm.newsWriter.value)) {
+				newsWriteForm.newsWriter.focus();
+				return false;
+			}
+			return true;
+		}
+
+		// 공백확인 함수
+		function checkExistData(value, dataName) {
+			if (value == "") {
+				alert(dataName + " 입력해주세요!");
+				return false;
+			}else if(value == null){
+				alert(dataName + " 입력해주세요!");
+				return false;
+			}
+			return true;
+		}
+
+		function checkNewsTitle(title) {
+			if (!checkExistData(title, "제목을"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkDate(date) {
+			if (!checkExistData(date, "기사 날짜를"))
+				return false;
+
+			var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+			if (!regex.test(date)) {
+				alert('기사 날짜를 확인 해주세요');
+				newsWriteForm.newsDate.focus();
+				return;
+			}
+			return true; //확인이 완료되었을 때
+		}
+		function checkNewsWriter(writer) {
+			if (!checkExistData(writer, "작성자를"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
 </script>
 </body>
 

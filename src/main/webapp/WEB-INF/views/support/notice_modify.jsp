@@ -314,7 +314,9 @@ u {
 	
 	<script>
 	$(".modifyBtn").click(function() {
-		if(!confirm("변경된 내용으로 저장하시겠습니까?")){
+		if(!checkAll()){
+			return false;
+		} else if(!confirm("변경된 내용으로 저장하시겠습니까?")){
 			return false;
 		}else{
 			alert("수정 완료")
@@ -446,6 +448,47 @@ $(document).ready(function () {
 
 </script>
 
+<!-- 유효성검사 -->
+<script>
+		function checkAll() {
+			if (!checkNoticeTitle(noticeForm.noticeTitle.value)) {
+				noticeForm.noticeTitle.focus();
+				return false;
+			}
+			if (!checkNoticeWriter(noticeForm.noticeWriter.value)) {
+				noticeForm.noticeWriter.focus();
+				return false;
+			}
+			return true;
+		}
+
+		// 공백확인 함수
+		function checkExistData(value, dataName) {
+			if (value == "") {
+				alert(dataName + " 입력해주세요!");
+				return false;
+			}else if(value == null){
+				alert(dataName + " 입력해주세요!");
+				return false;
+			}
+				
+			return true;
+		}
+
+
+		function checkNoticeTitle(title) {
+			if (!checkExistData(title, "제목을"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkNoticeWriter(writer) {
+			if (!checkExistData(writer, "작성자를"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+</script>
 </body>
 
 </html>
