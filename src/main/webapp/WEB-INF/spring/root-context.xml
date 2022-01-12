@@ -9,6 +9,9 @@
       http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">   
    
+   <!-- config파일 자동 로드 location="classpath:database.properties"  /!-->
+   <context:property-placeholder location="/config/*.properties" /> 
+   
    <!-- Root Context: defines shared resources visible to all other web components -->
    <context:component-scan base-package="com.newvisioneng.service"/>
    <context:component-scan base-package="com.newvisioneng.util"/>
@@ -21,10 +24,10 @@
    <!-- 커넥션 풀 설정 및 기본 Driver 정보 주석처리 -->
    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
       <!--  <property name="driverClass" value="org.mariadb.jdbc.Driver"></property> -->
-      <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
-      <property name="jdbcUrl" value="jdbc:log4jdbc:mariadb://localhost:3306/newVisionEng"></property>
-      <property name="username" value="root"/>
-      <property name="password" value="nveng3000"/>
+      <property name="driverClassName" value="${spring.datasource.driverClassName}"/>
+      <property name="jdbcUrl" value="${spring.datasource.url}"/>
+      <property name="username" value="${spring.datasource.username}"/>
+      <property name="password" value="${spring.datasource.password}"/>
    </bean>
    
    <!-- hikari data source -->
@@ -32,7 +35,7 @@
       <constructor-arg ref="hikariConfig"></constructor-arg>
    </bean> 
    
-   <!-- sqlSessionFactory  -->
+   <!-- sqlSessionFactory  -->	
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         
@@ -44,8 +47,8 @@
    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
     <property name="host" value="smtp.gmail.com"/> <!-- 메이서버 호스트 -->
     <property name="port" value="587"/> <!-- 메이서버 포트번호 -->
-    <property name="username" value="nvengsmtp@gmail.com"/> <!-- 자신의 이메일 아이디 -->
-    <property name="password" value="nvengsmtp3000"/> <!-- 자신의 비밀번호 -->
+    <property name="username" value="${spring.datasource.mailusername}"/> <!-- 자신의 이메일 아이디 -->
+    <property name="password" value="${spring.datasource.mailpassword}"/> <!-- 자신의 비밀번호 -->
       <!-- 보안연결 SSL과 관련된 설정 --> 
     <property name="javaMailProperties">
      <props>

@@ -95,6 +95,8 @@ hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java
 
+# ignore properties file
+config.properties
+
 # root-context
 root-context.xml
-/root-context.xml

@@ -212,11 +212,10 @@
 									<h3 class="main-title">정보통신공사</h3>
 									<div class="cctv-detail1 details-info">
 									<div data-aos="fade-up"	data-aos-offset="200" data-aos-duration="1000">
-										<img style="width: 100%;" src="/resources/img/business/lan_main.jpg" alt="">
+										<img style="width: 100%;margin-top: 1%;" src="/resources/img/business/lan_main.jpg" alt="">
 										<h3 class="business-name" style="font-size: 24px; font-weight: 300;">정보통신공사란?</h3>
 										<p style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											통신회선에 문자, 영상 등 정보를 입출력 장치에 송신, 수신 처리하는 정보 통신의 설비를 설치 및 유지,
-											보수에 관한 공사를 뜻합니다.
+											문자·부호·영상·음향 등의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및 유지·보수에 관한 공사를 말합니다.
 										</p>
 									</div>
 										<div class="row">
@@ -252,7 +251,7 @@
 														<p>관제센터 설계 및 구축</p></li>
 												</ul>
 												<p style="padding-top: 20px; font-size: 20px; font-weight: 100" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
-													CCTV의 설계, 설비, 설치, 유지 보수까지 통합적으로 수행합니다.</p>
+													CCTV의 설계·설비·설치·유지·보수를 환경에 맞게 통합적으로 수행합니다.</p>
 											</div>
 										</div>
 									</div>
