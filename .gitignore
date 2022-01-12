@@ -100,3 +100,12 @@ config.properties
 
 # root-context
 root-context.xml
+
+# pom.properties
+pom.properties
+
+# MANIFEST
+MANIFEST.MF
+
+# dbeaver-data-sources
+.dbeaver-data-sources.xml

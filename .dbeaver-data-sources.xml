@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<data-sources>
-	<data-source id="mariaDB-17d504c29f6-2e29206a9e6bfc0b" provider="mysql" driver="mariaDB" name="MariaDB - newVisionEng" save-password="true" show-system-objects="true" read-only="false">
-		<connection host="localhost" port="3306" server="" database="newVisionEng" url="jdbc:mysql://localhost:3306/newVisionEng" user="root" password="HRIDLkYQFEZVcuc=" home="C:\Program Files\MariaDB 10.1" type="dev"/>
-	</data-source>
-	<filters/>
-</data-sources>
