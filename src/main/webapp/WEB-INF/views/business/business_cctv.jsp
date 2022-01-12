@@ -76,9 +76,10 @@
     background-color: #f36d20;
 } */
 .business-name {
-	margin-top: 5%;
+	margin-top: 15%;
+	margin-bottom: 5%!importnat;
 	color: #f36d20 !important;
-	font-weight: 400 !important;
+	font-weight: 600 !important;
 }
 
 .cctv-main {
@@ -210,13 +211,13 @@ opacity: 1;
 								<a class="nav-link active show" id="tab" href="../business/business_cctv">CCTV 설치</a></li>
 								
 								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_com">정보통신공사</a></li>
+								<a class="nav-link" id="tab" href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
 								
 								<li class="nav-item">
 								<a class="nav-link" id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
 								
 								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
+								<a class="nav-link" id="tab" href="../business/business_com">정보통신공사</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -369,8 +370,9 @@ opacity: 1;
 								</div>
 								<div class="cctv-main details-thumb" data-aos="fade-up"
 									data-aos-offset="200" 
-									data-aos-duration="1000">
-									<img src="/resources/img/business/cctv_test1-1.png" alt="">
+									data-aos-duration="1000"
+									data-aos-once="true">
+									<img src="/resources/img/business/cctv_test1.png" alt="">
 								</div>
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
@@ -378,7 +380,8 @@ opacity: 1;
 								</div>
 								<div class="cctv-main details-thumb" data-aos="fade-up"
 									data-aos-offset="200" 
-									data-aos-duration="1000">
+									data-aos-duration="1000"
+									data-aos-once="true">
 									<img src="/resources/img/business/cctv_test2.png" alt="">
 								</div>
 								<div class="cctv-detail2 details-info">
@@ -387,7 +390,8 @@ opacity: 1;
 								</div>
 								<div class="cctv-main details-thumb" data-aos="fade-up"
 									data-aos-offset="200" 
-									data-aos-duration="1000">
+									data-aos-duration="1000"
+									data-aos-once="true">
 									<img src="/resources/img/business/system_white.png" alt="">
 								</div>
 							</div>
