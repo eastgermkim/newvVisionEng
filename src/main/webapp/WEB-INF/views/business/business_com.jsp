@@ -199,7 +199,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="container" style="margin-top: 3%;">
+		<div class="container" style="margin-top: 3%;margin-bottom: 3%;">
 			<div class="row">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
@@ -218,7 +218,7 @@
 											문자·부호·영상·음향 등의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및 유지·보수에 관한 공사를 말합니다.
 										</p>
 									</div>
-										<div class="row">
+										<div class="row" style="margin-top: 2%;">
 											<div class="col-xl-6 col-md-6">
 												<h3 class="business-name"
 													style="font-size: 24px; margin-bottom: 5%;">네트워크 구축</h3>
@@ -251,7 +251,7 @@
 														<p>관제센터 설계 및 구축</p></li>
 												</ul>
 												<p style="padding-top: 20px; font-size: 20px; font-weight: 100" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
-													CCTV의 설계·설비·설치·유지·보수를 환경에 맞게 통합적으로 수행합니다.</p>
+													CCTV의 설계·설비·설치·유지·보수를 통합적으로 환경에 맞게 수행합니다.</p>
 											</div>
 										</div>
 									</div>
@@ -303,13 +303,6 @@
 		</div>
 	</div>
 	<!-- service-details-end -->
-
-
-	<!-- ================ contact section start ================= -->
-	<section class="contact-section">
-		<div class="container"></div>
-	</section>
-	<!-- ================ contact section end ================= -->
 
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 

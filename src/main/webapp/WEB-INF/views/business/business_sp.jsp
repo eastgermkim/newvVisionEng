@@ -33,11 +33,26 @@
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
+/* .service-details img{
+	opacity:0;
+} */
+.down {
+	display: none;
+}
+
 .service-details {
 	padding-top: 0;
 	padding-bottom: 0;
 }
 
+@media ( max-width : 767.5px) {
+	.up {
+		display: none;
+	}
+	.down {
+		display: block;
+	}
+}
 
 .col-xl-4 {
 	max-width: 100%;
@@ -60,6 +75,19 @@
     margin: 0 16px;
     background-color: #f36d20;
 } */
+.business-name {
+	margin-top: 5%;
+	color: #f36d20 !important;
+	font-weight: 400 !important;
+}
+
+.cctv-main {
+	margin-bottom: 3% !important;
+}
+
+.cctv-detail {
+	margin-bottom: 10% !important;
+}
 
 .service-details .single-details .details-info {
 	padding-right: 0;
@@ -77,59 +105,401 @@
 	margin-bottom: 2%
 }
 
-.business-sp-outline-item-title{
-	color:#f36d20;
-	font-size:24px;
+.single-team {
+	box-shadow: 0 1px 10px lightgrey;
+	height: 500px;
 }
 
-.business-sp-outline-item{
-	float:left;
-	width:50%;
+.cctv-kind {
+	margin-bottom: 10% !important;
 }
 
-.business-sp-outline-list-item{
-	float:left;
-	width:50%;
-	height:450px;
-	padding: 0 0 0 30px;
+.cctv-detail1 {
+	
 }
 
-.business-sp-item-tumb{
-	position:relative;
+.cctv-detail2 {
+	margin-bottom: 2% !important;
 }
 
-.business-sp-item-img{
-	display:bloack;
-	width:100%;
-	height:320px;
-	top:0;
-	left:0;
+.about-area {
+	padding-top: 0;
 }
 
-.business-sp-item-num{
-	display:block;
-	padding: 12px 14px;
-	position:absolute;
-	bottom:-22px;
-	left:16px;
-	color:#fff;
-	line-height:1.2em;
-	font-size:20px;
-	font-weight:500;
-	background-color:#f36d20;
+.business-ul {
+	display: flex;
 }
 
-.business-sp-item-cont{
-	margin-top:30px;
+.business-li {
+	width: 50%;
+	text-align: center;
 }
 
+.business-li img {
+	width: 100px;
+}
+
+.business-li hr {
+	width: 80%;
+}
 </style>
+<style>
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;	
+    font-size: 100%;
+    vertical-align: baseline;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+body {
+    position: relative;
+    background: #fff;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555555;
+    word-wrap: break-word;
+    word-break: keep-all;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    font-weight: 400;
+}
+.site-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    /* padding: 0 40px; */
+}
+.entry-content {
+    min-height: 170px;
+}
+.BusinessOutlineTop {
+    font-size: 0;
+    line-height: 0;
+}
+.BusinessOutlineTop-title {
+    display: inline-block;
+    margin-right: 20px;
+    color: #000;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+.BusinessOutlineTop-sub {
+    display: inline-block;
+    margin-top: 8px;
+    color: #000;
+    font-size: 18px;
+    line-height: 1.4em;
+}
+.BusinessOutlineBtm {
+    margin: 38px -35px 0;
+}
+.BusinessOutlineBtm:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.BusinessOutlineBtm-item {
+    width: 50%;
+    float: left;
+    padding: 0 35px;
+}
+body .mb20 {
+    margin-bottom: 20px;
+}
+.BusinessOutlineBtm-title {
+    display: block;
+}
+.BusinessOutlineBtm-title {
+    color: #F37321;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+.BusinessOutlineBtm-text {
+    color: #4C4948;
+    font-size: 16px;
+    line-height: 1.8em;
+}
+body .mb15 {
+    margin-bottom: 15px;
+}
+.BusinessOutlineList {
+    margin-top: 64px;
+}
+.BusinessOutlineList-list {
+    margin: 0 -35px;
+}
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+ol, ul {
+    list-style: none;
+}
+.BusinessOutlineList-item:first-child {
+    padding-top: 0;
+}
 
+.BusinessOutlineList-item:nth-child(odd) {
+    clear: both;
+}
+.BusinessOutlineList-item:nth-child(even) {
+    padding-top: 50px;
+}
+.BusinessOutlineList-item {
+    width: 50%;
+    float: left;
+    padding: 20px 35px 0;
+}
+
+.BusinessItem-thumb {
+    position: relative;
+}
+.BusinessItem-num {
+    display: block;
+    padding: 12px 14px;
+    position: absolute;
+    bottom: -22px;
+    left: 22px;
+    z-index: 5;
+    color: #fff;
+    line-height: 1.2em;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Jost';
+    background-color: #F37321;
+}
+img {
+    max-width: 100%;
+}
+.BusinessItem-img {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.BusinessItem-cont {
+    margin-top: 46px;
+}
+.BusinessItem-title {
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+.BusinessItem-text {
+    margin-top: 16px;
+    color: #4C4948;
+    font-size: 16px;
+    line-height: 1.4em;
+}
+
+
+@media screen and (max-width: 1440px) and (min-width: 1025px){
+	.BusinessOutlineTop-title {
+	    margin-right: 16px;
+	    font-size: 32px;
+	}
+	.BusinessOutlineTop-sub {
+	    margin-top: 8px;
+	    font-size: 17px;
+	}
+	.BusinessOutlineBtm {
+	    margin: 25px -30px 0;
+	}
+	.BusinessOutlineBtm-item {
+	    padding: 0 30px;
+	}
+	body .mb20 {
+	    margin-bottom: 20px;
+	}
+	.BusinessOutlineBtm-title {
+	    font-size: 24px;
+	}
+	.BusinessOutlineBtm-text {
+	    font-size: 16px;
+	}
+	body .mb15 {
+	    margin-bottom: 15px;
+	}
+	.BusinessOutlineList {
+	    margin-top: 50px;
+	}
+	.BusinessOutlineList-list {
+	    margin: 0 -30px;
+	}
+	.BusinessItem-num {
+	    padding: 9px 11px;
+	    bottom: -20px;
+	    left: 20px;
+	    font-size: 26px;
+	}
+	.BusinessItem-cont {
+	    margin-top: 40px;
+	}
+	.BusinessItem-title {
+	    font-size: 24px;
+	}
+	.BusinessItem-text {
+	    margin-top: 10px;
+	    font-size: 15px;
+	}
+	
+	.BusinessOutlineList-item:nth-child(even) {
+	    padding-top: 50px;
+	}
+	
+}
+@media screen and (max-width: 1024px) and (min-width: 768px){
+	.BusinessOutlineTop-title {
+	    margin-right: 10px;
+	    font-size: 24px;
+	}
+	.BusinessOutlineTop-sub {
+	    margin-top: 8px;
+	    font-size: 16px;
+	}
+	.BusinessOutlineBtm {
+	    margin: 16px -15px 0;
+	}
+	.BusinessOutlineBtm-item {
+	    padding: 0 15px;
+	}
+	body .mb20 {
+	    margin-bottom: 20px;
+	}
+	.BusinessOutlineBtm-title {
+	    font-size: 18px;
+	}
+	.BusinessOutlineBtm-text {
+	    font-size: 14px;
+	}
+	body .mb15 {
+	    margin-bottom: 15px;
+	}
+	.BusinessOutlineList {
+	    margin-top: 30px;
+	}
+	.BusinessOutlineList-list {
+	    margin: -15px 0;
+	}
+	.BusinessOutlineList-item {
+	    padding: 0 15px;
+	}
+	.BusinessItem-num {
+	    padding: 8px 8px;
+	    bottom: -16px;
+	    left: 16px;
+	    font-size: 16px;
+	}
+	.BusinessItem-cont {
+	    margin-top: 26px;
+	}
+	.BusinessItem-title {
+	    font-size: 18px;
+	}
+	.BusinessItem-text {
+	    margin-top: 10px;
+	    font-size: 14px;
+	}
+	
+	.BusinessOutlineList-item:nth-child(even) {
+	    padding-top: 30px;
+	}
+}
+@media screen and (max-width: 767px) and (min-width: 1px){
+	.BusinessOutlineTop-title {
+   		display: block;
+	    margin-right: 0;
+	    font-size: 18px;
+	}
+	.BusinessOutlineTop-sub {
+	    display: block;
+	    margin-top: 6px;
+	    font-size: 14px;
+	}
+	.BusinessOutlineBtm {
+	    margin: 0;
+	}
+	.BusinessOutlineBtm-item {
+	    width: 100%;
+	    float: none;
+	    padding: 15px 0 0;
+	}
+	body .mb20 {
+	    margin-bottom: 20px;
+	}	
+	.BusinessOutlineBtm-title {
+	    font-size: 16px;
+	}
+	.BusinessOutlineBtm-text {
+	    font-size: 14px;
+	}
+	body .mb15 {
+	    margin-bottom: 15px;
+	}
+	.BusinessOutlineList {
+	    margin-top: 30px;
+	}
+	.BusinessOutlineList-list {
+	    margin: 0;
+	}
+	.BusinessOutlineList-item {
+	    padding-top: 24px;
+	}
+	.BusinessOutlineList-item {
+	    width: 100%;
+	    float: none;
+	    padding: 0;
+	}
+	.BusinessItem-num {
+	    padding: 8px 8px;
+	    bottom: -10px;
+	    left: 10px;
+	    font-size: 15px;
+	}
+	.BusinessItem-cont {
+	    margin-top: 26px;
+	}
+	.BusinessItem-title {
+	    font-size: 16px;
+	}
+	.BusinessItem-text {
+	    margin-top: 10px;
+	    font-size: 14px;
+	}
+	
+	
+	.BusinessOutlineList-item:nth-child(even) {
+	    padding-top: 24px;
+	}
+}
+@media screen and (max-width: 1024px) and (min-width: 640px){
+	.site-container {
+	    max-width: 100%;
+	    /* padding: 0 20px; */
+	}
+}
+@media screen and (max-width: 639px) and (min-width: 1px){
+	.site-container {
+	    max-width: 100%;
+	    /* padding: 0 20px; */
+	}
+	
+}
+</style>
 </head>
 <body>
 	<script>
 		AOS.init();
-		
 	</script>
 
 	<!-- header.jsp import -->
@@ -164,161 +534,140 @@
 					<div class="details-nav">
 						<nav>
 							<ul class="nav" id="myTab" role="tablist">
-								<li class="nav-item"><a class="nav-link" id="tab"
-									href="../business/business_cctv">CCTV 설치</a></li>
-
-								<li class="nav-item"><a class="nav-link" id="tab"
-									href="../business/business_com">정보통신공사</a></li>
-
-								<li class="nav-item"><a class="nav-link active show"
-									id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
-
-								<li class="nav-item"><a class="nav-link" id="tab"
-									href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
+								<li class="nav-item">
+								<a class="nav-link" id="tab" href="../business/business_cctv">CCTV 설치</a></li>
+								
+								<li class="nav-item">
+								<a class="nav-link active show" id="tab" href="../business/business_com">정보통신공사</a></li>
+								
+								<li class="nav-item">
+								<a class="nav-link" id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
+								
+								<li class="nav-item">
+								<a class="nav-link" id="tab" href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container" style="margin-top: 3%;">
+		<div class="container" style="margin-top: 3%;margin-bottom: 3%;">
 			<div class="row">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
 
-						<!---------------------------------전자파용 특수 CCTV SYSTEM Ani------------------------------------>
-						<!--  -->
-						<div class="tab-pane fade show active" id="business3"
-							role="tabpanel" aria-labelledby="contact-tab">
-							<div class="details-wrap">
-								<div class="details-info">
-									<h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
-									<div class="details-info">
-										<div class="sp-detail-list" style="text-align:center;">
-											<video class="video" src="/resources/video/sp_animation.mp4" muted style="width:70%"></video>
+							<!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->
+							<div class="container" style="margin-top: 3%;">
+							<div class="PageContent">
+								<div class="site-container">
+									<article id="post-540"
+										class="post-540 page type-page status-publish hentry">
+										<div class="entry-content">
+											<!-- 사업개요 -->
+											<div class="BusinessOutline">
+												<div class="BusinessOutlineTop">
+													<h4 class="BusinessOutlineTop-title">정보통신공사</h4>
+													<p class="BusinessOutlineTop-sub">글로벌 영상감시 분야의 리더 Total
+														Security Solution!</p>
+						
+												</div>
+												<div class="BusinessOutlineBtm">
+													<div class="BusinessOutlineBtm-item">
+						
+														<span class="BusinessOutlineBtm-title mb20">정보를 통신하는 설비의 구축</span>
+														<p class="BusinessOutlineBtm-text">당사는 1990년에 처음으로 감시용 카메라를
+															출시한 이래 지난 30년간 영상감시 사업에 집중하여 세계 최고의 광학 설계/제조기술과 영상처리 기술을
+															축적하였습니다. 감시카메라, 저장장치는 물론 통합관제 소프트웨어와 지능형 영상분석 소프트웨어까지
+															영상감시(CCTV)부분 Full Line up을 구축하였습니다.</p>
+						
+													</div>
+													<div class="BusinessOutlineBtm-item">
+														<p class="BusinessOutlineBtm-text mb15">또한 최근 지능화, 고도화 되고 있는
+															범죄로부터 안전하고 편안한 세상을 만들기 위해 단순 영상감시에서 나아가 IoT, Deep learning등
+															신기술의 접목과 출입통제 등 기술의 융합과 통합을 통해 고객 맞춤형 Total Solution 체제를 구축해
+															나가겠습니다.</p>
+														<p class="BusinessOutlineBtm-text">지속적인 기술개발과 시장개척 노력으로 국내시장
+															점유율 1위를 유지하고 있으며, 세계 60개국에 120개 대리점과 5000개 이상의 협력업체를 확보하여 국내
+															1위에 안주하지 않고, 적극적인 해외시장 개척으로 글로벌 리더가 되겠습니다.</p>
+						
+													</div>
+												</div>
+												<div class="BusinessOutlineList">
+													<ul class="BusinessOutlineList-list">
+														<li class="BusinessOutlineList-item">
+															<div class="BusinessItem">
+																<div class="BusinessItem-thumb">
+																	<span class="BusinessItem-num">01</span> <img
+																		class="BusinessItem-img"
+																		src="/resources/img/business/shield-room.jpg">
+																</div>
+																<div class="BusinessItem-cont">
+																	<h5 class="BusinessItem-title">Shiled Room 맞춤형 CCTV</h5>
+																	<p class="BusinessItem-text">Shield Room 용으로 제작광 방식의 영상전송으로 어떤 주파수 대역에서도 전자파 노이즈
+																							발생하지 않음.ㅎㅎ </p>
+						
+																</div>
+															</div>
+														</li>
+														<li class="BusinessOutlineList-item">
+															<div class="BusinessItem">
+																<div class="BusinessItem-thumb">
+																	<span class="BusinessItem-num">02</span> <img
+																		class="BusinessItem-img"
+																		src="/resources/img/business/ptz.jpg">
+																</div>
+																<div class="BusinessItem-cont">
+																	<h5 class="BusinessItem-title">PTZ CCTV</h5>
+																	<p class="BusinessItem-text">얼굴인식, 이벤트 검출 등 지능형 분석 기술,
+																		해킹/위변조 방지, 개인 사생활 보호</p>
+						
+																</div>
+															</div>
+														</li>
+														<li class="BusinessOutlineList-item">
+															<div class="BusinessItem">
+																<div class="BusinessItem-thumb">
+																	<span class="BusinessItem-num">03</span> <img
+																		class="BusinessItem-img"
+																		src="/resources/img/business/proofcctv.jpg">
+																</div>
+																<div class="BusinessItem-cont">
+																	<h5 class="BusinessItem-title">전자파용 특수 카메라</h5>
+																	<p class="BusinessItem-text">전자파 전자파 전자파 전자파 전자파 
+																	전자파 전자파 전자파 전자파 전자파 전자파</p>
+						
+																</div>
+															</div>
+														</li>
+														<li class="BusinessOutlineList-item">
+															<div class="BusinessItem">
+																<div class="BusinessItem-thumb">
+																	<span class="BusinessItem-num">04</span> <img
+																		class="BusinessItem-img"
+																		src="/resources/img/business/opticfiber.jpg">
+																</div>
+																<div class="BusinessItem-cont">
+																	<h5 class="BusinessItem-title">광 방식 영상 전송</h5>
+																	<p class="BusinessItem-text">파트너 및 고객을 위한 교육 빠른 대응을 위한
+																		Call Center 전국 A/S망 구축</p>
+						
+																</div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<!-- .사업개요 -->
+											<br>
+											<br>
 										</div>
-										
-										<!---------------------------------------PTZ, 전자파용 특수 카메라, 광 방식-------------------------------------------->
-										<div class="business-sp-outline">
-											<div class="business-sp-outline-item">
-												<span class="business-sp-outline-item-title">제목</span>
-												<p class="business-sp-outline-item-text">
-												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
-												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
-												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-												</p>
-											</div>
-											<div class="business-sp-outline-item">
-												<p class="business-sp-outline-item-text">
-												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
-												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-												</p>
-												<p class="business-sp-outline-item-text">
-												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용<br>
-												내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-												</p>
-											</div>
-											<div class="business-sp-outline-list">
-												<ul class="business-sp-outline-list-all">
-													<li class="business-sp-outline-list-item" style="padding:0 15px 0 0;">
-														<div class="business-sp-item">
-															<div class="business-sp-item-tumb">
-																<img class="business-sp-item-img" src="../resources/img/business/shield-room.jpg">
-																<span class="business-sp-item-num">01</span>
-															</div>
-															<div class="business-sp-item-cont">
-																<h2 class="business-sp-item-title">Shiled Room 맞춤형 CCTV</h2>
-																<p class="business-sp-item-text">
-																content1content1content1content1content1content1content1content1<br>
-																content1content1content1content1content1content1content1content1
-																</p>
-															</div>
-														</div>
-													</li>
-												</ul>
-											</div>
-											
-											<div class="business-sp-outline-list">
-												<ul class="business-sp-outline-list-all">
-													<li class="business-sp-outline-list-item" style="padding:30px 0 0 15px;">
-														<div class="business-sp-item">
-															<div class="business-sp-item-tumb">
-																<img class="business-sp-item-img" src="../resources/img/business/ptz.jpg">
-																<span class="business-sp-item-num">02</span>
-															</div>
-															<div class="business-sp-item-cont">
-																<h2 class="business-sp-item-title">PTZ CCTV</h2>
-																<p class="business-sp-item-text">
-																content2content2content2content2content2content2content2content2<br>
-																content2content2content2content2content2content2content2content2
-																</p>
-															</div>
-														</div>
-													</li>
-												</ul>
-											</div>
-											
-											<div class="business-sp-outline-list">
-												<ul class="business-sp-outline-list-all">
-													<li class="business-sp-outline-list-item" style="padding:0 15px 0 0;">
-														<div class="business-sp-item">
-															<div class="business-sp-item-tumb">
-																<img class="business-sp-item-img" src="../resources/img/business/proofcctv.jpg">
-																<span class="business-sp-item-num">03</span>
-															</div>
-															<div class="business-sp-item-cont">
-																<h2 class="business-sp-item-title">전자파용 특수 카메라</h2>
-																<p class="business-sp-item-text">
-																content3content3content3content3content3content3content3content3<br>
-																content3content3content3content3content3content3content3content3
-																</p>
-															</div>
-														</div>
-													</li>
-												</ul>
-											</div>
-											
-											<div class="business-sp-outline-list">
-												<ul class="business-sp-outline-list-all">
-													<li class="business-sp-outline-list-item" style="padding:30px 0 0 15px;">
-														<div class="business-sp-item">
-															<div class="business-sp-item-tumb">
-																<img class="business-sp-item-img" src="../resources/img/business/opticfiber.jpg">
-																<span class="business-sp-item-num">04</span>
-															</div>
-															<div class="business-sp-item-cont">
-																<h2 class="business-sp-item-title">광 방식 영상 전송</h2>
-																<p class="business-sp-item-text">
-																content4content4content4content4content4content4content4content4<br>
-																content4content4content4content4content4content4content4content4
-																</p>
-															</div>
-														</div>
-													</li>
-												</ul>
-											</div>
-											
-										</div>
-<!-- 											<div style="width:30%; margin-left:10px;">
-											<h3 class="business-name" style="font-size: 24px; font-weight: 300;">EMC/EMI/EMS CCTV</h3>
-											
-											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											Shield Room<br>
-											</p>
-											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											Fiber Optical Video Transmission<br>
-											</p>
-											<p class="sp-detail-info" style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											PTZ CCTV<br>
-											</p>
-											</div> -->
-
+										<!-- .entry-content -->
+									</article>
 								</div>
+								<!-- .site-container -->
 							</div>
-						</div>
-
-
-						</div>
+							</div>
+							<!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->
 					</div>
 				</div>
 			</div>
@@ -326,44 +675,16 @@
 	</div>
 	<!-- service-details-end -->
 
-
-	<!-- ================ contact section start ================= -->
-	<section class="contact-section">
-		<div class="container"></div>
-	</section>
-	<!-- ================ contact section end ================= -->
-
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
 
 	<!--==========================스크롤 이미지 애니메이션============================-->
 	<script>
-		/* AOS 초기화 */
-		$('.nav-link').on('click', function() {
-			AOS.refresh();
-		})
-		
-		$(document).ready(function () {
-			
-	        $(window).on('scroll', function() {
-	            /* var scrollTop = window.innerHeight / 2; */
-	            /* var videoTop = $('.video')[0].getBoundingClientRect().top; */
-	            
-	            if($('.video').length != 0 ){
-		            var scrollBottom = window.innerHeight;
-		            var videoBottom = $('.video')[0].getBoundingClientRect().bottom;
-	            
-		            if(videoBottom < scrollBottom) {
-		                $(".video").get(0).play();
-		                $(".video").attr('class','video_played');
-		            }
-	            }
-	        });
-		})
-		
-
+	/* AOS 초기화 */
+	$('.nav-link').on('click', function(){
+		AOS.refresh();
+	})
 	</script>
-	
 	
 </body>
 
