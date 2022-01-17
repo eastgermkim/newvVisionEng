@@ -134,7 +134,7 @@
 											
 										</li>
 									
-										<li><a id="tab1" href="/company/introduce">회사소개</a>
+										<li><a id="tab1" href="/company/introduce">회사소개</a><i class="ti-angle-down" style="font-size: 9px;"></i>
 											<ul class="submenu">
 												<li><a href="/company/introduce">회사개요</a></li>
 												<li><a href="/company/news">보도자료</a></li>
@@ -150,7 +150,7 @@
 										<li><a id="tab3" href="/business/result">사업실적</a>
 										</li>
 										
-										<li><a id="tab4" href="/support/notice">고객지원</a>
+										<li><a id="tab4" href="/support/notice">고객지원</a><i class="ti-angle-down" style="font-size: 9px;"></i>
 											<ul class="submenu">
 												<li><a href="/support/notice">공지사항</a></li>
 												<li><a href="/support/customer">고객문의</a></li>
