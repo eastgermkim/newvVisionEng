@@ -206,7 +206,7 @@ body {
     clear: both;
 }
 .BusinessOutlineBtm-item {
-    width: 50%;
+    /* width: 50%; */
     float: left;
     padding: 0 35px;
 }
@@ -576,21 +576,17 @@ img {
 											<div class="BusinessOutline">
 												<div class="BusinessOutlineTop">
 													<h4 class="BusinessOutlineTop-title">전자파용 특수 CCTV SYSTEM</h4>
-													<p class="BusinessOutlineTop-sub">글로벌 영상감시 분야의 리더 Total
-														Security Solution!</p>
 						
 												</div>
 												<div class="BusinessOutlineBtm">
 													<div class="BusinessOutlineBtm-item">
 						
-														<span class="BusinessOutlineBtm-title mb20">정보를 통신하는 설비의 구축</span>
-														<p class="BusinessOutlineBtm-text">당사는 1990년에 처음으로 감시용 카메라를
-															출시한 이래 지난 30년간 영상감시 사업에 집중하여 세계 최고의 광학 설계/제조기술과 영상처리 기술을
-															축적하였습니다. 감시카메라, 저장장치는 물론 통합관제 소프트웨어와 지능형 영상분석 소프트웨어까지
-															영상감시(CCTV)부분 Full Line up을 구축하였습니다.</p>
+														<span class="BusinessOutlineBtm-title mb20">특수 환경을 위한 맞춤형 영상 장비 설비 구축</span>
+														<p class="BusinessOutlineBtm-text">당사는 일반적인 CCTV영상 주변기기 및 SYSTEM 설계·설치 사업뿐만 아니라
+															Shield Room 등의 특수한 환경에서 사용되는 전자파용 특수 카메라, PTZ CCTV 등 맞춤형 영상 장비를 설치하는 다각적인 사업을 수행하고 있습니다.</p>
 						
 													</div>
-													<div class="BusinessOutlineBtm-item">
+													<!-- <div class="BusinessOutlineBtm-item">
 														<p class="BusinessOutlineBtm-text mb15">또한 최근 지능화, 고도화 되고 있는
 															범죄로부터 안전하고 편안한 세상을 만들기 위해 단순 영상감시에서 나아가 IoT, Deep learning등
 															신기술의 접목과 출입통제 등 기술의 융합과 통합을 통해 고객 맞춤형 Total Solution 체제를 구축해
@@ -599,6 +595,9 @@ img {
 															점유율 1위를 유지하고 있으며, 세계 60개국에 120개 대리점과 5000개 이상의 협력업체를 확보하여 국내
 															1위에 안주하지 않고, 적극적인 해외시장 개척으로 글로벌 리더가 되겠습니다.</p>
 						
+													</div> -->
+													<div class="sp-detail-list" style="text-align:center;">
+														<video class="video" src="/resources/video/sp_animation.mp4" muted style="width:75%;margin-top: 26px;"></video>
 													</div>
 												</div>
 												<div class="BusinessOutlineList">
@@ -611,9 +610,9 @@ img {
 																		src="/resources/img/business/shield-room.jpg">
 																</div>
 																<div class="BusinessItem-cont">
-																	<h5 class="BusinessItem-title">Shiled Room 맞춤형 CCTV</h5>
-																	<p class="BusinessItem-text">Shield Room 용으로 제작광 방식의 영상전송으로 어떤 주파수 대역에서도 전자파 노이즈
-																							발생하지 않음.ㅎㅎ </p>
+																	<h5 class="BusinessItem-title">Shield Room 맞춤형 CCTV</h5>
+																	<p class="BusinessItem-text">Shield Room 용으로 제작, 고객의 필요 상황에 목적 적합한 카메라를 제공합니다. 
+																							</p>
 						
 																</div>
 															</div>
@@ -627,8 +626,7 @@ img {
 																</div>
 																<div class="BusinessItem-cont">
 																	<h5 class="BusinessItem-title">PTZ CCTV</h5>
-																	<p class="BusinessItem-text">얼굴인식, 이벤트 검출 등 지능형 분석 기술,
-																		해킹/위변조 방지, 개인 사생활 보호</p>
+																	<p class="BusinessItem-text">팬틸트줌 카메라(pan–tilt–zoom camera, PTZ 카메라)는 방향과 확대/축소를 원격으로 제어할 수 있는 카메라입니다.</p>
 						
 																</div>
 															</div>
@@ -642,10 +640,7 @@ img {
 																</div>
 																<div class="BusinessItem-cont">
 																	<h5 class="BusinessItem-title">전자파용 특수 카메라</h5>
-																	<p class="BusinessItem-text">전자파 전자파 전자파 전자파 전자파 
-																	전자파 전자파 전자파 전자파 전자파 전자파</p>
-						
-																</div>
+																	<p class="BusinessItem-text">어떤 주파수 대역에서도 전자파 노이즈가 발생하지 않는 특수 설계된 카메라를 사용합니다.
 															</div>
 														</li>
 														<li class="BusinessOutlineList-item">
@@ -657,9 +652,8 @@ img {
 																</div>
 																<div class="BusinessItem-cont">
 																	<h5 class="BusinessItem-title">광 방식 영상 전송</h5>
-																	<p class="BusinessItem-text">파트너 및 고객을 위한 교육 빠른 대응을 위한
-																		Call Center 전국 A/S망 구축</p>
-						
+																	<p class="BusinessItem-text">OTDR을 통해 광섬유 케이블의 무결성을 테스트하는 등 광전송장비 설치시험을 진행합니다.
+																	</p>
 																</div>
 															</div>
 														</li>
@@ -690,8 +684,26 @@ img {
 	<!--==========================스크롤 이미지 애니메이션============================-->
 	<script>
 	/* AOS 초기화 */
-	$('.nav-link').on('click', function(){
+	$('.nav-link').on('click', function() {
 		AOS.refresh();
+	})
+	
+	$(document).ready(function () {
+		
+        $(window).on('scroll', function() {
+            /* var scrollTop = window.innerHeight / 2; */
+            /* var videoTop = $('.video')[0].getBoundingClientRect().top; */
+            
+            if($('.video').length != 0 ){
+	            var scrollBottom = window.innerHeight;
+	            var videoBottom = $('.video')[0].getBoundingClientRect().bottom;
+            
+	            if(videoBottom < scrollBottom) {
+	                $(".video").get(0).play();
+	                $(".video").attr('class','video_played');
+	            }
+            }
+        });
 	})
 	</script>
 	
