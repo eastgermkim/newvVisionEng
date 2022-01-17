@@ -261,6 +261,12 @@ ol, ul {
 
 .BusinessItem-thumb {
     position: relative;
+    /* height: 284px; */
+}
+.BusinessItem-thumb:after {
+    content: '';
+    display: block;
+    padding-bottom: 56.78%;
 }
 .BusinessItem-num {
     display: block;
@@ -355,6 +361,9 @@ img {
 	
 	.BusinessOutlineList-item:nth-child(even) {
 	    padding-top: 50px;
+	}
+	.BusinessItem-thumb:after {
+    padding-bottom: 56.78%;
 	}
 	
 }
@@ -453,12 +462,12 @@ img {
 	    margin: 0;
 	}
 	.BusinessOutlineList-item {
-	    padding-top: 24px;
-	}
-	.BusinessOutlineList-item {
 	    width: 100%;
 	    float: none;
 	    padding: 0;
+	}
+	.BusinessOutlineList-item {
+	    padding-top: 24px;
 	}
 	.BusinessItem-num {
 	    padding: 8px 8px;
@@ -536,13 +545,13 @@ img {
 							<ul class="nav" id="myTab" role="tablist">
 								<li class="nav-item">
 								<a class="nav-link" id="tab" href="../business/business_cctv">CCTV 설치</a></li>
-								
+
 								<li class="nav-item">
 								<a class="nav-link " id="tab" href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
-								
+
 								<li class="nav-item">
 								<a class="nav-link active show" id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
-								
+
 								<li class="nav-item">
 								<a class="nav-link" id="tab" href="../business/business_com">정보통신공사</a></li>
 							</ul>
@@ -566,7 +575,7 @@ img {
 											<!-- 사업개요 -->
 											<div class="BusinessOutline">
 												<div class="BusinessOutlineTop">
-													<h4 class="BusinessOutlineTop-title">정보통신공사</h4>
+													<h4 class="BusinessOutlineTop-title">전자파용 특수 CCTV SYSTEM</h4>
 													<p class="BusinessOutlineTop-sub">글로벌 영상감시 분야의 리더 Total
 														Security Solution!</p>
 						
