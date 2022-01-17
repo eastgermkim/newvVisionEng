@@ -181,13 +181,14 @@ body {
 .BusinessOutlineTop {
     font-size: 0;
     line-height: 0;
+    text-align: center;
 }
 .BusinessOutlineTop-title {
     display: inline-block;
     margin-right: 20px;
     color: #000;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.2em;
 }
 .BusinessOutlineTop-sub {
@@ -219,7 +220,7 @@ body .mb20 {
 .BusinessOutlineBtm-title {
     color: #F37321;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.4em;
 }
 .BusinessOutlineBtm-text {
@@ -298,7 +299,7 @@ img {
 .BusinessItem-title {
     color: #000;
     font-size: 26px;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.4em;
 }
 .BusinessItem-text {
@@ -566,7 +567,7 @@ img {
 					<div class="tab-content" id="myTabContent">
 
 							<!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->
-							<div class="container" style="margin-top: 3%;">
+							<div class="container">
 							<div class="PageContent">
 								<div class="site-container">
 									<article id="post-540"
@@ -597,7 +598,7 @@ img {
 						
 													</div> -->
 													<div class="sp-detail-list" style="text-align:center;">
-														<video class="video" src="/resources/video/sp_animation.mp4" muted style="width:75%;margin-top: 26px;"></video>
+														<video class="video" src="/resources/video/sp_animation.mp4" muted style="width: 65%;margin-top: 40px"></video>
 													</div>
 												</div>
 												<div class="BusinessOutlineList">
@@ -654,6 +655,7 @@ img {
 																	<h5 class="BusinessItem-title">광 방식 영상 전송</h5>
 																	<p class="BusinessItem-text">OTDR을 통해 광섬유 케이블의 무결성을 테스트하는 등 광전송장비 설치시험을 진행합니다.
 																	</p>
+						
 																</div>
 															</div>
 														</li>

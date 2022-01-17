@@ -209,7 +209,132 @@ opacity: 1;
 }
 
 </style>
-
+<style>
+.BusinessOutlineTop {
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+}
+.BusinessOutlineTop-title {
+    display: inline-block;
+    margin-right: 20px;
+    color: #000;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2em;
+}
+.BusinessOutlineTop-sub {
+    display: inline-block;
+    margin-top: 8px;
+    color: #000;
+    font-size: 18px;
+    line-height: 1.4em;
+}
+body .mb20 {
+    margin-bottom: 20px;
+}
+.BusinessOutlineBtm-title {
+    display: block;
+}
+.BusinessOutlineBtm-title {
+    color: #F37321;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4em;
+}
+body .mb15 {
+    margin-bottom: 15px;
+}
+@media screen and (max-width: 1440px) and (min-width: 1025px){
+	.BusinessOutlineTop-title {
+	    margin-right: 16px;
+	    font-size: 32px;
+	}
+	.BusinessOutlineTop-sub {
+	    margin-top: 8px;
+	    font-size: 17px;
+	}
+	.BusinessOutlineBtm {
+	    margin: 25px -30px 0;
+	}
+	.BusinessOutlineBtm-item {
+	    padding: 0 30px;
+	}
+	body .mb20 {
+	    margin-bottom: 20px;
+	}
+	.BusinessOutlineBtm-title {
+	    font-size: 24px;
+	}
+	.BusinessOutlineBtm-text {
+	    font-size: 16px;
+	}
+	body .mb15 {
+	    margin-bottom: 15px;
+	}
+	
+}
+@media screen and (max-width: 1024px) and (min-width: 768px){
+	.BusinessOutlineTop-title {
+	    margin-right: 10px;
+	    font-size: 24px;
+	}
+	.BusinessOutlineTop-sub {
+	    margin-top: 8px;
+	    font-size: 16px;
+	}
+	.BusinessOutlineBtm {
+	    margin: 16px -15px 0;
+	}
+	.BusinessOutlineBtm-item {
+	    padding: 0 15px;
+	}
+	body .mb20 {
+	    margin-bottom: 20px;
+	}
+	.BusinessOutlineBtm-title {
+	    font-size: 18px;
+	}
+	.BusinessOutlineBtm-text {
+	    font-size: 14px;
+	}
+	body .mb15 {
+	    margin-bottom: 15px;
+	}
+}
+@media screen and (max-width: 767px) and (min-width: 1px){
+	.BusinessOutlineTop-title {
+   		display: block;
+	    margin-right: 0;
+	    font-size: 18px;
+	}
+	.BusinessOutlineTop-sub {
+	    display: block;
+	    margin-top: 6px;
+	    font-size: 14px;
+	}
+	.BusinessOutlineBtm {
+	    margin: 0;
+	}
+	.BusinessOutlineBtm-item {
+	    width: 100%;
+	    float: none;
+	    padding: 15px 0 0;
+	}
+	body .mb20 {
+	    margin-bottom: 20px;
+	}	
+	.BusinessOutlineBtm-title {
+	    font-size: 16px;
+	}
+	.BusinessOutlineBtm-text {
+	    font-size: 14px;
+	}
+	body .mb15 {
+	    margin-bottom: 15px;
+	}
+}
+</style>
 </head>
 <body>
 	<script>
@@ -274,13 +399,26 @@ opacity: 1;
 							role="tabpanel" aria-labelledby="home-tab">
 							<div class="details-wrap">
 								<div class="details-info">
-									<h3 class="main-title">CCTV 설치</h3>
+									<div class="BusinessOutlineTop">
+										<h4 class="BusinessOutlineTop-title">CCTV 설치</h4>
+			
+									</div>
+									<div class="BusinessOutlineBtm">
+										<div class="BusinessOutlineBtm-item">
+			
+											<span class="BusinessOutlineBtm-title mb20">CCTV 카메라 영상</span>
+											<!-- <p class="BusinessOutlineBtm-text">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
+												사용자의 환경을 고려한 동영상 자료를 남기기 위해 고화질, 적외선 감지 와 인공지능형 CCTV등 을 통하여<br>
+												니즈에 맞는 제품 선택과 설치를 진행합니다.</p> -->
+			
+										</div>
+									</div>
 									<div data-aos="fade-up" data-aos-offset="200"
 										data-aos-duration="1000">
 										<div class="cctv-detail1 details-info">
-											<h3 class="business-name"
+											<!-- <h3 class="business-name"
 												style="font-size: 24px; font-weight: 300;">CCTV 카메라 영상
-												주변기기 및 SYSTEM 설계</h3>
+												주변기기 및 SYSTEM 설계</h3> -->
 											<p
 												style="padding-top: 20px; font-size: 20px; font-weight: 100">
 												15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
