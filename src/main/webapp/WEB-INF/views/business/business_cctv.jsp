@@ -110,6 +110,17 @@
 	box-shadow: 0 1px 10px lightgrey;
 	height: 30rem;
 }
+@media ( max-width : 767px) {
+	.nav{
+	display:block;
+	}
+	.single-team{
+	width:100%;
+	}
+	.team-area .single-team {
+	height: 35rem!important;
+	}
+}
 
 .cctv-kind {
 	margin-bottom: 10% !important;
