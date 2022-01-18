@@ -160,6 +160,33 @@
     color: #fff!important;
     font-weight: 600!important;
 }
+
+@media ( max-width : 767px) {
+	.nav{
+	display:block;
+	}
+	.nav-item{
+	border-bottom:1px solid;
+	}
+	
+	.single-team{
+	width:100%;
+	}
+	
+	.cctv-kind{
+	margin-right:0px;
+	margin-left:0px;
+	}
+	.cctv-kind .col-xl-4{
+	padding-right:0px;
+	padding-left:0px;
+	}
+	
+	.service-details .details-nav ul li a{
+	padding:10px 0;
+	}
+}
+
 </style>
 
 <style>
@@ -348,8 +375,6 @@ body .mb15 {
 			<div class="row">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
-
-						<!---------------------------------광전송 SYSTEM------------------------------------>
 						<div class="tab-pane fade show active" id="business4" role="tabpanel"
 							aria-labelledby="contact-tab">
 							<div class="details-wrap">
@@ -360,23 +385,14 @@ body .mb15 {
 									</div>
 									<div class="BusinessOutlineBtm">
 										<div class="BusinessOutlineBtm-item">
-			
 											<span class="BusinessOutlineBtm-title mb20">군사시설 CCTV SYSTEM</span>
-											<!-- <p class="BusinessOutlineBtm-text">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
-												사용자의 환경을 고려한 동영상 자료를 남기기 위해 고화질, 적외선 감지 와 인공지능형 CCTV등 을 통하여<br>
-												니즈에 맞는 제품 선택과 설치를 진행합니다.</p> -->
-			
 										</div>
 									</div>
-									<!-- <h3 class="main-title">군사시설 CCTV SYSTEM</h3> -->
-									<div class="cctv-detail1 details-info">
-										<!-- <h3 class="business-name" style="font-size: 24px; font-weight: 300;">군사시설 CCTV SYSTEM</h3> -->
-										<p style="padding-top: 20px; font-size: 20px; font-weight: 100">내용내용</p>
-									</div>
 									<video class="video" id="video" src="/resources/video/army_ani.mp4" style="width:100%;" muted="muted"></video>
+									<p style="padding-top: 20px; font-size: 14px; font-weight: 400; text-align:right;">※클릭 시 재생을 생략할 수 있습니다.</p>
 									
 									<div class="video-caution">
-										<h3 class="video-caution-text">클릭 시 재생을 생략합니다.</h3>
+										<h3 class="video-caution-text">클릭 시 재생을 생략할 수 있습니다.</h3>
 									</div>
 								</div>
 							</div>
@@ -427,7 +443,7 @@ body .mb15 {
 		//army_ani와 caution 둘 다 지정하지 않으면 caution이 깜빡거림
 		$('#video, .video-caution').click(function(){
 			//army_ani 끝으로 이동해서
-            $('#video').get(0).currentTime = 39;
+            $('#video').get(0).currentTime = 41;
 			//일시정지
             $('#video').get(0).pause();
 		})

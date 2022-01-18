@@ -142,6 +142,32 @@
 .business-li hr {
 	width: 80%;
 }
+
+@media ( max-width : 767px) {
+	.nav{
+	display:block;
+	}
+	.nav-item{
+	border-bottom:1px solid;
+	}
+	
+	.single-team{
+	width:100%;
+	}
+	
+	.cctv-kind{
+	margin-right:0px;
+	margin-left:0px;
+	}
+	.cctv-kind .col-xl-4{
+	padding-right:0px;
+	padding-left:0px;
+	}
+	
+	.service-details .details-nav ul li a{
+	padding:10px 0;
+	}
+}
 </style>
 <style>
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {

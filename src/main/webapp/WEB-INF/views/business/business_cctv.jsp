@@ -33,61 +33,13 @@
 <!-- <link rel="stylesheet" href="/resources/css/responsive.css"> -->
 
 <style>
-/* .service-details img{
-	opacity:0;
-} */
-.down {
-	display: none;
+.col-xl-4 {
+	max-width: 100%;
 }
 
 .service-details {
 	padding-top: 0;
 	padding-bottom: 0;
-}
-
-@media ( max-width : 767.5px) {
-	.up {
-		display: none;
-	}
-	.down {
-		display: block;
-	}
-}
-
-.col-xl-4 {
-	max-width: 100%;
-}
-
-.nav {
-	justify-content: space-between;
-}
-
-.nav-item {
-	width: auto !important;
-	border-bottom: none !important;
-}
-
-/* .business-name:before{
-    content: "";
-    display: inline-block;
-    width: 2.5px;
-    height: 30px;
-    margin: 0 16px;
-    background-color: #f36d20;
-} */
-.business-name {
-	margin-top: 15%;
-	margin-bottom: 5%!importnat;
-	color: #f36d20 !important;
-	font-weight: 600 !important;
-}
-
-.cctv-main {
-	margin-bottom: 3% !important;
-}
-
-.cctv-detail {
-	margin-bottom: 10% !important;
 }
 
 .service-details .single-details .details-info {
@@ -106,28 +58,47 @@
 	margin-bottom: 2%
 }
 
+.nav {
+	justify-content: space-between;
+}
+
+.nav-item {
+	width: auto !important;
+	border-bottom: none !important;
+}
+
+.business-name {
+	margin-top: 15%;
+	margin-bottom: 5%!importnat;
+	color: #f36d20 !important;
+	font-weight: 600 !important;
+}
+
+.cctv-main {
+	margin-bottom: 3% !important;
+}
+
+.cctv-detail {
+	margin-bottom: 10% !important;
+}
+
+
 .single-team {
 	box-shadow: 0 1px 10px lightgrey;
-	height: 30rem;
 }
-@media ( max-width : 767px) {
-	.nav{
-	display:block;
-	}
-	.single-team{
-	width:100%;
-	}
-	.team-area .single-team {
-	height: 35rem!important;
-	}
+
+.team-area .single-team .team-info p{
+	padding:5% 3% 5% 3%;
+	height:100px;
+}
+
+.team-area .single-team .team-thumb  .bg-img{
+	height:250px;
+	object-fit:cover;
 }
 
 .cctv-kind {
 	margin-bottom: 10% !important;
-}
-
-.cctv-detail1 {
-	
 }
 
 .cctv-detail2 {
@@ -154,6 +125,7 @@
 .business-li hr {
 	width: 80%;
 }
+
 #kind-link-icon-on{
 	width: 25%;
 	position:absolute;
@@ -188,19 +160,21 @@ opacity: 1;
 	width: 40%;
 	text-align:center;
 	padding:20px 0 20px 0;
+	font-size:20px;
 	
 }
 .system-compare .system-di{
 	width: 40%;
 	text-align:center;
 	padding:20px 0 20px 0;
+	font-size:20px;
 }
 
 .system-compare tr{
 	border-bottom: 0.5px solid #d9d9d9;
 }
 .system-compare .compare-item{
-	font-size:20px;
+	font-size:18px;
 	font-weight:500;
 	text-align:center;
 	padding:20px 0 20px 0;
@@ -217,6 +191,32 @@ opacity: 1;
 .compare-winner{
 	color:#f36d20;
 	font-size:1.25rem;
+}
+
+@media ( max-width : 767px) {
+	.nav{
+	display:block;
+	}
+	.nav-item{
+	border-bottom:1px solid;
+	}
+	
+	.single-team{
+	width:100%;
+	}
+	
+	.cctv-kind{
+	margin-right:0px;
+	margin-left:0px;
+	}
+	.cctv-kind .col-xl-4{
+	padding-right:0px;
+	padding-left:0px;
+	}
+	
+	.service-details .details-nav ul li a{
+	padding:10px 0;
+	}
 }
 
 </style>
@@ -390,7 +390,7 @@ body .mb15 {
 								<a class="nav-link" id="tab" href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
 								
 								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
+								<a class="nav-link" id="tab" href="../business/business_sp">전자파용 CCTV SYSTEM</a></li>
 								
 								<li class="nav-item">
 								<a class="nav-link" id="tab" href="../business/business_com">정보통신공사</a></li>
@@ -416,34 +416,25 @@ body .mb15 {
 									</div>
 									<div class="BusinessOutlineBtm">
 										<div class="BusinessOutlineBtm-item">
-			
-											<span class="BusinessOutlineBtm-title mb20">CCTV 카메라 영상</span>
-											<!-- <p class="BusinessOutlineBtm-text">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
-												사용자의 환경을 고려한 동영상 자료를 남기기 위해 고화질, 적외선 감지 와 인공지능형 CCTV등 을 통하여<br>
-												니즈에 맞는 제품 선택과 설치를 진행합니다.</p> -->
+											<span class="BusinessOutlineBtm-title mb20" style="margin-top:5%;">Expert's Total Solution</span>
+											<p
+												style="font-size: 16px; font-weight: 400">
+												15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
+												사용자의 환경을 고려한 동영상 자료를 남기기 위해 고화질, 적외선 감지 와 인공지능형 CCTV등 을 통하여
+												니즈에 맞는 제품 선택과 설치를 진행합니다.
+											</p>
 			
 										</div>
 									</div>
 									<div data-aos="fade-up" data-aos-offset="200"
 										data-aos-duration="1000">
-										<div class="cctv-detail1 details-info">
-											<!-- <h3 class="business-name"
-												style="font-size: 24px; font-weight: 300;">CCTV 카메라 영상
-												주변기기 및 SYSTEM 설계</h3> -->
-											<p
-												style="padding-top: 20px; font-size: 20px; font-weight: 100">
-												15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>
-												사용자의 환경을 고려한 동영상 자료를 남기기 위해 고화질, 적외선 감지 와 인공지능형 CCTV등 을 통하여<br>
-												니즈에 맞는 제품 선택과 설치를 진행합니다.
-											</p>
-										</div>
 									<div class="cctv-kind row team-area">
 										<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up"
 											data-aos-offset="100" 
 											data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img src="/resources/img/business/business.jpg" alt="">
+													<img class="bg-img" src="/resources/img/business/business.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -461,7 +452,7 @@ body .mb15 {
 												</div>
 												<div class="team-info text-center">
 													<h3>군사시설 CCTV</h3>
-													<p> 실내/외 및 외곽 울타리 감시 경계와 보안 인증 절차를 통한 국방시설 내 출입 및 자산을 안전하게 관리합니다.</p>
+													<p> 실내/외 및 외곽 울타리 감시 경계와 보안 인증 절차를 통한 출입 및 자산을 안전하게 관리합니다.</p>
 												</div>
 											</div>
 										</div>
@@ -470,7 +461,7 @@ body .mb15 {
 											data-aos-delay="300" data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img src="/resources/img/business/service1.jpg" alt="">
+													<img class="bg-img" src="/resources/img/business/service1.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -488,7 +479,7 @@ body .mb15 {
 												</div>
 												<div class="team-info text-center">
 													<h3>공공기관 CCTV</h3>
-													<p>내용내용내용내용</p>
+													<p>고화질의 영상을 통한 인식 및 감지를 통하여 정부 공공시설의 안전과 내부 자료 유출을 방지합니다.</p>
 												</div>
 											</div>
 										</div>
@@ -497,7 +488,7 @@ body .mb15 {
 											data-aos-delay="600" data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img src="/resources/img/business/service2.jpg" alt="">
+													<img class="bg-img" src="/resources/img/business/service2.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -515,7 +506,7 @@ body .mb15 {
 												</div>
 												<div class="team-info text-center">
 													<h3>민간시설 CCTV</h3>
-													<p>내용내용내용내용</p>
+													<p>24시간 작동하는 CCTV로 시설에서 일어날 수 있는 각종 사회범죄로부터 보호할 수 있습니다.</p>
 												</div>
 											</div>
 										</div>
@@ -526,7 +517,7 @@ body .mb15 {
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
 										style="font-size: 24px; font-weight: 300;">Analogue(아날로그) 방식 CCTV SYSTEM</h3>
-									<p style="padding-top: 20px; font-size: 20px; font-weight: 100">
+									<p style="padding-top: 20px; font-size: 16px; font-weight: 400">
 										CCTV에서 이미지를 캡처해 포착한 빛을 디지털화 하고 동 축 케이블을 통해 신호를 DVR(Digital Video Recorder, 녹화장치)로 보냅니다. <br>
 										DVR에서 비디오를 아날로그에서 디지털 신호로 변환하고 파일을 압축하여 HDD(하드 드라이브)또는 NAS(저장장치)에 저장합니다. <br>
 										특정 모니터와 DVR을 연결해 확인하거나 라우터 및 모뎀에 연결하여 내부 네트워크를 통해 모바일 기기로 확인할 수 있습니다.
@@ -541,7 +532,7 @@ body .mb15 {
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
 										style="font-size: 24px; font-weight: 300;">Digital(디지털) 방식 CCTV SYSTEM</h3>
-									<p style="padding-top: 20px; font-size: 20px; font-weight: 100">
+									<p style="padding-top: 20px; font-size: 16px; font-weight: 400">
 										각  IP카메라는 자체적으로 움직이며  움직임 감지와 같은 고급 기능을 수행하며 디지털 방식으로 녹화, IP를 통한 데이터 전송을 수행합니다.<br>
 										 기존의 Analogue방식과 비디오 서버를 연결하여 Digital방식으로 전환할 수 있으며  DVR 대신 VMS 또는 NVR을 사용합니다.<br>
 										 VMS 와 NVR를 나누어 관제실과 모니터실을 별도로 설계할 수 있고 네트워크를 통한 모바일 기기확인도 할 수 있습니다. 
@@ -584,7 +575,7 @@ body .mb15 {
 							        </tr>
 							        <tr>
 							          <td class="compare-an"><strong class="compare-winner">낮은 대역폭</strong><br><br>아날로그 녹화 파일은 용량이 작아 LAN 대신 동축 케이블로 DVR에 전송되므로 필요 대역폭이 적으며  네트워크에 부담을 주지 않습니다.</td>
-							          <td class="compare-item">대역폭 요구사항</td>
+							          <td class="compare-item">대역폭</td>
 							          <td class="compare-di"><strong>높은 대역폭</strong><br><br>IP카메라는 더 많은 대역폭을 필요로 하며 고 해상도,<br>고 프레임은 압축 하더라도 한계가 있을 수 있습니다.</td>
 							        </tr>
 							        <tr>

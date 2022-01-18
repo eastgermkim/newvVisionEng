@@ -142,6 +142,32 @@
 .business-li hr {
 	width: 80%;
 }
+
+@media ( max-width : 767px) {
+	.nav{
+	display:block;
+	}
+	.nav-item{
+	border-bottom:1px solid;
+	}
+	
+	.single-team{
+	width:100%;
+	}
+	
+	.cctv-kind{
+	margin-right:0px;
+	margin-left:0px;
+	}
+	.cctv-kind .col-xl-4{
+	padding-right:0px;
+	padding-left:0px;
+	}
+	
+	.service-details .details-nav ul li a{
+	padding:10px 0;
+	}
+}
 </style>
 
 <style>
