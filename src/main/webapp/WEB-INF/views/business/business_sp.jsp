@@ -142,7 +142,6 @@
 .business-li hr {
 	width: 80%;
 }
-
 @media ( max-width : 767px) {
 	.nav{
 	display:block;
@@ -170,31 +169,6 @@
 }
 </style>
 <style>
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;	
-    font-size: 100%;
-    vertical-align: baseline;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-}
-body {
-    position: relative;
-    background: #fff;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #555555;
-    word-wrap: break-word;
-    word-break: keep-all;
-    text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    font-weight: 400;
-}
 .site-container {
     max-width: 1280px;
     margin: 0 auto;
@@ -310,7 +284,7 @@ ol, ul {
     background-color: #F37321;
 }
 img {
-    max-width: 100%;
+   /*  max-width: 100%; */
 }
 .BusinessItem-img {
     display: block;
