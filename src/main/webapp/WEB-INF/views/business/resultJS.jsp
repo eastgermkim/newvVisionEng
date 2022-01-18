@@ -15,17 +15,14 @@ $(document).ready(function () {
 
 function firstTab(tabId){
 	console.log('firstTab함수호출');
-	if (${firstTab!='military'}) {
-		console.log('탭 바꿔야 하므로 함수 내용 실행');
-		//군사시설 탭 해제
-		$("#military").removeClass("active show"); //내용 먼저 숨기고
-		$("#home-tab").attr('aria-selected', false); //탭 비활성화
-		$("#home-tab").removeClass("active show");	 //탭 비활성화
-		//선택한 탭 활성화
-		$('#'+tabId).addClass("active show"); //내용 먼저 보여주고
-		$('#'+tabId+'-tab').attr('aria-selected', true); //탭 활성화
-		$('#'+tabId+'-tab').addClass("active show");	 //탭 활성화
-	}
+	//군사시설 탭 해제
+	$("#military").removeClass("active show"); //내용 먼저 숨기고
+	$("#home-tab").attr('aria-selected', false); //탭 비활성화
+	$("#home-tab").removeClass("active show");	 //탭 비활성화
+	//선택한 탭 활성화
+	$('#'+tabId).addClass("active show"); //내용 먼저 보여주고
+	$('#'+tabId+'-tab').attr('aria-selected', true); //탭 활성화
+	$('#'+tabId+'-tab').addClass("active show");	 //탭 활성화
 }
 </script>
 
