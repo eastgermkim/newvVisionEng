@@ -35,7 +35,6 @@ public class BusinessController {
 	@Setter(onMethod_ = @Autowired)
 	private BusinessService service;
 
-	// gd
 	// 사업소개 페이지로 연결
 	@GetMapping("/business_cctv")
 	public String cctv() {
@@ -68,8 +67,10 @@ public class BusinessController {
 
 	// 사업실적 페이지로 연결(+목록 가져오기)
 	@GetMapping("/result")
-	public String result(Model model, Criteria cri, HttpServletRequest req) {
+	public String result(Model model, Criteria cri, HttpServletRequest req,
+			@RequestParam(value = "tab", required = false) String firstTab) {
 		log.info("------business_list-------");
+		log.info("firstTab..........."+firstTab);
 
 		cri.setPageSize(15);
 		log.info("cri : " + cri);
@@ -83,6 +84,8 @@ public class BusinessController {
 
 		model.addAttribute("business_list_3", service.getBusinessList(cri, "민간기업"));
 		model.addAttribute("pageMaker3", new PageDTO(service.getBusinessTotal("민간기업",null), cri));
+		
+		model.addAttribute("firstTab",firstTab);
 
 		return "/business/result";
 	}

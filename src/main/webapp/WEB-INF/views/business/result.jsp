@@ -339,11 +339,11 @@ table {
 							<ul class="nav" id="myTab" role="tablist">
 								<li><div style="color: 	grey;margin: 2% 2% 1.3%;font-weight: 300;">Business Area</div></li>
 								
-								<li class="nav-item"><a class="tabs nav-link active show" id="home-tab" 			
+								<li class="nav-item"><a class="tabs nav-link active show" id="home-tab"			
 								data-toggle="tab" href="#military" role="tab" aria-controls="military" aria-selected="true">군사시설</a></li>
-								<li class="nav-item"><a class="tabs nav-link" id="publicOrg-tab" 
+								<li class="nav-item"><a class="tabs nav-link" id="publicOrg-tab"
 								data-toggle="tab" href="#publicOrg" role="tab" aria-controls="publicOrg" aria-selected="false">공공기관</a></li>
-								<li class="nav-item"><a class="tabs nav-link" id="privateCorp-tab" 
+								<li class="nav-item"><a class="tabs nav-link" id="privateCorp-tab"
 								data-toggle="tab" href="#privateCorp" role="tab" aria-controls="privateCorp" aria-selected="false">민간기업</a></li>
 							</ul>
 						</nav>

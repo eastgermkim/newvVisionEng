@@ -439,7 +439,7 @@ body .mb15 {
 														<div class="team-link">
 															<ul>
 																<li>
-																<a id="kind-link" href="result" style="font-weight:500;">
+																<a id="kind-link" href="result?tab=military" style="font-weight:500;">
 																	<img id="kind-link-icon-off" src="/resources/img/icon/military-off.png">
 																	<img id="kind-link-icon-on" src="/resources/img/icon/military-on.png">
 																<br><br>
@@ -466,7 +466,7 @@ body .mb15 {
 														<div class="team-link">
 															<ul>
 																<li>
-																<a id="kind-link" href="#" style="font-weight:500;">
+																<a id="kind-link" href="result?tab=publicOrg" style="font-weight:500;">
 																<img id="kind-link-icon-off" src="/resources/img/icon/public-off.png">
 																<img id="kind-link-icon-on" src="/resources/img/icon/public-on.png">
 																<br><br>
@@ -493,7 +493,7 @@ body .mb15 {
 														<div class="team-link">
 															<ul>
 																<li>
-																<a id="kind-link" href="#" style="font-weight:500;">
+																<a id="kind-link" href="result?tab=privateCorp" style="font-weight:500;">
 																<img id="kind-link-icon-off" src="/resources/img/icon/private-off.png">
 																<img id="kind-link-icon-on" src="/resources/img/icon/private-on.png">
 																<br><br>
