@@ -290,5 +290,3 @@ function firstTab(tabId){
 		};
 	</script>
 </sec:authorize>
-
-<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
