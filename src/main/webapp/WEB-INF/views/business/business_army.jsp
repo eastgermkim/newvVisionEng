@@ -147,7 +147,7 @@
     background: rgba(0,0,0,0.35);
     text-align: center;
     width: 100%;
-    height: 200px;
+    height: 50%;
     margin: 0 auto;
     position: relative;
     bottom: 500px;
@@ -381,29 +381,56 @@ body .mb15 {
 								<div class="details-info">
 									<div class="BusinessOutlineTop">
 										<h4 class="BusinessOutlineTop-title">군사시설 CCTV SYSTEM</h4>
-			
 									</div>
 									<div class="BusinessOutlineBtm">
 										<div class="BusinessOutlineBtm-item">
 											<span class="BusinessOutlineBtm-title mb20">군사시설 CCTV SYSTEM</span>
 										</div>
 									</div>
-									<video class="video" id="video" src="/resources/video/army_ani.mp4" style="width:100%;" muted="muted"></video>
-									<p style="padding-top: 20px; font-size: 14px; font-weight: 400; text-align:right;">※클릭 시 재생을 생략할 수 있습니다.</p>
-									
-									<div class="video-caution">
-										<h3 class="video-caution-text">클릭 시 재생을 생략할 수 있습니다.</h3>
+									<div>
+										<div>
+											<video class="video" id="video" src="/resources/video/army_ani.mp4" style="width:100%;" muted="muted"></video>
+											<p style="padding-top: 20px; font-size: 14px; font-weight: 400; text-align:right;">※클릭 시 재생을 생략할 수 있습니다.</p>
+											<div class="video-caution">
+												<h3 class="video-caution-text">클릭 시 재생을 생략할 수 있습니다.<br>(재생화면 밖으로 마우스가 벗어나면 해당 창은 없어집니다.)</h3>
+											</div>
+										</div>
+										<div style="text-align:center;">
+											<img src="/resources/img/business/army_3part5.png" style="width:60%; margin:0 auto;">
+												<table style="width:60%; margin:0 auto;">
+													<tr>
+														<th style="width: 33%; font-size:22px; background: linear-gradient(to right, #FF823D, #FD753A); color: transparent;-webkit-background-clip: text;">납품</th>
+														<th style="width:33%; font-size:22px;  background: linear-gradient(to right, #FD753A, #F75732); color: transparent;-webkit-background-clip: text;">설치</th>
+														<th style="width: 33%; font-size:22px;  background: linear-gradient(to right, #F75732, #ED1E23); color: transparent;-webkit-background-clip: text;">유지보수</th>
+													</tr>
+													<tr>
+														<td>contents</td>
+														<td>contents</td>
+														<td>contents</td>
+													</tr>
+													
+												</table>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+<!-- 										<div style="text-align:center;">
+											<img src="/resources/img/business/army_3part3.png" style="width:60%;">
+											<table>
+												<tr>
+													<th>납품</th>
+													<th>설치</th>
+													<th>유지보수</th>
+												</tr>
+												
+											</table>
+										</div> -->
 	<!-- service-details-end -->
 
 
