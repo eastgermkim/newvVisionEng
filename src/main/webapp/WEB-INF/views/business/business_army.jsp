@@ -396,7 +396,7 @@ body .mb15 {
 											</div>
 										</div>
 										<div style="text-align:center;">
-											<img src="/resources/img/business/army_3part5.png" style="width:60%; margin:0 auto;">
+											<img src="/resources/img/business/army_3part6.png" style="width:60%; margin:0 auto;">
 												<table style="width:60%; margin:0 auto;">
 													<tr>
 														<th style="width: 33%; font-size:22px; background: linear-gradient(to right, #FF823D, #FD753A); color: transparent;-webkit-background-clip: text;">납품</th>
