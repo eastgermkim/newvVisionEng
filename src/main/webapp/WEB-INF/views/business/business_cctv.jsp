@@ -37,6 +37,11 @@
 	max-width: 100%;
 }
 
+.row{
+	margin-left:0px;
+	margin-right:0px;
+}
+
 .service-details {
 	padding-top: 0;
 	padding-bottom: 0;
