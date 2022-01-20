@@ -156,6 +156,14 @@
 	}
 }
 </style>
+
+<style>
+.service-area {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+</style>
+
 </head>
 
 <body>
@@ -275,44 +283,49 @@
 	<div class="service-area">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
-				<div class="section-title text-center mb-65">
-					<span>OUR SERVICES</span>
-					<!--                     <h3>We provide all of your <br>
-                        industrial solution</h3> -->
+				<div class="section-title text-center mb-65" style="margin-bottom: 5%;">
+					<span style="margin: 0;">OUR SERVICES</span>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xl-4 col-md-4">
+				<div class="col-xl-3 col-md-3">
 					<div class="single-service">
 						<div class="service-thumb">
 							<img src="/resources/img/service/service1.jpg" alt="">
 						</div>
-						<h3>CCTV</h3>
-						<p>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해
-							주세요.</p>
-						<a href="#" class="read-more">Read More</a>
+						<h3>CCTV 설치</h3>
+						<p>보안 전문가와의 상담을 통해 사용자의 니즈에 맞는 맞춤형 CCTV 서비스 설계와 유지보수 서비스</p>
+						<a href="/business/business_cctv" class="read-more">Read More</a>
 					</div>
 				</div>
-				<div class="col-xl-4 col-md-4">
+				<div class="col-xl-3 col-md-3">
 					<div class="single-service">
 						<div class="service-thumb">
 							<img src="/resources/img/service/service2.jpg" alt="">
 						</div>
-						<h3>Digital Connection System</h3>
-						<p>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해
-							주세요.</p>
-						<a href="#" class="read-more">Read More</a>
+						<h3>군사시설 CCTV SYSTEM</h3>
+						<p>오랜기간 군과의 지속적인 파트너쉽을 통해 쌓인 노하우로 군사시설에 특화된 맞춤형 솔루션 제공 서비스</p>
+						<a href="/business/business_army" class="read-more">Read More</a>
 					</div>
 				</div>
-				<div class="col-xl-4 col-md-4">
+				<div class="col-xl-3 col-md-3">
 					<div class="single-service">
 						<div class="service-thumb">
 							<img src="/resources/img/service/service3.jpg" alt="">
 						</div>
-						<h3>광전송 SYSTEM</h3>
-						<p>내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해 주세요.내용을 입력해
-							주세요.</p>
-						<a href="#" class="read-more">Read More</a>
+						<h3>전자파용 CCTV SYSTEM</h3>
+						<p>일반적인 CCTV 설치 사업뿐만 아니라 특수한 환경에서 사용되는 특수 카메라 등의 맞춤형 장비를 설치하는 서비스 </p>
+						<a href="/business/business_sp" class="read-more">Read More</a>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-3">
+					<div class="single-service">
+						<div class="service-thumb">
+							<img src="/resources/img/service/service4.jpg" alt="">
+						</div>
+						<h3>정보통신공사</h3>
+						<p>여러가지 형태의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및 유지·보수에 관한 서비스</p>
+						<a href="/business/business_com" class="read-more">Read More</a>
 					</div>
 				</div>
 			</div>
