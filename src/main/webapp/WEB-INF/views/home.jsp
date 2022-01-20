@@ -190,7 +190,7 @@
 	<div class="slider-area">
 		<div class="slider-active owl-carousel">
 			<div class="single-slider bg-img-1">
-				<div class="container">
+				<!-- <div class="container">
 					<div class="row">
 						<div class="col-xl-7 offset-xl-1 col-lg-7">
 							<div class="slider-content" style="opacity: 0.7">
@@ -204,7 +204,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<!-- hi  -->
 			<!-- test -->
@@ -427,34 +427,6 @@
 		</div>
 	</div>
 	<!-- project-area-end -->
-
-	<!-- cta-area-start -->
-	<div class="cta-area cta-bg-1"
-		style="padding-bottom: 120px !important;">
-		<div class="container">
-			<div class="col-xl-6 col-lg-7">
-				<div class="cta-content"
-					style="background: rgba(255, 255, 255, 0.7);">
-					<div class="cta-content-inner"
-						style="margin-left: 10%; height: 200px;">
-						<h3 style="color: #f36d20;font-weight: 500;">찾아오시는 길</h3>
-						<p style="color: #020c26">
-							서울시 금천구 가산디지털1로 88, 704-C (가산동,IT프리미어타워) <br>
-							<br> 704-C, 88, Gasan digital 1-ro, Geumcheon-gu, Seoul,
-							Republic of Korea
-						</p>
-						<div class="cta-btn" style="position: absolute; right: 50px;">
-							<a class="boxed-btn2 black-bg" href="/company/location"
-								style="background: #f36d20 !important;"> 상세보기 <i
-								class="Flaticon flaticon-right-arrow"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- cta-area-end -->
 
 
 
