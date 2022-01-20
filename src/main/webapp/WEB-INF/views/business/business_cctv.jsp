@@ -246,6 +246,19 @@ opacity: 1;
     font-size: 18px;
     line-height: 1.4em;
 }
+.BusinessOutlineBtm {
+    margin: 38px -35px 0;
+}
+.BusinessOutlineBtm:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.BusinessOutlineBtm-item {
+    /* width: 50%; */
+    float: left;
+    padding: 0 35px;
+}
 body .mb20 {
     margin-bottom: 20px;
 }
@@ -257,6 +270,11 @@ body .mb20 {
     font-size: 28px;
     font-weight: 600;
     line-height: 1.4em;
+}
+.BusinessOutlineBtm-text {
+    color: #4C4948;
+    font-size: 16px;
+    line-height: 1.8em;
 }
 body .mb15 {
     margin-bottom: 15px;
@@ -421,7 +439,7 @@ body .mb15 {
 									</div>
 									<div class="BusinessOutlineBtm">
 										<div class="BusinessOutlineBtm-item">
-											<span class="BusinessOutlineBtm-title mb20" style="margin-top:5%;">Expert's Total Solution</span>
+											<span class="BusinessOutlineBtm-title mb20">Expert's Total Solution</span>
 											<p
 												style="font-size: 16px; font-weight: 400">
 												15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.<br>

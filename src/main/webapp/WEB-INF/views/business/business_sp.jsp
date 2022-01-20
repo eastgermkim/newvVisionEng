@@ -505,6 +505,12 @@ img {
 	}
 	
 }
+@media screen and (max-width: 767px){
+	.br1 {
+		display: none;
+	}
+	
+}
 </style>
 </head>
 <body>
@@ -583,20 +589,12 @@ img {
 													<div class="BusinessOutlineBtm-item">
 						
 														<span class="BusinessOutlineBtm-title mb20">특수 환경을 위한 맞춤형 영상 장비 설비 구축</span>
-														<p class="BusinessOutlineBtm-text">당사는 일반적인 CCTV영상 주변기기 및 SYSTEM 설계·설치 사업뿐만 아니라
-															Shield Room 등의 특수한 환경에서 사용되는 전자파용 특수 카메라, PTZ CCTV 등 맞춤형 영상 장비를 설치하는 다각적인 사업을 수행하고 있습니다.</p>
-						
+														<p class="BusinessOutlineBtm-text">
+															당사는 일반적인 CCTV영상 주변기기 및 SYSTEM 설계·설치 사업뿐만 아니라 Shield Room 등의 특수한 환경에서
+															<br class="br1">
+															사용되는 전자파용 특수 카메라, PTZ CCTV 등 맞춤형 영상 장비를 설치하는 다각적인 사업을 수행하고 있습니다.
+														</p>
 													</div>
-													<!-- <div class="BusinessOutlineBtm-item">
-														<p class="BusinessOutlineBtm-text mb15">또한 최근 지능화, 고도화 되고 있는
-															범죄로부터 안전하고 편안한 세상을 만들기 위해 단순 영상감시에서 나아가 IoT, Deep learning등
-															신기술의 접목과 출입통제 등 기술의 융합과 통합을 통해 고객 맞춤형 Total Solution 체제를 구축해
-															나가겠습니다.</p>
-														<p class="BusinessOutlineBtm-text">지속적인 기술개발과 시장개척 노력으로 국내시장
-															점유율 1위를 유지하고 있으며, 세계 60개국에 120개 대리점과 5000개 이상의 협력업체를 확보하여 국내
-															1위에 안주하지 않고, 적극적인 해외시장 개척으로 글로벌 리더가 되겠습니다.</p>
-						
-													</div> -->
 													<div class="sp-detail-list" style="text-align:center;">
 														<video class="video" src="/resources/video/sp_animation.mp4" muted style="width: 65%;margin-top: 40px"></video>
 													</div>

@@ -39,7 +39,10 @@
 .down {
 	display: none;
 }
-
+.row{
+	margin-left:0px;
+	margin-right:0px;
+}
 .service-details {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -210,6 +213,19 @@
     font-size: 18px;
     line-height: 1.4em;
 }
+.BusinessOutlineBtm {
+    margin: 38px -35px 0;
+}
+.BusinessOutlineBtm:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.BusinessOutlineBtm-item {
+    /* width: 50%; */
+    float: left;
+    padding: 0 35px;
+}
 body .mb20 {
     margin-bottom: 20px;
 }
@@ -221,6 +237,11 @@ body .mb20 {
     font-size: 28px;
     font-weight: 600;
     line-height: 1.4em;
+}
+.BusinessOutlineBtm-text {
+    color: #4C4948;
+    font-size: 16px;
+    line-height: 1.8em;
 }
 body .mb15 {
     margin-bottom: 15px;
@@ -384,7 +405,15 @@ body .mb15 {
 									</div>
 									<div class="BusinessOutlineBtm">
 										<div class="BusinessOutlineBtm-item">
-											<span class="BusinessOutlineBtm-title mb20">군사시설 CCTV SYSTEM</span>
+											<span class="BusinessOutlineBtm-title mb20">요청한 환경에 맞는 적합한 솔루션을 적시에 제공</span>
+											<p
+												style="font-size: 16px; font-weight: 400">
+												육군, 해군, 공군 등 수 많은 군부대와 지속적인 파트너쉽을 통해 오랜기간 다양한 솔루션을 제공해왔습니다.
+												<br>
+												당사는 그러한 노하우를 바탕으로 더욱 향상된, 요청한 환경에 맞는 적합한 서비스를 적시에 설계 및 제공하고 있습니다.
+												<br>
+												가장 주된 서비스는 사용자가 요청한 장소에 적합한 CCTV를 설치하는 것과 유지보수 작업입니다.
+											</p>
 										</div>
 									</div>
 									<div>
