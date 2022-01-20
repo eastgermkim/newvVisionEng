@@ -39,7 +39,10 @@
 .down {
 	display: none;
 }
-
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
 .service-details {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -365,19 +368,19 @@ body .mb15 {
 									<div class="BusinessOutlineTop">
 										<h4 class="BusinessOutlineTop-title">정보통신공사</h4>
 									</div>
-									<!-- <h3 class="main-title">정보통신공사</h3> -->
-									<div class="cctv-detail1 details-info">
-									<div data-aos="fade-up"	data-aos-offset="200" data-aos-duration="1000">
+									<div class="BusinessOutlineBtm" data-aos="fade-up"	data-aos-offset="200" data-aos-duration="1000">
+										<div class="BusinessOutlineBtm-item">
+											<span class="BusinessOutlineBtm-title mb20">정보통신공사란?</span>
+											<p
+												style="font-size: 16px; font-weight: 400">
+												문자·부호·영상·음향 등의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및 유지·보수에 관한 공사를 말합니다.
+											</p>
 										<img style="width: 100%;margin-top: 1%;" src="/resources/img/business/lan_main.jpg" alt="">
-										<h3 class="business-name" style="font-size: 24px; font-weight: 300;">정보통신공사란?</h3>
-										<p style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											문자·부호·영상·음향 등의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및 유지·보수에 관한 공사를 말합니다.
-										</p>
+										</div>
 									</div>
 										<div class="row" style="margin-top: 2%;">
-											<div class="col-xl-6 col-md-6">
-												<h3 class="business-name"
-													style="font-size: 24px; margin-bottom: 5%;">네트워크 구축</h3>
+											<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
+												<span class="BusinessOutlineBtm-title mb20">네트워크 구축</span>
 												<ul class="business-ul" data-aos="fade-up"	data-aos-offset="100" data-aos-duration="1000">
 													<li class="business-li">
 													<img src="/resources/img/business/lan.png" alt="">
@@ -389,13 +392,12 @@ body .mb15 {
 														<hr>
 														<p>디지털 통신망 구축</p></li>
 												</ul>
-												<p style="padding-top: 20px; font-size: 20px; font-weight: 100" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
-													고객의 요구사항, 전산환경 및 통신환경을 분석해 <br>송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.
+												<p style="font-size: 16px; font-weight: 400" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
+													고객의 요구사항, 전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.
 												</p>
 											</div>
-											<div class="col-xl-6 col-md-6">
-												<h3 class="business-name"
-													style="font-size: 24px; margin-bottom: 5%;">CCTV 구축사업</h3>
+											<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
+												<span class="BusinessOutlineBtm-title mb20">CCTV 구축사업</span>
 												<ul class="business-ul" data-aos="fade-up"	data-aos-offset="100" data-aos-duration="1000">
 													<li class="business-li"><img
 														src="/resources/img/business/cctv.png" alt="">
@@ -406,7 +408,7 @@ body .mb15 {
 														<hr>
 														<p>관제센터 설계 및 구축</p></li>
 												</ul>
-												<p style="padding-top: 20px; font-size: 20px; font-weight: 100" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
+												<p style="font-size: 16px; font-weight: 400" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
 													CCTV의 설계·설비·설치·유지·보수를 통합적으로 환경에 맞게 수행합니다.</p>
 											</div>
 										</div>
@@ -414,45 +416,6 @@ body .mb15 {
 								</div>
 							</div>
 						</div>
-
-						<!---------------------------------전자파용 특수 CCTV SYSTEM------------------------------------>
-						<div class="tab-pane fade" id="business3" role="tabpanel"
-							aria-labelledby="contact-tab">
-							<div class="details-wrap">
-								<div class="details-info">
-									<h3 class="main-title">전자파용 특수 CCTV SYSTEM</h3>
-									<div class="cctv-detail1 details-info">
-										<h3 class="business-name"
-											style="font-size: 24px; font-weight: 300;">전자파용 특수 CCTV
-											SYSTEM</h3>
-										<p
-											style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의
-											연동 Network Lan 공사</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!---------------------------------광전송 SYSTEM------------------------------------>
-						<div class="tab-pane fade" id="business4" role="tabpanel"
-							aria-labelledby="contact-tab">
-							<div class="details-wrap">
-								<div class="details-info">
-									<h3 class="main-title">광전송 SYSTEM</h3>
-									<div class="cctv-detail1 details-info">
-										<h3 class="business-name"
-											style="font-size: 24px; font-weight: 300;">광전송 SYSTEM</h3>
-										<p
-											style="padding-top: 20px; font-size: 20px; font-weight: 100">
-											다수 Camera PENTIUM PC 제어 및 장거리 전송 Camera 화상 디지털 녹화시스템 센서 등과의
-											연동 Network Lan 공사</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
 					</div>
 				</div>
 			</div>

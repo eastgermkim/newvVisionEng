@@ -589,7 +589,7 @@ img {
 													<div class="BusinessOutlineBtm-item">
 						
 														<span class="BusinessOutlineBtm-title mb20">특수 환경을 위한 맞춤형 영상 장비 설비 구축</span>
-														<p class="BusinessOutlineBtm-text">
+														<p style="font-size: 16px; font-weight: 400">
 															당사는 일반적인 CCTV영상 주변기기 및 SYSTEM 설계·설치 사업뿐만 아니라 Shield Room 등의 특수한 환경에서
 															<br class="br1">
 															사용되는 전자파용 특수 카메라, PTZ CCTV 등 맞춤형 영상 장비를 설치하는 다각적인 사업을 수행하고 있습니다.
