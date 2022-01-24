@@ -84,7 +84,7 @@
 	<meta id="_csrf" name="_csrf" content="${_csrf.token}" /> 
 	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}" />
 
-		<div class="header-area ">
+		<div class="header-area" id="header_main_mobile">
 			
 			<div class="header-top black-bg d-none d-md-block">
 				<div class="container">
@@ -100,6 +100,7 @@
 								<nav>
 									<ul>
 										<sec:authorize access="isAnonymous()">
+											<li><a href="/home2">main변경</a></li>
 											<li><a href="/login">Admin</a></li>
 										</sec:authorize>
 										<sec:authorize access="isAuthenticated()">

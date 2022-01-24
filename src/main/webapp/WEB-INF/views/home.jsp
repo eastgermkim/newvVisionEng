@@ -167,20 +167,6 @@
 </head>
 
 <body>
-	<!-- Internet Explorer접속 방지(Edge로 자동전환) -->
-	<script>
-		if (navigator.userAgent.indexOf("Trident") > 0) {
-			window.location = "microsoft-edge:" + window.location.href;
-			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-		} else if (/MSIE \d |Trident.*rv:/.test(navigator.userAgent)) {
-			window.location = "microsoft-edge:" + window.location.href;
-			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-		} else if (window.navigator.userAgent
-				.match(/MSIE|Internet Explorer|Trident/i)) {
-			window.location = "microsoft-edge:" + window.location.href;
-			window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-		}
-	</script>
 	
 	<!-- header.jsp import -->
 	<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
