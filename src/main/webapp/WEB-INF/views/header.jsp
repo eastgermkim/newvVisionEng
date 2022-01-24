@@ -42,7 +42,7 @@
 
 .header-area .main-header-area .main-menu ul li a:hover {
     font-weight: 600;
-    color: #F36D20;
+    color: #F36D20 !important;
 }
 .activeColor{
     font-weight: 600 !important;

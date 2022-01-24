@@ -32,7 +32,7 @@
 <style>
 #header_main_pc{
 		display: none;
-		position: fixed;
+		position: absolute;
 	    width: 100%;
 	    z-index: 1000;
 	}
