@@ -59,17 +59,97 @@
 	left:45%;
 }
 </style>
+<!-- 마우스 스크롤 -->
+<style>
+.scroll {
+  padding-top: 60px;
+}
+.scroll span {
+  position: fixed;
+  top: 90%;
+  left: 90%;
+  width: 30px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  z-index:500;
+}
+.scroll span::before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: sdb 2s infinite;
+  animation: sdb 2s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.scroll-text{
+    position: fixed;
+    z-index: 500;
+    left: 89.6%;
+    color: #fff;
+    top: 96%;
+ }
+
+</style>
 </head>
 	<body>
 		<!-- header-start -->
 		<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
 		<!-- header-end -->
 		
+		
+		<!-- number -->
 		<div  style="background: transparent; position: fixed; z-index: 500; color: #fff; top: 50%; left: 90%;">
 		<a class="pageNumber" id="num1">1</a>
 		<a class="pageNumber" id="num2">2</a>
 		<a class="pageNumber" id="num3">3</a>
 		</div>
+		
+		<!-- scroll -->
+		<a class="scroll"><span> </span></a>
+		<span class="scroll-text">scroll</span>
+		
+		
 		<!-- slider-area-start -->
 		<div class="slider-area">
 			<c:import url="header_main_pc.jsp" charEncoding="UTF-8"></c:import>
@@ -81,19 +161,13 @@
 				<div class="single-slider bg-img-3">
 				</div>
 			</div>
+			<!-- brand-area-start -->
 		</div>
 		<!-- slider-area-end -->
 		
 		<!-- slider-area-start -->
 		<div class="slider-area">
-			<div class="slider-active owl-carousel">
-				<div class="single-slider bg-img-1">
-				</div>
-				<div class="single-slider bg-img-2">
-				</div>
-				<div class="single-slider bg-img-3">
-				</div>
-			</div>
+			<img src="/resources/img/background-img/bg-img-2.jpg" style="height:100vh; max-width:100%">
 		</div>
 		<!-- slider-area-end -->
 		
