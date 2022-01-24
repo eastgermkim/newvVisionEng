@@ -100,7 +100,8 @@
 								<nav>
 									<ul>
 										<sec:authorize access="isAnonymous()">
-											<li><a href="/home2">main변경</a></li>
+											<li><a href="/home2">main2변경</a></li>
+											<li><a href="/home3">main3변경</a></li>
 											<li><a href="/login">Admin</a></li>
 										</sec:authorize>
 										<sec:authorize access="isAuthenticated()">
