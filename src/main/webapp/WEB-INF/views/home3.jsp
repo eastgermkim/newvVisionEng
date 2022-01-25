@@ -28,6 +28,11 @@
 <link rel="stylesheet" href="/resources/css/animate.css">
 <link rel="stylesheet" href="/resources/css/slicknav.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- AOS -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <style>
 #header_main_pc{
@@ -52,11 +57,10 @@
 
 .slider-area .slider-active .owl-dots{
 	display:flex;
-	width:10%;
+	width:7%;
 	justify-content:space-between;
-	top:95%;
-	right:45%;
-	left:45%;
+	top:40%;
+	left:11%;
 }
 </style>
 <!-- 마우스 스크롤 -->
@@ -74,6 +78,7 @@
   border-radius: 50px;
   box-sizing: border-box;
   z-index:500;
+  background:rgba(248,248,248,0.3);
 }
 .scroll span::before {
   position: absolute;
@@ -122,6 +127,7 @@
   }
 }
 
+/* 글씨 애니미에션 */
 .scroll-text{
     position: fixed;
     z-index: 500;
@@ -130,28 +136,118 @@
     top: 96%;
  }
 
+.main_sentence{
+	z-index:500; 
+	color:#fff; 
+	margin-left:10%; 
+	font-weight:700; 
+	font-size:3.5em; 
+	line-height:1em;
+	transform: translateY(6rem);
+	animation: up 500ms linear forwards;
+}
+
+.main_sentence_sub{
+	z-index:300; 
+	color:#fff; 
+	margin-left:10%; 
+	font-weight:300; 
+	font-size:1.5em; 
+	line-height:1em;
+	transform: translateY(6rem);
+	animation: up 500ms linear forwards;
+}
+
+@keyframes up {
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.sentence-container{
+	width:100%;
+	overflow:hidden;
+	position:absolute;
+	z-index:500;
+	top:45%;
+ }
+
+/* 페이지 바 표시 */
+.homePageGroup{
+	position: fixed;
+    left: 85%;
+    z-index: 500;
+    top: 20%;
+}
+
+.homePageGroup .pageGroup{
+	display:flex;
+	background: transparent;
+	color: #fff; 
+}
+
+.homePageGroup .pageGroup h3{
+	color:#fff;
+	font-size: 2.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-right: 0.3em;
+}
+
+.homePageGroup .pageGroup .pageNumber{
+	margin-top:0.7em;
+	margin-right:0.5em;
+    display: block;
+    text-indent: -999em;
+    overflow: hidden;
+    background-color: #fff;
+    width: 2px;
+    height: 2em;
+    transition: width .2s ease-out,background .2s;
+}
+
+.homePageGroup .pageGroup .pageNumber.active{
+    width: 4px;
+    background: #00b4cb!important;
+}
 </style>
 </head>
 	<body>
+        <script> 
+            AOS.init(); 
+        </script>
 		<!-- header-start -->
 		<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
 		<!-- header-end -->
 		
 		
 		<!-- number -->
-		<div  style="background: transparent; position: fixed; z-index: 500; color: #fff; top: 50%; left: 90%;">
-		<a class="pageNumber" id="num1">1</a>
-		<a class="pageNumber" id="num2">2</a>
-		<a class="pageNumber" id="num3">3</a>
+		<div class="homePageGroup">
+			<div class="pageGroup sentence-container">
+				<h3>Slide.</h3>
+				<a class="pageNumber active" id="num1">1</a>
+				<a class="pageNumber" id="num2">2</a>
+				<a class="pageNumber" id="num3">3</a>
+			</div>
 		</div>
 		
 		<!-- scroll -->
 		<a class="scroll"><span> </span></a>
-		<span class="scroll-text">scroll</span>
+		<span class="scroll-text">Scroll</span>
 		
 		
 		<!-- slider-area-start -->
 		<div class="slider-area">
+			<div class="sentence-container">
+				<div style="overflow:hidden;">
+					<h3 class="main_sentence">새로운 비전</h3>
+				</div>
+				<div>
+					<h3 class="main_sentence" style="animation-delay:0.5s;">새로운 가능성</h3>
+				</div>
+				<h4 class="main_sentence_sub" style="animation-delay:1s;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
+			</div>
 			<c:import url="header_main_pc.jsp" charEncoding="UTF-8"></c:import>
 			<div class="slider-active owl-carousel">
 				<div class="single-slider bg-img-1">
@@ -217,21 +313,21 @@ $(window).on("wheel", function(e){
 	var posTop = (page-1) * $(window).height();
  
 	$html.animate({scrollTop : posTop},1000,'easeInQuart');
- 	console.log(page);
  	
+	console.log(page);
+	
+ 	/* 페이지 표시 */
  	if(page == "1"){
- 		$("#num1").css("color","#f36d20");
- 		$("#num2").css("color","#fff");
- 		$("#num3").css("color","#fff");
- 		console.log("들어옴");
+ 		$("#num1").addClass("active");
+ 		$("#num2").removeClass("active");
  	}else if(page == "2"){
- 		$("#num1").css("color","#fff");
- 		$("#num2").css("color","#f36d20");
- 		$("#num3").css("color","#fff");
+ 		$("#num1").removeClass("active");
+ 		$("#num2").addClass("active");
+ 		$("#num3").removeClass("active");
  	}else if(page == "3"){
- 		$("#num1").css("color","#fff");
- 		$("#num2").css("color","#fff");
- 		$("#num3").css("color","#f36d20");
+ 		$("#num1").removeClass("active");
+ 		$("#num2").removeClass("active");
+ 		$("#num3").addClass("active");
  	}
 });
 </script>
