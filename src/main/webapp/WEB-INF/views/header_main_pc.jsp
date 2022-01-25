@@ -26,7 +26,7 @@
     font-size: 18px;
 }
 .header_main_pc_li{
-	margin-left: 60px
+	margin-left: 34px
 }
 .ti-angle-down_main_pc{
 	color: white;
