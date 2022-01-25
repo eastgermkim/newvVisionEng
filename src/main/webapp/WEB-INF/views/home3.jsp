@@ -171,6 +171,40 @@
 	z-index:500;
 	top:45%;
  }
+ 
+.news_container{
+	width:45%;
+	overflow:hidden;
+	position:absolute;
+	z-index:500;
+	top:90%;
+	display:flex;
+	justify-content:space-between;
+	margin-left:10%;
+	border-bottom:1px solid #fff;
+	height:2em
+}
+
+.news_group{
+	width:100%;
+}
+
+.news_sentence{
+	color:#fff!important; 
+	font-weight:300; 
+	font-size:1.5em; 
+	line-height:1em;
+}
+
+.news_navi{
+	width:20%;
+	overflow:hidden;
+	z-index:500;
+	top:90%;
+	color:#fff;
+	display:flex;
+	justify-content:space-between;
+}
 
 /* 페이지 바 표시 */
 .homePageGroup{
@@ -225,7 +259,7 @@
 		<!-- number -->
 		<div class="homePageGroup">
 			<div class="pageGroup sentence-container">
-				<h3>Slide.</h3>
+				<h3>Page.</h3>
 				<a class="pageNumber active" id="num1">1</a>
 				<a class="pageNumber" id="num2">2</a>
 				<a class="pageNumber" id="num3">3</a>
@@ -248,6 +282,35 @@
 				</div>
 				<h4 class="main_sentence_sub" style="animation-delay:1s;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
 			</div>
+			
+			<div class="news_container">
+				<h3 style="margin-right:2%; color:#fff;">news>></h3>
+				<ul class="news_group" id="news_group">
+					<li>
+						<a class="news_sentence">
+							뉴스뉴스1
+						</a>
+					</li>
+					<li>
+						<a class="news_sentence">
+							뉴스뉴스2
+						</a>
+					</li>
+				</ul>
+				
+				<div class="news_navi">
+					<a class="prev">
+						<i class="fa fa-backward"></i>
+					</a>
+					<a class="next">
+						<i class="fa fa-forward"></i>
+					</a>
+					<a class="pause" id="pause" >
+						<i class="fa fa-pause" id="pause_icon"></i>
+					</a>
+				</div>
+			</div>
+			
 			<c:import url="header_main_pc.jsp" charEncoding="UTF-8"></c:import>
 			<div class="slider-active owl-carousel">
 				<div class="single-slider bg-img-1">
@@ -330,6 +393,100 @@ $(window).on("wheel", function(e){
  		$("#num3").addClass("active");
  	}
 });
+
+		jQuery(function($){
+		    var news_group = function(){
+		        timer = setTimeout(function(){
+		            $('#news_group li:first').animate( {marginTop: '-20px'}, 800, function(){
+		                $(this).detach().appendTo('ul#news_group').removeAttr('style');
+		            });
+		            news_group();
+		        }, 2000);         
+		      };
+		      
+		// 0번 이전 기능
+		      $(document).on('click','.prev',function(){
+		        $('#news_group li:last').hide().prependTo($('#news_group')).slideDown();
+		        clearTimeout(timer);
+		        news_group();
+		        if($('#pause_icon').hasClass("fa-play") == true){
+		          $('#pause_icon').addClass('fa-pause');
+		          $("#pause_icon").removeClass("fa-play");
+		        };
+		      }); // 0번 기능 끝
+		  
+		// 1. 클릭하면 다음 요소 보여주기... 클릭할 경우 setTimeout 을 clearTimeout 해줘야 하는데 어떻게 하지..
+		      $(document).on('click','.next',function(){
+		            $('#news_group li:first').animate( {marginTop: '-20px'}, 500, function()
+		                    {
+		                        $(this).detach().appendTo('ul#news_group').removeAttr('style');
+		                    });
+		            clearTimeout(timer);
+		            news_group();
+		            //3 함수와 연계 시작
+		            if($('#pause_icon').hasClass("fa-play") == true){
+				          $('#pause_icon').addClass('fa-pause');
+				          $("#pause_icon").removeClass("fa-play");
+		            }; //3 함수와 연계
+		          }); // next 끝. timer 를 전연변수보다 지역변수 사용하는게 나을 것 같은데 방법을 모르겠네요.
+
+		  //2. 재생정지기능 시작, 아직 다음 기능과 연동은 안됨...그래서 3을 만듦
+		  var autoplay = true;
+		      $(document).on('click','#pause',function(){
+		            if(autoplay==true){
+		              clearTimeout(timer);
+		              $('#pause_icon').removeClass('fa-pause');
+			          $("#pause_icon").addClass("fa-play");
+		              autoplay=false;
+		              clearTimeout(timer);
+		            }else{
+		              autoplay=true;
+		              $('#pause_icon').addClass('fa-pause');
+			          $("#pause_icon").removeClass("fa-play");
+		              news_group();
+		              clearTimeout(timer);
+		            }
+		          }); 
+		  // 재생정지기능 끝  
+		   
+		          
+		  // 3. 재생정지 함수 시작. 2와 기능 동일함.
+		    var news_group_pause = function()
+		  {
+		    $('#pause').click(function(){
+		      $this = $(this);
+		      if($('#pause_icon').hasClass("fa-pause") == true){
+	              $('#pause_icon').removeClass('fa-pause');
+		          $("#pause_icon").addClass("fa-play");
+		        clearTimeout(timer);
+		      }
+		      else {
+		        clearTimeout(timer);
+		        news_group();
+	              $('#pause_icon').addClass('fa-pause');
+		          $("#pause_icon").removeClass("fa-play");
+		      }
+		    });
+		   
+		  };
+		  news_group_pause();
+		  //3 재생정지 함수 끝
+		  
+		  //4 마우스를 올렸을 때 기능 정지
+		  var news_group_over = function()
+		  {
+		    $('#news_group').mouseover(function(){
+		      clearTimeout(timer);
+		    });
+		    $('#news_group').mouseout(function(){
+		      news_group();
+		    });  
+		  };
+  		news_group_over();
+		  // 4 끝
+	    news_group();
+		    
+		});
 </script>
 
 </html>
