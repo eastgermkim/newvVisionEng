@@ -174,10 +174,10 @@
 
 /* 페이지 바 표시 */
 .homePageGroup{
-	position: fixed;
-    left: 85%;
+	position: sticky;
     z-index: 500;
     top: 20%;
+    margin-left:85%;
 }
 
 .homePageGroup .pageGroup{
@@ -209,7 +209,7 @@
 
 .homePageGroup .pageGroup .pageNumber.active{
     width: 4px;
-    background: #00b4cb!important;
+    background: #f36d20!important;
 }
 </style>
 </head>
