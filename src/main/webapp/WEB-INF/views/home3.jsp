@@ -39,7 +39,7 @@
 		display: none;
 		position: fixed;
 	    width: 100%;
-	    z-index: 1000;
+	    z-index: 98;
 	}
 
 @media (min-width : 991.5px){
@@ -77,7 +77,7 @@
   border: 2px solid #fff;
   border-radius: 50px;
   box-sizing: border-box;
-  z-index:500;
+  z-index:98;
   background:rgba(248,248,248,0.3);
 }
 .scroll span::before {
@@ -130,14 +130,14 @@
 /* 글씨 애니미에션 */
 .scroll-text{
     position: fixed;
-    z-index: 500;
+    z-index: 98;
     left: 89.6%;
     color: #fff;
     top: 96%;
  }
 
 .main_sentence{
-	z-index:500; 
+	z-index:98; 
 	color:#fff; 
 	margin-left:10%; 
 	font-weight:700; 
@@ -148,7 +148,7 @@
 }
 
 .main_sentence_sub{
-	z-index:300; 
+	z-index:98; 
 	color:#fff; 
 	margin-left:10%; 
 	font-weight:300; 
@@ -168,7 +168,7 @@
 	width:100%;
 	overflow:hidden;
 	position:absolute;
-	z-index:98;
+	z-index:3;
 	top:45%;
  }
 
@@ -178,7 +178,7 @@
 	width:40%;
 	overflow:hidden;
 	position:absolute;
-	z-index:500;
+	z-index:98;
 	top:90%;
 	display:flex;
 	justify-content:space-between;
@@ -209,7 +209,7 @@
 .news_navi{
 	width:20%;
 	overflow:hidden;
-	z-index:500;
+	z-index:98;
 	top:90%;
 	color:#fff;
 	display:flex;
@@ -219,7 +219,7 @@
 /* 페이지 바 표시 */
 .homePageGroup{
 	position: sticky;
-    z-index: 500;
+    z-index: 98;
     top: 20%;
     margin-left:85%;
 }
@@ -486,9 +486,6 @@ $(window).on("wheel", function(e){
 
 <script>
 
-$(function(){
-	$('html').removeClass('no-js');
-});
 
 </script>
 </html>
