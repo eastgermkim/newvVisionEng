@@ -61,11 +61,11 @@
 								<li class="header_main_pc_li"><a href="/company/introduce">회사소개</a>
 								<i class="ti-angle-down ti-angle-down_main_pc" style="font-size: 9px;"></i>
 									<ul class="submenu">
-										<li><a href="/company/introduce">회사개요</a></li>
-										<li><a href="/company/news">보도자료</a></li>
-										<li><a href="/company/history">연혁</a></li>
-										<li><a href="/company/certification">인증현황</a></li>
-										<li><a href="/company/location">오시는 길</a></li>
+										<li class="header_main_pc_subli"><a href="/company/introduce">회사개요</a></li>
+										<li class="header_main_pc_subli"><a href="/company/news">보도자료</a></li>
+										<li class="header_main_pc_subli"><a href="/company/history">연혁</a></li>
+										<li class="header_main_pc_subli"><a href="/company/certification">인증현황</a></li>
+										<li class="header_main_pc_subli"><a href="/company/location">오시는 길</a></li>
 									</ul>
 								</li>
 								
@@ -77,8 +77,8 @@
 								
 								<li class="header_main_pc_li" ><a href="/support/notice">고객지원</a><i class="ti-angle-down ti-angle-down_main_pc" style="font-size: 9px;"></i>
 									<ul class="submenu">
-										<li><a href="/support/notice">공지사항</a></li>
-										<li><a href="/support/customer">고객문의</a></li>
+										<li class="header_main_pc_subli"><a href="/support/notice">공지사항</a></li>
+										<li class="header_main_pc_subli"><a href="/support/customer">고객문의</a></li>
 									</ul>
 								</li>
 								
@@ -96,21 +96,21 @@
 <script>
 $( document ).ready( function() {
 	
-    $( '.header_main_pc_li' ).on( "mouseover", function () {
+    $( '.header_main_pc_li,	.header_main_pc_subli' ).on( "mouseover", function () {
     	
-	      $( '#header_main_pc' ).animate({
+	      $( '#header_main_pc' ).stop().animate({
 	    	  'background-color':'#fff'
 	      }, 150);
 	      
-	      $( '.header-area .main-header-area_pc .main-menu ul li a' ).animate({
+	      $( '.header-area .main-header-area_pc .main-menu ul li a' ).stop().animate({
 	    	  color:'black'
 	      }, 50);
 	     
-	      $( '.ti-angle-down_main_pc' ).animate({
+	      $( '.ti-angle-down_main_pc' ).stop().animate({
 	    	  color:'black'
 	      }, 50);
 	      
-	     $('#nv_logo').attr('src','/resources/img/nv_logo_black.png').animate({opacity:1},100);
+	     $('#nv_logo').attr('src','/resources/img/nv_logo_black.png').stop().animate({opacity:1},100);
     });
     
     $( '#header_main_pc' ).on( "mouseleave", function () {
@@ -131,7 +131,7 @@ $( document ).ready( function() {
 	      
 	     $('#nv_logo').attr('src','/resources/img/nv_logo_white.png').animate({opacity:1},1000);
       
-    		}, 1000);
+    		}, 500);
     });
     
   } );

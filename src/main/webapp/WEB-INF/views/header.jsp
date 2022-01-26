@@ -54,6 +54,7 @@
 .header-area .main-header-area .main-menu ul li .submenu {
     width: 140%;
     transition: .3s;
+    top: 90%;
 }
 </style>
 
