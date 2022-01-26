@@ -168,12 +168,14 @@
 	width:100%;
 	overflow:hidden;
 	position:absolute;
-	z-index:500;
+	z-index:98;
 	top:45%;
  }
+
+/* 뉴스 */
  
 .news_container{
-	width:45%;
+	width:30%;
 	overflow:hidden;
 	position:absolute;
 	z-index:500;
@@ -187,6 +189,8 @@
 
 .news_group{
 	width:100%;
+	position:relative;
+	bottom:1.7em;
 }
 
 .news_sentence{
@@ -294,6 +298,11 @@
 					<li>
 						<a class="news_sentence">
 							뉴스뉴스2
+						</a>
+					</li>
+					<li>
+						<a class="news_sentence">
+							뉴스뉴스3
 						</a>
 					</li>
 				</ul>
@@ -406,8 +415,12 @@ $(window).on("wheel", function(e){
 		      
 		// 0번 이전 기능
 		      $(document).on('click','.prev',function(){
-		        $('#news_group li:last').hide().prependTo($('#news_group')).slideDown();
 		        clearTimeout(timer);
+		        /* $('#news_group li:last').hide().prependTo($('#news_group')).slideDown(); */
+		       $('#news_group li:first').prependTo($('#news_group')).animate({marginTop: '+20px'}, 500, function(){
+                   $('#news_group li:last').detach().prependTo('ul#news_group').removeAttr('style');
+                    $(this).removeAttr('style');
+                });
 		        news_group();
 		        if($('#pause_icon').hasClass("fa-play") == true){
 		          $('#pause_icon').addClass('fa-pause');
@@ -417,11 +430,11 @@ $(window).on("wheel", function(e){
 		  
 		// 1. 클릭하면 다음 요소 보여주기... 클릭할 경우 setTimeout 을 clearTimeout 해줘야 하는데 어떻게 하지..
 		      $(document).on('click','.next',function(){
+		            clearTimeout(timer);
 		            $('#news_group li:first').animate( {marginTop: '-20px'}, 500, function()
 		                    {
 		                        $(this).detach().appendTo('ul#news_group').removeAttr('style');
 		                    });
-		            clearTimeout(timer);
 		            news_group();
 		            //3 함수와 연계 시작
 		            if($('#pause_icon').hasClass("fa-play") == true){
