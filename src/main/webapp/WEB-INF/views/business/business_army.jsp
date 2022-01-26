@@ -39,7 +39,7 @@
 .down {
 	display: none;
 }
-.row{
+.row2{
 	margin-left:0px;
 	margin-right:0px;
 }
@@ -400,7 +400,7 @@ body .mb15 {
 			</div>
 		</div>
 		<div class="container" style="margin-top: 3%;">
-			<div class="row">
+			<div class="row row2">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active" id="business4" role="tabpanel"

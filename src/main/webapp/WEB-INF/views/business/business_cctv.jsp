@@ -37,7 +37,7 @@
 	max-width: 100%;
 }
 
-.row{
+.row2{
 	margin-left:0px;
 	margin-right:0px;
 }
@@ -424,7 +424,7 @@ body .mb15 {
 			</div>
 		</div>
 		<div class="container" style="margin-top: 3%;">
-			<div class="row">
+			<div class="row2">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
 

@@ -39,7 +39,7 @@
 .down {
 	display: none;
 }
-.row {
+.row2 {
     margin-left: 0px;
     margin-right: 0px;
 }

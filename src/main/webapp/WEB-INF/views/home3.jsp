@@ -318,6 +318,11 @@
 			</div>
 			
 			<c:import url="header_main_pc.jsp" charEncoding="UTF-8"></c:import>
+			<!-- brand-area-start -->
+		</div>
+		<!-- slider-area-end -->
+		
+		 <div class="slider-area">
 			<div class="slider-active owl-carousel">
 				<div class="single-slider bg-img-1">
 				</div>
@@ -326,14 +331,7 @@
 				<div class="single-slider bg-img-3">
 				</div>
 			</div>
-			<!-- brand-area-start -->
 		</div>
-		<!-- slider-area-end -->
-		
-		<div class="slider-area">
-			<img src="/resources/img/background-img/bg-img-2.jpg" style="height:100vh; max-width:100%">
-		</div>
-
 		<!-- footer-start -->
 		<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
 		<!-- footer-end -->
@@ -365,7 +363,7 @@ $(window).on("wheel", function(e){
  
 		page--;
 	}
-	var posTop = (page-1) * $(window).height();
+	var posTop = (page-1) * $(window).height()+1;
  
 	$html.animate({scrollTop : posTop},1000,'easeInQuart');
  	
@@ -482,10 +480,5 @@ $(window).on("wheel", function(e){
 	    news_group();
 		    
 		});
-</script>
-
-<script>
-
-
 </script>
 </html>
