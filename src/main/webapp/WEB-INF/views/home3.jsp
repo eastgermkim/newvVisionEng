@@ -330,24 +330,10 @@
 		</div>
 		<!-- slider-area-end -->
 		
-		<!-- slider-area-start -->
 		<div class="slider-area">
 			<img src="/resources/img/background-img/bg-img-2.jpg" style="height:100vh; max-width:100%">
 		</div>
-		<!-- slider-area-end -->
-		
-		<!-- slider-area-start -->
-		<div class="slider-area">
-			<div class="slider-active owl-carousel">
-				<div class="single-slider bg-img-1">
-				</div>
-				<div class="single-slider bg-img-2">
-				</div>
-				<div class="single-slider bg-img-3">
-				</div>
-			</div>
-		</div>
-		<!-- slider-area-end -->
+
 		<!-- footer-start -->
 		<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
 		<!-- footer-end -->
@@ -498,4 +484,11 @@ $(window).on("wheel", function(e){
 		});
 </script>
 
+<script>
+
+$(function(){
+	$('html').removeClass('no-js');
+});
+
+</script>
 </html>
