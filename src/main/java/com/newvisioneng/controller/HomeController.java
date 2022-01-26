@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.newvisioneng.domain.Account;
+import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.security.SecurityAccount;
 import com.newvisioneng.service.AdminService;
 import com.newvisioneng.service.BusinessService;
+import com.newvisioneng.service.CompanyService;
 
 /**
  * Handles requests for the application home page.
@@ -35,7 +37,10 @@ public class HomeController {
 	
 	@Autowired
 	BusinessService businessService;
-
+	
+	@Autowired
+	CompanyService companyService;
+	
 	//관리자 로그인 페이지로 이동
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String goLogin(
@@ -159,7 +164,7 @@ public class HomeController {
 	}
 	//메인페이지
 		@RequestMapping(value = "/home3", method = RequestMethod.GET)
-		public String gohome3(Locale locale, Model model, 
+		public String gohome3(Locale locale, Model model, Criteria cri, 
 				Authentication authentication,HttpSession session,
 				@RequestParam(value="joinOK", required=false) String joinOK,
 				@RequestParam(value="access_denied", required=false) String access_denied,
@@ -199,6 +204,9 @@ public class HomeController {
 			
 			//메인등록된 사업실적들 리스트 담기
 			model.addAttribute("business_list", businessService.getMainBusinessList());
+			
+			//뉴스 리스트 담기
+			model.addAttribute("news_list",companyService.getNewsList(cri));
 			
 			return "home3";
 		}

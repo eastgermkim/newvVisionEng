@@ -175,7 +175,7 @@
 /* 뉴스 */
  
 .news_container{
-	width:30%;
+	width:40%;
 	overflow:hidden;
 	position:absolute;
 	z-index:500;
@@ -184,19 +184,25 @@
 	justify-content:space-between;
 	margin-left:10%;
 	border-bottom:1px solid #fff;
-	height:2em
+	height:1.7em;
 }
 
 .news_group{
-	width:100%;
+	width:70%;
 	position:relative;
-	bottom:1.7em;
+	bottom:1.5em;
+}
+
+.news_group li{
+	overflow:hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+	color:#fff!important; 
 }
 
 .news_sentence{
-	color:#fff!important; 
 	font-weight:300; 
-	font-size:1.5em; 
+	font-size:1.2em; 
 	line-height:1em;
 }
 
@@ -207,7 +213,7 @@
 	top:90%;
 	color:#fff;
 	display:flex;
-	justify-content:space-between;
+	justify-content:space-evenly;
 }
 
 /* 페이지 바 표시 */
@@ -289,24 +295,15 @@
 			
 			<div class="news_container">
 				<h3 style="margin-right:2%; color:#fff;">news>></h3>
-				<ul class="news_group" id="news_group">
-					<li>
-						<a class="news_sentence">
-							뉴스뉴스1
-						</a>
-					</li>
-					<li>
-						<a class="news_sentence">
-							뉴스뉴스2
-						</a>
-					</li>
-					<li>
-						<a class="news_sentence">
-							뉴스뉴스3
-						</a>
-					</li>
-				</ul>
-				
+					<ul class="news_group" id="news_group">
+						<c:forEach var="news" items="${news_list}">
+							<li>
+								<a class="news_sentence" href="/company/news" style="color:#fff;">
+									${news.newsTitle}
+								</a>
+							</li>
+						</c:forEach>
+					</ul>
 				<div class="news_navi">
 					<a class="prev">
 						<i class="fa fa-backward"></i>
@@ -416,7 +413,6 @@ $(window).on("wheel", function(e){
 		// 0번 이전 기능
 		      $(document).on('click','.prev',function(){
 		        clearTimeout(timer);
-		        /* $('#news_group li:last').hide().prependTo($('#news_group')).slideDown(); */
 		       $('#news_group li:first').prependTo($('#news_group')).animate({marginTop: '+20px'}, 500, function(){
                    $('#news_group li:last').detach().prependTo('ul#news_group').removeAttr('style');
                     $(this).removeAttr('style');
