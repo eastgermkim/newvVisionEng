@@ -52,9 +52,33 @@
 
 <style>
 .header-area .main-header-area .main-menu ul li .submenu {
-    width: 140%;
     transition: .3s;
-    top: 90%;
+    width: max-content;
+    top: 85%;
+}
+.header-area .main-header-area .main-menu ul li .submenu li {
+    display: table-cell;
+}
+.header-area .main-header-area .main-menu ul li .submenu li a {
+    font-size: 15px;
+    line-height: 33px;
+    width: 100px;
+    text-align: center;
+    padding-left: 0;
+}
+.submenu::before {
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: white;
+    height: 100%;
+    left: -1000%;
+    right: -1000%;
+    border-bottom: 1px solid #eee;
+    z-index: 0;
+    top: 0;
+    border-top: 1px solid #eee;
 }
 </style>
 
