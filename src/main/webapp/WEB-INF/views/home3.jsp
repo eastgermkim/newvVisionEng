@@ -57,11 +57,45 @@
 
 .slider-area .slider-active .owl-dots{
 	display:flex;
-	width:7%;
-	justify-content:space-between;
+	width:40%;
+	height:5%;
 	top:40%;
 	left:11%;
 }
+
+.slider-area .slider-active .owl-dots div{
+	border:none;
+	width: auto;
+    height: 100%;
+    background: transparent;
+    display: block;
+    margin: 0;
+    color:#c9c9c9;
+    font-size:1.2em;
+    font-weight:300;
+}
+ 
+.slider-area .slider-active .owl-dots div.active{
+	background:transparent;
+	color:#fff;
+	font-weight:500;
+}
+
+.slider-area .slider-active .owl-dots .owl-dot .business{
+	color:#fff;
+	font-size:1.5em;
+}
+
+.slider-area .slider-active .owl-dots .owl-dot:not(:first-child)::before{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    margin: 0 2em;
+    background-color: #c9c9c9;
+}
+
+ 
 </style>
 <!-- 마우스 스크롤 -->
 <style>
@@ -127,7 +161,7 @@
   }
 }
 
-/* 글씨 애니미에션 */
+/* 글씨 & 글씨 애니미에션 */
 .scroll-text{
     position: fixed;
     z-index: 98;
@@ -143,8 +177,8 @@
 	font-weight:700; 
 	font-size:3.5em; 
 	line-height:1em;
-	transform: translateY(6rem);
-	animation: up 500ms linear forwards;
+/* 	transform: translateY(6rem);
+	animation: up 500ms linear forwards; */
 }
 
 .main_sentence_sub{
@@ -154,6 +188,11 @@
 	font-weight:300; 
 	font-size:1.5em; 
 	line-height:1em;
+/* 	transform: translateY(6rem);
+	animation: up 500ms linear forwards; */
+}
+
+.sentence_ani{
 	transform: translateY(6rem);
 	animation: up 500ms linear forwards;
 }
@@ -171,6 +210,14 @@
 	z-index:3;
 	top:45%;
  }
+ 
+ .sentece-wraper{
+ 	overflow:hidden;
+ }
+ 
+.position2{
+	top:145%;
+}
 
 /* 뉴스 */
  
@@ -182,7 +229,7 @@
 	top:90%;
 	display:flex;
 	justify-content:space-between;
-	margin-left:10%;
+	margin-left:80px;
 	border-bottom:1px solid #fff;
 	height:1.7em;
 }
@@ -190,7 +237,7 @@
 .news_group{
 	width:70%;
 	position:relative;
-	bottom:1.5em;
+	bottom:1.4em;
 }
 
 .news_group li{
@@ -202,7 +249,7 @@
 
 .news_sentence{
 	font-weight:300; 
-	font-size:1.2em; 
+	font-size:1.3em; 
 	line-height:1em;
 }
 
@@ -284,13 +331,13 @@
 		<!-- slider-area-start -->
 		<div class="slider-area">
 			<div class="sentence-container">
-				<div style="overflow:hidden;">
-					<h3 class="main_sentence">새로운 비전</h3>
+				<div class="sentece-wraper">
+					<h3 class="main_sentence sentence_ani">새로운 비전</h3>
 				</div>
-				<div>
-					<h3 class="main_sentence" style="animation-delay:0.5s;">새로운 가능성</h3>
+				<div class="sentece-wraper">
+					<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">새로운 가능성</h3>
 				</div>
-				<h4 class="main_sentence_sub" style="animation-delay:1s;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
+				<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
 			</div>
 			
 			<div class="news_container">
@@ -298,7 +345,7 @@
 					<ul class="news_group" id="news_group">
 						<c:forEach var="news" items="${news_list}">
 							<li>
-								<a class="news_sentence" href="/company/news" style="color:#fff;">
+								<a class="news_sentence sentence_ani" href="/company/news" style="color:#fff;">
 									${news.newsTitle}
 								</a>
 							</li>
@@ -318,13 +365,27 @@
 			</div>
 			
 			<c:import url="header_main_pc.jsp" charEncoding="UTF-8"></c:import>
-			<!-- brand-area-start -->
+			<div class="single-slider bg-img-main">
+			</div>
 		</div>
 		<!-- slider-area-end -->
 		
 		 <div class="slider-area">
+		 
+		 	<div class="sentence-container position2">
+				<div class="sentece-wraper">
+					<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
+				</div>
+				<div class="sentece-wraper">
+					<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
+				</div>
+				<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+			</div>
+			
 			<div class="slider-active owl-carousel">
 				<div class="single-slider bg-img-1">
+				</div>
+				<div class="single-slider bg-img-2">
 				</div>
 				<div class="single-slider bg-img-2">
 				</div>
@@ -338,6 +399,16 @@
 	</body>
 	<script src="/resources/js/jquery-ui.min.js"></script> 
 <script>
+/* 새로고침 시 스크롤 상단 이동 */
+window.onload = function() {
+	setTimeout (function () {
+		scrollTo(0,0);
+
+	},100);
+
+}
+
+/* 스크롤 */
 window.addEventListener("wheel", function(e){
 	e.preventDefault();
 },{passive : false});
@@ -367,8 +438,6 @@ $(window).on("wheel", function(e){
  
 	$html.animate({scrollTop : posTop},1000,'easeInQuart');
  	
-	console.log(page);
-	
  	/* 페이지 표시 */
  	if(page == "1"){
  		$("#num1").addClass("active");
@@ -382,103 +451,152 @@ $(window).on("wheel", function(e){
  		$("#num2").removeClass("active");
  		$("#num3").addClass("active");
  	}
+ 	
+ 	if(page == "2"){
+ 		/* $('.position2 div .main_sentence').removeClass("main_sentence");
+ 		$('.position2 div .main_sentence').addClass("main_sentence"); */
+ 		$('.position2 .main_sentence').removeClass("sentence_ani");
+ 		$('.position2 .main_sentence_sub').removeClass("sentence_ani");
+ 		setTimeout(function() { 
+	 		$('.position2 .main_sentence').addClass("sentence_ani");
+	 		$('.position2 .main_sentence_sub').addClass("sentence_ani");
+ 		}, 700);
+ 		console.log(page);
+ 	}
 });
 
-		jQuery(function($){
-		    var news_group = function(){
-		        timer = setTimeout(function(){
-		            $('#news_group li:first').animate( {marginTop: '-20px'}, 800, function(){
-		                $(this).detach().appendTo('ul#news_group').removeAttr('style');
-		            });
-		            news_group();
-		        }, 2000);         
-		      };
-		      
-		// 0번 이전 기능
-		      $(document).on('click','.prev',function(){
-		        clearTimeout(timer);
-		       $('#news_group li:first').prependTo($('#news_group')).animate({marginTop: '+20px'}, 500, function(){
-                   $('#news_group li:last').detach().prependTo('ul#news_group').removeAttr('style');
-                    $(this).removeAttr('style');
-                });
-		        news_group();
-		        if($('#pause_icon').hasClass("fa-play") == true){
-		          $('#pause_icon').addClass('fa-pause');
-		          $("#pause_icon").removeClass("fa-play");
-		        };
-		      }); // 0번 기능 끝
-		  
-		// 1. 클릭하면 다음 요소 보여주기... 클릭할 경우 setTimeout 을 clearTimeout 해줘야 하는데 어떻게 하지..
-		      $(document).on('click','.next',function(){
-		            clearTimeout(timer);
-		            $('#news_group li:first').animate( {marginTop: '-20px'}, 500, function()
-		                    {
-		                        $(this).detach().appendTo('ul#news_group').removeAttr('style');
-		                    });
-		            news_group();
-		            //3 함수와 연계 시작
-		            if($('#pause_icon').hasClass("fa-play") == true){
-				          $('#pause_icon').addClass('fa-pause');
-				          $("#pause_icon").removeClass("fa-play");
-		            }; //3 함수와 연계
-		          }); // next 끝. timer 를 전연변수보다 지역변수 사용하는게 나을 것 같은데 방법을 모르겠네요.
-
-		  //2. 재생정지기능 시작, 아직 다음 기능과 연동은 안됨...그래서 3을 만듦
-		  var autoplay = true;
-		      $(document).on('click','#pause',function(){
-		            if(autoplay==true){
-		              clearTimeout(timer);
-		              $('#pause_icon').removeClass('fa-pause');
-			          $("#pause_icon").addClass("fa-play");
-		              autoplay=false;
-		              clearTimeout(timer);
-		            }else{
-		              autoplay=true;
-		              $('#pause_icon').addClass('fa-pause');
+	/* owl-dot 글씨 변경 */
+	$(function(){
+		$(".owl-dot span").addClass("business");
+		
+		$(".owl-dot").eq(0).text('CCTV 설치');
+		$(".owl-dot").eq(1).text('군사시설 CCTV');
+		$(".owl-dot").eq(2).text('전자파용 CCTV');
+		$(".owl-dot").eq(3).text('정보통신공사');
+		
+		/* var dotlist =  */
+		/* var total_dots = $(".owl-dot").length;
+		console.log(total_dots); */
+				
+		
+		/* if(total_dots > 0){
+			for(var i=0; i<total_dots; i++){
+				var dots = dotList[i];
+				var dot = $($('.owl'))
+				$("owl-dot").addClass("owl-dot2");
+				console.log("hi");
+			}
+		} */
+		
+		/* var $dot = $("owl-dot");
+		$dot.change(function(){
+			console.log("변화 감지");
+		}) */
+	});
+	
+	$(function(){
+		if($(".owl-dot").eq(0).hasClass("active")){
+			console.log("읭?");
+		}
+	});
+	
+	/* 뉴스 애니메이션 */
+	jQuery(function($){
+	    var news_group = function(){
+	        timer = setTimeout(function(){
+	            $('#news_group li:first').animate( {marginTop: '-20px'}, 800, function(){
+	                $(this).detach().appendTo('ul#news_group').removeAttr('style');
+	            });
+	            news_group();
+	        }, 2000);         
+	      };
+	      
+	// 0번 이전 기능
+	      $(document).on('click','.prev',function(){
+	        clearTimeout(timer);
+	       $('#news_group li:first').prependTo($('#news_group')).animate({marginTop: '+20px'}, 500, function(){
+                  $('#news_group li:last').detach().prependTo('ul#news_group').removeAttr('style');
+                   $(this).removeAttr('style');
+               });
+	        news_group();
+	        if($('#pause_icon').hasClass("fa-play") == true){
+	          $('#pause_icon').addClass('fa-pause');
+	          $("#pause_icon").removeClass("fa-play");
+	        };
+	      }); // 0번 기능 끝
+	  
+	// 1. 클릭하면 다음 요소 보여주기... 클릭할 경우 setTimeout 을 clearTimeout 해줘야 하는데 어떻게 하지..
+	      $(document).on('click','.next',function(){
+	            clearTimeout(timer);
+	            $('#news_group li:first').animate( {marginTop: '-20px'}, 500, function()
+	                    {
+	                        $(this).detach().appendTo('ul#news_group').removeAttr('style');
+	                    });
+	            news_group();
+	            //3 함수와 연계 시작
+	            if($('#pause_icon').hasClass("fa-play") == true){
+			          $('#pause_icon').addClass('fa-pause');
 			          $("#pause_icon").removeClass("fa-play");
-		              news_group();
-		              clearTimeout(timer);
-		            }
-		          }); 
-		  // 재생정지기능 끝  
-		   
-		          
-		  // 3. 재생정지 함수 시작. 2와 기능 동일함.
-		    var news_group_pause = function()
-		  {
-		    $('#pause').click(function(){
-		      $this = $(this);
-		      if($('#pause_icon').hasClass("fa-pause") == true){
+	            }; //3 함수와 연계
+	          }); // next 끝. timer 를 전연변수보다 지역변수 사용하는게 나을 것 같은데 방법을 모르겠네요.
+
+	  //2. 재생정지기능 시작, 아직 다음 기능과 연동은 안됨...그래서 3을 만듦
+	  var autoplay = true;
+	      $(document).on('click','#pause',function(){
+	            if(autoplay==true){
+	              clearTimeout(timer);
 	              $('#pause_icon').removeClass('fa-pause');
 		          $("#pause_icon").addClass("fa-play");
-		        clearTimeout(timer);
-		      }
-		      else {
-		        clearTimeout(timer);
-		        news_group();
+	              autoplay=false;
+	              clearTimeout(timer);
+	            }else{
+	              autoplay=true;
 	              $('#pause_icon').addClass('fa-pause');
 		          $("#pause_icon").removeClass("fa-play");
-		      }
-		    });
-		   
-		  };
-		  news_group_pause();
-		  //3 재생정지 함수 끝
-		  
-		  //4 마우스를 올렸을 때 기능 정지
-		  var news_group_over = function()
-		  {
-		    $('#news_group').mouseover(function(){
-		      clearTimeout(timer);
-		    });
-		    $('#news_group').mouseout(function(){
-		      news_group();
-		    });  
-		  };
-  		news_group_over();
-		  // 4 끝
-	    news_group();
-		    
-		});
+	              news_group();
+	              clearTimeout(timer);
+	            }
+	          }); 
+	  // 재생정지기능 끝  
+	   
+	          
+	  // 3. 재생정지 함수 시작. 2와 기능 동일함.
+	    var news_group_pause = function()
+	  {
+	    $('#pause').click(function(){
+	      $this = $(this);
+	      if($('#pause_icon').hasClass("fa-pause") == true){
+              $('#pause_icon').removeClass('fa-pause');
+	          $("#pause_icon").addClass("fa-play");
+	        clearTimeout(timer);
+	      }
+	      else {
+	        clearTimeout(timer);
+	        news_group();
+              $('#pause_icon').addClass('fa-pause');
+	          $("#pause_icon").removeClass("fa-play");
+	      }
+	    });
+	   
+	  };
+	  news_group_pause();
+	  //3 재생정지 함수 끝
+	  
+	  //4 마우스를 올렸을 때 기능 정지
+	  var news_group_over = function()
+	  {
+	    $('#news_group').mouseover(function(){
+	      clearTimeout(timer);
+	    });
+	    $('#news_group').mouseout(function(){
+	      news_group();
+	    });  
+	  };
+ 		news_group_over();
+	  // 4 끝
+    news_group();
+	    
+	});
+		
 </script>
 </html>
