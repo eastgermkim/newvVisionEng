@@ -192,7 +192,12 @@
 	animation: up 500ms linear forwards; */
 }
 
-.sentence_ani{
+.position1 .sentence_ani{
+	transform: translateY(6rem);
+	animation: up 500ms linear forwards;
+}
+
+.owl-item.active .sentence_ani{
 	transform: translateY(6rem);
 	animation: up 500ms linear forwards;
 }
@@ -216,7 +221,7 @@
  }
  
 .position2{
-	top:145%;
+	top:45%;
 }
 
 /* 뉴스 */
@@ -330,7 +335,7 @@
 		
 		<!-- slider-area-start -->
 		<div class="slider-area">
-			<div class="sentence-container">
+			<div class="sentence-container position1">
 				<div class="sentece-wraper">
 					<h3 class="main_sentence sentence_ani">새로운 비전</h3>
 				</div>
@@ -372,18 +377,18 @@
 		
 		 <div class="slider-area">
 		 
-		 	<div class="sentence-container position2">
-				<div class="sentece-wraper">
-					<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
-				</div>
-				<div class="sentece-wraper">
-					<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-				</div>
-				<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-			</div>
 			
 			<div class="slider-active owl-carousel">
 				<div class="single-slider bg-img-1">
+				 	<div class="sentence-container position2">
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
+						</div>
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
+						</div>
+						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+					</div>
 				</div>
 				<div class="single-slider bg-img-2">
 				</div>
@@ -473,7 +478,16 @@ $(window).on("wheel", function(e){
 		$(".owl-dot").eq(1).text('군사시설 CCTV');
 		$(".owl-dot").eq(2).text('전자파용 CCTV');
 		$(".owl-dot").eq(3).text('정보통신공사');
-		
+	
+	/* 	if($(".owl-dot").eq(0).hasClass("active")){
+			$('.position2 .main_sentence').removeClass("sentence_ani");
+	 		$('.position2 .main_sentence_sub').removeClass("sentence_ani");
+	 		setTimeout(function() { 
+		 		$('.position2 .main_sentence').addClass("sentence_ani");
+		 		$('.position2 .main_sentence_sub').addClass("sentence_ani");
+	 		}, 700);
+		} */	
+	
 		/* var dotlist =  */
 		/* var total_dots = $(".owl-dot").length;
 		console.log(total_dots); */
@@ -494,11 +508,6 @@ $(window).on("wheel", function(e){
 		}) */
 	});
 	
-	$(function(){
-		if($(".owl-dot").eq(0).hasClass("active")){
-			console.log("읭?");
-		}
-	});
 	
 	/* 뉴스 애니메이션 */
 	jQuery(function($){
