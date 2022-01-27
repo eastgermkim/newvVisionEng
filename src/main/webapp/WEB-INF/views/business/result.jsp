@@ -308,9 +308,6 @@ table {
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
-	<script>
-		addClassName3();
-	</script>
 
 	<!-- breadcrumb-start -->
 	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
@@ -809,6 +806,18 @@ table {
 
 <!-- 자바스트립트 파일 분리 -->
 <%@ include file = "resultJS.jsp" %>
+
+<script>
+$(function () { 
+	
+	addClassName3();
+	
+	$( '.header-area' ).on( "mouseleave", function () {
+		addClassName3();
+	})
+
+});
+</script>
 
 <script>
 /* 메인페이지 등록창(새창) */

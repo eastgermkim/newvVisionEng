@@ -175,9 +175,6 @@ u {
 	data-revision-history="false">
 	<!-- header.jsp import -->
 	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
-	<script>
-		addClassName4();
-	</script>
 
 	<!-- breadcrumb-start -->
 	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
@@ -261,6 +258,18 @@ u {
 	</div>
 
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
+	
+	<script>
+	$(function () { 
+		
+		addClassName4();
+		
+		$( '.header-area' ).on( "mouseleave", function () {
+			addClassName4();
+		})
+	
+	});
+	</script>
 	
 	<!-- 페이지 벗어날 경우 경고창 -->
 	<script>

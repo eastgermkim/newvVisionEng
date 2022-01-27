@@ -77,9 +77,6 @@
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
-	<script>
-		addClassName1();
-	</script>
 	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
 		<div class="container">
 			<div class="row">
@@ -520,8 +517,20 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>
 
+<script>
+$(function () { 
+	
+	addClassName1();
+	
+	$( '.header-area' ).on( "mouseleave", function () {
+		addClassName1();
+	})
+
+});
+</script>
+
+<script>
 
 $(function(){
 	$('.history_before_2010').hide();

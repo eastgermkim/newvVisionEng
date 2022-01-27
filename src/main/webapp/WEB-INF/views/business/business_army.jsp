@@ -352,9 +352,6 @@ body .mb15 {
 
 	<!-- header.jsp import -->
 	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
-	<script>
-		addClassName2();
-	</script>
 
 	<!-- breadcrumb-start -->
 	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
@@ -513,6 +510,17 @@ body .mb15 {
 
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
+<script>
+$(function () { 
+	
+	addClassName2();
+	
+	$( '.header-area' ).on( "mouseleave", function () {
+		addClassName2();
+	})
+
+});
+</script>
 
 	<!--==========================스크롤 이미지 애니메이션============================-->
 	<script>

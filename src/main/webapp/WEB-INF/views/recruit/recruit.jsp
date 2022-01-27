@@ -242,9 +242,6 @@
 <body>
 	<!-- header.jsp import -->
 	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
-	<script>
-		addClassName5();
-	</script>
 
 	<!-- breadcrumb-start -->
 	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
@@ -403,7 +400,18 @@
  </section>
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
-
+	<script>
+	$(function () { 
+		
+		addClassName5();
+		
+		$( '.header-area' ).on( "mouseleave", function () {
+			addClassName5();
+		})
+	
+	});
+	</script>
+	
 </body>
 
 

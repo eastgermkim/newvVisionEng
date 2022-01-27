@@ -43,19 +43,21 @@
     text-align: center;
     padding-left: 0;
 }
-.submenu::before {
-    content: '';
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    background-color: white;
-    height: 100%;
-    left: -1000%;
-    right: -1000%;
-    border-bottom: 1px solid #eee;
-    z-index: 0;
-    top: 0;
-    border-top: 1px solid #eee;
+@media (min-width:991.5px){
+	.submenu::before {
+	    content: '';
+	    display: block;
+	    box-sizing: border-box;
+	    position: absolute;
+	    background-color: white;
+	    height: 100%;
+	    left: -1000%;
+	    right: -1000%;
+	    border-bottom: 1px solid #eee;
+	    z-index: 0;
+	    top: 0;
+	    border-top: 1px solid #eee;
+	}
 }
 </style>
 
@@ -129,7 +131,7 @@ $( document ).ready( function() {
 	     
     });
     
-    $( '#header_main_pc' ).on( "mouseleave", function () {
+    $( '.header-area' ).on( "mouseleave", function () {
     		
     	setTimeout(function () {
     			

@@ -66,19 +66,21 @@
     text-align: center;
     padding-left: 0;
 }
-.submenu::before {
-    content: '';
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    background-color: white;
-    height: 100%;
-    left: -1000%;
-    right: -1000%;
-    border-bottom: 1px solid #eee;
-    z-index: 0;
-    top: 0;
-    border-top: 1px solid #eee;
+@media (min-width:991.5px){
+	.submenu::before {
+	    content: '';
+	    display: block;
+	    box-sizing: border-box;
+	    position: absolute;
+	    background-color: white;
+	    height: 100%;
+	    left: -1000%;
+	    right: -1000%;
+	    border-bottom: 1px solid #eee;
+	    z-index: 0;
+	    top: 0;
+	    border-top: 1px solid #eee;
+	}
 }
 </style>
 
@@ -125,7 +127,6 @@
 								<nav>
 									<ul>
 										<sec:authorize access="isAnonymous()">
-											<li><a href="/home2">main2변경</a></li>
 											<li><a href="/home3">main3변경</a></li>
 											<li><a href="/login">Admin</a></li>
 										</sec:authorize>
@@ -210,6 +211,8 @@
 				</div>
 			</div>
 		</div>
+		<script src="http://code.jquery.com/jquery-latest.js"></script> 
+		<script src="/resources/js/jquery-ui.min.js"></script> 
 	</header>
 	<!-- header-end -->
 	<script>
@@ -231,6 +234,11 @@
    		function addClassName6() {
    		  document.getElementById('tab6').className = 'active activeColor';
    		}
+   		
+   		$('.header-area .main-header-area .main-menu ul li a').on( "mouseover", function () {
+   			console.log("asda");
+   			$('.active.activeColor').removeClass('active activeColor');
+   		})
    	</script>
    	
 	
