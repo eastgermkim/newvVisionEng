@@ -71,7 +71,7 @@
     display: block;
     margin: 0;
     color:#c9c9c9;
-    font-size:1.2em;
+    font-size:1.1em;
     font-weight:300;
 }
  
@@ -307,6 +307,42 @@
     width: 4px;
     background: #f36d20!important;
 }
+
+/* 슬라이드 버튼 */
+.owl-carousel .owl-nav div{
+	border:1px solid #c9c9c9;
+	color:#c9c9c9;
+	opacity:0.5;
+}
+
+.owl-carousel .owl-nav{
+	left:5em;
+}
+
+.owl-carousel .owl-nav .owl-prev, .owl-carousel .owl-nav .owl-next{
+	width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    line-height: 3.25em;
+}
+.owl-carousel .owl-nav i{
+	font-size:2em;
+}
+
+.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled{
+	position: absolute;
+    display: block;
+    top: 65%;
+    left: 10%;
+}
+
+.owl-carousel:hover .owl-nav div:hover{
+	color:#fff;
+	line-height:3.25em;
+}
+
+}
+
 </style>
 </head>
 	<body>
@@ -322,8 +358,8 @@
 		<div class="homePageGroup">
 			<div class="pageGroup sentence-container">
 				<h3>Page.</h3>
-				<a class="pageNumber active" id="num1">1</a>
-				<a class="pageNumber" id="num2">2</a>
+				<a class="pageNumber active" id="num1" href="#top">1</a>
+				<a class="pageNumber" id="num2" href="#page2">2</a>
 				<a class="pageNumber" id="num3">3</a>
 			</div>
 		</div>
@@ -376,12 +412,10 @@
 		<!-- slider-area-end -->
 		
 		 <div class="slider-area">
-		 
-			
 			<div class="slider-active owl-carousel">
 				<div class="single-slider bg-img-1">
 				 	<div class="sentence-container position2">
-						<div class="sentece-wraper">
+						<div class="sentece-wraper" id="page2">
 							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
 						</div>
 						<div class="sentece-wraper">
@@ -391,10 +425,37 @@
 					</div>
 				</div>
 				<div class="single-slider bg-img-2">
+					<div class="sentence-container position2">
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani">군사시설 CCTV SYSTEM</h3>
+						</div>
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
+						</div>
+						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+					</div>
 				</div>
 				<div class="single-slider bg-img-2">
+					<div class="sentence-container position2">
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
+						</div>
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
+						</div>
+						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+					</div>
 				</div>
 				<div class="single-slider bg-img-3">
+					<div class="sentence-container position2">
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
+						</div>
+						<div class="sentece-wraper">
+							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
+						</div>
+						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+					</div>
 				</div>
 			</div>
 		</div>
