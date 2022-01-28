@@ -59,6 +59,11 @@
 	    border-top: 1px solid #eee;
 	}
 }
+.header-area .main-header-area .main-menu ul li:hover>.submenu {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+}
 </style>
 
 </head>
@@ -113,7 +118,7 @@
 <script>
 $( document ).ready( function() {
 	
-    $( '.header_main_pc_li,	.header_main_pc_subli' ).on( "mouseover", function () {
+    $( '.header_main_pc_li,	.header_main_pc_subli a' ).on( "mouseover", function () {
     	
 	      $( '#header_main_pc' ).stop().animate({
 	    	  'background-color':'#fff'
@@ -132,24 +137,28 @@ $( document ).ready( function() {
     });
     
     $( '.header-area' ).on( "mouseleave", function () {
+    	
+    	if(!$( '.header_main_pc_li,	.header_main_pc_subli a' ).on( "mouseover")){
     		
-    	setTimeout(function () {
-    			
-	    	  $( '#header_main_pc' ).animate({
-	    		  'background-color':'transparent'
-		      }, 500);
-		      
-		      $( '.header-area .main-header-area_pc .main-menu ul li a' ).animate({
-		    	  color:'white'
-		      }, 100);
-		     
-		      $( '.ti-angle-down_main_pc' ).animate({
-		    	  color:'white'
-		      }, 100);
-		      
-		      $('#nv_logo').attr('src','/resources/img/nv_logo_white.png').animate({opacity:1},1000);
-      
-    	}, 500);
+	    	setTimeout(function () {
+	    			
+		    	  $( '#header_main_pc' ).animate({
+		    		  'background-color':'transparent'
+			      }, 500);
+			      
+			      $( '.header-area .main-header-area_pc .main-menu ul li a' ).animate({
+			    	  color:'white'
+			      }, 100);
+			     
+			      $( '.ti-angle-down_main_pc' ).animate({
+			    	  color:'white'
+			      }, 100);
+			      
+			      $('#nv_logo').attr('src','/resources/img/nv_logo_white.png').animate({opacity:1},1000);
+	      
+	    	}, 500);
+    	}
+    	
     });
     
   } );
