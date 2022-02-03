@@ -10,10 +10,15 @@
 <style>
 #header_main_pc{
 	padding-top: 5px;
+	transition-duration: 1s;
 }
-#nv_logo{
+#nv_logo_white{
+    display:none;
 	width: 200px;
-    /* transition: all 0.4s; */
+}
+#nv_logo_black{
+    display:none;
+	width: 200px;
 }
 .main-header-area_pc{
    /*  width: 80%; */
@@ -22,12 +27,14 @@
 .header-area .main-header-area_pc .main-menu ul li a {
     color: white;
     font-size: 18px;
+    transition-duration: 1s;
 }
 .header_main_pc_li{
 	margin-left: 34px
 }
 .ti-angle-down_main_pc{
 	color: white;
+	transition-duration: 1s;
 }
 .header-area .main-header-area .main-menu ul li .submenu {
     width: max-content;
@@ -59,22 +66,54 @@
 	    border-top: 1px solid #eee;
 	}
 }
-.header-area .main-header-area .main-menu ul li:hover>.submenu {
-    opacity: 1;
-    visibility: visible;
-    top: 100%;
+
+#header_main_pc.mousein{
+	background-color:#fff;
+	transition-duration: 0.5s;
+}
+.header-area .main-header-area_pc .main-menu ul li a.mousein {
+    color: #4C4646;
+	transition-duration: 0.5s;
+}
+.ti-angle-down_main_pc.mousein{
+	color: #4C4646;
+	transition-duration: 0.5s;
+}
+#nv_logo_white.mousein{
+	display:block;
+	width: 200px;
+    transition: 1s;
+}
+#nv_logo_black.mousein{
+    display:block;
+    transition: 0.5s;
+}
+
+
+.header-dimmed{
+    background-color: rgba(0,0,0,.8);
+    backface-visibility: hidden;
+    transform: translate3d(0,0,0);
+    filter: grayscale(1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    will-change: transform;
 }
 </style>
 
 </head>
 <body>
-	
+	<div class="header-dimmed" style="opacity: 0; visibility: hidden; height: 100vh;"></div>
 		<div class="header-area" id="header_main_pc">
 			<div id="sticky-header" class="main-header-area main-header-area_pc">
 				<div class="row align-items-center">
 					<div class="logo-img">
 						<a href="/"> 
-						<img id="nv_logo" src="/resources/img/nv_logo_white.png">
+						<img id="nv_logo_white" class="mousein" src="/resources/img/nv_logo_white.png">
+						<img id="nv_logo_black" src="/resources/img/nv_logo_black.png">
 						</a>
 					</div>
 					<div class="main-menu d-none d-lg-block" style="margin-left: 40px;">
@@ -112,53 +151,29 @@
 				</div>
 			</div>
 		</div>
+		
 		<script src="http://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
 </body>
 <script>
 $( document ).ready( function() {
 	
-    $( '.header_main_pc_li,	.header_main_pc_subli a' ).on( "mouseover", function () {
-    	
-	      $( '#header_main_pc' ).stop().animate({
-	    	  'background-color':'#fff'
-	      }, 150);
-	      
-	      $( '.header-area .main-header-area_pc .main-menu ul li a' ).stop().animate({
-	    	  color:'black'
-	      }, 50);
-	     
-	      $( '.ti-angle-down_main_pc' ).stop().animate({
-	    	  color:'black'
-	      }, 50);
-	      
-	      $('#nv_logo').attr('src','/resources/img/nv_logo_black.png').stop().animate({opacity:1},100);
-	     
+    $( '.header_main_pc_li' ).on( "mouseover", function () {
+		$( '#header_main_pc' ).addClass("mousein");
+		$( '.main-menu ul li a' ).addClass("mousein");
+		$( '.ti-angle-down_main_pc' ).addClass("mousein");
+		$( '#nv_logo_white' ).removeClass("mousein");
+		$( '#nv_logo_black' ).addClass("mousein");
     });
     
     $( '.header-area' ).on( "mouseleave", function () {
-    	
-    	if(!$( '.header_main_pc_li,	.header_main_pc_subli a' ).on( "mouseover")){
-    		
-	    	setTimeout(function () {
-	    			
-		    	  $( '#header_main_pc' ).animate({
-		    		  'background-color':'transparent'
-			      }, 500);
-			      
-			      $( '.header-area .main-header-area_pc .main-menu ul li a' ).animate({
-			    	  color:'white'
-			      }, 100);
-			     
-			      $( '.ti-angle-down_main_pc' ).animate({
-			    	  color:'white'
-			      }, 100);
-			      
-			      $('#nv_logo').attr('src','/resources/img/nv_logo_white.png').animate({opacity:1},1000);
-	      
-	    	}, 500);
+    	if(page != "2"){
+		$( '#header_main_pc' ).removeClass("mousein");
+		$( '.main-menu ul li a' ).removeClass("mousein");
+		$( '.ti-angle-down_main_pc' ).removeClass("mousein");
+		$( '#nv_logo_white' ).addClass("mousein");
+		$( '#nv_logo_black' ).removeClass("mousein");
     	}
-    	
     });
     
   } );

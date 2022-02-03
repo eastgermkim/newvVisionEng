@@ -547,13 +547,19 @@ $(window).on("wheel", function(e){
 	 		$('.position2 .main_sentence_sub').addClass("sentence_ani");
  		}, 700);
  		console.log(page); */
- 		$("#nv_logo").css('opacity','0').stop().attr("src","/resources/img/nv_logo_black.png").animate({opacity: "1"}, 700);
- 		$(".header-area .main-header-area_pc .main-menu ul li a").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
+		$( '#header_main_pc' ).addClass("mousein");
+		$( '.main-menu ul li a' ).addClass("mousein");
+		$( '.ti-angle-down_main_pc' ).addClass("mousein");
+		$( '#nv_logo_white' ).removeClass("mousein");
+		$( '#nv_logo_black' ).addClass("mousein");
  		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
  		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
  	}else{
- 		$("#nv_logo").css('opacity','0').stop().attr("src","/resources/img/nv_logo_white.png").animate({opacity: "1"}, 700);
- 		$(".header-area .main-header-area_pc .main-menu ul li a").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
+ 		$( '#header_main_pc' ).removeClass("mousein");
+		$( '.main-menu ul li a' ).removeClass("mousein");
+		$( '.ti-angle-down_main_pc' ).removeClass("mousein");
+		$( '#nv_logo_white' ).addClass("mousein");
+		$( '#nv_logo_black' ).removeClass("mousein");
  		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
  		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#fff").animate({opacity: "1"}, 700);
  	}
