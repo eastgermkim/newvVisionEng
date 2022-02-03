@@ -71,6 +71,10 @@
 	background-color:#fff;
 	transition-duration: 0.5s;
 }
+#header_main_pc.mouseinDark{
+	box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+	z-index : 100;
+}
 .header-area .main-header-area_pc .main-menu ul li a.mousein {
     color: #4C4646;
 	transition-duration: 0.5s;
@@ -88,25 +92,10 @@
     display:block;
     transition: 0.5s;
 }
-
-
-.header-dimmed{
-    background-color: rgba(0,0,0,.8);
-    backface-visibility: hidden;
-    transform: translate3d(0,0,0);
-    filter: grayscale(1);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 0;
-    will-change: transform;
-}
 </style>
 
 </head>
 <body>
-	<div class="header-dimmed" style="opacity: 0; visibility: hidden; height: 100vh;"></div>
 		<div class="header-area" id="header_main_pc">
 			<div id="sticky-header" class="main-header-area main-header-area_pc">
 				<div class="row align-items-center">
@@ -159,21 +148,26 @@
 $( document ).ready( function() {
 	
     $( '.header_main_pc_li' ).on( "mouseover", function () {
+		$( '#header_main_pc' ).addClass("mouseinDark");
+		
 		$( '#header_main_pc' ).addClass("mousein");
 		$( '.main-menu ul li a' ).addClass("mousein");
 		$( '.ti-angle-down_main_pc' ).addClass("mousein");
 		$( '#nv_logo_white' ).removeClass("mousein");
 		$( '#nv_logo_black' ).addClass("mousein");
+		
     });
     
     $( '.header-area' ).on( "mouseleave", function () {
+		$( '#header_main_pc' ).removeClass("mouseinDark");
+			
     	if(page != "2"){
-		$( '#header_main_pc' ).removeClass("mousein");
-		$( '.main-menu ul li a' ).removeClass("mousein");
-		$( '.ti-angle-down_main_pc' ).removeClass("mousein");
-		$( '#nv_logo_white' ).addClass("mousein");
-		$( '#nv_logo_black' ).removeClass("mousein");
-    	}
+			$( '#header_main_pc' ).removeClass("mousein");
+			$( '.main-menu ul li a' ).removeClass("mousein");
+			$( '.ti-angle-down_main_pc' ).removeClass("mousein");
+			$( '#nv_logo_white' ).addClass("mousein");
+			$( '#nv_logo_black' ).removeClass("mousein");
+	    }
     });
     
   } );
