@@ -216,17 +216,12 @@
 	top:45%;
  }
  
- .sentence-wrapper{
+ .sentece-wraper{
  	overflow:hidden;
  }
  
 .position2{
-	top:20%;
-	position:relative;
-}
-
-.position2 .main_sentence, .position2 .main_sentence_sub{
-	color:#4C4646!important;
+	top:45%;
 }
 
 /* 뉴스 */
@@ -377,10 +372,10 @@
 		<!-- slider-area-start -->
 		<div class="slider-area">
 			<div class="sentence-container position1">
-				<div class="sentence-wrapper">
+				<div class="sentece-wraper">
 					<h3 class="main_sentence sentence_ani">새로운 비전</h3>
 				</div>
-				<div class="sentence-wrapper">
+				<div class="sentece-wraper">
 					<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">새로운 가능성</h3>
 				</div>
 				<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
@@ -418,10 +413,10 @@
 		
 		 <div class="slider-area" style="background: #fff; height: 100vh;">
 			<div class="sentence-container position2">
-				<div class="sentence-wrapper" id="page2">
+				<div class="sentece-wraper" id="page2">
 					<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
 				</div>
-				<div class="sentence-wrapper">
+				<div class="sentece-wraper">
 					<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
 				</div>
 				<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
@@ -432,10 +427,10 @@
 			<div class="slider-active owl-carousel">
 				<div class="single-slider bg-img-1">
 				 	<div class="sentence-container position2">
-						<div class="sentence-wrapper" id="page2">
+						<div class="sentece-wraper" id="page2">
 							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
 						</div>
-						<div class="sentence-wrapper">
+						<div class="sentece-wraper">
 							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
 						</div>
 						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
@@ -443,10 +438,10 @@
 				</div>
 				<div class="single-slider bg-img-2">
 					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
+						<div class="sentece-wraper">
 							<h3 class="main_sentence sentence_ani">군사시설 CCTV SYSTEM</h3>
 						</div>
-						<div class="sentence-wrapper">
+						<div class="sentece-wraper">
 							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
 						</div>
 						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
@@ -454,10 +449,10 @@
 				</div>
 				<div class="single-slider bg-img-2">
 					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
+						<div class="sentece-wraper">
 							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
 						</div>
-						<div class="sentence-wrapper">
+						<div class="sentece-wraper">
 							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
 						</div>
 						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
@@ -465,10 +460,10 @@
 				</div>
 				<div class="single-slider bg-img-3">
 					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
+						<div class="sentece-wraper">
 							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
 						</div>
-						<div class="sentence-wrapper">
+						<div class="sentece-wraper">
 							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
 						</div>
 						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
@@ -500,7 +495,7 @@ var $html = $("html");
 
 var page = 1;
  
-var lastPage = $(".slider-area").length;
+var lastPage = $(".slider-area").length + 1;
  
 $html.animate({scrollTop:0},0);
 
@@ -519,7 +514,7 @@ $(window).on("wheel", function(e){
 	}
 	var posTop = (page-1) * $(window).height()+1;
  
-	$html.animate({scrollTop : posTop},1000,'easeInQuart');
+	$html.animate({scrollTop : posTop},1200,'easeInQuart');
  	
  	/* 페이지 표시 */
  	if(page == "1"){
@@ -535,27 +530,16 @@ $(window).on("wheel", function(e){
  		$("#num3").addClass("active");
  	}
  	
- 	/* 2페이지 */
  	if(page == "2"){
  		/* $('.position2 div .main_sentence').removeClass("main_sentence");
  		$('.position2 div .main_sentence').addClass("main_sentence"); */
- 		
- 		/* $('.position2 .main_sentence').removeClass("sentence_ani");
+ 		$('.position2 .main_sentence').removeClass("sentence_ani");
  		$('.position2 .main_sentence_sub').removeClass("sentence_ani");
  		setTimeout(function() { 
 	 		$('.position2 .main_sentence').addClass("sentence_ani");
 	 		$('.position2 .main_sentence_sub').addClass("sentence_ani");
  		}, 700);
- 		console.log(page); */
- 		$("#nv_logo").css('opacity','0').stop().attr("src","/resources/img/nv_logo_black.png").animate({opacity: "1"}, 700);
- 		$(".header-area .main-header-area_pc .main-menu ul li a").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
- 	}else{
- 		$("#nv_logo").css('opacity','0').stop().attr("src","/resources/img/nv_logo_white.png").animate({opacity: "1"}, 700);
- 		$(".header-area .main-header-area_pc .main-menu ul li a").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#fff").animate({opacity: "1"}, 700);
+ 		console.log(page);
  	}
 });
 
@@ -567,6 +551,34 @@ $(window).on("wheel", function(e){
 		$(".owl-dot").eq(1).text('군사시설 CCTV');
 		$(".owl-dot").eq(2).text('전자파용 CCTV');
 		$(".owl-dot").eq(3).text('정보통신공사');
+	
+	/* 	if($(".owl-dot").eq(0).hasClass("active")){
+			$('.position2 .main_sentence').removeClass("sentence_ani");
+	 		$('.position2 .main_sentence_sub').removeClass("sentence_ani");
+	 		setTimeout(function() { 
+		 		$('.position2 .main_sentence').addClass("sentence_ani");
+		 		$('.position2 .main_sentence_sub').addClass("sentence_ani");
+	 		}, 700);
+		} */	
+	
+		/* var dotlist =  */
+		/* var total_dots = $(".owl-dot").length;
+		console.log(total_dots); */
+				
+		
+		/* if(total_dots > 0){
+			for(var i=0; i<total_dots; i++){
+				var dots = dotList[i];
+				var dot = $($('.owl'))
+				$("owl-dot").addClass("owl-dot2");
+				console.log("hi");
+			}
+		} */
+		
+		/* var $dot = $("owl-dot");
+		$dot.change(function(){
+			console.log("변화 감지");
+		}) */
 	});
 	
 	
