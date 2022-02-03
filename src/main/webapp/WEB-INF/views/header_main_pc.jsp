@@ -148,8 +148,10 @@
 $( document ).ready( function() {
 	
     $( '.header_main_pc_li' ).on( "mouseover", function () {
+    	//마우스 오버시 나머지 배경 어둡게
 		$( '#header_main_pc' ).addClass("mouseinDark");
 		
+    	//마우스 오버시 색 변경
 		$( '#header_main_pc' ).addClass("mousein");
 		$( '.main-menu ul li a' ).addClass("mousein");
 		$( '.ti-angle-down_main_pc' ).addClass("mousein");
@@ -162,6 +164,8 @@ $( document ).ready( function() {
 		$( '#header_main_pc' ).removeClass("mouseinDark");
 			
     	if(page != "2"){
+    		//2페이지는 흰색 사진이라서 제외
+    		//마우스가 메뉴에서 떠나면 색깔 원래대로 복귀
 			$( '#header_main_pc' ).removeClass("mousein");
 			$( '.main-menu ul li a' ).removeClass("mousein");
 			$( '.ti-angle-down_main_pc' ).removeClass("mousein");

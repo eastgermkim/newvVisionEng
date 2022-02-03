@@ -30,6 +30,27 @@
 <link rel="stylesheet" href="/resources/css/slicknav.css">
 <link rel="stylesheet" href="/resources/css/style.css">
 	
+<style>
+.image {
+  position:relative;
+}
+
+.image .text {
+    width: fit-content;
+  position:absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+}
+#choonDiv{
+	font-size: 2em;
+}
+@media (max-width: 767px){
+	#choonDiv{
+	font-size: 1em;
+	}
+}
+</style>
 </head>
 <script>
 <!--
@@ -50,7 +71,7 @@
 			locateHome();
 		} else {
 			// 시간이 남았을 경우 카운트다운을 지속한다.
-			document.all.choonDiv.innerHTML = cnt + "초후에 홈페이지로 이동합니다.";
+			document.all.choonDiv.innerHTML = "<span style='color:red;'>"+ cnt + "</span>초후에 홈페이지로 이동합니다.";
 			setTimeout("countdown()", 1000);
 			cnt--;
 		}
@@ -59,8 +80,12 @@
 <body>
 	<!-- header.jsp import -->
 	<c:import url="./header.jsp" charEncoding="UTF-8"></c:import>
-	<h3>잘못된 접근입니다.</h3>
-	<div id="choonDiv"></div>
+	<div class="image">
+		<img src="/resources/img/404error.png" style="width: 100%">
+		<div class="text">
+			<div id="choonDiv"></div>
+		</div>
+	</div>
 	<script>countdown();</script>
 	<c:import url="./footer.jsp" charEncoding="UTF-8"></c:import>
 </body>

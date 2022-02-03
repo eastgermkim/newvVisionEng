@@ -67,26 +67,27 @@
     padding-left: 0;
 }
 @media (min-width:991.5px){
-	.submenu::before {
+	 .submenu::before {
 	    content: '';
 	    display: block;
 	    box-sizing: border-box;
 	    position: absolute;
 	    background-color: white;
 	    height: 100%;
-	    left: -1000%;
-	    right: -1000%;
+		/* left: -84%;
+ 		right: -105%; */
+		left: -1000%;
+ 		right: -1000%;
 	    border-bottom: 1px solid #eee;
 	    z-index: 0;
 	    top: 0;
 	    border-top: 1px solid #eee;
 	}
-}
 </style>
 
 </head>
 
-<body>
+<body style="overflow-x: hidden">
 
 <script>
 /* Internet Explorer 접속 방지(Edge로 전환) */
@@ -210,6 +211,29 @@
 					</div>
 				</div>
 			</div>
+						<!-- <div class="submenu-bg" style="opacity: 1;visibility: inherit;">
+			            <div class="etc">
+			                <div class="cs">
+			                    <h3>문의하기</h3>
+			                    <ul>
+			                        <li><a href="#" onclick="navCsDetail('product')"><span>제품 문의</span></a></li>
+			                        <li><a href="#" onclick="navCsDetail('media')"><span>미디어 문의</span></a></li>
+			                        <li><a href="#" onclick="navCsDetail('partnership')"><span>파트너십 문의</span></a></li>
+			                        <li><a href="#" onclick="navCsDetail('homepage_etc')"><span>홈페이지 문의</span></a></li>
+			                    </ul>
+			                    <div class="more">
+			                        <a href="./cs"><span>more.</span></a>
+			                    </div>
+			                </div>
+			                <div class="btns">
+			                    <a href="/assets/file/2021_company_profile_KOR.pdf" target="_blank" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>회사소개서</span><i class="download"></i></a>
+			                    <a href="/assets/file/2020_LGEnergySoution_Sales_Report.pdf" target="_blank" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>영업 보고서</span><i class="download"></i></a>
+			                    <a href="/assets/file/LG_Energy_Solution_CI_JPG.zip" target="_blank" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>CI 로고</span><i class="download"></i></a>
+			                    <a href="https://www.lgensol.com/upload/file/sustainability/2021_LGES_ESG_Report_KOR_F.PDF" id="esgReportFile" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;" target="_blank"><span>ESG 보고서</span><i class="download"></i></a>
+			                    <a href="./cs-safetyguide-caution-tab1" class="__arrow" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>안전가이드</span></a>
+			                </div>
+			            </div>
+			        </div> -->
 		</div>
 		<script src="http://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
