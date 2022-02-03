@@ -229,6 +229,29 @@
 	color:#4C4646!important;
 }
 
+.business_wrapper{
+	margin-top:5%;
+	margin-left:10%;
+	margin-right:10%;
+	width:80%;
+}
+
+.business_wrapper img{
+	width:100%;
+	height:50vh;
+	object-fit:cover;
+}
+
+.business_wrapper .business_sentence{
+    position: absolute;
+    /* top: 50%; */
+    padding-top: 100%;
+    color: #fff;
+    background: rgba(0,0,0,0.25);
+    height: 100%;
+    width: 100%;
+}
+
 /* 뉴스 */
  
 .news_container{
@@ -425,6 +448,80 @@
 					<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
 				</div>
 				<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+				
+				<div class="business_wrapper team-area">
+					<div class="row">
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team">
+		                        <div class="team-thumb">
+		                        	<div class="business_sentence">
+		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        	</div>
+		                            <img src="/resources/img/business/business.jpg" alt="" style="object-position:85%;">
+		                            <div class="team-hover">
+		                                <div class="team-link">
+		                                    <ul>
+		                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+		                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+		                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team">
+		                        <div class="team-thumb">
+		                       		<div class="business_sentence">
+		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        	</div>
+		                            <img src="/resources/img/business/service1.jpg" alt="" style="object-position:25%;">
+		                            <div class="team-hover">
+		                                <div class="team-link">
+		                                    <ul>
+		                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+		                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+		                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team">
+		                        <div class="team-thumb">
+		                        	<div class="business_sentence">
+		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        	</div>
+		                            <img src="/resources/img/business/service2.jpg" alt="" style="object-position:20%;">
+		                            <div class="team-hover">
+		                                <div class="team-link">
+		                                    <ul>
+		                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+		                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+		                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team">
+		                        <div class="team-thumb">
+			                        <div class="business_sentence">
+		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        	</div>
+		                            <img src="/resources/img/business/service2.jpg" alt="" style="object-position:20%;">
+		                            <div class="team-hover">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+				</div>
 			</div>	
 		</div>
 		
@@ -673,6 +770,17 @@ $(window).on("wheel", function(e){
     news_group();
 	    
 	});
-		
+	
+	/* 아직 미완성 */
+	$(function(){
+		$(".business_sentence", "team-hover").mouseover(function(){
+			console.log("됨");
+			$(".business_sentence h4").css("display","none");
+		})
+		$(".business_sentence", "team-hover").mouseout(function(){
+			console.log("됨");
+			$(".business_sentence h4").css("display","block");
+		})
+	});
 </script>
 </html>
