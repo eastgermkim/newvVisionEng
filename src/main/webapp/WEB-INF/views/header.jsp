@@ -129,6 +129,7 @@
 									<ul>
 										<sec:authorize access="isAnonymous()">
 											<li><a href="/home3">main3변경</a></li>
+											<li><a href="/home5">main5변경</a></li>
 											<li><a href="/login">Admin</a></li>
 										</sec:authorize>
 										<sec:authorize access="isAuthenticated()">

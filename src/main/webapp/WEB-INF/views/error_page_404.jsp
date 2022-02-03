@@ -67,7 +67,6 @@
 	function countdown() {
 		if (cnt == 0) {
 			// 시간이 0일경우
-
 			locateHome();
 		} else {
 			// 시간이 남았을 경우 카운트다운을 지속한다.
