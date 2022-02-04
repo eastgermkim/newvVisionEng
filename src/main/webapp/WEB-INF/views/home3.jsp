@@ -192,7 +192,7 @@
 	animation: up 500ms linear forwards; */
 }
 
-.position1 .sentence_ani{
+.position1 .sentence_ani, .position2 .sentence_ani{
 	transform: translateY(6rem);
 	animation: up 500ms linear forwards;
 }
@@ -259,12 +259,11 @@
 	overflow:hidden;
 	position:absolute;
 	z-index:98;
-	top:90%;
+	top:20%;
 	display:flex;
 	justify-content:space-between;
 	margin-left:80px;
-	border-bottom:1px solid #fff;
-	height:1.7em;
+	height:1.6em;
 }
 
 .news_group{
@@ -442,12 +441,12 @@
 		 <div class="slider-area" style="background: #fff; height: 100vh;">
 			<div class="sentence-container position2">
 				<div class="sentence-wrapper" id="page2">
-					<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
+					<h3 class="main_sentence">CCTV 설치</h3>
 				</div>
 				<div class="sentence-wrapper">
-					<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
+					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
 				</div>
-				<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+				<h4 class="main_sentence_sub" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
 				
 				<div class="business_wrapper team-area">
 					<div class="row">
@@ -634,31 +633,32 @@ $(window).on("wheel", function(e){
  	
  	/* 2페이지 */
  	if(page == "2"){
- 		/* $('.position2 div .main_sentence').removeClass("main_sentence");
- 		$('.position2 div .main_sentence').addClass("main_sentence"); */
- 		
- 		/* $('.position2 .main_sentence').removeClass("sentence_ani");
- 		$('.position2 .main_sentence_sub').removeClass("sentence_ani");
- 		setTimeout(function() { 
-	 		$('.position2 .main_sentence').addClass("sentence_ani");
-	 		$('.position2 .main_sentence_sub').addClass("sentence_ani");
- 		}, 700);
- 		console.log(page); */
-		$( '#header_main_pc' ).addClass("mousein");
-		$( '.main-menu ul li a' ).addClass("mousein");
-		$( '.ti-angle-down_main_pc' ).addClass("mousein");
-		$( '#nv_logo_white' ).removeClass("mousein");
-		$( '#nv_logo_black' ).addClass("mousein");
- 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
+	 	$(".position2 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
+	 	 /* $(".position2 .sentence-wrapper .main_sentence").css("display","none"); */
+	 	setTimeout(function(){
+		 	/* $(".position2 .sentence-wrapper .main_sentence").css("display","block"); */
+	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
+	 	},1200);
+ 		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+ 		setTimeout(function(){
+			$( '#header_main_pc' ).addClass("mousein");
+			$( '.main-menu ul li a' ).addClass("mousein");
+			$( '.ti-angle-down_main_pc' ).addClass("mousein");
+			$( '#nv_logo_white' ).removeClass("mousein");
+			$( '#nv_logo_black' ).addClass("mousein");
+	 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
+	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
+ 		},1000);
  	}else{
  		$( '#header_main_pc' ).removeClass("mousein");
-		$( '.main-menu ul li a' ).removeClass("mousein");
-		$( '.ti-angle-down_main_pc' ).removeClass("mousein");
-		$( '#nv_logo_white' ).addClass("mousein");
-		$( '#nv_logo_black' ).removeClass("mousein");
- 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#fff").animate({opacity: "1"}, 700);
+ 		setTimeout(function(){
+			$( '.main-menu ul li a' ).removeClass("mousein");
+			$( '.ti-angle-down_main_pc' ).removeClass("mousein");
+			$( '#nv_logo_white' ).addClass("mousein");
+			$( '#nv_logo_black' ).removeClass("mousein");
+	 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
+	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#fff").animate({opacity: "1"}, 700);
+ 		},1000);
  	}
 });
 
@@ -770,17 +770,6 @@ $(window).on("wheel", function(e){
     news_group();
 	    
 	});
-	
-	/* 아직 미완성 */
-	$(function(){
-		$(".business_sentence", "team-hover").mouseover(function(){
-			console.log("됨");
-			$(".business_sentence h4").css("display","none");
-		})
-		$(".business_sentence", "team-hover").mouseout(function(){
-			console.log("됨");
-			$(".business_sentence h4").css("display","block");
-		})
-	});
+
 </script>
 </html>
