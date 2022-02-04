@@ -390,20 +390,23 @@
 }
 
 .swiper-button-next {
-  background: url(/godiva/img/common/next.png) no-repeat;
-  background-size: 50% auto;
+  background: url(/resources/img/icon/next.png) no-repeat;
+  background-size: 100%;
   background-position: center;
 }
 
 .swiper-button-prev {
-  background: url(/godiva/img/common/prev.png) no-repeat;
+  background: url(/resources/img/icon/prev.png) no-repeat;
+  background-size: 100%;
+  background-position: center;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
   display: none;
 }
-/* .img-wrapper {
+
+.img-wrapper {
 	position: relative;
 } 
 
@@ -416,7 +419,7 @@
 	height: 100%;
 	object-fit: cover;
 	margin: auto;
-} */
+}
 </style>
 
 </head>
@@ -491,9 +494,9 @@
 			      <div class="swiper-wrapper">
 						<c:forEach items="${business_list}" var="business">
 						<div class="swiper-slide">
+							<div class="img-wrapper" style="width: inherit;">
 								<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-							<!-- <div class="img-wrapper" style="width: inherit;"> -->
-							<!-- </div> -->
+							</div>
 						</div>
 						<%-- <div class="project-info">
 							<span>${business.resultClass}</span>
@@ -762,6 +765,34 @@ $(window).on("wheel", function(e){
 		
 </script>
  <script>
+ /* 사업실적의 이미지 정사각형 고정 */
+ $(document).ready(function () {
+ 	$('.img-wrapper').each(function() {
+ 		$(this).height($(this).width());
+ 	});
+ });
+ 
+ var delay = 300;
+ var timer = null;
+
+ $(window).on('resize', function(){
+ 	clearTimeout(timer);
+ 	timer = setTimeout(function(){
+ 		console.log('resize event!');
+ 		
+ 		console.log("project-active의 owl-item의 width : "+$('.project-active').find('.owl-item.active').width());
+ 		var owl_item_width = $('.project-active').find('.owl-item.active').width();
+ 		
+ 		$('.img-wrapper').each(function() {
+ 			$(this).width(owl_item_width);
+ 			$(this).height($(this).width());
+ 		});
+ 		$('.project-info').each(function() {
+ 			$(this).width(owl_item_width);
+ 		});
+ 	}, delay);
+ });
+ 
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: 3,
         spaceBetween: 30,
