@@ -416,6 +416,9 @@
     position: initial;
     margin-top: 6px;
 }
+:root {
+    --swiper-theme-color: #f36d20;
+}
 
 .img-wrapper {
 	position: relative;
@@ -441,7 +444,7 @@
 .mySwiper4{
 	display: none;
 }
-@media (max-width : 1900px){
+@media (max-width : 2500px){
 	.mySwiper{
 		display: none;
 	}
