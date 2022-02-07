@@ -223,14 +223,15 @@
 .position2{
 	top:20%;
 	position:relative;
+	overflow:hidden;
 }
 
 .position2 .main_sentence, .position2 .main_sentence_sub{
-	color:#4C4646!important;
+	color:#fff;
 }
 
 .business_wrapper{
-	margin-top:5%;
+	margin-top:15%;
 	margin-left:10%;
 	margin-right:10%;
 	width:80%;
@@ -245,11 +246,33 @@
 .business_wrapper .business_sentence{
     position: absolute;
     /* top: 50%; */
-    padding-top: 100%;
+    padding-top: 85%;
     color: #fff;
     background: rgba(0,0,0,0.25);
     height: 100%;
     width: 100%;
+}
+
+.business_wrapper .business_sentence h4{
+	color:#fff;
+	margin-left:5%;
+	margin-right:5%;
+	font-size:1.2em;
+}
+
+.business_wrapper .business_sentence h3{
+	color:#fff;
+	margin-left:5%;
+	margin-right:5%;
+	font-size:2em;
+    font-weight: 700;
+}
+
+.business_wrapper .business_sentence p{
+	color:rgba(255,255,255,0.7);
+	margin-left:5%;
+	margin-right:5%;
+	font-size:1em;
 }
 
 /* 뉴스 */
@@ -447,16 +470,19 @@
 					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
 				</div>
 				<h4 class="main_sentence_sub" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-				
+		</div>	
+			<div>
 				<div class="business_wrapper team-area">
 					<div class="row">
 		                <div class="col-xl-3 col-lg-3 col-md-12">
 		                    <div class="single-team">
 		                        <div class="team-thumb">
 		                        	<div class="business_sentence">
-		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        		<h4>CCTV 설치</h4>
+		                        		<h3>INSTALLATION</h3>
+		                        		<p>15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/business.jpg" alt="" style="object-position:85%;">
+		                            <img src="/resources/img/business/test_cctv.jpeg" alt="" style="object-position:25%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
 		                                    <ul>
@@ -473,9 +499,11 @@
 		                    <div class="single-team">
 		                        <div class="team-thumb">
 		                       		<div class="business_sentence">
-		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        		<h4>군사시설</h4>
+		                        		<h3>SOLUTION</h3>
+		                        		<p>노하우를 바탕으로 더욱 향상된, 요청한 환경에 맞는 적합한 서비스를 적시에 설계 및 제공합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/service1.jpg" alt="" style="object-position:25%;">
+		                            <img src="/resources/img/business/test_army.jpeg" alt="" style="object-position:85%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
 		                                    <ul>
@@ -492,9 +520,11 @@
 		                    <div class="single-team">
 		                        <div class="team-thumb">
 		                        	<div class="business_sentence">
-		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        		<h4>특수시설</h4>
+		                        		<h3>SHILED ROOM</h3>
+		                        		<p>전자파 맞춤형 영상 장비 설비를 구축합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/service2.jpg" alt="" style="object-position:20%;">
+		                            <img src="/resources/img/business/test_cctv2.jpeg" alt="" style="object-position:20%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
 		                                    <ul>
@@ -511,9 +541,11 @@
 		                    <div class="single-team">
 		                        <div class="team-thumb">
 			                        <div class="business_sentence">
-		                        		<h4>ㅎㅇㅎㅇ</h4>
+		                        		<h4>정보통신</h4>
+		                        		<h3>TELECOMMUNICATION</h3>
+		                        		<p>전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/service2.jpg" alt="" style="object-position:20%;">
+		                            <img src="/resources/img/business/lan_main.jpg" alt="" style="object-position:20%;">
 		                            <div class="team-hover">
 		                            </div>
 		                        </div>
@@ -521,7 +553,7 @@
 		                </div>
 		            </div>
 				</div>
-			</div>	
+			</div>
 		</div>
 		
 		 <div class="slider-area">
@@ -633,11 +665,11 @@ $(window).on("wheel", function(e){
  	
  	/* 2페이지 */
  	if(page == "2"){
-	 	$(".position2 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
-	 	 /* $(".position2 .sentence-wrapper .main_sentence").css("display","none"); */
 	 	setTimeout(function(){
-		 	/* $(".position2 .sentence-wrapper .main_sentence").css("display","block"); */
+	 		$(".position2 .sentence-wrapper .main_sentence").css("color","#4c4646");
+	 		$(".position2 .main_sentence_sub").css("color","#4c4646");
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
+	 		$(".position2 .main_sentence_sub").addClass("sentence_ani");
 	 	},1200);
  		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
  		setTimeout(function(){
