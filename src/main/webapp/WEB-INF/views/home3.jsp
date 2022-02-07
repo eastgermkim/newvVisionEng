@@ -409,10 +409,10 @@
 <style>
 .swiper {
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
 	/* margin-top: 125px; */
 	/* margin-top: 60px; */
-	margin-top: 80px;
+	margin-top: 25vh;
 	padding-right: 5%;
 	padding-left: 5%;
 }
@@ -531,9 +531,6 @@
 </style>
 <style>
 /* ====================================================================================== */
-.inner_ZZ {
-    position: relative;
-}
 
 .main__tit {
     font-size: 60px;
@@ -761,11 +758,10 @@
 		
 		<div class="slider-area" style="background: #fff; height: 100vh;">
 			<div class="sentence-container position3">
-				<div class="inner_ZZ">
-					<div class="sentence-wrapper" id="page3">
-						<p class="main__tit">주요사업실적</p>
+				<div class="sentence-wrapper" id="page3">
+						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
 					</div>
-					<p class="main__stit">
+					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s;">
 						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
 					</p>
 				</div>
