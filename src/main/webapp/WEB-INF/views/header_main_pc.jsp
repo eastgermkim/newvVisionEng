@@ -70,6 +70,7 @@
 #header_main_pc.mousein{
 	background-color:#fff;
 	transition-duration: 0.5s;
+	border-bottom: 1px solid #eee;
 }
 #header_main_pc.mouseinDark{
 	box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
