@@ -17,6 +17,11 @@
 <link rel="shortcut icon" type="image/x-icon"
 	href="/resources/img/nvicon.png">
 
+<!-- swiperjs. -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+
 <!-- CSS here -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
@@ -105,7 +110,7 @@
 .scroll span {
   position: fixed;
   top: 90%;
-  left: 90%;
+  left: 95%;
   width: 30px;
   height: 50px;
   border: 2px solid #fff;
@@ -165,7 +170,7 @@
 .scroll-text{
     position: fixed;
     z-index: 98;
-    left: 89.6%;
+    left: 94.6%;
     color: #fff;
     top: 96%;
  }
@@ -226,12 +231,18 @@
 	overflow:hidden;
 }
 
+.position3{
+	top:20%;
+	position:relative;
+	overflow:hidden;
+}
+
 .position2 .main_sentence, .position2 .main_sentence_sub{
 	color:#fff;
 }
 
 .business_wrapper{
-	margin-top:15%;
+	margin-top:25vh;
 	margin-left:10%;
 	margin-right:10%;
 	width:80%;
@@ -239,14 +250,14 @@
 
 .business_wrapper img{
 	width:100%;
-	height:50vh;
+	height:60vh;
 	object-fit:cover;
 }
 
 .business_wrapper .business_sentence{
     position: absolute;
     /* top: 50%; */
-    padding-top: 85%;
+    padding-top: 100%;
     color: #fff;
     background: rgba(0,0,0,0.25);
     height: 100%;
@@ -394,6 +405,213 @@
 }
 
 </style>
+
+<style>
+.swiper {
+	width: 100%;
+	height: 100%;
+	/* margin-top: 125px; */
+	/* margin-top: 60px; */
+	margin-top: 80px;
+	padding-right: 5%;
+	padding-left: 5%;
+}
+@media (max-width: 768px){
+	.swiper{
+	    margin-top: 45px;
+	}
+}
+@media (max-width: 640px){
+	.swiper{
+	    margin-top: 25px;
+	}
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    font-weight: bold;
+    color: white;
+ 	text-shadow: 0px 0px 10px black;
+ 	top: 47%;
+}
+.swiper-button-prev{
+    left: 4%;
+}
+.swiper-button-next{
+    right: 4%;
+}
+.swiper-pagination {
+    position: initial;
+    margin-top: 6px;
+}
+:root {
+    --swiper-theme-color: #f36d20;
+}
+
+.img-wrapper {
+	position: relative;
+} 
+
+.img-wrapper img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: auto;
+}
+
+.mySwiper2{
+	display: none;
+}
+.mySwiper3{
+	display: none;
+}
+.mySwiper4{
+	display: none;
+}
+@media (max-width : 2500px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: block;
+	}
+}
+@media (max-width : 991.5px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: none;
+	}
+	.mySwiper3{
+		display: block;
+	}
+}
+@media (max-width : 767.5px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: none;
+	}
+	.mySwiper3{
+		display: none;
+	}
+	.mySwiper4{
+		display: block;
+	}
+</style>
+<style>
+/* ====================================================================================== */
+.inner_ZZ {
+    position: relative;
+}
+
+.main__tit {
+    font-size: 60px;
+    position: relative;
+    line-height: 1em;
+    font-weight: bold;
+    margin-left: 10%;
+}
+.main__tit::before {
+    content: "";
+    height: 9px;
+    width: 34px;
+    background-color: #f36d20;
+    position: absolute;
+    top: 8px;
+    left: -40px;
+    -webkit-transform: skew(-45deg);
+    transform: skew(-45deg);
+}
+.main__stit {
+    line-height: 1.5em;
+    font-size: 20px;
+    color: #555;
+    word-break: keep-all;
+    margin-left: 10%;
+}
+@media (max-width: 767.5px){
+	.main__tit {
+	    font-size: 35px;
+	}
+	.main__tit::before {
+	    height: 5px;
+	    width: 21px;
+	    left: -24px;
+	    top: 5px;
+	}
+	.main__stit {
+	    font-size: 14px;
+	}
+}
+@media (max-width: 450px){
+	.main__tit::before {
+		width: 15px;
+	    left: -15px;
+	}
+}
+.animated {
+  transition: all ease 1.5s;
+}
+
+.animated.on {
+  transform: translateY(0);
+  opacity: 1;
+}
+</style>
+
+<style>
+.business-text{
+    width: 100%;
+	position: absolute;
+    bottom: 15px;
+}
+.business-text>p{
+    color: #fff;
+	font-size: 1em;
+    line-height: 1em;
+    text-shadow: 0px 0px 3px black;
+    font-weight: 500;
+    margin: 1%;
+    
+}
+.business-text>p:last-child {
+    color: #fff;
+    margin-bottom: 0px;
+    margin-top: 7px;
+}
+</style>
+
 </head>
 	<body>
         <script> 
@@ -464,88 +682,73 @@
 		 <div class="slider-area" style="background: #fff; height: 100vh;">
 			<div class="sentence-container position2">
 				<div class="sentence-wrapper" id="page2">
-					<h3 class="main_sentence">CCTV 설치</h3>
+					<h3 class="main_sentence">Business</h3>
 				</div>
-				<div class="sentence-wrapper">
+<!-- 				<div class="sentence-wrapper">
 					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
-				</div>
-				<h4 class="main_sentence_sub" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+				</div> -->
+				<h4 class="main_sentence_sub" style="animation-delay:0.5s;">설치부터 유지관리까지 세심한 작업과 축적된 노하우로 고객들과 소통합니다.</h4>
 		</div>	
 			<div>
 				<div class="business_wrapper team-area">
 					<div class="row">
 		                <div class="col-xl-3 col-lg-3 col-md-12">
-		                    <div class="single-team">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000"">
 		                        <div class="team-thumb">
 		                        	<div class="business_sentence">
 		                        		<h4>CCTV 설치</h4>
 		                        		<h3>INSTALLATION</h3>
 		                        		<p>15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/test_cctv.jpeg" alt="" style="object-position:25%;">
+		                            <img src="/resources/img/business/main_cctv.jpg" alt="" style="object-position:25%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
-		                                    <ul>
-		                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-		                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-		                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-		                                    </ul>
 		                                </div>
 		                            </div>
 		                        </div>
 		                    </div>
 		                </div>
 		                <div class="col-xl-3 col-lg-3 col-md-12">
-		                    <div class="single-team">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
 		                        <div class="team-thumb">
 		                       		<div class="business_sentence">
 		                        		<h4>군사시설</h4>
 		                        		<h3>SOLUTION</h3>
 		                        		<p>노하우를 바탕으로 더욱 향상된, 요청한 환경에 맞는 적합한 서비스를 적시에 설계 및 제공합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/test_army.jpeg" alt="" style="object-position:85%;">
+		                            <img src="/resources/img/business/main_army.jpg" alt="" style="object-position:85%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
-		                                    <ul>
-		                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-		                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-		                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-		                                    </ul>
 		                                </div>
 		                            </div>
 		                        </div>
 		                    </div>
 		                </div>
 		                <div class="col-xl-3 col-lg-3 col-md-12">
-		                    <div class="single-team">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
 		                        <div class="team-thumb">
 		                        	<div class="business_sentence">
 		                        		<h4>특수시설</h4>
 		                        		<h3>SHILED ROOM</h3>
 		                        		<p>전자파 맞춤형 영상 장비 설비를 구축합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/test_cctv2.jpeg" alt="" style="object-position:20%;">
+		                            <img src="/resources/img/business/main_sp.jpg" alt="" style="object-position:20%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
-		                                    <ul>
-		                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-		                                        <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-		                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-		                                    </ul>
 		                                </div>
 		                            </div>
 		                        </div>
 		                    </div>
 		                </div>
 		                <div class="col-xl-3 col-lg-3 col-md-12">
-		                    <div class="single-team">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
 		                        <div class="team-thumb">
 			                        <div class="business_sentence">
 		                        		<h4>정보통신</h4>
 		                        		<h3>TELECOMMUNICATION</h3>
 		                        		<p>전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.</p>
 		                        	</div>
-		                            <img src="/resources/img/business/lan_main.jpg" alt="" style="object-position:20%;">
+		                            <img src="/resources/img/business/main_lan.jpg" alt="" style="object-position:20%;">
 		                            <div class="team-hover">
 		                            </div>
 		                        </div>
@@ -556,54 +759,99 @@
 			</div>
 		</div>
 		
-		 <div class="slider-area">
-			<div class="slider-active owl-carousel">
-				<div class="single-slider bg-img-1">
-				 	<div class="sentence-container position2">
-						<div class="sentence-wrapper" id="page2">
-							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
+		<div class="slider-area" style="background: #fff; height: 100vh;">
+			<div class="sentence-container position3">
+				<div class="inner_ZZ">
+					<div class="sentence-wrapper" id="page3">
+						<p class="main__tit">주요사업실적</p>
 					</div>
+					<p class="main__stit">
+						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
+					</p>
 				</div>
-				<div class="single-slider bg-img-2">
-					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani">군사시설 CCTV SYSTEM</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-					</div>
-				</div>
-				<div class="single-slider bg-img-2">
-					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-					</div>
-				</div>
-				<div class="single-slider bg-img-3">
-					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-					</div>
-				</div>
-			</div>
+				<!-- 4개씩 -->
+				<div class="swiper mySwiper">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultClass}</p>
+										<p>${business.resultContnents}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 3개씩 -->
+				<div class="swiper mySwiper2">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 2개씩 -->
+				<div class="swiper mySwiper3">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 1개씩 -->
+				<div class="swiper mySwiper4">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			</div>	
 		</div>
+		
 		<!-- footer-start -->
 		<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
 		<!-- footer-end -->
@@ -664,12 +912,13 @@ $(window).on("wheel", function(e){
  	}
  	
  	/* 2페이지 */
- 	if(page == "2"){
+ 	if(page == "2" ||page == "3"){
 	 	setTimeout(function(){
 	 		$(".position2 .sentence-wrapper .main_sentence").css("color","#4c4646");
 	 		$(".position2 .main_sentence_sub").css("color","#4c4646");
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 		$(".position2 .main_sentence_sub").addClass("sentence_ani");
+	 		$(".position3 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 	},1200);
  		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
  		setTimeout(function(){
@@ -804,4 +1053,98 @@ $(window).on("wheel", function(e){
 	});
 
 </script>
+<script>
+ /* 사업실적의 이미지 정사각형 고정 */
+ $(document).ready(function () {
+ 	$('.img-wrapper').each(function() {
+ 		$(this).height($(this).width()*(0.75));
+ 	});
+ });
+ 
+ var delay = 300;
+ var timer = null;
+
+ $(window).on('resize', function(){
+ 	clearTimeout(timer);
+ 	timer = setTimeout(function(){
+ 		console.log('resize event!');
+ 		
+ 		console.log("project-active의 owl-item의 width : "+$('.project-active').find('.owl-item.active').width());
+ 		var owl_item_width = $('.project-active').find('.owl-item.active').width();
+ 		
+ 		$('.img-wrapper').each(function() {
+ 			$(this).width(owl_item_width);
+ 			$(this).height($(this).width()*(0.75));
+ 		});
+ 		$('.project-info').each(function() {
+ 			$(this).width(owl_item_width);
+ 		});
+ 	}, delay);
+ });
+ 
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper2 = new Swiper(".mySwiper2", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper3 = new Swiper(".mySwiper3", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper4 = new Swiper(".mySwiper4", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+    </script>
+
 </html>
