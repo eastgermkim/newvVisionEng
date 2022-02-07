@@ -163,7 +163,7 @@ $( document ).ready( function() {
     $( '.header-area' ).on( "mouseleave", function () {
 		$( '#header_main_pc' ).removeClass("mouseinDark");
 			
-    	if(page != "2"){
+    	if(page != "2" && page != "3" ){
     		//2페이지는 흰색 사진이라서 제외
     		//마우스가 메뉴에서 떠나면 색깔 원래대로 복귀
 			$( '#header_main_pc' ).removeClass("mousein");
