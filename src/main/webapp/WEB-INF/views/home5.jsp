@@ -358,11 +358,22 @@
 .swiper {
 	width: 100%;
 	height: 100%;
-	margin-top: 125px;
+	/* margin-top: 125px; */
+	/* margin-top: 60px; */
+	margin-top: 80px;
 	padding-right: 5%;
 	padding-left: 5%;
 }
-
+@media (max-width: 768px){
+	.swiper{
+	    margin-top: 45px;
+	}
+}
+@media (max-width: 640px){
+	.swiper{
+	    margin-top: 25px;
+	}
+}
 .swiper-slide {
 	text-align: center;
 	font-size: 18px;
@@ -389,21 +400,21 @@
 	object-fit: cover;
 }
 
-.swiper-button-next {
-  background: url(/resources/img/icon/next.png) no-repeat;
-  background-size: 100%;
-  background-position: center;
+.swiper-button-next, .swiper-button-prev {
+    font-weight: bold;
+    color: white;
+ 	text-shadow: 0px 0px 10px black;
+ 	top: 47%;
 }
-
-.swiper-button-prev {
-  background: url(/resources/img/icon/prev.png) no-repeat;
-  background-size: 100%;
-  background-position: center;
+.swiper-button-prev{
+    left: 4%;
 }
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  display: none;
+.swiper-button-next{
+    right: 4%;
+}
+.swiper-pagination {
+    position: initial;
+    margin-top: 6px;
 }
 
 .img-wrapper {
@@ -419,6 +430,131 @@
 	height: 100%;
 	object-fit: cover;
 	margin: auto;
+}
+
+.mySwiper2{
+	display: none;
+}
+.mySwiper3{
+	display: none;
+}
+.mySwiper4{
+	display: none;
+}
+@media (max-width : 1900px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: block;
+	}
+}
+@media (max-width : 991.5px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: none;
+	}
+	.mySwiper3{
+		display: block;
+	}
+}
+@media (max-width : 767.5px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: none;
+	}
+	.mySwiper3{
+		display: none;
+	}
+	.mySwiper4{
+		display: block;
+	}
+</style>
+<style>
+/* ====================================================================================== */
+.inner_ZZ {
+    max-width: 1440px;
+    position: relative;
+}
+
+.main__tit {
+    font-size: 60px;
+    position: relative;
+    line-height: 1em;
+    font-weight: bold;
+    margin-left: 10%;
+}
+.main__tit::before {
+    content: "";
+    height: 9px;
+    width: 34px;
+    background-color: #f36d20;
+    position: absolute;
+    top: 8px;
+    left: -40px;
+    -webkit-transform: skew(-45deg);
+    transform: skew(-45deg);
+}
+.main__stit {
+    line-height: 1.5em;
+    font-size: 20px;
+    color: #555;
+    word-break: keep-all;
+    margin-left: 10%;
+}
+@media (max-width: 767.5px){
+	.main__tit {
+	    font-size: 35px;
+	}
+	.main__tit::before {
+	    height: 5px;
+	    width: 21px;
+	    left: -24px;
+	    top: 5px;
+	}
+	.main__stit {
+	    font-size: 14px;
+	}
+}
+@media (max-width: 450px){
+	.main__tit::before {
+		width: 15px;
+	    left: -15px;
+	}
+}
+.animated {
+  transition: all ease 1.5s;
+}
+
+.animated.on {
+  transform: translateY(0);
+  opacity: 1;
+}
+</style>
+
+<style>
+.business-text{
+    width: 100%;
+	position: absolute;
+    bottom: 15px;
+}
+.business-text>p{
+    color: #fff;
+	font-size: 1em;
+    line-height: 1em;
+    text-shadow: 0px 0px 3px black;
+    font-weight: 500;
+    margin: 1%;
+    
+}
+.business-text>p:last-child {
+    color: #fff;
+    margin-bottom: 0px;
+    margin-top: 7px;
 }
 </style>
 
@@ -490,24 +626,91 @@
 		
 		 <div class="slider-area" style="background: #fff; height: 100vh;">
 			<div class="sentence-container position2">
+				<div class="inner_ZZ">
+					<p class="main__tit animated on">주요사업실적</p>
+					<p class="main__stit animated on">
+						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
+					</p>
+				</div>
+				<!-- 4개씩 -->
 				<div class="swiper mySwiper">
-			      <div class="swiper-wrapper">
-						<c:forEach items="${business_list}" var="business">
-						<div class="swiper-slide">
-							<div class="img-wrapper" style="width: inherit;">
-								<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultClass}</p>
+										<p>${business.resultContnents}</p>
+									</div>
+								</div>
 							</div>
-						</div>
-						<%-- <div class="project-info">
-							<span>${business.resultClass}</span>
-							<h3 style="font-size: 17px">${business.resultContnents}</h3>
-						</div> --%>
-						</c:forEach>
-			      </div>
-			      <!-- 네비게이션 -->
-					<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-					<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-			      <div class="swiper-pagination"></div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 3개씩 -->
+				<div class="swiper mySwiper2">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 2개씩 -->
+				<div class="swiper mySwiper3">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 1개씩 -->
+				<div class="swiper mySwiper4">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
 			    </div>
 			</div>	
 		</div>
@@ -768,7 +971,7 @@ $(window).on("wheel", function(e){
  /* 사업실적의 이미지 정사각형 고정 */
  $(document).ready(function () {
  	$('.img-wrapper').each(function() {
- 		$(this).height($(this).width());
+ 		$(this).height($(this).width()*(0.75));
  	});
  });
  
@@ -785,7 +988,7 @@ $(window).on("wheel", function(e){
  		
  		$('.img-wrapper').each(function() {
  			$(this).width(owl_item_width);
- 			$(this).height($(this).width());
+ 			$(this).height($(this).width()*(0.75));
  		});
  		$('.project-info').each(function() {
  			$(this).width(owl_item_width);
@@ -794,7 +997,55 @@ $(window).on("wheel", function(e){
  });
  
       var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper2 = new Swiper(".mySwiper2", {
         slidesPerView: 3,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper3 = new Swiper(".mySwiper3", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper4 = new Swiper(".mySwiper4", {
+        slidesPerView: 1,
         spaceBetween: 30,
         
         loop : true,
