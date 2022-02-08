@@ -133,6 +133,32 @@
   animation: sdb 2s infinite;
   box-sizing: border-box;
 }
+.scroll span.active {
+  position: fixed;
+  top: 90%;
+  left: 95%;
+  width: 30px;
+  height: 50px;
+  border: 2px solid #4c4646;
+  border-radius: 50px;
+  box-sizing: border-box;
+  z-index:98;
+  background:rgba(248,248,248,0.3);
+}
+.scroll span.active::before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #4c4646;
+  border-radius: 100%;
+  -webkit-animation: sdb 2s infinite;
+  animation: sdb 2s infinite;
+  box-sizing: border-box;
+}
 @-webkit-keyframes sdb {
   0% {
     -webkit-transform: translate(0, 0);
@@ -226,7 +252,7 @@
  }
  
 .position2{
-	top:20%;
+	top:15%;
 	position:relative;
 	overflow:hidden;
 }
@@ -237,8 +263,8 @@
 	overflow:hidden;
 }
 
-.position2 .main_sentence, .position2 .main_sentence_sub{
-	color:#fff;
+.position2 .main_sentence{
+	font-size:3em
 }
 
 .business_wrapper{
@@ -532,58 +558,44 @@
 <style>
 /* ====================================================================================== */
 
-.main__tit {
-    font-size: 60px;
+.position3 .main_sentence {
     position: relative;
-    line-height: 1em;
-    font-weight: bold;
-    margin-left: 10%;
 }
-.main__tit::before {
-    content: "";
-    height: 9px;
-    width: 34px;
+.position3 .main_sentence::before {
+	content: "";
+    height: 0.15em;
+    width: 0.6em;
     background-color: #f36d20;
     position: absolute;
-    top: 8px;
+    top: 0.35em;
     left: -40px;
     -webkit-transform: skew(-45deg);
     transform: skew(-45deg);
 }
-.main__stit {
-    line-height: 1.5em;
-    font-size: 20px;
-    color: #555;
+
+.position3 .main_sentence_sub {
     word-break: keep-all;
     margin-left: 10%;
 }
 @media (max-width: 767.5px){
-	.main__tit {
+	.position3 .main_sentence {
 	    font-size: 35px;
 	}
-	.main__tit::before {
+	.position3 .main_sentence::before {
 	    height: 5px;
 	    width: 21px;
 	    left: -24px;
 	    top: 5px;
 	}
-	.main__stit {
+	.position3 .main_sentence_sub {
 	    font-size: 14px;
 	}
 }
 @media (max-width: 450px){
-	.main__tit::before {
+	.position3 .main_sentence::before {
 		width: 15px;
 	    left: -15px;
 	}
-}
-.animated {
-  transition: all ease 1.5s;
-}
-
-.animated.on {
-  transform: translateY(0);
-  opacity: 1;
 }
 </style>
 
@@ -726,7 +738,7 @@
 		                        <div class="team-thumb">
 		                        	<div class="business_sentence">
 		                        		<h4>특수시설</h4>
-		                        		<h3>SHILED ROOM</h3>
+		                        		<h3>SHIELD CCTV</h3>
 		                        		<p>전자파 맞춤형 영상 장비 설비를 구축합니다.</p>
 		                        	</div>
 		                            <img src="/resources/img/business/main_sp.jpg" alt="" style="object-position:20%;">
@@ -846,11 +858,12 @@
 				      <div class="swiper-pagination"></div>
 			    </div>
 			</div>	
-		</div>
-		
-		<!-- footer-start -->
-		<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
-		<!-- footer-end -->
+			
+			<div class="slider-area">
+				<!-- footer-start -->
+				<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
+				<!-- footer-end -->
+			</div>
 	</body>
 	<script src="/resources/js/jquery-ui.min.js"></script> 
 <script>
@@ -910,6 +923,8 @@ $(window).on("wheel", function(e){
  	/* 2페이지 */
  	if(page == "2" ||page == "3"){
 	 	setTimeout(function(){
+	 		$(".scroll span").addClass("active");
+	 		$(".scroll-text").css("color","#4c4646");
 	 		$(".position2 .sentence-wrapper .main_sentence").css("color","#4c4646");
 	 		$(".position2 .main_sentence_sub").css("color","#4c4646");
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
@@ -929,7 +944,9 @@ $(window).on("wheel", function(e){
  	}else{
  		$( '#header_main_pc' ).removeClass("mousein");
  		setTimeout(function(){
-			$( '.main-menu ul li a' ).removeClass("mousein");
+	 		$(".scroll span").removeClass("active");
+	 		$(".scroll-text").css("color","#fff");
+ 			$( '.main-menu ul li a' ).removeClass("mousein");
 			$( '.ti-angle-down_main_pc' ).removeClass("mousein");
 			$( '#nv_logo_white' ).addClass("mousein");
 			$( '#nv_logo_black' ).removeClass("mousein");
@@ -1049,6 +1066,14 @@ $(window).on("wheel", function(e){
 	});
 
 </script>
+
+<script>
+	$(function(){
+		
+		})
+	
+</script>
+
 <script>
  /* 사업실적의 이미지 정사각형 고정 */
  $(document).ready(function () {
