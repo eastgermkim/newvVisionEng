@@ -223,9 +223,10 @@
 	animation: up 500ms linear forwards; */
 }
 
-.position1 .sentence_ani, .position2 .sentence_ani{
+.position1 .sentence_ani, .position2 .sentence_ani, .position3 .sentence_ani{
 	transform: translateY(6rem);
 	animation: up 500ms linear forwards;
+	visibility: initial!important;
 }
 
 .owl-item.active .sentence_ani{
@@ -584,6 +585,7 @@
 
 .position3 .main_sentence {
     position: relative;
+   visibility: hidden;
 }
 .position3 .main_sentence::before {
 	content: "";
@@ -600,6 +602,7 @@
 .position3 .main_sentence_sub {
     word-break: keep-all;
     margin-left: 10%;
+     visibility: hidden;
 }
 @media (max-width: 767.5px){
 	.position3 .main_sentence {
@@ -811,7 +814,7 @@
 		</div>
 		
 		<div class="slider-area" style="background: #fff; height: 100vh;">
-				<div class="sentence-container position3"  data-aos="fade-up" data-aos-duration="1000">
+				<div class="sentence-container position3">
 					<div class="sentence-wrapper" id="page3">
 						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
 					</div>
@@ -963,7 +966,7 @@ $(window).on("wheel", function(e){
  	}
  	
  	/* 2페이지 */
- 	if(page == "2" ||page == "3"){
+ 	if(page == "2"){
 	 	setTimeout(function(){
 	 		$(".scroll span").addClass("active");
 	 		$(".scroll-text").css("color","#4c4646");
@@ -972,6 +975,25 @@ $(window).on("wheel", function(e){
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 		$(".position2 .main_sentence_sub").addClass("sentence_ani");
 	 	},1200);
+ 		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+ 		setTimeout(function(){
+			$( '#header_main_pc' ).addClass("mousein");
+			$( '.main-menu ul li a' ).addClass("mousein");
+			$( '.ti-angle-down_main_pc' ).addClass("mousein");
+			$( '#nv_logo_white' ).removeClass("mousein");
+			$( '#nv_logo_black' ).addClass("mousein");
+	 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
+	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
+ 		},1000);
+ 	} else if(page == "3"){
+	 	setTimeout(function(){
+	 		$(".scroll span").addClass("active");
+	 		$(".scroll-text").css("color","#4c4646");
+	 		$(".position3 .sentence-wrapper .main_sentence").css("color","#4c4646");
+	 		$(".position3 .main_sentence_sub").css("color","#4c4646");
+	 		$(".position3 .sentence-wrapper .main_sentence").addClass("sentence_ani");
+	 		$(".position3 .main_sentence_sub").addClass("sentence_ani");
+	 	},1000);
  		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
  		setTimeout(function(){
 			$( '#header_main_pc' ).addClass("mousein");

@@ -226,6 +226,7 @@
 .position1 .sentence_ani, .position2 .sentence_ani, .position3 .sentence_ani{
 	transform: translateY(6rem);
 	animation: up 500ms linear forwards;
+	visibility: initial!important;
 }
 
 .owl-item.active .sentence_ani{
@@ -312,6 +313,31 @@
 	font-size:1em;
 }
 
+.business_wrapper .team-link img{
+	width:5em!important;
+	height:auto;
+}
+
+.business_wrapper .team-link .icon_ani{
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+  -o-animation: fadein 3s; /* Opera */
+}
+
+
+.team-area .single-team:hover .business_sentence {
+	animation: fadein 3s;
+    display: none;
+}
+@keyframes fadeout {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
 /* 뉴스 */
  
 .news_container{
@@ -426,10 +452,6 @@
 .owl-carousel:hover .owl-nav div:hover{
 	color:#fff;
 	line-height:3.25em;
-}
-
-.team-area .single-team:hover .business_sentence {
-    display: none;
 }
 
 </style>
@@ -563,6 +585,7 @@
 
 .position3 .main_sentence {
     position: relative;
+   visibility: hidden;
 }
 .position3 .main_sentence::before {
 	content: "";
@@ -579,6 +602,7 @@
 .position3 .main_sentence_sub {
     word-break: keep-all;
     margin-left: 10%;
+     visibility: hidden;
 }
 @media (max-width: 767.5px){
 	.position3 .main_sentence {
@@ -721,7 +745,7 @@
 				<div class="business_wrapper team-area">
 					<div class="row">
 		                <div class="col-xl-3 col-lg-3 col-md-12">
-		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000"">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
 		                        <div class="team-thumb">
 		                        	<div class="business_sentence">
 		                        		<h4>CCTV 설치</h4>
@@ -731,6 +755,7 @@
 		                            <img src="/resources/img/business/main_cctv.jpg" alt="" style="object-position:25%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
+		                                	<img class="icon_ani" src="/resources/img/icon/install_w.png">
 		                                	<p>안녕</p>
 		                                </div>
 		                            </div>
@@ -789,7 +814,7 @@
 		</div>
 		
 		<div class="slider-area" style="background: #fff; height: 100vh;">
-				<div class="sentence-container position3"  data-aos="fade-up" data-aos-duration="1000">
+				<div class="sentence-container position3">
 					<div class="sentence-wrapper" id="page3">
 						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
 					</div>
@@ -940,7 +965,6 @@ $(window).on("wheel", function(e){
  		$("#num3").addClass("active");
  	}
  	
- 	
  	/* 2페이지 */
  	if(page == "2"){
 	 	setTimeout(function(){
@@ -951,6 +975,25 @@ $(window).on("wheel", function(e){
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 		$(".position2 .main_sentence_sub").addClass("sentence_ani");
 	 	},1200);
+ 		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+ 		setTimeout(function(){
+			$( '#header_main_pc' ).addClass("mousein");
+			$( '.main-menu ul li a' ).addClass("mousein");
+			$( '.ti-angle-down_main_pc' ).addClass("mousein");
+			$( '#nv_logo_white' ).removeClass("mousein");
+			$( '#nv_logo_black' ).addClass("mousein");
+	 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
+	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
+ 		},1000);
+ 	} else if(page == "3"){
+	 	setTimeout(function(){
+	 		$(".scroll span").addClass("active");
+	 		$(".scroll-text").css("color","#4c4646");
+	 		$(".position3 .sentence-wrapper .main_sentence").css("color","#4c4646");
+	 		$(".position3 .main_sentence_sub").css("color","#4c4646");
+	 		$(".position3 .sentence-wrapper .main_sentence").addClass("sentence_ani");
+	 		$(".position3 .main_sentence_sub").addClass("sentence_ani");
+	 	},1000);
  		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
  		setTimeout(function(){
 			$( '#header_main_pc' ).addClass("mousein");
@@ -1089,10 +1132,11 @@ $(window).on("wheel", function(e){
 
 <script>
 	$(function(){
+				
 		
-		})
-	
+		});
 </script>
+
 
 <script>
  /* 사업실적의 이미지 정사각형 고정 */
@@ -1187,5 +1231,7 @@ $(window).on("wheel", function(e){
     	},
       });
     </script>
-
+	
+	
+	
 </html>
