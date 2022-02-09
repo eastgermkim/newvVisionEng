@@ -466,7 +466,7 @@
 	padding-right: 5%;
 	padding-left: 5%;
 }
-@media (max-width: 768px){
+/* @media (max-width: 768px){
 	.swiper{
 	    margin-top: 45px;
 	}
@@ -475,7 +475,7 @@
 	.swiper{
 	    margin-top: 25px;
 	}
-}
+} */
 .swiper-slide {
 	text-align: center;
 	font-size: 18px;
