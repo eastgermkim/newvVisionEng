@@ -312,6 +312,31 @@
 	font-size:1em;
 }
 
+.business_wrapper .team-link img{
+	width:5em!important;
+	height:auto;
+}
+
+.business_wrapper .team-link .icon_ani{
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+  -o-animation: fadein 3s; /* Opera */
+}
+
+
+.team-area .single-team:hover .business_sentence {
+	animation: fadein 3s;
+    display: none;
+}
+@keyframes fadeout {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
 /* 뉴스 */
  
 .news_container{
@@ -426,10 +451,6 @@
 .owl-carousel:hover .owl-nav div:hover{
 	color:#fff;
 	line-height:3.25em;
-}
-
-.team-area .single-team:hover .business_sentence {
-    display: none;
 }
 
 </style>
@@ -721,7 +742,7 @@
 				<div class="business_wrapper team-area">
 					<div class="row">
 		                <div class="col-xl-3 col-lg-3 col-md-12">
-		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000"">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
 		                        <div class="team-thumb">
 		                        	<div class="business_sentence">
 		                        		<h4>CCTV 설치</h4>
@@ -731,6 +752,7 @@
 		                            <img src="/resources/img/business/main_cctv.jpg" alt="" style="object-position:25%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
+		                                	<img class="icon_ani" src="/resources/img/icon/install_w.png">
 		                                	<p>안녕</p>
 		                                </div>
 		                            </div>
@@ -1087,6 +1109,13 @@ $(window).on("wheel", function(e){
 
 </script>
 
+<script>
+	$(function(){
+				
+		
+		});
+</script>
+
 
 <script>
  /* 사업실적의 이미지 정사각형 고정 */
@@ -1181,5 +1210,7 @@ $(window).on("wheel", function(e){
     	},
       });
     </script>
-
+	
+	
+	
 </html>
