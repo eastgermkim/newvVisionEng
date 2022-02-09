@@ -428,6 +428,8 @@
 	line-height:3.25em;
 }
 
+.team-area .single-team:hover .business_sentence {
+    display: none;
 }
 
 </style>
@@ -712,6 +714,7 @@
 		                            <img src="/resources/img/business/main_cctv.jpg" alt="" style="object-position:25%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
+		                                	<p>안녕</p>
 		                                </div>
 		                            </div>
 		                        </div>
@@ -1067,12 +1070,6 @@ $(window).on("wheel", function(e){
 
 </script>
 
-<script>
-	$(function(){
-		
-		})
-	
-</script>
 
 <script>
  /* 사업실적의 이미지 정사각형 고정 */
