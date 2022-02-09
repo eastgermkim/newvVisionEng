@@ -16,10 +16,11 @@
 
 <link rel="shortcut icon" type="image/x-icon"
 	href="/resources/img/nvicon.png">
-	
+
 <!-- swiperjs. -->
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
 
 <!-- CSS here -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
@@ -109,7 +110,7 @@
 .scroll span {
   position: fixed;
   top: 90%;
-  left: 90%;
+  left: 95%;
   width: 30px;
   height: 50px;
   border: 2px solid #fff;
@@ -127,6 +128,32 @@
   height: 6px;
   margin-left: -3px;
   background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: sdb 2s infinite;
+  animation: sdb 2s infinite;
+  box-sizing: border-box;
+}
+.scroll span.active {
+  position: fixed;
+  top: 90%;
+  left: 95%;
+  width: 30px;
+  height: 50px;
+  border: 2px solid #4c4646;
+  border-radius: 50px;
+  box-sizing: border-box;
+  z-index:98;
+  background:rgba(248,248,248,0.3);
+}
+.scroll span.active::before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #4c4646;
   border-radius: 100%;
   -webkit-animation: sdb 2s infinite;
   animation: sdb 2s infinite;
@@ -169,7 +196,7 @@
 .scroll-text{
     position: fixed;
     z-index: 98;
-    left: 89.6%;
+    left: 94.6%;
     color: #fff;
     top: 96%;
  }
@@ -196,7 +223,7 @@
 	animation: up 500ms linear forwards; */
 }
 
-.position1 .sentence_ani{
+.position1 .sentence_ani, .position2 .sentence_ani{
 	transform: translateY(6rem);
 	animation: up 500ms linear forwards;
 }
@@ -225,12 +252,64 @@
  }
  
 .position2{
-	top:20%;
+	top:15%;
 	position:relative;
+	overflow:hidden;
 }
 
-.position2 .main_sentence, .position2 .main_sentence_sub{
-	color:#4C4646!important;
+.position3{
+	top:20%;
+	position:relative;
+	overflow:hidden;
+}
+
+.position2 .main_sentence{
+	font-size:3em
+}
+
+.business_wrapper{
+	margin-top:25vh;
+	margin-left:10%;
+	margin-right:10%;
+	width:80%;
+}
+
+.business_wrapper img{
+	width:100%;
+	height:60vh;
+	object-fit:cover;
+}
+
+.business_wrapper .business_sentence{
+    position: absolute;
+    /* top: 50%; */
+    padding-top: 100%;
+    color: #fff;
+    background: rgba(0,0,0,0.25);
+    height: 100%;
+    width: 100%;
+}
+
+.business_wrapper .business_sentence h4{
+	color:#fff;
+	margin-left:5%;
+	margin-right:5%;
+	font-size:1.2em;
+}
+
+.business_wrapper .business_sentence h3{
+	color:#fff;
+	margin-left:5%;
+	margin-right:5%;
+	font-size:2em;
+    font-weight: 700;
+}
+
+.business_wrapper .business_sentence p{
+	color:rgba(255,255,255,0.7);
+	margin-left:5%;
+	margin-right:5%;
+	font-size:1em;
 }
 
 /* 뉴스 */
@@ -240,12 +319,11 @@
 	overflow:hidden;
 	position:absolute;
 	z-index:98;
-	top:90%;
+	top:20%;
 	display:flex;
 	justify-content:space-between;
 	margin-left:80px;
-	border-bottom:1px solid #fff;
-	height:1.7em;
+	height:1.6em;
 }
 
 .news_group{
@@ -353,18 +431,18 @@
 }
 
 </style>
-   <!-- Demo styles -->
+
 <style>
 .swiper {
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
 	/* margin-top: 125px; */
 	/* margin-top: 60px; */
-	margin-top: 80px;
+	margin-top: 25vh;
 	padding-right: 5%;
 	padding-left: 5%;
 }
-@media (max-width: 768px){
+/* @media (max-width: 768px){
 	.swiper{
 	    margin-top: 45px;
 	}
@@ -373,7 +451,7 @@
 	.swiper{
 	    margin-top: 25px;
 	}
-}
+} */
 .swiper-slide {
 	text-align: center;
 	font-size: 18px;
@@ -404,7 +482,7 @@
     font-weight: bold;
     color: white;
  	text-shadow: 0px 0px 10px black;
- 	top: 47%;
+ 	top: 39%;
 }
 .swiper-button-prev{
     left: 4%;
@@ -414,7 +492,7 @@
 }
 .swiper-pagination {
     position: initial;
-    margin-top: 6px;
+    margin-top: 12px;
 }
 :root {
     --swiper-theme-color: #f36d20;
@@ -422,6 +500,7 @@
 
 .img-wrapper {
 	position: relative;
+	margin-bottom: 60px;
 } 
 
 .img-wrapper img {
@@ -463,7 +542,7 @@
 		display: block;
 	}
 }
-@media (max-width : 767.5px){
+@media (max-width : 500px){
 	.mySwiper{
 		display: none;
 	}
@@ -479,62 +558,45 @@
 </style>
 <style>
 /* ====================================================================================== */
-.inner_ZZ {
-    position: relative;
-}
 
-.main__tit {
-    font-size: 60px;
+.position3 .main_sentence {
     position: relative;
-    line-height: 1em;
-    font-weight: bold;
-    margin-left: 10%;
 }
-.main__tit::before {
-    content: "";
-    height: 9px;
-    width: 34px;
+.position3 .main_sentence::before {
+	content: "";
+    height: 0.15em;
+    width: 0.6em;
     background-color: #f36d20;
     position: absolute;
-    top: 8px;
+    top: 0.35em;
     left: -40px;
     -webkit-transform: skew(-45deg);
     transform: skew(-45deg);
 }
-.main__stit {
-    line-height: 1.5em;
-    font-size: 20px;
-    color: #555;
+
+.position3 .main_sentence_sub {
     word-break: keep-all;
     margin-left: 10%;
 }
 @media (max-width: 767.5px){
-	.main__tit {
+	.position3 .main_sentence {
 	    font-size: 35px;
 	}
-	.main__tit::before {
+	.position3 .main_sentence::before {
 	    height: 5px;
 	    width: 21px;
 	    left: -24px;
 	    top: 5px;
 	}
-	.main__stit {
+	.position3 .main_sentence_sub {
 	    font-size: 14px;
 	}
 }
 @media (max-width: 450px){
-	.main__tit::before {
+	.position3 .main_sentence::before {
 		width: 15px;
 	    left: -15px;
 	}
-}
-.animated {
-  transition: all ease 1.5s;
-}
-
-.animated.on {
-  transform: translateY(0);
-  opacity: 1;
 }
 </style>
 
@@ -542,21 +604,37 @@
 .business-text{
     width: 100%;
 	position: absolute;
-    bottom: 15px;
+   /*  bottom: 15px; */
+   	bottom: -33px;
 }
 .business-text>p{
-    color: #fff;
+    /* color: #fff; */
+    color: #1c1c1c;
 	font-size: 1em;
     line-height: 1em;
-    text-shadow: 0px 0px 3px black;
+    /* text-shadow: 0px 0px 3px black; */
     font-weight: 500;
     margin: 1%;
     
 }
+.business-text>p:first-child {
+    /* font-size: 24px; */
+    height: 20px;
+}
 .business-text>p:last-child {
+	font-size: 17px;
     color: #fff;
     margin-bottom: 0px;
     margin-top: 7px;
+    display: none;
+}
+@media (max-width : 767.5px){
+	.business-text>p:first-child {
+		font-size: 18px;
+	}
+	.business-text>p:last-child {
+		font-size: 15px;
+	}
 }
 </style>
 
@@ -583,6 +661,7 @@
 		<!-- scroll -->
 		<a class="scroll"><span> </span></a>
 		<span class="scroll-text">Scroll</span>
+		
 		
 		<!-- slider-area-start -->
 		<div class="slider-area">
@@ -625,12 +704,12 @@
 			</div>
 		</div>
 		
-		
-		 <div class="slider-area" style="background: #fff; height: 100vh;">
-			<div class="sentence-container position2">
-				<div class="inner_ZZ">
-					<p class="main__tit animated on">주요사업실적</p>
-					<p class="main__stit animated on">
+			<div class="slider-area" style="background: #fff; height: 100vh;">
+			<div class="sentence-container position3">
+				<div class="sentence-wrapper" id="page3">
+						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
+					</div>
+					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s;">
 						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
 					</p>
 				</div>
@@ -715,64 +794,94 @@
 				      <div class="swiper-pagination"></div>
 			    </div>
 			</div>	
-		</div>
 		
-		 <div class="slider-area">
-			<div class="slider-active owl-carousel">
-				<div class="single-slider bg-img-1">
-				 	<div class="sentence-container position2">
-						<div class="sentence-wrapper" id="page2">
-							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-					</div>
+		 <div class="slider-area" style="background: #fff; height: 100vh;">
+			<div class="sentence-container position2">
+				<div class="sentence-wrapper" id="page2">
+					<h3 class="main_sentence">Business</h3>
 				</div>
-				<div class="single-slider bg-img-2">
-					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani">군사시설 CCTV SYSTEM</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-					</div>
-				</div>
-				<div class="single-slider bg-img-2">
-					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-					</div>
-				</div>
-				<div class="single-slider bg-img-3">
-					<div class="sentence-container position2">
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani">CCTV 설치</h3>
-						</div>
-						<div class="sentence-wrapper">
-							<h3 class="main_sentence sentence_ani" style="animation-delay:0.5s;">CCTV</h3>
-						</div>
-						<h4 class="main_sentence_sub sentence_ani" style="animation-delay:1s;">15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</h4>
-					</div>
+<!-- 				<div class="sentence-wrapper">
+					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
+				</div> -->
+				<h4 class="main_sentence_sub" style="animation-delay:0.5s;">설치부터 유지관리까지 세심한 작업과 축적된 노하우로 고객들과 소통합니다.</h4>
+			</div>	
+			<div>
+				<div class="business_wrapper team-area">
+					<div class="row">
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000"">
+		                        <div class="team-thumb">
+		                        	<div class="business_sentence">
+		                        		<h4>CCTV 설치</h4>
+		                        		<h3>INSTALLATION</h3>
+		                        		<p>15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</p>
+		                        	</div>
+		                            <img src="/resources/img/business/main_cctv.jpg" alt="" style="object-position:25%;">
+		                            <div class="team-hover">
+		                                <div class="team-link">
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
+		                        <div class="team-thumb">
+		                       		<div class="business_sentence">
+		                        		<h4>군사시설</h4>
+		                        		<h3>SOLUTION</h3>
+		                        		<p>노하우를 바탕으로 더욱 향상된, 요청한 환경에 맞는 적합한 서비스를 적시에 설계 및 제공합니다.</p>
+		                        	</div>
+		                            <img src="/resources/img/business/main_army.jpg" alt="" style="object-position:85%;">
+		                            <div class="team-hover">
+		                                <div class="team-link">
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
+		                        <div class="team-thumb">
+		                        	<div class="business_sentence">
+		                        		<h4>특수시설</h4>
+		                        		<h3>SHIELD CCTV</h3>
+		                        		<p>전자파 맞춤형 영상 장비 설비를 구축합니다.</p>
+		                        	</div>
+		                            <img src="/resources/img/business/main_sp.jpg" alt="" style="object-position:20%;">
+		                            <div class="team-hover">
+		                                <div class="team-link">
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-xl-3 col-lg-3 col-md-12">
+		                    <div class="single-team" data-aos="fade-up" data-aos-duration="1000">
+		                        <div class="team-thumb">
+			                        <div class="business_sentence">
+		                        		<h4>정보통신</h4>
+		                        		<h3>TELECOMMUNICATION</h3>
+		                        		<p>전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.</p>
+		                        	</div>
+		                            <img src="/resources/img/business/main_lan.jpg" alt="" style="object-position:20%;">
+		                            <div class="team-hover">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
 				</div>
 			</div>
 		</div>
 		
-		
-
-		
-		
-		<!-- footer-start -->
-		<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
-		<!-- footer-end -->
+	
+			
+			<div class="slider-area">
+				<!-- footer-start -->
+				<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
+				<!-- footer-end -->
+			</div>
 	</body>
 	<script src="/resources/js/jquery-ui.min.js"></script> 
 <script>
@@ -830,32 +939,38 @@ $(window).on("wheel", function(e){
  	}
  	
  	/* 2페이지 */
- 	if(page == "2"){
- 		/* $('.position2 div .main_sentence').removeClass("main_sentence");
- 		$('.position2 div .main_sentence').addClass("main_sentence"); */
- 		
- 		/* $('.position2 .main_sentence').removeClass("sentence_ani");
- 		$('.position2 .main_sentence_sub').removeClass("sentence_ani");
- 		setTimeout(function() { 
-	 		$('.position2 .main_sentence').addClass("sentence_ani");
-	 		$('.position2 .main_sentence_sub').addClass("sentence_ani");
- 		}, 700);
- 		console.log(page); */
-		$( '#header_main_pc' ).addClass("mousein");
-		$( '.main-menu ul li a' ).addClass("mousein");
-		$( '.ti-angle-down_main_pc' ).addClass("mousein");
-		$( '#nv_logo_white' ).removeClass("mousein");
-		$( '#nv_logo_black' ).addClass("mousein");
- 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
+ 	if(page == "2" ||page == "3"){
+	 	setTimeout(function(){
+	 		$(".scroll span").addClass("active");
+	 		$(".scroll-text").css("color","#4c4646");
+	 		$(".position2 .sentence-wrapper .main_sentence").css("color","#4c4646");
+	 		$(".position2 .main_sentence_sub").css("color","#4c4646");
+	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
+	 		$(".position2 .main_sentence_sub").addClass("sentence_ani");
+	 		$(".position3 .sentence-wrapper .main_sentence").addClass("sentence_ani");
+	 	},1200);
+ 		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+ 		setTimeout(function(){
+			$( '#header_main_pc' ).addClass("mousein");
+			$( '.main-menu ul li a' ).addClass("mousein");
+			$( '.ti-angle-down_main_pc' ).addClass("mousein");
+			$( '#nv_logo_white' ).removeClass("mousein");
+			$( '#nv_logo_black' ).addClass("mousein");
+	 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
+	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
+ 		},1000);
  	}else{
  		$( '#header_main_pc' ).removeClass("mousein");
-		$( '.main-menu ul li a' ).removeClass("mousein");
-		$( '.ti-angle-down_main_pc' ).removeClass("mousein");
-		$( '#nv_logo_white' ).addClass("mousein");
-		$( '#nv_logo_black' ).removeClass("mousein");
- 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
- 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#fff").animate({opacity: "1"}, 700);
+ 		setTimeout(function(){
+	 		$(".scroll span").removeClass("active");
+	 		$(".scroll-text").css("color","#fff");
+ 			$( '.main-menu ul li a' ).removeClass("mousein");
+			$( '.ti-angle-down_main_pc' ).removeClass("mousein");
+			$( '#nv_logo_white' ).addClass("mousein");
+			$( '#nv_logo_black' ).removeClass("mousein");
+	 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#fff").animate({opacity: "1"}, 700);
+	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#fff").animate({opacity: "1"}, 700);
+ 		},1000);
  	}
 });
 
@@ -967,9 +1082,17 @@ $(window).on("wheel", function(e){
     news_group();
 	    
 	});
-		
+
 </script>
- <script>
+
+<script>
+	$(function(){
+		
+		})
+	
+</script>
+
+<script>
  /* 사업실적의 이미지 정사각형 고정 */
  $(document).ready(function () {
  	$('.img-wrapper').each(function() {
@@ -1062,4 +1185,5 @@ $(window).on("wheel", function(e){
     	},
       });
     </script>
+
 </html>

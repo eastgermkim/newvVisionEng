@@ -484,7 +484,7 @@
     font-weight: bold;
     color: white;
  	text-shadow: 0px 0px 10px black;
- 	top: 47%;
+ 	top: 39%;
 }
 .swiper-button-prev{
     left: 4%;
@@ -494,7 +494,7 @@
 }
 .swiper-pagination {
     position: initial;
-    margin-top: 6px;
+    margin-top: 12px;
 }
 :root {
     --swiper-theme-color: #f36d20;
@@ -502,6 +502,7 @@
 
 .img-wrapper {
 	position: relative;
+	margin-bottom: 60px;
 } 
 
 .img-wrapper img {
@@ -543,7 +544,7 @@
 		display: block;
 	}
 }
-@media (max-width : 767.5px){
+@media (max-width : 500px){
 	.mySwiper{
 		display: none;
 	}
@@ -605,21 +606,37 @@
 .business-text{
     width: 100%;
 	position: absolute;
-    bottom: 15px;
+   /*  bottom: 15px; */
+   	bottom: -33px;
 }
 .business-text>p{
-    color: #fff;
+    /* color: #fff; */
+    color: #1c1c1c;
 	font-size: 1em;
     line-height: 1em;
-    text-shadow: 0px 0px 3px black;
+    /* text-shadow: 0px 0px 3px black; */
     font-weight: 500;
     margin: 1%;
     
 }
+.business-text>p:first-child {
+    /* font-size: 24px; */
+    height: 20px;
+}
 .business-text>p:last-child {
+	font-size: 17px;
     color: #fff;
     margin-bottom: 0px;
     margin-top: 7px;
+    display: none;
+}
+@media (max-width : 767.5px){
+	.business-text>p:first-child {
+		font-size: 18px;
+	}
+	.business-text>p:last-child {
+		font-size: 15px;
+	}
 }
 </style>
 
