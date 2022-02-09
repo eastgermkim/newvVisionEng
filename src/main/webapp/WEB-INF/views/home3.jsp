@@ -811,8 +811,8 @@
 		</div>
 		
 		<div class="slider-area" style="background: #fff; height: 100vh;">
-			<div class="sentence-container position3">
-				<div class="sentence-wrapper" id="page3">
+				<div class="sentence-container position3"  data-aos="fade-up" data-aos-duration="1000">
+					<div class="sentence-wrapper" id="page3">
 						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
 					</div>
 					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s;">
@@ -820,7 +820,7 @@
 					</p>
 				</div>
 				<!-- 4개씩 -->
-				<div class="swiper mySwiper">
+				<div class="swiper mySwiper"  data-aos="fade-up" data-aos-duration="1000">
 				      <div class="swiper-wrapper">
 							<c:forEach items="${business_list}" var="business">
 							<div class="swiper-slide">
@@ -840,7 +840,7 @@
 				      <div class="swiper-pagination"></div>
 			    </div>
 			    <!-- 3개씩 -->
-				<div class="swiper mySwiper2">
+				<div class="swiper mySwiper2"  data-aos="fade-up" data-aos-duration="1000">
 				      <div class="swiper-wrapper">
 							<c:forEach items="${business_list}" var="business">
 							<div class="swiper-slide">
@@ -860,7 +860,7 @@
 				      <div class="swiper-pagination"></div>
 			    </div>
 			    <!-- 2개씩 -->
-				<div class="swiper mySwiper3">
+				<div class="swiper mySwiper3"  data-aos="fade-up" data-aos-duration="1000">
 				      <div class="swiper-wrapper">
 							<c:forEach items="${business_list}" var="business">
 							<div class="swiper-slide">
@@ -880,7 +880,7 @@
 				      <div class="swiper-pagination"></div>
 			    </div>
 			    <!-- 1개씩 -->
-				<div class="swiper mySwiper4">
+				<div class="swiper mySwiper4"  data-aos="fade-up" data-aos-duration="1000">
 				      <div class="swiper-wrapper">
 							<c:forEach items="${business_list}" var="business">
 							<div class="swiper-slide">
@@ -971,7 +971,6 @@ $(window).on("wheel", function(e){
 	 		$(".position2 .main_sentence_sub").css("color","#4c4646");
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 		$(".position2 .main_sentence_sub").addClass("sentence_ani");
-	 		$(".position3 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 	},1200);
  		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
  		setTimeout(function(){

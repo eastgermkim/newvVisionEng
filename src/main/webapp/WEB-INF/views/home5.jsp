@@ -223,7 +223,7 @@
 	animation: up 500ms linear forwards; */
 }
 
-.position1 .sentence_ani, .position2 .sentence_ani{
+.position1 .sentence_ani, .position2 .sentence_ani, .position3 .sentence_ani{
 	transform: translateY(6rem);
 	animation: up 500ms linear forwards;
 }
@@ -428,6 +428,8 @@
 	line-height:3.25em;
 }
 
+.team-area .single-team:hover .business_sentence {
+    display: none;
 }
 
 </style>
@@ -442,7 +444,7 @@
 	padding-right: 5%;
 	padding-left: 5%;
 }
-/* @media (max-width: 768px){
+@media (max-width: 768px){
 	.swiper{
 	    margin-top: 45px;
 	}
@@ -451,7 +453,7 @@
 	.swiper{
 	    margin-top: 25px;
 	}
-} */
+}
 .swiper-slide {
 	text-align: center;
 	font-size: 18px;
@@ -704,96 +706,6 @@
 			</div>
 		</div>
 		
-			<div class="slider-area" style="background: #fff; height: 100vh;">
-			<div class="sentence-container position3">
-				<div class="sentence-wrapper" id="page3">
-						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
-					</div>
-					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s;">
-						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
-					</p>
-				</div>
-				<!-- 4개씩 -->
-				<div class="swiper mySwiper">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultClass}</p>
-										<p>${business.resultContnents}</p>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			    <!-- 3개씩 -->
-				<div class="swiper mySwiper2">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultContnents}</p>
-										<p>${business.resultClass}</p>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			    <!-- 2개씩 -->
-				<div class="swiper mySwiper3">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultContnents}</p>
-										<p>${business.resultClass}</p>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			    <!-- 1개씩 -->
-				<div class="swiper mySwiper4">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultContnents}</p>
-										<p>${business.resultClass}</p>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			</div>	
 		
 		 <div class="slider-area" style="background: #fff; height: 100vh;">
 			<div class="sentence-container position2">
@@ -804,7 +716,7 @@
 					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
 				</div> -->
 				<h4 class="main_sentence_sub" style="animation-delay:0.5s;">설치부터 유지관리까지 세심한 작업과 축적된 노하우로 고객들과 소통합니다.</h4>
-			</div>	
+		</div>	
 			<div>
 				<div class="business_wrapper team-area">
 					<div class="row">
@@ -819,6 +731,7 @@
 		                            <img src="/resources/img/business/main_cctv.jpg" alt="" style="object-position:25%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
+		                                	<p>안녕</p>
 		                                </div>
 		                            </div>
 		                        </div>
@@ -875,7 +788,96 @@
 			</div>
 		</div>
 		
-	
+		<div class="slider-area" style="background: #fff; height: 100vh;">
+				<div class="sentence-container position3"  data-aos="fade-up" data-aos-duration="1000">
+					<div class="sentence-wrapper" id="page3">
+						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
+					</div>
+					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s;">
+						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
+					</p>
+				</div>
+				<!-- 4개씩 -->
+				<div class="swiper mySwiper"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultClass}</p>
+										<p>${business.resultContnents}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 3개씩 -->
+				<div class="swiper mySwiper2"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 2개씩 -->
+				<div class="swiper mySwiper3"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 1개씩 -->
+				<div class="swiper mySwiper4"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			</div>	
 			
 			<div class="slider-area">
 				<!-- footer-start -->
@@ -938,8 +940,9 @@ $(window).on("wheel", function(e){
  		$("#num3").addClass("active");
  	}
  	
+ 	
  	/* 2페이지 */
- 	if(page == "2" ||page == "3"){
+ 	if(page == "2"){
 	 	setTimeout(function(){
 	 		$(".scroll span").addClass("active");
 	 		$(".scroll-text").css("color","#4c4646");
@@ -947,7 +950,6 @@ $(window).on("wheel", function(e){
 	 		$(".position2 .main_sentence_sub").css("color","#4c4646");
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 		$(".position2 .main_sentence_sub").addClass("sentence_ani");
-	 		$(".position3 .sentence-wrapper .main_sentence").addClass("sentence_ani");
 	 	},1200);
  		/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
  		setTimeout(function(){
