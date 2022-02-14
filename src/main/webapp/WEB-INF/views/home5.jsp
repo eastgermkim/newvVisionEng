@@ -816,7 +816,9 @@
 		<div class="slider-area" style="background: #fff; height: 100vh;">
 				<div class="sentence-container position3">
 					<div class="sentence-wrapper" id="page3">
-						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적</p>
+						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적
+							<a href="/business/result" style="font-size: 0.5em;font-weight: bold;color: #f36d20;">+More</a>
+						</p>
 					</div>
 					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s;">
 						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
