@@ -51,6 +51,8 @@
 </style>
 
 <style>
+
+
 .header-area .main-header-area .main-menu ul li .submenu {
     transition: .3s;
     width: max-content;
@@ -66,23 +68,34 @@
     text-align: center;
     padding-left: 0;
 }
-@media (min-width:991.5px){
-	 .submenu::before {
-	    content: '';
-	    display: block;
-	    box-sizing: border-box;
-	    position: absolute;
-	    background-color: white;
-	    height: 100%;
-		/* left: -84%;
- 		right: -105%; */
-		left: -1000%;
- 		right: -1000%;
-	    border-bottom: 1px solid #eee;
-	    z-index: 0;
-	    top: 0;
-	    border-top: 1px solid #eee;
-	}
+
+/* 서브메뉴 뒷 흰 배경 */	
+.whiteBackground{
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    height: 53px;
+    width: 100%;
+
+	box-sizing: border-box;
+	border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    
+	/* 없어질때 속도 */
+    transition: 1s;
+   	top: 13.53%;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+.whiteBackgroundHover{
+	/* 생길때 속도 */
+	transition: .2s;
+
+    top:15.07%;
+	opacity: 1;
+    visibility: visible;
+}
 </style>
 
 </head>
@@ -164,7 +177,7 @@
 											
 										</li>
 									
-										<li><a id="tab1" href="/company/introduce">회사소개</a><i class="ti-angle-down" style="font-size: 9px;"></i>
+										<li class="whiteBackLi"><a id="tab1" href="/company/introduce">회사소개</a><i class="ti-angle-down" style="font-size: 9px;"></i>
 											<ul class="submenu">
 												<li><a href="/company/introduce">회사개요</a></li>
 												<li><a href="/company/news">보도자료</a></li>
@@ -180,7 +193,7 @@
 										<li><a id="tab3" href="/business/result">사업실적</a>
 										</li>
 										
-										<li><a id="tab4" href="/support/notice">고객지원</a><i class="ti-angle-down" style="font-size: 9px;"></i>
+										<li class="whiteBackLi"><a id="tab4" href="/support/notice">고객지원</a><i class="ti-angle-down" style="font-size: 9px;"></i>
 											<ul class="submenu">
 												<li><a href="/support/notice">공지사항</a></li>
 												<li><a href="/support/customer">고객문의</a></li>
@@ -236,11 +249,13 @@
 			            </div>
 			        </div> -->
 		</div>
+		<div class="whiteBackground"></div>
 		<script src="http://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
 	</header>
 	<!-- header-end -->
 	<script>
+	
    		function addClassName1() {
    		  document.getElementById('tab1').className = 'active activeColor';
    		}
@@ -263,7 +278,16 @@
    		$('.header-area .main-header-area .main-menu ul li a').on( "mouseover", function () {
    			console.log("asda");
    			$('.active.activeColor').removeClass('active activeColor');
-   		})
+   		});
+   		
+   		$('.whiteBackLi').on( "mouseover", function () {
+   			$('.whiteBackground').addClass("whiteBackgroundHover");
+   		});
+   		
+   		$('.whiteBackLi').on( "mouseleave", function () {
+   			$('.whiteBackground').removeClass("whiteBackgroundHover");
+   		});
+   		
    	</script>
    	
 	
