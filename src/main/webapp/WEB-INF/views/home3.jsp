@@ -21,7 +21,6 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-
 <!-- CSS here -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
@@ -206,7 +205,7 @@
 	color:#fff; 
 	margin-left:10%; 
 	font-weight:700; 
-	font-size:3.5em; 
+	font-size:3em; 
 	line-height:1em;
 /* 	transform: translateY(6rem);
 	animation: up 500ms linear forwards; */
@@ -268,6 +267,17 @@
 	font-size:3em
 }
 
+.focus::before {
+    content: "";
+    height: 5em;
+    width: 0.4em;
+    background-color: #f36d20;
+    position: absolute;
+    left: 9%;
+    animation: fadeInDown .7s forwards;
+}
+
+
 .business_wrapper{
 	margin-top:25vh;
 	margin-left:10%;
@@ -313,16 +323,75 @@
 	font-size:1em;
 }
 
+.business_wrapper .team-link{
+	margin: 0 1em 0;
+}
+
 .business_wrapper .team-link img{
 	width:5em!important;
 	height:auto;
 }
 
-.business_wrapper .team-link .icon_ani{
-  animation: fadein 3s;
-  -moz-animation: fadein 3s; /* Firefox */
-  -webkit-animation: fadein 3s; /* Safari and Chrome */
-  -o-animation: fadein 3s; /* Opera */
+.business_wrapper .team-link h3{
+	color:#fff;
+	opacity:0;
+	font-size:2em;
+    font-weight: 700;
+}
+
+.single-team:hover .team-link h3{
+    -webkit-animation: fadeInUp .7s forwards;
+    animation: fadeInUp .7s forwards;
+    animation-delay:.5s;
+}
+
+.business_wrapper .team-link p{
+	color:#fff;
+	opacity:0;
+	font-size:1.25em;
+}
+
+.single-team:hover .team-link p{
+    -webkit-animation: fadeInUp .7s forwards;
+    animation: fadeInUp .7s forwards;
+    animation-delay:1s;
+}
+
+.business_wrapper .team-link .e-large{
+	font-size:1.25em;
+	opacity:0;
+    width: 100%;
+    margin: 30% -50% 0;
+    position: absolute;
+}
+
+.single-team:hover .team-link .e-large{
+    -webkit-animation: fadeInUp .7s forwards;
+    animation: fadeInUp .7s forwards;
+    animation-delay:1.5s;
+}
+
+.business_wrapper .single-team .team-thumb .team-hover{
+    -webkit-transition: all ease .8s;
+    transition: all ease .8s;
+    transform: translateY(100%);
+}
+
+.team-area .single-team .team-thumb .team-hover::before{
+	transition: all ease .8s;
+}
+
+.team-area .single-team:hover .team-hover{
+	 transform: translateY(0px);
+}
+
+.single-team:hover .team-link .icon_ani{
+    -webkit-animation: fadeInUp .7s forwards;
+    animation: fadeInUp .7s forwards;
+}
+
+.single-team .team-link .icon_ani{
+    opacity: 0;
 }
 
 
@@ -587,17 +656,6 @@
     position: relative;
    visibility: hidden;
 }
-.position3 .main_sentence::before {
-	content: "";
-    height: 0.15em;
-    width: 0.6em;
-    background-color: #f36d20;
-    position: absolute;
-    top: 0.35em;
-    left: -40px;
-    -webkit-transform: skew(-45deg);
-    transform: skew(-45deg);
-}
 
 .position3 .main_sentence_sub {
     word-break: keep-all;
@@ -669,7 +727,7 @@
         <script> 
             AOS.init(); 
         </script>
-		<!-- header-start -->
+       	<!-- header-start -->
 		<c:import url="header.jsp" charEncoding="UTF-8"></c:import>
 		<!-- header-end -->
 		
@@ -755,8 +813,12 @@
 		                            <img src="/resources/img/business/main_cctv.jpg" alt="" style="object-position:25%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
-		                                	<img class="icon_ani" src="/resources/img/icon/install_w.png">
-		                                	<p>안녕</p>
+		                                	<div class="icon_ani">
+			                                	<img src="/resources/img/icon/install_w.png">
+		                                	</div>
+			                        		<h3>CCTV<br>INSTALLATION</h3>
+		                                	<p>15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</p>
+		                                	<a href="/business/business_cctv" class="genric-btn primary-border e-large">CCTV 사업소개</a>
 		                                </div>
 		                            </div>
 		                        </div>
@@ -773,6 +835,10 @@
 		                            <img src="/resources/img/business/main_army.jpg" alt="" style="object-position:85%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
+                        		            <img class="icon_ani" src="/resources/img/icon/military_w.png">
+		                                	<h3>MILITARY<br>SOLUTION</h3>
+			                        		<p>노하우를 바탕으로 더욱 향상된, 요청한 환경에 맞는 적합한 서비스를 적시에 설계 및 제공합니다.</p>
+		                                	<a href="/business/business_army" class="genric-btn primary-border e-large">군사시설 CCTV</a>
 		                                </div>
 		                            </div>
 		                        </div>
@@ -789,6 +855,10 @@
 		                            <img src="/resources/img/business/main_sp.jpg" alt="" style="object-position:20%;">
 		                            <div class="team-hover">
 		                                <div class="team-link">
+		                                	<img class="icon_ani" src="/resources/img/icon/special_w.png">
+		                                	<h3>SPECIAL CCTV<br>SOLUTION</h3>
+			                        		<p>전자파 맞춤형 영상 장비 설비를 구축합니다.</p>
+		                                	<a href="/business/business_sp" class="genric-btn primary-border e-large">SHIELD CCTV</a>
 		                                </div>
 		                            </div>
 		                        </div>
@@ -804,6 +874,12 @@
 		                        	</div>
 		                            <img src="/resources/img/business/main_lan.jpg" alt="" style="object-position:20%;">
 		                            <div class="team-hover">
+		                                <div class="team-link">
+		                                	<img class="icon_ani" src="/resources/img/icon/lan_w.png">
+		                                	<h3>TELECOMMUNICATION</h3>
+			                        		<p>전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.</p>
+		                                	<a href="/business/business_com" class="genric-btn primary-border e-large">정보통신 사업</a>
+		                                </div>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -970,6 +1046,7 @@ $(window).on("wheel", function(e){
 	 	setTimeout(function(){
 	 		$(".scroll span").addClass("active");
 	 		$(".scroll-text").css("color","#4c4646");
+	 		$(".position2").addClass("focus");
 	 		$(".position2 .sentence-wrapper .main_sentence").css("color","#4c4646");
 	 		$(".position2 .main_sentence_sub").css("color","#4c4646");
 	 		$(".position2 .sentence-wrapper .main_sentence").addClass("sentence_ani");
@@ -989,6 +1066,7 @@ $(window).on("wheel", function(e){
 	 	setTimeout(function(){
 	 		$(".scroll span").addClass("active");
 	 		$(".scroll-text").css("color","#4c4646");
+	 		$(".position3").addClass("focus");
 	 		$(".position3 .sentence-wrapper .main_sentence").css("color","#4c4646");
 	 		$(".position3 .main_sentence_sub").css("color","#4c4646");
 	 		$(".position3 .sentence-wrapper .main_sentence").addClass("sentence_ani");
