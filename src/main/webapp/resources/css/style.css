@@ -213,7 +213,7 @@ h3 {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	opacity: 0.25
+	opacity: 0.5
 }
 
 .section-padding {
@@ -2611,12 +2611,24 @@ h3 {
 .banner-bg-1 {
 	background-image: url(../img/banner/banner_building.jpg)
 }
+.banner-bg-2 {
+	background-image: url(../img/banner/banner_business.jpg);
+}
+.banner-bg-3 {
+	background-image: url(../img/banner/banner_result.jpg);
+}
+.banner-bg-4 {
+	background-image: url(../img/banner/banner_support.jpg);
+}
+.banner-bg-5 {
+	background-image: url(../img/banner/banner_recruit.jpg);
+}
 
 .breadcrumb {
 	background-size: cover;
 	margin: 0 !important;
 	background-repeat:no-repeat;
-	background-position-y:80%;
+	background-position-y:75%;
 }
 
 .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
