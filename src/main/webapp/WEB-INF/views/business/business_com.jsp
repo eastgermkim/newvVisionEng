@@ -39,10 +39,12 @@
 .down {
 	display: none;
 }
+
 .row2 {
-    margin-left: 0px;
-    margin-right: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
 }
+
 .service-details {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -147,155 +149,160 @@
 }
 
 @media ( max-width : 767px) {
-	.nav{
-	display:block;
+	.nav {
+		display: block;
 	}
-	.nav-item{
-	border-bottom:1px solid;
+	.nav-item {
+		border-bottom: 1px solid;
 	}
-	
-	.single-team{
-	width:100%;
+	.single-team {
+		width: 100%;
 	}
-	
-	.cctv-kind{
-	margin-right:0px;
-	margin-left:0px;
+	.cctv-kind {
+		margin-right: 0px;
+		margin-left: 0px;
 	}
-	.cctv-kind .col-xl-4{
-	padding-right:0px;
-	padding-left:0px;
+	.cctv-kind .col-xl-4 {
+		padding-right: 0px;
+		padding-left: 0px;
 	}
-	
-	.service-details .details-nav ul li a{
-	padding:10px 0;
+	.service-details .details-nav ul li a {
+		padding: 10px 0;
 	}
 }
 </style>
 
 <style>
 .BusinessOutlineTop {
-    font-size: 0;
-    line-height: 0;
-    text-align: center;
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
 }
+
 .BusinessOutlineTop-title {
-    display: inline-block;
-    margin-right: 20px;
-    color: #000;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 1.2em;
+	display: inline-block;
+	margin-right: 20px;
+	color: #000;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 1.2em;
 }
+
 .BusinessOutlineTop-sub {
-    display: inline-block;
-    margin-top: 8px;
-    color: #000;
-    font-size: 18px;
-    line-height: 1.4em;
+	display: inline-block;
+	margin-top: 8px;
+	color: #000;
+	font-size: 18px;
+	line-height: 1.4em;
 }
+
 body .mb20 {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
+
 .BusinessOutlineBtm-title {
-    display: block;
+	display: block;
 }
+
 .BusinessOutlineBtm-title {
-    color: #F37321;
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.4em;
+	color: #F37321;
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 1.4em;
 }
+
 body .mb15 {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
-@media screen and (max-width: 1440px) and (min-width: 1025px){
+
+@media screen and (max-width: 1440px) and (min-width: 1025px) {
 	.BusinessOutlineTop-title {
-	    margin-right: 16px;
-	    font-size: 32px;
+		margin-right: 16px;
+		font-size: 32px;
 	}
 	.BusinessOutlineTop-sub {
-	    margin-top: 8px;
-	    font-size: 17px;
+		margin-top: 8px;
+		font-size: 17px;
 	}
 	.BusinessOutlineBtm {
-	    margin: 25px -30px 0;
+		margin: 25px -30px 0;
 	}
 	.BusinessOutlineBtm-item {
-	    padding: 0 30px;
+		padding: 0 30px;
 	}
 	body .mb20 {
-	    margin-bottom: 20px;
+		margin-bottom: 20px;
 	}
 	.BusinessOutlineBtm-title {
-	    font-size: 24px;
+		font-size: 24px;
 	}
 	.BusinessOutlineBtm-text {
-	    font-size: 16px;
+		font-size: 16px;
 	}
 	body .mb15 {
-	    margin-bottom: 15px;
-	}
-	
-}
-@media screen and (max-width: 1024px) and (min-width: 768px){
-	.BusinessOutlineTop-title {
-	    margin-right: 10px;
-	    font-size: 24px;
-	}
-	.BusinessOutlineTop-sub {
-	    margin-top: 8px;
-	    font-size: 16px;
-	}
-	.BusinessOutlineBtm {
-	    margin: 16px -15px 0;
-	}
-	.BusinessOutlineBtm-item {
-	    padding: 0 15px;
-	}
-	body .mb20 {
-	    margin-bottom: 20px;
-	}
-	.BusinessOutlineBtm-title {
-	    font-size: 18px;
-	}
-	.BusinessOutlineBtm-text {
-	    font-size: 14px;
-	}
-	body .mb15 {
-	    margin-bottom: 15px;
+		margin-bottom: 15px;
 	}
 }
-@media screen and (max-width: 767px) and (min-width: 1px){
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
 	.BusinessOutlineTop-title {
-   		display: block;
-	    margin-right: 0;
-	    font-size: 18px;
+		margin-right: 10px;
+		font-size: 24px;
 	}
 	.BusinessOutlineTop-sub {
-	    display: block;
-	    margin-top: 6px;
-	    font-size: 14px;
+		margin-top: 8px;
+		font-size: 16px;
 	}
 	.BusinessOutlineBtm {
-	    margin: 0;
+		margin: 16px -15px 0;
 	}
 	.BusinessOutlineBtm-item {
-	    width: 100%;
-	    float: none;
-	    padding: 15px 0 0;
+		padding: 0 15px;
 	}
 	body .mb20 {
-	    margin-bottom: 20px;
-	}	
+		margin-bottom: 20px;
+	}
 	.BusinessOutlineBtm-title {
-	    font-size: 16px;
+		font-size: 18px;
 	}
 	.BusinessOutlineBtm-text {
-	    font-size: 14px;
+		font-size: 14px;
 	}
 	body .mb15 {
-	    margin-bottom: 15px;
+		margin-bottom: 15px;
+	}
+}
+
+@media screen and (max-width: 767px) and (min-width: 1px) {
+	.BusinessOutlineTop-title {
+		display: block;
+		margin-right: 0;
+		font-size: 18px;
+	}
+	.BusinessOutlineTop-sub {
+		display: block;
+		margin-top: 6px;
+		font-size: 14px;
+	}
+	.BusinessOutlineBtm {
+		margin: 0;
+	}
+	.BusinessOutlineBtm-item {
+		width: 100%;
+		float: none;
+		padding: 15px 0 0;
+	}
+	body .mb20 {
+		margin-bottom: 20px;
+	}
+	.BusinessOutlineBtm-title {
+		font-size: 16px;
+	}
+	.BusinessOutlineBtm-text {
+		font-size: 14px;
+	}
+	body .mb15 {
+		margin-bottom: 15px;
 	}
 }
 </style>
@@ -335,81 +342,93 @@ body .mb15 {
 					<div class="details-nav">
 						<nav>
 							<ul class="nav" id="myTab" role="tablist">
-								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_cctv">CCTV 설치</a></li>
-								
-								<li class="nav-item">
-								<a class="nav-link " id="tab" href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
-								
-								<li class="nav-item">
-								<a class="nav-link" id="tab" href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
-								
-								<li class="nav-item">
-								<a class="nav-link active show" id="tab" href="../business/business_com">정보통신공사</a></li>
+								<li class="nav-item"><a class="nav-link" id="tab"
+									href="../business/business_cctv">CCTV 설치</a></li>
+
+								<li class="nav-item"><a class="nav-link " id="tab"
+									href="../business/business_army">군사시설 CCTV SYSTEM</a></li>
+
+								<li class="nav-item"><a class="nav-link" id="tab"
+									href="../business/business_sp">전자파용 특수 CCTV SYSTEM</a></li>
+
+								<li class="nav-item"><a class="nav-link active show"
+									id="tab" href="../business/business_com">정보통신공사</a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container" style="margin-top: 3%;margin-bottom: 3%;">
+		<div class="container" style="margin-top: 3%; margin-bottom: 3%;">
 			<div class="row">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
-
 						<!-----------------------------------정보통신공사------------------------------------>
-						<div class="tab-pane fade show active" id="business2" role="tabpanel"
-							aria-labelledby="profile-tab">
-							<div class="details-wrap">
-								<div class="details-info">
-									<div class="BusinessOutlineTop">
-										<h4 class="BusinessOutlineTop-title">정보통신공사</h4>
-									</div>
-									<div class="BusinessOutlineBtm" data-aos="fade-up"	data-aos-offset="200" data-aos-duration="1000">
-										<div class="BusinessOutlineBtm-item">
-											<span class="BusinessOutlineBtm-title mb20">정보통신공사란?</span>
-											<p
-												style="font-size: 16px; font-weight: 400">
-												문자·부호·영상·음향 등의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및 유지·보수에 관한 공사를 말합니다.
-											</p>
-										<img style="width: 100%;margin-top: 1%;" src="/resources/img/business/lan_main.jpg" alt="">
-										</div>
-									</div>
-										<div class="row" style="margin-top: 2%;">
-											<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
-												<span class="BusinessOutlineBtm-title mb20">네트워크 구축</span>
-												<ul class="business-ul" data-aos="fade-up"	data-aos-offset="100" data-aos-duration="1000">
-													<li class="business-li">
-													<img src="/resources/img/business/lan.png" alt="">
-														<hr>
-														<p>LAN 구축공사</p>
-													</li>
-													<li class="business-li"><img
-														src="/resources/img/business/digital.png" alt="">
-														<hr>
-														<p>디지털 통신망 구축</p></li>
-												</ul>
-												<p style="font-size: 16px; font-weight: 400" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
-													고객의 요구사항, 전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.
-												</p>
+						<div class="container">
+							<div class="PageContent">
+								<div class="site-container">
+									<article id="post-540"
+										class="post-540 page type-page status-publish hentry">
+										<div class="entry-content">
+											<!-- 사업개요 -->
+											<div class="BusinessOutline">
+												<div class="BusinessOutlineTop">
+													<h4 class="BusinessOutlineTop-title">정보통신공사</h4>
+												</div>
+												<div class="BusinessOutlineBtm" data-aos="fade-up"
+													data-aos-offset="200" data-aos-duration="1000">
+													<div class="BusinessOutlineBtm-item">
+														<span class="BusinessOutlineBtm-title mb20">정보통신공사란?</span>
+														<p style="font-size: 16px; font-weight: 400">
+															문자·부호·영상·음향 등의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및
+															유지·보수에 관한 공사를 말합니다.</p>
+														<img style="width: 100%; margin-top: 1%;"
+															src="/resources/img/business/main_lan.jpg" alt="">
+													</div>
+												</div>
+												<div class="row" style="margin-top: 2%;">
+													<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
+														<span class="BusinessOutlineBtm-title mb20">네트워크 구축</span>
+														<ul class="business-ul" data-aos="fade-up"
+															data-aos-offset="100" data-aos-duration="1000">
+															<li class="business-li"><img
+																src="/resources/img/business/lan.png" alt="">
+																<hr>
+																<p>LAN 구축공사</p></li>
+															<li class="business-li"><img
+																src="/resources/img/business/digital.png" alt="">
+																<hr>
+																<p>디지털 통신망 구축</p></li>
+														</ul>
+														<p style="font-size: 16px; font-weight: 400"
+															data-aos="fade-up" data-aos-offset="0"
+															data-aos-duration="1000" data-aos-delay="300">고객의
+															요구사항, 전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를
+															수행합니다.</p>
+													</div>
+													<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
+														<span class="BusinessOutlineBtm-title mb20">CCTV
+															구축사업</span>
+														<ul class="business-ul" data-aos="fade-up"
+															data-aos-offset="100" data-aos-duration="1000">
+															<li class="business-li"><img
+																src="/resources/img/business/cctv.png" alt="">
+																<hr>
+																<p>CCTV 노선설계 및 설치</p></li>
+															<li class="business-li"><img
+																src="/resources/img/business/center.png" alt="">
+																<hr>
+																<p>관제센터 설계 및 구축</p></li>
+														</ul>
+														<p style="font-size: 16px; font-weight: 400"
+															data-aos="fade-up" data-aos-offset="0"
+															data-aos-duration="1000" data-aos-delay="300">CCTV의
+															설계·설비·설치·유지·보수를 통합적으로 환경에 맞게 수행합니다.</p>
+													</div>
+												</div>
 											</div>
-											<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
-												<span class="BusinessOutlineBtm-title mb20">CCTV 구축사업</span>
-												<ul class="business-ul" data-aos="fade-up"	data-aos-offset="100" data-aos-duration="1000">
-													<li class="business-li"><img
-														src="/resources/img/business/cctv.png" alt="">
-														<hr>
-														<p>CCTV 노선설계 및 설치</p></li>
-													<li class="business-li"><img
-														src="/resources/img/business/center.png" alt="">
-														<hr>
-														<p>관제센터 설계 및 구축</p></li>
-												</ul>
-												<p style="font-size: 16px; font-weight: 400" data-aos="fade-up"	data-aos-offset="0" data-aos-duration="1000" data-aos-delay="300">
-													CCTV의 설계·설비·설치·유지·보수를 통합적으로 환경에 맞게 수행합니다.</p>
-											</div>
 										</div>
-									</div>
+									</article>
 								</div>
 							</div>
 						</div>
@@ -417,31 +436,30 @@ body .mb15 {
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- service-details-end -->
+		</div>
+		<!-- service-details-end -->
 
-	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
-	
-<script>
-$(function () { 
-	
-	addClassName2();
-	
-	$( '.header-area' ).on( "mouseleave", function () {
-		addClassName2();
-	})
+		<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
-});
-</script>
+		<script>
+			$(function() {
 
-	<!--==========================스크롤 이미지 애니메이션============================-->
-	<script>
-	/* AOS 초기화 */
-	$('.nav-link').on('click', function(){
-		AOS.refresh();
-	})
-	</script>
-	
+				addClassName2();
+
+				$('.header-area').on("mouseleave", function() {
+					addClassName2();
+				})
+
+			});
+		</script>
+
+		<!--==========================스크롤 이미지 애니메이션============================-->
+		<script>
+			/* AOS 초기화 */
+			$('.nav-link').on('click', function() {
+				AOS.refresh();
+			})
+		</script>
 </body>
 
 

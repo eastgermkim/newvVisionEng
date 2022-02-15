@@ -729,6 +729,14 @@
 		display: none;
 	}
 }
+@media (max-width: 767.5px){
+	.position3 .main_sentence {
+	    margin-left: 12%;
+	}
+	.position3 .main_sentence_sub {
+    	margin-left: 12s%;
+	}	
+}
 </style>
 
 </head>
