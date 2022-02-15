@@ -242,6 +242,7 @@ table {
 <style>
 .search_top {
     width: 100%;
+    margin-bottom: 20px;
     margin-bottom: 10px;
     font-size: 0;
     line-height: 0;
@@ -259,7 +260,7 @@ table {
     margin-left: -1px;
 }
 .search_top input[type=text] {
-    width: 213px;
+    width: 59%;
 }
 .search_top select, .search_top input[type=text], .search_top input[type=button] {
     height: 45px;
@@ -275,14 +276,14 @@ table {
     box-sizing: border-box;
 }
 .search_top input[type=button] {
-    width: 90px;
+    width: 21%;
     border-color: #666;
     background-color: #666;
     color: #fff;
     cursor: pointer;
 }
 .search_top select{
-	width: 11%;
+	width: 20%;
 }
 @media only screen and (max-width: 991px){
 	.search_top {
@@ -330,11 +331,11 @@ table {
 	<div class="service-details" style="padding-top: 70px;">
 		<div class="container">
 			<div class="row" id="refresh">
-				<div class="col-xl-3">
+				<div class="col-xl-4">
 					<div class="details-nav" style="position: sticky;top: 10%;">
 						<nav>
 							<ul class="nav" id="myTab" role="tablist">
-								<li><div style="color: 	grey;margin: 2% 2% 1.3%;font-weight: 300;">Business Area</div></li>
+								<li><div style="color: 	grey;margin: 2% 2% 0.1%;font-weight: 300;">Business Area</div></li>
 								
 								<li class="nav-item"><a class="tabs nav-link active show" id="home-tab"			
 								data-toggle="tab" href="#military" role="tab" aria-controls="military" aria-selected="true">군사시설</a></li>
@@ -344,6 +345,16 @@ table {
 								data-toggle="tab" href="#privateCorp" role="tab" aria-controls="privateCorp" aria-selected="false">민간기업</a></li>
 							</ul>
 						</nav>
+						<!-- 검색창 -->
+							<form name="search_form" method="get" action=""  onSubmit="return false">
+								<div class="search_top">
+									<select name="s_type" id="s_type">
+										<option selected value="content">내용</option>
+									</select>
+									<input type="text" id="" name="s_keyword" id="s_keyword" maxlength="20" onKeyPress="if( event.keyCode==13 ){search();}">
+									<input type="button" name="" value="검색" onclick="search();" >
+								</div>
+							</form>
 						<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 						    <div class="btn-list" style="padding-top: 2%;" id="regist_popup_open">
 							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">새 사업실적 등록</a>
@@ -361,20 +372,9 @@ table {
 						
 					</div>
 				</div>
-				<div class="col-xl-9">
+				<div class="col-xl-8">
 					<div class="single-details">
 						<div class="tab-content" id="myTabContent">
-						
-							<!-- 검색창 -->
-							<form name="search_form" method="get" action=""  onSubmit="return false">
-								<div class="search_top">
-									<select name="s_type" id="s_type">
-										<option selected value="content">내용</option>
-									</select>
-									<input type="text" id="" name="s_keyword" id="s_keyword" maxlength="20" onKeyPress="if( event.keyCode==13 ){search();}">
-									<input type="button" name="" value="검색" onclick="search();" >
-								</div>
-							</form>
 						
 							<div class="tab-pane fade active show" id="military" role="tabpanel"
 								aria-labelledby="home-tab">

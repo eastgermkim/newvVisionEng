@@ -13,11 +13,38 @@
 .backToAll:hover {
 	color: #007bff;
 }
+
+.searchTextBack{
+	text-align: right;
+	
+	position: absolute;
+    top: -45px;
+}
+
+.searchText{
+	text-align: right;
+	font-size: larger;
+	
+	position: absolute;
+    top: -25px;
+}
+@media only screen and (max-width: 1199px){
+	.searchTextBack{
+	position: inherit;
+    top: inherit;
+	}
+
+.searchText{
+	position: inherit;
+    top: inherit;
+	}
+}
+
 </style>
-<div style="text-align: right;">
+<div class="searchTextBack">
 <a href="javascript:void(0);" onclick="ChangePage(1,'${tabId}', );" class="backToAll">전체목록으로 돌아가기</a>
 </div>
-<div style="text-align: right;font-size: larger;">
+<div class="searchText">
 ${resultClass}의 '${pageMaker.cri.s_keyword}' 검색결과입니다.
 </div>
 </c:if>
