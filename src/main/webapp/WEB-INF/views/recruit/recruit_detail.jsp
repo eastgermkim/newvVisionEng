@@ -346,7 +346,7 @@ u {
 	<c:import url="../header.jsp" charEncoding="UTF-8"></c:import>
 
 	<!-- breadcrumb-start -->
-	<section class="breadcrumb breadcrumb_bg banner-bg-1 overlay2 ptb200">
+	<section class="breadcrumb breadcrumb_bg banner-bg-5 overlay2 ptb200">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7 offset-lg-1">
