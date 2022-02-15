@@ -54,9 +54,9 @@
 
 
 .header-area .main-header-area .main-menu ul li .submenu {
-    transition: .3s;
+    transition: .1s;
     width: max-content;
-    top: 85%;
+    top: 100%;
 }
 .header-area .main-header-area .main-menu ul li .submenu li {
     display: table-cell;
@@ -83,16 +83,16 @@
     
 	/* 없어질때 속도 */
     transition: 1s;
-   	top: 13.53%;
+   	/* top: 13.53%; */
     opacity: 0;
     visibility: hidden;
     
 }
 .whiteBackgroundHover{
 	/* 생길때 속도 */
-	transition: .2s;
+	transition: .1s;
 
-    top:initial;
+    /* top:initial; */
 	opacity: 1;
     visibility: visible;
 }
