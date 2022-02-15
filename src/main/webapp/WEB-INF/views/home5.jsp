@@ -723,6 +723,14 @@
 }
 </style>
 
+<style>
+@media (max-width : 991.5px){
+	.homePageGroup{
+		display: none;
+	}
+}
+</style>
+
 </head>
 	<body>
         <script> 

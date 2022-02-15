@@ -92,7 +92,7 @@
 	/* 생길때 속도 */
 	transition: .2s;
 
-    top:15.07%;
+    top:initial;
 	opacity: 1;
     visibility: visible;
 }
