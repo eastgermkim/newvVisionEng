@@ -258,7 +258,7 @@
 }
 
 .position3{
-	top:20%;
+	top:15%;
 	position:relative;
 	overflow:hidden;
 }
@@ -384,6 +384,11 @@
 
 .team-area .single-team:hover .team-hover{
 	 transform: translateY(0px);
+}
+
+.team-area .single-team:hover .team-thumb{
+	box-shadow: 0px 30px 30px -15px rgb(0 0 0 / 60%);
+	transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out;
 }
 
 .single-team:hover .team-link .icon_ani{
@@ -893,12 +898,12 @@
 		<div class="slider-area" style="background: #fff; height: 100vh;">
 				<div class="sentence-container position3">
 					<div class="sentence-wrapper" id="page3">
-						<p class="main_sentence" style="color:rgb(76, 70, 70)">주요사업실적
-							<a href="/business/result" style="font-size: 0.5em;font-weight: bold;color: #f36d20;">+More</a>
+						<p class="main_sentence" style="color:rgb(76, 70, 70); margin-bottom:0.5rem">Projects
 						</p>
 					</div>
-					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s;">
-						CCTV 설치 및 관리 솔루션 전문 기업<br>(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
+					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s; margin-bottom:0.5rem"> 
+						CCTV 설치 및 관리 솔루션 전문 기업 (주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
+						<a href="/business/result" style="font-size: 0.75em;font-weight: bold;color: #f36d20;">+More</a>
 					</p>
 				</div>
 				<!-- 4개씩 -->
@@ -1082,10 +1087,10 @@ $(window).on("wheel", function(e){
 			$( '.ti-angle-down_main_pc' ).addClass("mousein");
 			$( '#nv_logo_white' ).removeClass("mousein");
 			$( '#nv_logo_black' ).addClass("mousein");
-	 		$(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
-	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700);
+	 		/* $(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
+	 		$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700); */
  		},1000);
- 	}else{
+ 	}else if(page =="1"){
  		$( '#header_main_pc' ).removeClass("mousein");
  		setTimeout(function(){
 	 		$(".scroll span").removeClass("active");
