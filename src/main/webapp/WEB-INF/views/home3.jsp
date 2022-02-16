@@ -728,6 +728,30 @@
 }
 </style>
 
+<style>
+@media (max-width : 991.5px){
+	.homePageGroup{
+		display: none;
+	}
+}
+@media (max-width: 767.5px){
+	.position3 .main_sentence {
+	    margin-left: 12%;
+	}
+	.position3 .main_sentence_sub {
+    	margin-left: 12%;
+	}	
+}
+.br1999{
+	display: none;
+}
+@media (max-width : 1199px){
+	.br1999{
+		display: initial;
+	}
+}
+</style>
+
 </head>
 	<body>
         <script> 
@@ -902,7 +926,7 @@
 						</p>
 					</div>
 					<p class="main_sentence_sub" style="color:rgb(76, 70, 70); animation-delay:0.5s; margin-bottom:0.5rem"> 
-						CCTV 설치 및 관리 솔루션 전문 기업 (주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
+						CCTV 설치 및 관리 솔루션 전문 기업 <br class="br1999">(주)뉴비젼이엔지의 주요 프로젝트 실적입니다.
 						<a href="/business/result" style="font-size: 0.75em;font-weight: bold;color: #f36d20;">+More</a>
 					</p>
 				</div>
