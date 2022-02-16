@@ -242,7 +242,7 @@ table {
 <style>
 .search_top {
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 20px;
     margin-bottom: 10px;
     font-size: 0;
     line-height: 0;
