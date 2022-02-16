@@ -195,6 +195,19 @@
 	font-size: 18px;
 	line-height: 1.4em;
 }
+.BusinessOutlineBtm {
+    margin: 38px -35px 0;
+}
+.BusinessOutlineBtm:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.BusinessOutlineBtm-item {
+    /* width: 50%; */
+    float: left;
+    padding: 0 35px;
+}
 
 body .mb20 {
 	margin-bottom: 20px;
@@ -388,7 +401,8 @@ body .mb15 {
 												</div>
 												<div class="row" style="margin-top: 2%;">
 													<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
-														<span class="BusinessOutlineBtm-title mb20">네트워크 구축</span>
+														<span class="BusinessOutlineBtm-title mb20" data-aos="fade-up"
+															data-aos-offset="100" data-aos-duration="1000">네트워크 구축</span>
 														<ul class="business-ul" data-aos="fade-up"
 															data-aos-offset="100" data-aos-duration="1000">
 															<li class="business-li"><img
@@ -407,7 +421,8 @@ body .mb15 {
 															수행합니다.</p>
 													</div>
 													<div class="col-xl-6 col-md-6" style="padding-top: 4%;">
-														<span class="BusinessOutlineBtm-title mb20">CCTV
+														<span class="BusinessOutlineBtm-title mb20" data-aos="fade-up"
+															data-aos-offset="100" data-aos-duration="1000">CCTV
 															구축사업</span>
 														<ul class="business-ul" data-aos="fade-up"
 															data-aos-offset="100" data-aos-duration="1000">

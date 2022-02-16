@@ -582,7 +582,8 @@ img {
 													<h4 class="BusinessOutlineTop-title">전자파용 특수 CCTV SYSTEM</h4>
 						
 												</div>
-												<div class="BusinessOutlineBtm">
+												<div class="BusinessOutlineBtm" data-aos="fade-up"
+													data-aos-offset="200" data-aos-duration="1000">
 													<div class="BusinessOutlineBtm-item">
 						
 														<span class="BusinessOutlineBtm-title mb20">특수 환경을 위한 맞춤형 영상 장비 설비 구축</span>

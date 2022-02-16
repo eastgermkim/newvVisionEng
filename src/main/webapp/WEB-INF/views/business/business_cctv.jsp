@@ -420,14 +420,13 @@ body .mb15 {
 				</div>
 			</div>
 		</div>
-		<div class="container" style="margin-top: 3%;">
+		<div class="container" style="margin-top: 3%;margin-bottom: 3%;">
 			<div class="row2">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
 
 						<!-----------------------------------CCTV 설치------------------------------------>
-						<div class="tab-pane fade show active" id="business1"
-							role="tabpanel" aria-labelledby="home-tab">
+						<div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
 							<div class="details-wrap">
 								<div class="details-info">
 									<div class="BusinessOutlineTop">
@@ -638,13 +637,6 @@ body .mb15 {
 		</div>
 	</div>
 	<!-- service-details-end -->
-
-
-	<!-- ================ contact section start ================= -->
-	<section class="contact-section">
-		<div class="container"></div>
-	</section>
-	<!-- ================ contact section end ================= -->
 
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 	

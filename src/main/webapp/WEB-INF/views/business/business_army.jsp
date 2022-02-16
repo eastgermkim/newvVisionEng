@@ -396,7 +396,7 @@ body .mb15 {
 				</div>
 			</div>
 		</div>
-		<div class="container" style="margin-top: 3%;">
+		<div class="container" style="margin-top: 3%;margin-bottom: 3%;">
 			<div class="row row2">
 				<div class="single-details">
 					<div class="tab-content" id="myTabContent">
@@ -442,7 +442,7 @@ body .mb15 {
 												</table>
 										</div>
 									</div>
-									<div class="BusinessOutlineBtm">
+									<%-- <div class="BusinessOutlineBtm">
 										<div class="BusinessOutlineBtm-item">
 											<span class="BusinessOutlineBtm-title mb20">Process</span>
 											<p style="font-size: 16px; font-weight: 400"></p>
@@ -479,7 +479,7 @@ body .mb15 {
 												</tr>
 											</tbody>
 										</table>
-									</div>
+									</div> --%>
 								</div>
 							</div>
 						</div>
@@ -501,12 +501,6 @@ body .mb15 {
 										</div> -->
 	<!-- service-details-end -->
 
-
-	<!-- ================ contact section start ================= -->
-	<section class="contact-section">
-		<div class="container"></div>
-	</section>
-	<!-- ================ contact section end ================= -->
 
 	<c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
