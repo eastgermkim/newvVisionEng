@@ -531,91 +531,203 @@
 
 </style>
 
-<!-- projects -->
 <style>
-.projects{
-	position: relative;
-    width: 80%;
-    min-height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    left: 10%;
+.swiper {
+	width: 100%;
+	/* height: 100%; */
+	/* margin-top: 125px; */
+	/* margin-top: 60px; */
+	margin-top: 25vh;
+	padding-right: 5%;
+	padding-left: 5%;
 }
-
-.swiper-container{
-	width:100%;
-	margin-top:13%;
-	margin-bottom: 20%;
+/* @media (max-width: 768px){
+	.swiper{
+	    margin-top: 45px;
+	}
 }
-
-.swiper-slide{
-	background-position:center;
-	background-size:cover;
-	width:32rem;
-	height:24rem;
-	position:unset;
-}
-
-.project-text{
-	position:relative;
-	width:100%;
-	padding:40px;
-}
-
-
-.project-img{
-	height:100%;
-	width:100%;
-	position:relative;
-	border-radius:1em;
-	overflow:hidden;
-}
-
-.swiper-slide.swiper-slide-visible.swiper-slide-active .project-img {
-    transform: scaleX(1.4) scaleY(1.1);
-    transition: ease 0.3s;
-    object-fit: cover;
-}
-
-.project-img img{
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	object-fit:cover;
-}
-
-/* .swiper-slide.swiper-slide-duplicate.swiper-slide-visible {
-    position: relative;
-    left: 25em;
-}
-
-.swiper-slide.swiper-slide-duplicate.swiper-slide-visible.swiper-slide-prev {
-    position: relative!important;
-    left: 4em!important;
-}
-
-.swiper-slide.swiper-slide-visible {
-    position: relative;
-    right: 25em;
-}
-
-.swiper-slide.swiper-slide-visible.swiper-slide-active{
-	right:0!important;
-}
-.swiper-slide.swiper-slide-visible.swiper-slide-next {
-    position: relative!important;
-    right: 4em!important;
-}
-
-.swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-active {
-    visibility: hidden;
+@media (max-width: 640px){
+	.swiper{
+	    margin-top: 25px;
+	}
 } */
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
 
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 
+.swiper-slide.swiper-slide-active {
+    left: 12.5%;
+    margin-top: 10vh;
+    z-index:1;
+}
+
+.swiper-slide.swiper-slide-duplicate-active{
+    right: 40%;
+    margin-top: 15vh;
+}
+
+.swiper-slide.swiper-slide-duplicate-active img{
+	height: 80%!important;
+}
+
+.swiper-slide.swiper-slide-duplicate-active .business-text{
+	display:none;
+}
+
+.swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-active{
+    right: 40%;
+    margin-top: 15vh;
+}
+
+.swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-active img{
+	height: 80%!important;
+}
+
+.swiper-slide.swiper-slide-duplicate.swiper-slide-duplicate-active .business-text{
+	display:none;
+}
+
+.swiper-slide.swiper-slide-duplicate-prev{
+    right: 12.5%;
+    margin-top: 10vh;
+    z-index:1;
+}
+
+.swiper-slide.swiper-slide-prev{
+    left: 40%;
+    margin-top: 15vh;
+}
+.swiper-slide.swiper-slide-prev img{
+	height: 80%!important;
+}
+
+.swiper-slide.swiper-slide-prev .business-text{
+	display:none;
+}
+
+.swiper-slide.swiper-slide-duplicate.swiper-slide-prev{
+    left: 40%;
+    margin-top: 15vh;
+}
+.swiper-slide.swiper-slide-duplicate.swiper-slide-prev img{
+	height: 80%!important;
+}
+
+.swiper-slide.swiper-slide-duplicate.swiper-slide-prev .business-text{
+	display:none;
+}
+
+.swiper-slide.swiper-slide-next{
+	transition: all ease;
+	margin-top: 10vh;
+	z-index: 2;
+}
+
+.swiper-slide.swiper-slide-next img{
+	transform:scaleX(1.35) scaleY(1.2);	
+	transition: all ease 0.5s;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    font-weight: bold;
+    color: white;
+ 	text-shadow: 0px 0px 10px black;
+ 	top: 39%;
+}
+.swiper-button-prev{
+    left: 4%;
+}
+.swiper-button-next{
+    right: 4%;
+}
+.swiper-pagination {
+    position: initial;
+    margin-top: 12px;
+}
+:root {
+    --swiper-theme-color: #f36d20;
+}
+
+.img-wrapper {
+	position: relative;
+	margin-bottom: 60px;
+} 
+
+.img-wrapper img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(50, 50);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: auto;
+	border-radius: 1em;
+	
+}
+
+.mySwiper2{
+	display: none;
+}
+.mySwiper3{
+	display: none;
+}
+.mySwiper4{
+	display: none;
+}
+@media (max-width : 2500px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: block;
+	}
+}
+@media (max-width : 991.5px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: none;
+	}
+	.mySwiper3{
+		display: block;
+	}
+}
+@media (max-width : 500px){
+	.mySwiper{
+		display: none;
+	}
+	.mySwiper2{
+		display: none;
+	}
+	.mySwiper3{
+		display: none;
+	}
+	.mySwiper4{
+		display: block;
+	}
 </style>
 <style>
 /* ====================================================================================== */
@@ -653,22 +765,27 @@
 </style>
 
 <style>
-/* .project-text{
+.business-text{
     width: 100%;
 	position: absolute;
+   /*  bottom: 15px; */
    	bottom: -33px;
 }
-.project-text>p{
+.business-text>p{
+    /* color: #fff; */
     color: #1c1c1c;
 	font-size: 1em;
     line-height: 1em;
+    /* text-shadow: 0px 0px 3px black; */
+    font-weight: 500;
     margin: 1%;
     
 }
-.project-text>p:first-child {
+.business-text>p:first-child {
+    /* font-size: 24px; */
     height: 20px;
 }
-.project-text>p:last-child {
+.business-text>p:last-child {
 	font-size: 17px;
     color: #fff;
     margin-bottom: 0px;
@@ -676,13 +793,13 @@
     display: none;
 }
 @media (max-width : 767.5px){
-	.project-text>p:first-child {
+	.business-text>p:first-child {
 		font-size: 18px;
 	}
-	.project-text>p:last-child {
+	.business-text>p:last-child {
 		font-size: 15px;
 	}
-} */
+}
 </style>
 
 <style>
@@ -887,31 +1004,86 @@
 						<a href="/business/result" style="font-size: 0.75em;font-weight: bold;color: #f36d20;">+More</a>
 					</p>
 				</div>
-				
-			    <!-- 3개씩 -->
-				<div class="projects">
-				<!-- <div class="projects"  data-aos="fade-up" data-aos-duration="1000"> -->
-					<div class="swiper-container">
-					      <div class="swiper-wrapper">
-								<c:forEach items="${business_list}" var="business">
-								<div class="swiper-slide">
-									<div class="project-img">
-										<img src="/resources/img/business_result/main_imgs/${business.imgName}">									
+				<!-- 4개씩 -->
+				<div class="swiper mySwiper"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultClass}</p>
+										<p>${business.resultContnents}</p>
 									</div>
-									<div class="project-text">
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 3개씩 -->
+				<div class="swiper mySwiper2"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
 										<p>${business.resultContnents}</p>
 										<p>${business.resultClass}</p>
 									</div>
 								</div>
-								</c:forEach>
-					      </div>
-					      <!-- 네비게이션 -->
-							<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-							<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-					      <div class="swiper-pagination"></div>
+							</div>
+							</c:forEach>
 				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
 			    </div>
-			    
+			    <!-- 2개씩 -->
+				<div class="swiper mySwiper3"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
+			    <!-- 1개씩 -->
+				<div class="swiper mySwiper4"  data-aos="fade-up" data-aos-duration="1000">
+				      <div class="swiper-wrapper">
+							<c:forEach items="${business_list}" var="business">
+							<div class="swiper-slide">
+								<div class="img-wrapper" style="width: inherit;">
+									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+									<div class="business-text">
+										<p>${business.resultContnents}</p>
+										<p>${business.resultClass}</p>
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+				      </div>
+				      <!-- 네비게이션 -->
+						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+				      <div class="swiper-pagination"></div>
+			    </div>
 			</div>	
 			
 			<div class="slider-area">
@@ -1152,13 +1324,13 @@ $(window).on("wheel", function(e){
 
 <script>
  /* 사업실적의 이미지 정사각형 고정 */
-/*  $(document).ready(function () {
+ $(document).ready(function () {
  	$('.img-wrapper').each(function() {
  		$(this).height($(this).width()*(0.75));
  	});
- }); */
+ });
  
-/*  var delay = 300;
+ var delay = 300;
  var timer = null;
 
  $(window).on('resize', function(){
@@ -1177,33 +1349,72 @@ $(window).on("wheel", function(e){
  			$(this).width(owl_item_width);
  		});
  	}, delay);
- }); */
- 
-	
- var swiper = new Swiper(".swiper-container", {
-   effect:'coverflow',
-   grabCursor:true,
-   centeredSlides:true,
-   slidesPerView: 'auto',
-   coverflowEffect: {
-   	rotate: 0,
-   	stretch:0,
-   	depth:100,
-   	modifier:2,
-	slideShadows:false,   	
-   	},
-   	loop:true,
-   	pagination: {
-     el: ".swiper-pagination",
-   clickable: true
-   },
-    navigation : { // 네비게이션
-	nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-	prevEl : '.swiper-button-prev', // 이번 버튼 클래스명 
-	}
  });
+ 
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      }
       
+      );
       
+	
+      var swiper2 = new Swiper(".mySwiper2", {
+        slidesPerView: 3,
+        watchSlidesProgress: true,
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper3 = new Swiper(".mySwiper3", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
+      
+      var swiper4 = new Swiper(".mySwiper4", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        
+        loop : true,
+        
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation : { // 네비게이션
+    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    	},
+      });
     </script>
 	
 	
