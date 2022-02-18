@@ -80,8 +80,9 @@
 	<!-- header.jsp import -->
 	<c:import url="./header.jsp" charEncoding="UTF-8"></c:import>
 	<div class="image">
-		<img src="/resources/img/404error.png" style="width: 100%">
+		<img src="" style="width: 100%">
 		<div class="text">
+			<div>알수없는오류</div>
 			<div id="choonDiv"></div>
 		</div>
 	</div>
