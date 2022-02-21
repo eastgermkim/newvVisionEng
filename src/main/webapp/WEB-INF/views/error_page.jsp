@@ -58,7 +58,7 @@
 		setTimeout("locateHome()", 3000);
 	}
 	function locateHome() {
-		location.replace("http://localhost:8081/");
+		location.replace("http://nveng.co.kr");
 	}
 //-->
 </script>

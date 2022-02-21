@@ -546,8 +546,8 @@
 
 .swiper-container{
 	width:100%;
-	margin-top:13%;
-	margin-bottom: 20%;
+	margin-top: 33vh;
+    margin-bottom: 25vh;
 }
 
 .swiper-slide{
@@ -710,6 +710,25 @@
 }
 </style>
 <style>
+.swiper-button-next, .swiper-button-prev {
+    font-weight: bold;
+    color: white;
+ 	text-shadow: 0px 0px 10px black;
+ 	top: 39%;
+}
+.swiper-button-prev{
+    left: 4%;
+}
+.swiper-button-next{
+    right: 4%;
+}
+.swiper-pagination {
+    position: initial;
+    margin-top: 12px;
+}
+:root {
+    --swiper-theme-color: #f36d20;
+}
 
 .swiper-slide{
 	visibility: hidden;
