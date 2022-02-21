@@ -546,8 +546,8 @@
 
 .swiper-container{
 	width:100%;
-	margin-top: 33vh;
-    margin-bottom: 25vh;
+	margin-top:13%;
+	margin-bottom: 20%;
 }
 
 .swiper-slide{
@@ -710,25 +710,6 @@
 }
 </style>
 <style>
-.swiper-button-next, .swiper-button-prev {
-    font-weight: bold;
-    color: white;
- 	text-shadow: 0px 0px 10px black;
- 	top: 39%;
-}
-.swiper-button-prev{
-    left: 4%;
-}
-.swiper-button-next{
-    right: 4%;
-}
-.swiper-pagination {
-    position: initial;
-    margin-top: 12px;
-}
-:root {
-    --swiper-theme-color: #f36d20;
-}
 
 .swiper-slide{
 	visibility: hidden;
@@ -1246,6 +1227,7 @@ $(window).on("wheel", function(e){
    grabCursor:true,
    centeredSlides:true,
    slidesPerView: 'auto',
+   freeMode : 'false',
    coverflowEffect: {
    	rotate: 0,
    	stretch:0,
@@ -1256,13 +1238,39 @@ $(window).on("wheel", function(e){
    	loop:true,
    	pagination: {
      el: ".swiper-pagination",
-   clickable: true
+   	clickable: true
    },
     navigation : { // 네비게이션
 	nextEl : '.swiper-button-next', // 다음 버튼 클래스명
 	prevEl : '.swiper-button-prev', // 이번 버튼 클래스명 
-	}
+	},
+	 on: {
+		 transitionStart: function () {
+		      /* alert(this.realIndex+'번째 slide입니다.'); */
+		    //임의로 준 클래스 삭제
+		    	$('.swiper-slide').css('transform','translate3d(0%, 0, 0) scale(1) !important');
+				 $('.swiper-slide-prev-prev').removeClass('swiper-slide-prev-prev');
+				 $('.swiper-slide-next-next').removeClass('swiper-slide-next-next');
+				 $('.swiper-slide-prev-prev-prev').removeClass('swiper-slide-prev-prev-prev');
+				 $('.swiper-slide-next-next-next').removeClass('swiper-slide-next-next-next');
+				 $('.swiper-slide-duplicate-prev-prev').removeClass('swiper-slide-duplicate-prev-prev');
+				 $('.swiper-slide-duplicate-next-next').removeClass('swiper-slide-duplicate-next-next');
+				 $('.swiper-slide-duplicate-prev-prev-prev').removeClass('swiper-slide-duplicate-prev-prev-prev');
+				 $('.swiper-slide-duplicate-next-next-next').removeClass('swiper-slide-duplicate-next-next-next');
+			 
+			//다시 새로 클래스 정의
+				$('.swiper-slide-next').next().next().addClass('swiper-slide-next-next-next');
+				 $('.swiper-slide-prev').prev().addClass('swiper-slide-prev-prev');
+				 $('.swiper-slide-prev').prev().prev().addClass('swiper-slide-prev-prev-prev');
+				 $('.swiper-slide-next').next().addClass('swiper-slide-next-next');
+				 $('.swiper-slide-duplicate-prev').prev().addClass('swiper-slide-duplicate-prev-prev');
+				 $('.swiper-slide-duplicate-prev').prev().prev().addClass('swiper-slide-duplicate-prev-prev-prev');
+				 $('.swiper-slide-duplicate-next').next().addClass('swiper-slide-duplicate-next-next');
+				 $('.swiper-slide-duplicate-next').next().next().addClass('swiper-slide-duplicate-next-next-next');
+		    }
+	 }
  });
+
  
  $(document).ready(function () {
 	 $('.swiper-slide-prev').prev().addClass('swiper-slide-prev-prev');
@@ -1275,63 +1283,6 @@ $(window).on("wheel", function(e){
 	 $('.swiper-slide-duplicate-next').next().next().addClass('swiper-slide-duplicate-next-next-next');
 }); 
  
- //사업실적 슬라이드 이전 버튼 클릭시 
- $('.swiper-button-prev').click(function(){
-	//임의로 준 클래스 삭제
-		 $('.swiper-slide-prev-prev').removeClass('swiper-slide-prev-prev');
-		 $('.swiper-slide-next-next').removeClass('swiper-slide-next-next');
-		 $('.swiper-slide-prev-prev-prev').removeClass('swiper-slide-prev-prev-prev');
-		 $('.swiper-slide-next-next-next').removeClass('swiper-slide-next-next-next');
-		 $('.swiper-slide-duplicate-prev-prev').removeClass('swiper-slide-duplicate-prev-prev');
-		 $('.swiper-slide-duplicate-next-next').removeClass('swiper-slide-duplicate-next-next');
-		 $('.swiper-slide-duplicate-prev-prev-prev').removeClass('swiper-slide-duplicate-prev-prev-prev');
-		 $('.swiper-slide-duplicate-next-next-next').removeClass('swiper-slide-duplicate-next-next-next');
-	 
-	//다시 새로 클래스 정의
-		 if(!$('.swiper-pagination-bullet').last().hasClass('swiper-pagination-bullet-active')){
-			//뒤에서 첫번째에서 뒤에서 두번쨰로 갈때 
-			//swiper-slide-duplicate-prev-prev-prev가
-			//swiper-slide-next-next-next보다 우선되어야 한다.
-			//따라서 마지막 슬라이드가 active가 아닐때에만 swiper-slide-next-next-next를 추가해준다.
-			 $('.swiper-slide-next').next().next().addClass('swiper-slide-next-next-next');
-		 }
-		 $('.swiper-slide-prev').prev().addClass('swiper-slide-prev-prev');
-		 $('.swiper-slide-prev').prev().prev().addClass('swiper-slide-prev-prev-prev');
-		 $('.swiper-slide-next').next().addClass('swiper-slide-next-next');
-		 $('.swiper-slide-duplicate-prev').prev().addClass('swiper-slide-duplicate-prev-prev');
-		 $('.swiper-slide-duplicate-prev').prev().prev().addClass('swiper-slide-duplicate-prev-prev-prev');
-		 $('.swiper-slide-duplicate-next').next().addClass('swiper-slide-duplicate-next-next');
-		 $('.swiper-slide-duplicate-next').next().next().addClass('swiper-slide-duplicate-next-next-next');
- });
- 
- //사업실적 슬라이드 다음 버튼 클릭시 
- $('.swiper-button-next').click(function(){
-	//임의로 준 클래스 삭제
-		 $('.swiper-slide-prev-prev').removeClass('swiper-slide-prev-prev');
-		 $('.swiper-slide-next-next').removeClass('swiper-slide-next-next');
-		 $('.swiper-slide-prev-prev-prev').removeClass('swiper-slide-prev-prev-prev');
-		 $('.swiper-slide-next-next-next').removeClass('swiper-slide-next-next-next');
-		 $('.swiper-slide-duplicate-prev-prev').removeClass('swiper-slide-duplicate-prev-prev');
-		 $('.swiper-slide-duplicate-next-next').removeClass('swiper-slide-duplicate-next-next');
-		 $('.swiper-slide-duplicate-prev-prev-prev').removeClass('swiper-slide-duplicate-prev-prev-prev');
-		 $('.swiper-slide-duplicate-next-next-next').removeClass('swiper-slide-duplicate-next-next-next');
-	 
-	//다시 새로 클래스 정의
-		 if(!$('.swiper-pagination-bullet').first().hasClass('swiper-pagination-bullet-active')){
-			//첫번째에서 두번쨰로 갈때 
-			//swiper-slide-duplicate-next-next-next가
-			//swiper-slide-prev-prev-prev보다 우선되어야 한다.
-			//따라서 첫번째 슬라이드가 active가 아닐때에만 swiper-slide-prev-prev-prev를 추가해준다.
-			 $('.swiper-slide-prev').prev().prev().addClass('swiper-slide-prev-prev-prev');
-		 }
-		 $('.swiper-slide-prev').prev().addClass('swiper-slide-prev-prev');
-		 $('.swiper-slide-next').next().addClass('swiper-slide-next-next');
-		 $('.swiper-slide-next').next().next().addClass('swiper-slide-next-next-next');
-		 $('.swiper-slide-duplicate-prev').prev().addClass('swiper-slide-duplicate-prev-prev');
-		 $('.swiper-slide-duplicate-prev').prev().prev().addClass('swiper-slide-duplicate-prev-prev-prev');
-		 $('.swiper-slide-duplicate-next').next().addClass('swiper-slide-duplicate-next-next');
-		 $('.swiper-slide-duplicate-next').next().next().addClass('swiper-slide-duplicate-next-next-next');
- });
 
  
  
