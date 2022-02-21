@@ -574,7 +574,7 @@
 }
 
 .swiper-slide.swiper-slide-visible.swiper-slide-active .project-img {
-    transform: scaleX(1.4) scaleY(1.1);
+    transform: scaleX(1.2) scaleY(1.2);
     transition: ease 0.3s;
     object-fit: cover;
 }
@@ -709,7 +709,52 @@
 	}
 }
 </style>
+<style>
 
+.swiper-slide{
+	visibility: hidden;
+}
+.swiper-slide-visible{
+	visibility: visible;
+}
+.swiper-slide-active{
+	transform: translate3d(0%, 0, 0) scale(1) !important;
+}
+.swiper-slide-prev{
+	transform: translate3d(50%, 0, 0) scale(0.8) !important;
+}
+.swiper-slide-next{
+    transform: translate3d(-50%, 0, 0) scale(0.8) !important;
+}
+.swiper-slide-prev-prev{
+	visibility: visible;
+	transform: translate3d(130%, 0, 0) scale(0.6) !important;
+}
+.swiper-slide-next-next{
+	visibility: visible;
+	transform: translate3d(-130%, 0, 0) scale(0.6) !important;
+}
+.swiper-slide-prev-prev-prev{
+	transform: translate3d(240%, 0, 0) scale(0.4) !important;
+}
+.swiper-slide-next-next-next{
+	transform: translate3d(-240%, 0, 0) scale(0.4) !important;
+}
+
+
+.swiper-slide-duplicate-prev-prev{
+	transform: translate3d(130%, 0, 0) scale(0.6) !important;
+}
+.swiper-slide-duplicate-next-next{
+	transform: translate3d(-130%, 0, 0) scale(0.6) !important;
+}
+.swiper-slide-duplicate-prev-prev-prev{
+	transform: translate3d(240%, 0, 0) scale(0.4) !important;
+}
+.swiper-slide-duplicate-next-next-next{
+	transform: translate3d(-240%, 0, 0) scale(0.4) !important;
+} 
+</style>
 </head>
 	<body>
         <script> 
@@ -1144,10 +1189,6 @@ $(window).on("wheel", function(e){
 </script>
 
 <script>
-	$(function(){
-				
-		
-		});
 </script>
 
 
@@ -1203,8 +1244,60 @@ $(window).on("wheel", function(e){
 	prevEl : '.swiper-button-prev', // 이번 버튼 클래스명 
 	}
  });
-      
-      
+ 
+ $(document).ready(function () {
+	 $('.swiper-slide-prev').prev().addClass('swiper-slide-prev-prev');
+	 $('.swiper-slide-prev').prev().prev().addClass('swiper-slide-prev-prev-prev');
+	 $('.swiper-slide-next').next().addClass('swiper-slide-next-next');
+	 $('.swiper-slide-next').next().next().addClass('swiper-slide-next-next-next');
+	 $('.swiper-slide-duplicate-prev').prev().addClass('swiper-slide-duplicate-prev-prev');
+	 $('.swiper-slide-duplicate-prev').prev().prev().addClass('swiper-slide-duplicate-prev-prev-prev');
+	 $('.swiper-slide-duplicate-next').next().addClass('swiper-slide-duplicate-next-next');
+	 $('.swiper-slide-duplicate-next').next().next().addClass('swiper-slide-duplicate-next-next-next');
+}); 
+ 
+ $('.swiper-button-prev').click(function(){
+	 $('.swiper-slide-prev-prev').removeClass('swiper-slide-prev-prev');
+	 $('.swiper-slide-next-next').removeClass('swiper-slide-next-next');
+	 $('.swiper-slide-prev-prev-prev').removeClass('swiper-slide-prev-prev-prev');
+	 $('.swiper-slide-next-next-next').removeClass('swiper-slide-next-next-next');
+	 $('.swiper-slide-duplicate-prev-prev').removeClass('swiper-slide-duplicate-prev-prev');
+	 $('.swiper-slide-duplicate-next-next').removeClass('swiper-slide-duplicate-next-next');
+	 $('.swiper-slide-duplicate-prev-prev-prev').removeClass('swiper-slide-duplicate-prev-prev-prev');
+	 $('.swiper-slide-duplicate-next-next-next').removeClass('swiper-slide-duplicate-next-next-next');
+	 
+	 $('.swiper-slide-prev').prev().addClass('swiper-slide-prev-prev');
+	 $('.swiper-slide-prev').prev().prev().addClass('swiper-slide-prev-prev-prev');
+	 $('.swiper-slide-next').next().addClass('swiper-slide-next-next');
+	 $('.swiper-slide-next').next().next().addClass('swiper-slide-next-next-next');
+	 $('.swiper-slide-duplicate-prev').prev().addClass('swiper-slide-duplicate-prev-prev');
+	 $('.swiper-slide-duplicate-prev').prev().prev().addClass('swiper-slide-duplicate-prev-prev-prev');
+	 $('.swiper-slide-duplicate-next').next().addClass('swiper-slide-duplicate-next-next');
+	 $('.swiper-slide-duplicate-next').next().next().addClass('swiper-slide-duplicate-next-next-next');
+ });
+ 
+ $('.swiper-button-next').click(function(){
+	 $('.swiper-slide-prev-prev').removeClass('swiper-slide-prev-prev');
+	 $('.swiper-slide-next-next').removeClass('swiper-slide-next-next');
+	 $('.swiper-slide-prev-prev-prev').removeClass('swiper-slide-prev-prev-prev');
+	 $('.swiper-slide-next-next-next').removeClass('swiper-slide-next-next-next');
+	 $('.swiper-slide-duplicate-prev-prev').removeClass('swiper-slide-duplicate-prev-prev');
+	 $('.swiper-slide-duplicate-next-next').removeClass('swiper-slide-duplicate-next-next');
+	 $('.swiper-slide-duplicate-prev-prev-prev').removeClass('swiper-slide-duplicate-prev-prev-prev');
+	 $('.swiper-slide-duplicate-next-next-next').removeClass('swiper-slide-duplicate-next-next-next');
+	 
+	 $('.swiper-slide-prev').prev().addClass('swiper-slide-prev-prev');
+	 $('.swiper-slide-prev').prev().prev().addClass('swiper-slide-prev-prev-prev');
+	 $('.swiper-slide-next').next().addClass('swiper-slide-next-next');
+	 $('.swiper-slide-next').next().next().addClass('swiper-slide-next-next-next');
+	 $('.swiper-slide-duplicate-prev').prev().addClass('swiper-slide-duplicate-prev-prev');
+	 $('.swiper-slide-duplicate-prev').prev().prev().addClass('swiper-slide-duplicate-prev-prev-prev');
+	 $('.swiper-slide-duplicate-next').next().addClass('swiper-slide-duplicate-next-next');
+	 $('.swiper-slide-duplicate-next').next().next().addClass('swiper-slide-duplicate-next-next-next');
+ });
+
+ 
+ 
     </script>
 	
 	
