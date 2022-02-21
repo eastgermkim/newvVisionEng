@@ -145,6 +145,7 @@
 						<div style="color: red; display: inline;">사업실적</div>을
 						<div style="color: red; display: inline;">선택</div>하세요
 						<br>(이미지도 함께 삭제 처리됩니다.)
+						<br>*최소 <div style="color: red; display: inline;">6개</div> 등록 필수 
 					</h4>
 					<hr>
 				</div>
@@ -244,7 +245,11 @@ $('.team-thumb').click(function(){
 
 //메인 등록 취소
 function noShowMainOK(){
-	 if($(".ImgActive").length > 0){
+	if($(".team-thumb").length < 7){
+		console.log("최소 6개는 남겨야합니다.");
+		alert("삭제불가 : 최소 6개 이상은 등록하셔야 합니다.");
+		
+	}else if($(".ImgActive").length > 0){
          console.log("선택했음");
        
          var resultNum = $(".ImgActive").children(".resultNum").val();
