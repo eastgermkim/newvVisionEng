@@ -21,6 +21,11 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
+ <!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 <!-- CSS here -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
@@ -37,6 +42,8 @@
 <!-- AOS -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
 
 <style>
 #header_main_pc{
@@ -568,9 +575,9 @@
 .project-img{
 	height:100%;
 	width:100%;
-	position:relative;
+	/* position:relative; */
 	border-radius:1em;
-	overflow:hidden;
+	/* overflow:hidden; */
 }
 
 .swiper-slide.swiper-slide-visible.swiper-slide-active .project-img {
@@ -755,6 +762,8 @@
 
 
 </style>
+
+
 </head>
 	<body>
         <script> 
@@ -937,7 +946,7 @@
 			    <!-- 3개씩 -->
 				<div class="projects">
 				<!-- <div class="projects"  data-aos="fade-up" data-aos-duration="1000"> -->
-					<div class="swiper-container">
+					<%-- <div class="swiper-container">
 					      <div class="swiper-wrapper">
 								<c:forEach items="${business_list}" var="business">
 								<div class="swiper-slide">
@@ -955,9 +964,40 @@
 							<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
 							<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
 					      <div class="swiper-pagination"></div>
-				      </div>
-			    </div>
-			    
+				      </div> --%>
+				      
+				    <%--<div class="mainVisW" style="position:absolute;width:1000px;height:400px;">
+				    	 <c:forEach items="${business_list}" var="business">
+				    		<div>
+								<img style="width:50%;" id="{'img_'.$i}" src="/resources/img/business_result/main_imgs/${business.imgName}">
+				    		</div>
+				    		<div id="{'txt_'.$i}" class="whlabel">
+								<p>${business.resultClass}</p>
+								<p>${business.resultContnents}</p>
+				    		</div>
+							<div class="project-text">
+								<p>${business.resultClass}</p>
+								<p>${business.resultContnents}</p>
+							</div>								
+						</c:forEach>
+					</div> --%>
+					
+<!-- 					    <div class="carousel">
+						    <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+						    <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+						    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+						    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+						    <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+						  </div> -->
+					
+		    	</div>
+ 	 				<div class="carousel">
+					 	<c:forEach items="${business_list}" var="business">
+					   	 <div class="carousel-item">
+					   	 	<img style="width:50%;" src="/resources/img/business_result/main_imgs/${business.imgName}">
+					   	 </div>
+					 	</c:forEach>
+					  </div>
 			</div>	
 			
 			<div class="slider-area">
@@ -967,7 +1007,13 @@
 			</div>
 	</body>
 	<script src="/resources/js/jquery-ui.min.js"></script> 
+
 <script>
+$(document).ready(function(){
+ $('.carousel').carousel();
+  });
+      
+
 /* 새로고침 시 스크롤 상단 이동 */
 window.onload = function() {
 	setTimeout (function () {
@@ -976,6 +1022,8 @@ window.onload = function() {
 	},100);
 
 }
+
+
 
 /* 스크롤 */
 window.addEventListener("wheel", function(e){
@@ -1287,7 +1335,6 @@ $(window).on("wheel", function(e){
  
  
     </script>
-	
 	
 	
 </html>
