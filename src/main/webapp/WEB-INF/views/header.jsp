@@ -104,6 +104,13 @@
 <body style="overflow-x: hidden">
 
 <script>
+//https 로 이동
+
+if (location.protocol === 'http:' && location.host.indexOf('cafe24.com') === -1) {
+    var sUrl = 'https://' + location.host + location.pathname + location.search;
+    window.location.replace(sUrl);
+}
+​
 /* Internet Explorer 접속 방지(Edge로 전환) */
   if(navigator.userAgent.indexOf("Trident") > 0){ 
 	 	 window.location = "microsoft-edge:" + window.location.href;
@@ -117,6 +124,7 @@
 		window.location = "microsoft-edge:" + window.location.href;
 		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
 	}
+	
 </script>
 
 	<!-- header-start -->
