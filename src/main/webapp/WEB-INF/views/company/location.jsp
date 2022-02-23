@@ -59,7 +59,7 @@
 						<div class="breadcrumb_iner_item">
 							<h2>오시는 길</h2>
 							<p style="opacity: 0.6">
-								New Vision ENG. 본사
+								New Vision ENG. Company
 							</p>
 						</div>
 					</div>
