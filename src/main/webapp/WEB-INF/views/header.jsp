@@ -105,27 +105,30 @@
 
 
 <script>
+//https 리다이렉션
 
-/* console.log("http확인");
-console.log(window.location.protocol);
-console.log("http확인 끝----"); */
-
-	if (window.location.protocol != "https:") {
-	    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-	}
+	/* console.log("http확인");
+	console.log(window.location.protocol);
+	console.log("http확인 끝----"); */
 	
-	if (document.location.protocol == 'http:') {
-	    document.location.href = document.location.href.replace('http:', 'https:');
-	}
-  if(navigator.userAgent.indexOf("Trident") > 0){ 
-	 	 window.location = "microsoft-edge:" + window.location.href;
+	if(location.hostname != "localhost") {
+	    if (window.location.protocol != "https:") {
+	        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+	    }
+	
+	    if (document.location.protocol == 'http:') {
+	        document.location.href = document.location.href.replace('http:', 'https:');
+	    }
+	}	
+
+//internet explorer을 통한 접속 방지
+	 if(navigator.userAgent.indexOf("Trident") > 0){ 
+	 	window.location = "microsoft-edge:" + window.location.href;
 		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-	} 
-  else if(/MSIE \d |Trident.*rv:/.test(navigator.userAgent)){
+	}else if(/MSIE \d |Trident.*rv:/.test(navigator.userAgent)){
 	  	window.location = "microsoft-edge:" + window.location.href;
 		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-		}
-  else if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
+	}else if (window.navigator.userAgent.match(/MSIE|Internet Explorer|Trident/i)) {
 		window.location = "microsoft-edge:" + window.location.href;
 		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
 	}
