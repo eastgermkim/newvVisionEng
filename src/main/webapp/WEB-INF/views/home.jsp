@@ -1084,7 +1084,7 @@
 			</div>
 		</div>
 		
-		<div class="slider-area" style="background: #fff; height: 100vh;">
+		<div class="slider-area" style="background: #fff; height: 100vh; position:relative;">
 				<div class="sentence-container position3">
 					<div class="sentence-wrapper" id="page3">
 						<p class="main_sentence" style="color:rgb(76, 70, 70); margin-bottom:0.5rem">Projects
