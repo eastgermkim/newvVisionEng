@@ -839,22 +839,24 @@
 }
 
 .carousel .carousel-item {
-    text-align: center;
     visibility: hidden;
-    width: 43.5em;
-    height: 24em;
+    width: 43em;
+    height: 22em;
     position: absolute;
     top: 0;
     left: 0;
     box-shadow: 2px 2px 19px 0px rgb(0 0 0 / 20%);
     background: #fff;
+    display: flex;
+    justify-content: space-between;
 }
 
 .carousel .carousel-item > img {
   width: 24em;
   height:18em;
   border-radius: 0.5em;
-  margin-top:1em;
+  margin:2em;
+  object-fit:cover;
 }
 
 .carousel .indicators {
@@ -890,6 +892,28 @@
 
 .owl-nav.disabled{
 	display:none!important;
+}
+
+@media (min-width:1445px){
+	.brand-area .container{
+	max-width:80%;
+		}
+	}
+	
+.brand-area .brand-active .single-brand img{
+	height: fit-content;
+    width: auto;
+}
+
+.owl-carousel.owl-drag .owl-item{
+/* 	margin-right: 1%!important;
+    width: min-content!important; */
+    margin-right:
+}
+
+.owl-carousel .owl-stage{
+	display: flex;
+    justify-content: space-between;
 }
 </style>
 
@@ -1082,14 +1106,14 @@
 				 	<c:forEach items="${business_list}" var="business">
 					   	 <div class="carousel-item">
 					   	 	<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-					   	 	<div>
-						   	 	<p>${business.resultClass}</p>
-								<p>${business.resultContnents}</p>
+					   	 	<div style="width:37%;height: fit-content;margin-top: 20%;margin-right:1em">
+						   	 	<p style="font-size: 2em;font-weight: 500;text-decoration-line: overline;">${business.resultClass}</p>
+								<p style="font-size: 1.2em;line-height: 1.2em;">${business.resultContnents}</p>
 					   	 	</div>
 					   	 </div>
 				 	</c:forEach>
 				</div>
-				<p style="position: relative;top:10%; left: 70%; width: fit-content; margin: 0;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다. </p>
+				<p style="position: relative;top:10%; left: 70%; width: fit-content; margin: 0;text-decoration: underline; text-underline-position: under; font-size: 17px;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다. </p>
 				
 				<div class="brand-area gray-bg" style="background:#fff;position: relative;top: 20%;">
 					<div class="container">
@@ -1097,26 +1121,22 @@
 							<div class="col-xl-12">
 								<div class="brand-active owl-carousel">
 									<div class="single-brand">
-										<img src="/resources/img/brand/idis.png" alt="" style="">
+										<img src="/resources/img/brand/idis-c.png" alt="">
 									</div>
 									<div class="single-brand">
-										<img src="/resources/img/brand/commax.png" alt=""
-											style="margin-top: 0.5rem;">
+										<img  style="width: -webkit-fill-available; padding-top:6%;" src="/resources/img/brand/commax-c.png" alt="">
 									</div>
 									<div class="single-brand">
-										<img src="/resources/img/brand/kwea.png" alt="">
+										<img style="height:60%;" src="/resources/img/brand/cudo-c.png" alt="">
 									</div>
 									<div class="single-brand">
-										<img src="/resources/img/brand/cudo.png" alt=""
-											style="width: auto; margin-top: 0.5rem;">
+										<img style="padding-bottom: 7%;" src="/resources/img/brand/kica-c.png" alt="">
 									</div>
 									<div class="single-brand">
-										<img src="/resources/img/brand/kica.png" alt=""
-											style="margin-bottom: 0.5rem; width: auto;">
+										<img  style="width: -webkit-fill-available;" src="/resources/img/brand/kwomen-c.png" alt="">
 									</div>
 									<div class="single-brand">
-										<img src="/resources/img/brand/hanwha.png" alt=""
-											style="margin-top: 0.5rem;">
+										<img src="/resources/img/brand/hanwha-c.png" alt="">
 									</div>
 								</div>
 							</div>
