@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
+
 <!-- CSS here -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
@@ -32,6 +33,7 @@
 <link rel="stylesheet" href="/resources/css/animate.css">
 <link rel="stylesheet" href="/resources/css/slicknav.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<!-- <link rel="stylesheet" href="/resources/css/materialize.css"> -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- AOS -->
@@ -687,48 +689,6 @@
 	
 }
 
-.mySwiper2{
-	display: none;
-}
-.mySwiper3{
-	display: none;
-}
-.mySwiper4{
-	display: none;
-}
-@media (max-width : 2500px){
-	.mySwiper{
-		display: none;
-	}
-	.mySwiper2{
-		display: block;
-	}
-}
-@media (max-width : 991.5px){
-	.mySwiper{
-		display: none;
-	}
-	.mySwiper2{
-		display: none;
-	}
-	.mySwiper3{
-		display: block;
-	}
-}
-@media (max-width : 500px){
-	.mySwiper{
-		display: none;
-	}
-	.mySwiper2{
-		display: none;
-	}
-	.mySwiper3{
-		display: none;
-	}
-	.mySwiper4{
-		display: block;
-	}
-</style>
 <style>
 /* ====================================================================================== */
 
@@ -823,6 +783,113 @@
 	.br1999{
 		display: initial;
 	}
+}
+
+/* 사업실적 */
+.carousel {
+  overflow: hidden;
+  position: relative;
+  width: 80%;
+  margin-left:10%;
+  margin-right:10%;
+  height: 33em;
+/*   -webkit-perspective: 500px; */
+          perspective: 500px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+   top:15%;
+}
+
+.carousel.carousel-slider {
+  top: 0;
+  left: 0;
+}
+
+.carousel.carousel-slider .carousel-fixed-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.carousel.carousel-slider .carousel-fixed-item.with-indicators {
+  bottom: 68px;
+}
+
+.carousel.carousel-slider .carousel-item {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel.carousel-slider .carousel-item h2 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.carousel.carousel-slider .carousel-item p {
+  font-size: 15px;
+}
+
+.carousel .carousel-item {
+    text-align: center;
+    visibility: hidden;
+    width: 43.5em;
+    height: 24em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 19px 0px rgb(0 0 0 / 20%);
+    background: #fff;
+}
+
+.carousel .carousel-item > img {
+  width: 24em;
+  height:18em;
+  border-radius: 0.5em;
+  margin-top:1em;
+}
+
+.carousel .indicators {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.carousel .indicators .indicator-item {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  height: 8px;
+  width: 8px;
+  margin: 24px 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+  border-radius: 50%;
+}
+
+.carousel .indicators .indicator-item.active {
+  background-color: #fff;
+}
+
+.carousel.scrolling .carousel-item .materialboxed,
+.carousel .carousel-item:not(.active) .materialboxed {
+  pointer-events: none;
+}
+
+.owl-nav.disabled{
+	display:none!important;
 }
 </style>
 
@@ -1004,95 +1071,76 @@
 						<a href="/business/result" style="font-size: 0.75em;font-weight: bold;color: #f36d20;">+More</a>
 					</p>
 				</div>
-				<!-- 4개씩 -->
-				<div class="swiper mySwiper"  data-aos="fade-up" data-aos-duration="1000">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultClass}</p>
-										<p>${business.resultContnents}</p>
+				
+<!-- 				<div class="carousel">
+					<div class="carousel-item">
+						<img src="/resources/img/business_result/basic_military/1.jpg">
+					</div>
+				</div> -->
+				
+				<div class="carousel">
+				 	<c:forEach items="${business_list}" var="business">
+					   	 <div class="carousel-item">
+					   	 	<img src="/resources/img/business_result/main_imgs/${business.imgName}">
+					   	 	<div>
+						   	 	<p>${business.resultClass}</p>
+								<p>${business.resultContnents}</p>
+					   	 	</div>
+					   	 </div>
+				 	</c:forEach>
+				</div>
+				<p style="position: relative;top:10%; left: 70%; width: fit-content; margin: 0;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다. </p>
+				
+				<div class="brand-area gray-bg" style="background:#fff;position: relative;top: 20%;">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="brand-active owl-carousel">
+									<div class="single-brand">
+										<img src="/resources/img/brand/idis.png" alt="" style="">
+									</div>
+									<div class="single-brand">
+										<img src="/resources/img/brand/commax.png" alt=""
+											style="margin-top: 0.5rem;">
+									</div>
+									<div class="single-brand">
+										<img src="/resources/img/brand/kwea.png" alt="">
+									</div>
+									<div class="single-brand">
+										<img src="/resources/img/brand/cudo.png" alt=""
+											style="width: auto; margin-top: 0.5rem;">
+									</div>
+									<div class="single-brand">
+										<img src="/resources/img/brand/kica.png" alt=""
+											style="margin-bottom: 0.5rem; width: auto;">
+									</div>
+									<div class="single-brand">
+										<img src="/resources/img/brand/hanwha.png" alt=""
+											style="margin-top: 0.5rem;">
 									</div>
 								</div>
 							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			    <!-- 3개씩 -->
-				<div class="swiper mySwiper2"  data-aos="fade-up" data-aos-duration="1000">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultContnents}</p>
-										<p>${business.resultClass}</p>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			    <!-- 2개씩 -->
-				<div class="swiper mySwiper3"  data-aos="fade-up" data-aos-duration="1000">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultContnents}</p>
-										<p>${business.resultClass}</p>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			    <!-- 1개씩 -->
-				<div class="swiper mySwiper4"  data-aos="fade-up" data-aos-duration="1000">
-				      <div class="swiper-wrapper">
-							<c:forEach items="${business_list}" var="business">
-							<div class="swiper-slide">
-								<div class="img-wrapper" style="width: inherit;">
-									<img src="/resources/img/business_result/main_imgs/${business.imgName}">
-									<div class="business-text">
-										<p>${business.resultContnents}</p>
-										<p>${business.resultClass}</p>
-									</div>
-								</div>
-							</div>
-							</c:forEach>
-				      </div>
-				      <!-- 네비게이션 -->
-						<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-						<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-				      <div class="swiper-pagination"></div>
-			    </div>
-			</div>	
+						</div>
+					</div>
+				</div>
+				
+			</div>
 			
 			<div class="slider-area">
-				<!-- footer-start -->
-				<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
-				<!-- footer-end -->
+			<!-- footer-start -->
+			<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
+			<!-- footer-end -->
 			</div>
-	</body>
-	<script src="/resources/js/jquery-ui.min.js"></script> 
+	<script src="/resources/js/jquery-ui.min.js"></script>
+	<script src="/resources/js/materialize.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.carousel').carousel({
+        	'dist' : -110
+        });
+      });
+    </script>
+</body>
 <script>
 /* 새로고침 시 스크롤 상단 이동 */
 window.onload = function() {
@@ -1314,109 +1362,9 @@ $(window).on("wheel", function(e){
 
 </script>
 
-<script>
-	$(function(){
-				
-		
-		});
-</script>
 
 
-<script>
- /* 사업실적의 이미지 정사각형 고정 */
- $(document).ready(function () {
- 	$('.img-wrapper').each(function() {
- 		$(this).height($(this).width()*(0.75));
- 	});
- });
- 
- var delay = 300;
- var timer = null;
+	 
 
- $(window).on('resize', function(){
- 	clearTimeout(timer);
- 	timer = setTimeout(function(){
- 		console.log('resize event!');
- 		
- 		console.log("project-active의 owl-item의 width : "+$('.project-active').find('.owl-item.active').width());
- 		var owl_item_width = $('.project-active').find('.owl-item.active').width();
- 		
- 		$('.img-wrapper').each(function() {
- 			$(this).width(owl_item_width);
- 			$(this).height($(this).width()*(0.75));
- 		});
- 		$('.project-info').each(function() {
- 			$(this).width(owl_item_width);
- 		});
- 	}, delay);
- });
- 
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 30,
-        loop : true,
-        
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation : { // 네비게이션
-    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-    	},
-      }
-      
-      );
-      
-	
-      var swiper2 = new Swiper(".mySwiper2", {
-        slidesPerView: 3,
-        watchSlidesProgress: true,
-        loop : true,
-        
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation : { // 네비게이션
-    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-    	},
-      });
-      
-      var swiper3 = new Swiper(".mySwiper3", {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        
-        loop : true,
-        
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation : { // 네비게이션
-    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-    	},
-      });
-      
-      var swiper4 = new Swiper(".mySwiper4", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        
-        loop : true,
-        
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation : { // 네비게이션
-    		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-    		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-    	},
-      });
-    </script>
-	
-	
 	
 </html>
