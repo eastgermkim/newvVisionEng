@@ -103,15 +103,20 @@
 
 <body style="overflow-x: hidden">
 
-<script>
-//https 로 이동
 
-if (location.protocol === 'http:' && location.host.indexOf('cafe24.com') === -1) {
-    var sUrl = 'https://' + location.host + location.pathname + location.search;
-    window.location.replace(sUrl);
-}
-​
-/* Internet Explorer 접속 방지(Edge로 전환) */
+<script>
+
+/* console.log("http확인");
+console.log(window.location.protocol);
+console.log("http확인 끝----"); */
+
+	if (window.location.protocol != "https:") {
+	    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+	}
+	
+	if (document.location.protocol == 'http:') {
+	    document.location.href = document.location.href.replace('http:', 'https:');
+	}
   if(navigator.userAgent.indexOf("Trident") > 0){ 
 	 	 window.location = "microsoft-edge:" + window.location.href;
 		window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
@@ -234,32 +239,9 @@ if (location.protocol === 'http:' && location.host.indexOf('cafe24.com') === -1)
 					</div>
 				</div>
 			</div>
-						<!-- <div class="submenu-bg" style="opacity: 1;visibility: inherit;">
-			            <div class="etc">
-			                <div class="cs">
-			                    <h3>문의하기</h3>
-			                    <ul>
-			                        <li><a href="#" onclick="navCsDetail('product')"><span>제품 문의</span></a></li>
-			                        <li><a href="#" onclick="navCsDetail('media')"><span>미디어 문의</span></a></li>
-			                        <li><a href="#" onclick="navCsDetail('partnership')"><span>파트너십 문의</span></a></li>
-			                        <li><a href="#" onclick="navCsDetail('homepage_etc')"><span>홈페이지 문의</span></a></li>
-			                    </ul>
-			                    <div class="more">
-			                        <a href="./cs"><span>more.</span></a>
-			                    </div>
-			                </div>
-			                <div class="btns">
-			                    <a href="/assets/file/2021_company_profile_KOR.pdf" target="_blank" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>회사소개서</span><i class="download"></i></a>
-			                    <a href="/assets/file/2020_LGEnergySoution_Sales_Report.pdf" target="_blank" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>영업 보고서</span><i class="download"></i></a>
-			                    <a href="/assets/file/LG_Energy_Solution_CI_JPG.zip" target="_blank" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>CI 로고</span><i class="download"></i></a>
-			                    <a href="https://www.lgensol.com/upload/file/sustainability/2021_LGES_ESG_Report_KOR_F.PDF" id="esgReportFile" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;" target="_blank"><span>ESG 보고서</span><i class="download"></i></a>
-			                    <a href="./cs-safetyguide-caution-tab1" class="__arrow" style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"><span>안전가이드</span></a>
-			                </div>
-			            </div>
-			        </div> -->
 		</div>
 		<div class="whiteBackground"></div>
-		<script src="http://code.jquery.com/jquery-latest.js"></script> 
+		<script src="https://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
 	</header>
 	<!-- header-end -->
@@ -285,7 +267,6 @@ if (location.protocol === 'http:' && location.host.indexOf('cafe24.com') === -1)
    		}
    		
    		$('.header-area .main-header-area .main-menu ul li a').on( "mouseover", function () {
-   			console.log("asda");
    			$('.active.activeColor').removeClass('active activeColor');
    		});
    		
