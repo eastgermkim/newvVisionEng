@@ -563,16 +563,6 @@ body .mb15 {
 									data-aos-once="true">
 									<img src="/resources/img/business/cctv_test2.png" alt="">
 								</div>
-								<!-- <div class="cctv-detail2 details-info">
-									<h3 class="business-name"
-										style="font-size: 24px; font-weight: 300;">CCTV 설치 및 설계 예시</h3>
-								</div>
-								<div class="cctv-main details-thumb" data-aos="fade-up"
-									data-aos-offset="200" 
-									data-aos-duration="1000"
-									data-aos-once="true">
-									<img src="/resources/img/business/system_white.png" alt="">
-								</div> -->
 								 <table class="system-compare">
 							      <thead>
 							        <tr style="font-size:24px; border-bottom:1.5px solid #404040;">

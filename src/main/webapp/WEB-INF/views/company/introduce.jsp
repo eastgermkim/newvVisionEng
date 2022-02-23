@@ -77,7 +77,7 @@
             <div class="row align-items-center">
                 <div class="col-xl-7 col-md-12 col-lg-6">
                     <div class="about-thumb">
-                        <img src="/resources/img/company/NEWVISIONENG.png" alt="">
+                        <img src="/resources/img/company/NEWVISIONENG.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-xl-5 col-md-12 col-lg-6">
