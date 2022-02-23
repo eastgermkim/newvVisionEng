@@ -158,12 +158,10 @@
 								<nav>
 									<ul>
 										<sec:authorize access="isAnonymous()">
-											<li><a href="/home4">main4변경</a></li>
 											<li><a href="/login">Admin</a></li>
 										</sec:authorize>
 										<sec:authorize access="isAuthenticated()">
 												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->
-												<li><a href="/home4">main4변경</a></li>
 												<li><a href="#">${admin_Login_id}님</a></li>
 												<li><a href="/logout"> 로그아웃</a></li>
 										</sec:authorize>

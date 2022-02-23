@@ -166,53 +166,5 @@ public class HomeController {
 			return "home3";
 		}
 		
-		//메인페이지4
-		@RequestMapping(value = "/home4", method = RequestMethod.GET)
-		public String gohome4(Locale locale, Model model, Criteria cri, 
-				Authentication authentication,HttpSession session,
-				@RequestParam(value="joinOK", required=false) String joinOK,
-				@RequestParam(value="access_denied", required=false) String access_denied,
-				@RequestParam(value="loginOK", required=false) String loginOK,
-				@RequestParam(value="logoutOK", required=false) String logoutOK) {
-			
-			logger.info("Welcome New Vision ENG! The client locale is {}.", locale);
-			Date date = new Date();
-			DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-			String formattedDate = dateFormat.format(date);
-			model.addAttribute("serverTime", formattedDate );
-			
-			if(authentication != null){
-				SecurityAccount account = (SecurityAccount)authentication.getPrincipal();
-				session.setAttribute("admin_Login_id", account.getUsername());
-				/*model.addAttribute("username", account.getUsername());*/
-			}
-			
-			if(access_denied != null) {
-				logger.info("access_denied........." + access_denied);
-				model.addAttribute("access_denied", "접근 권한이 없는 요청입니다.");
-			}
-			
-			if(logoutOK != null) {
-				logger.info("logout........." + logoutOK);
-				model.addAttribute("logout", "로그아웃 완료");
-			}
-			
-			if(loginOK != null) {
-				logger.info("loginOK........." + loginOK);
-				model.addAttribute("login", session.getAttribute("admin_Login_id")+"님 안녕하세요");
-			}
-			if(joinOK != null) {
-				logger.info("joinOK........." + loginOK);
-				model.addAttribute("joinOK", "회원가입 완료");
-			}
-			
-			//메인등록된 사업실적들 리스트 담기
-			model.addAttribute("business_list", businessService.getMainBusinessList());
-			
-			//뉴스 리스트 담기
-			model.addAttribute("news_list",companyService.getNewsList(cri));
-			
-			return "home4";
-		}
 	
 }
