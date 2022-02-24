@@ -396,7 +396,7 @@ body .mb15 {
 															문자·부호·영상·음향 등의 정보를 입출력 장치에 송·수신 처리하는 '정보 통신' 설비의 설치 및
 															유지·보수에 관한 공사를 말합니다.</p>
 														<img style="width: 100%; margin-top: 1%;"
-															src="/resources/img/business/main_lan.jpg" alt="">
+															src="https://nv3000nv.cdn3.cafe24.com/business/main_lan.jpg" alt="">
 													</div>
 												</div>
 												<div class="row" style="margin-top: 2%;">
@@ -406,11 +406,11 @@ body .mb15 {
 														<ul class="business-ul" data-aos="fade-up"
 															data-aos-offset="100" data-aos-duration="1000">
 															<li class="business-li"><img
-																src="/resources/img/business/lan.png" alt="">
+																src="https://nv3000nv.cdn3.cafe24.com/business/lan.png" alt="">
 																<hr>
 																<p>LAN 구축공사</p></li>
 															<li class="business-li"><img
-																src="/resources/img/business/digital.png" alt="">
+																src="https://nv3000nv.cdn3.cafe24.com/business/digital.png" alt="">
 																<hr>
 																<p>디지털 통신망 구축</p></li>
 														</ul>
@@ -427,11 +427,11 @@ body .mb15 {
 														<ul class="business-ul" data-aos="fade-up"
 															data-aos-offset="100" data-aos-duration="1000">
 															<li class="business-li"><img
-																src="/resources/img/business/cctv.png" alt="">
+																src="https://nv3000nv.cdn3.cafe24.com/business/cctv.png" alt="">
 																<hr>
 																<p>CCTV 노선설계 및 설치</p></li>
 															<li class="business-li"><img
-																src="/resources/img/business/center.png" alt="">
+																src="https://nv3000nv.cdn3.cafe24.com/business/center.png" alt="">
 																<hr>
 																<p>관제센터 설계 및 구축</p></li>
 														</ul>

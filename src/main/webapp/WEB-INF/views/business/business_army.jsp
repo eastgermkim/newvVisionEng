@@ -427,7 +427,7 @@ body .mb15 {
 											</div>
 										</div>
 										<div style="text-align:center;">
-											<img src="/resources/img/business/army_3part6.png" style="width:60%; margin:0 auto;">
+											<img src="https://nv3000nv.cdn3.cafe24.com/business/army_3part6.png" style="width:60%; margin:0 auto;">
 												<table style="width:60%; margin:0 auto;">
 													<tr>
 														<th style="width: 33%; font-size:22px; background: linear-gradient(to right, #FF823D, #FD753A); color: transparent;-webkit-background-clip: text;">납품</th>
@@ -489,7 +489,7 @@ body .mb15 {
 		</div>
 	</div>
 <!-- 										<div style="text-align:center;">
-											<img src="/resources/img/business/army_3part3.png" style="width:60%;">
+											<img src="https://nv3000nv.cdn3.cafe24.com/business/army_3part3.png" style="width:60%;">
 											<table>
 												<tr>
 													<th>납품</th>
