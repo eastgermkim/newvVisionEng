@@ -594,7 +594,7 @@ img {
 														</p>
 													</div>
 													<div class="sp-detail-list" style="text-align:center;">
-														<video class="video" src="/resources/video/sp_animation.mp4" muted style="width: 65%;margin-top: 40px"></video>
+														<video playsinline class="video" src="/resources/video/sp_animation.mp4" muted style="width: 65%;margin-top: 40px"></video>
 													</div>
 												</div>
 												<div class="BusinessOutlineList">

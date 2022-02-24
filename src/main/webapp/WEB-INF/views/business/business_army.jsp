@@ -420,7 +420,7 @@ body .mb15 {
 									</div>
 									<div>
 										<div>
-											<video class="video" id="video" src="/resources/video/army_ani.mp4" style="width:100%;" muted="muted"></video>
+											<video playsinline class="video" id="video" src="/resources/video/army_ani.mp4" style="width:100%;" muted="muted" ></video>
 											<p style="padding-top: 20px; font-size: 14px; font-weight: 400; text-align:right;">※클릭 시 재생을 생략할 수 있습니다.</p>
 											<div class="video-caution">
 												<h3 class="video-caution-text">클릭 시 재생을 생략할 수 있습니다.<br>(재생화면 밖으로 마우스가 벗어나면 해당 창은 없어집니다.)</h3>
