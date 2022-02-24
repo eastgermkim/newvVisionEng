@@ -156,23 +156,23 @@ h3 {
 	background: #f5f5f5
 }
 .bg-img-main{
-	background-image: url(../img/slider/banner.jpg)
+	background-image: url(https://nv3000nv.cdn3.cafe24.com/slider/banner.jpg)
 }
 
 .bg-img-1 {
-	background-image: url(../img/slider/1.jpg)
+	background-image: url()
 }
 
 .bg-img-2 {
-	background-image: url(../img/slider/2.jpg)
+	background-image: url()
 }
 
 .bg-img-3 {
-	background-image: url(../img/slider/3.png)
+	background-image: url()
 }
 
 .cta-bg-1 {
-	background-image: url(../img/background-img/background-building1.jpg);
+	background-image: url();
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position:center;
@@ -2605,19 +2605,19 @@ h3 {
 }
 
 .banner-bg-1 {
-	background-image: url(../img/banner/banner_building.jpg)
+	background-image: url(https://nv3000nv.cdn3.cafe24.com/banner/banner_building.jpg)
 }
 .banner-bg-2 {
-	background-image: url(../img/banner/banner_business.jpg);
+	background-image: url(https://nv3000nv.cdn3.cafe24.com/banner/banner_business.jpg);
 }
 .banner-bg-3 {
-	background-image: url(../img/banner/banner_result.jpg);
+	background-image: url(https://nv3000nv.cdn3.cafe24.com/banner/banner_result.jpg);
 }
 .banner-bg-4 {
-	background-image: url(../img/banner/banner_support.jpg);
+	background-image: url(https://nv3000nv.cdn3.cafe24.com/banner/banner_support.jpg);
 }
 .banner-bg-5 {
-	background-image: url(../img/banner/banner_recruit.jpg);
+	background-image: url(https://nv3000nv.cdn3.cafe24.com/banner/banner_recruit.jpg);
 }
 
 .breadcrumb {
@@ -2657,7 +2657,7 @@ h3 {
 }
 
 .details-bg-1 {
-	background-image: url(../img/banner/details-banner.jpg)
+	background-image: url()
 }
 
 .details-banner-area {
