@@ -788,18 +788,18 @@
 /* 사업실적 */
 .carousel {
   overflow: hidden;
-  position: relative;
+  position:absolute;
   width: 80%;
   margin-left:10%;
   margin-right:10%;
-  height: 33em;
+  height: 60%;
 /*   -webkit-perspective: 500px; */
           perspective: 500px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform-origin: 0% 50%;
           transform-origin: 0% 50%;
-   top:15%;
+   top:25%;
 }
 
 .carousel.carousel-slider {
@@ -1112,8 +1112,8 @@
 					   	 	</div>
 					   	 </div>
 				 	</c:forEach>
+					<p style="width: fit-content;margin-left:auto;margin-top:5%;text-decoration: underline; text-underline-position: under; font-size:1rem;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다. </p>
 				</div>
-				<p style="position: relative;top:10%; left: 70%; width: fit-content; margin: 0;text-decoration: underline; text-underline-position: under; font-size: 17px;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다. </p>
 				
 				<div class="brand-area gray-bg" style="background:#fff;position:absolute;top:90%;overflow:hidden;width:100%;padding-top:0;padding-bottom:0;">
 					<div class="container" style="padding-left: 0!important;padding-right: 0!important;margin-left:10%;margin-right:10%;">
