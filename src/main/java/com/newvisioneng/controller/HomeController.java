@@ -73,7 +73,7 @@ public class HomeController {
 	
 	//메인페이지
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String goHome(Locale locale, Model model, 
+	public String gohome(Locale locale, Model model, Criteria cri, 
 			Authentication authentication,HttpSession session,
 			@RequestParam(value="joinOK", required=false) String joinOK,
 			@RequestParam(value="access_denied", required=false) String access_denied,
@@ -113,6 +113,9 @@ public class HomeController {
 		
 		//메인등록된 사업실적들 리스트 담기
 		model.addAttribute("business_list", businessService.getMainBusinessList());
+		
+		//뉴스 리스트 담기
+		model.addAttribute("news_list",companyService.getNewsList(cri));
 		
 		return "home";
 	}
