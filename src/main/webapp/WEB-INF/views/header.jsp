@@ -4,21 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page session="true"%>
 
-<!doctype html>
-<html class="no-js" lang="zxx">
-
 <head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>header</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- <link rel="manifest" href="site.webmanifest"> -->
-<link rel="shortcut icon" type="image/x-icon"
-	href="/resources/img/nvicon.png">
-<!-- Place favicon.ico in the root directory -->
-
+  <!-- header style  -->
 <style>
 @media (min-width:991.5px){
 	#navigation{
@@ -98,13 +85,13 @@
     visibility: visible;
 }
 </style>
-
+  <!-- header style end  -->
 </head>
 
 <body style="overflow-x: hidden">
 
 
-<script>
+	<script>
 //https 리다이렉션
 
 	/* console.log("http확인");
@@ -135,12 +122,11 @@
 	
 </script>
 
-	<!-- header-start -->
 	<header>
 	
 	<!-- csrf 토큰 --> 
-	<meta id="_csrf" name="_csrf" content="${_csrf.token}" /> 
-	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}" />
+	<%-- <meta id="_csrf" name="_csrf" content="${_csrf.token}" /> 
+	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}" /> --%>
 
 		<div class="header-area" id="header_main_mobile">
 			
@@ -245,7 +231,7 @@
 		<script src="https://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
 	</header>
-	<!-- header-end -->
+	
 	<script>
 	
    		function addClassName1() {

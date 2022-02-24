@@ -142,7 +142,7 @@
 			</div>
 		</div>
 		
-		<script src="http://code.jquery.com/jquery-latest.js"></script> 
+		<script src="https://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
 </body>
 <script>

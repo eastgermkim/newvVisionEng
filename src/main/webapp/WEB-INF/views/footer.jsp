@@ -4,21 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page session="true" %>
 
-<!doctype html>
-<html class="no-js" lang="zxx">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>footer</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="/resources/img/nvicon.png">
-    <!-- Place favicon.ico in the root directory -->
-  
-  <!-- 반응형  -->
+  <!-- footer style  -->
 <style>
 
 	.mobile{
@@ -44,12 +31,11 @@
 		margin-right: 20px;
 	}
   </style>
-  
+  <!-- footer style end  -->
 </head>
 
 <body>
 
-	<!-- footer-start -->
     <footer class="footer-area" style="padding:3% 0 3%;display: flex;">
         <div class="container">
                 <div class="desktop" style="float: left;">
@@ -113,7 +99,6 @@
         </div>
        
     </footer>
-    <!-- footer-end -->
     
     <!-- JS here -->
     <script src="/resources/js/vendor/modernizr-3.5.0.min.js"></script>
