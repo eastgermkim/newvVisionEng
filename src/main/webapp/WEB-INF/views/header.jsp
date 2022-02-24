@@ -314,13 +314,13 @@
 				console.log("리사이즈 menu_company_X : "+menu_company_X);
 				console.log("리사이즈 menu_support_X : "+menu_support_X);
 				
-				/* var stylesheet = "<style>.add:before{left:-"+menu_company_X+"px}";
+				var stylesheet = "<style>.add:before{left:-"+menu_company_X+"px}";
 				$('body').html($('body').html()+stylesheet);
 				$(".submenu1").addClass('add');
 				
-				var stylesheet = "<style>.add2:before{left:-"+menu_support_X+"px}";
-				$('body').html($('body').html()+stylesheet);
-				$(".submenu2").addClass('add2'); */
+				var stylesheet2 = "<style>.add2:before{left:-"+menu_support_X+"px}";
+				$('body').html($('body').html()+stylesheet2);
+				$(".submenu2").addClass('add2');
 				
 		 	}, delay);
 		 });
