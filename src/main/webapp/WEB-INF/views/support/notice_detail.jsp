@@ -396,7 +396,7 @@ u {
 									<c:forEach var="file" items="${file}">
 										<i class="ti-link" style="padding-left:20px;"></i>
 										<a href="#" onclick="fn_fileDown('${file.SYSTEMNAME}','${file.ORGNAME}'); return false;">
-											글번호 :  ${file.NOTICENUM} <br> 파일명 : ${file.ORGNAME}
+											${file.ORGNAME}
 										</a><br>
 										<input type="hidden" value="${file.SYSTEMNAME}" name="file_systemname">
 									</c:forEach>

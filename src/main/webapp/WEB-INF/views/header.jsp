@@ -86,6 +86,24 @@
 }
 </style>
   <!-- header style end  -->
+  
+  <style>
+  @media (min-width: 991.5px){
+  	.submenu::before {
+	    content: '';
+	    display: block;
+	    box-sizing: border-box;
+	    position: absolute;
+	    background-color: white;
+	    height: 100%;
+	    width: 100vw;
+	    border-bottom: 1px solid #eee;
+	    z-index: 0;
+	    top: 0;
+	    border-top: 1px solid #eee;
+	}
+  }
+  </style>
 </head>
 
 <body style="overflow-x: hidden">
@@ -178,8 +196,8 @@
 											
 										</li>
 									
-										<li class="whiteBackLi"><a id="tab1" href="/company/introduce">회사소개</a><i class="ti-angle-down" style="font-size: 9px;"></i>
-											<ul class="submenu">
+										<li id="menu_company" class="whiteBackLi"><a id="tab1" href="/company/introduce">회사소개</a><i class="ti-angle-down" style="font-size: 9px;"></i>
+											<ul class="submenu submenu1">
 												<li><a href="/company/introduce">회사개요</a></li>
 												<li><a href="/company/news">보도자료</a></li>
 												<li><a href="/company/history">연혁</a></li>
@@ -194,8 +212,8 @@
 										<li><a id="tab3" href="/business/result">사업실적</a>
 										</li>
 										
-										<li class="whiteBackLi"><a id="tab4" href="/support/notice">고객지원</a><i class="ti-angle-down" style="font-size: 9px;"></i>
-											<ul class="submenu">
+										<li id="menu_support" class="whiteBackLi"><a id="tab4" href="/support/notice">고객지원</a><i class="ti-angle-down" style="font-size: 9px;"></i>
+											<ul class="submenu submenu2">
 												<li><a href="/support/notice">공지사항</a></li>
 												<li><a href="/support/customer">고객문의</a></li>
 											</ul>
@@ -227,7 +245,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="whiteBackground"></div>
+		<!-- <div class="whiteBackground"></div> -->
 		<script src="https://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
 	</header>
@@ -267,6 +285,45 @@
    		
    	</script>
    	
+	<script>
+	$(document).ready(function(){
+		var menu_company = $("#menu_company");
+		var menu_company_X = menu_company.offset().left;
+		
+		var menu_support = $("#menu_support");
+		var menu_support_X = menu_support.offset().left;
+		
+		console.log("첫 menu_company_X : "+menu_company_X);
+		console.log("첫 menu_support_X : "+menu_support_X);
+	});
 	
+	var delay = 300;
+	var timer = null;
+	
+	 $(window).on('resize', function(){
+		 	clearTimeout(timer);
+		 	timer = setTimeout(function(){
+		 		console.log('resize event!');
+		 		
+		 		var menu_company = $("#menu_company");
+				var menu_company_X = menu_company.offset().left;
+				
+				var menu_support = $("#menu_support");
+				var menu_support_X = menu_support.offset().left;
+				
+				console.log("리사이즈 menu_company_X : "+menu_company_X);
+				console.log("리사이즈 menu_support_X : "+menu_support_X);
+				
+				/* var stylesheet = "<style>.add:before{left:-"+menu_company_X+"px}";
+				$('body').html($('body').html()+stylesheet);
+				$(".submenu1").addClass('add');
+				
+				var stylesheet = "<style>.add2:before{left:-"+menu_support_X+"px}";
+				$('body').html($('body').html()+stylesheet);
+				$(".submenu2").addClass('add2'); */
+				
+		 	}, delay);
+		 });
+	</script>
 </body>
 </html>
