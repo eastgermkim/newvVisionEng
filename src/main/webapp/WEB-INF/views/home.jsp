@@ -965,6 +965,13 @@ style>
 	pointer-events: none;
 }
 
+.brand-area.gray-bg{
+	background: transparent;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
 .owl-nav.disabled {
 	display: none !important;
 }
@@ -1132,6 +1139,10 @@ style>
 		width: 90% !important;
 		margin-top: 1em !important;
 	}
+	.brand-area.gray-bg{
+	    position: relative;
+	}
+	
 }
 
 @media ( max-width : 767.5px) {
@@ -1452,8 +1463,7 @@ style>
 			</c:forEach>
 		</div>
 
-		<div class="brand-area gray-bg"
-			style="background: transparent; top: 85%; overflow: hidden; width: 100%; padding-top: 0; padding-bottom: 0; margin-bottom:5%;">
+		<div class="brand-area gray-bg">
 			<div class="container"
 				style="padding-left: 0 !important; padding-right: 0 !important;">
 				<div class="row">
