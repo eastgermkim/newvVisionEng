@@ -1861,7 +1861,27 @@ style>
 	});
 </script>
 
-
+<!-- 로그인, 로그아웃 알림 -->
+	<script>
+		$(function() {
+			var responseMessage = "<c:out value="${login}" />";
+			if (responseMessage != "") {
+				alert(responseMessage)
+			}
+			var responseMessage2 = "<c:out value="${logout}" />";
+			if (responseMessage2 != "") {
+				alert(responseMessage2)
+			}
+			var responseMessage2 = "<c:out value="${access_denied}" />";
+			if (responseMessage2 != "") {
+				alert(responseMessage2)
+			}
+			var responseMessage2 = "<c:out value="${joinOK}" />";
+			if (responseMessage2 != "") {
+				alert(responseMessage2)
+			}
+		})
+	</script>
 
 
 
