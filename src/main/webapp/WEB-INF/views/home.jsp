@@ -46,7 +46,7 @@
 	display: none;
 	position: fixed;
 	width: 100%;
-	z-index: 98;
+	z-index: 3;
 }
 
 @media ( min-width : 991.5px) {
@@ -118,7 +118,7 @@
 	border: 2px solid #fff;
 	border-radius: 50px;
 	box-sizing: border-box;
-	z-index: 98;
+	z-index: 5;
 	background: rgba(248, 248, 248, 0.3);
 }
 
@@ -146,7 +146,7 @@
 	border: 2px solid #4c4646;
 	border-radius: 50px;
 	box-sizing: border-box;
-	z-index: 98;
+	z-index: 5;
 	background: rgba(248, 248, 248, 0.3);
 }
 
@@ -247,14 +247,14 @@ opacity
 /* 글씨 & 글씨 애니미에션 */
 .scroll-text {
 	position: fixed;
-	z-index: 98;
+	z-index: 5;
 	left: 94.6%;
 	color: #fff;
 	top: 96%;
 }
 
 .main_sentence {
-	z-index: 98;
+	z-index: 5;
 	color: #fff;
 	margin-left: 10%;
 	font-weight: 700;
@@ -265,9 +265,10 @@ opacity
 }
 
 .main_sentence_sub {
-	z-index: 98;
+	z-index: 5;
 	color: #fff;
 	margin-left: 10%;
+	margin-right:10%;
 	font-weight: 300;
 	font-size: 1.5em;
 	line-height: 1em;
@@ -287,10 +288,9 @@ opacity
 	animation: up 500ms linear forwards;
 }
 
-@
-keyframes up { 100% {
+@keyframes up { 100% {
 	transform: translateY(0);
-}
+	}
 
 }
 .sentence-container {
@@ -478,7 +478,7 @@ to {
 	width: 40%;
 	overflow: hidden;
 	position: absolute;
-	z-index: 98;
+	z-index: 3;
 	top: 20%;
 	display: flex;
 	justify-content: space-between;
@@ -508,7 +508,7 @@ to {
 .news_navi {
 	width: 20%;
 	overflow: hidden;
-	z-index: 98;
+	z-index: 3;
 	top: 90%;
 	color: #fff;
 	display: flex;
@@ -518,7 +518,7 @@ to {
 /* 페이지 바 표시 */
 .homePageGroup {
 	position: sticky;
-	z-index: 98;
+	z-index: 5;
 	top: 20%;
 	margin-left: 85%;
 }
@@ -977,8 +977,9 @@ style>
 }
 
 .brand-area .brand-active .single-brand img {
-	height: fit-content;
 	width: auto;
+    max-height: 1.5em;
+    max-width:100%;
 }
 
 .owl-carousel.owl-drag .owl-item {
@@ -1001,22 +1002,38 @@ style>
 	.scroll, .scroll-text {
 		display: none;
 	}
+	.main_sentence_sub{
+		font-size:1.25em;
+	}
 	/* position1 */
 	.news_container {
 		width: 80%;
 	}
 
 	/* position2 */
+	.business-area{
+		height:auto!important;
+	}
 	.sentence-container.position2 {
-		top: 10%;
+		top: 5%;
 		width: 90%;
-		margin: 0 5% 0;
+		margin: 5% 5% 0;
 	}
 	.position2 .main_sentence, .position2 .main_sentence_sub {
 		margin-left: 0;
+		color: #4c4646;
+	}
+	.position2::before {
+		content: "";
+		background-color: #f36d20;
+		position: absolute;
+		height: 0.4em;
+		width: 6%;
+		left: 0%;
+		top: -1%;
 	}
 	.business_wrapper {
-		margin-top: 11vh;
+		margin-top: 5%;
 		margin-left: 5%;
 		margin-right: 5%;
 		width: 90%;
@@ -1053,9 +1070,11 @@ style>
 	}
 	.single-team:hover .team-link p {
 		text-align: justify;
+		width:100%;
+		font-size:100%;
 	}
 	.business_wrapper .team-link .e-large {
-		font-size: 1.25em;
+		font-size: 100%;
 		opacity: 0;
 		width: 40%;
 		margin: 0;
@@ -1081,6 +1100,15 @@ style>
 	}
 	.position3 .main_sentence, .position3 .main_sentence_sub {
 		margin-left: 0 !important;
+		visibility: visible;
+	}
+	.position3::before {
+		content: "";
+		background-color: #f36d20;
+		position: absolute;
+		height: 0.4em;
+		width: 6%;
+		top: -1%;
 	}
 	.carousel {
 		width: 90% !important;
@@ -1110,7 +1138,7 @@ style>
 		font-size: 60%;
 	}
 	.slider-area .single-slider {
-		height: 35em;
+		height: 25em;
 		background-position-y: 5em;
 		background-repeat: no-repeat;
 		background-color: #151515;
@@ -1119,7 +1147,7 @@ style>
 		width: 80%;
 		overflow: hidden;
 		position: absolute;
-		z-index: 98;
+		z-index: 5;
 		top: 15%;
 		display: flex;
 		justify-content: space-between;
@@ -1128,7 +1156,8 @@ style>
 		font-size: 70%;
 	}
 	.news_container h3 {
-		line-height: 50%;
+		line-height: 100%;
+		font-size: 1.3em;
 	}
 	.position2 .main_sentence, .position2 .main_sentence_sub {
 		color: #4c4646;
@@ -1142,7 +1171,62 @@ style>
 		left: 0%;
 		top: -1%;
 	}
-	
+	.business_wrapper{
+		margin-top:10%;
+	}
+	.business_wrapper .business_sentence h3{
+		font-size:1em;
+	}
+	.single-team:hover .team-link p {
+		font-size:85%;
+	}
+	.business_wrapper .team-link .e-large {
+		font-size: 75%;
+	}
+	.sentence-container.position3{
+		top:5%;
+	}
+	.carousel{
+		top: 15%;
+	}
+	.brand-area.gray-bg{
+		top: 80%!important;
+	}
+	.carousel p{
+		font-size:0.5em!important;
+	}
+	.carousel-item-text p{
+		font-size:1em!important;
+		line-height:1em!important;
+	}
+	.brand-area .brand-active .single-brand{
+		width: 100%;
+    	height: 100%;
+	}
+	.brand-area .brand-active .single-brand img {
+    	display: inline-block;
+    	max-height:inherit;
+	}
+}
+@media(max-width:450px){
+	.news_navi{
+		display:none;
+	}
+	.news_container{
+		justify-content:flex-start;
+	}
+	.news_group{
+		width:80%;
+	}
+}
+
+@media ( max-width : 380px) {
+	.carousel .carousel-item{
+		width:15em!important
+	}
+	.carousel .carousel-item>img{
+		width:13em!important
+	}
 }
 </style>
 
@@ -1207,7 +1291,7 @@ style>
 	</div>
 
 
-	<div class="slider-area" style="background: #fff; height: 100vh;">
+	<div class="slider-area business-area" style="background: transparent; height: 100vh;">
 		<div class="sentence-container position2">
 			<div class="sentence-wrapper" id="page2">
 				<h3 class="main_sentence">Business</h3>
@@ -1326,7 +1410,7 @@ style>
 	</div>
 
 	<div class="slider-area"
-		style="background: #fff; height: 100vh; position: relative;">
+		style="background: transparent; height: 100vh; position: relative;">
 		<div class="sentence-container position3">
 			<div class="sentence-wrapper" id="page3">
 				<p class="main_sentence"
@@ -1365,7 +1449,7 @@ style>
 		</div>
 
 		<div class="brand-area gray-bg"
-			style="background: #fff; position: absolute; top: 85%; overflow: hidden; width: 100%; padding-top: 0; padding-bottom: 0;">
+			style="background: transparent; position: absolute; top: 85%; overflow: hidden; width: 100%; padding-top: 0; padding-bottom: 0;">
 			<div class="container"
 				style="padding-left: 0 !important; padding-right: 0 !important;">
 				<div class="row">
@@ -1375,20 +1459,17 @@ style>
 								<img src="/resources/img/brand/idis-c.png" alt="">
 							</div>
 							<div class="single-brand">
-								<img style="width: -webkit-fill-available; padding-top: 6%;"
-									src="/resources/img/brand/commax-c.png" alt="">
+								<img src="/resources/img/brand/commax-c.png" alt="">
 							</div>
 							<div class="single-brand">
-								<img style="height: 60%;" src="/resources/img/brand/cudo-c.png"
+								<img src="/resources/img/brand/cudo-c.png"
 									alt="">
 							</div>
 							<div class="single-brand">
-								<img style="padding-bottom: 7%;"
-									src="/resources/img/brand/kica-c.png" alt="">
+								<img src="/resources/img/brand/kica-c.png" alt="">
 							</div>
 							<div class="single-brand">
-								<img style="width: -webkit-fill-available;"
-									src="/resources/img/brand/kwomen-c.png" alt="">
+								<img src="/resources/img/brand/kwomen-c.png" alt="">
 							</div>
 							<div class="single-brand">
 								<img src="/resources/img/brand/hanwha-c.png" alt="">
@@ -1444,7 +1525,7 @@ style>
 	}, 0);
 
 	/* 미디어쿼리 767.5(모바일)넘을때만 휠 애니메이션 */
-	if (matchMedia("screen and (min-width: 767.5px)").matches) {
+	if (matchMedia("screen and (min-width: 991.5px)").matches) {
 		$(window).on(
 				"wheel",
 				function(e) {
