@@ -1218,6 +1218,12 @@ style>
 	.news_group{
 		width:80%;
 	}
+	.carousel .carousel-item{
+		width:16em!important
+	}
+	.carousel .carousel-item>img{
+		width:14em!important
+	}
 }
 
 @media ( max-width : 380px) {
