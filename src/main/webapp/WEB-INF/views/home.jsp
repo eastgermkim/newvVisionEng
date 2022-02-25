@@ -1272,14 +1272,13 @@ style>
 	.carousel .carousel-item>img{
 		width:14em!important
 	}
+	.carousel{
+		height: 27em;
+	}
 
 }
 
 @media ( max-width : 380px) {
-	.carousel{
-		height: 26em;
-	}
-
 	.carousel .carousel-item{
 		width:15em!important
 	}
