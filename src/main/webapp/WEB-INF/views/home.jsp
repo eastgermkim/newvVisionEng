@@ -990,6 +990,10 @@ style>
     margin-top:5%;
 }
 
+.brand-area .row{
+	margin:0;
+}
+
 .owl-nav.disabled {
 	display: none !important;
 }
@@ -1527,7 +1531,7 @@ style>
 
 	</div>
 	
-	<div class="addres-area black-bg section-padding">
+	<div class="addres-area black-bg section-padding" style="display:none;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-md-4">
