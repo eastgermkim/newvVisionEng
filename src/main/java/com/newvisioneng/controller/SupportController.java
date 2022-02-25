@@ -163,32 +163,6 @@ public class SupportController {
 		return "/support/notice_modify";
 	}
 	
-	//공지사항 글 수정 중에 기존 파일 삭제시
-	@PostMapping("/notice_modify_fileDelete")
-	public void notice_modify_fileDelete(@RequestParam(value = "FILESYSTEMNAME", required=false) String fileSystemName, HttpServletResponse response, HttpServletRequest req) throws Exception{
-		
-			File file = new File(req.getServletContext().getRealPath("/")
-					+"resources/files/"+"notice_files/" + fileSystemName);
-			Map<String, String> map = new HashMap<String,String>();
-			
-			log.info("삭제하려는 파일................." + fileSystemName);
-			
-			
-			if(file.exists()){ 
-				if(file.delete()){ 
-					service.deleteNoticeFile(fileSystemName);
-					log.info("삭제된 파일................." + fileSystemName);
-					map.put("success","파일 삭제 성공");
-				}else{
-					log.info("삭제실패");
-					map.put("fail","파일 삭제 실패");
-				}
-			}else{ 
-				log.info("파일이 존재하지 않습니다." + fileSystemName);
-				service.deleteNoticeFile(fileSystemName);
-				map.put("not exist","존재하지 않는 파일");
-		}
-	}
 	
 	//공지사항 수정 완료 메소드
 	@PostMapping("/notice_modifyOK")
@@ -218,6 +192,33 @@ public class SupportController {
 
 		mav = new ModelAndView("redirect:/support/notice/"+noticenum + cri.getListLink());
 		return mav;
+	}
+	
+	//공지사항 글 수정 중에 기존 파일 삭제시
+	@PostMapping("/notice_modify_fileDelete")
+	public void notice_modify_fileDelete(@RequestParam(value = "FILESYSTEMNAME", required=false) String fileSystemName, HttpServletResponse response, HttpServletRequest req) throws Exception{
+		
+		File file = new File(req.getServletContext().getRealPath("/")
+				+"resources/files/"+"notice_files/" + fileSystemName);
+		Map<String, String> map = new HashMap<String,String>();
+		
+		log.info("삭제하려는 파일................." + fileSystemName);
+		
+		
+		if(file.exists()){ 
+			if(file.delete()){ 
+				service.deleteNoticeFile(fileSystemName);
+				log.info("삭제된 파일................." + fileSystemName);
+				map.put("success","파일 삭제 성공");
+			}else{
+				log.info("삭제실패");
+				map.put("fail","파일 삭제 실패");
+			}
+		}else{ 
+			log.info("파일이 존재하지 않습니다." + fileSystemName);
+			service.deleteNoticeFile(fileSystemName);
+			map.put("not exist","존재하지 않는 파일");
+		}
 	}
 	
 	@PostMapping("/notice_delete")
