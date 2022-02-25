@@ -857,18 +857,17 @@ style>
 /* 사업실적 */
 .carousel {
 	overflow: hidden;
-	position: absolute;
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
-	height: 60%;
+	margin-top:25vh;
+	height: 25em;
 	/*   -webkit-perspective: 500px; */
 	perspective: 500px;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform-origin: 0% 50%;
 	transform-origin: 0% 50%;
-	top: 25%;
 }
 
 .carousel.carousel-slider {
@@ -910,7 +909,7 @@ style>
 .carousel .carousel-item {
 	visibility: hidden;
 	width: 43em;
-	height: 22em;
+	height: fit-content;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1093,6 +1092,9 @@ style>
 	}
 
 	/* position3 */
+	.projects-area{
+		height:auto!important;
+	}
 	.sentence-container.position3 {
 		top: 10%;
 		width: 90%;
@@ -1112,7 +1114,7 @@ style>
 	}
 	.carousel {
 		width: 90% !important;
-		margin: 0 5% 0 !important;
+		margin: 10% 5% 0 !important;
 	}
 	.carousel .carousel-item {
 		width: 20em !important;
@@ -1190,7 +1192,7 @@ style>
 		top: 15%;
 	}
 	.brand-area.gray-bg{
-		top: 80%!important;
+		top: 75%!important;
 	}
 	.carousel p{
 		font-size:0.5em!important;
@@ -1224,9 +1226,14 @@ style>
 	.carousel .carousel-item>img{
 		width:14em!important
 	}
+
 }
 
 @media ( max-width : 380px) {
+	.carousel p{
+		margin-top:0!important;
+	}
+	
 	.carousel .carousel-item{
 		width:15em!important
 	}
@@ -1305,8 +1312,7 @@ style>
 			<!-- 				<div class="sentence-wrapper">
 					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
 				</div> -->
-			<h4 class="main_sentence_sub" style="animation-delay: 0.5s;">설치부터
-				유지관리까지 세심한 작업과 축적된 노하우로 고객들과 소통합니다.</h4>
+			<h4 class="main_sentence_sub" style="animation-delay: 0.5s;">설치부터 유지관리까지 <br class="br1999"> 축적된 노하우로 고객들과 소통합니다.</h4>
 		</div>
 		<div>
 			<div class="business_wrapper team-area">
@@ -1415,7 +1421,7 @@ style>
 		</div>
 	</div>
 
-	<div class="slider-area"
+	<div class="slider-area projects-area"
 		style="background: transparent; height: 100vh; position: relative;">
 		<div class="sentence-container position3">
 			<div class="sentence-wrapper" id="page3">
@@ -1430,14 +1436,9 @@ style>
 					style="font-size: 0.75em; font-weight: bold; color: #f36d20;">+More</a>
 			</p>
 		</div>
-
-		<!-- 				<div class="carousel">
-					<div class="carousel-item">
-						<img src="/resources/img/business_result/basic_military/1.jpg">
-					</div>
-				</div> -->
-
+		
 		<div class="carousel">
+			<p style="width: fit-content; margin-left: auto; margin-top: 3%; text-decoration: underline; text-underline-position: under; font-size: 1rem;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
 			<c:forEach items="${business_list}" var="business">
 				<div class="carousel-item">
 					<img
@@ -1449,13 +1450,10 @@ style>
 					</div>
 				</div>
 			</c:forEach>
-			<p
-				style="width: fit-content; margin-left: auto; margin-top: 5%; text-decoration: underline; text-underline-position: under; font-size: 1rem;">※해당
-				이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
 		</div>
 
 		<div class="brand-area gray-bg"
-			style="background: transparent; position: absolute; top: 85%; overflow: hidden; width: 100%; padding-top: 0; padding-bottom: 0;">
+			style="background: transparent; top: 85%; overflow: hidden; width: 100%; padding-top: 0; padding-bottom: 0; margin-bottom:5%;">
 			<div class="container"
 				style="padding-left: 0 !important; padding-right: 0 !important;">
 				<div class="row">
