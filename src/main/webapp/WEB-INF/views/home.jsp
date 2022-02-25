@@ -1248,6 +1248,9 @@ style>
     	display: inline-block;
     	max-height:inherit;
 	}
+	.Opening-hour{
+		display: none;
+	}
 }
 @media(max-width:450px){
 	.news_navi{
@@ -1523,6 +1526,46 @@ style>
 		</div>
 
 	</div>
+	
+	<div class="addres-area black-bg section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single-address text-center">
+                        <div class="addres-icon">
+                            <img src="/resources/img/icon/1.png" alt="">
+                        </div>
+                        <h3>Our Location</h3>
+                        <p>(08590) 서울시 금천구 가산디지털1로 88,<br>
+                             704-C (가산동, IT프리미어타워)</p>
+                        <a class="underline-hover" href="/company/location">Get Direction</a>
+                    </div>
+                </div>
+                <div class="Opening-hour col-xl-4 col-md-4">
+                    <div class="single-address text-center">
+                        <div class="addres-icon">
+                            <img src="/resources/img/icon/2.png" alt="">
+                        </div>
+                        <h3>Opening hour</h3>
+                        <p>월요일-금요일 (09:00-18:00) <br>
+                            (점심시간 12:00 - 13:00)</p>
+                            <a class="underline-hover" href="/support/notice">Notice</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single-address text-center">
+                        <div class="addres-icon">
+                            <img src="/resources/img/icon/3.png" alt="">
+                        </div>
+                        <h3>Contact</h3>
+                        <p>nv3000@empas.com <br>
+                            02)743-6977~8</p>
+                        <a class="underline-hover" href="/support/customer">Mail Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<div class="slider-area">
 		<!-- footer-start -->
