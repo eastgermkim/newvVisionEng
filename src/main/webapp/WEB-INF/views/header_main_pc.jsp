@@ -50,22 +50,6 @@
     text-align: center;
     padding-left: 0;
 }
-@media (min-width:991.5px){
-	.submenu::before {
-	    content: '';
-	    display: block;
-	    box-sizing: border-box;
-	    position: absolute;
-	    background-color: white;
-	    height: 100%;
-	    left: -1000%;
-	    right: -1000%;
-	    border-bottom: 1px solid #eee;
-	    z-index: 0;
-	    top: 0;
-	    border-top: 1px solid #eee;
-	}
-}
 
 #header_main_pc.mousein{
 	background-color:#fff;
@@ -109,9 +93,10 @@
 					<div class="main-menu d-none d-lg-block" style="margin-left: 40px;">
 						<nav>
 							<ul>
-								<li class="header_main_pc_li"><a href="/company/introduce">회사소개</a>
+								<li class="header_main_pc_li" id="menu_company_main"><a href="/company/introduce">회사소개</a>
 								<i class="ti-angle-down ti-angle-down_main_pc" style="font-size: 9px;"></i>
 									<ul class="submenu">
+										<div class="submenu_background submenu_background_main1"></div>
 										<li class="header_main_pc_subli"><a href="/company/introduce">회사개요</a></li>
 										<li class="header_main_pc_subli"><a href="/company/news">보도자료</a></li>
 										<li class="header_main_pc_subli"><a href="/company/history">연혁</a></li>
@@ -126,8 +111,9 @@
 								<li class="header_main_pc_li" ><a href="/business/result">사업실적</a>
 								</li>
 								
-								<li class="header_main_pc_li" ><a href="/support/notice">고객지원</a><i class="ti-angle-down ti-angle-down_main_pc" style="font-size: 9px;"></i>
+								<li class="header_main_pc_li" id="menu_support_main" ><a href="/support/notice">고객지원</a><i class="ti-angle-down ti-angle-down_main_pc" style="font-size: 9px;"></i>
 									<ul class="submenu">
+										<div class="submenu_background submenu_background_main2"></div>
 										<li class="header_main_pc_subli"><a href="/support/notice">공지사항</a></li>
 										<li class="header_main_pc_subli"><a href="/support/customer">고객문의</a></li>
 									</ul>
@@ -179,7 +165,46 @@ $( document ).ready( function() {
 
 </script>
 
+	<script>
+////////////////// 서브메뉴의 뒷 흰 배경을 창 크기에 맞게 조절하기 //////////////////
+	// 첫 실행시
+ 		var menu_company_main = $("#menu_company_main");
+		var menu_company_main_X = menu_company_main.offset().left;
+		                
+		var menu_support_main = $("#menu_support_main");
+		var menu_support_main_X = menu_support_main.offset().left;
+		
+		console.log("first_main) 회사소개 탭의 X좌표 위치 : "+menu_company_main_X);
+		console.log("first_main) 고객지원 탭의 X좌표 위치 : "+menu_support_main_X);
+		
+		$(".submenu_background_main1").css('left','-'+menu_company_main_X+'px');
+		$(".submenu_background_main2").css('left','-'+menu_support_main_X+'px');
 
+	
+	// 화면 크기 변화시 (반응형)
+	var delay = 500;
+	var timer = null;
+	$(window).on('resize', function(){
+	 	clearTimeout(timer);
+	 	timer = setTimeout(function(){
+	 		console.log('-------main resize event!-------');
+	 		
+	 		var menu_company_main = $("#menu_company_main");
+			var menu_company_main_X = menu_company_main.offset().left;
+			                
+			var menu_support_main = $("#menu_support_main");
+			var menu_support_main_X = menu_support_main.offset().left;
+			
+			console.log("resize_main) 회사소개 탭의 X좌표 위치 : "+menu_company_main_X);
+			console.log("resize_main) 고객지원 탭의 X좌표 위치 : "+menu_support_main_X);
+			
+			$(".submenu_background_main1").css('left','-'+menu_company_main_X+'px');
+			$(".submenu_background_main2").css('left','-'+menu_support_main_X+'px');
+			
+	 	}, delay);
+	 });
+//////////////////////////////////////////////////////////////////////
+	</script>
 
 
 

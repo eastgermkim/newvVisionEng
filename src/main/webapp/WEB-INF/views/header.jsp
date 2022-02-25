@@ -57,41 +57,13 @@
     padding-left: 0;
 }
 
-/* 서브메뉴 뒷 흰 배경 */	
-.whiteBackground{
-    background-color: white;
-    z-index: 1;
-    position: absolute;
-    height: 53px;
-    width: 100%;
-
-	box-sizing: border-box;
-	border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    
-	/* 없어질때 속도 */
-    transition: .3s;
-   	/* top: 13.53%; */
-    opacity: 0;
-    visibility: hidden;
-    
-}
-.whiteBackgroundHover{
-	/* 생길때 속도 */
-	transition: .3s;
-
-    /* top:initial; */
-	opacity: 1;
-    visibility: visible;
-}
 </style>
   <!-- header style end  -->
   
   <style>
   @media (min-width: 991.5px){
-  	.submenu::before {
-	    content: '';
-	    display: block;
+  	.submenu_background{
+  		display: block;
 	    box-sizing: border-box;
 	    position: absolute;
 	    background-color: white;
@@ -101,7 +73,7 @@
 	    z-index: 0;
 	    top: 0;
 	    border-top: 1px solid #eee;
-	}
+  	}
   }
   </style>
 </head>
@@ -111,20 +83,17 @@
 
 	<script>
 //https 리다이렉션
-
-	/* console.log("http확인");
-	console.log(window.location.protocol);
-	console.log("http확인 끝----"); */
-	
-/* 	if(location.hostname != "localhost") {
+	if(location.hostname != "localhost") {
 	    if (window.location.protocol != "https:") {
+	    	console.log("http 접속 감지.....redirecting.......1")
 	        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
 	    }
 	
 	    if (document.location.protocol == 'http:') {
+	    	console.log("http 접속 감지.....redirecting.......2")
 	        document.location.href = document.location.href.replace('http:', 'https:');
 	    }
-	}	 */
+	}
 
 //internet explorer을 통한 접속 방지
 	 if(navigator.userAgent.indexOf("Trident") > 0){ 
@@ -196,8 +165,9 @@
 											
 										</li>
 									
-										<li id="menu_company" class="whiteBackLi"><a id="tab1" href="/company/introduce">회사소개</a><i class="ti-angle-down" style="font-size: 9px;"></i>
-											<ul class="submenu submenu1">
+										<li id="menu_company"><a id="tab1" href="/company/introduce">회사소개</a><i class="ti-angle-down" style="font-size: 9px;"></i>
+											<ul class="submenu">
+												<div class="submenu_background submenu_background1"></div>
 												<li><a href="/company/introduce">회사개요</a></li>
 												<li><a href="/company/news">보도자료</a></li>
 												<li><a href="/company/history">연혁</a></li>
@@ -212,8 +182,9 @@
 										<li><a id="tab3" href="/business/result">사업실적</a>
 										</li>
 										
-										<li id="menu_support" class="whiteBackLi"><a id="tab4" href="/support/notice">고객지원</a><i class="ti-angle-down" style="font-size: 9px;"></i>
-											<ul class="submenu submenu2">
+										<li id="menu_support"><a id="tab4" href="/support/notice">고객지원</a><i class="ti-angle-down" style="font-size: 9px;"></i>
+											<ul class="submenu">
+												<div class="submenu_background submenu_background2"></div>
 												<li><a href="/support/notice">공지사항</a></li>
 												<li><a href="/support/customer">고객문의</a></li>
 											</ul>
@@ -245,7 +216,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="whiteBackground"></div> -->
 		<script src="https://code.jquery.com/jquery-latest.js"></script> 
 		<script src="/resources/js/jquery-ui.min.js"></script> 
 	</header>
@@ -275,55 +245,47 @@
    			$('.active.activeColor').removeClass('active activeColor');
    		});
    		
-   		$('.whiteBackLi').on( "mouseover", function () {
-   			$('.whiteBackground').addClass("whiteBackgroundHover");
-   		});
-   		
-   		$('.whiteBackLi').on( "mouseleave", function () {
-   			$('.whiteBackground').removeClass("whiteBackgroundHover");
-   		});
-   		
    	</script>
    	
 	<script>
-	$(document).ready(function(){
+////////////////// 서브메뉴의 뒷 흰 배경을 창 크기에 맞게 조절하기 //////////////////
+	// 첫 실행시
 		var menu_company = $("#menu_company");
 		var menu_company_X = menu_company.offset().left;
 		
 		var menu_support = $("#menu_support");
 		var menu_support_X = menu_support.offset().left;
 		
-		console.log("첫 menu_company_X : "+menu_company_X);
-		console.log("첫 menu_support_X : "+menu_support_X);
-	});
+		console.log("first) 회사소개 탭의 X좌표 위치 : "+menu_company_X);
+		console.log("first) 고객지원 탭의 X좌표 위치 : "+menu_support_X);
+		
+		$(".submenu_background1").css('left','-'+menu_company_X+'px');
+		$(".submenu_background2").css('left','-'+menu_support_X+'px');
+
 	
-	var delay = 300;
+	// 화면 크기 변화시 (반응형)
+	var delay = 500;
 	var timer = null;
-	
-	 $(window).on('resize', function(){
-		 	clearTimeout(timer);
-		 	timer = setTimeout(function(){
-		 		console.log('resize event!');
-		 		
-		 		var menu_company = $("#menu_company");
-				var menu_company_X = menu_company.offset().left;
-				
-				var menu_support = $("#menu_support");
-				var menu_support_X = menu_support.offset().left;
-				
-				console.log("리사이즈 menu_company_X : "+menu_company_X);
-				console.log("리사이즈 menu_support_X : "+menu_support_X);
-				
-				var stylesheet = "<style>.add:before{left:-"+menu_company_X+"px}";
-				$('body').html($('body').html()+stylesheet);
-				$(".submenu1").addClass('add');
-				
-				var stylesheet2 = "<style>.add2:before{left:-"+menu_support_X+"px}";
-				$('body').html($('body').html()+stylesheet2);
-				$(".submenu2").addClass('add2');
-				
-		 	}, delay);
-		 });
+	$(window).on('resize', function(){
+	 	clearTimeout(timer);
+	 	timer = setTimeout(function(){
+	 		console.log('-------resize event!-------');
+	 		
+	 		var menu_company = $("#menu_company");
+			var menu_company_X = menu_company.offset().left;
+			
+			var menu_support = $("#menu_support");
+			var menu_support_X = menu_support.offset().left;
+			
+			console.log("resize) 회사소개 탭의 X좌표 위치 : "+menu_company_X);
+			console.log("resize) 고객지원 탭의 X좌표 위치 : "+menu_support_X);
+			
+			$(".submenu_background1").css('left','-'+menu_company_X+'px');
+			$(".submenu_background2").css('left','-'+menu_support_X+'px');
+			
+	 	}, delay);
+	 });
+//////////////////////////////////////////////////////////////////////
 	</script>
 </body>
 </html>
