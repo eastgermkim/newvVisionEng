@@ -46,7 +46,7 @@
 	display: none;
 	position: fixed;
 	width: 100%;
-	z-index: 3;
+	z-index: 5;
 }
 
 @media ( min-width : 991.5px) {
@@ -965,11 +965,29 @@ style>
 	pointer-events: none;
 }
 
+.warn_wrapper{
+	width:80%;
+	margin:0 10% 0 10%;
+	position:relative;
+	top:18%;
+}
+.warn{
+	width: fit-content;
+	margin-left: auto; 
+	text-decoration: underline; 
+	text-underline-position: under; 
+	font-size: 1em;
+	line-height: inherit;
+	float:right;
+}
+
 .brand-area.gray-bg{
 	background: transparent;
     width: 100%;
     position: absolute;
     bottom: 0;
+    padding:0;
+    margin-top:5%;
 }
 
 .owl-nav.disabled {
@@ -1139,8 +1157,18 @@ style>
 		width: 90% !important;
 		margin-top: 1em !important;
 	}
+		.warn_wrapper{
+		width:90%;
+		margin:0 5% 0 5%;
+	}
+	
+	.warn{
+		font-size:0.5em!important;
+		float:none;
+	}
 	.brand-area.gray-bg{
 	    position: relative;
+	    margin-bottom:5%;
 	}
 	
 }
@@ -1150,6 +1178,9 @@ style>
 		top: 25%;
 		font-size: 60%;
 	}
+	.sentence-container.position2, .sentence-container.position3 {
+      margin: 10% 5% 0;
+   	}
 	.slider-area .single-slider {
 		height: 25em;
 		background-position-y: 5em;
@@ -1205,9 +1236,6 @@ style>
 	.brand-area.gray-bg{
 		top: 75%!important;
 	}
-	.carousel p{
-		font-size:0.5em!important;
-	}
 	.carousel-item-text p{
 		font-size:1em!important;
 		line-height:1em!important;
@@ -1241,10 +1269,6 @@ style>
 }
 
 @media ( max-width : 380px) {
-	.carousel p{
-		margin-top:0!important;
-	}
-	
 	.carousel .carousel-item{
 		width:15em!important
 	}
@@ -1448,8 +1472,12 @@ style>
 			</p>
 		</div>
 		
+			<div class="warn_wrapper">
+				<p class="warn">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
+			</div>
+		
+		
 		<div class="carousel">
-			<p style="width: fit-content; margin-left: auto; text-decoration: underline; text-underline-position: under; font-size: 1em;line-height: inherit;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
 			<c:forEach items="${business_list}" var="business">
 				<div class="carousel-item">
 					<img
@@ -1462,7 +1490,7 @@ style>
 				</div>
 			</c:forEach>
 		</div>
-
+		
 		<div class="brand-area gray-bg">
 			<div class="container"
 				style="padding-left: 0 !important; padding-right: 0 !important;">
