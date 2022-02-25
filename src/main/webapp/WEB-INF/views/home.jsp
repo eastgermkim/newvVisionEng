@@ -1098,7 +1098,7 @@ style>
 	.sentence-container.position3 {
 		top: 10%;
 		width: 90%;
-		margin: 0 5% 0;
+		margin: 5% 5% 0;
 	}
 	.position3 .main_sentence, .position3 .main_sentence_sub {
 		margin-left: 0 !important;
@@ -1438,7 +1438,7 @@ style>
 		</div>
 		
 		<div class="carousel">
-			<p style="width: fit-content; margin-left: auto; margin-top: 3%; text-decoration: underline; text-underline-position: under; font-size: 1rem;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
+			<p style="width: fit-content; margin-left: auto; text-decoration: underline; text-underline-position: under; font-size: 1em;line-height: inherit;">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
 			<c:forEach items="${business_list}" var="business">
 				<div class="carousel-item">
 					<img
