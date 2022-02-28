@@ -317,9 +317,6 @@ opacity
 	overflow: hidden;
 }
 
-.position2 .main_sentence {
-	font-size: 3em
-}
 
 .focus::before {
 	content: "";
@@ -381,6 +378,7 @@ opacity
 
 .business_wrapper .team-link {
 	margin: 0 1em 0;
+	text-align:left!important;
 }
 
 .business_wrapper .team-link img {
@@ -414,19 +412,142 @@ opacity
 	animation-delay: 1s;
 }
 
-.business_wrapper .team-link .e-large {
-	font-size: 1.25em;
-	opacity: 0;
-	width: 100%;
-	margin: 30% -50% 0;
-	position: absolute;
-	padding: 0;
+/* arrow */
+
+.the-arrow {
+  width: 1px;
+  transition: all 0.2s;
+}
+.the-arrow.-left {
+  position: absolute;
+  top: 60%;
+  left: 0;
+}
+.the-arrow.-left > .shaft {
+  width: 0;
+  background-color: #fff;
+}
+.the-arrow.-left > .shaft:before, .the-arrow.-left > .shaft:after {
+  width: 0;
+  background-color: #fff;
+}
+.the-arrow.-left > .shaft:before {
+  transform: rotate(0);
+}
+.the-arrow.-left > .shaft:after {
+  transform: rotate(0);
+}
+.the-arrow.-right {
+  top: 3px;
+}
+.the-arrow.-right > .shaft {
+  width: 1px;
+  transition-delay: 0.2s;
+}
+.the-arrow.-right > .shaft:before, .the-arrow.-right > .shaft:after {
+  width: 8px;
+  transition-delay: 0.3s;
+  transition: all 0.5s;
+}
+.the-arrow.-right > .shaft:before {
+  transform: rotate(40deg);
+}
+.the-arrow.-right > .shaft:after {
+  transform: rotate(-40deg);
+}
+.the-arrow > .shaft {
+  background-color: #fff;
+  display: block;
+  height: 1px;
+  position: relative;
+  transition: all 0.2s;
+  transition-delay: 0;
+  will-change: transform;
+}
+.the-arrow > .shaft:before, .the-arrow > .shaft:after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.2s;
+  transition-delay: 0;
+}
+.the-arrow > .shaft:before {
+  transform-origin: top right;
+}
+.the-arrow > .shaft:after {
+  transform-origin: bottom right;
 }
 
-.single-team:hover .team-link .e-large {
-	-webkit-animation: fadeInUp .7s forwards;
-	animation: fadeInUp .7s forwards;
-	animation-delay: 1.5s;
+.single-team:hover .team-link .animated-arrow {
+    display: inline-flex;
+    color: #fff;
+    font-size: 1.25em;
+    text-decoration: none;
+    position: absolute;
+    transition: all 0.2s;
+    float: left;
+    -webkit-animation: fadeInUp .7s forwards;
+    animation: fadeInUp .7s forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+    width: 100%;
+    left: 0;
+    bottom: -4em;
+}
+.animated-arrow:hover {
+    color: #f36d20!important;
+}
+.animated-arrow:hover > .the-arrow.-left > .shaft {
+  width: 64px;
+  transition-delay: 0.1s;
+  background-color: #f36d20;
+}
+.animated-arrow:hover > .the-arrow.-left > .shaft:before, .animated-arrow:hover > .the-arrow.-left > .shaft:after {
+  width: 8px;
+  transition-delay: 0.1s;
+  background-color: #f36d20;
+}
+.animated-arrow:hover > .the-arrow.-left > .shaft:before {
+  transform: rotate(40deg);
+}
+.animated-arrow:hover > .the-arrow.-left > .shaft:after {
+  transform: rotate(-40deg);
+}
+.animated-arrow:hover > .main {
+  transform: translateX(17px);
+  transform: translateX(80px);
+}
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft {
+  width: 0;
+  transform: translateX(200%);
+  transition-delay: 0;
+}
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:before, .animated-arrow:hover > .main > .the-arrow.-right > .shaft:after {
+  width: 0;
+  transition-delay: 0;
+  transition: all 0.1s;
+}
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:before {
+  transform: rotate(0);
+}
+.animated-arrow:hover > .main > .the-arrow.-right > .shaft:after {
+  transform: rotate(0);
+}
+.animated-arrow > .main {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+.animated-arrow > .main > .text {
+  margin: 0 16px 0 0;
+  line-height: 1;
+}
+.animated-arrow > .main > .the-arrow {
+  position: relative;
 }
 
 .business_wrapper .single-team .team-thumb .team-hover {
@@ -455,6 +576,7 @@ opacity
 
 .single-team .team-link .icon_ani {
 	opacity: 0;
+	margin-bottom:10%;
 }
 
 .team-area .single-team:hover .business_sentence {
@@ -483,13 +605,18 @@ to {
 	display: flex;
 	justify-content: space-between;
 	margin-left: 10%;
-	height: 1.6em;
+	height: 1.5em;
+}
+.news_container h3{
+    font-size: 1.5em;
+    margin-bottom: 0;
+    line-height: 1em;
 }
 
 .news_group {
 	width: 70%;
 	position: relative;
-	bottom: 1.4em;
+	/* bottom: 1.4em; */
 }
 
 .news_group li {
@@ -501,7 +628,7 @@ to {
 
 .news_sentence {
 	font-weight: 300;
-	font-size: 1.3em;
+	font-size: 1.25em;
 	line-height: 1em;
 }
 
@@ -512,7 +639,7 @@ to {
 	top: 90%;
 	color: #fff;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 /* 페이지 바 표시 */
@@ -752,8 +879,7 @@ to {
 	border-radius: 1em;
 }
 
-<
-style>
+<style>
 	/* ====================================================================================== */
 	.position3 .main_sentence {
 	position: relative;
@@ -860,7 +986,7 @@ style>
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
-	margin-top:25vh;
+	margin-top:20vh;
 	height: 25em;
 	/*   -webkit-perspective: 500px; */
 	perspective: 500px;
@@ -969,7 +1095,6 @@ style>
 	width:80%;
 	margin:0 10% 0 10%;
 	position:relative;
-	top:18%;
 }
 .warn{
 	width: fit-content;
@@ -1031,11 +1156,35 @@ style>
 		display: none;
 	}
 	.main_sentence_sub{
-		font-size:1.25em;
+		font-size:1em;
+		line-height:1.5em;
 	}
+	
+	.position2 .main_sentence, .position3 .main_sentence{
+		margin-bottom:1em;
+	} 
+	.position2 .main_sentence_sub, .position3 .main_sentence_sub{
+		margin-top:2em;
+	} 
+	
+	.main_sentence{
+		font-size:2em; 
+	}
+	
 	/* position1 */
 	.news_container {
 		width: 80%;
+	}
+	.news_container h3{
+		font-size:1em;
+		line-height:normal;
+	}
+	.news_sentence{
+		font-size:1em;
+	}
+	
+	.position1 .main_sentence_sub{
+		font-size:1em;
 	}
 
 	/* position2 */
@@ -1051,14 +1200,14 @@ style>
 		margin-left: 0;
 		color: #4c4646;
 	}
-	.position2::before {
-		content: "";
-		background-color: #f36d20;
-		position: absolute;
-		height: 0.4em;
-		width: 6%;
-		left: 0%;
-		top: -1%;
+	.position2 .sentence-wrapper::before {
+	    content: "";
+	    background-color: #f36d20;
+	    position: absolute;
+	    height: 0.2em;
+	    width: 2em;
+	    left: 0%;
+	    top: 3.9em;
 	}
 	.business_wrapper {
 		margin-top: 5%;
@@ -1099,26 +1248,16 @@ style>
 	.single-team:hover .team-link p {
 		text-align: justify;
 		width:100%;
-		font-size:100%;
-	}
-	.business_wrapper .team-link .e-large {
-		font-size: 100%;
-		opacity: 0;
-		width: 40%;
-		margin: 0;
-		position: relative;
-		float: right;
+		font-size:1.25em;
+		margin-bottom:2em;
 	}
 	.team-thumb {
 		height: 10em;
 	}
-	.focus::before {
-		height: 0.4em;
-		width: 6%;
-		left: 0%;
-		top: -1%;
-		animation: fadeInLeft .7s;
+	.single-team:hover .team-link .animated-arrow{
+		bottom:-1em;
 	}
+	
 
 	/* position3 */
 	.projects-area{
@@ -1132,14 +1271,16 @@ style>
 	.position3 .main_sentence, .position3 .main_sentence_sub {
 		margin-left: 0 !important;
 		visibility: visible;
+		color:#4c4646;
 	}
-	.position3::before {
+	.position3 .sentence-wrapper::before {
 		content: "";
-		background-color: #f36d20;
-		position: absolute;
-		height: 0.4em;
-		width: 6%;
-		top: -1%;
+	    background-color: #f36d20;
+	    position: absolute;
+	    height: 0.2em;
+	    width: 2em;
+	    left: 0%;
+	    top: 3.9em;
 	}
 	.carousel {
 		width: 90% !important;
@@ -1167,7 +1308,6 @@ style>
 	}
 	
 	.warn{
-		font-size:0.5em!important;
 		float:none;
 	}
 	.brand-area.gray-bg{
@@ -1180,10 +1320,15 @@ style>
 @media ( max-width : 767.5px) {
 	.sentence-container {
 		top: 25%;
-		font-size: 60%;
 	}
 	.sentence-container.position2, .sentence-container.position3 {
       margin: 10% 5% 0;
+   	}
+   	.position2 .main_sentence_sub, .position3 .main_sentence_sub{
+   		margin-top:1.5em;
+   	}
+   	.main_sentence{
+   		font-size:1.5em;
    	}
 	.slider-area .single-slider {
 		height: 25em;
@@ -1207,26 +1352,24 @@ style>
 		line-height: 100%;
 		font-size: 1.3em;
 	}
+	.position2 .sentence-wrapper::before ,.position3 .sentence-wrapper::before{
+		content: "";
+	    background-color: #f36d20;
+	    position: absolute;
+	    height: 0.2em;
+	    width: 2em;
+	    left: 0%;
+	    top: 2.9em;
+	}
+	
 	.position2 .main_sentence, .position2 .main_sentence_sub {
 		color: #4c4646;
-	}
-	.position2::before {
-		content: "";
-		background-color: #f36d20;
-		position: absolute;
-		height: 0.4em;
-		width: 6%;
-		left: 0%;
-		top: -1%;
 	}
 	.business_wrapper{
 		margin-top:10%;
 	}
 	.business_wrapper .business_sentence h3{
 		font-size:1em;
-	}
-	.single-team:hover .team-link p {
-		font-size:85%;
 	}
 	.business_wrapper .team-link .e-large {
 		font-size: 75%;
@@ -1302,9 +1445,9 @@ style>
 	<div class="homePageGroup">
 		<div class="pageGroup sentence-container">
 			<h3>Page.</h3>
-			<a class="pageNumber active" id="num1" href="#top">1</a> <a
-				class="pageNumber" id="num2" href="#page2">2</a> <a
-				class="pageNumber" id="num3">3</a>
+			<a class="pageNumber active" id="num1" href="#top">1</a> 
+			<a class="pageNumber" id="num2" href="#page2">2</a>
+			<a class="pageNumber" id="num3">3</a>
 		</div>
 	</div>
 
@@ -1382,8 +1525,19 @@ style>
 											CCTV<br>INSTALLATION
 										</h3>
 										<p>15년 경력의 보안 전문가와의 상담을 통해 맞춤형 서비스 설계와 신속,정확한 유지보수를 제공합니다.</p>
-										<a href="/business/business_cctv"
-											class="genric-btn primary-border e-large">CCTV 사업소개</a>
+										 <a class='animated-arrow' href='/business/business_cctv'>
+									        <span class='the-arrow -left'>
+									          <span class='shaft'></span>
+									        </span>
+									        <span class='main'>
+									          <span class='text'>
+									            CCTV 솔루션 사업소개
+									          </span>
+									          <span class='the-arrow -right'>
+									            <span class='shaft'></span>
+									          </span>
+									        </span>
+									      </a>
 									</div>
 								</div>
 							</div>
@@ -1407,8 +1561,19 @@ style>
 											MILITARY<br>SOLUTION
 										</h3>
 										<p>노하우를 바탕으로 더욱 향상된, 요청한 환경에 맞는 적합한 서비스를 적시에 설계 및 제공합니다.</p>
-										<a href="/business/business_army"
-											class="genric-btn primary-border e-large">군사시설 CCTV</a>
+										<a class='animated-arrow' href='/business/business_army'>
+									        <span class='the-arrow -left'>
+									          <span class='shaft'></span>
+									        </span>
+									        <span class='main'>
+									          <span class='text'>
+									            	군사시설 CCTV 사업소개
+									          </span>
+									          <span class='the-arrow -right'>
+									            <span class='shaft'></span>
+									          </span>
+									        </span>
+									      </a>
 									</div>
 								</div>
 							</div>
@@ -1431,8 +1596,19 @@ style>
 											SPECIAL CCTV<br>SOLUTION
 										</h3>
 										<p>전자파 맞춤형 영상 장비 설비를 구축합니다.</p>
-										<a href="/business/business_sp"
-											class="genric-btn primary-border e-large">SHIELD CCTV</a>
+										<a class='animated-arrow' href='/business/business_sp'>
+									        <span class='the-arrow -left'>
+									          <span class='shaft'></span>
+									        </span>
+									        <span class='main'>
+									          <span class='text'>
+									            	특수시설 CCTV 사업소개
+									          </span>
+									          <span class='the-arrow -right'>
+									            <span class='shaft'></span>
+									          </span>
+									        </span>
+									      </a>
 									</div>
 								</div>
 							</div>
@@ -1454,8 +1630,19 @@ style>
 										<img class="icon_ani" src="/resources/img/icon/lan_w.png">
 										<h3>TELECOMMUNICATION</h3>
 										<p>전산환경 및 통신환경을 분석해 송수신, 통신장비를 위한 설계, 시공, 통신 연결 업무를 수행합니다.</p>
-										<a href="/business/business_com"
-											class="genric-btn primary-border e-large">정보통신 사업</a>
+										<a class='animated-arrow' href='/business/business_com'>
+									        <span class='the-arrow -left'>
+									          <span class='shaft'></span>
+									        </span>
+									        <span class='main'>
+									          <span class='text'>
+									            	정보통신 사업소개
+									          </span>
+									          <span class='the-arrow -right'>
+									            <span class='shaft'></span>
+									          </span>
+									        </span>
+									      </a>
 									</div>
 								</div>
 							</div>
@@ -1470,22 +1657,15 @@ style>
 		style="background: transparent; height: 100vh; position: relative;">
 		<div class="sentence-container position3">
 			<div class="sentence-wrapper" id="page3">
-				<p class="main_sentence"
-					style="color: rgb(76, 70, 70); margin-bottom: 0.5rem">Projects
+				<p class="main_sentence">Projects
 				</p>
 			</div>
 			<p class="main_sentence_sub"
-				style="color: rgb(76, 70, 70); animation-delay: 0.5s; margin-bottom: 0.5rem">
-				CCTV 설치 및 관리 솔루션 전문 기업 <br class="br1999">(주)뉴비젼이엔지의 주요 프로젝트
-				실적입니다. <a href="/business/result"
-					style="font-size: 0.75em; font-weight: bold; color: #f36d20;">+More</a>
+				style="color: rgb(76, 70, 70); animation-delay: 0.5s; margin-bottom: 0.5rem; width:100%;">
+				(주)뉴비젼이엔지의 주요 프로젝트 실적<br class="br1999"> 그리고 주요 협력사 입니다. <a href="/business/result"
+					style="font-size: 1em; font-weight: bold; color: #f36d20; float:right;">+More</a>
 			</p>
 		</div>
-		
-			<div class="warn_wrapper">
-				<p class="warn">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
-			</div>
-		
 		
 		<div class="carousel">
 			<c:forEach items="${business_list}" var="business">
@@ -1494,12 +1674,17 @@ style>
 						src="/resources/img/business_result/main_imgs/${business.imgName}">
 					<div class="carousel-item-text">
 						<p
-							style="font-size: 2em; font-weight: 500; text-decoration-line: overline;">${business.resultClass}</p>
-						<p style="font-size: 1.2em; line-height: 1.2em;">${business.resultContnents}</p>
+							style="font-size: 1.5em; font-weight: 500; text-decoration-line: overline;">${business.resultClass}</p>
+						<p style="font-size: 1.2em; line-height: 1.2em;">${business.resultContents}</p>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
+		
+		<div class="warn_wrapper">
+			<p class="warn">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
+		</div>
+		
 		
 		<div class="brand-area gray-bg">
 			<div class="container"
