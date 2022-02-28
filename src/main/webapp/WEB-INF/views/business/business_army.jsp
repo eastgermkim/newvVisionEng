@@ -163,6 +163,12 @@
     color: #fff!important;
     font-weight: 600!important;
 }
+@media ( max-width : 991.5px) {
+	.circle3 {
+		width:100%!important;
+	}
+}
+
 
 @media ( max-width : 767px) {
 	.nav{
@@ -427,8 +433,8 @@ body .mb15 {
 											</div>
 										</div>
 										<div style="text-align:center;">
-											<img src="https://nv3000nv.cdn3.cafe24.com/business/army_3part6.png" style="width:60%; margin:0 auto;">
-												<table style="width:60%; margin:0 auto;">
+											<img class="circle3" src="https://nv3000nv.cdn3.cafe24.com/business/army_3part6.png" style="width:60%; margin:0 auto;">
+												<table class="circle3" style="width:60%; margin:0 auto;">
 													<tr>
 														<th style="width: 33%; font-size:22px; background: linear-gradient(to right, #FF823D, #FD753A); color: transparent;-webkit-background-clip: text;">납품</th>
 														<th style="width:33%; font-size:22px;  background: linear-gradient(to right, #FD753A, #F75732); color: transparent;-webkit-background-clip: text;">설치</th>
