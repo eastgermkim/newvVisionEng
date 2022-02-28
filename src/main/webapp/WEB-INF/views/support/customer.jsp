@@ -196,7 +196,7 @@ input[type="checkbox"] {
 							</div>
 					</div>
 					<div class="form-group mt-3" id="recaptchaSubmit" style="text-align:right; display:flex; justify-content:space-between">
-						<div class="g-recaptcha" id="g-recaptcha" data-sitekey="6LfZbSwdAAAAAPj1rwsr0nKbAtFBOqgzPA0skGI_" ></div>
+						<div class="g-recaptcha" id="g-recaptcha" data-sitekey="6LeajKUeAAAAAOCNnjn3Rhob2KuImkYSo8KnrLYw" ></div>
 						<button id="sendSubmit" type="submit" class="button button-contactForm boxed-btn">작성 완료</button>
 					</div>
 				</form>
