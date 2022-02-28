@@ -268,7 +268,7 @@ public class SupportController {
 		 try {
 			 
 			 //수신받을 이메일 지정 nv3000@empas.com으로 바뀔 예정
-			 dto.setToMail("eastgerm@nate.com");;
+			 dto.setToMail("nvengsmtp@gmail.com");;
 			/* System.out.println("내용:......................"+dto.getContent());*/
 			 
 			// dto(메일관련 정보)를 sendMail에 저장함
