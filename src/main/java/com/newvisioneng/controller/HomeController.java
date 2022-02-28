@@ -57,17 +57,17 @@ public class HomeController {
 	}
 	
 	//회원가입(관리자) 페이지로 이동
-/*	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String goJoin() {
 		return "join";
-	}*/
+	}
 	//회원가입 요청
-/*	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(Account account) {
 		account.setPassword(new BCryptPasswordEncoder().encode(account.getPassword()));
 		adminService.join(account);
 		return "redirect:/?joinOK";
-	}*/
+	}
 
 //=============================================================================================	
 	
