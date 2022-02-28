@@ -51,6 +51,12 @@
         <sec:intercept-url pattern="/recruit/recruit_delete/**" access="isAuthenticated()" />
 
         <sec:intercept-url pattern="/business/result_writeOK/**" access="isAuthenticated()" />
+        <sec:intercept-url pattern="/business/result_modifyOK/**" access="isAuthenticated()" />
+        <sec:intercept-url pattern="/business/result_delete/**" access="isAuthenticated()" />
+        <sec:intercept-url pattern="/business/result_showMain/**" access="isAuthenticated()" />
+        <sec:intercept-url pattern="/business/result_showMainOK/**" access="isAuthenticated()" />
+        <sec:intercept-url pattern="/business/result_showMainCancel/**" access="isAuthenticated()" />
+        <sec:intercept-url pattern="/business/result_showMainCancelOK/**" access="isAuthenticated()" />
         
         <!-- 인증한 사용자(로그인 상태)만 새로운 ID 가입 가능하도록 -->
 		<!-- 임시 해제 -->
