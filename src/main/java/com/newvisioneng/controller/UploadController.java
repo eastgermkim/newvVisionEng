@@ -87,7 +87,7 @@ public class UploadController {
 	}
 	
 	//에디터 안에 삽입된 이미지를 저장하는 함수
-	private String[] uploadImg(String originalName, byte[] fileDate,HttpServletRequest req, String location) throws IOException {
+	private String[] uploadImg(String originalName, byte[] fileData,HttpServletRequest req, String location) throws IOException {
 		logger.info("fileUpload");
 		System.out.println("\n에디터 속 이미지 삽입..............");
 		
@@ -110,7 +110,7 @@ public class UploadController {
         
 		//org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
         //임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
-        FileCopyUtils.copy(fileDate, target);
+        FileCopyUtils.copy(fileData, target);
 		   
 		String[] names = {originalName,savedName};
 		
