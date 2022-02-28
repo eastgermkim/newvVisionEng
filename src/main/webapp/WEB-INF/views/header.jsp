@@ -78,7 +78,7 @@
   </style>
 </head>
 
-<body style="overflow-x: hidden">
+<body style="overflow-x: hidden" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 
 
 	<script>
