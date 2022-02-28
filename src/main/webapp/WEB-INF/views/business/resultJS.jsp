@@ -117,9 +117,9 @@ function firstTab(tabId){
 				return false;
 			}
 			//문의 내용 없으면 막아주기
-			if ($("#resultContnents").val() == "") {
+			if ($("#resultContents").val() == "") {
 				alert("내용이 없습니다.");
-				$("#resultContnents").focus();
+				$("#resultContents").focus();
 				return false;
 			}
 			//글 등록 함수호출
@@ -131,7 +131,7 @@ function firstTab(tabId){
 		//글 등록 함수(ajax)
 		function regist() {
 			console.log("subject........." + $("#subject").val());
-			console.log("resultContnents......" + $("#resultContnents").val());
+			console.log("resultContents......" + $("#resultContents").val());
 
 			var tabId = $("#subject").val();
 
@@ -140,7 +140,7 @@ function firstTab(tabId){
 				url : "/business/result_writeOK/",
 				data : {
 					"tabId" : $("#subject").val(),
-					"resultContnents" : $("#resultContnents").val(),
+					"resultContents" : $("#resultContents").val(),
 				},
 				dataType : "text",
 				success : function(data) {
@@ -213,18 +213,18 @@ function firstTab(tabId){
 		};
 
 		//수정 클릭시 폼 띄워줌
-		function showModifyForm(resultNum, subject, resultContnents, page) {
+		function showModifyForm(resultNum, subject, resultContents, page) {
 			//글수정 팝업 관련 설정
 			console.log("----showModifyForm----");
 			console.log("resultNum...." + resultNum);
 			console.log("subject...." + subject);
-			console.log("resultContnents...." + resultContnents);
+			console.log("resultContents...." + resultContents);
 			console.log("page...." + page);
 			$("#popup_wrap2").css("display", "flex");
 			$("#mask2").css("display", "block");
 			$("#resultNumModified").val(resultNum);
 			$("#subjectModified").val(subject);
-			$("#resultContnentsModified").val(resultContnents);
+			$("#resultContentsModified").val(resultContents);
 			$("#pageModified").val(page);
 
 		};
@@ -235,14 +235,14 @@ function firstTab(tabId){
 
 		$("#subjectModified").on('click', function() {
 			alert("사업 분류는 변경할 수 없습니다. 삭제후 재등록 하십시오.");
-			$("#resultContnentsModified").focus();
+			$("#resultContentsModified").focus();
 		});
 		//수정 클릭시
 		$("#goModify").on('click', function() {
 			//문의 내용 없으면 막아주기
-			if ($("#resultContnentsModified").val() == "") {
+			if ($("#resultContentsModified").val() == "") {
 				alert("내용이 없습니다.");
-				$("#resultContnentsModified").focus();
+				$("#resultContentsModified").focus();
 				return false;
 			}
 			//글 수정 함수호출
@@ -257,8 +257,8 @@ function firstTab(tabId){
 					+ $("#resultNumModified").val());
 			console.log("subjectModified........."
 					+ $("#subjectModified").val());
-			console.log("resultContnentsModified......"
-					+ $("#resultContnentsModified").val());
+			console.log("resultContentsModified......"
+					+ $("#resultContentsModified").val());
 
 			var tabId = $("#subjectModified").val();
 
@@ -268,7 +268,7 @@ function firstTab(tabId){
 				data : {
 					"resultNum" : $("#resultNumModified").val(),
 					"tabId" : $("#subjectModified").val(),
-					"resultContnents" : $("#resultContnentsModified").val(),
+					"resultContents" : $("#resultContentsModified").val(),
 					"page" : $("#pageModified").val(),
 				},
 				dataType : "text",

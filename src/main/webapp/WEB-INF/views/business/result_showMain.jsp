@@ -143,7 +143,7 @@
 				<div style="text-align: center; margin-bottom: 5%;">
 					<div style="font-weight: bold; font-size: large;">${resultClass}</div>
 					<div
-						style="font-size: large; margin: 0 auto; background: antiquewhite; width: fit-content;">${main_resultContnents}</div>
+						style="font-size: large; margin: 0 auto; background: antiquewhite; width: fit-content;">${main_resultContents}</div>
 				</div>
 
 				<div class="text-center">

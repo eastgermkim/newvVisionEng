@@ -8,7 +8,7 @@
 	<sql id="criteria">
 		<if test='s_keyword != null and s_keyword != ""'>
 			<trim prefix="(" suffix=") AND">
-				RESULTCONTNENTS LIKE CONCAT('%',#{s_keyword},'%') 
+				RESULTCONTENTS LIKE CONCAT('%',#{s_keyword},'%') 
 			</trim>
 		</if>
 	</sql>
@@ -18,7 +18,7 @@
 		SELECT * FROM NV_BUSINESS_RESULT 
 		WHERE
 		<if test='s_keyword != null and s_keyword != ""'>
-			(RESULTCONTNENTS LIKE CONCAT('%',#{s_keyword},'%')) AND 
+			(RESULTCONTENTS LIKE CONCAT('%',#{s_keyword},'%')) AND 
 		</if> 
 		RESULTCLASS = #{resultClass} 
 		ORDER BY RESULTNUM DESC LIMIT #{pageStart},#{pageSize}
@@ -27,19 +27,19 @@
 		SELECT COUNT(*) FROM NV_BUSINESS_RESULT 
 		WHERE
 		<if test='s_keyword != null and s_keyword != ""'>
-			(RESULTCONTNENTS LIKE CONCAT('%',#{s_keyword},'%')) AND 
+			(RESULTCONTENTS LIKE CONCAT('%',#{s_keyword},'%')) AND 
 		</if>
 		RESULTCLASS = #{resultClass}
 		AND
 		RESULTNUM>0
 	</select>
 	<insert id="insertBusinessResult">
-		INSERT INTO NV_BUSINESS_RESULT(RESULTCLASS,RESULTCONTNENTS) 
-		VALUES (#{resultClass},#{resultContnents})
+		INSERT INTO NV_BUSINESS_RESULT(RESULTCLASS,RESULTCONTENTS) 
+		VALUES (#{resultClass},#{resultContents})
 	</insert>
 	<update id="updateBusinessResult">
 		UPDATE NV_BUSINESS_RESULT SET RESULTCLASS = #{resultClass},
-		RESULTCONTNENTS= #{resultContnents} WHERE RESULTNUM = #{resultNum}
+		RESULTCONTENTS= #{resultContents} WHERE RESULTNUM = #{resultNum}
 	</update>
 	<delete id="deleteBusinessResult">
 		DELETE FROM NV_BUSINESS_RESULT WHERE RESULTNUM = #{resultNum}

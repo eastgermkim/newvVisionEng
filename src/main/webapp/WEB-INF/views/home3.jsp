@@ -1488,7 +1488,7 @@ style>
 					<div class="carousel-item-text">
 						<p
 							style="font-size: 2em; font-weight: 500; text-decoration-line: overline;">${business.resultClass}</p>
-						<p style="font-size: 1.2em; line-height: 1.2em;">${business.resultContnents}</p>
+						<p style="font-size: 1.2em; line-height: 1.2em;">${business.resultContents}</p>
 					</div>
 				</div>
 			</c:forEach>

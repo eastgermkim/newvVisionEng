@@ -63,7 +63,7 @@ ${resultClass}의 '${pageMaker.cri.s_keyword}' 검색결과입니다.
 									<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 										<div style="padding-top: 1%" class="modifyDeleteBtn">
 											<a href="javascript:void(0);" 
-											onclick="showModifyForm(${business.resultNum},'${tabId}','${business.resultContnents}',${pageMaker.cri.page});" 
+											onclick="showModifyForm(${business.resultNum},'${tabId}','${business.resultContents}',${pageMaker.cri.page});" 
 											style="color: blue;text-decoration: underline;">수정</a>
 											<span>&nbsp;|&nbsp;</span>
 											<a href="javascript:void(0);" 
@@ -76,13 +76,13 @@ ${resultClass}의 '${pageMaker.cri.s_keyword}' 검색결과입니다.
 												</c:when>
 												<c:otherwise>
 													<a href="javascript:void(0);" 
-													onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker.cri.page},'${tabId}');"
+													onClick="showMainSubmit(${business.resultNum},'${business.resultContents}',${pageMaker.cri.page},'${tabId}');"
 													style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 												</c:otherwise>
 											</c:choose>
 										</div>
 									</c:if>
-									<div class="resultContent">${business.resultContnents}</div>
+									<div class="resultContent">${business.resultContents}</div>
 								</div>
 						</c:forEach>
 					</c:when>

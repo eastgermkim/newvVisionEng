@@ -50,22 +50,22 @@ private static final Logger logger = LoggerFactory.getLogger(BusinessServiceImpl
 	
 	//사업실적 등록
 	@Override
-	public boolean registBusinessResult(String resultClass, String resultContnents) {
+	public boolean registBusinessResult(String resultClass, String resultContents) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("resultClass", resultClass);
-		map.put("resultContnents", resultContnents);
+		map.put("resultContents", resultContents);
 		
 		return mapper.insertBusinessResult(map)==1;
 	}
 	//사업실적 수정
 	@Override
-	public boolean modifyBusinessResult(long resultNum, String resultClass, String resultContnents) {
+	public boolean modifyBusinessResult(long resultNum, String resultClass, String resultContents) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("resultNum", resultNum);
 		map.put("resultClass", resultClass);
-		map.put("resultContnents", resultContnents);
+		map.put("resultContents", resultContents);
 		
 		return mapper.updateBusinessResult(map)==1;
 	}

@@ -167,7 +167,7 @@
 										</div>
 										<div class="team-info text-center">
 				                            <h3>${business.resultClass}</h3>
-				                            <p>${business.resultContnents}</p>
+				                            <p>${business.resultContents}</p>
 				                        </div>
 				                    </div>
 								</div>

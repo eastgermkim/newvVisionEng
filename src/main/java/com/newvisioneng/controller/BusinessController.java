@@ -139,10 +139,10 @@ public class BusinessController {
 	// 사업실적 등록
 	@PostMapping("/result_writeOK")
 	public String result_writeOK(Model model, Criteria cri, RedirectAttributes ra, @RequestParam("tabId") String tabId,
-			@RequestParam("resultContnents") String resultContnents) {
+			@RequestParam("resultContents") String resultContents) {
 		log.info("------------new_business_resultOK-------------");
 		log.info("새로운 사업실적의 분류tabId..........." + tabId);
-		log.info("새로운 사업실적 내용..........." + resultContnents);
+		log.info("새로운 사업실적 내용..........." + resultContents);
 
 		String resultClass = "";
 		if (tabId.equals("military")) {
@@ -155,7 +155,7 @@ public class BusinessController {
 
 		log.info("새로운 사업실적 resultClass..........." + resultClass);
 
-		if (service.registBusinessResult(resultClass, resultContnents)) {
+		if (service.registBusinessResult(resultClass, resultContents)) {
 			log.info(".....................사업실적 등록 성공");
 			ra.addAttribute("msg", "등록 완료");
 			ra.addAttribute("page", 1);
@@ -172,12 +172,12 @@ public class BusinessController {
 	public String result_modifyOK(Model model, Criteria cri, RedirectAttributes ra,
 			@RequestParam(value = "resultNum", required = false) long resultNum,
 			@RequestParam(value = "tabId", required = false) String tabId,
-			@RequestParam(value = "resultContnents", required = false) String resultContnents,
+			@RequestParam(value = "resultContents", required = false) String resultContents,
 			@RequestParam(value = "page", required = false) String page) {
 		log.info("------------modify_business_result-------------");
 		log.info("수정할 사업실적 번호..........." + resultNum);
 		log.info("수정후 사업실적의 분류tabId..........." + tabId);
-		log.info("수정후 사업실적 내용..........." + resultContnents);
+		log.info("수정후 사업실적 내용..........." + resultContents);
 		log.info("수정되는 사업실적 페이지..........." + page);
 
 		String resultClass = "";
@@ -191,7 +191,7 @@ public class BusinessController {
 
 		log.info("수정후 사업실적 resultClass..........." + resultClass);
 
-		if (service.modifyBusinessResult(resultNum, resultClass, resultContnents)) {
+		if (service.modifyBusinessResult(resultNum, resultClass, resultContents)) {
 			log.info(".....................사업실적 수정 성공");
 			ra.addAttribute("msg", "수정 완료");
 			ra.addAttribute("page", page);
@@ -233,14 +233,14 @@ public class BusinessController {
 	@PostMapping("/result_showMain")
 	public String result_showMain(Model model,
 			@RequestParam(value = "main_resultNum", required = false) long main_resultNum,
-			@RequestParam(value = "main_resultContnents", required = false) String main_resultContnents,
+			@RequestParam(value = "main_resultContents", required = false) String main_resultContents,
 			@RequestParam(value = "main_page", required = false) String main_page,
 			@RequestParam(value = "main_tabId", required = false) String main_tabId,
 			@RequestParam(value = "msg", required = false) String msg) {
 
 		log.info("------------business_result_showMain-------------");
 		log.info("넘어온 main_resultNum값.........." + main_resultNum);
-		log.info("넘어온 main_resultContnents값.........." + main_resultContnents);
+		log.info("넘어온 main_resultContents값.........." + main_resultContents);
 		log.info("넘어온 page값.........." + main_page);
 		log.info("넘어온 main_tabId값.........." + main_tabId);
 
@@ -254,7 +254,7 @@ public class BusinessController {
 		}
 
 		model.addAttribute("main_resultNum", main_resultNum);
-		model.addAttribute("main_resultContnents", main_resultContnents);
+		model.addAttribute("main_resultContents", main_resultContents);
 		model.addAttribute("resultClass", resultClass);
 		model.addAttribute("page", main_page);
 		model.addAttribute("tabId", main_tabId);

@@ -12,9 +12,9 @@ public interface BusinessService {
 	//사업실적 총 글 개수
 	public int getBusinessTotal(String resultClass, String s_keyword);
 	//사업실적 새 글 등록
-	public boolean registBusinessResult(String resultClass, String resultContnents);
+	public boolean registBusinessResult(String resultClass, String resultContents);
 	//사업실적 글 수정
-	public boolean modifyBusinessResult(long resultNum, String resultClass, String resultContnents);
+	public boolean modifyBusinessResult(long resultNum, String resultClass, String resultContents);
 	//사업실적 글 삭제
 	public boolean deleteBusinessResult(long resultNum);
 	

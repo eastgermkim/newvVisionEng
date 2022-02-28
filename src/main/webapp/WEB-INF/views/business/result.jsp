@@ -395,7 +395,7 @@ table {
 															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
 																	<a href="javascript:void(0);" 
-																	onclick="showModifyForm(${business.resultNum},'military','${business.resultContnents}',${pageMaker1.cri.page});" 
+																	onclick="showModifyForm(${business.resultNum},'military','${business.resultContents}',${pageMaker1.cri.page});" 
 																	style="color: blue;text-decoration: underline;">수정</a>
 																	<span>&nbsp;|&nbsp;</span>
 																	<a href="javascript:void(0);" 
@@ -408,13 +408,13 @@ table {
 																		</c:when>
 																		<c:otherwise>
 																			<a href="javascript:void(0);" 
-																			onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker1.cri.page},'military');"
+																			onClick="showMainSubmit(${business.resultNum},'${business.resultContents}',${pageMaker1.cri.page},'military');"
 																			style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																		</c:otherwise>
 																	</c:choose>
 																</div>
 															</c:if>
-															<div class="resultContent">${business.resultContnents}</div>
+															<div class="resultContent">${business.resultContents}</div>
 														</div>
 												</c:forEach>
 											</c:when>
@@ -500,7 +500,7 @@ table {
 																<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																	<div style="padding-top: 1%" class="modifyDeleteBtn">
 																		<a href="javascript:void(0);" 
-																		onclick="showModifyForm(${business.resultNum},'publicOrg','${business.resultContnents}',${pageMaker2.cri.page});" 
+																		onclick="showModifyForm(${business.resultNum},'publicOrg','${business.resultContents}',${pageMaker2.cri.page});" 
 																		style="color: blue;text-decoration: underline;">수정</a>
 																		<span>&nbsp;|&nbsp;</span>
 																		<a href="javascript:void(0);" 
@@ -513,13 +513,13 @@ table {
 																			</c:when>
 																			<c:otherwise>
 																				<a href="javascript:void(0);" 
-																				onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker2.cri.page},'publicOrg');"
+																				onClick="showMainSubmit(${business.resultNum},'${business.resultContents}',${pageMaker2.cri.page},'publicOrg');"
 																				style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																			</c:otherwise>
 																		</c:choose>
 																	</div>
 																</c:if>
-																<div class="resultContent">${business.resultContnents}</div>
+																<div class="resultContent">${business.resultContents}</div>
 															</div>
 													</c:forEach>
 												</c:when>
@@ -606,7 +606,7 @@ table {
 															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
 																	<a href="javascript:void(0);" 
-																	onclick="showModifyForm(${business.resultNum},'privateCorp','${business.resultContnents}',${pageMaker3.cri.page});" 
+																	onclick="showModifyForm(${business.resultNum},'privateCorp','${business.resultContents}',${pageMaker3.cri.page});" 
 																	style="color: blue;text-decoration: underline;">수정</a>
 																	<span>&nbsp;|&nbsp;</span>
 																	<a href="javascript:void(0);" 
@@ -619,13 +619,13 @@ table {
 																		</c:when>
 																		<c:otherwise>
 																			<a href="javascript:void(0);" 
-																			onClick="showMainSubmit(${business.resultNum},'${business.resultContnents}',${pageMaker3.cri.page},'privateCorp');"
+																			onClick="showMainSubmit(${business.resultNum},'${business.resultContents}',${pageMaker3.cri.page},'privateCorp');"
 																			style="font-weight: 500;text-decoration: underline;">메인페이지 등록</a>
 																		</c:otherwise>
 																	</c:choose>
 																</div>
 															</c:if>
-														<div class="resultContent">${business.resultContnents}</div>
+														<div class="resultContent">${business.resultContents}</div>
 													</div>
 											</c:forEach>
 										</c:when>
@@ -726,7 +726,7 @@ table {
 						</tr>
 						<tr>
 							<th class="big-width-table"><span>내용</span></th>
-							<th><input class="single-input" id="resultContnents" name="resultContnents"
+							<th><input class="single-input" id="resultContents" name="resultContents"
 								type="text" placeholder="내용을 입력하세요"></th>
 						</tr>
 					</tbody>
@@ -771,7 +771,7 @@ table {
 						</tr>
 						<tr>
 							<th class="big-width-table"><span>내용</span></th>
-							<th><input class="single-input" id="resultContnentsModified" name="resultContnentsModified"
+							<th><input class="single-input" id="resultContentsModified" name="resultContentsModified"
 								type="text" placeholder="내용을 입력하세요"></th>
 						</tr>
 					</tbody>
@@ -793,7 +793,7 @@ table {
 	
 	<form name="showMainForm" action="" method="post">
 		<input type="hidden" name="main_resultNum" id="main_resultNum">
-		<input type="hidden" name="main_resultContnents" id="main_resultContnents">
+		<input type="hidden" name="main_resultContents" id="main_resultContents">
 		<input type="hidden" name="main_page" id="main_page">
 		<input type="hidden" name="main_tabId" id="main_tabId">
 	</form>
@@ -821,7 +821,7 @@ $(function () {
 
 <script>
 /* 메인페이지 등록창(새창) */
-function showMainSubmit(resultNum,resultContnents,page,tabId){
+function showMainSubmit(resultNum,resultContents,page,tabId){
     var gsWin = window.open('about:blank','showMainviewer','width=1000,height=921');
     var frm =document.showMainForm;
     frm.action = '/business/result_showMain/';
@@ -833,8 +833,8 @@ function showMainSubmit(resultNum,resultContnents,page,tabId){
     console.log("resultNum..........."+resultNum);
     $("#main_resultNum").val(resultNum);
     
-    console.log("resultContnents..........."+resultContnents);
-    $("#main_resultContnents").val(resultContnents);
+    console.log("resultContents..........."+resultContents);
+    $("#main_resultContents").val(resultContents);
     
     console.log("page..........."+page);
     $("#main_page").val(page);
