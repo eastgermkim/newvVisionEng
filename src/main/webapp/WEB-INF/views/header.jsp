@@ -77,8 +77,14 @@
   }
   </style>
 </head>
-
-<body style="overflow-x: hidden" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<!-- 마우스 우클릭, 드래그 방지 -->
+<sec:authorize access="isAnonymous()">
+	<body style="overflow-x: hidden" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+</sec:authorize>
+<!-- 관리자 로그인 상태일때는  허용-->
+<sec:authorize access="isAuthenticated()">
+	<body style="overflow-x: hidden">
+</sec:authorize>
 
 
 	<script>
