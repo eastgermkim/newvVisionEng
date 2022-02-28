@@ -386,7 +386,6 @@ u {
 				</div>
 			</div>
 			<div id="editor" rows="5" style="display: none;" readonly>${notice.noticeContents}</div>
-			</form>
 				<div class="board-view-bottom">
 					<div class="board-file-wrap">
 						<div class="board-file-title">첨부파일</div>
@@ -469,6 +468,7 @@ u {
 						</div>					
 					</div>
 				</div>
+			</form>
 			<form name="readForm" role="form" method="post">
 				<input type="hidden" id="FILE_SYSTEMNAME" name="FILE_SYSTEMNAME" value=""> 
 				<input type="hidden" id="FILE_ORGNAME" name="FILE_ORGNAME" value=""> 

@@ -220,23 +220,26 @@ public class RecruitController {
 		log.info("recruit_delete : " + recruitnum);
 		
 		if(file_systemname != null) {
+			log.info("file이 있음");
+			
 			for(int i = 0; i < file_systemname.length; i++) {
+				log.info((i+1)+"번째 파일 삭제 시작");
 				File file = new File(req.getServletContext().getRealPath("/")+"resources/files/"+"recruit_files/" + file_systemname[i]);
-				System.out.println(file);
-				
+				log.info((i+1)+"번째 파일 위치 : "+file.getPath());
 				if(file.exists()){ 
 					if(file.delete()){ 
-						System.out.println((i+1)+"번째 "+"파일삭제 성공"); 
+						log.info((i+1)+"번째 "+"파일 삭제 성공"); 
 					}else{
-						System.out.println((i+1)+"번째 "+"파일삭제 실패"); 
+						log.info((i+1)+"번째 "+"파일 삭제 실패"); 
 					}
 				}else{ 
-					System.out.println((i+1)+"번째  "+"파일이 존재하지 않습니다."); 
+					log.info((i+1)+"번째  "+"파일이 존재하지 않습니다."); 
 				}
 			}
 		}
 		
 		if(service.removeRecruit(recruitnum)) {
+			log.info("글 번호 "+recruitnum+"번 삭제 성공-----"); 
 			//Session의 Flash에 담아준다.
 			ra.addFlashAttribute("result", "success");
 		}
