@@ -1255,7 +1255,7 @@ to {
 		height: 10em;
 	}
 	.single-team:hover .team-link .animated-arrow{
-		bottom:-1em;
+		bottom:0em;
 	}
 	
 
