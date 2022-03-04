@@ -1867,11 +1867,11 @@ to {
 		scrollTop : 0
 	}, 0);
 	
-
-	/* 미디어쿼리 991.5(모바일)넘을때만 휠 애니메이션 */
-	if (matchMedia("screen and (min-width: 991.5px)").matches) {
+	
+	if(!navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+	  //PC에서만 실행 될 스크립트
 		$(window).on(
-				"wheel touchmove",
+				"wheel",
 				function(e) {
 
 					if ($html.is(":animated"))
@@ -2020,6 +2020,10 @@ to {
 						}, 1000);
 					}
 				});
+		}
+
+	/* 미디어쿼리 991.5(모바일)넘을때만 휠 애니메이션 */
+	if (matchMedia("screen and (min-width: 991.5px)").matches) {
 	}
 
 	/* owl-dot 글씨 변경 */
@@ -2145,6 +2149,15 @@ to {
 		news_group();
 
 	});
+	
+
+/* 	if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+		$(".position2 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
+		$(".position2 .main_sentence_sub").removeClass("sentence_ani");
+		$(".position3 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
+		$(".position3 .main_sentence_sub").removeClass("sentence_ani");
+		alert("비응");
+		}; */
 </script>
 
 <!-- 로그인, 로그아웃 알림 -->
