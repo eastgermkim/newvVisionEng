@@ -682,6 +682,92 @@ to {
 	background: #f36d20 !important;
 }
 
+.view_indicator {
+    position: fixed;
+    right: 3.5%;
+    top: 50%;
+    width: auto;
+    white-space: nowrap;
+    margin-left: -16rem;
+    z-index: 15;
+    transform-origin: right 0;
+    transform: translateY(14rem) rotate(90deg);
+}
+
+.view_indicator ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.view_indicator ul li + li {
+    margin-left: 1.5rem;
+}
+
+.view_indicator ul li button {
+	cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.view_indicator ul li.is_active button {
+    color: #ffffff;
+}
+
+.view_indicator ul li.is_active button .indi_bul {
+    border-color: #f36d20;
+    background: #f36d20;
+}
+
+.view_indicator ul li button .indi_bul {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 0.2rem solid #999999;
+    border-radius: 50%;
+    background: transparent;
+    vertical-align: middle;
+    transition: 1s;
+}
+
+.view_indicator ul li.is_active button .cont_tit {
+    color: #ffffff;
+}
+
+.view_indicator ul li.is_active button .cont_tit {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #000000;
+    font-weight: 500;
+}
+
+.view_indicator ul li.white button .cont_tit {
+    color: #fff!important;
+}
+
+.view_indicator ul li button .cont_tit {
+    position: relative;
+    display: none;
+    margin: 0 4.5rem 0 1.3rem;
+    vertical-align: middle;
+}
+
+.view_indicator ul .indicator button .cont_tit:after {
+    position: absolute;
+    display: block;
+    content: '';
+    left: calc(100% + 1.2rem);
+    top: 50%;
+    height: 1px;
+    width: 3rem;
+    background: #000000;
+}
+
+.view_indicator ul .white button .cont_tit:after {
+    background: #fff!important;
+}
+
 /* 슬라이드 버튼 */
 .owl-carousel .owl-nav div {
 	border: 1px solid #c9c9c9;
@@ -1442,14 +1528,25 @@ to {
 
 
 	<!-- number -->
-	<div class="homePageGroup">
+<!-- 	<div class="homePageGroup">
 		<div class="pageGroup sentence-container">
 			<h3>Page.</h3>
 			<a class="pageNumber active" id="num1" href="#top">1</a> 
 			<a class="pageNumber" id="num2" href="#page2">2</a>
 			<a class="pageNumber" id="num3">3</a>
 		</div>
-	</div>
+	</div> -->
+	
+	<!-- paging -->
+	<div class="view_indicator">
+        <ul>
+            <li class="indicator is_active white" id="num0"><button type="button"><span class="indi_bul"></span><span class="cont_tit">HOME</span></button></li>
+            <li class="indicator" id="num1"><button type="button"><span class="indi_bul"></span><span class="cont_tit">BUSINESS</span></button></li>
+            <li class="indicator" id="num2"><button type="button"><span class="indi_bul"></span><span class="cont_tit">PROJECTS</span></button></li>
+            <li class="indicator" id="num3"><button type="button"><span class="indi_bul"></span><span class="cont_tit">END</span></button></li>
+        </ul>
+    </div>
+	
 
 	<!-- scroll -->
 	<a class="scroll"><span> </span></a>
@@ -1828,7 +1925,7 @@ to {
 					}, 1000, 'easeInQuart');
 
 					/* 페이지 표시 */
-					if (page == "1") {
+/* 					if (page == "1") {
 						$("#num1").addClass("active");
 						$("#num2").removeClass("active");
 					} else if (page == "2") {
@@ -1839,7 +1936,32 @@ to {
 						$("#num1").removeClass("active");
 						$("#num2").removeClass("active");
 						$("#num3").addClass("active");
+					} */
+					
+					/* 페이지 표시 */
+					if (page == "1") {
+						$("#num0").addClass("is_active");
+						$("#num1").removeClass("is_active");
+						$("#num2").removeClass("is_active");
+						$("#num3").removeClass("is_active");
+					} else if (page == "2") {
+						$("#num0").removeClass("is_active");
+						$("#num1").addClass("is_active");
+						$("#num2").removeClass("is_active");
+						$("#num3").removeClass("is_active");
+					} else if (page == "3") {
+						$("#num0").removeClass("is_active");
+						$("#num1").removeClass("is_active");
+						$("#num2").addClass("is_active");
+						$("#num3").removeClass("is_active");
+					} else if(page == "4"){
+						$("#num0").removeClass("is_active");
+						$("#num1").removeClass("is_active");
+						$("#num2").removeClass("is_active");
+						$("#num3").addClass("is_active");
 					}
+					
+					
 
 					/* 2페이지 */
 					if (page == "2") {
