@@ -218,7 +218,7 @@ u {
 	<input type="hidden" value="${cri.page}">
 	<input type="hidden" value="${cri.pageSize}">
 		<h3 style="color:#f36d20; text-align:right;">저작권법상 글을 인용할 수 없는 경우 기사링크 사용(파일첨부와 글 작성칸은 사라집니다.)</h3>
-		<form id="newsWriteForm" method="post" action="/company/news_writeOK" enctype="multipart/form-data" onsubmit="return checkAll()">
+		<form id="newsForm" method="post" action="/company/news_writeOK" enctype="multipart/form-data" onsubmit="return checkAll()">
 			<table>
 				<thead>
 					<tr>
@@ -411,19 +411,43 @@ $(document).ready(function () {
 })
 
 </script>
-
 <!-- 유효성검사 -->
 <script>
 		function checkAll() {
-			if (!checkNewsTitle(newsWriteForm.newsTitle.value)) {
-				newsWriteForm.newsTitle.focus();
+			if (!checkNewsTitle(newsForm.newsTitle.value)) {
+				newsForm.newsTitle.focus();
 				return false;
 			}
-			if (!checkDate(newsWriteForm.newsDate.value)) {
+			if (!checkDate(newsForm.newsDate.value)) {
 				return false;
 			}
-			if (!checkNewsWriter(newsWriteForm.newsWriter.value)) {
-				newsWriteForm.newsWriter.focus();
+			if (!checkNewsWriter(newsForm.newsWriter.value)) {
+				newsForm.newsWriter.focus();
+				return false;
+			}
+			//제목 이모지 확인
+			if(!checkEmojisTitle(newsForm.newsTitle.value)){
+				newsForm.newsTitle.focus();
+				return false;
+			}
+			//부제목 이모지 확인
+			if(!checkEmojisSubTitle(newsForm.newsSubTitle.value)){
+				newsForm.newsSubTitle.focus();
+				return false;
+			}
+			//링크 이모지 확인
+			if(!checkEmojisLink(newsForm.newsLink.value)){
+				newsForm.newsLink.focus();
+				return false;
+			}
+			//작성자 이모지 확인
+			if(!checkEmojisWriter(newsForm.newsWriter.value)){
+				newsForm.newsWriter.focus();
+				return false;
+			}
+			//내용 이모지 확인
+			if(!checkEmojisContents($(".ck-content").html())){
+				$(".ck-content").focus();
 				return false;
 			}
 			return true;
@@ -454,7 +478,7 @@ $(document).ready(function () {
 			var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
 			if (!regex.test(date)) {
 				alert('기사 날짜를 확인 해주세요');
-				newsWriteForm.newsDate.focus();
+				newsForm.newsDate.focus();
 				return;
 			}
 			return true; //확인이 완료되었을 때
@@ -465,7 +489,50 @@ $(document).ready(function () {
 
 			return true; //확인이 완료되었을 때
 		}
+		//-------------------------------------------------------
+		//이모지 확인 함수
+		function removeEmojis (value, dataName) {
+		    const regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
+		    if(regex.test(value)) {
+		        alert(dataName+" Emoji는 입력하실 수 없습니다!");
+		        return false;
+		    }
+		    return true;
+		}
+		
+		function checkEmojisTitle(title) {
+			if (!removeEmojis(title, "제목에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkEmojisSubTitle(subTitle) {
+			if (!removeEmojis(subTitle, "부제목에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkEmojisLink(link) {
+			if (!removeEmojis(link, "링크에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkEmojisWriter(writer) {
+			if (!removeEmojis(writer, "작성자에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkEmojisContents(contents) {
+			if (!removeEmojis(contents, "내용에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		//-------------------------------------------------------
 </script>
+	
 </body>
 
 </html>
