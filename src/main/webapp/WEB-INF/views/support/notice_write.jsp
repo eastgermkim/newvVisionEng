@@ -375,19 +375,37 @@ $(document).ready(function () {
 
 <!-- 유효성검사 -->
 <script>
+	/* submit 하기전 유효성 검사 */
 		function checkAll() {
-			if (!checkNoticeTitle(noticeForm.noticeTitle.value)) {
+			//제목 공백 확인
+			if (!checkTitle(noticeForm.noticeTitle.value)) {
 				noticeForm.noticeTitle.focus();
 				return false;
 			}
-			if (!checkNoticeWriter(noticeForm.noticeWriter.value)) {
+			//작성자 공백 확인
+			if (!checkWriter(noticeForm.noticeWriter.value)) {
 				noticeForm.noticeWriter.focus();
+				return false;
+			}
+			//제목 이모지 확인
+			if(!checkEmojisTitle(noticeForm.noticeTitle.value)){
+				noticeForm.noticeTitle.focus();
+				return false;
+			}
+			//작성자 이모지 확인
+			if(!checkEmojisWriter(noticeForm.noticeWriter.value)){
+				noticeForm.noticeWriter.focus();
+				return false;
+			}
+			//내용 이모지 확인
+			if(!checkEmojisContents($(".ck-content").html())){
+				$(".ck-content").focus();
 				return false;
 			}
 			return true;
 		}
-
-		// 공백확인 함수
+		//-------------------------------------------------------
+		//공백 확인 함수
 		function checkExistData(value, dataName) {
 			if (value == "") {
 				alert(dataName + " 입력해주세요!");
@@ -396,23 +414,51 @@ $(document).ready(function () {
 				alert(dataName + " 입력해주세요!");
 				return false;
 			}
-				
 			return true;
 		}
 
-
-		function checkNoticeTitle(title) {
+		function checkTitle(title) {
 			if (!checkExistData(title, "제목을"))
 				return false;
 
 			return true; //확인이 완료되었을 때
 		}
-		function checkNoticeWriter(writer) {
+		function checkWriter(writer) {
 			if (!checkExistData(writer, "작성자를"))
 				return false;
 
 			return true; //확인이 완료되었을 때
 		}
+		//-------------------------------------------------------
+		//이모지 확인 함수
+		function removeEmojis (value, dataName) {
+		    const regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
+		    if(regex.test(value)) {
+		        alert(dataName+" Emoji는 입력하실 수 없습니다!");
+		        return false;
+		    }
+		    return true;
+		}
+		
+		function checkEmojisTitle(title) {
+			if (!removeEmojis(title, "제목에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkEmojisWriter(writer) {
+			if (!removeEmojis(writer, "작성자에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		function checkEmojisContents(contents) {
+			if (!removeEmojis(contents, "내용에"))
+				return false;
+
+			return true; //확인이 완료되었을 때
+		}
+		//-------------------------------------------------------
 </script>
 </body>
 
