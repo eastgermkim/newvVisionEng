@@ -42,6 +42,13 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <style>
+ 	body{ 
+		-ms-overflow-style: none; 
+		} 
+	::-webkit-scrollbar {
+	 display: none; 
+	 	}
+
 #header_main_pc {
 	display: none;
 	position: fixed;
@@ -164,84 +171,37 @@
 	animation: sdb 2s infinite;
 	box-sizing: border-box;
 }
-
-@
--webkit-keyframes sdb { 0% {
-	-webkit-transform: translate(0, 0);
-	opacity: 0;
+@-webkit-keyframes sdb {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
-40%
-{
-opacity
-:
- 
-1;
-}
-80%
-{
--webkit-transform
-:
- 
-translate
-(0
-,
-20
-px
-);
-
-    
-opacity
-:
- 
-0;
-}
-100%
-{
-opacity
-:
- 
-0;
-}
-}
-@
-keyframes sdb { 0% {
-	transform: translate(0, 0);
-	opacity: 0;
-}
-
-40%
-{
-opacity
-:
- 
-1;
-}
-80%
-{
-transform
-:
- 
-translate
-(0
-,
-20
-px
-);
-
-    
-opacity
-:
- 
-0;
-}
-100%
-{
-opacity
-:
- 
-0;
-}
+@keyframes sdb {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* 글씨 & 글씨 애니미에션 */
@@ -737,8 +697,8 @@ to {
 
 .view_indicator ul li.is_active button .cont_tit {
     display: inline-block;
-    font-size: 1.2rem;
-    color: #000000;
+    font-size: 1em;
+    color: #4c4646;
     font-weight: 500;
 }
 
@@ -750,7 +710,7 @@ to {
     position: relative;
     display: none;
     margin: 0 4.5rem 0 1.3rem;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 
 .view_indicator ul .indicator button .cont_tit:after {
@@ -761,7 +721,7 @@ to {
     top: 50%;
     height: 1px;
     width: 3rem;
-    background: #000000;
+    background: #4c4646;
 }
 
 .view_indicator ul .white button .cont_tit:after {
@@ -1042,7 +1002,7 @@ to {
 
 <style>
 @media ( max-width : 991.5px) {
-	.homePageGroup {
+	.view_indicator {
 		display: none;
 	}
 }
@@ -1544,6 +1504,7 @@ to {
             <li class="indicator" id="num1"><button type="button"><span class="indi_bul"></span><span class="cont_tit">BUSINESS</span></button></li>
             <li class="indicator" id="num2"><button type="button"><span class="indi_bul"></span><span class="cont_tit">PROJECTS</span></button></li>
             <li class="indicator" id="num3"><button type="button"><span class="indi_bul"></span><span class="cont_tit">END</span></button></li>
+            <li class="indicator" id="num9" style="visibility: hidden;"><button type="button"><span class="indi_bul"></span><span class="cont_tit">dummy</span></button></li>
         </ul>
     </div>
 	
@@ -1872,6 +1833,14 @@ to {
 	</script>
 </body>
 <script>
+	/* 스크롤 방향키 이동 막기 */
+	window.addEventListener("keydown", function(e) {
+	    // space and arrow keys
+	    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+	        e.preventDefault();
+	    }
+	}, false);
+
 	/* 새로고침 시 스크롤 상단 이동 */
 	window.onload = function() {
 		setTimeout(function() {
@@ -1897,9 +1866,10 @@ to {
 	$html.animate({
 		scrollTop : 0
 	}, 0);
-
-	/* 미디어쿼리 767.5(모바일)넘을때만 휠 애니메이션 */
-	if (matchMedia("screen and (min-width: 991.5px)").matches) {
+	
+	
+	if(!navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+	  //PC에서만 실행 될 스크립트
 		$(window).on(
 				"wheel",
 				function(e) {
@@ -1939,27 +1909,36 @@ to {
 					} */
 					
 					/* 페이지 표시 */
-					if (page == "1") {
-						$("#num0").addClass("is_active");
-						$("#num1").removeClass("is_active");
-						$("#num2").removeClass("is_active");
-						$("#num3").removeClass("is_active");
-					} else if (page == "2") {
-						$("#num0").removeClass("is_active");
-						$("#num1").addClass("is_active");
-						$("#num2").removeClass("is_active");
-						$("#num3").removeClass("is_active");
-					} else if (page == "3") {
-						$("#num0").removeClass("is_active");
-						$("#num1").removeClass("is_active");
-						$("#num2").addClass("is_active");
-						$("#num3").removeClass("is_active");
-					} else if(page == "4"){
-						$("#num0").removeClass("is_active");
-						$("#num1").removeClass("is_active");
-						$("#num2").removeClass("is_active");
-						$("#num3").addClass("is_active");
-					}
+							if (page == "1") {
+								setTimeout(function() {
+									$("#num0").addClass("is_active");
+									$("#num1").removeClass("is_active");
+									$("#num2").removeClass("is_active");
+									$("#num3").removeClass("is_active");
+								},1000);
+							} else if (page == "2") {
+								setTimeout(function() {
+								$("#num0").removeClass("is_active");
+								$("#num1").addClass("is_active");
+								$("#num2").removeClass("is_active");
+								$("#num3").removeClass("is_active");
+								},1000);
+							} else if (page == "3") {
+								setTimeout(function() {
+								$("#num0").removeClass("is_active");
+								$("#num1").removeClass("is_active");
+								$("#num2").addClass("is_active");
+								$("#num3").removeClass("is_active");
+								},1000);
+								/*  */
+							} else if(page == "4"){
+								setTimeout(function() {
+								$("#num0").removeClass("is_active");
+								$("#num1").removeClass("is_active");
+								$("#num2").removeClass("is_active");
+								$("#num3").addClass("is_active");
+								},500);
+							}
 					
 					
 
@@ -2041,6 +2020,10 @@ to {
 						}, 1000);
 					}
 				});
+		}
+
+	/* 미디어쿼리 991.5(모바일)넘을때만 휠 애니메이션 */
+	if (matchMedia("screen and (min-width: 991.5px)").matches) {
 	}
 
 	/* owl-dot 글씨 변경 */
@@ -2166,6 +2149,15 @@ to {
 		news_group();
 
 	});
+	
+
+/* 	if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+		$(".position2 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
+		$(".position2 .main_sentence_sub").removeClass("sentence_ani");
+		$(".position3 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
+		$(".position3 .main_sentence_sub").removeClass("sentence_ani");
+		alert("비응");
+		}; */
 </script>
 
 <!-- 로그인, 로그아웃 알림 -->
