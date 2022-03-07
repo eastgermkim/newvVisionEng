@@ -1,31 +1,29 @@
 package com.newvisioneng.controller;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,12 +31,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.JsonObject;
-import com.newvisioneng.mapper.SupportMapper;
 import com.newvisioneng.service.CompanyService;
 import com.newvisioneng.service.RecruitService;
 import com.newvisioneng.service.SupportService;
-import com.newvisioneng.util.MediaUtils;
-import com.newvisioneng.util.UploadFileUtils;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -74,7 +69,7 @@ public class UploadController {
 		String location = img_folder+"/";
 		
 		//이미지 저장
-		String[] names = uploadImg(fileload.getOriginalFilename(), fileload.getBytes(), req, location);
+		String[] names = uploadImg(fileload.getOriginalFilename(), fileload, req, location);
 		
 		//json값으로 리턴
 		String result = imgJsonReturn(names,location);
@@ -87,35 +82,132 @@ public class UploadController {
 	}
 	
 	//에디터 안에 삽입된 이미지를 저장하는 함수
-	private String[] uploadImg(String originalName, byte[] fileData,HttpServletRequest req, String location) throws IOException {
-		logger.info("fileUpload");
-		System.out.println("\n에디터 속 이미지 삽입..............");
+	private String[] uploadImg(String originalName, MultipartFile fileload,HttpServletRequest req, String location) throws IOException {
+		
+		log.info("\n에디터 속 이미지 삽입..............");
 		
 		String path = req.getServletContext().getRealPath("/")+"resources/files/" + location;
-		System.out.println("저장된 위치 : "+path);
-		
+		log.info("저장할 위치 : "+path);
 		File target = new File(path);
 		
 		//파일을 저장할 경로가 존재하지 않으면 폴더를 생성
 		if(!target.exists()) { target.mkdirs();}
-
+		
 		//겹쳐지지 않는 파일명을 위한 유니크한 값 생성
 		UUID uid = UUID.randomUUID();
-		//DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
-		String savedName = uid.toString() + "_" + originalName;
 		
+		//시간정보넣기
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy_MM_dd");
+		Date time = new Date();
+		String time1 = format1.format(time);
+		
+		//DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
+		String savedName = time1+ "_" +uid.toString() + "_" + originalName;
+		
+	//리사이징=================================================================================================
+	    // 이미지 읽어 오기
+        BufferedImage inputImage = ImageIO.read(fileload.getInputStream());
+        // 이미지 세로 가로 측정
+        int originWidth = inputImage.getWidth();
+        log.info("원본 이미지 가로 길이 : "+originWidth);
+        int originHeight = inputImage.getHeight();
+        log.info("원본 이미지 세로 길이 : "+originHeight);
+       
+        
+        //=======일단 원본 저장=========
+        byte[] fileData = fileload.getBytes();
         //uploadPath 폴더 경로의 saveFileName이라는 파일에 대한 file 객체 생성
         //서버에 실제 파일을 저장한다. (임시디렉토리에 업로드)
         target = new File(path, savedName);
-        
-		//org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
+        //org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
         //임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
         FileCopyUtils.copy(fileData, target);
-		   
-		String[] names = {originalName,savedName};
+        
+        String imgOriginalPath= path+"/"+savedName;      // 원본 이미지 파일명
+        
+        Path Originalpath = Paths.get(imgOriginalPath);
+        long bytes = Files.size(Originalpath);
+        long kilobyte = bytes / 1024;
+        long megabyte = kilobyte / 1024;
+        log.info(".............원본 이미지 용량 : "+megabyte + " mb"); // 3 mb
+        
+        
+        if(megabyte>1) {
+        	log.info("용량이 1mb 초과.,........................................");
+        	log.info("이미지 리사이징 시작........................................");
+        	
+        	// 변경할 가로 길이
+        	int newWidth = 1000;
+        	
+	        String imgTargetPath= path+"/resized_"+savedName;    // 새 이미지 파일명
+	        String imgFormat = "jpg";                             // 새 이미지 포맷. jpg, gif 등
+	        String mainPosition = "W";                             // W:넓이중심, H:높이중심, X:설정한 수치로(비율무시)
+	 
+	        Image image;
+	        int imageWidth;
+	        int imageHeight;
+	        double ratio;
+	        int w;
+	        int h;
+	        
+	        
+	          // 기존 이미지 비율을 유지하여 세로 길이 설정
+	            int newHeight = (originHeight * newWidth) / originWidth;
+	         
+	            
+	            
+	         // 원본 이미지 가져오기
+	            image = ImageIO.read(new File(imgOriginalPath));
+	 
+	            // 원본 이미지 사이즈 가져오기
+	            imageWidth = image.getWidth(null);
+	            imageHeight = image.getHeight(null);
+	 
+	            w = newWidth;
+	            h = newHeight;
+	 
+	            // 이미지 리사이즈
+	            // Image.SCALE_DEFAULT : 기본 이미지 스케일링 알고리즘 사용
+	            // Image.SCALE_FAST    : 이미지 부드러움보다 속도 우선
+	            // Image.SCALE_REPLICATE : ReplicateScaleFilter 클래스로 구체화 된 이미지 크기 조절 알고리즘
+	            // Image.SCALE_SMOOTH  : 속도보다 이미지 부드러움을 우선
+	            // Image.SCALE_AREA_AVERAGING  : 평균 알고리즘 사용
+	            Image resizeImage = image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+	 
+	            // 새 이미지  저장하기
+	            BufferedImage newImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+	            Graphics g = newImage.getGraphics();
+	            g.drawImage(resizeImage, 0, 0, null);
+	            g.dispose();
+	            ImageIO.write(newImage, imgFormat, new File(imgTargetPath));
+	//=================================================================================================
+        
 		
+		//기존 파일 삭제
+		File originalFile = new File(imgOriginalPath);
+		
+		if(originalFile.exists()){ 
+			if(originalFile.delete()){ 
+				log.info("삭제된 파일................." + originalFile);
+			}else{
+				log.info("삭제실패");
+			}
+		}else{ 
+			log.info("파일이 존재하지 않습니다...." + originalFile);
+		}
+		
+		
+		String[] names = {originalName,"resized_"+savedName};
 		return names;
+      
+        }else {
+        	String[] names = {originalName,savedName};
+        	return names;
+        }
+		
 	}
+	
+	
 	//저장한 이미지를 json으로 리턴하는 함수
 	private String imgJsonReturn(String[] names,String location) {
 		
@@ -126,8 +218,6 @@ public class UploadController {
 		
 		//이미지 저장 위치
 		String path = "/resources/files/"+ location;
-		
-		
 		
 		// json 데이터로 등록
         // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
@@ -141,7 +231,6 @@ public class UploadController {
     
         //json 리턴
         System.out.println("...........................이미지 삽입 완료\n");
-        
         
         return json.toString();
 	}

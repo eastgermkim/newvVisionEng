@@ -95,9 +95,11 @@ class MyUploadAdapter {
     //데이터를 준비하고 서버에 전송한다.
     _sendRequest( file ) {
         // Prepare the form data.
-        // 폼 데이터 준비
+        
+    	// 폼 데이터 준비
         const data = new FormData();
 
+        //file을 'upload'에 담는다.
         data.append( 'upload', file );
 
         // Important note: This is the right place to implement security mechanisms
@@ -109,7 +111,8 @@ class MyUploadAdapter {
         // 예를들어, XHR.setREquestHeader()를 사용해 요청 헤더에 CSRF 토큰을 넣을 수 있다.
 
         // Send the request.
-     this.xhr.send( data );
+        //data를 보낸다.
+        this.xhr.send( data );
     }
 }
 
