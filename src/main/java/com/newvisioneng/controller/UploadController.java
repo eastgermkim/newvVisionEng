@@ -105,6 +105,15 @@ public class UploadController {
 		//DB에 이름 중복  방지를 위해 변경한 이름(원본파일 이름과 UUID 결합)
 		String savedName = time1+ "_" +uid.toString() + "_" + originalName;
 		
+		//=======일단 원본 저장=========
+		byte[] fileData = fileload.getBytes();
+		//uploadPath 폴더 경로의 saveFileName이라는 파일에 대한 file 객체 생성
+		//서버에 실제 파일을 저장한다. (임시디렉토리에 업로드)
+		target = new File(path, savedName);
+		//org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
+		//임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
+		FileCopyUtils.copy(fileData, target);
+		
 	//리사이징=================================================================================================
 	    // 이미지 읽어 오기
         BufferedImage inputImage = ImageIO.read(fileload.getInputStream());
@@ -113,16 +122,6 @@ public class UploadController {
         log.info("원본 이미지 가로 길이 : "+originWidth);
         int originHeight = inputImage.getHeight();
         log.info("원본 이미지 세로 길이 : "+originHeight);
-       
-        
-        //=======일단 원본 저장=========
-        byte[] fileData = fileload.getBytes();
-        //uploadPath 폴더 경로의 saveFileName이라는 파일에 대한 file 객체 생성
-        //서버에 실제 파일을 저장한다. (임시디렉토리에 업로드)
-        target = new File(path, savedName);
-        //org.springframework.util 패키지의 FileCopyUtils는 파일 데이터를 파일로 처리하거나, 복사하는 등의 기능이 있다.
-        //임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
-        FileCopyUtils.copy(fileData, target);
         
         String imgOriginalPath= path+"/"+savedName;      // 원본 이미지 경로 + 파일명 + 확장자
         String imgOriginalName = FilenameUtils.getBaseName(savedName); //	원본 이미지 파일명만
