@@ -12,18 +12,30 @@
 		</layout>
 	</appender>
 
-	<appender name="fileLogger"
+	<!-- 날짜별 로그 파일 생성 -->
+	<appender name="rollingFile"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file"
+		<param name="File"
 			value="${catalina.base}${file.separator}logs${file.separator}spring${file.separator}spring.log" />
-		<param name="Append" value="true" />
-		<param name="dataPattern" value=".yyyy-MM-dd" />
+		<param name="Append" value="true" /><!-- param name="MaxFileSize" value="100MB"/ param name="MaxBackupIndex" value="2"></param -->
+		<param name="DatePattern" value=".yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern"
-				value="%-5p: [%d{MM-dd HH:mm:ss}] : [%F:%L] - %m%n" />
+				value="%-5p: [%d{yyyy-MM-dd HH:mm:ss}] : [%F:%L] - %m%n" />
 		</layout>
 	</appender>
-
+    
+    <!-- 날짜별 로그 파일 생성(에러만) -->
+    <appender name="errFile"
+        class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="Threshold" value="ERROR" />
+        <param name="File" value="${catalina.base}${file.separator}logs${file.separator}spring${file.separator}errorLog.log" />
+        <param name="Append" value="true" /> <!-- param name="MaxFileSize" value="100MB"/ --> <!-- param name="MaxBackupIndex" value="2"></param -->
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p [%C{1}] %m %n" />
+        </layout>
+    </appender>
 
 	<!-- Application Loggers -->
 	<logger name="com.newvisioneng.controller">
@@ -51,7 +63,8 @@
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
-		<appender-ref ref="fileLogger" />
+		<appender-ref ref="rollingFile" />
+		<appender-ref ref="errFile" />
 	</root>
 
 </log4j:configuration>
