@@ -42,6 +42,10 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <style>
+	html {
+  	height: -webkit-fill-available;
+	}
+
  	body{ 
 		-ms-overflow-style: none; 
 		} 
@@ -64,6 +68,19 @@
 		display: block;
 	}
 }
+
+.slider-area{
+	height: 100vh;
+    overflow: hidden;
+}
+/* iOS only */ 
+@supports (-webkit-touch-callout: none) {
+	.slider-area{
+	 height: -webkit-fill-available; 
+	}
+ }
+
+
 
 .slider-area .single-slider {
 	height: 100vh;
@@ -557,13 +574,13 @@ to {
 
 /* 뉴스 */
 .news_container {
-	width: 40%;
+	width: 45em;
 	overflow: hidden;
 	position: absolute;
 	z-index: 3;
 	top: 20%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	margin-left: 10%;
 	height: 1.5em;
 }
@@ -1504,7 +1521,6 @@ to {
             <li class="indicator" id="num1"><button type="button"><span class="indi_bul"></span><span class="cont_tit">BUSINESS</span></button></li>
             <li class="indicator" id="num2"><button type="button"><span class="indi_bul"></span><span class="cont_tit">PROJECTS</span></button></li>
             <li class="indicator" id="num3"><button type="button"><span class="indi_bul"></span><span class="cont_tit">END</span></button></li>
-            <li class="indicator" id="num9" style="visibility: hidden;"><button type="button"><span class="indi_bul"></span><span class="cont_tit">dummy</span></button></li>
         </ul>
     </div>
 	
@@ -1550,7 +1566,7 @@ to {
 	</div>
 
 
-	<div class="slider-area business-area" style="background: transparent; height: 100vh;">
+	<div class="slider-area business-area" style="background: transparent;">
 		<div class="sentence-container position2">
 			<div class="sentence-wrapper" id="page2">
 				<h3 class="main_sentence">Business</h3>
@@ -1711,8 +1727,8 @@ to {
 		</div>
 	</div>
 
-	<div class="slider-area projects-area"
-		style="background: transparent; height: 100vh; position: relative;">
+	<div class="slider-area projects-area" 
+		style="background: transparent; position: relative;">
 		<div class="sentence-container position3">
 			<div class="sentence-wrapper" id="page3">
 				<p class="main_sentence">Projects
@@ -1817,7 +1833,7 @@ to {
         </div>
     </div>
 
-	<div class="slider-area">
+	<div class="slider-area" style="height:100%;">
 		<!-- footer-start -->
 		<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
 		<!-- footer-end -->
@@ -1833,6 +1849,9 @@ to {
 	</script>
 </body>
 <script>
+
+/* PC일 경우 */
+if (matchMedia("screen and (min-width: 991.5px)").matches) {
 	/* 스크롤 방향키 이동 막기 */
 	window.addEventListener("keydown", function(e) {
 	    // space and arrow keys
@@ -1849,7 +1868,7 @@ to {
 		}, 100);
 
 	}
-
+	
 	/* 스크롤 */
 	window.addEventListener("wheel", function(e) {
 		e.preventDefault();
@@ -1863,179 +1882,233 @@ to {
 
 	var lastPage = $(".slider-area").length;
 
-	$html.animate({
-		scrollTop : 0
-	}, 0);
+	$html.animate({scrollTop : 0}, 0);
 	
+	var ts;
 	
-	if(!navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-	  //PC에서만 실행 될 스크립트
-		$(window).on(
-				"wheel",
-				function(e) {
-
-					if ($html.is(":animated"))
-						return;
-
-					if (e.originalEvent.deltaY > 0) {
-						if (page == lastPage)
-							return;
-
-						page++;
-					} else if (e.originalEvent.deltaY < 0) {
-						if (page == 1)
-							return;
-
-						page--;
-					}
-					var posTop = (page - 1) * $(window).height() + 1;
-
-					$html.animate({
-						scrollTop : posTop
-					}, 1000, 'easeInQuart');
-
-					/* 페이지 표시 */
-/* 					if (page == "1") {
-						$("#num1").addClass("active");
-						$("#num2").removeClass("active");
-					} else if (page == "2") {
-						$("#num1").removeClass("active");
-						$("#num2").addClass("active");
-						$("#num3").removeClass("active");
-					} else if (page == "3") {
-						$("#num1").removeClass("active");
-						$("#num2").removeClass("active");
-						$("#num3").addClass("active");
-					} */
-					
-					/* 페이지 표시 */
-							if (page == "1") {
-								setTimeout(function() {
-									$("#num0").addClass("is_active");
-									$("#num1").removeClass("is_active");
-									$("#num2").removeClass("is_active");
-									$("#num3").removeClass("is_active");
-								},1000);
-							} else if (page == "2") {
-								setTimeout(function() {
-								$("#num0").removeClass("is_active");
-								$("#num1").addClass("is_active");
-								$("#num2").removeClass("is_active");
-								$("#num3").removeClass("is_active");
-								},1000);
-							} else if (page == "3") {
-								setTimeout(function() {
-								$("#num0").removeClass("is_active");
-								$("#num1").removeClass("is_active");
-								$("#num2").addClass("is_active");
-								$("#num3").removeClass("is_active");
-								},1000);
-								/*  */
-							} else if(page == "4"){
-								setTimeout(function() {
-								$("#num0").removeClass("is_active");
-								$("#num1").removeClass("is_active");
-								$("#num2").removeClass("is_active");
-								$("#num3").addClass("is_active");
-								},500);
-							}
-					
-					
-
-					/* 2페이지 */
-					if (page == "2") {
-						setTimeout(function() {
-							$(".scroll span").addClass("active");
-							$(".scroll-text").css("color", "#4c4646");
-							$(".position2").addClass("focus");
-							$(".position2 .sentence-wrapper .main_sentence")
-									.css("color", "#4c4646");
-							$(".position2 .main_sentence_sub").css("color",
-									"#4c4646");
-							$(".position2 .sentence-wrapper .main_sentence")
-									.addClass("sentence_ani");
-							$(".position2 .main_sentence_sub").addClass(
-									"sentence_ani");
-						}, 1200);
-						/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
-						setTimeout(function() {
-							$('#header_main_pc').addClass("mousein");
-							$('.main-menu ul li a').addClass("mousein");
-							$('.ti-angle-down_main_pc').addClass("mousein");
-							$('#nv_logo_white').removeClass("mousein");
-							$('#nv_logo_black').addClass("mousein");
-							$(".homePageGroup .pageGroup h3").css('opacity',
-									'0').stop().css("color", "#4C4646")
-									.animate({
-										opacity : "1"
-									}, 700);
-							$(".homePageGroup .pageGroup .pageNumber").css(
-									'opacity', '0').stop().css(
-									"background-color", "#4C4646").animate({
-								opacity : "1"
-							}, 700);
-						}, 1000);
-					} else if (page == "3") {
-						setTimeout(function() {
-							$(".scroll span").addClass("active");
-							$(".scroll-text").css("color", "#4c4646");
-							$(".position3").addClass("focus");
-							$(".position3 .sentence-wrapper .main_sentence")
-									.css("color", "#4c4646");
-							$(".position3 .main_sentence_sub").css("color",
-									"#4c4646");
-							$(".position3 .sentence-wrapper .main_sentence")
-									.addClass("sentence_ani");
-							$(".position3 .main_sentence_sub").addClass(
-									"sentence_ani");
-						}, 1000);
-						/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
-						setTimeout(function() {
-							$('#header_main_pc').addClass("mousein");
-							$('.main-menu ul li a').addClass("mousein");
-							$('.ti-angle-down_main_pc').addClass("mousein");
-							$('#nv_logo_white').removeClass("mousein");
-							$('#nv_logo_black').addClass("mousein");
-							/* $(".homePageGroup .pageGroup h3").css('opacity','0').stop().css("color","#4C4646").animate({opacity: "1"}, 700);
-							$(".homePageGroup .pageGroup .pageNumber").css('opacity','0').stop().css("background-color","#4C4646").animate({opacity: "1"}, 700); */
-						}, 1000);
-					} else if (page == "1") {
-						$('#header_main_pc').removeClass("mousein");
-						setTimeout(function() {
-							$(".scroll span").removeClass("active");
-							$(".scroll-text").css("color", "#fff");
-							$('.main-menu ul li a').removeClass("mousein");
-							$('.ti-angle-down_main_pc').removeClass("mousein");
-							$('#nv_logo_white').addClass("mousein");
-							$('#nv_logo_black').removeClass("mousein");
-							$(".homePageGroup .pageGroup h3").css('opacity',
-									'0').stop().css("color", "#fff").animate({
-								opacity : "1"
-							}, 700);
-							$(".homePageGroup .pageGroup .pageNumber").css(
-									'opacity', '0').stop().css(
-									"background-color", "#fff").animate({
-								opacity : "1"
-							}, 700);
-						}, 1000);
-					}
-				});
-		}
-
-	/* 미디어쿼리 991.5(모바일)넘을때만 휠 애니메이션 */
-	if (matchMedia("screen and (min-width: 991.5px)").matches) {
-	}
-
-	/* owl-dot 글씨 변경 */
-	$(function() {
-		$(".owl-dot span").addClass("business");
-
-		$(".owl-dot").eq(0).text('CCTV 설치');
-		$(".owl-dot").eq(1).text('군사시설 CCTV');
-		$(".owl-dot").eq(2).text('전자파용 CCTV');
-		$(".owl-dot").eq(3).text('정보통신공사');
+	/* 터치 스크롤 */
+	$('html, body').bind('touchstart', function(e){
+	  e.stopPropagation();
+	  ts = e.originalEvent.touches[0].clientY;
 	});
 
+	$('html, body').bind('touchend', function(e){
+	  e.stopPropagation();
+	  var te = e. originalEvent.changedTouches[0].clientY;
+		
+	  if ($html.is(":animated")) return;
+	  
+	   if(ts > te + 5){
+	    
+			if (page == lastPage) return;
+			page++;
+			
+		}else if(ts < te - 5){
+	    
+		    if (page == 1) return;
+			page--;
+	    
+	  } 
+	    var posTop = (page - 1) * $(window).height();
+		$html.animate({scrollTop : posTop}, 1000, 'easeInQuart');
+		
+		pageFunction();
+	});
+		
+	// 페이지 클릭
+	let indiNavi = document.querySelector(".view_indicator > ul");
+	Array.from(indiNavi.children, function(indiMenu, idx, indiMenus){
+		indiMenu.addEventListener("click", function(){
+				switch(idx){
+				case 0:
+					page = 1;
+					break;
+				case 1:
+					page = 2;
+					break;
+				case 2:
+					page = 3;
+					break;
+				case 3:
+					page = lastPage;
+					break;
+				}
+			console.log(page);
+			console.log(idx);
+			console.log(lastPage);
+			    var posTop = (page - 1) * $(window).height();
+				$html.animate({scrollTop : posTop}, 500, 'easeInQuart');
+				
+				pageFunction();
+			});
+		})
+	
+	 //스크롤 휠 스크립트
+	 
+	$(window).on(
+			"wheel",
+			function(e) {
+
+				if ($html.is(":animated"))
+					return;
+
+				if (e.originalEvent.deltaY > 0) {
+					if (page == lastPage)
+						return;
+
+					page++;
+				} else if (e.originalEvent.deltaY < 0) {
+					if (page == 1)
+						return;
+
+					page--;
+				}
+				var posTop = (page - 1) * $(window).height();
+				console.log(posTop);
+
+				$html.animate({
+					scrollTop : posTop
+				}, 1000, 'easeInQuart');
+				
+				pageFunction();
+			});
+	 
+	/* 페이지 표시 */
+	 function pageFunction(){
+			if (page == "1") {
+				setTimeout(function() {
+					$("#num0").addClass("is_active");
+					$("#num1").removeClass("is_active");
+					$("#num2").removeClass("is_active");
+					$("#num3").removeClass("is_active");
+				},1000);
+			} else if (page == "2") {
+				setTimeout(function() {
+				$("#num0").removeClass("is_active");
+				$("#num1").addClass("is_active");
+				$("#num2").removeClass("is_active");
+				$("#num3").removeClass("is_active");
+				},1000);
+			} else if (page == "3") {
+				setTimeout(function() {
+				$("#num0").removeClass("is_active");
+				$("#num1").removeClass("is_active");
+				$("#num2").addClass("is_active");
+				$("#num3").removeClass("is_active");
+				},1000);
+			} else if(page == lastPage){
+				setTimeout(function() {
+				$("#num0").removeClass("is_active");
+				$("#num1").removeClass("is_active");
+				$("#num2").removeClass("is_active");
+				$("#num3").addClass("is_active");
+				},1000);
+			}
+			
+			
+
+			/* 2페이지 */
+			if (page == "2") {
+				setTimeout(function() {
+					$(".scroll span").addClass("active");
+					$(".scroll-text").css("color", "#4c4646");
+					$(".position2").addClass("focus");
+					$(".position2 .sentence-wrapper .main_sentence")
+							.css("color", "#4c4646");
+					$(".position2 .main_sentence_sub").css("color",
+							"#4c4646");
+					$(".position2 .sentence-wrapper .main_sentence")
+							.addClass("sentence_ani");
+					$(".position2 .main_sentence_sub").addClass(
+							"sentence_ani");
+				}, 1200);
+				/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+				setTimeout(function() {
+					$('#header_main_pc').addClass("mousein");
+					$('.main-menu ul li a').addClass("mousein");
+					$('.ti-angle-down_main_pc').addClass("mousein");
+					$('#nv_logo_white').removeClass("mousein");
+					$('#nv_logo_black').addClass("mousein");
+					$(".homePageGroup .pageGroup h3").css('opacity',
+							'0').stop().css("color", "#4C4646")
+							.animate({
+								opacity : "1"
+							}, 700);
+					$(".homePageGroup .pageGroup .pageNumber").css(
+							'opacity', '0').stop().css(
+							"background-color", "#4C4646").animate({
+						opacity : "1"
+					}, 700);
+				}, 1000);
+			} else if (page == "3") {
+				setTimeout(function() {
+					$(".scroll span").addClass("active");
+					$(".scroll-text").css("color", "#4c4646");
+					$(".position3").addClass("focus");
+					$(".position3 .sentence-wrapper .main_sentence")
+							.css("color", "#4c4646");
+					$(".position3 .main_sentence_sub").css("color",
+							"#4c4646");
+					$(".position3 .sentence-wrapper .main_sentence")
+							.addClass("sentence_ani");
+					$(".position3 .main_sentence_sub").addClass(
+							"sentence_ani");
+				}, 1000);
+				/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+				setTimeout(function() {
+					$('#header_main_pc').addClass("mousein");
+					$('.main-menu ul li a').addClass("mousein");
+					$('.ti-angle-down_main_pc').addClass("mousein");
+					$('#nv_logo_white').removeClass("mousein");
+					$('#nv_logo_black').addClass("mousein");
+				}, 1000);
+			}else if(page =="4"){
+				setTimeout(function() {
+					$(".scroll span").addClass("active");
+					$(".scroll-text").css("color", "#4c4646");
+				}, 1200);
+				/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+				setTimeout(function() {
+					$('#header_main_pc').addClass("mousein");
+					$('.main-menu ul li a').addClass("mousein");
+					$('.ti-angle-down_main_pc').addClass("mousein");
+					$('#nv_logo_white').removeClass("mousein");
+					$('#nv_logo_black').addClass("mousein");
+					$(".homePageGroup .pageGroup h3").css('opacity',
+							'0').stop().css("color", "#4C4646")
+							.animate({
+								opacity : "1"
+							}, 700);
+					$(".homePageGroup .pageGroup .pageNumber").css(
+							'opacity', '0').stop().css(
+							"background-color", "#4C4646").animate({
+						opacity : "1"
+					}, 700);
+				}, 1000);				
+			}
+			else if (page == "1") {
+				setTimeout(function() {
+					$('#header_main_pc').removeClass("mousein");
+					$(".scroll span").removeClass("active");
+					$(".scroll-text").css("color", "#fff");
+					$('.main-menu ul li a').removeClass("mousein");
+					$('.ti-angle-down_main_pc').removeClass("mousein");
+					$('#nv_logo_white').addClass("mousein");
+					$('#nv_logo_black').removeClass("mousein");
+					$(".homePageGroup .pageGroup h3").css('opacity',
+							'0').stop().css("color", "#fff").animate({
+						opacity : "1"
+					}, 700);
+					$(".homePageGroup .pageGroup .pageNumber").css(
+							'opacity', '0').stop().css(
+							"background-color", "#fff").animate({
+						opacity : "1"
+					}, 700);
+				}, 1000);
+			}
+	 }
+	}
+		
 	/* 뉴스 애니메이션 */
 	jQuery(function($) {
 		var news_group = function() {
@@ -2151,13 +2224,6 @@ to {
 	});
 	
 
-/* 	if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-		$(".position2 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
-		$(".position2 .main_sentence_sub").removeClass("sentence_ani");
-		$(".position3 .sentence-wrapper .main_sentence").removeClass("sentence_ani");
-		$(".position3 .main_sentence_sub").removeClass("sentence_ani");
-		alert("비응");
-		}; */
 </script>
 
 <!-- 로그인, 로그아웃 알림 -->
