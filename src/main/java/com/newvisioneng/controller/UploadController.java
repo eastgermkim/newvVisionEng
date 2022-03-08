@@ -17,6 +17,7 @@ import java.util.UUID;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,7 +124,9 @@ public class UploadController {
         //임시 디렉토리에 업로드된 파일 데이터를 지정한 폴더에 저장한다.
         FileCopyUtils.copy(fileData, target);
         
-        String imgOriginalPath= path+"/"+savedName;      // 원본 이미지 파일명
+        String imgOriginalPath= path+"/"+savedName;      // 원본 이미지 경로 + 파일명 + 확장자
+        String imgOriginalName = FilenameUtils.getBaseName(savedName); //	원본 이미지 파일명만
+        String imgOriginalextension = FilenameUtils.getExtension(savedName);	//원본 이미지 확장자만
         
         Path Originalpath = Paths.get(imgOriginalPath);
         long bytes = Files.size(Originalpath);
@@ -137,10 +140,20 @@ public class UploadController {
         	log.info("이미지 리사이징 시작........................................");
         	
         	// 변경할 가로 길이
-        	int newWidth = 1000;
+        	int newWidth = originWidth;
         	
-	        String imgTargetPath= path+"/resized_"+savedName;    // 새 이미지 파일명
-	        String imgFormat = "jpg";                             // 새 이미지 포맷. jpg, gif 등
+	        // 새 이미지 포맷. jpg, gif 등
+	        String newImgFormat = imgOriginalextension;             
+		        if(newImgFormat.equals("png")) {
+		        	log.info("png에서 jpg로..........");
+		        	newImgFormat = "jpg";
+		        }
+	        log.info("새로운 이미지 확장자 : "+newImgFormat);
+	       
+	        // 새 이미지 파일명
+	        String newImgSavedName = imgOriginalName+"."+newImgFormat;
+	        String newImgTargetPath= path+"/resized_"+newImgSavedName;    
+	        
 	        String mainPosition = "W";                             // W:넓이중심, H:높이중심, X:설정한 수치로(비율무시)
 	 
 	        Image image;
@@ -154,7 +167,6 @@ public class UploadController {
 	          // 기존 이미지 비율을 유지하여 세로 길이 설정
 	            int newHeight = (originHeight * newWidth) / originWidth;
 	         
-	            
 	            
 	         // 원본 이미지 가져오기
 	            image = ImageIO.read(new File(imgOriginalPath));
@@ -173,13 +185,13 @@ public class UploadController {
 	            // Image.SCALE_SMOOTH  : 속도보다 이미지 부드러움을 우선
 	            // Image.SCALE_AREA_AVERAGING  : 평균 알고리즘 사용
 	            Image resizeImage = image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
-	 
+	            
 	            // 새 이미지  저장하기
 	            BufferedImage newImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
 	            Graphics g = newImage.getGraphics();
 	            g.drawImage(resizeImage, 0, 0, null);
 	            g.dispose();
-	            ImageIO.write(newImage, imgFormat, new File(imgTargetPath));
+	            ImageIO.write(newImage, newImgFormat, new File(newImgTargetPath));
 	//=================================================================================================
         
 		
@@ -197,7 +209,7 @@ public class UploadController {
 		}
 		
 		
-		String[] names = {originalName,"resized_"+savedName};
+		String[] names = {originalName,"resized_"+newImgSavedName};
 		return names;
       
         }else {
