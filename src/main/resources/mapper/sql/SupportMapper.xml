@@ -12,12 +12,12 @@
 						(NOTICETITLE LIKE CONCAT('%',#{s_keyword},'%')) 
 					</when>
 					<when test="s_type=='content'.toString()">
-						(NOTICECONTENTS LIKE CONCAT('%',#{s_keyword},'%')) 
+						(NOTICECONTENTSTEXT LIKE CONCAT('%',#{s_keyword},'%')) 
 					</when>
 					<when test="s_type=='all'.toString()">
 						(NOTICETITLE LIKE CONCAT('%',#{s_keyword},'%')) 
 						OR 
-						(NOTICECONTENTS LIKE CONCAT('%',#{s_keyword},'%')) 
+						(NOTICECONTENTSTEXT LIKE CONCAT('%',#{s_keyword},'%')) 
 					</when>
 				</choose>
 			</trim>
@@ -44,7 +44,7 @@
 	<insert id="insertNotice" parameterType="com.newvisioneng.domain.NoticeDTO">
 		<!-- NOTICENUM은 NULL로 삽입시에 자동으로 1 증가한 값으로 들어간다(auto_increment) -->
 		<![CDATA[
-		INSERT INTO NV_NOTICE VALUES(NULL,#{noticeWriter},#{noticeTitle},#{noticeContents},now(),1)
+		INSERT INTO NV_NOTICE VALUES(NULL,#{noticeWriter},#{noticeTitle},#{noticeContents},#{noticeContentsText},now(),1)
 		]]>
 		
 		<!-- insert하면서 AUTO_INCREMENT된 noticeNum를 바로 가져와야한다.-->

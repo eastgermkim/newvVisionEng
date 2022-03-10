@@ -121,10 +121,16 @@ public class SupportController {
 	public ModelAndView notice_writeOK(NoticeDTO noticedto,RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
+		
+		//내용중 태그 제거하여 진짜 내용 저장
+		noticedto.setNoticeContentsText(
+				noticedto.getNoticeContents().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>","").replaceAll("\r|\n|&nbsp;"," ")
+				);
 
 		System.out.println("제목 : "+noticedto.getNoticeTitle());
 		System.out.println("작성자 : "+noticedto.getNoticeWriter());
-		System.out.println("내용 : "+noticedto.getNoticeContents());
+		System.out.println("전체 내용 : "+noticedto.getNoticeContents());
+		System.out.println("텍스트 내용 : "+noticedto.getNoticeContentsText());
 
 		//글 등록, 등록한 글의 번호 담아주기
 		long noticenum = service.noticeRegist(noticedto,file,req);
