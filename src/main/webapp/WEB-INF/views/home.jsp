@@ -1049,7 +1049,7 @@ to {
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
-	margin-top:20vh;
+	margin-top:25vh;
 	height: 25em;
 	/*   -webkit-perspective: 500px; */
 	perspective: 500px;
@@ -1164,7 +1164,6 @@ to {
 	margin-left: auto; 
 	text-decoration: underline; 
 	text-underline-position: under; 
-	font-size: 1em;
 	line-height: inherit;
 	float:right;
 }
@@ -1211,9 +1210,13 @@ to {
 
 @media ( max-width : 991.5px) {
 	/* common */
+	.slider-area{
+		height:auto;	
+	}
 	.slider-area .single-slider {
-		/* height:100%; */
-		
+	    background-position-y: 5em;
+	    background-repeat: no-repeat;
+	    background-color: #151515;
 	}
 	.scroll, .scroll-text {
 		display: none;
@@ -1232,6 +1235,10 @@ to {
 	
 	.main_sentence{
 		font-size:2em; 
+	}
+	
+	.focus::before {
+	display:none;
 	}
 	
 	/* position1 */
@@ -1564,8 +1571,7 @@ to {
 		<c:import url="header_main_pc.jsp" charEncoding="UTF-8"></c:import>
 		<div class="single-slider bg-img-main"></div>
 	</div>
-
-
+	
 	<div class="slider-area business-area" style="background: transparent;">
 		<div class="sentence-container position2">
 			<div class="sentence-wrapper" id="page2">
@@ -1735,7 +1741,7 @@ to {
 				</p>
 			</div>
 			<p class="main_sentence_sub"
-				style="color: rgb(76, 70, 70); animation-delay: 0.5s; margin-bottom: 0.5rem; width:100%;">
+				style="color: rgb(76, 70, 70); animation-delay: 0.5s; margin-bottom: 0.5rem;">
 				(주)뉴비젼이엔지의 주요 프로젝트 실적<br class="br1999"> 그리고 주요 협력사 입니다. <a href="/business/result"
 					style="font-size: 1em; font-weight: bold; color: #f36d20; float:right;">+More</a>
 			</p>
@@ -1756,7 +1762,7 @@ to {
 		</div>
 		
 		<div class="warn_wrapper">
-			<p class="warn">※해당 이미지는 프로젝트와 무관한 사진일 수 있습니다.</p>
+			<p class="warn">※위 이미지는 해당 프로젝트와 무관한 사진일 수 있습니다.</p>
 		</div>
 		
 		
@@ -1790,7 +1796,6 @@ to {
 				</div>
 			</div>
 		</div>
-
 	</div>
 	
 	<div class="addres-area black-bg section-padding" style="display:none;">
@@ -1832,12 +1837,21 @@ to {
             </div>
         </div>
     </div>
-
+	
 	<div class="slider-area" style="height:100%;">
 		<!-- footer-start -->
 		<c:import url="footer.jsp" charEncoding="UTF-8"></c:import>
 		<!-- footer-end -->
 	</div>
+	
+	<div class="slider-area">
+		<div id ="value">
+			<div>
+				<img src="">
+			</div>
+		</div>
+	</div>
+	
 	<script src="/resources/js/jquery-ui.min.js"></script>
 	<script src="/resources/js/materialize.js"></script>
 	<script type="text/javascript">

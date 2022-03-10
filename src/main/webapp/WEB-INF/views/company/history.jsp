@@ -65,6 +65,7 @@
 	width: 8em;
 	padding: 10px 10px 10px 0;
 	font-weight: 300;
+    white-space: nowrap;
 }
 
 .history_contents {
@@ -121,7 +122,7 @@
 						</colgroup>
 						<tbody>
 							<tr>
-								<td class="history_month">O월</td>
+								<td class="history_month">—</td>
 								<td class="history_contents">IDIS ㈜아이디스SI협력파트너 체결</td>
 							</tr>
 						</tbody>
@@ -139,7 +140,7 @@
 						</colgroup>
 						<tbody>
 							<tr>
-								<td class="history_month">O월</td>
+								<td class="history_month">—</td>
 								<td class="history_contents">1기갑여단CCTV 설치공사, 수도방위사령부 CCTV
 									설치공사</td>
 							</tr>
@@ -158,15 +159,15 @@
 						</colgroup>
 						<tbody>
 							<tr>
-								<td class="history_month">O월</td>
+								<td class="history_month">—</td>
 								<td class="history_contents">6군단사령부, 가납리 공군비행징외 CCTV 설치공사</td>
 							</tr>
 							<tr>
-								<td class="history_month">O월</td>
+								<td class="history_month">—</td>
 								<td class="history_contents">서울공항 CCTV 유지보수</td>
 							</tr>
 							<tr>
-								<td class="history_month">O월</td>
+								<td class="history_month">—</td>
 								<td class="history_contents">이테크건설 (주)UNID U1-PROJECT</td>
 							</tr>
 						</tbody>
@@ -207,7 +208,7 @@
 								<td class="history_contents">15년도 과학화 경계 시스템 방산교육</td>
 							</tr>
 							<tr>
-								<td class="history_month">O월</td>
+								<td class="history_month">—</td>
 								<td class="history_contents">경계용 CCTV 설치공사</td>
 							</tr>
 						</tbody>
