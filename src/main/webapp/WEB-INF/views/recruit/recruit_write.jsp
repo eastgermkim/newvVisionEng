@@ -127,8 +127,13 @@ a:active {
 	margin: 0 0;
 }
 
+/* 에디터 최소 크기 */
 .ck-editor__editable {
 	min-height: 500px;
+}
+/* 이미지 캡션에는 크기 설정 안하기*/
+.ck-editor__nested-editable {
+    min-height: initial;
 }
 </style>
 

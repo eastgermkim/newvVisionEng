@@ -133,7 +133,15 @@ function MyCustomUploadAdapterPlugin( editor ) {
 
 ClassicEditor
     .create( document.querySelector( '#editor' ), {
-    	
+    	image: {
+            toolbar: [
+            	'toggleImageCaption',
+            	'|',
+            	'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side'
+            ]
+        },
         extraPlugins: [ MyCustomUploadAdapterPlugin ],
 
         // ...
