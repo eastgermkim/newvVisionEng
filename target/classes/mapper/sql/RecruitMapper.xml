@@ -12,12 +12,12 @@
 						(RECRUITTITLE LIKE CONCAT('%',#{s_keyword},'%')) 
 					</when>
 					<when test="s_type=='content'.toString()">
-						(RECRUITCONTENTS LIKE CONCAT('%',#{s_keyword},'%')) 
+						(RECRUITCONTENTSTEXT LIKE CONCAT('%',#{s_keyword},'%')) 
 					</when>
 					<when test="s_type=='all'.toString()">
 						(RECRUITTITLE LIKE CONCAT('%',#{s_keyword},'%')) 
 						OR 
-						(RECRUITCONTENTS LIKE CONCAT('%',#{s_keyword},'%')) 
+						(RECRUITCONTENTSTEXT LIKE CONCAT('%',#{s_keyword},'%')) 
 					</when>
 				</choose>
 			</trim>
@@ -45,7 +45,7 @@
 	<insert id="insertRecruit" parameterType="com.newvisioneng.domain.RecruitDTO">
 		<!-- recruitNUM은 NULL로 삽입시에 자동으로 1 증가한 값으로 들어간다(auto_increment) -->
 		<![CDATA[
-		INSERT INTO NV_RECRUIT VALUES(NULL,#{recruitWriter},#{recruitTitle},#{recruitContents},now(),1)
+		INSERT INTO NV_RECRUIT VALUES(NULL,#{recruitWriter},#{recruitTitle},#{recruitContents},#{recruitContentsText},now(),1)
 		]]>
 		
 		<!-- insert하면서 AUTO_INCREMENT된 recruitNum를 바로 가져와야한다.-->
@@ -104,7 +104,8 @@
 	<!-- 채용정보 수정완료 -->
 	<update id="updateRecruit">
 		UPDATE NV_RECRUIT SET RECRUITWRITER = #{recruitWriter}, 
-		RECRUITTITLE = #{recruitTitle}, RECRUITCONTENTS = #{recruitContents} 
+		RECRUITTITLE = #{recruitTitle}, RECRUITCONTENTS = #{recruitContents},
+		RECRUITCONTENTSTEXT = #{recruitContentsText}
 		WHERE RECRUITNUM = #{recruitNum}
 	</update>
 	<!-- 채용정보 수정시 사용안하게 된 이미지가 있을수있으므로 일단 다 NULL로 바꿔준다. -->

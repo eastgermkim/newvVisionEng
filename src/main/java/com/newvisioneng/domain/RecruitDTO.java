@@ -11,6 +11,7 @@ public class RecruitDTO {
 	private String recruitTitle;
 	private Date recruitDate;
 	private String recruitContents;
+	private String recruitContentsText;
 	private Long readCount;
 	
 	//이전글번호(더 최신글)

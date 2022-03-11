@@ -124,13 +124,13 @@ public class SupportController {
 		
 		//내용중 태그 제거하여 진짜 내용 저장
 		noticedto.setNoticeContentsText(
-				noticedto.getNoticeContents().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>","").replaceAll("\r|\n|&nbsp;"," ")
+				noticedto.getNoticeContents().replaceAll("<[^>]*>", " ").replaceAll("\r|\n|&nbsp;"," ")
 				);
 
-		System.out.println("제목 : "+noticedto.getNoticeTitle());
-		System.out.println("작성자 : "+noticedto.getNoticeWriter());
-		System.out.println("전체 내용 : "+noticedto.getNoticeContents());
-		System.out.println("텍스트 내용 : "+noticedto.getNoticeContentsText());
+		log.info("제목 : "+noticedto.getNoticeTitle());
+		log.info("작성자 : "+noticedto.getNoticeWriter());
+		log.info("전체 내용 : "+noticedto.getNoticeContents());
+		log.info("텍스트 내용 : "+noticedto.getNoticeContentsText());
 
 		//글 등록, 등록한 글의 번호 담아주기
 		long noticenum = service.noticeRegist(noticedto,file,req);
@@ -141,13 +141,13 @@ public class SupportController {
 		
 		try {
 			Thread.sleep(300);
-			System.out.println("0.3초후............등록안된 이미지 삭제...");
+			log.info("0.3초후............등록안된 이미지 삭제...");
 			//사용안된 이미지 삭제(파일,DB 함께) - DB에 글번호가 NULL인것들
 			service.deleteUnusedImgs(req);
 			
 		}catch(InterruptedException e){
 			//sleep 메소드가 발생하는 InterruptedException 
-			System.out.println(e.getMessage());
+			log.info(e.getMessage());
 		}
 		
 		mav = new ModelAndView("redirect:/support/notice/"+noticenum);
@@ -175,6 +175,10 @@ public class SupportController {
 	public ModelAndView notice_modifyOK(NoticeDTO notice, @RequestParam("noticeNum") Long noticenum, Criteria cri, RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
+		
+		notice.setNoticeContentsText(
+				notice.getNoticeContents().replaceAll("<[^>]*>", " ").replaceAll("\r|\n|&nbsp;"," ")
+				);
 		
 		//공지사항DB,파일DB수정
 		//(+이미지DB의 noticenum 일단 다시 NULL로 변경)

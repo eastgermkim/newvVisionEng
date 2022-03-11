@@ -113,10 +113,16 @@ public class RecruitController {
 	public ModelAndView recruit_writeOK(RecruitDTO recruitDTO, RedirectAttributes ra, MultipartFile[] file,HttpServletRequest req) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
+		
+		//내용중 태그를 제외한 진짜 내용 저장
+		recruitDTO.setRecruitContentsText(
+				recruitDTO.getRecruitContents().replaceAll("<[^>]*>", " ").replaceAll("\r|\n|&nbsp;"," ")
+				);
 
-		System.out.println("제목 : "+recruitDTO.getRecruitTitle());
-		System.out.println("작성자 : "+recruitDTO.getRecruitWriter());
-		System.out.println("내용 : "+recruitDTO.getRecruitContents());
+		log.info("제목 : "+recruitDTO.getRecruitTitle());
+		log.info("작성자 : "+recruitDTO.getRecruitWriter());
+		log.info("전체 내용 : "+recruitDTO.getRecruitContents());
+		log.info("텍스트 내용 : "+recruitDTO.getRecruitContentsText());
 
 		//글 등록, 등록한 글의 번호 담아주기
 		long recruitnum = service.recruitRegist(recruitDTO,file,req);
@@ -188,6 +194,9 @@ public class RecruitController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		recruit.setRecruitContentsText(
+				recruit.getRecruitContents().replaceAll("<[^>]*>", " ").replaceAll("\r|\n|&nbsp;"," ")
+				);
 		//채용공고DB,파일DB수정
 		//(+이미지DB의 recruitnum 일단 다시 NULL로 변경)
 		service.modifyRecruit(recruit,file,req);
