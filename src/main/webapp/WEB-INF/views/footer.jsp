@@ -119,6 +119,7 @@
     <script src="/resources/js/jquery.magnific-popup.min.js"></script>
     <script src="/resources/js/plugins.js"></script>
     <script src="/resources/js/materialize.js"></script>
+    
 	
     <!--contact js -->
     <script src="/resources/js/jquery.ajaxchimp.min.js"></script>

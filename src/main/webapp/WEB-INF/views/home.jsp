@@ -22,7 +22,6 @@
 	href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-
 <!-- CSS here -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
@@ -34,6 +33,8 @@
 <link rel="stylesheet" href="/resources/css/animate.css">
 <link rel="stylesheet" href="/resources/css/slicknav.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/slick.css">
+
 <!-- <link rel="stylesheet" href="/resources/css/materialize.css"> -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -280,6 +281,199 @@
 
 .sentence-wrapper {
 	overflow: hidden;
+}
+
+.bar{
+	  -webkit-transform: translateY(0);
+	  transform: translateY(0);
+	  opacity: 1;
+	}
+
+.bar{
+	width: 1px;
+    height: 100px;
+    background: #fff;
+    margin: 0 auto 30px;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    opacity: 0;
+    -webkit-transition: all ease-out 1s;
+    transition: all ease-out 1s;
+}
+
+.bar p{
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    opacity: 0;
+    -webkit-transition: all ease-out 1s;
+    transition: all ease-out 1s;
+    -webkit-transition-delay: .1s;
+    transition-delay: .1s;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1em;
+}
+
+.progress {
+  width: 400px;
+  max-width: 85vw;
+  height: 4px;
+  position: absolute;
+  bottom: 20vh;
+  left: 50%;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.5);
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+.progress:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  animation: load 15s linear;
+}
+@-moz-keyframes load {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 15%;
+  }
+  30% {
+    width: 25%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 44%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 72%;
+  }
+  80% {
+    width: 84%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes load {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 15%;
+  }
+  30% {
+    width: 25%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 44%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 72%;
+  }
+  80% {
+    width: 84%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-o-keyframes load {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 15%;
+  }
+  30% {
+    width: 25%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 44%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 72%;
+  }
+  80% {
+    width: 84%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 15%;
+  }
+  30% {
+    width: 25%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 44%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 72%;
+  }
+  80% {
+    width: 84%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 .position2 {
@@ -662,7 +856,7 @@ to {
 .view_indicator {
     position: fixed;
     right: 3.5%;
-    top: 50%;
+    top: 40%;
     width: auto;
     white-space: nowrap;
     margin-left: -16rem;
@@ -954,6 +1148,28 @@ to {
 	margin-left: 10%;
 	visibility: hidden;
 }
+
+#value{
+	position:relative;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+
+#value > div {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+#value > div img{
+	width:100%;
+	background-size:cover;
+	 filter: brightness(60%);
+}
+
 /* @media (max-width: 767.5px){
 	.position3 .main_sentence {
 	    font-size: 35px;
@@ -1499,6 +1715,141 @@ to {
 		width:13em!important
 	}
 }
+
+/* slick slider */
+.slider-wrap{
+	position: relative;
+}
+.image-slider{
+	height: 100vh;
+	overflow: hidden;
+}
+.img-wrap{
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+}
+.img-wrap:before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.3;
+	z-index: 1;
+}
+.img-wrap img{
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 50%;
+	width: auto;
+	height: 100%;
+	min-width: 100%;
+	max-width: none;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	object-fit: cover;
+}
+.img-wrap .img-text{
+    width: 30%;
+    height: 60%;
+    z-index: 3;
+    position: absolute;
+    margin-left: 10%;
+    bottom: 5%;
+    background: rgba(243, 109, 32,0.7);
+}
+
+.img-wrap h1{
+	font-size: 50px;
+	line-height: 1.2;
+	display: block;
+	color: #fff;
+  	font-weight: 400;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	position: relative;
+	z-index: 1;
+  	opacity: 0;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	padding: 75px 15px;
+  	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.img-wrap h1.show{
+	letter-spacing: 0.15em;
+	opacity: 1;
+}
+.slick-arrow{
+	font-size: 0;
+	line-height: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 60px;
+	height: 60px;
+	margin: auto;
+	background-color: transparent;
+	border-radius: 60px;
+	border: 2px solid #fff;
+	cursor: pointer;
+	outline: none;
+	z-index: 2;
+}
+.slick-arrow.slick-prev{
+	left: 20px;
+}
+.slick-arrow.slick-next{
+	right: 20px;
+}
+.slick-arrow:before{
+	content: '';
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	border-top: 2px solid #fff;
+	border-left: 2px solid #fff;
+}
+.slick-arrow.slick-prev:before{
+	transform: rotate(-45deg) translate(2px, 2px);
+}
+.slick-arrow.slick-next:before{
+	transform: rotate(135deg) translate(2px, 2px);
+}
+.slider-progress{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 5px;
+}
+.slider-progress span{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 0px;
+	height: 100%;
+	background-color: #4c4646;
+	transition: all 0s linear;
+}
+.slider-progress span.active{
+	width: 100%;
+}
+
+
 </style>
 
 </head>
@@ -1525,9 +1876,10 @@ to {
 	<div class="view_indicator">
         <ul>
             <li class="indicator is_active white" id="num0"><button type="button"><span class="indi_bul"></span><span class="cont_tit">HOME</span></button></li>
-            <li class="indicator" id="num1"><button type="button"><span class="indi_bul"></span><span class="cont_tit">BUSINESS</span></button></li>
-            <li class="indicator" id="num2"><button type="button"><span class="indi_bul"></span><span class="cont_tit">PROJECTS</span></button></li>
-            <li class="indicator" id="num3"><button type="button"><span class="indi_bul"></span><span class="cont_tit">END</span></button></li>
+            <li class="indicator white" id="num1"><button type="button"><span class="indi_bul"></span><span class="cont_tit">VALUE</span></button></li>
+            <li class="indicator" id="num2"><button type="button"><span class="indi_bul"></span><span class="cont_tit">BUSINESS</span></button></li>
+            <li class="indicator" id="num3"><button type="button"><span class="indi_bul"></span><span class="cont_tit">PROJECTS</span></button></li>
+            <li class="indicator" id="num4"><button type="button"><span class="indi_bul"></span><span class="cont_tit">END</span></button></li>
         </ul>
     </div>
 	
@@ -1570,6 +1922,24 @@ to {
 
 		<c:import url="header_main_pc.jsp" charEncoding="UTF-8"></c:import>
 		<div class="single-slider bg-img-main"></div>
+	</div>
+	
+	<div class="slider-area slider-wrap">
+		<div class="image-slider">
+			<div class="img-wrap">
+				<h1>Slide 1</h1>
+				<img src="/resources/img/banner/test1.jpg" alt="">
+				<div class="img-text">
+				</div>
+			</div>
+			<div class="img-wrap">
+				<h1>Slide 2</h1>
+				<img src="/resources/img/banner/test2.jpg" alt="">
+			</div>
+		</div>
+		<div class="slider-progress">
+			<span></span>
+		</div>
 	</div>
 	
 	<div class="slider-area business-area" style="background: transparent;">
@@ -1844,16 +2214,9 @@ to {
 		<!-- footer-end -->
 	</div>
 	
-	<div class="slider-area">
-		<div id ="value">
-			<div>
-				<img src="">
-			</div>
-		</div>
-	</div>
-	
 	<script src="/resources/js/jquery-ui.min.js"></script>
 	<script src="/resources/js/materialize.js"></script>
+	<script src="/resources/js/slick.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.carousel').carousel({
@@ -1863,6 +2226,48 @@ to {
 	</script>
 </body>
 <script>
+
+	/* slcik slider */
+	jQuery(document).ready(function($) {
+		var sliderTimer = 5500;
+	  var beforeEnd = 500;
+		var $imageSlider = $('.image-slider');
+		$imageSlider.slick({
+			autoplay: true,
+			autoplaySpeed: sliderTimer,
+			speed: 1000,
+			fade:true,
+			arrows: false,
+			dots: false,
+			adaptiveHeight: true,
+			pauseOnFocus: false,
+			pauseOnHover: false,
+		});
+	
+		function progressBar(){
+			$('.slider-progress').find('span').removeAttr('style');
+			$('.slider-progress').find('span').removeClass('active');
+			setTimeout(function(){
+				$('.slider-progress').find('span').css('transition-duration', (sliderTimer/1000)+'s').addClass('active');
+			}, 100);
+		}
+		progressBar();
+		$imageSlider.on('beforeChange', function(e, slick) {
+			progressBar();
+		});
+	  $imageSlider.on('afterChange', function(e, slick, nextSlide) {
+			titleAnim(nextSlide);
+		});
+	
+		// Title Animation JS
+		function titleAnim(ele){
+			$imageSlider.find('.slick-current').find('h1').addClass('show');
+			setTimeout(function(){
+				$imageSlider.find('.slick-current').find('h1').removeClass('show');
+			}, sliderTimer - beforeEnd);
+		}
+		titleAnim();
+	});
 
 /* PC일 경우 */
 if (matchMedia("screen and (min-width: 991.5px)").matches) {
@@ -1912,12 +2317,12 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 		
 	  if ($html.is(":animated")) return;
 	  
-	   if(ts > te + 5){
+	   if(ts > te + 100){
 	    
 			if (page == lastPage) return;
 			page++;
 			
-		}else if(ts < te - 5){
+		}else if(ts < te - 100){
 	    
 		    if (page == 1) return;
 			page--;
@@ -1944,6 +2349,9 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 					page = 3;
 					break;
 				case 3:
+					page = 4;
+					break;
+				case 4:
 					page = lastPage;
 					break;
 				}
@@ -1995,6 +2403,7 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 					$("#num1").removeClass("is_active");
 					$("#num2").removeClass("is_active");
 					$("#num3").removeClass("is_active");
+					$("#num4").removeClass("is_active");
 				},1000);
 			} else if (page == "2") {
 				setTimeout(function() {
@@ -2002,6 +2411,7 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 				$("#num1").addClass("is_active");
 				$("#num2").removeClass("is_active");
 				$("#num3").removeClass("is_active");
+				$("#num4").removeClass("is_active");
 				},1000);
 			} else if (page == "3") {
 				setTimeout(function() {
@@ -2009,20 +2419,30 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 				$("#num1").removeClass("is_active");
 				$("#num2").addClass("is_active");
 				$("#num3").removeClass("is_active");
+				$("#num4").removeClass("is_active");
 				},1000);
-			} else if(page == lastPage){
+			}  else if (page == "4") {
 				setTimeout(function() {
 				$("#num0").removeClass("is_active");
 				$("#num1").removeClass("is_active");
 				$("#num2").removeClass("is_active");
 				$("#num3").addClass("is_active");
-				},1000);
-			}
+				$("#num4").removeClass("is_active");
+					},1000);
+			} else if(page == lastPage){
+			setTimeout(function() {
+			$("#num0").removeClass("is_active");
+			$("#num1").removeClass("is_active");
+			$("#num2").removeClass("is_active");
+			$("#num3").removeClass("is_active");
+			$("#num4").addClass("is_active");
+			},1000);
+		}
 			
 			
 
-			/* 2페이지 */
-			if (page == "2") {
+			/* 3페이지 */
+			if (page == "3") {
 				setTimeout(function() {
 					$(".scroll span").addClass("active");
 					$(".scroll-text").css("color", "#4c4646");
@@ -2054,7 +2474,7 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 						opacity : "1"
 					}, 700);
 				}, 1000);
-			} else if (page == "3") {
+			} else if (page == "4") {
 				setTimeout(function() {
 					$(".scroll span").addClass("active");
 					$(".scroll-text").css("color", "#4c4646");
@@ -2076,7 +2496,7 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 					$('#nv_logo_white').removeClass("mousein");
 					$('#nv_logo_black').addClass("mousein");
 				}, 1000);
-			}else if(page =="4"){
+			}else if(page =="5"){
 				setTimeout(function() {
 					$(".scroll span").addClass("active");
 					$(".scroll-text").css("color", "#4c4646");
@@ -2100,7 +2520,7 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 					}, 700);
 				}, 1000);				
 			}
-			else if (page == "1") {
+			else if (page == "1" || "2") {
 				setTimeout(function() {
 					$('#header_main_pc').removeClass("mousein");
 					$(".scroll span").removeClass("active");
