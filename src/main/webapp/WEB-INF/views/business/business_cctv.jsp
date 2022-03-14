@@ -456,7 +456,7 @@ body .mb15 {
 											data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img class="bg-img" src="https://nv3000nv.cdn3.cafe24.com/business/business.jpg" alt="">
+													<img class="bg-img" src="https://nv3000nv.cdn3.cafe24.com/business_result/basic_military/3.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -483,7 +483,7 @@ body .mb15 {
 											data-aos-delay="300" data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img class="bg-img" src="https://nv3000nv.cdn3.cafe24.com/business/service1.jpg" alt="">
+													<img class="bg-img" src="https://nv3000nv.cdn3.cafe24.com/business_result/basic_publicOrg/1.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -510,7 +510,7 @@ body .mb15 {
 											data-aos-delay="600" data-aos-duration="1000">
 											<div class="single-team">
 												<div class="team-thumb">
-													<img class="bg-img" src="https://nv3000nv.cdn3.cafe24.com/business/service2.jpg" alt="">
+													<img class="bg-img" src="https://nv3000nv.cdn3.cafe24.com/business_result/basic_privateCorp/1.jpg" alt="">
 													<div class="team-hover">
 														<div class="team-link">
 															<ul>
@@ -549,7 +549,7 @@ body .mb15 {
 									data-aos-offset="200" 
 									data-aos-duration="1000"
 									data-aos-once="true">
-									<img src="https://nv3000nv.cdn3.cafe24.com/business/cctv_test1.png" alt="">
+									<img src="https://nv3000nv.cdn3.cafe24.com/banner/banner_recruit.jpg" alt="">
 								</div>
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
@@ -564,7 +564,7 @@ body .mb15 {
 									data-aos-offset="200" 
 									data-aos-duration="1000"
 									data-aos-once="true">
-									<img src="https://nv3000nv.cdn3.cafe24.com/business/cctv_test2.png" alt="">
+									<img src="https://nv3000nv.cdn3.cafe24.com/banner/banner_recruit.jpg" alt="">
 								</div>
 								 <table class="system-compare">
 							      <thead>

@@ -172,7 +172,8 @@ public class UploadController {
 				directory = metadata.getFirstDirectoryOfType(ExifIFD0Directory.class);
 				jpegDirectory = metadata.getFirstDirectoryOfType(JpegDirectory.class);
 				if (directory != null) {
-					orientation = directory.getInt(ExifIFD0Directory.TAG_ORIENTATION); // 회전정보
+					// 회전정보
+					orientation = directory.getInt(ExifIFD0Directory.TAG_ORIENTATION); 
 				}
 			} catch (Exception e) {
 				orientation = 1;

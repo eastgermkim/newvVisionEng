@@ -89,7 +89,7 @@
 
 	<script>
 //https 리다이렉션
-/* 	if(location.hostname != "localhost") {
+ 	if(location.hostname != "localhost") {
 	    if (window.location.protocol != "https:") {
 	    	console.log("http 접속 감지.....redirecting.......1")
 	        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
@@ -99,7 +99,7 @@
 	    	console.log("http 접속 감지.....redirecting.......2")
 	        document.location.href = document.location.href.replace('http:', 'https:');
 	    }
-	} */
+	}
 
 //internet explorer을 통한 접속 방지
 	 if(navigator.userAgent.indexOf("Trident") > 0){ 
