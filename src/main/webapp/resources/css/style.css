@@ -18,6 +18,10 @@
 	justify-content: start
 }
 
+.f-en{
+	font-family: 'Montserrat', sans-serif;
+}
+
 body {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: normal;

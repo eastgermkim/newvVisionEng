@@ -239,7 +239,7 @@
 	z-index: 5;
 	color: transparent;
 	margin-left: 10%;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 3em;
 	line-height: 1em;
 	/* 	transform: translateY(6rem);
@@ -1956,36 +1956,36 @@ to {
 	<!-- paging -->
 	<div class="view_indicator">
         <ul>
-            <li class="indicator is_active white" id="num0"><button type="button"><span class="indi_bul"></span><span class="cont_tit">HOME</span></button></li>
-            <li class="indicator white" id="num1"><button type="button"><span class="indi_bul"></span><span class="cont_tit">VALUE</span></button></li>
-            <li class="indicator" id="num2"><button type="button"><span class="indi_bul"></span><span class="cont_tit">BUSINESS</span></button></li>
-            <li class="indicator" id="num3"><button type="button"><span class="indi_bul"></span><span class="cont_tit">PROJECTS</span></button></li>
-            <li class="indicator" id="num4"><button type="button"><span class="indi_bul"></span><span class="cont_tit">END</span></button></li>
+            <li class="indicator is_active white" id="num0"><button type="button"><span class="indi_bul"></span><span class="cont_tit f-en">HOME</span></button></li>
+            <li class="indicator white" id="num1"><button type="button"><span class="indi_bul"></span><span class="cont_tit f-en">VALUE</span></button></li>
+            <li class="indicator" id="num2"><button type="button"><span class="indi_bul"></span><span class="cont_tit f-en">BUSINESS</span></button></li>
+            <li class="indicator" id="num3"><button type="button"><span class="indi_bul"></span><span class="cont_tit f-en">PROJECTS</span></button></li>
+            <li class="indicator" id="num4"><button type="button"><span class="indi_bul"></span><span class="cont_tit f-en">END</span></button></li>
         </ul>
     </div>
 	
 
 	<!-- scroll -->
 	<a class="scroll"><span> </span></a>
-	<span class="scroll-text">Scroll</span>
+	<span class="scroll-text f-en">Scroll</span>
 
 
 	<!-- slider-area-start -->
 	<div class="slider-area">
 		<div class="sentence-container position1">
 			<div class="sentence-wrapper">
-				<h3 class="main_sentence sentence_ani" style="color:#fff;">새로운 비전</h3>
+				<h3 class="main_sentence sentence_ani" style="color:#fff; font-weight:600;">새로운 비전</h3>
 			</div>
 			<div class="sentence-wrapper">
 				<h3 class="main_sentence sentence_ani"
-					style="animation-delay: 0.5s; color:#fff;">새로운 가능성</h3>
+					style="animation-delay: 0.5s; color:#fff; font-weight:600;">새로운 가능성</h3>
 			</div>
 			<h4 class="main_sentence_sub sentence_ani"
 				style="animation-delay: 1s; color:#fff;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
 		</div>
 
 		<div class="news_container">
-			<h3 style="margin-right: 2%; color: #fff;">news>></h3>
+			<h3 class="f-en" style="margin-right: 2%; color: #fff;">news>></h3>
 			<ul class="news_group" id="news_group">
 				<c:forEach var="news" items="${news_list}">
 					<li><a class="news_sentence sentence_ani" href="/company/news"
@@ -2010,15 +2010,15 @@ to {
 			<div class="img-wrap">
 				<!-- <h1>Slide 1</h1> -->
 				<div class="cover-img">
-					<img class="hide-1400" src="/resources/img/banner/cover-img.svg">
+					<img class="hide-1400" src="/resources/img/banner/cover-img.png">
 					<img class="show-1400" src="/resources/img/banner/logobanner.svg">
 				</div>
 				<div class="sentence-container position1 position1_sub">
 					<div class="sentence-wrapper">
-						<h3 class="main_sentence" style="animation-delay: 0.5s;">TECHNICAL SOLUTION</h3>
+						<h3 class="main_sentence f-en" style="animation-delay: 0.5s;">TECHNICAL SOLUTION</h3>
 					</div>
 					<div class="sentence-wrapper">
-						<h3 class="main_sentence" style="animation-delay: 1s;">HONEST TECHNOLOGY</h3>
+						<h3 class="main_sentence f-en" style="animation-delay: 1s;">HONEST TECHNOLOGY</h3>
 					</div>
 					<h4 class="main_sentence_sub" style="animation-delay: 1.5s;margin-top:5%;">1996년부터 쌓아온 기술력과<br>정직함으로 나아가고 있습니다.</h4>
 				</div>
@@ -2034,7 +2034,7 @@ to {
 	<div class="slider-area business-area" style="background: transparent;">
 		<div class="sentence-container position2">
 			<div class="sentence-wrapper" id="page2">
-				<h3 class="main_sentence">Business</h3>
+				<h3 class="main_sentence f-en">Business</h3>
 			</div>
 			<!-- 				<div class="sentence-wrapper">
 					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
@@ -2196,7 +2196,7 @@ to {
 		style="background: transparent; position: relative;">
 		<div class="sentence-container position3">
 			<div class="sentence-wrapper" id="page3">
-				<p class="main_sentence">Projects
+				<p class="main_sentence f-en">Projects
 				</p>
 			</div>
 			<p class="main_sentence_sub"
