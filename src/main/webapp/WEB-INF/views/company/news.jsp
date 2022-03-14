@@ -179,7 +179,7 @@ input[type="checkbox"] {
 		<!-- breadcrumb-end -->
 	</section>
 
-	<section class="sample-text-area">
+	<section class="sample-text-area" style="padding: 5% 0 1% 0;">
 		<div class="container box_1170" style="border-top: 2px dotted #eee;">
 			<br>
 			<h3 class="text-heading">News</h3>

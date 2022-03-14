@@ -10,8 +10,12 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>New Vision ENG</title>
-<meta name="description" content="">
+<title>뉴비젼이엔지</title>
+
+<!-- google search -->
+<meta name="google-site-verification" content="ACcIOBWX3_Sgcm_4XAJ7qz2Tzgf4z1qQDR1qJP2x4sM" />
+<meta name="keyword" content="뉴비젼이엔지,newvisioneng,new vision eng,CCTV">
+<meta name="description" content="(주)뉴비젼이엔지는 세계 최고 수준의 영상 기술을 기반으로 CCTV영상 주변기기 및 SYSTEM 설계와 설치 사업을 중심으로 하는 기업입니다.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="shortcut icon" type="image/x-icon"
@@ -1728,7 +1732,7 @@ to {
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
-	background-image: url('/resources/img/banner/position1_sub.png');
+	background-image: url('https://nv3000nv.cdn3.cafe24.com/banner/position1_sub.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
