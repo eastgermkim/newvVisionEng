@@ -99,9 +99,7 @@
 		<div class="container box_1170" style="border-top: 2px dotted #eee;">
 			<br>
 			<h3 class="text-heading">History</h3>
-			<p class="smple-text">내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요. 내용을
-				입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.
-			<p>
+			<p class="smple-text">1996년부터 걸어온 뉴비젼이엔지의 발자취입니다.</p>
 		</div>
 	</section>
 

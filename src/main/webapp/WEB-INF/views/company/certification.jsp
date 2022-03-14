@@ -116,9 +116,7 @@
 		<div class="container box_1170" style="border-top: 2px dotted #eee;">
 			<br>
 			<h3 class="text-heading">Certification</h3>
-			<p class="smple-text">내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요. 내용을
-				입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.
-			<p>
+			<p class="smple-text">뉴비젼이엔지의 인증현황과 수상내역을 열람하실 수 있습니다.</p>
 		</div>
 	</section>
 

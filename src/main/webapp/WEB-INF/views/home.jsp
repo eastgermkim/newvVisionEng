@@ -233,7 +233,7 @@
 
 .main_sentence {
 	z-index: 5;
-	color: #fff;
+	color: transparent;
 	margin-left: 10%;
 	font-weight: 700;
 	font-size: 3em;
@@ -244,7 +244,7 @@
 
 .main_sentence_sub {
 	z-index: 5;
-	color: #fff;
+	color: transparent;
 	margin-left: 10%;
 	margin-right:10%;
 	font-weight: 300;
@@ -491,13 +491,13 @@
 
 .focus::before {
 	content: "";
-	height: 90%;
-	top: 3%;
-	width: 0.4em;
-	background-color: #f36d20;
-	position: absolute;
-	left: 9%;
-	animation: fadeInDown .7s forwards;
+    background-color: #f36d20;
+    position: absolute;
+    height: 0.2em;
+    width: 2em;
+    left: 10%;
+    top: 3.9em;
+	animation: fadeInRight .7s forwards;
 }
 
 .business_wrapper {
@@ -1265,7 +1265,7 @@ to {
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
-	margin-top:25vh;
+	margin-top:20vh;
 	height: 25em;
 	/*   -webkit-perspective: 500px; */
 	perspective: 500px;
@@ -1728,8 +1728,35 @@ to {
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
+	background-image: url('/resources/img/banner/position1_sub.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.img-wrap:before{
+
+.cover-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 6200px;
+    overflow: hidden;
+    -webkit-transform: scale(15);
+    transform: scale(15);
+    opacity: 0;
+}
+
+
+
+.cover-ani{
+    right: 0;
+    -webkit-transform: scale(101%);
+    transform: scale(101%);
+    -webkit-transition: all ease 1s;
+    transition: all ease 1s;
+    opacity: 1;
+}
+
+/* .img-wrap:before{
 	content: '';
 	position: absolute;
 	left: 0;
@@ -1739,19 +1766,14 @@ to {
 	background-color: #000;
 	opacity: 0.3;
 	z-index: 1;
-}
+} */
 .img-wrap img{
 	position: absolute;
 	display: block;
-	top: 50%;
-	left: 50%;
 	width: auto;
 	height: 100%;
 	min-width: 100%;
 	max-width: none;
-	-webkit-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
 	object-fit: cover;
 }
 .img-wrap .img-text{
@@ -1787,6 +1809,61 @@ to {
 	letter-spacing: 0.15em;
 	opacity: 1;
 }
+
+@media (min-width:1400px){
+	.show-1400{
+		display:none!important;
+	}
+}
+ @media ( max-width :1400px) {
+ 	.img-wrap{
+ 		background: none;
+ 	}
+	.hide-1400 {
+		display:none!important;
+	}
+	.show-1400{
+	    bottom: 0%;
+	    right: -35%;
+	    opacity: 0.3;
+	}
+	.cover-img{
+	    all: unset;
+	    background: #fff;
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	}
+} 
+
+@media(max-width:991.5px){
+	.img-wrap{
+		height:35em;
+	}
+	.cover-img{
+		height:100%;
+	}
+	.position1_sub {
+		top: 10%;
+	    width: 90%;
+	}
+	.position1_sub .main_sentence, .main_sentence_sub{
+		color:#4c4646;
+	}
+	.show-1400{
+	    width: 70%!important;
+	    height: auto!important;
+	    min-width: auto!important;
+	    max-width: none!important;
+	    right: -20%!important;
+	}
+}
+@media(max-width:767.5px){
+	.img-wrap{
+		height:25em;
+	}
+}
+
 .slick-arrow{
 	font-size: 0;
 	line-height: 0;
@@ -1893,14 +1970,14 @@ to {
 	<div class="slider-area">
 		<div class="sentence-container position1">
 			<div class="sentence-wrapper">
-				<h3 class="main_sentence sentence_ani">새로운 비전</h3>
+				<h3 class="main_sentence sentence_ani" style="color:#fff;">새로운 비전</h3>
 			</div>
 			<div class="sentence-wrapper">
 				<h3 class="main_sentence sentence_ani"
-					style="animation-delay: 0.5s;">새로운 가능성</h3>
+					style="animation-delay: 0.5s; color:#fff;">새로운 가능성</h3>
 			</div>
 			<h4 class="main_sentence_sub sentence_ani"
-				style="animation-delay: 1s;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
+				style="animation-delay: 1s; color:#fff;">고객들에게 새로운 시각과 노하우 있는 솔루션을 제공합니다.</h4>
 		</div>
 
 		<div class="news_container">
@@ -1925,21 +2002,29 @@ to {
 	</div>
 	
 	<div class="slider-area slider-wrap">
-		<div class="image-slider">
+		<div class="value">
 			<div class="img-wrap">
-				<h1>Slide 1</h1>
-				<img src="/resources/img/banner/test1.jpg" alt="">
-				<div class="img-text">
+				<!-- <h1>Slide 1</h1> -->
+				<div class="cover-img">
+					<img class="hide-1400" src="/resources/img/banner/cover-img.svg">
+					<img class="show-1400" src="/resources/img/banner/logobanner.svg">
 				</div>
-			</div>
-			<div class="img-wrap">
-				<h1>Slide 2</h1>
-				<img src="/resources/img/banner/test2.jpg" alt="">
+				<div class="sentence-container position1 position1_sub">
+					<div class="sentence-wrapper">
+						<h3 class="main_sentence" style="animation-delay: 0.5s;">TECHNICAL SOLUTION</h3>
+					</div>
+					<div class="sentence-wrapper">
+						<h3 class="main_sentence" style="animation-delay: 1s;">HONEST TECHNOLOGY</h3>
+					</div>
+					<h4 class="main_sentence_sub" style="animation-delay: 1.5s;margin-top:5%;">1996년부터 쌓아온 기술력과<br>정직함으로 나아가고 있습니다.</h4>
+				</div>
+				<!-- <div class="img-text">
+				</div> -->
 			</div>
 		</div>
-		<div class="slider-progress">
+	<!-- 	<div class="slider-progress">
 			<span></span>
-		</div>
+		</div> -->
 	</div>
 	
 	<div class="slider-area business-area" style="background: transparent;">
@@ -1950,7 +2035,7 @@ to {
 			<!-- 				<div class="sentence-wrapper">
 					<h3 class="main_sentence" style="animation-delay:0.5s;">CCTV</h3>
 				</div> -->
-			<h4 class="main_sentence_sub" style="animation-delay: 0.5s;">설치부터 유지관리까지 <br class="br1999"> 축적된 노하우로 고객들과 소통합니다.</h4>
+			<h4 class="main_sentence_sub" style="animation-delay: 0.5s; margin-top:1em;">설치부터 유지관리까지 <br class="br1999"> 축적된 노하우로 고객들과 소통합니다.</h4>
 		</div>
 		<div>
 			<div class="business_wrapper team-area">
@@ -2111,7 +2196,7 @@ to {
 				</p>
 			</div>
 			<p class="main_sentence_sub"
-				style="color: rgb(76, 70, 70); animation-delay: 0.5s; margin-bottom: 0.5rem;">
+				style="color: rgb(76, 70, 70); animation-delay: 0.5s; margin-bottom: 0.5rem; margin-top:1em;">
 				(주)뉴비젼이엔지의 주요 프로젝트 실적<br class="br1999"> 그리고 주요 협력사 입니다. <a href="/business/result"
 					style="font-size: 1em; font-weight: bold; color: #f36d20; float:right;">+More</a>
 			</p>
@@ -2228,7 +2313,7 @@ to {
 <script>
 
 	/* slcik slider */
-	jQuery(document).ready(function($) {
+	/* jQuery(document).ready(function($) {
 		var sliderTimer = 5500;
 	  var beforeEnd = 500;
 		var $imageSlider = $('.image-slider');
@@ -2267,7 +2352,7 @@ to {
 			}, sliderTimer - beforeEnd);
 		}
 		titleAnim();
-	});
+	}); */
 
 /* PC일 경우 */
 if (matchMedia("screen and (min-width: 991.5px)").matches) {
@@ -2520,7 +2605,7 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 					}, 700);
 				}, 1000);				
 			}
-			else if (page == "1" || "2") {
+			else if (page == "1") {
 				setTimeout(function() {
 					$('#header_main_pc').removeClass("mousein");
 					$(".scroll span").removeClass("active");
@@ -2539,6 +2624,35 @@ if (matchMedia("screen and (min-width: 991.5px)").matches) {
 						opacity : "1"
 					}, 700);
 				}, 1000);
+			}else if(page == "2"){
+					setTimeout(function() {
+						$(".cover-img").addClass("cover-ani");
+						$("#num1").removeClass("white");
+						$(".scroll span").addClass("active");
+						$(".scroll-text").css("color", "#4c4646");
+						$(".position1_sub .main_sentence").css("color", "#4c4646");
+						$(".position1_sub .main_sentence_sub").css("color","#4c4646");
+						$(".position1_sub .main_sentence").addClass("sentence_ani")
+						$(".position1_sub .main_sentence_sub").addClass("sentence_ani")
+					}, 1200);
+					/* 헤더 바뀌는게 스크롤 끝날때쯤으로 변경 */
+					setTimeout(function() {
+						$('#header_main_pc').addClass("mousein");
+						$('.main-menu ul li a').addClass("mousein");
+						$('.ti-angle-down_main_pc').addClass("mousein");
+						$('#nv_logo_white').removeClass("mousein");
+						$('#nv_logo_black').addClass("mousein");
+						$(".homePageGroup .pageGroup h3").css('opacity',
+								'0').stop().css("color", "#4C4646")
+								.animate({
+									opacity : "1"
+								}, 700);
+						$(".homePageGroup .pageGroup .pageNumber").css(
+								'opacity', '0').stop().css(
+								"background-color", "#4C4646").animate({
+							opacity : "1"
+						}, 700);
+					}, 1000);
 			}
 	 }
 	}

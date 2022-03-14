@@ -183,9 +183,7 @@ input[type="checkbox"] {
 		<div class="container box_1170" style="border-top: 2px dotted #eee;">
 			<br>
 			<h3 class="text-heading">News</h3>
-			<p class="smple-text">내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요. 내용을
-				입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.내용을 입력해주세요.
-			<p>
+			<p class="smple-text">뉴비젼이엔지의 언론 보도자료와 최신 소식을 전해드립니다.</p>
 		</div>
 	</section>
 	
