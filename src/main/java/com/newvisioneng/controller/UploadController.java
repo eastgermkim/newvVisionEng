@@ -205,12 +205,24 @@ public class UploadController {
 			// 원본 이미지 사이즈 가져오기
 			int originalWidth = image.getWidth(null);
 			int originalHeight = image.getHeight(null);
+			
+			log.info("원본 이미지 가로 길이 : "+originalWidth);
 
 			// 변경할 가로 길이
 			int newWidth = originalWidth;
+			
+			// 최대 크기 1000
+			if(!imgOriginalextension.equals("png") && originalWidth>1500) {
+				log.info("png파일이 아니면서 가로길이 1500초과");
+				newWidth = 1500;
+			}
+			
 			// 기존 이미지 비율을 유지하여 세로 길이 설정
 			int newHeight = (originalHeight * newWidth) / originalWidth;
 
+			log.info("새 이미지 가로 길이 : "+newWidth);
+			log.info("새 이미지 세로 길이 : "+newHeight);
+			
 			// 이미지 리사이즈
 			// Image.SCALE_DEFAULT : 기본 이미지 스케일링 알고리즘 사용
 			// Image.SCALE_FAST : 이미지 부드러움보다 속도 우선
