@@ -549,7 +549,7 @@ body .mb15 {
 									data-aos-offset="200" 
 									data-aos-duration="1000"
 									data-aos-once="true">
-									<img src="https://nv3000nv.cdn3.cafe24.com/banner/banner_recruit.jpg" alt="">
+									<img src="https://nv3000nv.cdn3.cafe24.com/business/cctv_test1.png" alt="">
 								</div>
 								<div class="cctv-detail2 details-info">
 									<h3 class="business-name"
@@ -564,7 +564,7 @@ body .mb15 {
 									data-aos-offset="200" 
 									data-aos-duration="1000"
 									data-aos-once="true">
-									<img src="https://nv3000nv.cdn3.cafe24.com/banner/banner_recruit.jpg" alt="">
+									<img src="https://nv3000nv.cdn3.cafe24.com/business/cctv_test2.png" alt="">
 								</div>
 								 <table class="system-compare">
 							      <thead>
