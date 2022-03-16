@@ -1,10 +1,19 @@
 package com.newvisioneng.controller;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FilenameUtils;
+import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +28,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.drew.imaging.ImageMetadataReader;
+import com.drew.metadata.Directory;
+import com.drew.metadata.Metadata;
+import com.drew.metadata.exif.ExifIFD0Directory;
+import com.drew.metadata.jpeg.JpegDirectory;
 import com.newvisioneng.domain.Criteria;
 import com.newvisioneng.domain.PageDTO;
 import com.newvisioneng.service.BusinessService;
@@ -330,6 +344,142 @@ public class BusinessController {
 				
 				File file = new File(target,fileName);
 				customImg.transferTo(file);
+				
+				
+				// 원본 이미지 경로 + 파일명 + 확장자
+				String imgOriginalPath = newpath + "/" + fileName;
+				// 원본 이미지 파일명만
+				String imgOriginalName = FilenameUtils.getBaseName(fileName);
+				// 원본 이미지 확장자만
+				String imgOriginalextension = FilenameUtils.getExtension(fileName);
+
+				Path Originalpath = Paths.get(imgOriginalPath);
+				long bytes = Files.size(Originalpath);
+				long kilobyte = bytes / 1024;
+				long megabyte = kilobyte / 1024;
+				log.info(".............원본 이미지 용량 : " + megabyte + " mb..........................");
+
+				if (megabyte >= 1) {
+					log.info("...용량이 1mb 이상.........................................");
+					log.info("=====================이미지 리사이징 시작=====================");
+
+					// 새 이미지 포맷. jpg, gif 등
+					String newImgFormat = imgOriginalextension;
+					if (newImgFormat.equals("png")) {
+						log.info("png에서 jpg로..........");
+						newImgFormat = "jpg";
+					}
+					log.info("새로운 이미지 확장자 : " + newImgFormat);
+
+					// 새 이미지 파일명
+					String newImgSavedName = imgOriginalName + "_resized" + "." + newImgFormat;
+					log.info("새로운 이미지 파일명 : " + newImgSavedName);
+					// 새 이미지 경로
+					String newImgTargetPath = newpath + "/" + newImgSavedName;
+
+					// 원본 이미지 가져오기
+					BufferedImage image = ImageIO.read(new File(imgOriginalPath));
+
+					// 원본 이미지 회전정보 구하기
+					int orientation = 1; // 회전정보, 1. 0도, 3. 180도, 6. 270도, 8. 90도 회전한 정보
+					Metadata metadata; // 이미지 메타 데이터 객체
+					Directory directory; // 이미지의 Exif 데이터를 읽기 위한 객체
+					JpegDirectory jpegDirectory; // JPG 이미지 정보를 읽기 위한 객체
+					try {
+						metadata = ImageMetadataReader.readMetadata(new File(imgOriginalPath));
+						directory = metadata.getFirstDirectoryOfType(ExifIFD0Directory.class);
+						jpegDirectory = metadata.getFirstDirectoryOfType(JpegDirectory.class);
+						if (directory != null) {
+							// 회전정보
+							orientation = directory.getInt(ExifIFD0Directory.TAG_ORIENTATION); 
+						}
+					} catch (Exception e) {
+						orientation = 1;
+					}
+
+					// 회전 시킨다.
+					switch (orientation) {
+					case 6:
+						log.info("회전정보 : " + orientation + ".......270도 상태이므로 90도 회전");
+						image = Scalr.rotate(image, Scalr.Rotation.CW_90, null);
+						break;
+					case 1:
+						log.info("회전정보 : " + orientation + ".......0도 상태이므로 회전 없음");
+
+						break;
+					case 3:
+						log.info("회전정보 : " + orientation + ".......180도 상태이므로 180도 회전");
+						image = Scalr.rotate(image, Scalr.Rotation.CW_180, null);
+						break;
+					case 8:
+						log.info("회전정보 : " + orientation + ".......90도 상태이므로270도 회전");
+						image = Scalr.rotate(image, Scalr.Rotation.CW_270, null);
+						break;
+
+					default:
+						orientation = 1;
+						break;
+					}
+
+					// 원본 이미지 사이즈 가져오기
+					int originalWidth = image.getWidth(null);
+					int originalHeight = image.getHeight(null);
+					
+					log.info("원본 이미지 가로 길이 : "+originalWidth);
+
+					// 변경할 가로 길이
+					int newWidth = originalWidth;
+					
+					// 최대 크기 1000
+					if(!imgOriginalextension.equals("png") && originalWidth>1500) {
+						log.info("png파일이 아니면서 가로길이 1500초과");
+						newWidth = 1500;
+					}
+					
+					// 기존 이미지 비율을 유지하여 세로 길이 설정
+					int newHeight = (originalHeight * newWidth) / originalWidth;
+
+					log.info("새 이미지 가로 길이 : "+newWidth);
+					log.info("새 이미지 세로 길이 : "+newHeight);
+					
+					// 이미지 리사이즈
+					// Image.SCALE_DEFAULT : 기본 이미지 스케일링 알고리즘 사용
+					// Image.SCALE_FAST : 이미지 부드러움보다 속도 우선
+					// Image.SCALE_REPLICATE : ReplicateScaleFilter 클래스로 구체화 된 이미지 크기 조절 알고리즘
+					// Image.SCALE_SMOOTH : 속도보다 이미지 부드러움을 우선
+					// Image.SCALE_AREA_AVERAGING : 평균 알고리즘 사용
+					Image resizeImage = image.getScaledInstance(newWidth, newHeight, Image.SCALE_DEFAULT);
+
+					// 새 이미지 저장하기
+					BufferedImage newImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
+					Graphics g = newImage.getGraphics();
+					g.drawImage(resizeImage, 0, 0, null);
+					g.dispose();
+					ImageIO.write(newImage, newImgFormat, new File(newImgTargetPath));
+					
+					// =================================================================================================
+
+					// 기존 파일 삭제
+					File originalFile = new File(imgOriginalPath);
+
+					if (originalFile.exists()) {
+						if (originalFile.delete()) {
+							log.info("원본 이미지 삭제완료................." + originalFile);
+						} else {
+							log.info("삭제실패");
+						}
+					} else {
+						log.info("파일이 존재하지 않습니다...." + originalFile);
+					}
+					
+					fileName = newImgSavedName;
+					log.info("=====================이미지 리사이징 완료=====================");
+				}
+				
+				
+				
+				
+				
 			} else {
 				log.info("............................파일 넘어온거 없음");
 			}
