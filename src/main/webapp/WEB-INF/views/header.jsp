@@ -140,7 +140,7 @@
 											<li><a href="/login">Admin</a></li>
 										</sec:authorize>
 										<sec:authorize access="isAuthenticated()">
-												<!-- <li><a href="/admin/sessionLogout">관리자 로그아웃</a></li> -->
+												<li><a href="/join">새 관리자 가입</a></li>
 												<li><a href="#">${admin_Login_id}님</a></li>
 												<li><a href="/logout"> 로그아웃</a></li>
 										</sec:authorize>
