@@ -15,8 +15,16 @@
 <!-- google search -->
 <meta name="google-site-verification" content="ACcIOBWX3_Sgcm_4XAJ7qz2Tzgf4z1qQDR1qJP2x4sM" />
 <meta name="keyword" content="뉴비젼이엔지,newvisioneng,new vision eng,CCTV">
-<meta name="description" content="(주)뉴비젼이엔지는 세계 최고 수준의 영상 기술을 기반으로 CCTV영상 주변기기 및 SYSTEM 설계와 설치 사업을 중심으로 하는 기업입니다.">
+<meta name="description" content="(주)뉴비젼이엔지는 세계 최고 수준의 영상 기술을 기반으로 CCTV영상 주변기기와 SYSTEM 설계 및 설치 사업을 중심으로 하는 기업입니다.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- naver search -->
+<meta name="naver-site-verification" content="7f9fd0ed2c11783802ffd429c0cfa31f1afb6e2a" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="뉴비젼이엔지">
+<meta property="og:description" content="(주)뉴비젼이엔지는 세계 최고 수준의 영상 기술을 기반으로 CCTV영상 주변기기와 SYSTEM 설계 및 설치 사업을 중심으로 하는 기업입니다.">
+<meta property="og:image" content="https://nveng.co.kr/resources/img/nvicon.png">
+<meta property="og:url" content="https://nveng.co.kr">
 
 <link rel="shortcut icon" type="image/x-icon"
 	href="/resources/img/nvicon.png">
