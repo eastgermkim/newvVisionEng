@@ -129,7 +129,7 @@
 						<div class="col-xl-6 col-md-6 col-lg-6">
 							<div class="header-contact">
 								<a href="#"><i class="fa fa-phone"></i> 02 – 743 – 6977~8</a> 
-								<a href="#"><i class="fa fa-envelope"></i>nv3000@empas.com</a>
+								<a href="#"><i class="fa fa-envelope"></i>nv3000@nveng.co.kr</a>
 							</div>
 						</div>
 						<div class="col-xl-6 col-md-6 col-lg-6">

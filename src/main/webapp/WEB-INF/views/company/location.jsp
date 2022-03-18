@@ -172,7 +172,7 @@
 					<div class="media contact-info">
 						<span class="contact-info__icon"><i class="ti-email"></i></span>
 						<div class="media-body">
-							<h3>nv3000@empas.com</h3>
+							<h3>nv3000@nveng.co.kr</h3>
 							<p>Send us your query</p>
 						</div>
 					</div>
