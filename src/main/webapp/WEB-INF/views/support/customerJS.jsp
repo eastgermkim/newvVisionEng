@@ -37,7 +37,20 @@
 	var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{6,7})$/;
 	
 	
-	
+	$(function(){ 
+	    $("input#fromPhone").blur(function(){
+	    	console.log("됨");
+	    	var num = $("#fromPhone").val();
+	    	blur(num)
+	    });
+	});
+
+
+	function blur(num) {
+		num = num.replace(/\-/g,'');
+		$("#fromPhone").val(num);
+	}
+
 	
 	
 	//문의 넣기 막아주기

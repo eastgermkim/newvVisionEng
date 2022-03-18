@@ -83,22 +83,22 @@ public class SupportServiceImpl implements SupportService {
     		   "<table>"
     		   		+"<tr>"
     				   +"<td>"+"<strong>문의종류</strong>"+"</td>"
-    				   +" "+dto.getSubject()
+    				   +" "+"<td>"+dto.getSubject()+"</td>"
     				+"</tr>"
     				+"<tr>"
 	    				+"<td>"+"<strong>회사명</strong>"+"</td>"
-	    				+" "+dto.getFromCompany()
+	    				+" "+"<td>"+dto.getFromCompany()+"</td>"
     				+"</tr>"
 	    				+"<td>"+"<strong>담당자</strong>"+"</td>"
-	    				+" "+dto.getFromName()
+	    				+" "+"<td>"+dto.getFromName()+"</td>"
     				+"</tr>"
     				+"<tr>"
 	    				+"<td>"+"<strong>핸드폰 번호</strong>"+"</td>"
-	    				+" "+dto.getFromPhone()
+	    				+" "+"<td>"+dto.getFromPhone()+"</td>"
     				+"</tr>"
     				+"<tr>"
 	    				+"<td>"+"<strong>이메일</strong>"+"</td>"
-	    				+" "+dto.getFromMail()
+	    				+" "+"<td>"+dto.getFromMail()+"</td>"
     				+"</tr>"
     			+"</table>"
         		+"<br>"+"<hr style=\""+"width: 50%;\""+"align=\""+"left\""+">"
