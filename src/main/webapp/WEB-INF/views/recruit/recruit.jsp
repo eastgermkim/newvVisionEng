@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
 
@@ -275,11 +277,11 @@
 <section style="margin-bottom:50px;">
 <div class="container board">
 
-<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+<sec:authorize access="isAuthenticated()">
 	<div style="text-align: right;">
        	<a href="/recruit/recruit_write${pageMaker.cri.getListLink()}" class="genric-btn primary-border circle">글 작성하기</a>
     </div>
- </c:if>
+ </sec:authorize>
  
  	<form name="search_form" method="get" action="/recruit/list">
 			<div class="search_top">

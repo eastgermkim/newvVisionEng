@@ -216,9 +216,9 @@ form .submitBtn {
 			<fieldset>
 				<legend>
 					<strong>관리자 회원가입</strong>
-					<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+					<sec:authorize access="isAuthenticated()">
 						<em>현재 로그인된 ID : ${admin_Login_id}</em>
-					</c:if>
+					</sec:authorize>
 				</legend>
 				<table class="joinTable" border="1px" align=center>
 					<tr>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ page session="true"%>
 <!DOCTYPE html>
 <html>
@@ -60,7 +61,7 @@ ${resultClass}의 '${pageMaker.cri.s_keyword}' 검색결과입니다.
 					<c:when test="${business_list != null and business_list.size()>0}">
 						<c:forEach items="${business_list}" var="business">
 								<div class="result_container">
-									<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+									<sec:authorize access="isAuthenticated()">
 										<div style="padding-top: 1%" class="modifyDeleteBtn">
 											<a href="javascript:void(0);" 
 											onclick="showModifyForm(${business.resultNum},'${tabId}','${business.resultContents}',${pageMaker.cri.page});" 
@@ -81,7 +82,7 @@ ${resultClass}의 '${pageMaker.cri.s_keyword}' 검색결과입니다.
 												</c:otherwise>
 											</c:choose>
 										</div>
-									</c:if>
+									</sec:authorize>
 									<div class="resultContent">${business.resultContents}</div>
 								</div>
 						</c:forEach>

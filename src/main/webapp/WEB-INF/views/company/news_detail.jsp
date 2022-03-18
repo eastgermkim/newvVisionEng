@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page session="true"%>
 
@@ -353,7 +355,7 @@ u {
 
 	<div class="container board">
 		<form method="post" action="/company/news_delete" enctype="multipart/form-data">
-		<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+		<sec:authorize access="isAuthenticated()">
 			<div style="text-align:right;">
 				<a href="/company/news_modify/${news.newsNum}${cri.getListLink()}" class="genric-btn primary-border circle" style="margin-bottom:20px;">글 수정하기</a>
 				<input type="submit" value="삭제" class="genric-btn primary circle newsDelete" style="margin-right: 1%;">
@@ -362,7 +364,7 @@ u {
 				<input type="hidden" name="page" value="${cri.page}">
 				<input type="hidden" name="pageSize" value="${cri.pageSize}"> 
 			</div>
-		</c:if>
+		</sec:authorize>
 		
 			<div class="board-view-header">
 				<div class="inner">

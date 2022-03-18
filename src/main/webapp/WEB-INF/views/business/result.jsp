@@ -358,7 +358,7 @@ table {
 									<input type="button" name="" value="검색" onclick="search();" >
 								</div>
 							</form>
-						<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+						<sec:authorize access="isAuthenticated()">
 						    <div class="btn-list" style="padding-top: 2%;" id="regist_popup_open">
 							<a class="genric-btn primary-border e-large toList" style="width:100%; font-size:15px;">새 사업실적 등록</a>
 							</div>
@@ -371,7 +371,7 @@ table {
 						    <div class="btn-list" style="padding: 1% 0;text-align: center;" id="manageMainResults">
 							<a href="javascript:void(0);" onclick="manageMainResults();" style="width:100%;font-weight: 500;">└─ 메인페이지 등록 취소 관리 ─┘</a>
 							</div>
-						</c:if>
+						</sec:authorize>
 						
 					</div>
 				</div>
@@ -395,7 +395,7 @@ table {
 											<c:when test="${business_list_1 != null and business_list_1.size()>0}">
 												<c:forEach items="${business_list_1}" var="business">
 														<div class="result_container">
-															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+															<sec:authorize access="isAuthenticated()">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
 																	<a href="javascript:void(0);" 
 																	onclick="showModifyForm(${business.resultNum},'military','${business.resultContents}',${pageMaker1.cri.page});" 
@@ -416,7 +416,7 @@ table {
 																		</c:otherwise>
 																	</c:choose>
 																</div>
-															</c:if>
+															</sec:authorize>
 															<div class="resultContent">${business.resultContents}</div>
 														</div>
 												</c:forEach>
@@ -500,7 +500,7 @@ table {
 												<c:when test="${business_list_2 != null and business_list_2.size()>0}">
 													<c:forEach items="${business_list_2}" var="business">
 															<div class="result_container">
-																<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+																<sec:authorize access="isAuthenticated()">
 																	<div style="padding-top: 1%" class="modifyDeleteBtn">
 																		<a href="javascript:void(0);" 
 																		onclick="showModifyForm(${business.resultNum},'publicOrg','${business.resultContents}',${pageMaker2.cri.page});" 
@@ -521,7 +521,7 @@ table {
 																			</c:otherwise>
 																		</c:choose>
 																	</div>
-																</c:if>
+																</sec:authorize>
 																<div class="resultContent">${business.resultContents}</div>
 															</div>
 													</c:forEach>
@@ -606,7 +606,7 @@ table {
 										<c:when test="${business_list_3 != null and business_list_3.size()>0}">
 											<c:forEach items="${business_list_3}" var="business">
 													<div class="result_container">
-															<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+															<sec:authorize access="isAuthenticated()">
 																<div style="padding-top: 1%" class="modifyDeleteBtn">
 																	<a href="javascript:void(0);" 
 																	onclick="showModifyForm(${business.resultNum},'privateCorp','${business.resultContents}',${pageMaker3.cri.page});" 
@@ -627,7 +627,7 @@ table {
 																		</c:otherwise>
 																	</c:choose>
 																</div>
-															</c:if>
+															</sec:authorize>
 														<div class="resultContent">${business.resultContents}</div>
 													</div>
 											</c:forEach>
@@ -707,7 +707,7 @@ table {
 	<!-- service-details-end -->
 
 	<!-- 사업실적 등록 폼 레이어팝업 -->
-	<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+	<sec:authorize access="isAuthenticated()">
 	<div id="popup_wrap">
 		<div class="popup-cont01">
 			<form method="post" action="/business/result_writeOK" id="resultForm">
@@ -748,10 +748,10 @@ table {
 	  </div>
 	</div>
 	<div id="mask"></div>
-</c:if>
+</sec:authorize>
 
 	<!-- 사업실적 수정 폼 레이어팝업 -->
-	<c:if test="${admin_Login_id != null and admin_Login_id != ''}">
+	<sec:authorize access="isAuthenticated()">
 	<div id="popup_wrap2">
 		<div class="popup-cont01">
 			<form method="post" action="/business/result_modifyOK" id="resultForm">
@@ -801,7 +801,7 @@ table {
 		<input type="hidden" name="main_tabId" id="main_tabId">
 	</form>
 	
-</c:if>
+</sec:authorize>
 	
 <c:import url="../footer.jsp" charEncoding="UTF-8"></c:import>
 
