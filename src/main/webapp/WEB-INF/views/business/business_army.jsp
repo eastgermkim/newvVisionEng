@@ -430,7 +430,7 @@ body .mb15 {
 									<div>
 										<div>
 											<video playsinline class="video" id="video" src="/resources/video/army_ani.mp4" style="width:100%;" muted="muted" ></video>
-											<p style="padding-top: 20px; font-size: 14px; font-weight: 400; text-align:right;">※클릭 시 재생을 생략할 수 있습니다.</p>
+											<p style="padding-top: 20px; font-size: 14px; font-weight: 400; text-align:right;">※클릭 또는 터치시, 재생을 생략할 수 있습니다.</p>
 											<div class="video-caution">
 												<h3 class="video-caution-text">클릭 시 재생을 생략할 수 있습니다.<br>(재생화면 밖으로 마우스가 벗어나면 해당 창은 없어집니다.)</h3>
 											</div>
@@ -549,33 +549,123 @@ $(function () {
 	        });
 		})
 		
-		//army_ani와 caution 둘 다 지정하지 않으면 caution이 깜빡거림
-		$('#video, .video-caution').click(function(){
-			//army_ani 끝으로 이동해서
-            $('#video').get(0).currentTime = 41;
-			//일시정지
-            $('#video').get(0).pause();
-		})
+/* 		//기존 안내 문구 hide
+ 		$('.video-caution').hide();
 		
+		 //army_ani와 caution 둘 다 지정하지 않으면 caution이 깜빡거림
+					$('#video, .video-caution').click(function(){
+						//army_ani 끝으로 이동해서
+			            $('#video').get(0).currentTime = 41;
+						//일시정지
+			            $('#video').get(0).pause();
+					})
+					
+					//army_ani에 마우스 올리면
+					$('#video, .video-caution').hover(function(){
+						//army_ani가 정지된 상태(완료 상태)라면
+						if($("#video").get(0).paused){
+							//안내 문구 hide
+							$('.video-caution').hide();
+						
+						//army_ani가 재생중 이라면
+						}else{
+							//안내 문구 출력
+							$('.video-caution').show();
+						}
+					}, 
+					//army_ani에서 마우스 떠나면
+					function(){
+						$('.video-caution').hide();
+					})
+					
+					 //army_ani에 터치하면
+					$('#video, .video-caution').on("touchStart",function(){
+						console.log("터치start");
+						//army_ani가 정지된 상태(완료 상태)라면
+						if($("#video").get(0).paused){
+							//안내 문구 hide
+							$('.video-caution').hide();
+						
+						//army_ani가 재생중 이라면
+						}else{
+							//안내 문구 출력
+							$('.video-caution').hide();
+						}
+					});
+					
+					//army_ani에 터치 그만하면
+					$('#video, .video-caution').on("touchEnd",function(){
+						console.log("터치end");
+						$('.video-caution').hide();
+					}) */
+		
+		/* 모바일 pc 분기처리 */
 		//기존 안내 문구 hide
-		$('.video-caution').hide();
-		//army_ani에 마우스 올리면
-		$('#video, .video-caution').hover(function(){
-			//army_ani가 정지된 상태(완료 상태)라면
-			if($("#video").get(0).paused){
-				//안내 문구 hide
-				$('.video-caution').hide();
-			
-			//army_ani가 재생중 이라면
-			}else{
-				//안내 문구 출력
-				$('.video-caution').show();
-			}
-		}, 
-		//army_ani에서 마우스 떠나면
-		function(){
-			$('.video-caution').hide();
-		})
+ 		$('.video-caution').hide();
+		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+		jQuery(document).ready(function($){
+		     if(!isMobile) {
+		          //PC
+		          //army_ani와 caution 둘 다 지정하지 않으면 caution이 깜빡거림
+					$('#video, .video-caution').click(function(){
+						//army_ani 끝으로 이동해서
+			            $('#video').get(0).currentTime = 41;
+						//일시정지
+			            $('#video').get(0).pause();
+					})
+					
+					//army_ani에 마우스 올리면
+					$('#video, .video-caution').hover(function(){
+						//army_ani가 정지된 상태(완료 상태)라면
+						if($("#video").get(0).paused){
+							//안내 문구 hide
+							$('.video-caution').hide();
+						
+						//army_ani가 재생중 이라면
+						}else{
+							//안내 문구 출력
+							$('.video-caution').show();
+						}
+					}, 
+					//army_ani에서 마우스 떠나면
+					function(){
+						$('.video-caution').hide();
+					})
+		     } else {
+		          //army_ani에 터치하면
+					$('#video, .video-caution').on("touchStart",function(){
+						console.log("터치start");
+						//army_ani가 정지된 상태(완료 상태)라면
+						if($("#video").get(0).paused){
+							//안내 문구 hide
+							$('.video-caution').hide();
+						
+						//army_ani가 재생중 이라면
+						}else{
+							//안내 문구 출력
+							$('.video-caution').show();
+						}
+					});
+					
+					//army_ani에 터치 그만하면
+					$('#video, .video-caution').on("touchEnd",function(){
+						console.log("터치end");
+						$('.video-caution').hide();
+						//army_ani 끝으로 이동해서
+			            $('#video').get(0).currentTime = 41;
+						//일시정지
+			            $('#video').get(0).pause();
+					})
+					
+					$('#video, .video-caution').click(function(){
+						//army_ani 끝으로 이동해서
+			            $('#video').get(0).currentTime = 41;
+						//일시정지
+			            $('#video').get(0).pause();
+					})
+		     }
+		});
+		
 		
 	</script>
 </body>
