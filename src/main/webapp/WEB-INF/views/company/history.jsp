@@ -88,7 +88,7 @@
 					<div class="breadcrumb_iner">
 						<div class="breadcrumb_iner_item">
 							<h2>연혁</h2>
-							<p style="opacity: 0.6;">New Vision ENG.본사</p>
+							<p style="opacity: 0.6;">New Vision ENG. Company</p>
 						</div>
 					</div>
 				</div>
